@@ -1,6 +1,6 @@
 # Test functions
 
-init(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+init(xml_db_name = "drugbank.xml", driver = "SQL Server",
      server = "MOHAMMED\\SQL2016", output_database = "drugbank2")
 
 parse_drug()
