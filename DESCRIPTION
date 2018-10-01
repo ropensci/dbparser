@@ -1,11 +1,18 @@
 Package: dbparser
-Type: Package
-Title: What the Package Does (Title Case)
-Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Title: Drug bank xml db parser and database saver
+Version: 0.0.0.9000
+Authors@R: 
+    c(
+    person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
+    person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"))
+Description: This tool is to parse drug bank xml database
+    and return them in proper R dataframe with the ability
+    to save them in a given database.
+License: GPL-2
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    DBI,
+    purrr,
+    tibble,
+    XML
