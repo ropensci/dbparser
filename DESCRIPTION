@@ -16,3 +16,4 @@ Imports:
     purrr,
     tibble,
     XML
+RoxygenNote: 6.1.0

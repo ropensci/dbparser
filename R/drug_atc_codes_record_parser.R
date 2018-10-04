@@ -1,4 +1,3 @@
-# Extract drug atc-codes df
 get_atc_codes_rec <- function(r, drug_key) {
   tibble(
     atc_code = xmlGetAttr(r, name = "code"),
@@ -13,6 +12,7 @@ get_atc_codes_rec <- function(r, drug_key) {
     parent_key = drug_key
   )
 }
+
 get_atc_codes_df <- function(rec) {
   return (map_df(xmlChildren(rec[["atc-codes"]]),
                  ~ get_atc_codes_rec(.x,
