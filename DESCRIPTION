@@ -22,3 +22,5 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
+URL: https://github.com/Dainanahan/dbparser
+BugReports: https://github.com/Dainanahan/dbparser/issues
