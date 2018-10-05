@@ -26,19 +26,19 @@ save_drug_sub <- function(con, df, table_name, save_table_only = FALSE, field.ty
 #' \code{open_db} opens connection to given database.
 #'
 #' This function establishes connection to given database
-#' to store, \italic{optionally}, the parsed drug bank elements.
+#' to store, \emph{optionally}, the parsed drug bank elements.
 #'
 #' @param driver odbc object to define database drivr.
 #' @param server string, indicated the db server name.
 #' @param output_database string, the database name to be used,
 #' it has to be created before using it
-#' @trusted_connection boolean, is the connection secure
+#' @param trusted_connection boolean, is the connection secure
 #' @return sets the open connection in memory to be used by other functions
 #'
 #' @examples
 #' open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
-#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")\
-
+#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' @export
 open_db <- function(driver, server, output_database, trusted_connection = TRUE) {
     # db connection
     con <<- dbConnect(odbc::odbc(),

@@ -1,10 +1,3 @@
-# required librries
-library(XML)
-library(purrr)
-library(tibble)
-library(magrittr)
-library(DBI)
-
 drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-id", byValue = FALSE) {
     parent_key <- NULL
     if (!is.null(id)) {
@@ -49,6 +42,7 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' @examples
 #' get_xml_db_rows("db_full_path")
 #' get_xml_db_rows(xml_db_name = "db_full_path")
+#' @export
 get_xml_db_rows <- function(xml_db_name) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)

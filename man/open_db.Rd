@@ -13,6 +13,8 @@ open_db(driver, server, output_database, trusted_connection = TRUE)
 
 \item{output_database}{string, the database name to be used,
 it has to be created before using it}
+
+\item{trusted_connection}{boolean, is the connection secure}
 }
 \value{
 sets the open connection in memory to be used by other functions
@@ -22,9 +24,9 @@ sets the open connection in memory to be used by other functions
 }
 \details{
 This function establishes connection to given database
-to store, \italic{optionally}, the parsed drug bank elements.
+to store, \emph{optionally}, the parsed drug bank elements.
 }
 \examples{
 open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
-server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")\\
+server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")
 }
