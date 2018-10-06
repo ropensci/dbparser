@@ -1,16 +1,16 @@
 drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-id", byValue = FALSE) {
     parent_key <- NULL
     if (!is.null(id)) {
-        parent_key <- XML::xmlValue(rec[id][[1]])
+        parent_key <- xmlValue(rec[id][[1]])
     }
 
     if (byValue) {
-        df <- purrr::map_df(rec[main_node], xmlValue)
+        df <- map_df(rec[main_node], xmlValue)
     } else {
         if (is.null(seconadary_node) && !is.null(rec[[main_node]])) {
-            df <- XML::xmlToDataFrame(rec[[main_node]])
+            df <- xmlToDataFrame(rec[[main_node]])
         } else {
-            df <- XML::xmlToDataFrame(rec[[main_node]][[seconadary_node]])
+            df <- xmlToDataFrame(rec[[main_node]][[seconadary_node]])
         }
 
     }
@@ -44,7 +44,7 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' get_xml_db_rows(xml_db_name = "db_full_path")
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
-    drugbank_db <- XML::xmlParse(xml_db_name)
-    top <- XML::xmlRoot(drugbank_db)
-    children <<- XML::xmlChildren(top)
+    drugbank_db <- xmlParse(xml_db_name)
+    top <- xmlRoot(drugbank_db)
+    children <<- xmlChildren(top)
 }

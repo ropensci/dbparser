@@ -8,7 +8,7 @@ save_drug_sub <-
            foreign_key = "parent_key",
            ref_table = "drug(primary_key)") {
     # store drug sub_Table in db
-    DBI::dbWriteTable(
+    dbWriteTable(
       conn = con,
       value = df,
       name = table_name,
@@ -19,7 +19,7 @@ save_drug_sub <-
       # add primary key of drug table
       if (!is.null(primary_key)) {
         for (key in primary_key) {
-          DBI::dbExecute(
+          dbExecute(
             conn = con,
             statement = paste(
               "Alter table",
@@ -30,7 +30,7 @@ save_drug_sub <-
             )
           )
         }
-        DBI::dbExecute(
+        dbExecute(
           conn = con,
           statement = paste(
             "Alter table",
@@ -44,7 +44,7 @@ save_drug_sub <-
       }
       # add foreign key of drug table
       if (!is.null(foreign_key)) {
-        DBI::dbExecute(
+        dbExecute(
           conn = con,
           statement = paste(
             "Alter table",
@@ -90,8 +90,8 @@ open_db <-
            output_database,
            trusted_connection = TRUE) {
     # db connection
-    con <<- DBI::dbConnect(
-      odbc::odbc(),
+    con <<- dbConnect(
+      odbc(),
       Driver = driver,
       Server = server,
       Database = output_database,
@@ -110,5 +110,5 @@ open_db <-
 #' close_db()
 #' @export
 close_db <- function() {
-  DBI::dbDisconnect()
+  dbDisconnect()
 }
