@@ -110,5 +110,5 @@ open_db <-
 #' close_db()
 #' @export
 close_db <- function() {
-  dbDisconnect()
+  dbDisconnect(con)
 }

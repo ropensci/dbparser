@@ -30,5 +30,5 @@ no need to call it again before calling this funtion.
 \examples{
 parse_drug_carriers_polypeptides_synonyms()
 parse_drug_carriers_polypeptides_synonyms(FALSE)
-parse_drug_carriers_polypeptides_synonymssave_table = FALSE)
+parse_drug_carriers_polypeptides_synonyms(save_table = FALSE)
 }

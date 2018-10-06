@@ -1879,7 +1879,7 @@ parse_drug_targets_polypeptides_synonyms <- function(save_table = TRUE) {
 #' @examples
 #' parse_drug_carriers_polypeptides_synonyms()
 #' parse_drug_carriers_polypeptides_synonyms(FALSE)
-#' parse_drug_carriers_polypeptides_synonymssave_table = FALSE)
+#' parse_drug_carriers_polypeptides_synonyms(save_table = FALSE)
 #' @export
 parse_drug_carriers_polypeptides_synonyms <- function(save_table = TRUE) {
     drug_carriers_polypeptide_synonyms <- map_df(children,
