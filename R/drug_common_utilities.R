@@ -35,7 +35,7 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
 #' no need to call it again.
 #'
-#' @param db_full_path string, full path for the drug bank xml.
+#' @param xml_db_name string, full path for the drug bank xml.
 #' @return nothing but sets the db tree in memory to be used by parser
 #' methods
 #'
@@ -47,4 +47,5 @@ get_xml_db_rows <- function(xml_db_name) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)
     children <<- xmlChildren(top)
+    return(TRUE)
 }
