@@ -1,7 +1,7 @@
 get_targets_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["targets"]]),
-    ~ get_organizm_rec(.x, XML:xmlValue(rec["drugbank-id"][[1]]))
+    ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
   ))
 }
 

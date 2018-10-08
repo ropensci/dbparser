@@ -1642,7 +1642,7 @@ parse_drug_transporters_polypeptides <- function(save_table = TRUE) {
 #' Extracts the drug enzymes polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{enzymes_polypeptides_external_identifiers} returns data
+#' \code{parse_drug_enzymes_polypeptides_external_identifiers} returns data
 #'  frame of drug enzymes polypeptides external identifiers elements.
 #'
 #' This functions extracts the enzymes polypeptides external identifiers
