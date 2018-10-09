@@ -42,10 +42,10 @@ get_reactions_enzymes_df <- function(rec) {
 #' parse_drug_reactions(save_table = FALSE)
 #' @export
 parse_drug_reactions <- function(save_table = TRUE) {
-  drug_reactions <- map_df(children, ~ get_reactions_df(.x))
+  drug_reactions <- map_df(pkg.env$children, ~ get_reactions_df(.x))
   if (save_table) {
     save_drug_sub(
-      con = con,
+      con = pkg.env$con,
       df = drug_reactions,
       table_name = "drug_reactions",
       foreign_key = "drug_key"
@@ -77,10 +77,10 @@ parse_drug_reactions <- function(save_table = TRUE) {
 #' @export
 parse_drug_reactions_enzymes <- function(save_table = TRUE) {
   drug_reactions_enzymes <-
-    map_df(children, ~ get_reactions_enzymes_df(.x))
+    map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x))
   if (save_table) {
     save_drug_sub(
-      con = con,
+      con = pkg.env$con,
       df = drug_reactions_enzymes,
       table_name = "drug_reactions_enzymes",
       save_table_only = TRUE

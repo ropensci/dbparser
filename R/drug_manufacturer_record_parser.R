@@ -35,9 +35,9 @@ get_manufactures_df <- function(rec) {
 #' @export
 parse_drug_manufacturers <- function(save_table = TRUE) {
   drug_manufacturers <-
-    map_df(children, ~ drug_sub_df(.x, "manufacturers"))
+    map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers"))
   if (save_table) {
-    save_drug_sub(con = con,
+    save_drug_sub(con = pkg.env$con,
                   df = drug_manufacturers,
                   table_name = "drug_manufacturers")
   }

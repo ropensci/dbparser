@@ -1,4 +1,4 @@
-context("test drug carrier attributes parsers")
+context("test drug enzymes attributes parsers")
 
 library(dbparser)
 library(testthat)

@@ -1,24 +1,24 @@
 Package: dbparser
 Title: Drug bank xml db parser and database saver
 Version: 0.0.0.9000
-Authors@R: 
+Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
     person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"))
 Description: This tool is to parse drug bank xml database
     and return them in proper R dataframe with the ability
     to save them in a given database.
-License: GPL-2
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
     DBI,
     odbc,
     purrr,
     tibble,
     XML
 RoxygenNote: 6.1.0
-Suggests: 
+Suggests:
     knitr,
     rmarkdown,
     testthat

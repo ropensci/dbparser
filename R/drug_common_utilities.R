@@ -1,3 +1,7 @@
+pkg.env <- new.env(parent = emptyenv())
+pkg.env$children  <- NULL
+pkg.env$con <- NULL
+
 drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-id", byValue = FALSE) {
     parent_key <- NULL
     if (!is.null(id)) {
@@ -46,6 +50,53 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 get_xml_db_rows <- function(xml_db_name) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)
-    children <<- xmlChildren(top)
+    pkg.env$children  <- xmlChildren(top)
     return(TRUE)
+}
+
+#' Establish connection to given data base
+#'
+#' \code{open_db} opens connection to given database.
+#'
+#' This function establishes connection to given database
+#' to store, \emph{optionally}, the parsed drug bank elements.
+#'
+#' @param driver odbc object to define database drivr.
+#' @param server string, indicated the db server name.
+#' @param output_database string, the database name to be used,
+#' it has to be created before using it
+#' @param trusted_connection boolean, is the connection secure
+#' @return sets the open connection in memory to be used by other functions
+#'
+#' @examples
+#' open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' @export
+open_db <-
+  function(driver,
+           server,
+           output_database,
+           trusted_connection = TRUE) {
+    # db connection
+    pkg.env$con <- dbConnect(
+      odbc(),
+      Driver = driver,
+      Server = server,
+      Database = output_database,
+      Trusted_Connection = trusted_connection
+    )
+
+  }
+
+#' Close open drug bank sql database
+#'
+#' \code{close_db} closes connection to pre-given database.
+#'
+#' This function closes connection to pre-given databas.
+#'
+#' @examples
+#' close_db()
+#' @export
+close_db <- function() {
+  dbDisconnect(conn = pkg.env$con)
 }

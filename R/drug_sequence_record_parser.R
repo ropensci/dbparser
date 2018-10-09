@@ -39,9 +39,9 @@ get_sequences_df <- function(rec) {
 #' parse_drug_sequences(save_table = FALSE)
 #' @export
 parse_drug_sequences <- function(save_table = TRUE) {
-  drug_sequences <- map_df(children, ~ get_sequences_df(.x))
+  drug_sequences <- map_df(pkg.env$children, ~ get_sequences_df(.x))
   if (save_table) {
-    save_drug_sub(con = con,
+    save_drug_sub(con = pkg.env$con,
                   df = drug_sequences,
                   table_name = "drug_sequences")
   }
