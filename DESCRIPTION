@@ -5,9 +5,9 @@ Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
     person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"))
-Description: This tool is to parse drug bank xml database
-    and return them in proper R dataframe with the ability
-    to save them in a given database.
+Description: This tool is for parsing the DrugBank XML database. The parsed 
+    data are then returned in a proper R dataframe with the ability to save 
+    them in a given database.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
