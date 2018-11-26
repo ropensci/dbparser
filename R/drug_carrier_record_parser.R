@@ -73,10 +73,10 @@ get_carriers_polypeptide_go_classifiers_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_carriers_actions()
-#' parse_drug_carriers_actions(FALSE)
+#' parse_drug_carriers_actions(TRUE)
 #' parse_drug_carriers_actions(save_table = FALSE)
 #' @export
-parse_drug_carriers_actions <- function(save_table = TRUE) {
+parse_drug_carriers_actions <- function(save_table = FALSE) {
   drug_carriers_actions <-
     map_df(pkg.env$children, ~ get_carriers_actions_df(.x))
   if (save_table) {
@@ -110,10 +110,10 @@ parse_drug_carriers_actions <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_carriers_articles()
-#' parse_drug_carriers_articles(FALSE)
+#' parse_drug_carriers_articles(TRUE)
 #' parse_drug_carriers_articles(save_table = FALSE)
 #' @export
-parse_drug_carriers_articles <- function(save_table = TRUE) {
+parse_drug_carriers_articles <- function(save_table = FALSE) {
   drug_carriers_articles <-
     map_df(pkg.env$children, ~ get_carriers_articles_df(.x))
   if (save_table) {
@@ -147,10 +147,10 @@ parse_drug_carriers_articles <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_carriers_textbooks()
-#' parse_drug_carriers_textbooks(FALSE)
+#' parse_drug_carriers_textbooks(TRUE)
 #' parse_drug_carriers_textbooks(save_table = FALSE)
 #' @export
-parse_drug_carriers_textbooks <- function(save_table = TRUE) {
+parse_drug_carriers_textbooks <- function(save_table = FALSE) {
   drug_carriers_textbooks <-
     map_df(pkg.env$children, ~ get_carriers_textbooks_df(.x))
   if (save_table) {
@@ -182,10 +182,10 @@ parse_drug_carriers_textbooks <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_carriers_links()
-#' parse_drug_carriers_links(FALSE)
+#' parse_drug_carriers_links(TRUE)
 #' parse_drug_carriers_links(save_table = FALSE)
 #' @export
-parse_drug_carriers_links <- function(save_table = TRUE) {
+parse_drug_carriers_links <- function(save_table = FALSE) {
   drug_carriers_links <- map_df(pkg.env$children, ~ get_carriers_links_df(.x))
   if (save_table) {
     save_drug_sub(
@@ -219,10 +219,10 @@ parse_drug_carriers_links <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_carriers_polypeptides()
-#' parse_drug_carriers_polypeptides(FALSE)
+#' parse_drug_carriers_polypeptides(TRUE)
 #' parse_drug_carriers_polypeptides(save_table = FALSE)
 #' @export
-parse_drug_carriers_polypeptides <- function(save_table = TRUE) {
+parse_drug_carriers_polypeptides <- function(save_table = FALSE) {
   drug_carriers_polypeptides <-
     map_df(pkg.env$children, ~ get_carriers_polypeptide_df(.x))
   if (save_table) {
@@ -276,11 +276,11 @@ parse_drug_carriers_polypeptides <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_carriers_polypeptides_external_identifiers()
-#' parse_drug_carriers_polypeptides_external_identifiers(FALSE)
+#' parse_drug_carriers_polypeptides_external_identifiers(TRUE)
 #' parse_drug_carriers_polypeptides_external_identifiers(save_table = FALSE)
 #' @export
 parse_drug_carriers_polypeptides_external_identifiers <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_carriers_polypeptide_external_identifiers <-
       map_df(pkg.env$children,
              ~ get_carriers_polypeptide_external_identifiers_df(.x))
@@ -315,11 +315,11 @@ parse_drug_carriers_polypeptides_external_identifiers <-
 #'
 #' @examples
 #' parse_drug_carriers_polypeptides_synonyms()
-#' parse_drug_carriers_polypeptides_synonyms(FALSE)
+#' parse_drug_carriers_polypeptides_synonyms(TRUE)
 #' parse_drug_carriers_polypeptides_synonyms(save_table = FALSE)
 #' @export
 parse_drug_carriers_polypeptides_synonyms <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_carriers_polypeptide_synonyms <- map_df(pkg.env$children,
                                                  ~ get_carriers_polypeptide_synonyms_df(.x))
     if (save_table) {
@@ -353,11 +353,11 @@ parse_drug_carriers_polypeptides_synonyms <-
 #'
 #' @examples
 #' parse_drug_carriers_polypeptides_pfams()
-#' parse_drug_carriers_polypeptides_pfams(FALSE)
+#' parse_drug_carriers_polypeptides_pfams(TRUE)
 #' parse_drug_carriers_polypeptides_pfams(save_table = FALSE)
 #' @export
 parse_drug_carriers_polypeptides_pfams <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_carriers_polypeptide_pfams <- map_df(pkg.env$children,
                                               ~ get_carriers_polypeptide_pfams_df(.x))
     if (save_table) {
@@ -392,11 +392,11 @@ parse_drug_carriers_polypeptides_pfams <-
 #'
 #' @examples
 #' parse_drug_carriers_polypeptides_go_classifiers()
-#' parse_drug_carriers_polypeptides_go_classifiers(FALSE)
+#' parse_drug_carriers_polypeptides_go_classifiers(TRUE)
 #' parse_drug_carriers_polypeptides_go_classifiers(save_table = FALSE)
 #' @export
 parse_drug_carriers_polypeptides_go_classifiers <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_carriers_polypeptides_go_classifiers <- map_df(pkg.env$children,
                                                         ~ get_carriers_polypeptide_go_classifiers_df(.x))
     if (save_table) {
@@ -428,10 +428,10 @@ parse_drug_carriers_polypeptides_go_classifiers <-
 #'
 #' @examples
 #' parse_drug_carriers()
-#' parse_drug_carriers(FALSE)
+#' parse_drug_carriers(TRUE)
 #' parse_drug_carriers(save_table = FALSE)
 #' @export
-parse_drug_carriers <- function(save_table = TRUE) {
+parse_drug_carriers <- function(save_table = FALSE) {
   drug_carriers <- map_df(pkg.env$children, ~ get_carriers_df(.x))
   if (save_table) {
     save_drug_sub(

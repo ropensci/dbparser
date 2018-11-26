@@ -31,10 +31,10 @@ get_prices_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_prices()
-#' parse_drug_prices(FALSE)
+#' parse_drug_prices(TRUE)
 #' parse_drug_prices(save_table = FALSE)
 #' @export
-parse_drug_prices <- function(save_table = TRUE) {
+parse_drug_prices <- function(save_table = FALSE) {
   drug_prices <- map_df(pkg.env$children, ~get_prices_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con, df = drug_prices, table_name = "drug_prices")

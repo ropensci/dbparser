@@ -38,10 +38,10 @@ get_reactions_enzymes_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_reactions()
-#' parse_drug_reactions(FALSE)
+#' parse_drug_reactions(TRUE)
 #' parse_drug_reactions(save_table = FALSE)
 #' @export
-parse_drug_reactions <- function(save_table = TRUE) {
+parse_drug_reactions <- function(save_table = FALSE) {
   drug_reactions <- map_df(pkg.env$children, ~ get_reactions_df(.x))
   if (save_table) {
     save_drug_sub(
@@ -72,10 +72,10 @@ parse_drug_reactions <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_reactions_enzymes()
-#' parse_drug_reactions_enzymes(FALSE)
+#' parse_drug_reactions_enzymes(TRUE)
 #' parse_drug_reactions_enzymes(save_table = FALSE)
 #' @export
-parse_drug_reactions_enzymes <- function(save_table = TRUE) {
+parse_drug_reactions_enzymes <- function(save_table = FALSE) {
   drug_reactions_enzymes <-
     map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x))
   if (save_table) {

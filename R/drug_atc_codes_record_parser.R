@@ -38,10 +38,10 @@ get_atc_codes_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_atc_codes()
-#' parse_drug_atc_codes(FALSE)
+#' parse_drug_atc_codes(TRUE)
 #' parse_drug_atc_codes(save_table = FALSE)
 #' @export
-parse_drug_atc_codes <- function(save_table = TRUE) {
+parse_drug_atc_codes <- function(save_table = FALSE) {
   drug_atc_codes <- map_df(pkg.env$children, ~ get_atc_codes_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

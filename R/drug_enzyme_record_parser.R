@@ -93,10 +93,10 @@ get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_enzymes_actions()
-#' parse_drug_enzymes_actions(FALSE)
+#' parse_drug_enzymes_actions(TRUE)
 #' parse_drug_enzymes_actions(save_table = FALSE)
 #' @export
-parse_drug_enzymes_actions <- function(save_table = TRUE) {
+parse_drug_enzymes_actions <- function(save_table = FALSE) {
   drug_enzymes_actions <-
     map_df(pkg.env$children, ~ get_enzymes_actions_df(.x))
   if (save_table) {
@@ -128,10 +128,10 @@ parse_drug_enzymes_actions <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_enzymes_articles()
-#' parse_drug_enzymes_articles(FALSE)
+#' parse_drug_enzymes_articles(TRUE)
 #' parse_drug_enzymes_articles(save_table = FALSE)
 #' @export
-parse_drug_enzymes_articles <- function(save_table = TRUE) {
+parse_drug_enzymes_articles <- function(save_table = FALSE) {
   drug_enzymes_articles <-
     map_df(pkg.env$children, ~ get_enzymes_articles_df(.x))
   if (save_table) {
@@ -163,10 +163,10 @@ parse_drug_enzymes_articles <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_enzymes_textbooks()
-#' parse_drug_enzymes_textbooks(FALSE)
+#' parse_drug_enzymes_textbooks(TRUE)
 #' parse_drug_enzymes_textbooks(save_table = FALSE)
 #' @export
-parse_drug_enzymes_textbooks <- function(save_table = TRUE) {
+parse_drug_enzymes_textbooks <- function(save_table = FALSE) {
   drug_enzymes_textbooks <-
     map_df(pkg.env$children, ~ get_enzymes_textbooks_df(.x))
   if (save_table) {
@@ -198,10 +198,10 @@ parse_drug_enzymes_textbooks <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_enzymes_links()
-#' parse_drug_enzymes_links(FALSE)
+#' parse_drug_enzymes_links(TRUE)
 #' parse_drug_enzymes_links(save_table = FALSE)
 #' @export
-parse_drug_enzymes_links <- function(save_table = TRUE) {
+parse_drug_enzymes_links <- function(save_table = FALSE) {
   drug_enzymes_links <-
     map_df(pkg.env$children, ~ get_enzymes_links_df(.x))
   if (save_table) {
@@ -234,10 +234,10 @@ parse_drug_enzymes_links <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_enzymes_polypeptides()
-#' parse_drug_enzymes_polypeptides(FALSE)
+#' parse_drug_enzymes_polypeptides(TRUE)
 #' parse_drug_enzymes_polypeptides(save_table = FALSE)
 #' @export
-parse_drug_enzymes_polypeptides <- function(save_table = TRUE) {
+parse_drug_enzymes_polypeptides <- function(save_table = FALSE) {
   drug_enzymes_polypeptides <-
     map_df(pkg.env$children, ~ get_enzymes_polypeptide_df(.x))
   if (save_table) {
@@ -295,11 +295,11 @@ parse_drug_enzymes_polypeptides <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_enzymes_polypeptides_external_identifiers()
-#' parse_drug_enzymes_polypeptides_external_identifiers(FALSE)
+#' parse_drug_enzymes_polypeptides_external_identifiers(TRUE)
 #' parse_drug_enzymes_polypeptides_external_identifiers(save_table = FALSE)
 #' @export
 parse_drug_enzymes_polypeptides_external_identifiers <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_enzymes_polypeptide_external_identifiers <-
       map_df(pkg.env$children,
              ~ get_enzymes_polypeptide_external_identifiers_df(.x))
@@ -336,11 +336,11 @@ parse_drug_enzymes_polypeptides_external_identifiers <-
 #'
 #' @examples
 #' parse_drug_enzymes_polypeptides_synonyms()
-#' parse_drug_enzymes_polypeptides_synonyms(FALSE)
+#' parse_drug_enzymes_polypeptides_synonyms(TRUE)
 #' parse_drug_enzymes_polypeptides_synonyms(save_table = FALSE)
 #' @export
 parse_drug_enzymes_polypeptides_synonyms <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_enzymes_polypeptide_synonyms <- map_df(pkg.env$children,
                                                 ~ get_enzymes_polypeptide_synonyms_df(.x))
     if (save_table) {
@@ -375,11 +375,11 @@ parse_drug_enzymes_polypeptides_synonyms <-
 #'
 #' @examples
 #' parse_drug_enzymes_polypeptides_pfams()
-#' parse_drug_enzymes_polypeptides_pfams(FALSE)
+#' parse_drug_enzymes_polypeptides_pfams(TRUE)
 #' parse_drug_enzymes_polypeptides_pfams(save_table = FALSE)
 #' @export
 parse_drug_enzymes_polypeptides_pfams <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_enzymes_polypeptide_pfams <- map_df(pkg.env$children,
                                              ~ get_enzymes_polypeptide_pfams_df(.x))
     if (save_table) {
@@ -413,11 +413,11 @@ parse_drug_enzymes_polypeptides_pfams <-
 #'
 #' @examples
 #' parse_drug_enzymes_polypeptides_go_classifiers()
-#' parse_drug_enzymes_polypeptides_go_classifiers(FALSE)
+#' parse_drug_enzymes_polypeptides_go_classifiers(TRUE)
 #' parse_drug_enzymes_polypeptides_go_classifiers(save_table = FALSE)
 #' @export
 parse_drug_enzymes_polypeptides_go_classifiers <-
-  function(save_table = TRUE) {
+  function(save_table = FALSE) {
     drug_enzymes_polypeptides_go_classifiers <- map_df(pkg.env$children,
                                                        ~ get_enzymes_polypeptide_go_classifiers_df(.x))
     if (save_table) {
@@ -449,10 +449,10 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
 #'
 #' @examples
 #' parse_drug_enzymes()
-#' parse_drug_enzymes(FALSE)
+#' parse_drug_enzymes(TRUE)
 #' parse_drug_enzymes(save_table = FALSE)
 #' @export
-parse_drug_enzymes <- function(save_table = TRUE) {
+parse_drug_enzymes <- function(save_table = FALSE) {
   drug_enzymes <- map_df(pkg.env$children, ~ get_enzymes_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

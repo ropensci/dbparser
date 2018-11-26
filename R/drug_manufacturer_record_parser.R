@@ -30,10 +30,10 @@ get_manufactures_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_manufacturers()
-#' parse_drug_manufacturers(FALSE)
+#' parse_drug_manufacturers(TRUE)
 #' parse_drug_manufacturers(save_table = FALSE)
 #' @export
-parse_drug_manufacturers <- function(save_table = TRUE) {
+parse_drug_manufacturers <- function(save_table = FALSE) {
   drug_manufacturers <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers"))
   if (save_table) {

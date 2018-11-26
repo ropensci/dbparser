@@ -16,10 +16,10 @@
 #'
 #' @examples
 #' parse_drug()
-#' parse_drug(FALSE)
+#' parse_drug(TRUE)
 #' parse_drug(save_table = FALSE)
 #' @export
-parse_drug <- function(save_table = TRUE) {
+parse_drug <- function(save_table = FALSE) {
     # db connection
     drugs <- map_df(pkg.env$children, ~drug_df(.x))
     if (save_table) {
@@ -68,10 +68,10 @@ parse_drug <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_groups()
-#' parse_drug_groups(FALSE)
+#' parse_drug_groups(TRUE)
 #' parse_drug_groups(save_table = FALSE)
 #' @export
-parse_drug_groups <- function(save_table = TRUE) {
+parse_drug_groups <- function(save_table = FALSE) {
     drug_groups <- map_df(pkg.env$children, ~drug_sub_df(.x, "groups"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_groups, table_name = "drug_groups")
@@ -97,10 +97,10 @@ parse_drug_groups <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_articles()
-#' parse_drug_articles(FALSE)
+#' parse_drug_articles(TRUE)
 #' parse_drug_articles(save_table = FALSE)
 #' @export
-parse_drug_articles <- function(save_table = TRUE) {
+parse_drug_articles <- function(save_table = FALSE) {
     drug_articles <- map_df(pkg.env$children, ~drug_sub_df(.x, "general-references",
                                                    seconadary_node = "articles"))
     if (save_table) {
@@ -127,10 +127,10 @@ parse_drug_articles <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_books()
-#' parse_drug_books(FALSE)
+#' parse_drug_books(TRUE)
 #' parse_drug_books(save_table = FALSE)
 #' @export
-parse_drug_books <- function(save_table = TRUE) {
+parse_drug_books <- function(save_table = FALSE) {
     drug_books <- map_df(pkg.env$children, ~drug_sub_df(.x, "general-references", seconadary_node = "textbooks"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_books, table_name = "drug_books")
@@ -156,10 +156,10 @@ parse_drug_books <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_links()
-#' parse_drug_links(FALSE)
+#' parse_drug_links(TRUE)
 #' parse_drug_links(save_table = FALSE)
 #' @export
-parse_drug_links <- function(save_table = TRUE) {
+parse_drug_links <- function(save_table = FALSE) {
     drug_links <- map_df(pkg.env$children, ~drug_sub_df(.x, "general-references", seconadary_node = "links"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_links, table_name = "drug_links")
@@ -186,10 +186,10 @@ parse_drug_links <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_synonyms()
-#' parse_drug_synonyms(FALSE)
+#' parse_drug_synonyms(TRUE)
 #' parse_drug_synonyms(save_table = FALSE)
 #' @export
-parse_drug_synonyms <- function(save_table = TRUE) {
+parse_drug_synonyms <- function(save_table = FALSE) {
     drug_synonyms <- map_df(pkg.env$children, ~get_synonyms_df(.x))
     if (save_table) {
       save_drug_sub(con = pkg.env$con,
@@ -218,10 +218,10 @@ parse_drug_synonyms <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_products()
-#' parse_drug_products(FALSE)
+#' parse_drug_products(TRUE)
 #' parse_drug_products(save_table = FALSE)
 #' @export
-parse_drug_products <- function(save_table = TRUE) {
+parse_drug_products <- function(save_table = FALSE) {
     drug_products <- map_df(pkg.env$children, ~drug_sub_df(.x, "products"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_products, table_name = "drug_products")
@@ -247,10 +247,10 @@ parse_drug_products <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_mixtures()
-#' parse_drug_mixtures(FALSE)
+#' parse_drug_mixtures(TRUE)
 #' parse_drug_mixtures(save_table = FALSE)
 #' @export
-parse_drug_mixtures <- function(save_table = TRUE) {
+parse_drug_mixtures <- function(save_table = FALSE) {
     drug_mixtures <- map_df(pkg.env$children, ~drug_sub_df(.x, "mixtures"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_mixtures, table_name = "drug_mixtures")
@@ -276,10 +276,10 @@ parse_drug_mixtures <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_packagers()
-#' parse_drug_packagers(FALSE)
+#' parse_drug_packagers(TRUE)
 #' parse_drug_packagers(save_table = FALSE)
 #' @export
-parse_drug_packagers <- function(save_table = TRUE) {
+parse_drug_packagers <- function(save_table = FALSE) {
     drug_packagers <- map_df(pkg.env$children, ~drug_sub_df(.x, "packagers"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_packagers, table_name = "drug_packagers")
@@ -306,10 +306,10 @@ parse_drug_packagers <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_categories()
-#' parse_drug_categories(FALSE)
+#' parse_drug_categories(TRUE)
 #' parse_drug_categories(save_table = FALSE)
 #' @export
-parse_drug_categories <- function(save_table = TRUE) {
+parse_drug_categories <- function(save_table = FALSE) {
     drug_categories <- map_df(pkg.env$children, ~drug_sub_df(.x, "categories"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_categories, table_name = "drug_categories")
@@ -335,10 +335,10 @@ parse_drug_categories <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_affected_organisms()
-#' parse_drug_affected_organisms(FALSE)
+#' parse_drug_affected_organisms(TRUE)
 #' parse_drug_affected_organisms(save_table = FALSE)
 #' @export
-parse_drug_affected_organisms <- function(save_table = TRUE) {
+parse_drug_affected_organisms <- function(save_table = FALSE) {
     drug_affected_organisms <- map_df(pkg.env$children, ~drug_sub_df(.x, "affected-organisms"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_affected_organisms, table_name = "drug_affected_organisms")
@@ -364,10 +364,10 @@ parse_drug_affected_organisms <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_dosages()
-#' parse_drug_dosages(FALSE)
+#' parse_drug_dosages(TRUE)
 #' parse_drug_dosages(save_table = FALSE)
 #' @export
-parse_drug_dosages <- function(save_table = TRUE) {
+parse_drug_dosages <- function(save_table = FALSE) {
     drug_dosages <- map_df(pkg.env$children, ~drug_sub_df(.x, "dosages"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_dosages, table_name = "drug_dosages")
@@ -394,10 +394,10 @@ parse_drug_dosages <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_ahfs_codes()
-#' parse_drug_ahfs_codes(FALSE)
+#' parse_drug_ahfs_codes(TRUE)
 #' parse_drug_ahfs_codes(save_table = FALSE)
 #' @export
-parse_drug_ahfs_codes <- function(save_table = TRUE) {
+parse_drug_ahfs_codes <- function(save_table = FALSE) {
     drug_ahfs_codes <- map_df(pkg.env$children, ~drug_sub_df(.x, "ahfs-codes"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_ahfs_codes, table_name = "drug_ahfs_codes")
@@ -423,10 +423,10 @@ parse_drug_ahfs_codes <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_pdb_entries()
-#' parse_drug_pdb_entries(FALSE)
+#' parse_drug_pdb_entries(TRUE)
 #' parse_drug_pdb_entries(save_table = FALSE)
 #' @export
-parse_drug_pdb_entries <- function(save_table = TRUE) {
+parse_drug_pdb_entries <- function(save_table = FALSE) {
     drug_pdb_entries <- map_df(pkg.env$children, ~drug_sub_df(.x, "pdb-entries"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_pdb_entries, table_name = "drug_pdb_entries")
@@ -452,10 +452,10 @@ parse_drug_pdb_entries <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_patents()
-#' parse_drug_patents(FALSE)
+#' parse_drug_patents(TRUE)
 #' parse_drug_patents(save_table = FALSE)
 #' @export
-parse_drug_patents <- function(save_table = TRUE) {
+parse_drug_patents <- function(save_table = FALSE) {
     drug_patents <- map_df(pkg.env$children, ~drug_sub_df(.x, "patents"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_patents, table_name = "drug_patents")
@@ -482,10 +482,10 @@ parse_drug_patents <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_food_interactions()
-#' parse_drug_food_interactions(FALSE)
+#' parse_drug_food_interactions(TRUE)
 #' parse_drug_food_interactions(save_table = FALSE)
 #' @export
-parse_drug_food_interactions <- function(save_table = TRUE) {
+parse_drug_food_interactions <- function(save_table = FALSE) {
     drug_food_interactions <- map_df(pkg.env$children, ~drug_sub_df(.x, "food-interactions"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_food_interactions, table_name = "drug_food_interactions")
@@ -511,10 +511,10 @@ parse_drug_food_interactions <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_interactions()
-#' parse_drug_interactions(FALSE)
+#' parse_drug_interactions(TRUE)
 #' parse_drug_interactions(save_table = FALSE)
 #' @export
-parse_drug_interactions <- function(save_table = TRUE) {
+parse_drug_interactions <- function(save_table = FALSE) {
     drug_drug_interactions <- map_df(pkg.env$children, ~drug_sub_df(.x, "drug-interactions"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_drug_interactions, table_name = "drug_drug_interactions")
@@ -541,10 +541,10 @@ parse_drug_interactions <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_experimental_properties()
-#' parse_drug_experimental_properties(FALSE)
+#' parse_drug_experimental_properties(TRUE)
 #' parse_drug_experimental_properties(save_table = FALSE)
 #' @export
-parse_drug_experimental_properties <- function(save_table = TRUE) {
+parse_drug_experimental_properties <- function(save_table = FALSE) {
     drug_experimental_properties <- map_df(pkg.env$children, ~drug_sub_df(.x, "experimental-properties"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_experimental_properties,
@@ -572,10 +572,10 @@ parse_drug_experimental_properties <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_external_identifiers()
-#' parse_drug_external_identifiers(FALSE)
+#' parse_drug_external_identifiers(TRUE)
 #' parse_drug_external_identifiers(save_table = FALSE)
 #' @export
-parse_drug_external_identifiers <- function(save_table = TRUE) {
+parse_drug_external_identifiers <- function(save_table = FALSE) {
     drug_external_identifiers <- map_df(pkg.env$children, ~drug_sub_df(.x, "external-identifiers"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_external_identifiers, table_name = "drug_external_identifiers")
@@ -601,10 +601,10 @@ parse_drug_external_identifiers <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_external_links()
-#' parse_drug_external_links(FALSE)
+#' parse_drug_external_links(TRUE)
 #' parse_drug_external_links(save_table = FALSE)
 #' @export
-parse_drug_external_links <- function(save_table = TRUE) {
+parse_drug_external_links <- function(save_table = FALSE) {
     drug_external_links <- map_df(pkg.env$children, ~drug_sub_df(.x, "external-links"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_external_links, table_name = "drug_external_links")
@@ -630,10 +630,10 @@ parse_drug_external_links <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_snp_effects()
-#' parse_drug_snp_effects(FALSE)
+#' parse_drug_snp_effects(TRUE)
 #' parse_drug_snp_effects(save_table = FALSE)
 #' @export
-parse_drug_snp_effects <- function(save_table = TRUE) {
+parse_drug_snp_effects <- function(save_table = FALSE) {
     drug_snp_effects <- map_df(pkg.env$children, ~drug_sub_df(.x, "snp-effects"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_snp_effects, table_name = "drug_snp_effects")
@@ -660,10 +660,10 @@ parse_drug_snp_effects <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_snp_adverse_drug_reactions()
-#' parse_drug_snp_adverse_drug_reactions(FALSE)
+#' parse_drug_snp_adverse_drug_reactions(TRUE)
 #' parse_drug_snp_adverse_drug_reactions(save_table = FALSE)
 #' @export
-parse_drug_snp_adverse_drug_reactions <- function(save_table = TRUE) {
+parse_drug_snp_adverse_drug_reactions <- function(save_table = FALSE) {
     drug_snp_adverse_drug_reactions <- map_df(pkg.env$children, ~drug_sub_df(.x, "snp-adverse-drug-reactions"))
     if (save_table) {
       save_drug_sub(con = pkg.env$con,

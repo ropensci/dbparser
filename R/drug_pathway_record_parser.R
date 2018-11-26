@@ -45,10 +45,10 @@ get_pathways_enzymes_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_pathway_enzyme()
-#' parse_drug_pathway_enzyme(FALSE)
+#' parse_drug_pathway_enzyme(TRUE)
 #' parse_drug_pathway_enzyme(save_table = FALSE)
 #' @export
-parse_drug_pathway_enzyme <- function(save_table = TRUE) {
+parse_drug_pathway_enzyme <- function(save_table = FALSE) {
   drug_pathway_enzymes <-
     map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x))
   if (save_table) {
@@ -80,10 +80,10 @@ parse_drug_pathway_enzyme <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_pathway_drugs()
-#' parse_drug_pathway_drugs(FALSE)
+#' parse_drug_pathway_drugs(TRUE)
 #' parse_drug_pathway_drugs(save_table = FALSE)
 #' @export
-parse_drug_pathway_drugs <- function(save_table = TRUE) {
+parse_drug_pathway_drugs <- function(save_table = FALSE) {
   drug_pathway_drugs <- map_df(pkg.env$children, ~ get_pathways_drugs_df(.x))
   if (save_table) {
     save_drug_sub(
@@ -114,10 +114,10 @@ parse_drug_pathway_drugs <- function(save_table = TRUE) {
 #'
 #' @examples
 #' parse_drug_pathway()
-#' parse_drug_pathway(FALSE)
+#' parse_drug_pathway(TRUE)
 #' parse_drug_pathway(save_table = FALSE)
 #' @export
-parse_drug_pathway <- function(save_table = TRUE) {
+parse_drug_pathway <- function(save_table = FALSE) {
   drug_pathway <- map_df(pkg.env$children, ~ get_pathways_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

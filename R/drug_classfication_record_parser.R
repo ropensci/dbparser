@@ -27,10 +27,10 @@ drug_classfications_df <- function(rec) {
 #'
 #' @examples
 #' parse_drug_classfications()
-#' parse_drug_classfications(FALSE)
+#' parse_drug_classfications(TRUE)
 #' parse_drug_classfications(save_table = FALSE)
 #' @export
-parse_drug_classfications <- function(save_table = TRUE) {
+parse_drug_classfications <- function(save_table = FALSE) {
   drug_classfications <- map_df(pkg.env$children, ~ drug_classfications_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
