@@ -4,7 +4,7 @@
 \alias{parse_drug_snp_effects}
 \title{Extracts the drug snp effects element and return data as data frame.}
 \usage{
-parse_drug_snp_effects(save_table = TRUE)
+parse_drug_snp_effects(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_snp_effects()
-parse_drug_snp_effects(FALSE)
+parse_drug_snp_effects(TRUE)
 parse_drug_snp_effects(save_table = FALSE)
 }

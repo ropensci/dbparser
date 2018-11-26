@@ -4,7 +4,7 @@
 \alias{parse_drug_carriers}
 \title{Extracts the drug carriers element and return data as data frame.}
 \usage{
-parse_drug_carriers(save_table = TRUE)
+parse_drug_carriers(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_carriers()
-parse_drug_carriers(FALSE)
+parse_drug_carriers(TRUE)
 parse_drug_carriers(save_table = FALSE)
 }

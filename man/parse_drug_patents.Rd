@@ -4,7 +4,7 @@
 \alias{parse_drug_patents}
 \title{Extracts the drug patents element and return data as data frame.}
 \usage{
-parse_drug_patents(save_table = TRUE)
+parse_drug_patents(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_patents()
-parse_drug_patents(FALSE)
+parse_drug_patents(TRUE)
 parse_drug_patents(save_table = FALSE)
 }

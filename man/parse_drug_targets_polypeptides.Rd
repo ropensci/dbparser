@@ -5,7 +5,7 @@
 \title{\code{parse_drug_targets_polypeptides} returns data frame of drug targets
  polypeptides elements.}
 \usage{
-parse_drug_targets_polypeptides(save_table = TRUE)
+parse_drug_targets_polypeptides(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -26,6 +26,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_targets_polypeptides()
-parse_drug_targets_polypeptides(FALSE)
+parse_drug_targets_polypeptides(TRUE)
 parse_drug_targets_polypeptides(save_table = FALSE)
 }

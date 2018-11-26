@@ -5,7 +5,7 @@
 \title{Extracts the drug transporters polypeptides element and return data
  as data frame.}
 \usage{
-parse_drug_transporters_polypeptides(save_table = TRUE)
+parse_drug_transporters_polypeptides(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -30,6 +30,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_transporters_polypeptides()
-parse_drug_transporters_polypeptides(FALSE)
+parse_drug_transporters_polypeptides(TRUE)
 parse_drug_transporters_polypeptides(save_table = FALSE)
 }

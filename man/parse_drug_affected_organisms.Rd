@@ -4,7 +4,7 @@
 \alias{parse_drug_affected_organisms}
 \title{Extracts the drug affected organisms element and return data as data frame.}
 \usage{
-parse_drug_affected_organisms(save_table = TRUE)
+parse_drug_affected_organisms(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_affected_organisms()
-parse_drug_affected_organisms(FALSE)
+parse_drug_affected_organisms(TRUE)
 parse_drug_affected_organisms(save_table = FALSE)
 }

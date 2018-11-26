@@ -4,7 +4,7 @@
 \alias{parse_drug_classfications}
 \title{Extracts the drug classfications element and return data as data frame.}
 \usage{
-parse_drug_classfications(save_table = TRUE)
+parse_drug_classfications(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_classfications()
-parse_drug_classfications(FALSE)
+parse_drug_classfications(TRUE)
 parse_drug_classfications(save_table = FALSE)
 }

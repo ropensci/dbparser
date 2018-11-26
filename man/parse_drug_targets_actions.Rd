@@ -4,7 +4,7 @@
 \alias{parse_drug_targets_actions}
 \title{Extracts the drug targets actions element and return data as data frame.}
 \usage{
-parse_drug_targets_actions(save_table = TRUE)
+parse_drug_targets_actions(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -28,6 +28,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_targets_actions()
-parse_drug_targets_actions(FALSE)
+parse_drug_targets_actions(TRUE)
 parse_drug_targets_actions(save_table = FALSE)
 }

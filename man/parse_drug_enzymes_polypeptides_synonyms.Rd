@@ -5,7 +5,7 @@
 \title{Extracts the drug enzymes polypeptides synonyms
  element and return data as data frame.}
 \usage{
-parse_drug_enzymes_polypeptides_synonyms(save_table = TRUE)
+parse_drug_enzymes_polypeptides_synonyms(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -30,6 +30,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_enzymes_polypeptides_synonyms()
-parse_drug_enzymes_polypeptides_synonyms(FALSE)
+parse_drug_enzymes_polypeptides_synonyms(TRUE)
 parse_drug_enzymes_polypeptides_synonyms(save_table = FALSE)
 }

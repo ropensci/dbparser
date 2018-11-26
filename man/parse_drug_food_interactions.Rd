@@ -4,7 +4,7 @@
 \alias{parse_drug_food_interactions}
 \title{Extracts the drug food interactions element and return data as data frame.}
 \usage{
-parse_drug_food_interactions(save_table = TRUE)
+parse_drug_food_interactions(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -28,6 +28,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_food_interactions()
-parse_drug_food_interactions(FALSE)
+parse_drug_food_interactions(TRUE)
 parse_drug_food_interactions(save_table = FALSE)
 }

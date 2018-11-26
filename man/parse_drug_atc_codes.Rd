@@ -4,7 +4,7 @@
 \alias{parse_drug_atc_codes}
 \title{Extracts the drug atc codes element and return data as data frame.}
 \usage{
-parse_drug_atc_codes(save_table = TRUE)
+parse_drug_atc_codes(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,6 +27,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_atc_codes()
-parse_drug_atc_codes(FALSE)
+parse_drug_atc_codes(TRUE)
 parse_drug_atc_codes(save_table = FALSE)
 }

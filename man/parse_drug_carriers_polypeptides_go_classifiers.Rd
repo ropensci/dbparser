@@ -5,7 +5,7 @@
 \title{Extracts the drug carriers polypeptides go classifiers
  element and return data as data frame.}
 \usage{
-parse_drug_carriers_polypeptides_go_classifiers(save_table = TRUE)
+parse_drug_carriers_polypeptides_go_classifiers(save_table = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -30,6 +30,6 @@ no need to call it again before calling this funtion.
 }
 \examples{
 parse_drug_carriers_polypeptides_go_classifiers()
-parse_drug_carriers_polypeptides_go_classifiers(FALSE)
+parse_drug_carriers_polypeptides_go_classifiers(TRUE)
 parse_drug_carriers_polypeptides_go_classifiers(save_table = FALSE)
 }
