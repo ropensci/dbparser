@@ -15,80 +15,80 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug targets actions attributes",
           code = {
-            expect_match(as.character(parse_drug_targets_actions(FALSE)[["text"]][[1]]),
+            expect_match(as.character(parse_drug_targets_actions()[["text"]][[1]]),
                          "inhibitor")
-            expect_error(parse_drug_targets_actions())
+            expect_error(parse_drug_targets_actions(TRUE))
           })
 
 test_that(desc = "Read darug targets_articles attributes",
           code = {
             expect_match(
-              as.character(parse_drug_targets_articles(FALSE)[["citation"]][[1]]),
+              as.character(parse_drug_targets_articles()[["citation"]][[1]]),
               "coronary syndromes\\. Am J Cardiol\\. 1999 Sep 2;84\\(5A\\):2M-6M\\."
             )
-            expect_error(parse_drug_targets_articles())
+            expect_error(parse_drug_targets_articles(TRUE))
           })
 
 test_that(desc = "Read darug targets textbooks attributes",
           code = {
-            expect_equal(nrow(parse_drug_targets_textbooks(FALSE)),
+            expect_equal(nrow(parse_drug_targets_textbooks()),
                          0)
-            expect_error(parse_drug_targets_textbooks())
+            expect_error(parse_drug_targets_textbooks(TRUE))
           })
 
 test_that(desc = "Read darug targets links attributes",
           code = {
-            expect_equal(nrow(parse_drug_targets_links(FALSE)),
+            expect_equal(nrow(parse_drug_targets_links()),
                          0)
-            expect_error(parse_drug_targets_links())
+            expect_error(parse_drug_targets_links(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides attributes",
           code = {
-            expect_match(as.character(parse_drug_targets_polypeptides(FALSE)[["name"]][[1]]),
+            expect_match(as.character(parse_drug_targets_polypeptides()[["name"]][[1]]),
                          "Prothrombin")
-            expect_error(parse_drug_targets_polypeptides())
+            expect_error(parse_drug_targets_polypeptides(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides external identifiers attributes",
           code = {
             expect_match(
               as.character(
-                parse_drug_targets_polypeptides_external_identifiers(FALSE)[["identifier"]][1]
+                parse_drug_targets_polypeptides_external_identifiers()[["identifier"]][1]
               ),
               "HGNC:3535"
             )
-            expect_error(parse_drug_targets_polypeptides_external_identifiers())
+            expect_error(parse_drug_targets_polypeptides_external_identifiers(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides synonyms attributes",
           code = {
             expect_match(
-              as.character(parse_drug_targets_polypeptides_synonyms(FALSE)[["synonyms"]][1]),
+              as.character(parse_drug_targets_polypeptides_synonyms()[["synonyms"]][1]),
               "3.4.21.5,Coagulation factor II"
             )
-            expect_error(parse_drug_targets_polypeptides_synonyms())
+            expect_error(parse_drug_targets_polypeptides_synonyms(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides pfams attributes",
           code = {
-            expect_match(as.character(parse_drug_targets_polypeptides_pfams(FALSE)[["name"]][1]),
+            expect_match(as.character(parse_drug_targets_polypeptides_pfams()[["name"]][1]),
                          "Gla")
-            expect_error(parse_drug_targets_polypeptides_pfams())
+            expect_error(parse_drug_targets_polypeptides_pfams(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides go classifiers attributes",
           code = {
             expect_match(
-              as.character(parse_drug_targets_polypeptides_go_classifiers(FALSE)[["description"]][1]),
+              as.character(parse_drug_targets_polypeptides_go_classifiers()[["description"]][1]),
               "blood microparticle"
             )
-            expect_error(parse_drug_targets_polypeptides_go_classifiers())
+            expect_error(parse_drug_targets_polypeptides_go_classifiers(TRUE))
           })
 
 test_that(desc = "Read darug targets attributes",
           code = {
-            expect_match(as.character(parse_drug_targets(FALSE)[["name"]][1]),
+            expect_match(as.character(parse_drug_targets()[["name"]][1]),
                          "Prothrombin")
-            expect_error(parse_drug_targets())
+            expect_error(parse_drug_targets(TRUE))
           })

@@ -16,14 +16,14 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug reactions attributes",
           code = {
-            expect_equal(nrow(parse_drug_reactions(FALSE)),
+            expect_equal(nrow(parse_drug_reactions()),
                          0)
-            expect_error(parse_drug_reactions())
+            expect_error(parse_drug_reactions(TRUE))
           })
 
 test_that(desc = "Read darug reactions enzymes attributes",
           code = {
-            expect_equal(nrow(parse_drug_reactions_enzymes(FALSE)),
+            expect_equal(nrow(parse_drug_reactions_enzymes()),
                          0)
-            expect_error(parse_drug_reactions_enzymes())
+            expect_error(parse_drug_reactions_enzymes(TRUE))
           })

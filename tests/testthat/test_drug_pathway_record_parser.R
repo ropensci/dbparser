@@ -16,21 +16,21 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug pathway attributes",
           code = {
-            expect_match(as.character(parse_drug_pathway(FALSE)[["name"]][[1]]),
+            expect_match(as.character(parse_drug_pathway()[["name"]][[1]]),
                          "Lepirudin Action Pathway")
-            expect_error(parse_drug_pathway())
+            expect_error(parse_drug_pathway(TRUE))
           })
 
 test_that(desc = "Read darug pathway drugs attributes",
           code = {
-            expect_match(as.character(parse_drug_pathway_drugs(FALSE)[["name"]][[1]]),
+            expect_match(as.character(parse_drug_pathway_drugs()[["name"]][[1]]),
                          "Lepirudin")
-            expect_error(parse_drug_pathway_drugs())
+            expect_error(parse_drug_pathway_drugs(TRUE))
           })
 
 test_that(desc = "Read darug pathway enzyme attributes",
           code = {
-            expect_match(as.character(parse_drug_pathway_enzyme(FALSE)[["text"]][[1]]),
+            expect_match(as.character(parse_drug_pathway_enzyme()[["text"]][[1]]),
                          "P00734")
-            expect_error(parse_drug_pathway_enzyme())
+            expect_error(parse_drug_pathway_enzyme(TRUE))
           })

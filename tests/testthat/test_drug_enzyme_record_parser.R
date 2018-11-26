@@ -15,74 +15,74 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug enzymes attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes()),
                          0)
-            expect_error(parse_drug_enzymes())
+            expect_error(parse_drug_enzymes(TRUE))
           })
 
 test_that(desc = "Read darug enzymes actions attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_actions(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_actions()),
                          0)
-            expect_error(parse_drug_enzymes_actions())
+            expect_error(parse_drug_enzymes_actions(TRUE))
           })
 
 test_that(desc = "Read darug enzymes articles attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_articles(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_articles()),
                          0)
-            expect_error(parse_drug_enzymes_articles())
+            expect_error(parse_drug_enzymes_articles(TRUE))
           })
 
 
 test_that(desc = "Read darug enzymes textbooks attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_textbooks(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_textbooks()),
                          0)
-            expect_error(parse_drug_enzymes_textbooks())
+            expect_error(parse_drug_enzymes_textbooks(TRUE))
           })
 
 test_that(desc = "Read darug enzymes links attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_links(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_links()),
                          0)
-            expect_error(parse_drug_enzymes_links())
+            expect_error(parse_drug_enzymes_links(TRUE))
           })
 
 test_that(desc = "Read darug enzymes polypeptides attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_polypeptides(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_polypeptides()),
                          0)
-            expect_error(parse_drug_enzymes_polypeptides())
+            expect_error(parse_drug_enzymes_polypeptides(TRUE))
           })
 
 test_that(desc = "Read darug enzymes polypeptides external identifiers attributes",
           code = {
             expect_equal(nrow(
-              parse_drug_enzymes_polypeptides_external_identifiers(FALSE)
+              parse_drug_enzymes_polypeptides_external_identifiers()
             ),
             0)
-            expect_error(parse_drug_enzymes_polypeptides_external_identifiers())
+            expect_error(parse_drug_enzymes_polypeptides_external_identifiers(TRUE))
           })
 
 
 test_that(desc = "Read darug enzymes polypeptides synonyms attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_polypeptides_synonyms(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_polypeptides_synonyms()),
                          0)
-            expect_error(parse_drug_enzymes_polypeptides_synonyms())
+            expect_error(parse_drug_enzymes_polypeptides_synonyms(TRUE))
           })
 
 test_that(desc = "Read darug enzymes polypeptides pfams attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_polypeptides_pfams(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_polypeptides_pfams()),
                          0)
-            expect_error(parse_drug_enzymes_polypeptides_pfams())
+            expect_error(parse_drug_enzymes_polypeptides_pfams(TRUE))
           })
 
 test_that(desc = "Read darug enzymes polypeptides go classifiers attributes",
           code = {
-            expect_equal(nrow(parse_drug_enzymes_polypeptides_go_classifiers(FALSE)),
+            expect_equal(nrow(parse_drug_enzymes_polypeptides_go_classifiers()),
                          0)
-            expect_error(parse_drug_enzymes_polypeptides_go_classifiers())
+            expect_error(parse_drug_enzymes_polypeptides_go_classifiers(TRUE))
           })

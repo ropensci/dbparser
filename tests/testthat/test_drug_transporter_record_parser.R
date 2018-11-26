@@ -15,74 +15,74 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug transporters actions attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_actions(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_actions()),
                          0)
-            expect_error(parse_drug_transporters_actions())
+            expect_error(parse_drug_transporters_actions(TRUE))
           })
 
 test_that(desc = "Read darug transporters_articles attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_articles(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_articles()),
                          0)
-            expect_error(parse_drug_transporters_articlese())
+            expect_error(parse_drug_transporters_articlese(TRUE))
           })
 
 test_that(desc = "Read darug transporters textbooks attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_textbooks(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_textbooks()),
                          0)
-            expect_error(parse_drug_transporters_textbooks())
+            expect_error(parse_drug_transporters_textbooks(TRUE))
           })
 
 test_that(desc = "Read darug transporters links attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_links(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_links()),
                          0)
-            expect_error(parse_drug_transporters_links())
+            expect_error(parse_drug_transporters_links(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_polypeptides()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides())
+            expect_error(parse_drug_transporters_polypeptides(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides external identifiers attributes",
           code = {
             expect_equal(nrow(
-              parse_drug_transporters_polypeptides_external_identifiers(FALSE)
+              parse_drug_transporters_polypeptides_external_identifiers()
             ),
             0)
-            expect_error(parse_drug_transporters_polypeptides_external_identifiers())
+            expect_error(parse_drug_transporters_polypeptides_external_identifiers(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides synonyms attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides_synonyms(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_polypeptides_synonyms()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides_synonyms())
+            expect_error(parse_drug_transporters_polypeptides_synonyms(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides pfams attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides_pfams(FALSE)),
+            expect_equal(nrow(parse_drug_transporters_polypeptides_pfams()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides_pfams())
+            expect_error(parse_drug_transporters_polypeptides_pfams(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides go classifiers attributes",
           code = {
             expect_equal(nrow(
-              parse_drug_transporters_polypeptides_go_classifiers(FALSE)
+              parse_drug_transporters_polypeptides_go_classifiers()
             ),
             0)
-            expect_error(parse_drug_transporters_polypeptides_go_classifiers())
+            expect_error(parse_drug_transporters_polypeptides_go_classifiers(TRUE))
           })
 
 test_that(desc = "Read darug transporters attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters(FALSE)),
+            expect_equal(nrow(parse_drug_transporters()),
                          0)
-            expect_error(parse_drug_transporters())
+            expect_error(parse_drug_transporters(TRUE))
           })
