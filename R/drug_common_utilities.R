@@ -12,9 +12,9 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
         df <- map_df(rec[main_node], xmlValue)
     } else {
         if (is.null(seconadary_node) && !is.null(rec[[main_node]])) {
-            df <- xmlToDataFrame(rec[[main_node]])
+            df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
         } else {
-            df <- xmlToDataFrame(rec[[main_node]][[seconadary_node]])
+            df <- xmlToDataFrame(rec[[main_node]][[seconadary_node]], stringsAsFactors = FALSE)
         }
 
     }

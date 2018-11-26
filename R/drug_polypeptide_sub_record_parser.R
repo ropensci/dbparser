@@ -39,7 +39,7 @@ get_polypeptide_external_identifiers <- function(r) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA, xmlGetAttr(p, name = "id"))
     polypeptide_external_identifiers <-
-      xmlToDataFrame(p[["external-identifiers"]])
+      xmlToDataFrame(p[["external-identifiers"]], stringsAsFactors = FALSE)
     polypeptide_external_identifiers$polypeptide_id <-
       polypeptide_id
     return(polypeptide_external_identifiers)
@@ -68,7 +68,7 @@ get_polypeptide_pfams <- function(r) {
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA, xmlGetAttr(p, name = "id"))
     firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
     if (firstCell != "\n    ") {
-      polypeptide_pfams <- xmlToDataFrame(xmlChildren(p[["pfams"]]))
+      polypeptide_pfams <- xmlToDataFrame(xmlChildren(p[["pfams"]]), stringsAsFactors = FALSE)
       polypeptide_pfams$polypeptide_id <- polypeptide_id
       return(polypeptide_pfams)
     }
@@ -86,7 +86,7 @@ get_polypeptide_go_classifiers <- function(r) {
         !is.null(p[["go-classifiers"]]) &&
         xmlValue(p[["go-classifiers"]]) != "\n    ") {
       polypeptide_go_classifiers <-
-        xmlToDataFrame(xmlChildren(p[["go-classifiers"]]))
+        xmlToDataFrame(xmlChildren(p[["go-classifiers"]]), stringsAsFactors = FALSE)
       polypeptide_go_classifiers$polypeptide_id <-
         polypeptide_id
       return(polypeptide_go_classifiers)
