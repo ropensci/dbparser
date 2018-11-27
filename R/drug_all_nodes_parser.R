@@ -19,7 +19,7 @@
 #' parse_drug_all(TRUE)
 #' parse_drug_all(save_table = FALSE)
 #' @export
-parse_drug <- function(save_table = FALSE) {
+parse_drug_all <- function(save_table = FALSE) {
   drugs <- parse_drug(save_table)
   print("Parsed drugs main attributes, 1/72")
   drug_groups <- parse_drug_groups(save_table)
@@ -62,7 +62,7 @@ parse_drug <- function(save_table = FALSE) {
     parse_drug_experimental_properties(save_table)
   print("Parsed drug_external_identifiers, 19/72")
   drug_external_links <- parse_drug_external_links(save_table)
-  print("Parsed   drug_external_links, 20/72")
+  print("Parsed drug_external_links, 20/72")
   drug_snp_effects <- parse_drug_snp_effects(save_table)
   print("Parsed drug_snp_effects, 21/72")
   drug_snp_adverse_drug_reactions <-
@@ -97,7 +97,7 @@ parse_drug <- function(save_table = FALSE) {
   drug_carriers <- parse_drug_carriers(save_table)
   print("Parsed drug_carriers, 33/72")
   classficationsparse_drug_classfications <-
-    drug_classficationsparse_drug_classfications(save_table)
+    parse_drug_classfications(save_table)
   print("Parsed drugs main attributes, 34/72")
   drug_enzymes_actions <- parse_drug_enzymes_actions(save_table)
   print("Parsed drug_enzymes_actions, 35/72")
@@ -161,7 +161,7 @@ parse_drug <- function(save_table = FALSE) {
   drug_targets_links <- parse_drug_targets_links(save_table)
   print("Parsed drug_targets_links, 60/72")
   drug_targets_polypeptide <-
-    parse_drug_targets_polypeptide(save_table)
+    parse_drug_targets_polypeptides(save_table)
   print("Parsed drug_targets_polypeptide, 61/72")
   drug_targets <- parse_drug_targets(save_table)
   print("Parsed drug_targets, 62/72")
