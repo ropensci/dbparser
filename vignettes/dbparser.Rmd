@@ -47,14 +47,6 @@ drug_targets_actions <- parse_drug_targets_actions()
 
 
 
-
-----------------------------
-Note the various macros within the `vignette` section of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
-----------------------------
-
-
-
-
 ## Saving into a database
 
 The parsed data may be saved into a given database. Databases supported by 
@@ -63,40 +55,34 @@ parsed data into a MySQL database.
 
 ```{r}
 ## save 'drugs' dataframe to DB
-parse_drug(TRUE)
+# parse_drug(TRUE)
 
 ## save 'drug_groups' dataframe to DB
-parse_drug_groups(TRUE)
+# parse_drug_groups(TRUE)
 
 ## save 'drug_targets_actions' dataframe to DB
-parse_drug_targets_actions(TRUE)
+# parse_drug_targets_actions(TRUE)
 ```
-
-
-
-
-----------------------------
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-----------------------------
-
 
 
 
 ## Exploring the data
 
-Following is an example involving a quick look at a few aspects of the parsed data.
+Following is an example involving a quick look at a few aspects of the parsed 
+data. First we look at the proportions of `biotech` and `small-molecule` drugs 
+in the data.
 
 ```{r}
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
-    ggplot(aes(x = type, fill = type)) + 
-    geom_bar()
+    ggplot(aes(x = type)) + 
+    geom_bar() + 
+    guides(fill=FALSE)     ## removes legend for the bar colors
 ```
+
+Below, we view the different `drug_groups` in the data and how prevalent they 
+are.
 
 ```{r}
 ## view proportions of the different drug types for each drug group
@@ -106,12 +92,16 @@ drugs %>%
     select(type, text) %>% 
     ggplot(aes(x = text, fill = type)) + 
     geom_bar() + 
+    theme(legend.position= 'bottom') + 
     labs(x = 'Drug Group', 
          y = 'Quantity', 
          title="Drug Type Distribution per Drug Group", 
          caption="created by ggplot") + 
     coord_flip()
 ```
+
+Finally, we look at the `drug_targets_actions` to observe their proportions as 
+well.
 
 ```{r}
 ## get counts of the different target actions in the data
@@ -125,56 +115,18 @@ targetActionCounts <-
 p <- 
     ggplot(targetActionCounts[1:10,], 
            aes(x = reorder(text,count), y = count, fill = letters[1:10])) + 
-    geom_bar(stat = "identity") +
-    theme(axis.line = element_blank(), 
-          plot.title = element_text(hjust=0.5), 
-          plot.subtitle = element_text(hjust=0.5)) + 
-    labs(fill="action", 
+    geom_bar(stat = 'identity') +
+    labs(fill = 'action', 
          x = 'Target Action', 
          y = 'Quantity', 
-         title="Target Actions Distribution", 
+         title = 'Target Actions Distribution', 
          subtitle = 'Distribution of Target Actions in the Data',
-         caption="created by ggplot") + 
-    guides(fill=FALSE) +    ## removes legend for the bar colors
-    coord_flip()            ## switches the X and Y axes
+         caption = 'created by ggplot') + 
+    guides(fill = FALSE) +    ## removes legend for the bar colors
+    coord_flip()              ## switches the X and Y axes
 
 ## display plot
 p
 ```
-
-
-
-
-----------------------------
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
-
-## More Examples
-
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
-
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
-```
-
-Also a quote using `>`:
-
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
-
-----------------------------
-
 
 
