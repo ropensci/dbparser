@@ -87,7 +87,7 @@ parse_drug_all <- function(save_table = FALSE) {
   print("Parsed drug_carriers_polypeptides_external_identifiers, 29/72")
   drug_carriers_polypeptides_synonyms <-
     parse_drug_carriers_polypeptides_synonyms(save_table)
-  print("Parsed carriers_polypeptides_synonyms, 30/72")
+  print("Parsed drug_carriers_polypeptides_synonyms, 30/72")
   drug_carriers_polypeptides_pfams <-
     parse_drug_carriers_polypeptides_pfams(save_table)
   print("Parsed drug_carriers_polypeptides_pfams, 31/72")
@@ -131,7 +131,7 @@ parse_drug_all <- function(save_table = FALSE) {
   drug_pathway_drugs <- parse_drug_pathway_drugs(save_table)
   print("Parsed drug_pathway_drugs, 47/72")
   drug_pathway <- parse_drug_pathway(save_table)
-  print("Parsed parse_drug_pathway, 48/72")
+  print("Parsed drug_pathway, 48/72")
   drug_prices <- parse_drug_prices(save_table)
   print("Parsed drug_prices, 49/72")
   drug_reactions <- parse_drug_reactions(save_table)
@@ -153,7 +153,7 @@ parse_drug_all <- function(save_table = FALSE) {
     parse_drug_targets_polypeptides_go_classifiers(save_table)
   print("Parsed drug_targets_polypeptides_go_classifiers attributes, 56/72")
   drug_targets_actions <- parse_drug_targets_actions(save_table)
-  print("Parsed targets_actions, 57/72")
+  print("Parsed drug_targets_actions, 57/72")
   drug_targets_articles <- parse_drug_targets_articles(save_table)
   print("Parsed drug_targets_articles, 58/72")
   drug_targets_textbooks <- parse_drug_targets_textbooks(save_table)
