@@ -10,7 +10,7 @@ parse_drug_all(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug main node attributs data frame
+all drug elements dataframes
 }
 \description{
 \code{parse_drug_all} returns list of dataframes of drugs elements.

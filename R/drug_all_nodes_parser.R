@@ -298,7 +298,8 @@ parse_drug_all <- function(save_table = FALSE) {
 #' parse_drug_element_options can be called to know the valid options for
 #' this method
 #'
-#' @param save_table boolean, save table in database if true.
+#' @param save_table boolean, save table in database if true. Default is false.
+#' @param elements_options list,  options of elements to be parsed. Default is "all"
 #' @return list of selected drug elements dataframes
 #'
 #' @examples
@@ -307,7 +308,7 @@ parse_drug_all <- function(save_table = FALSE) {
 #' parse_drug_element(save_table = FALSE)
 #' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
 #' @export
-parse_drug_element(elements_options = c("all"), save_table = FALSE) {
+parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) {
   if (!elements_options %in% parse_drug_element_options()) {
     message("Invalid options\nplease use parse_drug_element_options() to know valid options")
     return()
