@@ -309,7 +309,7 @@ parse_drug_all <- function(save_table = FALSE) {
 #' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
 #' @export
 parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) {
-  if (!elements_options %in% parse_drug_element_options()) {
+  if (!all(elements_options %in% parse_drug_element_options())) {
     message("Invalid options\nplease use parse_drug_element_options() to know valid options")
     return()
   }
@@ -319,7 +319,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
   }
   parsed_list <- list()
   for (option in elements_options) {
-    parsed_element <- swtich (
+    parsed_element <- switch (
       option,
       "drugs" = parse_drug(save_table),
       "drug_affected_organisms" = parse_drug_affected_organisms(save_table),
@@ -402,7 +402,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
       "drug_transporters_polypeptides_synonyms" = parse_drug_transporters_polypeptides_synonyms(save_table),
       "drug_transporters_textbooks" = parse_drug_transporters_textbooks(save_table)
     )
-    parsed_list <- append(parsed_list, parsed_element)
+    parsed_list[[option]] <- parsed_element
     print(paste("Parsed", option))
   }
   return(parsed_list)
