@@ -12,7 +12,7 @@
 #' no need to call it again before calling this funtion.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug main node attributs data frame
+#' @return all drug elements dataframes
 #'
 #' @examples
 #' parse_drug_all()
@@ -280,4 +280,117 @@ parse_drug_all <- function(save_table = FALSE) {
 
     )
   )
+}
+
+#' Extracts the given drug elements and return data as list of dataframes.
+#'
+#' \code{parse_drug_element} returns list of dataframes of drugs selected elements.
+#'
+#' This functions extracts selected element of drug nodes in drug bank
+#' xml database with the option to save it in a predefined database via
+#' \code{\link{open_db}} method. It takes one single optional argument to
+#' save the returned dataframe in the database.
+#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' any other parser function.
+#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' no need to call it again before calling this funtion.
+#'
+#' parse_drug_element_options can be called to know the valid options for
+#' this method
+#'
+#' @param save_table boolean, save table in database if true.
+#' @return list of selected drug elements dataframes
+#'
+#' @examples
+#' parse_drug_element()
+#' parse_drug_element()
+#' parse_drug_element(save_table = FALSE)
+#' @export
+
+
+#' Returns \code{parse_drug_element} valid options.
+#'
+#' @return list of \code{parse_drug_element} valid options
+#'
+#' @examples
+#' parse_drug_element_options()
+#' @export
+parse_drug_element_options <- function() {
+  elements_options <-
+    c(
+      "all",
+      "drugs",
+      "drug_affected_organisms",
+      "drug_ahfs_codes",
+      "drug_articles",
+      "drug_atc_codes",
+      "drug_books",
+      "drug_carriers",
+      "drug_carriers_actions",
+      "drug_carriers_articles",
+      "drug_carriers_links",
+      "drug_carriers_polypeptides",
+      "drug_carriers_polypeptides_external_identifiers",
+      "drug_carriers_polypeptides_go_classifiers",
+      "drug_carriers_polypeptides_pfams",
+      "drug_carriers_polypeptides_synonyms",
+      "drug_carriers_textbooks",
+      "drug_categories",
+      "drug_classfications",
+      "drug_dosages",
+      "drug_enzymes",
+      "drug_enzymes_actions",
+      "drug_enzymes_articles",
+      "drug_enzymes_links",
+      "drug_enzymes_polypeptides",
+      "drug_enzymes_polypeptides_external_identifiers",
+      "drug_enzymes_polypeptides_go_classifiers",
+      "drug_enzymes_polypeptides_pfams",
+      "drug_enzymes_polypeptides_synonyms",
+      "drug_enzymes_textbooks",
+      "drug_experimental_properties",
+      "drug_external_identifiers",
+      "drug_external_links",
+      "drug_food_interactions",
+      "drug_groups",
+      "drug_interactions",
+      "drug_links",
+      "drug_manufacturers",
+      "drug_mixtures",
+      "drug_packagers",
+      "drug_patents",
+      "drug_pathway",
+      "drug_pathway_drugs",
+      "drug_pathway_enzyme",
+      "drug_pdb_entries",
+      "drug_prices",
+      "drug_products",
+      "drug_reactions",
+      "drug_reactions_enzymes",
+      "drug_sequences",
+      "drug_snp_adverse_drug_reactions",
+      "drug_snp_effects",
+      "drug_synonyms",
+      "drug_targets",
+      "drug_targets_actions",
+      "drug_targets_articles",
+      "drug_targets_links",
+      "drug_targets_polypeptides",
+      "drug_targets_polypeptides_external_identifiers",
+      "drug_targets_polypeptides_go_classifiers",
+      "drug_targets_polypeptides_pfams",
+      "drug_targets_polypeptides_synonyms",
+      "drug_targets_textbooks",
+      "drug_transporters",
+      "drug_transporters_actions",
+      "drug_transporters_articles",
+      "drug_transporters_links",
+      "drug_transporters_polypeptides",
+      "transporters_polypeptides_external_identifiers",
+      "drug_transporters_polypeptides_go_classifiers",
+      "drug_transporters_polypeptides_pfams",
+      "drug_transporters_polypeptides_synonyms",
+      "drug_transporters_textbooks"
+    )
+  return(elements_options)
 }
