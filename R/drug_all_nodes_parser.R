@@ -303,10 +303,109 @@ parse_drug_all <- function(save_table = FALSE) {
 #'
 #' @examples
 #' parse_drug_element()
-#' parse_drug_element()
+#' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
 #' parse_drug_element(save_table = FALSE)
+#' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
 #' @export
+parse_drug_element(elements_options = c("all"), save_table = FALSE) {
+  if (!elements_options %in% parse_drug_element_options()) {
+    message("Invalid options\nplease use parse_drug_element_options() to know valid options")
+    return()
+  }
 
+  if ("all" %in% elements_options) {
+    return(parse_drug_all(save_table = save_table))
+  }
+  parsed_list <- list()
+  for (option in elements_options) {
+    parsed_element <- swtich (
+      option,
+      "drugs" = parse_drug(save_table),
+      "drug_affected_organisms" = parse_drug_affected_organisms(save_table),
+      "drug_ahfs_codes" = parse_drug_ahfs_codes(save_table),
+      "drug_articles" = parse_drug_articles(save_table),
+      "drug_atc_codes" = parse_drug_atc_codes(save_table),
+      "drug_books" = parse_drug_books(save_table),
+      "drug_carriers" = parse_drug_carriers(save_table),
+      "drug_carriers_actions" = parse_drug_carriers_actions(save_table),
+      "drug_carriers_articles" = parse_drug_carriers_articles(save_table),
+      "drug_carriers_links" = parse_drug_carriers_links(save_table),
+      "drug_carriers_polypeptides" = parse_drug_carriers_polypeptides(save_table),
+      "drug_carriers_polypeptides_external_identifiers" =
+        parse_drug_carriers_polypeptides_external_identifiers(save_table),
+      "drug_carriers_polypeptides_go_classifiers" =
+        parse_drug_carriers_polypeptides_go_classifiers(save_table),
+      "drug_carriers_polypeptides_pfams" = parse_drug_carriers_polypeptides_pfams(save_table),
+      "drug_carriers_polypeptides_synonyms" = parse_drug_carriers_polypeptides_synonyms(save_table),
+      "drug_carriers_textbooks" = parse_drug_carriers_textbooks(save_table),
+      "drug_categories" = parse_drug_carriers(save_table),
+      "drug_classfications" = parse_drug_classfications(save_table),
+      "drug_dosages" = parse_drug_dosages(save_table),
+      "drug_enzymes" = parse_drug_enzymes(save_table),
+      "drug_enzymes_actions" = parse_drug_enzymes_actions(save_table),
+      "drug_enzymes_articles" = parse_drug_enzymes_articles(save_table),
+      "drug_enzymes_links" = parse_drug_enzymes_links(save_table),
+      "drug_enzymes_polypeptides" = parse_drug_enzymes_polypeptides(save_table),
+      "drug_enzymes_polypeptides_external_identifiers" =
+        parse_drug_enzymes_polypeptides_external_identifiers(save_table),
+      "drug_enzymes_polypeptides_go_classifiers" =
+        parse_drug_enzymes_polypeptides_go_classifiers(save_table),
+      "drug_enzymes_polypeptides_pfams" = parse_drug_enzymes_polypeptides_pfams(save_table),
+      "drug_enzymes_polypeptides_synonyms" = parse_drug_enzymes_polypeptides_synonyms(save_table),
+      "drug_enzymes_textbooks" = parse_drug_enzymes_textbooks(save_table),
+      "drug_experimental_properties" = parse_drug_experimental_properties(save_table),
+      "drug_external_identifiers" = parse_drug_external_identifiers(save_table),
+      "drug_external_links" = parse_drug_external_links(save_table),
+      "drug_food_interactions" = parse_drug_food_interactions(save_table),
+      "drug_groups" = parse_drug_groups(save_table),
+      "drug_interactions" = parse_drug_interactions(save_table),
+      "drug_links" = parse_drug_interactions(save_table),
+      "drug_manufacturers" = parse_drug_manufacturers(save_table),
+      "drug_mixtures" = parse_drug_mixtures(save_table),
+      "drug_packagers" = parse_drug_packagers(save_table),
+      "drug_patents" = parse_drug_patents(save_table),
+      "drug_pathway" = parse_drug_pathway(save_table),
+      "drug_pathway_drugs" = parse_drug_pathway_drugsy(save_table),
+      "drug_pathway_enzyme" = parse_drug_pathway_enzyme(save_table),
+      "drug_pdb_entries" = parse_drug_pdb_entries(save_table),
+      "drug_prices" = parse_drug_prices(save_table),
+      "drug_products" = parse_drug_products(save_table),
+      "drug_reactions" = parse_drug_reactions(save_table),
+      "drug_reactions_enzymes" = parse_drug_reactions_enzymes(save_table),
+      "drug_sequences" = parse_drug_sequences(save_table),
+      "drug_snp_adverse_drug_reactions" = parse_drug_snp_adverse_drug_reactions(save_table),
+      "drug_snp_effects" = parse_drug_snp_effects(save_table),
+      "drug_synonyms" = parse_drug_synonyms(save_table),
+      "drug_targets" = parse_drug_targets(save_table),
+      "drug_targets_actions" = parse_drug_targets_actions(save_table),
+      "drug_targets_articles" = parse_drug_targets_articles(save_table),
+      "drug_targets_links" = parse_drug_targets_links(save_table),
+      "drug_targets_polypeptides" = parse_drug_targets_polypeptides(save_table),
+      "drug_targets_polypeptides_external_identifiers" =
+        parse_drug_targets_polypeptides_external_identifiers(save_table),
+      "drug_targets_polypeptides_go_classifiers" =
+        parse_drug_targets_polypeptides_go_classifiers(save_table),
+      "drug_targets_polypeptides_pfams" = parse_drug_targets_polypeptides_pfams(save_table),
+      "drug_targets_polypeptides_synonyms" = parse_drug_targets_polypeptides_synonyms(save_table),
+      "drug_targets_textbooks" = parse_drug_targets_textbooks(save_table),
+      "drug_transporters" = parse_drug_transporters(save_table),
+      "drug_transporters_actions" = parse_drug_transporters_actions(save_table),
+      "drug_transporters_articles" = parse_drug_targets_articles(save_table),
+      "drug_transporters_links" = parse_drug_transporters_links(save_table),
+      "drug_transporters_polypeptides" = parse_drug_enzymes_polypeptides(save_table),
+      "drug_transporters_polypeptides_external_identifiers" =
+        parse_drug_transporters_polypeptides_external_identifiers(save_table),
+      "drug_transporters_polypeptides_go_classifiers" =
+        parse_drug_transporters_polypeptides_go_classifiers(save_table),
+      "drug_transporters_polypeptides_pfams" = parse_drug_transporters_polypeptides_pfams(save_table),
+      "drug_transporters_polypeptides_synonyms" = parse_drug_transporters_polypeptides_synonyms(save_table),
+      "drug_transporters_textbooks" = parse_drug_transporters_textbooks(save_table)
+    )
+    parsed_list <- append(parsed_list, parsed_element)
+    print(paste("Parsed", option))
+  }
+  return(parsed_list)
+}
 
 #' Returns \code{parse_drug_element} valid options.
 #'
@@ -386,7 +485,7 @@ parse_drug_element_options <- function() {
       "drug_transporters_articles",
       "drug_transporters_links",
       "drug_transporters_polypeptides",
-      "transporters_polypeptides_external_identifiers",
+      "drug_transporters_polypeptides_external_identifiers",
       "drug_transporters_polypeptides_go_classifiers",
       "drug_transporters_polypeptides_pfams",
       "drug_transporters_polypeptides_synonyms",
