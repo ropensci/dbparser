@@ -366,7 +366,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
       "drug_packagers" = parse_drug_packagers(save_table),
       "drug_patents" = parse_drug_patents(save_table),
       "drug_pathway" = parse_drug_pathway(save_table),
-      "drug_pathway_drugs" = parse_drug_pathway_drugsy(save_table),
+      "drug_pathway_drugs" = parse_drug_pathway_drugs(save_table),
       "drug_pathway_enzyme" = parse_drug_pathway_enzyme(save_table),
       "drug_pdb_entries" = parse_drug_pdb_entries(save_table),
       "drug_prices" = parse_drug_prices(save_table),
