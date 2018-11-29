@@ -1,6 +1,8 @@
 pkg.env <- new.env(parent = emptyenv())
 pkg.env$children  <- NULL
 pkg.env$con <- NULL
+pkg.env$version <- NULL
+pkg.env$exported_date <- NULL
 
 drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-id", byValue = FALSE) {
     parent_key <- NULL
@@ -50,6 +52,8 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 get_xml_db_rows <- function(xml_db_name) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)
+    pkg.env$version <- xmlAttrs(top)[["version"]]
+    pkg.env$exported_date <- xmlAttrs(top)[["exported-on"]]
     pkg.env$children  <- xmlChildren(top)
     return(TRUE)
 }
