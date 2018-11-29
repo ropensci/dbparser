@@ -5,20 +5,13 @@
 \title{Return uploaded drugbank database exported date}
 \usage{
 get_drugbank_exported_date()
-
-get_drugbank_exported_date()
 }
 \value{
 drugbank exported date
-
-drugbank metadata
 }
 \description{
 \code{get_drugbank_exported_date} returns uploaded drugbank database exported date.
-
-\code{get_drugbank_metadata} returns uploaded drugbank database version and exported date.
 }
 \examples{
 get_drugbank_exported_date()
-get_drugbank_metadata()
 }

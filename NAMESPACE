@@ -2,6 +2,7 @@
 
 export(close_db)
 export(get_drugbank_exported_date)
+export(get_drugbank_metadata)
 export(get_drugbank_version)
 export(get_xml_db_rows)
 export(open_db)
