@@ -1,5 +1,5 @@
 Package: dbparser
-Title: Drug bank xml db parser and database saver
+Title: DrugBank Database XML Parser
 Version: 0.0.0.9000
 Authors@R:
     c(

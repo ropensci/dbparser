@@ -1,6 +1,6 @@
 #' dbparser: A package for reading and parsing drug bank xml with the option to save it in a given db.
 #'
-#' The foo package provides three categories of important functions:
+#' dbparser package provides three categories of important functions:
 #' database related methods, xml db reader and drug bank elements parsers.
 #'
 #' @section database functions:
