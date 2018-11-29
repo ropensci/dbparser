@@ -1,5 +1,5 @@
 ---
-title: "DrugBank Parser"
+title: "DrugBank Database XML Parser"
 author: "Mohammed Ali, Ali Ezzat"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
@@ -31,9 +31,12 @@ drugs info, drug groups info and drug targets actions info.
 ## load dbparser package
 library(dbparser)
 library(tidyverse)
+library(XML)
 
 ## parse data from XML and save it to memory
-get_xml_db_rows('../full database.xml')
+get_xml_db_rows(
+              system.file("extdata", "drugbank_record.xml", package = "dbparser")
+            )
 
 ## load drugs data
 drugs <- parse_drug()
@@ -50,10 +53,17 @@ drug_targets_actions <- parse_drug_targets_actions()
 ## Saving into a database
 
 The parsed data may be saved into a given database. Databases supported by 
-`dbparser` include ???, ??? and ???. Following is an example of saving the 
+`dbparser` include MS SQL Server, MySQL and any database subbported by `DBI` package. 
+Following is an example of saving the 
 parsed data into a MySQL database.
 
 ```{r}
+
+## open a connection to the desired database engine with an already
+## created database
+# open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+# server = "MOHAMMED\\\\SQL2016", output_database = "drugbank")
+
 ## save 'drugs' dataframe to DB
 # parse_drug(TRUE)
 
@@ -62,6 +72,9 @@ parsed data into a MySQL database.
 
 ## save 'drug_targets_actions' dataframe to DB
 # parse_drug_targets_actions(TRUE)
+
+## finally close db connection 
+#close_db()
 ```
 
 
