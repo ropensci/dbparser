@@ -13,5 +13,7 @@ drugbank version
 \code{get_drugbank_version} returns uploaded drugbank database version.
 }
 \examples{
+\dontrun{
 get_drugbank_version()
+}
 }

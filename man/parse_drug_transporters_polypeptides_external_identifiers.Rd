@@ -32,7 +32,9 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this funtion.
 }
 \examples{
+\dontrun{
 parse_drug_transporters_polypeptides_external_identifiers()
 parse_drug_transporters_polypeptides_external_identifiers(TRUE)
 parse_drug_transporters_polypeptides_external_identifiers(save_table = FALSE)
+}
 }

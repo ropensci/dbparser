@@ -29,9 +29,11 @@ get_manufactures_df <- function(rec) {
 #' @return drug manufacturers node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_manufacturers()
 #' parse_drug_manufacturers(TRUE)
 #' parse_drug_manufacturers(save_table = FALSE)
+#' }
 #' @export
 parse_drug_manufacturers <- function(save_table = FALSE) {
   drug_manufacturers <-

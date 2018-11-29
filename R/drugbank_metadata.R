@@ -5,7 +5,9 @@
 #' @return drugbank version
 #'
 #' @examples
+#' \dontrun{
 #' get_drugbank_version()
+#' }
 #' @export
 get_drugbank_version <- function() {
   return(pkg.env$version)
@@ -18,7 +20,9 @@ get_drugbank_version <- function() {
 #' @return drugbank exported date
 #'
 #' @examples
+#' \dontrun{
 #' get_drugbank_exported_date()
+#' }
 #' @export
 get_drugbank_exported_date <- function() {
   return(pkg.env$exported_date)
@@ -32,7 +36,9 @@ get_drugbank_exported_date <- function() {
 #' @return drugbank metadata
 #'
 #' @examples
+#' \dontrun{
 #' get_drugbank_metadata()
+#' }
 #' @export
 get_drugbank_metadata <- function() {
   return(list(pkg.env$version, pkg.env$exported_date))

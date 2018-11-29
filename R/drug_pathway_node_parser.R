@@ -44,9 +44,11 @@ get_pathways_enzymes_df <- function(rec) {
 #' @return drug pathway enzyme node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_pathway_enzyme()
 #' parse_drug_pathway_enzyme(TRUE)
 #' parse_drug_pathway_enzyme(save_table = FALSE)
+#' }
 #' @export
 parse_drug_pathway_enzyme <- function(save_table = FALSE) {
   drug_pathway_enzymes <-
@@ -79,9 +81,11 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE) {
 #' @return drug pathway drugs node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_pathway_drugs()
 #' parse_drug_pathway_drugs(TRUE)
 #' parse_drug_pathway_drugs(save_table = FALSE)
+#' }
 #' @export
 parse_drug_pathway_drugs <- function(save_table = FALSE) {
   drug_pathway_drugs <- map_df(pkg.env$children, ~ get_pathways_drugs_df(.x))
@@ -113,9 +117,11 @@ parse_drug_pathway_drugs <- function(save_table = FALSE) {
 #' @return drug pathway node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_pathway()
 #' parse_drug_pathway(TRUE)
 #' parse_drug_pathway(save_table = FALSE)
+#' }
 #' @export
 parse_drug_pathway <- function(save_table = FALSE) {
   drug_pathway <- map_df(pkg.env$children, ~ get_pathways_df(.x))

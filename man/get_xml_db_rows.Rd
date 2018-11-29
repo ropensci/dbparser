@@ -26,6 +26,8 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again.
 }
 \examples{
+\dontrun{
 get_xml_db_rows("db_full_path")
 get_xml_db_rows(xml_db_name = "db_full_path")
+}
 }

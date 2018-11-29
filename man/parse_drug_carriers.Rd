@@ -26,7 +26,9 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this funtion.
 }
 \examples{
+\dontrun{
 parse_drug_carriers()
 parse_drug_carriers(TRUE)
 parse_drug_carriers(save_table = FALSE)
+}
 }

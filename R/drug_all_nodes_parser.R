@@ -15,9 +15,11 @@
 #' @return all drug elements dataframes
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_all()
 #' parse_drug_all(TRUE)
 #' parse_drug_all(save_table = FALSE)
+#' }
 #' @export
 parse_drug_all <- function(save_table = FALSE) {
   drugs <- parse_drug(save_table)
@@ -303,10 +305,12 @@ parse_drug_all <- function(save_table = FALSE) {
 #' @return list of selected drug elements dataframes
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_element()
 #' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
 #' parse_drug_element(save_table = FALSE)
 #' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
+#' }
 #' @export
 parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) {
   if (!all(elements_options %in% parse_drug_element_options())) {
@@ -413,7 +417,9 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
 #' @return list of \code{parse_drug_element} valid options
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_element_options()
+#' }
 #' @export
 parse_drug_element_options <- function() {
   elements_options <-

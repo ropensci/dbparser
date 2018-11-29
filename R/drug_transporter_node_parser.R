@@ -70,9 +70,11 @@ get_transporters_polypeptide_go_classifiers_df <- function(rec) {
 #' @return drug transporters actions node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_actions()
 #' parse_drug_transporters_actions(TRUE)
 #' parse_drug_transporters_actions(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_actions <- function(save_table = FALSE) {
   drug_transporters_actions <-
@@ -106,9 +108,11 @@ parse_drug_transporters_actions <- function(save_table = FALSE) {
 #' @return drug transporters articles node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_articles()
 #' parse_drug_transporters_articles(TRUE)
 #' parse_drug_transporters_articles(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_articles <- function(save_table = FALSE) {
   drug_transporters_articles <-
@@ -143,9 +147,11 @@ parse_drug_transporters_articles <- function(save_table = FALSE) {
 #' @return drug transporters textbooks node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_textbooks()
 #' parse_drug_transporters_textbooks(TRUE)
 #' parse_drug_transporters_textbooks(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_textbooks <- function(save_table = FALSE) {
   drug_transporters_textbooks <-
@@ -179,9 +185,11 @@ parse_drug_transporters_textbooks <- function(save_table = FALSE) {
 #' @return drug transporters links node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_links()
 #' parse_drug_transporters_links(TRUE)
 #' parse_drug_transporters_links(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_links <- function(save_table = FALSE) {
   drug_transporters_links <-
@@ -218,9 +226,11 @@ parse_drug_transporters_links <- function(save_table = FALSE) {
 #' @return drug transporters polypeptides node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_polypeptides()
 #' parse_drug_transporters_polypeptides(TRUE)
 #' parse_drug_transporters_polypeptides(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_polypeptides <-
   function(save_table = FALSE) {
@@ -278,9 +288,11 @@ parse_drug_transporters_polypeptides <-
 #'  node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_polypeptides_external_identifiers()
 #' parse_drug_transporters_polypeptides_external_identifiers(TRUE)
 #' parse_drug_transporters_polypeptides_external_identifiers(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_polypeptides_external_identifiers <-
   function(save_table = FALSE) {
@@ -319,9 +331,11 @@ parse_drug_transporters_polypeptides_external_identifiers <-
 #' @return drug transporters polypeptides synonyms node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_polypeptides_synonyms()
 #' parse_drug_transporters_polypeptides_synonyms(TRUE)
 #' parse_drug_transporters_polypeptides_synonyms(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_polypeptides_synonyms <-
   function(save_table = FALSE) {
@@ -359,9 +373,11 @@ parse_drug_transporters_polypeptides_synonyms <-
 #' @return drug transporters polypeptides pfams node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_polypeptides_pfams()
 #' parse_drug_transporters_polypeptides_pfams(TRUE)
 #' parse_drug_transporters_polypeptides_pfams(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_polypeptides_pfams <-
   function(save_table = FALSE) {
@@ -400,9 +416,11 @@ parse_drug_transporters_polypeptides_pfams <-
 #' @return drug transporters polypeptides go classifiers node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters_polypeptides_go_classifiers()
 #' parse_drug_transporters_polypeptides_go_classifiers(TRUE)
 #' parse_drug_transporters_polypeptides_go_classifiers(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters_polypeptides_go_classifiers <-
   function(save_table = FALSE) {
@@ -439,9 +457,11 @@ parse_drug_transporters_polypeptides_go_classifiers <-
 #' @return drug transporters node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_transporters()
 #' parse_drug_transporters(TRUE)
 #' parse_drug_transporters(save_table = FALSE)
+#' }
 #' @export
 parse_drug_transporters <- function(save_table = FALSE) {
   drug_transporters <- map_df(pkg.env$children, ~ get_transporters_df(.x))

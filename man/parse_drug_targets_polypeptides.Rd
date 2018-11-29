@@ -2,8 +2,7 @@
 % Please edit documentation in R/drug_targets_node_parser.R
 \name{parse_drug_targets_polypeptides}
 \alias{parse_drug_targets_polypeptides}
-\title{\code{parse_drug_targets_polypeptides} returns data frame of drug targets
- polypeptides elements.}
+\title{Extracts the drug targets polypeptides element and return data as data frame.}
 \usage{
 parse_drug_targets_polypeptides(save_table = FALSE)
 }
@@ -14,6 +13,10 @@ parse_drug_targets_polypeptides(save_table = FALSE)
 drug targets polypeptides node attributs date frame
 }
 \description{
+\code{parse_drug_targets_polypeptides} returns data frame of drug targets
+ polypeptides elements.
+}
+\details{
 This functions extracts the targets polypeptides element of drug node
 in drug bank
 xml database with the option to save it in a predefined database via
@@ -25,7 +28,9 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this funtion.
 }
 \examples{
+\dontrun{
 parse_drug_targets_polypeptides()
 parse_drug_targets_polypeptides(TRUE)
 parse_drug_targets_polypeptides(save_table = FALSE)
+}
 }

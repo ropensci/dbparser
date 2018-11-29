@@ -13,5 +13,7 @@ drugbank metadata
 \code{get_drugbank_metadata} returns uploaded drugbank database version and exported date.
 }
 \examples{
+\dontrun{
 get_drugbank_metadata()
+}
 }

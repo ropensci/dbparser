@@ -46,8 +46,10 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' methods
 #'
 #' @examples
+#' \dontrun{
 #' get_xml_db_rows("db_full_path")
 #' get_xml_db_rows(xml_db_name = "db_full_path")
+#' }
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
     drugbank_db <- xmlParse(xml_db_name)
@@ -73,8 +75,10 @@ get_xml_db_rows <- function(xml_db_name) {
 #' @return sets the open connection in memory to be used by other functions
 #'
 #' @examples
+#' \dontrun{
 #' open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
 #' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' }
 #' @export
 open_db <-
   function(driver,
@@ -99,7 +103,9 @@ open_db <-
 #' This function closes connection to pre-given databas.
 #'
 #' @examples
+#' \dontrun{
 #' close_db()
+#' }
 #' @export
 close_db <- function() {
   dbDisconnect(conn = pkg.env$con)

@@ -31,8 +31,10 @@ parse_drug_element_options can be called to know the valid options for
 this method
 }
 \examples{
+\dontrun{
 parse_drug_element()
 parse_drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
 parse_drug_element(save_table = FALSE)
 parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
+}
 }

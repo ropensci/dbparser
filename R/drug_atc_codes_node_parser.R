@@ -37,9 +37,11 @@ get_atc_codes_df <- function(rec) {
 #' @return drug atc_codes node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_atc_codes()
 #' parse_drug_atc_codes(TRUE)
 #' parse_drug_atc_codes(save_table = FALSE)
+#' }
 #' @export
 parse_drug_atc_codes <- function(save_table = FALSE) {
   drug_atc_codes <- map_df(pkg.env$children, ~ get_atc_codes_df(.x))

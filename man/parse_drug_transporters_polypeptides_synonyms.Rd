@@ -29,7 +29,9 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this funtion.
 }
 \examples{
+\dontrun{
 parse_drug_transporters_polypeptides_synonyms()
 parse_drug_transporters_polypeptides_synonyms(TRUE)
 parse_drug_transporters_polypeptides_synonyms(save_table = FALSE)
+}
 }

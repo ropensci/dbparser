@@ -34,9 +34,11 @@ get_sequences_df <- function(rec) {
 #' @return drug sequences node attributs date frame
 #'
 #' @examples
+#' \dontrun{
 #' parse_drug_sequences()
 #' parse_drug_sequences(TRUE)
 #' parse_drug_sequences(save_table = FALSE)
+#' }
 #' @export
 parse_drug_sequences <- function(save_table = FALSE) {
   drug_sequences <- map_df(pkg.env$children, ~ get_sequences_df(.x))

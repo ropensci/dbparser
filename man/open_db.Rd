@@ -27,6 +27,8 @@ This function establishes connection to given database
 to store, \emph{optionally}, the parsed drug bank elements.
 }
 \examples{
+\dontrun{
 open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
 server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")
+}
 }

@@ -75,7 +75,7 @@ parsed data into a MySQL database.
 # parse_drug_targets_actions(TRUE)
 
 ## finally close db connection 
-#close_db()
+# close_db()
 ```
 
 
