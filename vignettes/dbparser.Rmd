@@ -30,7 +30,8 @@ drugs info, drug groups info and drug targets actions info.
 ```{r}
 ## load dbparser package
 library(dbparser)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
