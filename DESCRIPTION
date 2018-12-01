@@ -23,7 +23,7 @@ RoxygenNote: 6.1.0
 Suggests:
     knitr,
     rmarkdown,
-    testattributes
+    testthat
 VignetteBuilder: knitr
 URL: https://github.com/Dainanahan/dbparser
 BugReports: https://github.com/Dainanahan/dbparser/issues
