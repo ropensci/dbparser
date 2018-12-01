@@ -25,7 +25,7 @@ save the returned dataframe in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so
-no need to call it again before calling this funtion.
+no need to call it again before calling this function.
 
 parse_drug_element_options can be called to know the valid options for
 this method

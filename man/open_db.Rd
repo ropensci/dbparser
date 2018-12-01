@@ -7,7 +7,7 @@
 open_db(driver, server, output_database, trusted_connection = TRUE)
 }
 \arguments{
-\item{driver}{odbc object to define database drivr.}
+\item{driver}{odbc object to define database driver.}
 
 \item{server}{string, indicated the db server name.}
 

@@ -86,10 +86,10 @@ get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes actions node attributs date frame
+#' @return drug enzymes actions node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -123,10 +123,10 @@ parse_drug_enzymes_actions <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes articles node attributs date frame
+#' @return drug enzymes articles node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -160,10 +160,10 @@ parse_drug_enzymes_articles <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes textbooks node attributs date frame
+#' @return drug enzymes textbooks node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -197,10 +197,10 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes links node attributs date frame
+#' @return drug enzymes links node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -235,10 +235,10 @@ parse_drug_enzymes_links <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes polypeptides node attributs date frame
+#' @return drug enzymes polypeptides node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -297,11 +297,11 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
 #' @return drug enzymes polypeptides external identifiers node
-#'  attributs date frame
+#'  attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -341,10 +341,10 @@ parse_drug_enzymes_polypeptides_external_identifiers <-
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes polypeptides synonyms node attributs date frame
+#' @return drug enzymes polypeptides synonyms node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -382,10 +382,10 @@ parse_drug_enzymes_polypeptides_synonyms <-
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug groups node attributs date frame
+#' @return drug groups node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -422,10 +422,10 @@ parse_drug_enzymes_polypeptides_pfams <-
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes polypeptides go classifiers node attributs date frame
+#' @return drug enzymes polypeptides go classifiers node attributes date frame
 #'
 #' @examples
 #' \dontrun{
@@ -460,10 +460,10 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug enzymes node attributs date frame
+#' @return drug enzymes node attributes date frame
 #'
 #' @examples
 #' \dontrun{

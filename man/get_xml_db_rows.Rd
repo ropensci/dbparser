@@ -20,7 +20,7 @@ methods
 This functions reads drug bank xml database and sets the full tree
  save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-in memory directly wihtout returning it.
+in memory directly without returning it.
 It must be called one before using parser functions, and once it is called
 If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again.

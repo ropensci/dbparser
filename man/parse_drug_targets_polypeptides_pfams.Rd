@@ -11,7 +11,7 @@ parse_drug_targets_polypeptides_pfams(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug targets polypeptides pfams node attributs date frame
+drug targets polypeptides pfams node attributes date frame
 }
 \description{
 \code{parse_drug_targets_polypeptides_pfams} returns data frame of
@@ -25,7 +25,7 @@ save the returned dataframe in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so
-no need to call it again before calling this funtion.
+no need to call it again before calling this function.
 }
 \examples{
 \dontrun{

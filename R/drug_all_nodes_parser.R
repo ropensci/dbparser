@@ -9,7 +9,7 @@
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
 #' @return all drug elements dataframes
@@ -98,8 +98,8 @@ parse_drug_all <- function(save_table = FALSE) {
   print("Parsed drug_carriers_polypeptides_go_classifiers, 32/72")
   drug_carriers <- parse_drug_carriers(save_table)
   print("Parsed drug_carriers, 33/72")
-  classficationsparse_drug_classfications <-
-    parse_drug_classfications(save_table)
+  classificationsparse_drug_classifications <-
+    parse_drug_classifications(save_table)
   print("Parsed drugs main attributes, 34/72")
   drug_enzymes_actions <- parse_drug_enzymes_actions(save_table)
   print("Parsed drug_enzymes_actions, 35/72")
@@ -233,8 +233,8 @@ parse_drug_all <- function(save_table = FALSE) {
       drug_carriers_polypeptides_go_classifiers =
         drug_carriers_polypeptides_go_classifiers,
       drug_carriers = drug_carriers,
-      classficationsparse_drug_classfications =
-        classficationsparse_drug_classfications,
+      classificationsparse_drug_classifications =
+        classificationsparse_drug_classifications,
       drug_enzymes_actions = drug_enzymes_actions,
       drug_enzymes_articles = drug_enzymes_articles,
       drug_enzymes_textbooks = drug_enzymes_textbooks,
@@ -295,7 +295,7 @@ parse_drug_all <- function(save_table = FALSE) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' parse_drug_element_options can be called to know the valid options for
 #' this method
@@ -344,7 +344,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
       "drug_carriers_polypeptides_synonyms" = parse_drug_carriers_polypeptides_synonyms(save_table),
       "drug_carriers_textbooks" = parse_drug_carriers_textbooks(save_table),
       "drug_categories" = parse_drug_carriers(save_table),
-      "drug_classfications" = parse_drug_classfications(save_table),
+      "drug_classifications" = parse_drug_classifications(save_table),
       "drug_dosages" = parse_drug_dosages(save_table),
       "drug_enzymes" = parse_drug_enzymes(save_table),
       "drug_enzymes_actions" = parse_drug_enzymes_actions(save_table),
@@ -442,7 +442,7 @@ parse_drug_element_options <- function() {
       "drug_carriers_polypeptides_synonyms",
       "drug_carriers_textbooks",
       "drug_categories",
-      "drug_classfications",
+      "drug_classifications",
       "drug_dosages",
       "drug_enzymes",
       "drug_enzymes_actions",

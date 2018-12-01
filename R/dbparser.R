@@ -10,7 +10,7 @@
 #'  Reads drug bank xml database and build drug elements full tree in database
 #'
 #' @section parsers functions:
-#'  Each parser function is responsible of parsing certain drug element and returng its dataframe
+#'  Each parser function is responsible of parsing certain drug element and returning its dataframe
 #'  with the ability to save it in a predefined database.
 #'
 #' @docType package

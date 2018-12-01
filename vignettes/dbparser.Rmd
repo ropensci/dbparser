@@ -24,7 +24,7 @@ further provides the facility of saving the parsed data into a given database.
 
 ## Getting Started -- Loading the Data
 
-Following is sample code that parses the DrugBank database, then loads the 
+Following is sample code attributes parses the DrugBank database, then loads the 
 drugs info, drug groups info and drug targets actions info.
 
 ```{r}
@@ -54,7 +54,7 @@ drug_targets_actions <- parse_drug_targets_actions()
 ## Saving into a database
 
 The parsed data may be saved into a given database. Databases supported by 
-`dbparser` include MS SQL Server, MySQL and any database subbported by `DBI` package. 
+`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` package. 
 Following is an example of saving the 
 parsed data into a MySQL database.
 

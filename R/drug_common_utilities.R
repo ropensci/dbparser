@@ -36,7 +36,7 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' This functions reads drug bank xml database and sets the full tree
 #'  save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' in memory directly wihtout returning it.
+#' in memory directly without returning it.
 #' It must be called one before using parser functions, and once it is called
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
 #' no need to call it again.
@@ -67,7 +67,7 @@ get_xml_db_rows <- function(xml_db_name) {
 #' This function establishes connection to given database
 #' to store, \emph{optionally}, the parsed drug bank elements.
 #'
-#' @param driver odbc object to define database drivr.
+#' @param driver odbc object to define database driver.
 #' @param server string, indicated the db server name.
 #' @param output_database string, the database name to be used,
 #' it has to be created before using it
@@ -100,7 +100,7 @@ open_db <-
 #'
 #' \code{close_db} closes connection to pre-given database.
 #'
-#' This function closes connection to pre-given databas.
+#' This function closes connection to pre-given database.
 #'
 #' @examples
 #' \dontrun{

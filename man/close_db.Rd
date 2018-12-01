@@ -10,7 +10,7 @@ close_db()
 \code{close_db} closes connection to pre-given database.
 }
 \details{
-This function closes connection to pre-given databas.
+This function closes connection to pre-given database.
 }
 \examples{
 \dontrun{

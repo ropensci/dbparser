@@ -11,7 +11,7 @@ parse_drug_transporters_polypeptides(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug transporters polypeptides node attributs date frame
+drug transporters polypeptides node attributes date frame
 }
 \description{
 \code{parse_drug_transporters_polypeptides} returns data frame of
@@ -26,7 +26,7 @@ save the returned dataframe in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so
-no need to call it again before calling this funtion.
+no need to call it again before calling this function.
 }
 \examples{
 \dontrun{

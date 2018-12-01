@@ -1,19 +1,19 @@
 context("test drugbank database metadata")
 
 library(dbparser)
-library(testthat)
+library(testattributes)
 library(XML)
 library(tibble)
 library(purrr)
 
-test_that(desc = "Read database",
+test_attributes(desc = "Read database",
           code = {
             expect_true(get_xml_db_rows(
               system.file("extdata", "drugbank_record.xml", package = "dbparser")
             ))
           })
 
-test_that(desc = "Read drugbank database metadata",
+test_attributes(desc = "Read drugbank database metadata",
           code = {
             expect_match(get_drugbank_version(),
                          "5.1")

@@ -28,10 +28,10 @@ get_sequences_df <- function(rec) {
 #' It must be called after \code{\link{get_xml_db_rows}} function like
 #' any other parser function.
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
-#' no need to call it again before calling this funtion.
+#' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @return drug sequences node attributs date frame
+#' @return drug sequences node attributes date frame
 #'
 #' @examples
 #' \dontrun{

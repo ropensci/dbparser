@@ -1,54 +1,54 @@
 context("test drug transporter element parsers")
 
 library(dbparser)
-library(testthat)
+library(testattributes)
 library(XML)
 library(tibble)
 library(purrr)
 
-test_that(desc = "Read database",
+test_attributes(desc = "Read database",
           code = {
             expect_true(get_xml_db_rows(
               system.file("extdata", "drugbank_record.xml", package = "dbparser")
             ))
           })
 
-test_that(desc = "Read darug transporters actions attributes",
+test_attributes(desc = "Read darug transporters actions attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_actions()),
                          0)
             expect_error(parse_drug_transporters_actions(TRUE))
           })
 
-test_that(desc = "Read darug transporters_articles attributes",
+test_attributes(desc = "Read darug transporters_articles attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_articles()),
                          0)
             expect_error(parse_drug_transporters_articlese(TRUE))
           })
 
-test_that(desc = "Read darug transporters textbooks attributes",
+test_attributes(desc = "Read darug transporters textbooks attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_textbooks()),
                          0)
             expect_error(parse_drug_transporters_textbooks(TRUE))
           })
 
-test_that(desc = "Read darug transporters links attributes",
+test_attributes(desc = "Read darug transporters links attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_links()),
                          0)
             expect_error(parse_drug_transporters_links(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides attributes",
+test_attributes(desc = "Read darug transporters polypeptides attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_polypeptides()),
                          0)
             expect_error(parse_drug_transporters_polypeptides(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides external identifiers attributes",
+test_attributes(desc = "Read darug transporters polypeptides external identifiers attributes",
           code = {
             expect_equal(nrow(
               parse_drug_transporters_polypeptides_external_identifiers()
@@ -57,21 +57,21 @@ test_that(desc = "Read darug transporters polypeptides external identifiers attr
             expect_error(parse_drug_transporters_polypeptides_external_identifiers(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides synonyms attributes",
+test_attributes(desc = "Read darug transporters polypeptides synonyms attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_polypeptides_synonyms()),
                          0)
             expect_error(parse_drug_transporters_polypeptides_synonyms(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides pfams attributes",
+test_attributes(desc = "Read darug transporters polypeptides pfams attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters_polypeptides_pfams()),
                          0)
             expect_error(parse_drug_transporters_polypeptides_pfams(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides go classifiers attributes",
+test_attributes(desc = "Read darug transporters polypeptides go classifiers attributes",
           code = {
             expect_equal(nrow(
               parse_drug_transporters_polypeptides_go_classifiers()
@@ -80,7 +80,7 @@ test_that(desc = "Read darug transporters polypeptides go classifiers attributes
             expect_error(parse_drug_transporters_polypeptides_go_classifiers(TRUE))
           })
 
-test_that(desc = "Read darug transporters attributes",
+test_attributes(desc = "Read darug transporters attributes",
           code = {
             expect_equal(nrow(parse_drug_transporters()),
                          0)

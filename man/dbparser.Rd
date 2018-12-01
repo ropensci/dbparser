@@ -21,7 +21,7 @@ database related methods, xml db reader and drug bank elements parsers.
 
 \section{parsers functions}{
 
- Each parser function is responsible of parsing certain drug element and returng its dataframe
+ Each parser function is responsible of parsing certain drug element and returning its dataframe
  with the ability to save it in a predefined database.
 }
 
