@@ -1,12 +1,12 @@
 Package: dbparser
-Title: DrugBank Database XML Parser
+Title: 'DrugBank' Database XML Parser
 Version: 1.0.0
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
     person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"))
-Description: This tool is for parsing the DrugBank XML database. The parsed 
-    data are then returned in a proper R dataframe with the ability to save 
+Description: This tool is for parsing the 'DrugBank' XML database. The parsed 
+    data are then returned in a proper 'R' dataframe with the ability to save 
     them in a given database.
 License: MIT + file LICENSE
 Encoding: UTF-8
