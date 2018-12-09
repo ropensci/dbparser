@@ -70,7 +70,7 @@ get_transporters_polypeptide_go_classifiers_df <- function(rec) {
 #' @return drug transporters actions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_actions()
 #' parse_drug_transporters_actions(TRUE)
 #' parse_drug_transporters_actions(save_table = FALSE)
@@ -108,7 +108,7 @@ parse_drug_transporters_actions <- function(save_table = FALSE) {
 #' @return drug transporters articles node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_articles()
 #' parse_drug_transporters_articles(TRUE)
 #' parse_drug_transporters_articles(save_table = FALSE)
@@ -147,7 +147,7 @@ parse_drug_transporters_articles <- function(save_table = FALSE) {
 #' @return drug transporters textbooks node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_textbooks()
 #' parse_drug_transporters_textbooks(TRUE)
 #' parse_drug_transporters_textbooks(save_table = FALSE)
@@ -185,7 +185,7 @@ parse_drug_transporters_textbooks <- function(save_table = FALSE) {
 #' @return drug transporters links node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_links()
 #' parse_drug_transporters_links(TRUE)
 #' parse_drug_transporters_links(save_table = FALSE)
@@ -226,7 +226,7 @@ parse_drug_transporters_links <- function(save_table = FALSE) {
 #' @return drug transporters polypeptides node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_polypeptides()
 #' parse_drug_transporters_polypeptides(TRUE)
 #' parse_drug_transporters_polypeptides(save_table = FALSE)
@@ -288,7 +288,7 @@ parse_drug_transporters_polypeptides <-
 #'  node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_polypeptides_external_identifiers()
 #' parse_drug_transporters_polypeptides_external_identifiers(TRUE)
 #' parse_drug_transporters_polypeptides_external_identifiers(save_table = FALSE)
@@ -331,7 +331,7 @@ parse_drug_transporters_polypeptides_external_identifiers <-
 #' @return drug transporters polypeptides synonyms node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_polypeptides_synonyms()
 #' parse_drug_transporters_polypeptides_synonyms(TRUE)
 #' parse_drug_transporters_polypeptides_synonyms(save_table = FALSE)
@@ -373,7 +373,7 @@ parse_drug_transporters_polypeptides_synonyms <-
 #' @return drug transporters polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_polypeptides_pfams()
 #' parse_drug_transporters_polypeptides_pfams(TRUE)
 #' parse_drug_transporters_polypeptides_pfams(save_table = FALSE)
@@ -416,7 +416,7 @@ parse_drug_transporters_polypeptides_pfams <-
 #' @return drug transporters polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters_polypeptides_go_classifiers()
 #' parse_drug_transporters_polypeptides_go_classifiers(TRUE)
 #' parse_drug_transporters_polypeptides_go_classifiers(save_table = FALSE)
@@ -457,7 +457,7 @@ parse_drug_transporters_polypeptides_go_classifiers <-
 #' @return drug transporters node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_transporters()
 #' parse_drug_transporters(TRUE)
 #' parse_drug_transporters(save_table = FALSE)

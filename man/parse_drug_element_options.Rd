@@ -13,7 +13,7 @@ list of \code{parse_drug_element} valid options
 Returns \code{parse_drug_element} valid options.
 }
 \examples{
-\dontrun{
+\donttest{
 parse_drug_element_options()
 }
 }

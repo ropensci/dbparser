@@ -72,7 +72,7 @@ get_carriers_polypeptide_go_classifiers_df <- function(rec) {
 #' @return drug carriers actions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_actions()
 #' parse_drug_carriers_actions(TRUE)
 #' parse_drug_carriers_actions(save_table = FALSE)
@@ -111,7 +111,7 @@ parse_drug_carriers_actions <- function(save_table = FALSE) {
 #' @return drug carriers_articles node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_articles()
 #' parse_drug_carriers_articles(TRUE)
 #' parse_drug_carriers_articles(save_table = FALSE)
@@ -150,7 +150,7 @@ parse_drug_carriers_articles <- function(save_table = FALSE) {
 #' @return drug carriers textbooks node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_textbooks()
 #' parse_drug_carriers_textbooks(TRUE)
 #' parse_drug_carriers_textbooks(save_table = FALSE)
@@ -187,7 +187,7 @@ parse_drug_carriers_textbooks <- function(save_table = FALSE) {
 #' @return drug carriers_links node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_links()
 #' parse_drug_carriers_links(TRUE)
 #' parse_drug_carriers_links(save_table = FALSE)
@@ -226,7 +226,7 @@ parse_drug_carriers_links <- function(save_table = FALSE) {
 #' @return drug carriers polypeptides node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_polypeptides()
 #' parse_drug_carriers_polypeptides(TRUE)
 #' parse_drug_carriers_polypeptides(save_table = FALSE)
@@ -285,7 +285,7 @@ parse_drug_carriers_polypeptides <- function(save_table = FALSE) {
 #'  node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_polypeptides_external_identifiers()
 #' parse_drug_carriers_polypeptides_external_identifiers(TRUE)
 #' parse_drug_carriers_polypeptides_external_identifiers(save_table = FALSE)
@@ -326,7 +326,7 @@ parse_drug_carriers_polypeptides_external_identifiers <-
 #' @return drug carriers polypeptides synonyms node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_polypeptides_synonyms()
 #' parse_drug_carriers_polypeptides_synonyms(TRUE)
 #' parse_drug_carriers_polypeptides_synonyms(save_table = FALSE)
@@ -366,7 +366,7 @@ parse_drug_carriers_polypeptides_synonyms <-
 #' @return drug carriers polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_polypeptides_pfams()
 #' parse_drug_carriers_polypeptides_pfams(TRUE)
 #' parse_drug_carriers_polypeptides_pfams(save_table = FALSE)
@@ -407,7 +407,7 @@ parse_drug_carriers_polypeptides_pfams <-
 #' @return drug carriers polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers_polypeptides_go_classifiers()
 #' parse_drug_carriers_polypeptides_go_classifiers(TRUE)
 #' parse_drug_carriers_polypeptides_go_classifiers(save_table = FALSE)
@@ -445,7 +445,7 @@ parse_drug_carriers_polypeptides_go_classifiers <-
 #' @return drug carriers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_carriers()
 #' parse_drug_carriers(TRUE)
 #' parse_drug_carriers(save_table = FALSE)

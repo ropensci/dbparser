@@ -44,7 +44,7 @@ get_pathways_enzymes_df <- function(rec) {
 #' @return drug pathway enzyme node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_pathway_enzyme()
 #' parse_drug_pathway_enzyme(TRUE)
 #' parse_drug_pathway_enzyme(save_table = FALSE)
@@ -81,7 +81,7 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE) {
 #' @return drug pathway drugs node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_pathway_drugs()
 #' parse_drug_pathway_drugs(TRUE)
 #' parse_drug_pathway_drugs(save_table = FALSE)
@@ -117,7 +117,7 @@ parse_drug_pathway_drugs <- function(save_table = FALSE) {
 #' @return drug pathway node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_pathway()
 #' parse_drug_pathway(TRUE)
 #' parse_drug_pathway(save_table = FALSE)

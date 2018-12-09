@@ -29,7 +29,7 @@ get_manufactures_df <- function(rec) {
 #' @return drug manufacturers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_manufacturers()
 #' parse_drug_manufacturers(TRUE)
 #' parse_drug_manufacturers(save_table = FALSE)

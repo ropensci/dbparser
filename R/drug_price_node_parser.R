@@ -30,7 +30,7 @@ get_prices_df <- function(rec) {
 #' @return drug prices node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_prices()
 #' parse_drug_prices(TRUE)
 #' parse_drug_prices(save_table = FALSE)

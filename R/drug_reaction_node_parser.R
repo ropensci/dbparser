@@ -37,7 +37,7 @@ get_reactions_enzymes_df <- function(rec) {
 #' @return drug reactions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_reactions()
 #' parse_drug_reactions(TRUE)
 #' parse_drug_reactions(save_table = FALSE)
@@ -73,7 +73,7 @@ parse_drug_reactions <- function(save_table = FALSE) {
 #' @return drug reactions enzymes node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_reactions_enzymes()
 #' parse_drug_reactions_enzymes(TRUE)
 #' parse_drug_reactions_enzymes(save_table = FALSE)

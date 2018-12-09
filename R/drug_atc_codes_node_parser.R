@@ -37,7 +37,7 @@ get_atc_codes_df <- function(rec) {
 #' @return drug atc_codes node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_atc_codes()
 #' parse_drug_atc_codes(TRUE)
 #' parse_drug_atc_codes(save_table = FALSE)

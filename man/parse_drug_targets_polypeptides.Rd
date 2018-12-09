@@ -28,7 +28,7 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this function.
 }
 \examples{
-\dontrun{
+\donttest{
 parse_drug_targets_polypeptides()
 parse_drug_targets_polypeptides(TRUE)
 parse_drug_targets_polypeptides(save_table = FALSE)

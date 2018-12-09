@@ -15,7 +15,7 @@
 #' @return drug main node attributes data frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug()
 #' parse_drug(TRUE)
 #' parse_drug(save_table = FALSE)
@@ -69,7 +69,7 @@ parse_drug <- function(save_table = FALSE) {
 #' @return drug groups node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_groups()
 #' parse_drug_groups(TRUE)
 #' parse_drug_groups(save_table = FALSE)
@@ -100,7 +100,7 @@ parse_drug_groups <- function(save_table = FALSE) {
 #' @return drug articles node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_articles()
 #' parse_drug_articles(TRUE)
 #' parse_drug_articles(save_table = FALSE)
@@ -132,7 +132,7 @@ parse_drug_articles <- function(save_table = FALSE) {
 #' @return drug books node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_books()
 #' parse_drug_books(TRUE)
 #' parse_drug_books(save_table = FALSE)
@@ -163,7 +163,7 @@ parse_drug_books <- function(save_table = FALSE) {
 #' @return drug links node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_links()
 #' parse_drug_links(TRUE)
 #' parse_drug_links(save_table = FALSE)
@@ -195,7 +195,7 @@ parse_drug_links <- function(save_table = FALSE) {
 #' @return drug synonyms node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_synonyms()
 #' parse_drug_synonyms(TRUE)
 #' parse_drug_synonyms(save_table = FALSE)
@@ -229,7 +229,7 @@ parse_drug_synonyms <- function(save_table = FALSE) {
 #' @return drug products node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_products()
 #' parse_drug_products(TRUE)
 #' parse_drug_products(save_table = FALSE)
@@ -260,7 +260,7 @@ parse_drug_products <- function(save_table = FALSE) {
 #' @return drug mixtures node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_mixtures()
 #' parse_drug_mixtures(TRUE)
 #' parse_drug_mixtures(save_table = FALSE)
@@ -291,7 +291,7 @@ parse_drug_mixtures <- function(save_table = FALSE) {
 #' @return drug packagers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_packagers()
 #' parse_drug_packagers(TRUE)
 #' parse_drug_packagers(save_table = FALSE)
@@ -323,7 +323,7 @@ parse_drug_packagers <- function(save_table = FALSE) {
 #' @return drug categories node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_categories()
 #' parse_drug_categories(TRUE)
 #' parse_drug_categories(save_table = FALSE)
@@ -354,7 +354,7 @@ parse_drug_categories <- function(save_table = FALSE) {
 #' @return drug affected organisms node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_affected_organisms()
 #' parse_drug_affected_organisms(TRUE)
 #' parse_drug_affected_organisms(save_table = FALSE)
@@ -385,7 +385,7 @@ parse_drug_affected_organisms <- function(save_table = FALSE) {
 #' @return drug dosages node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_dosages()
 #' parse_drug_dosages(TRUE)
 #' parse_drug_dosages(save_table = FALSE)
@@ -417,7 +417,7 @@ parse_drug_dosages <- function(save_table = FALSE) {
 #' @return drug ahfs codes node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_ahfs_codes()
 #' parse_drug_ahfs_codes(TRUE)
 #' parse_drug_ahfs_codes(save_table = FALSE)
@@ -448,7 +448,7 @@ parse_drug_ahfs_codes <- function(save_table = FALSE) {
 #' @return drug pdb entries node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_pdb_entries()
 #' parse_drug_pdb_entries(TRUE)
 #' parse_drug_pdb_entries(save_table = FALSE)
@@ -479,7 +479,7 @@ parse_drug_pdb_entries <- function(save_table = FALSE) {
 #' @return drug patents node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_patents()
 #' parse_drug_patents(TRUE)
 #' parse_drug_patents(save_table = FALSE)
@@ -511,7 +511,7 @@ parse_drug_patents <- function(save_table = FALSE) {
 #' @return drug food interactions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_food_interactions()
 #' parse_drug_food_interactions(TRUE)
 #' parse_drug_food_interactions(save_table = FALSE)
@@ -542,7 +542,7 @@ parse_drug_food_interactions <- function(save_table = FALSE) {
 #' @return drug interactions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_interactions()
 #' parse_drug_interactions(TRUE)
 #' parse_drug_interactions(save_table = FALSE)
@@ -574,7 +574,7 @@ parse_drug_interactions <- function(save_table = FALSE) {
 #' @return drug experimental properties node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_experimental_properties()
 #' parse_drug_experimental_properties(TRUE)
 #' parse_drug_experimental_properties(save_table = FALSE)
@@ -607,7 +607,7 @@ parse_drug_experimental_properties <- function(save_table = FALSE) {
 #' @return drug external identifiers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_external_identifiers()
 #' parse_drug_external_identifiers(TRUE)
 #' parse_drug_external_identifiers(save_table = FALSE)
@@ -638,7 +638,7 @@ parse_drug_external_identifiers <- function(save_table = FALSE) {
 #' @return drug external links node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_external_links()
 #' parse_drug_external_links(TRUE)
 #' parse_drug_external_links(save_table = FALSE)
@@ -669,7 +669,7 @@ parse_drug_external_links <- function(save_table = FALSE) {
 #' @return drug snp effects node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_snp_effects()
 #' parse_drug_snp_effects(TRUE)
 #' parse_drug_snp_effects(save_table = FALSE)
@@ -701,7 +701,7 @@ parse_drug_snp_effects <- function(save_table = FALSE) {
 #' @return drug snp adverse drug reactions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_snp_adverse_drug_reactions()
 #' parse_drug_snp_adverse_drug_reactions(TRUE)
 #' parse_drug_snp_adverse_drug_reactions(save_table = FALSE)

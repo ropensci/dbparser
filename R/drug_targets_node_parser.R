@@ -73,7 +73,7 @@ get_targets_polypeptide_go_classifiers_df <- function(rec) {
 #' @return drug targets polypeptides external identifiers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_polypeptides_external_identifiers()
 #' parse_drug_targets_polypeptides_external_identifiers(TRUE)
 #' parse_drug_targets_polypeptides_external_identifiers(save_table = FALSE)
@@ -115,7 +115,7 @@ parse_drug_targets_polypeptides_external_identifiers <-
 #' @return drug targets polypeptides synonyms node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_polypeptides_synonyms()
 #' parse_drug_targets_polypeptides_synonyms(TRUE)
 #' parse_drug_targets_polypeptides_synonyms(save_table = FALSE)
@@ -156,7 +156,7 @@ parse_drug_targets_polypeptides_synonyms <-
 #' @return drug targets polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_polypeptides_pfams()
 #' parse_drug_targets_polypeptides_pfams(TRUE)
 #' parse_drug_targets_polypeptides_pfams(save_table = FALSE)
@@ -198,7 +198,7 @@ parse_drug_targets_polypeptides_pfams <-
 #' @return drug targets polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_polypeptides_go_classifiers()
 #' parse_drug_targets_polypeptides_go_classifiers(TRUE)
 #' parse_drug_targets_polypeptides_go_classifiers(save_table = FALSE)
@@ -237,7 +237,7 @@ parse_drug_targets_polypeptides_go_classifiers <-
 #' @return drug targets actions node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_actions()
 #' parse_drug_targets_actions(TRUE)
 #' parse_drug_targets_actions(save_table = FALSE)
@@ -275,7 +275,7 @@ parse_drug_targets_actions <- function(save_table = FALSE) {
 #' @return drug targets articles node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_articles()
 #' parse_drug_targets_articles(TRUE)
 #' parse_drug_targets_articles(save_table = FALSE)
@@ -313,7 +313,7 @@ parse_drug_targets_articles <- function(save_table = FALSE) {
 #' @return drug targets textbooks node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_textbooks()
 #' parse_drug_targets_textbooks(TRUE)
 #' parse_drug_targets_textbooks(save_table = FALSE)
@@ -350,7 +350,7 @@ parse_drug_targets_textbooks <- function(save_table = FALSE) {
 #' @return drug targets_links node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_links()
 #' parse_drug_targets_links(TRUE)
 #' parse_drug_targets_links(save_table = FALSE)
@@ -397,7 +397,7 @@ parse_drug_targets_links <- function(save_table = FALSE) {
 #' @return drug targets polypeptides node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets_polypeptides()
 #' parse_drug_targets_polypeptides(TRUE)
 #' parse_drug_targets_polypeptides(save_table = FALSE)
@@ -445,7 +445,7 @@ parse_drug_targets_polypeptides <- function(save_table = FALSE) {
 #' @return drug target node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_targets()
 #' parse_drug_targets(TRUE)
 #' parse_drug_targets(save_table = FALSE)

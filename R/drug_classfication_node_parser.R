@@ -26,7 +26,7 @@ drug_classifications_df <- function(rec) {
 #' @return drug classifications node attributes date frame
 #'
 #' @examples
-#' \dontrun{
+#' \donttest{
 #' parse_drug_classifications()
 #' parse_drug_classifications(TRUE)
 #' parse_drug_classifications(save_table = FALSE)

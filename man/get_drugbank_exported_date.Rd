@@ -13,7 +13,7 @@ drugbank exported date
 \code{get_drugbank_exported_date} returns uploaded drugbank database exported date.
 }
 \examples{
-\dontrun{
+\donttest{
 get_drugbank_exported_date()
 }
 }
