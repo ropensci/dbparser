@@ -1,21 +1,31 @@
 
 <!-- README.md is generated from README.Rmd. Please edit attributes file -->
-dbparser
-========
 
-The main purpose of the `dbparser` package is to parse the [DrugBank](http://drugbank.ca/) database which is downloadable in XML format from [this link](https://www.drugbank.ca/releases/latest). The parsed data can then be explored and analyzed as desired by the user. The `dbparser` package further provides the facility of saving the parsed data into a given database.
+# dbparser
 
-Installation
-------------
+[![Build
+Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://travis-ci.org/Dainanahan/dbparser)
+[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
+[![DOWNLOADSTOTAL](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)
+[![Rdoc](http://www.rdocumentation.org/badges/version/dbparser)](http://www.rdocumentation.org/packages/dbparser)
 
-You can install the released version of dbparser from [CRAN](https://CRAN.R-project.org) with:
+The main purpose of the `dbparser` package is to parse the
+[DrugBank](http://drugbank.ca/) database which is downloadable in XML
+format from [this link](https://www.drugbank.ca/releases/latest). The
+parsed data can then be explored and analyzed as desired by the user.
+The `dbparser` package further provides the facility of saving the
+parsed data into a given database.
+
+## Installation
+
+You can install the released version of dbparser from
+[CRAN](https://CRAN.R-project.org) with:
 
 ``` r
 install.packages("dbparser")
 ```
 
-Example
--------
+## Example
 
 This is a basic example which shows you how to solve a common problem:
 
@@ -35,10 +45,12 @@ drug_groups <- parse_drug_groups()
 drug_targets_actions <- parse_drug_targets_actions()
 ```
 
-Saving into a database
-----------------------
+## Saving into a database
 
-The parsed data may be saved into a given database. Databases supported by `dbparser` include MS SQL Server, MySQL and any database supported by `DBI` package. Following is an example of saving the parsed data into a MySQL database.
+The parsed data may be saved into a given database. Databases supported
+by `dbparser` include MS SQL Server, MySQL and any database supported by
+`DBI` package. Following is an example of saving the parsed data into a
+MySQL database.
 
 ``` r
 library(dbparser)
@@ -61,10 +73,12 @@ library(dbparser)
  close_db()
 ```
 
-Exploring the data
-------------------
+## Exploring the data
 
-Following is an example involving a quick look at a few aspects of the parsed data. First we look at the proportions of `biotech` and `small-molecule` drugs in the data.
+Following is an example involving a quick look at a few aspects of the
+parsed data. First we look at the proportions of `biotech` and
+`small-molecule` drugs in the
+data.
 
 ``` r
 ## view proportions of the different drug types (biotech vs. small molecule)
@@ -75,7 +89,8 @@ drugs %>%
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```
 
-Below, we view the different `drug_groups` in the data and how prevalent they are.
+Below, we view the different `drug_groups` in the data and how prevalent
+they are.
 
 ``` r
 ## view proportions of the different drug types for each drug group
@@ -93,7 +108,8 @@ drugs %>%
     coord_flip()
 ```
 
-Finally, we look at the `drug_targets_actions` to observe their proportions as well.
+Finally, we look at the `drug_targets_actions` to observe their
+proportions as well.
 
 ``` r
 ## get counts of the different target actions in the data
