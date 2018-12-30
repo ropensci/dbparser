@@ -14,6 +14,11 @@ You can install the released version of dbparser from [CRAN](https://CRAN.R-proj
 install.packages("dbparser")
 ```
 
+``` r
+library(devtools)
+devtools::install_github("Dainanahan/dbparser")
+```
+
 Example
 -------
 
