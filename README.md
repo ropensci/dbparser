@@ -24,7 +24,12 @@ You can install the released version of dbparser from
 ``` r
 install.packages("dbparser")
 ```
+or you can install the latest updates directly from the repo
 
+``` r
+library(devtools)
+devtools::install_github("Dainanahan/dbparser")
+```
 ## Example
 
 This is a basic example which shows you how to solve a common problem:
