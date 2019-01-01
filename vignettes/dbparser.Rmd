@@ -22,9 +22,11 @@ from [this link](https://www.drugbank.ca/releases/latest). The parsed data can
 then be explored and analyzed as desired by the user. The `dbparser` package 
 further provides the facility of saving the parsed data into a given database.
 
+
+
 ## Getting Started -- Loading the Data
 
-Following is sample code attributes parses the DrugBank database, then loads the 
+Following is sample code that parses the DrugBank database, then loads the 
 drugs info, drug groups info and drug targets actions info.
 
 ```{r}
@@ -35,9 +37,8 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-get_xml_db_rows(
-              system.file("extdata", "drugbank_record.xml", package = "dbparser")
-            )
+get_xml_db_rows("../full database.xml")
+# get_xml_db_rows("../drugbank_all_full_database.xml.zip")
 
 ## load drugs data
 drugs <- parse_drug()
@@ -54,27 +55,26 @@ drug_targets_actions <- parse_drug_targets_actions()
 ## Saving into a database
 
 The parsed data may be saved into a given database. Databases supported by 
-`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` package. 
-Following is an example of saving the 
-parsed data into a MySQL database.
+`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` 
+package. Following is an example of saving the parsed data into a MySQL 
+database.
 
 ```{r}
-
-## open a connection to the desired database engine with an already
-## created database
+# ## open a connection to the desired database engine with an already
+# ## created database
 # open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
 # server = "MOHAMMED\\\\SQL2016", output_database = "drugbank")
-
-## save 'drugs' dataframe to DB
+# 
+# ## save 'drugs' dataframe to DB
 # parse_drug(TRUE)
-
-## save 'drug_groups' dataframe to DB
+# 
+# ## save 'drug_groups' dataframe to DB
 # parse_drug_groups(TRUE)
-
-## save 'drug_targets_actions' dataframe to DB
+# 
+# ## save 'drug_targets_actions' dataframe to DB
 # parse_drug_targets_actions(TRUE)
-
-## finally close db connection 
+# 
+# ## finally close db connection 
 # close_db()
 ```
 
@@ -106,10 +106,9 @@ drugs %>%
     select(type, text) %>% 
     ggplot(aes(x = text, fill = type)) + 
     geom_bar() + 
-    theme(legend.position= 'bottom') + 
+    theme(legend.position= 'bottom', axis.text.x = element_text(angle=45, vjust=0.5)) + 
     labs(x = 'Drug Group', 
          y = 'Quantity', 
-         title="Drug Type Distribution per Drug Group", 
          caption="created by ggplot") + 
     coord_flip()
 ```
@@ -133,8 +132,6 @@ p <-
     labs(fill = 'action', 
          x = 'Target Action', 
          y = 'Quantity', 
-         title = 'Target Actions Distribution', 
-         subtitle = 'Distribution of Target Actions in the Data',
          caption = 'created by ggplot') + 
     guides(fill = FALSE) +    ## removes legend for the bar colors
     coord_flip()              ## switches the X and Y axes
