@@ -29,7 +29,7 @@ further provides the facility of saving the parsed data into a given database.
 Following is sample code that parses the DrugBank database, then loads the 
 drugs info, drug groups info and drug targets actions info.
 
-```{r}
+```{r eval=FALSE}
 ## load dbparser package
 library(dbparser)
 library(dplyr)
@@ -37,8 +37,7 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-get_xml_db_rows("../full database.xml")
-# get_xml_db_rows("../drugbank_all_full_database.xml.zip")
+get_xml_db_rows("drugbank_database.xml")
 
 ## load drugs data
 drugs <- parse_drug()
@@ -59,23 +58,23 @@ The parsed data may be saved into a given database. Databases supported by
 package. Following is an example of saving the parsed data into a MySQL 
 database.
 
-```{r}
-# ## open a connection to the desired database engine with an already
-# ## created database
-# open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
-# server = "MOHAMMED\\\\SQL2016", output_database = "drugbank")
-# 
-# ## save 'drugs' dataframe to DB
-# parse_drug(TRUE)
-# 
-# ## save 'drug_groups' dataframe to DB
-# parse_drug_groups(TRUE)
-# 
-# ## save 'drug_targets_actions' dataframe to DB
-# parse_drug_targets_actions(TRUE)
-# 
-# ## finally close db connection 
-# close_db()
+```{r eval=FALSE}
+## open a connection to the desired database engine with an already
+## created database
+open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+server = "MOHAMMED\\\\SQL2016", output_database = "drugbank")
+
+## save 'drugs' dataframe to DB
+parse_drug(TRUE)
+
+## save 'drug_groups' dataframe to DB
+parse_drug_groups(TRUE)
+
+## save 'drug_targets_actions' dataframe to DB
+parse_drug_targets_actions(TRUE)
+
+## finally close db connection
+close_db()
 ```
 
 
@@ -86,7 +85,7 @@ Following is an example involving a quick look at a few aspects of the parsed
 data. First we look at the proportions of `biotech` and `small-molecule` drugs 
 in the data.
 
-```{r}
+```{r eval=FALSE}
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
@@ -94,11 +93,12 @@ drugs %>%
     geom_bar() + 
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```
+![](fig1.png)
 
 Below, we view the different `drug_groups` in the data and how prevalent they 
 are.
 
-```{r}
+```{r eval=FALSE}
 ## view proportions of the different drug types for each drug group
 drugs %>% 
     rename(parent_key = primary_key) %>% 
@@ -106,17 +106,19 @@ drugs %>%
     select(type, text) %>% 
     ggplot(aes(x = text, fill = type)) + 
     geom_bar() + 
-    theme(legend.position= 'bottom', axis.text.x = element_text(angle=45, vjust=0.5)) + 
+    theme(legend.position= 'bottom', 
+          axis.text.x = element_text(angle=45, vjust=0.5)) + 
     labs(x = 'Drug Group', 
          y = 'Quantity', 
          caption="created by ggplot") + 
     coord_flip()
 ```
+![](fig2.png)
 
 Finally, we look at the `drug_targets_actions` to observe their proportions as 
 well.
 
-```{r}
+```{r eval=FALSE}
 ## get counts of the different target actions in the data
 targetActionCounts <- 
     drug_targets_actions %>% 
@@ -139,5 +141,6 @@ p <-
 ## display plot
 p
 ```
+![](fig3.png)
 
 
