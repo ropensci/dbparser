@@ -4,28 +4,31 @@ pkg.env$con <- NULL
 pkg.env$version <- NULL
 pkg.env$exported_date <- NULL
 
-drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-id", byValue = FALSE) {
+drug_sub_df <-
+  function(rec,
+           main_node,
+           seconadary_node = NULL,
+           id = "drugbank-id") {
     parent_key <- NULL
     if (!is.null(id)) {
-        parent_key <- xmlValue(rec[id][[1]])
+      parent_key <- xmlValue(rec[id][[1]])
     }
 
-    if (byValue) {
-        df <- map_df(rec[main_node], xmlValue)
+    if (is.null(seconadary_node) &&
+        !is.null(rec[[main_node]])) {
+      df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
     } else {
-        if (is.null(seconadary_node) && !is.null(rec[[main_node]])) {
-            df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
-        } else {
-            df <- xmlToDataFrame(rec[[main_node]][[seconadary_node]], stringsAsFactors = FALSE)
-        }
-
+      df <-
+        xmlToDataFrame(rec[[main_node]][[seconadary_node]], stringsAsFactors = FALSE)
     }
+
+
 
     if (nrow(df) > 0 && !is.null(parent_key)) {
-        df$parent_key <- parent_key
+      df$parent_key <- parent_key
     }
     return(df)
-}
+  }
 
 
 
@@ -52,12 +55,12 @@ drug_sub_df <- function(rec, main_node, seconadary_node = NULL, id = "drugbank-i
 #' }
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
-    drugbank_db <- xmlParse(xml_db_name)
-    top <- xmlRoot(drugbank_db)
-    pkg.env$version <- XML::xmlAttrs(top)[["version"]]
-    pkg.env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
-    pkg.env$children  <- xmlChildren(top)
-    return(TRUE)
+  drugbank_db <- xmlParse(xml_db_name)
+  top <- xmlRoot(drugbank_db)
+  pkg.env$version <- XML::xmlAttrs(top)[["version"]]
+  pkg.env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
+  pkg.env$children  <- xmlChildren(top)
+  return(TRUE)
 }
 
 #' Establish connection to given data base
