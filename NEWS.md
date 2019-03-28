@@ -2,6 +2,7 @@
 * Fix CRAN Note
 * Improve documentation
 * Refactor functions
+* Remove *Count* features from drug data set
 
 # dbparser 1.0.0
 
