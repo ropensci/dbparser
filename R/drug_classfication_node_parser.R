@@ -11,7 +11,7 @@ drug_classifications_df <- function(rec) {
 
 #' Extracts the drug classifications element and return data as data frame.
 #'
-#' \code{parse_drug_classifications} returns data frame of drug classifications elements.
+#' \code{parse_drug_classification} returns data frame of drug classifications elements.
 #'
 #' This functions extracts the classifications element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
@@ -27,12 +27,12 @@ drug_classifications_df <- function(rec) {
 #'
 #' @examples
 #' \donttest{
-#' parse_drug_classifications()
-#' parse_drug_classifications(TRUE)
-#' parse_drug_classifications(save_table = FALSE)
+#' parse_drug_classification()
+#' parse_drug_classification(TRUE)
+#' parse_drug_classification(save_table = FALSE)
 #' }
 #' @export
-parse_drug_classifications <- function(save_table = FALSE) {
+parse_drug_classification <- function(save_table = FALSE) {
   drug_classifications <- map_df(pkg.env$children, ~ drug_classifications_df(.x))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

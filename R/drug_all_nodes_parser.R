@@ -57,7 +57,7 @@ parse_drug_all <- function(save_table = FALSE) {
   print("Parsed drug_food_interactions, 16/72")
   drug_interactions <- parse_drug_interactions(save_table)
   print("Parsed drug_interactions, 17/72")
-  experimental_properties <-
+  drug_experimental_properties <-
     parse_drug_experimental_properties(save_table)
   print("Parsed drug_experimental_properties, 18/72")
   drug_external_identifiers <-
@@ -98,8 +98,8 @@ parse_drug_all <- function(save_table = FALSE) {
   print("Parsed drug_carriers_polypeptides_go_classifiers, 32/72")
   drug_carriers <- parse_drug_carriers(save_table)
   print("Parsed drug_carriers, 33/72")
-  classificationsparse_drug_classifications <-
-    parse_drug_classifications(save_table)
+  drug_classification <-
+    parse_drug_classification(save_table)
   print("Parsed drugs main attributes, 34/72")
   drug_enzymes_actions <- parse_drug_enzymes_actions(save_table)
   print("Parsed drug_enzymes_actions, 35/72")
@@ -215,7 +215,7 @@ parse_drug_all <- function(save_table = FALSE) {
       drug_patents = drug_patents,
       drug_food_interactions = drug_food_interactions,
       drug_interactions = drug_interactions,
-      experimental_properties = experimental_properties,
+      drug_experimental_properties = drug_experimental_properties,
       drug_external_identifiers = drug_external_identifiers,
       drug_external_links = drug_external_links,
       drug_snp_effects = drug_snp_effects,
@@ -233,8 +233,8 @@ parse_drug_all <- function(save_table = FALSE) {
       drug_carriers_polypeptides_go_classifiers =
         drug_carriers_polypeptides_go_classifiers,
       drug_carriers = drug_carriers,
-      classificationsparse_drug_classifications =
-        classificationsparse_drug_classifications,
+      drug_classification =
+      drug_classification,
       drug_enzymes_actions = drug_enzymes_actions,
       drug_enzymes_articles = drug_enzymes_articles,
       drug_enzymes_textbooks = drug_enzymes_textbooks,
@@ -344,7 +344,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
       "drug_carriers_polypeptides_synonyms" = parse_drug_carriers_polypeptides_synonyms(save_table),
       "drug_carriers_textbooks" = parse_drug_carriers_textbooks(save_table),
       "drug_categories" = parse_drug_carriers(save_table),
-      "drug_classifications" = parse_drug_classifications(save_table),
+      "drug_classification" = parse_drug_classification(save_table),
       "drug_dosages" = parse_drug_dosages(save_table),
       "drug_enzymes" = parse_drug_enzymes(save_table),
       "drug_enzymes_actions" = parse_drug_enzymes_actions(save_table),
@@ -434,15 +434,15 @@ parse_drug_element_options <- function() {
       "drug_carriers",
       "drug_carriers_actions",
       "drug_carriers_articles",
-      "drug_carriers_links",
-      "drug_carriers_polypeptides",
+      "drug_carriers_links",      "drug_carriers_polypeptides",
+
       "drug_carriers_polypeptides_external_identifiers",
       "drug_carriers_polypeptides_go_classifiers",
       "drug_carriers_polypeptides_pfams",
       "drug_carriers_polypeptides_synonyms",
       "drug_carriers_textbooks",
       "drug_categories",
-      "drug_classifications",
+      "drug_classification",
       "drug_dosages",
       "drug_enzymes",
       "drug_enzymes_actions",
