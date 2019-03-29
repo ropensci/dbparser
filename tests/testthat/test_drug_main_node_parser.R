@@ -45,10 +45,10 @@ test_that(desc = "Read darug links attributes",
             expect_error(parse_drug_links(TRUE))
           })
 
-test_that(desc = "Read darug classifications attributes",
+test_that(desc = "Read darug classification attributes",
           code = {
-            expect_match(parse_drug_classifications()[1][["parent_key"]], "DB00001")
-            expect_error(parse_drug_classifications(TRUE))
+            expect_match(parse_drug_classification()[1][["parent_key"]], "DB00001")
+            expect_error(parse_drug_classification(TRUE))
           })
 
 test_that(desc = "Read darug synonyms attributes",
