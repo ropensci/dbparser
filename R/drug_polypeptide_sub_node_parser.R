@@ -22,7 +22,7 @@ get_polypeptide_rec <- function(r) {
       organism_ncbi_taxonomy_id = xmlGetAttr(p[["organism"]],
                                              name = "ncbi-taxonomy-id"),
       amino_acid_sequence = xmlValue(p[["amino-acid-sequence"]]),
-      amindo_acid_format = xmlGetAttr(p[["amino-acid-sequence"]],
+      amino_acid_format = xmlGetAttr(p[["amino-acid-sequence"]],
                                       name = "format"),
       gene_sequence = xmlValue(p[["gene-sequence"]]),
       gene_format = xmlGetAttr(p[["gene-sequence"]],
