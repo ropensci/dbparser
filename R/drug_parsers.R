@@ -306,6 +306,41 @@ parse_drug_international_brands <- function(save_table = FALSE) {
   }
   return(tibble::as_tibble(drug_international_brands))
 }
+
+#' Extracts the drug salts and return data as tibble.
+#'
+#' \code{parse_drug_salts} returns tibble of drug products elements.
+#'
+#' This functions extracts the salts element of drug node in drugbank
+#' xml database with the option to save it in a predefined database via
+#' \code{\link{open_db}} method. It takes one single optional argument to
+#' save the returned tibble in the database.
+#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' any other parser function.
+#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' no need to call it again before calling this function.
+#'
+#' @param save_table boolean, save table in database if true.
+#' @return drug salts node attributes tibble
+#'
+#' @examples
+#' \donttest{
+#' parse_drug_salts()
+#' parse_drug_salts(TRUE)
+#' parse_drug_salts(save_table = FALSE)
+#' }
+#' @export
+parse_drug_salts <- function(save_table = FALSE) {
+  drug_salts <-
+    map_df(pkg.env$children, ~ drug_sub_df(.x, "salts"))
+  if (save_table) {
+    save_drug_sub(con = pkg.env$con,
+                  df = drug_international_brands,
+                  table_name = "salts")
+  }
+  return(tibble::as_tibble(drug_salts))
+}
+
 #' Extracts the drug mixtures element and return data as tibble.
 #'
 #' \code{parse_drug_mixtures} returns tibble of drug mixtures elements.
