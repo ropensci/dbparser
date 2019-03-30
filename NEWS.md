@@ -5,6 +5,7 @@
 * Remove *Count* features from drug data set
 * Fix serveral typoes in documentation and code
 * Fix consistency issue of CLASS of Data Frames Returned by dbparser
+* Check if drugbank database exist before parsing
 
 # dbparser 1.0.0
 
