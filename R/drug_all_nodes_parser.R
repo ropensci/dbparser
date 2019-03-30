@@ -23,179 +23,181 @@
 #' @export
 parse_drug_all <- function(save_table = FALSE) {
   drugs <- parse_drug(save_table)
-  print("Parsed drugs main attributes, 1/72")
+  print("Parsed drugs main attributes, 1/73")
   drug_groups <- parse_drug_groups(save_table)
-  print("Parsed drug_groups, 2/72")
+  print("Parsed drug_groups, 2/73")
   drug_articles <- parse_drug_articles(save_table)
-  print("Parsed drug_articles, 3/72")
+  print("Parsed drug_articles, 3/73")
   drug_books <- parse_drug_books(save_table)
-  print("Parsed drug_books, 4/72")
+  print("Parsed drug_books, 4/73")
   drug_links <- parse_drug_links(save_table)
-  print("Parsed drug_links, 5/72")
+  print("Parsed drug_links, 5/73")
   drug_synonyms <- parse_drug_synonyms(save_table)
-  print("Parsed drug_synonyms, 6/72")
+  print("Parsed drug_synonyms, 6/73")
   drug_products <- parse_drug_products(save_table)
-  print("Parsed drug_products, 7/72")
+  print("Parsed drug_products, 7/73")
   drug_mixtures <- parse_drug_mixtures(save_table)
-  print("Parsed drug_mixtures, 8/72")
+  print("Parsed drug_mixtures, 8/73")
   drug_packagers <- parse_drug_packagers(save_table)
-  print("Parsed drug_packagers, 9/72")
+  print("Parsed drug_packagers, 9/73")
   drug_categories <- parse_drug_categories(save_table)
-  print("Parsed drug_categories, 10/72")
+  print("Parsed drug_categories, 10/73")
   drug_affected_organisms <-
     parse_drug_affected_organisms(save_table)
-  print("Parsed drug_affected_organisms, 11/72")
+  print("Parsed drug_affected_organisms, 11/73")
   drug_dosages <- parse_drug_dosages(save_table)
-  print("Parsed drug_dosages, 12/72")
+  print("Parsed drug_dosages, 12/73")
   drug_ahfs_codes <- parse_drug_ahfs_codes(save_table)
-  print("Parsed drug_ahfs_codes, 13/72")
+  print("Parsed drug_ahfs_codes, 13/73")
   drug_pdb_entries <- parse_drug_pdb_entries(save_table)
-  print("Parsed drug_pdb_entries, 14/72")
+  print("Parsed drug_pdb_entries, 14/73")
   drug_patents <- parse_drug_patents(save_table)
-  print("Parsed drug_patents, 15/72")
+  print("Parsed drug_patents, 15/73")
   drug_food_interactions <- parse_drug_food_interactions(save_table)
-  print("Parsed drug_food_interactions, 16/72")
+  print("Parsed drug_food_interactions, 16/73")
   drug_interactions <- parse_drug_interactions(save_table)
-  print("Parsed drug_interactions, 17/72")
+  print("Parsed drug_interactions, 17/73")
   drug_experimental_properties <-
     parse_drug_experimental_properties(save_table)
-  print("Parsed drug_experimental_properties, 18/72")
+  print("Parsed drug_experimental_properties, 18/73")
   drug_external_identifiers <-
     parse_drug_experimental_properties(save_table)
-  print("Parsed drug_external_identifiers, 19/72")
+  print("Parsed drug_external_identifiers, 19/73")
   drug_external_links <- parse_drug_external_links(save_table)
-  print("Parsed drug_external_links, 20/72")
+  print("Parsed drug_external_links, 20/73")
   drug_snp_effects <- parse_drug_snp_effects(save_table)
-  print("Parsed drug_snp_effects, 21/72")
+  print("Parsed drug_snp_effects, 21/73")
   drug_snp_adverse_drug_reactions <-
     parse_drug_snp_adverse_drug_reactions(save_table)
-  print("Parsed drug_snp_adverse_drug_reactions, 22/72")
+  print("Parsed drug_snp_adverse_drug_reactions, 22/73")
   drug_atc_codes <- parse_drug_atc_codes(save_table)
-  print("Parsed drug_atc_codes, 23/72")
+  print("Parsed drug_atc_codes, 23/73")
   drug_carriers_actions <- parse_drug_carriers_actions(save_table)
-  print("Parsed drug_carriers_actions, 24/72")
+  print("Parsed drug_carriers_actions, 24/73")
   drug_carriers_articles <- parse_drug_carriers_articles(save_table)
-  print("Parsed drug_carriers_articles, 25/72")
+  print("Parsed drug_carriers_articles, 25/73")
   drug_carriers_textbooks <-
     parse_drug_carriers_textbooks(save_table)
-  print("Parsed drug_carriers_textbooks, 26/72")
+  print("Parsed drug_carriers_textbooks, 26/73")
   drug_carriers_links <- parse_drug_carriers_links(save_table)
-  print("Parsed drug_carriers_links, 27/72")
+  print("Parsed drug_carriers_links, 27/73")
   drug_carriers_polypeptides <-
     parse_drug_carriers_polypeptides(save_table)
-  print("Parsed drug_carriers_polypeptides, 28/72")
+  print("Parsed drug_carriers_polypeptides, 28/73")
   drug_carriers_polypeptides_external_identifiers <-
     parse_drug_carriers_polypeptides_external_identifiers(save_table)
-  print("Parsed drug_carriers_polypeptides_external_identifiers, 29/72")
+  print("Parsed drug_carriers_polypeptides_external_identifiers, 29/73")
   drug_carriers_polypeptides_synonyms <-
     parse_drug_carriers_polypeptides_synonyms(save_table)
-  print("Parsed drug_carriers_polypeptides_synonyms, 30/72")
+  print("Parsed drug_carriers_polypeptides_synonyms, 30/73")
   drug_carriers_polypeptides_pfams <-
     parse_drug_carriers_polypeptides_pfams(save_table)
-  print("Parsed drug_carriers_polypeptides_pfams, 31/72")
+  print("Parsed drug_carriers_polypeptides_pfams, 31/73")
   drug_carriers_polypeptides_go_classifiers <-
     parse_drug_carriers_polypeptides_go_classifiers(save_table)
-  print("Parsed drug_carriers_polypeptides_go_classifiers, 32/72")
+  print("Parsed drug_carriers_polypeptides_go_classifiers, 32/73")
   drug_carriers <- parse_drug_carriers(save_table)
-  print("Parsed drug_carriers, 33/72")
+  print("Parsed drug_carriers, 33/73")
   drug_classification <-
     parse_drug_classification(save_table)
-  print("Parsed drugs main attributes, 34/72")
+  print("Parsed drugs main attributes, 34/73")
   drug_enzymes_actions <- parse_drug_enzymes_actions(save_table)
-  print("Parsed drug_enzymes_actions, 35/72")
+  print("Parsed drug_enzymes_actions, 35/73")
   drug_enzymes_articles <- parse_drug_enzymes_articles(save_table)
-  print("Parsed drug_enzymes_articles, 36/72")
+  print("Parsed drug_enzymes_articles, 36/73")
   drug_enzymes_textbooks <- parse_drug_enzymes_textbooks(save_table)
-  print("Parsed drug_enzymes_textbooks, 37/72")
+  print("Parsed drug_enzymes_textbooks, 37/73")
   drug_enzymes_links <- parse_drug_enzymes_links(save_table)
-  print("Parsed drug_enzymes_links, 38/72")
+  print("Parsed drug_enzymes_links, 38/73")
   drug_enzymes_polypeptides <-
     parse_drug_enzymes_polypeptides(save_table)
-  print("Parsed drug_enzymes_polypeptides, 39/72")
+  print("Parsed drug_enzymes_polypeptides, 39/73")
   drug_enzymes_polypeptides_external_identifiers <-
     parse_drug_enzymes_polypeptides_external_identifiers(save_table)
-  print("Parsed drug_enzymes_polypeptides_external_identifiers, 40/72")
+  print("Parsed drug_enzymes_polypeptides_external_identifiers, 40/73")
   drug_enzymes_polypeptides_synonyms <-
     parse_drug_enzymes_polypeptides_synonyms(save_table)
-  print("Parsed drug_enzymes_polypeptides_synonyms, 41/72")
+  print("Parsed drug_enzymes_polypeptides_synonyms, 41/73")
   drug_enzymes_polypeptides_pfams <-
     parse_drug_enzymes_polypeptides_pfams(save_table)
-  print("Parsed drug_enzymes_polypeptides_pfams, 42/72")
+  print("Parsed drug_enzymes_polypeptides_pfams, 42/73")
   drug_enzymes_polypeptides_go_classifiers <-
     parse_drug_enzymes_polypeptides_go_classifiers(save_table)
-  print("Parsed drug_enzymes_polypeptides_go_classifiers, 43/72")
+  print("Parsed drug_enzymes_polypeptides_go_classifiers, 43/73")
   drug_enzymes <- parse_drug_enzymes(save_table)
-  print("Parsed drug_enzymes, 44/72")
+  print("Parsed drug_enzymes, 44/73")
   drug_manufacturers <- parse_drug_manufacturers(save_table)
-  print("Parsed drug_manufacturers, 45/72")
+  print("Parsed drug_manufacturers, 45/73")
   drug_pathway_enzyme <- parse_drug_pathway_enzyme(save_table)
-  print("Parsed drug_pathway_enzyme, 46/72")
+  print("Parsed drug_pathway_enzyme, 46/73")
   drug_pathway_drugs <- parse_drug_pathway_drugs(save_table)
-  print("Parsed drug_pathway_drugs, 47/72")
+  print("Parsed drug_pathway_drugs, 47/73")
   drug_pathway <- parse_drug_pathway(save_table)
-  print("Parsed drug_pathway, 48/72")
+  print("Parsed drug_pathway, 48/73")
   drug_prices <- parse_drug_prices(save_table)
-  print("Parsed drug_prices, 49/72")
+  print("Parsed drug_prices, 49/73")
   drug_reactions <- parse_drug_reactions(save_table)
-  print("Parsed drug_reactions, 50/72")
+  print("Parsed drug_reactions, 50/73")
   drug_reactions_enzymes <- parse_drug_reactions_enzymes(save_table)
-  print("Parsed drug_reactions_enzymes, 51/72")
+  print("Parsed drug_reactions_enzymes, 51/73")
   drug_sequences <- parse_drug_sequences(save_table)
-  print("Parsed drug_sequences, 52/72")
+  print("Parsed drug_sequences, 52/73")
   drug_targets_polypeptides_external_identifiers <-
     parse_drug_targets_polypeptides_external_identifiers(save_table)
-  print("Parsed drug_targets_polypeptides_external_identifiers, 53/72")
+  print("Parsed drug_targets_polypeptides_external_identifiers, 53/73")
   drug_targets_polypeptides_synonyms <-
     parse_drug_targets_polypeptides_synonyms(save_table)
-  print("Parsed drug_targets_polypeptides_synonyms, 54/72")
+  print("Parsed drug_targets_polypeptides_synonyms, 54/73")
   drug_targets_polypeptides_pfams <-
     parse_drug_targets_polypeptides_pfams(save_table)
-  print("Parsed drug_targets_polypeptides_pfams, 55/72")
+  print("Parsed drug_targets_polypeptides_pfams, 55/73")
   drug_targets_polypeptides_go_classifiers <-
     parse_drug_targets_polypeptides_go_classifiers(save_table)
-  print("Parsed drug_targets_polypeptides_go_classifiers attributes, 56/72")
+  print("Parsed drug_targets_polypeptides_go_classifiers attributes, 56/73")
   drug_targets_actions <- parse_drug_targets_actions(save_table)
-  print("Parsed drug_targets_actions, 57/72")
+  print("Parsed drug_targets_actions, 57/73")
   drug_targets_articles <- parse_drug_targets_articles(save_table)
-  print("Parsed drug_targets_articles, 58/72")
+  print("Parsed drug_targets_articles, 58/73")
   drug_targets_textbooks <- parse_drug_targets_textbooks(save_table)
-  print("Parsed drug_targets_textbooks, 59/72")
+  print("Parsed drug_targets_textbooks, 59/73")
   drug_targets_links <- parse_drug_targets_links(save_table)
-  print("Parsed drug_targets_links, 60/72")
+  print("Parsed drug_targets_links, 60/73")
   drug_targets_polypeptide <-
     parse_drug_targets_polypeptides(save_table)
-  print("Parsed drug_targets_polypeptide, 61/72")
+  print("Parsed drug_targets_polypeptide, 61/73")
   drug_targets <- parse_drug_targets(save_table)
-  print("Parsed drug_targets, 62/72")
+  print("Parsed drug_targets, 62/73")
   drug_transporters_actions <-
     parse_drug_transporters_actions(save_table)
-  print("Parsed drug_transporters_actions, 63/72")
+  print("Parsed drug_transporters_actions, 63/73")
   drug_transporters_articles <-
     parse_drug_transporters_articles(save_table)
-  print("Parsed drug_transporters_articles, 64/72")
+  print("Parsed drug_transporters_articles, 64/73")
   drug_transporters_textbooks <-
     parse_drug_transporters_textbooks(save_table)
-  print("Parsed drug_transporters_textbooks, 65/72")
+  print("Parsed drug_transporters_textbooks, 65/73")
   drug_transporters_links <-
     parse_drug_transporters_links(save_table)
-  print("Parsed drug_transporters_links, 66/72")
+  print("Parsed drug_transporters_links, 66/73")
   drug_transporters_polypeptides <-
     parse_drug_transporters_polypeptides(save_table)
-  print("Parsed drug_transporters_polypeptides, 67/72")
+  print("Parsed drug_transporters_polypeptides, 67/73")
   drug_transporters_polypeptides_external_identifiers <-
     parse_drug_transporters_polypeptides_external_identifiers(save_table)
-  print("Parsed drug_transporters_polypeptides_external_identifiers, 68/72")
+  print("Parsed drug_transporters_polypeptides_external_identifiers, 68/73")
   drug_transporters_polypeptides_synonyms <-
     parse_drug_transporters_polypeptides_synonyms(save_table)
-  print("Parsed drug_transporters_polypeptides_synonyms, 69/72")
+  print("Parsed drug_transporters_polypeptides_synonyms, 69/73")
   drug_transporters_polypeptides_pfams <-
     parse_drug_transporters_polypeptides_pfams(save_table)
-  print("Parsed drug_transporters_polypeptides_pfams, 70/72")
+  print("Parsed drug_transporters_polypeptides_pfams, 70/73")
   drug_transporters_polypeptides_go_classifiers <-
     parse_drug_transporters_polypeptides_go_classifiers(save_table)
-  print("Parsed drugs_transporters_polypeptides_go_classifiers, 71/72")
+  print("Parsed drugs_transporters_polypeptides_go_classifiers, 71/73")
   drug_transporters <- parse_drug_transporters(save_table)
-  print("Parsed drugs_transporters, 72/72")
+  print("Parsed drugs_transporters, 72/73")
+  drug_international_brands <- parse_drug_international_brands(save_table)
+  print("Parsed drugs_international_brands, 73/73")
   return(
     list(
       drugs = drugs,
@@ -278,7 +280,8 @@ parse_drug_all <- function(save_table = FALSE) {
       drug_transporters_polypeptides_pfams = drug_transporters_polypeptides_pfams,
       drug_transporters_polypeptides_go_classifiers =
         drug_transporters_polypeptides_go_classifiers,
-      drug_transporters = drug_transporters
+      drug_transporters = drug_transporters,
+      drug_international_brands = drug_international_brands
 
     )
   )
@@ -404,7 +407,8 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
         parse_drug_transporters_polypeptides_go_classifiers(save_table),
       "drug_transporters_polypeptides_pfams" = parse_drug_transporters_polypeptides_pfams(save_table),
       "drug_transporters_polypeptides_synonyms" = parse_drug_transporters_polypeptides_synonyms(save_table),
-      "drug_transporters_textbooks" = parse_drug_transporters_textbooks(save_table)
+      "drug_transporters_textbooks" = parse_drug_transporters_textbooks(save_table),
+      "drug_international_brands" = parse_drug_international_brands(save_table)
     )
     parsed_list[[option]] <- parsed_element
     print(paste("Parsed", option))
@@ -496,7 +500,8 @@ parse_drug_element_options <- function() {
       "drug_transporters_polypeptides_go_classifiers",
       "drug_transporters_polypeptides_pfams",
       "drug_transporters_polypeptides_synonyms",
-      "drug_transporters_textbooks"
+      "drug_transporters_textbooks",
+      "drug_international_brands"
     )
   return(elements_options)
 }

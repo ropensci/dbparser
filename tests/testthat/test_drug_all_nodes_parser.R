@@ -21,15 +21,15 @@ drugs <- parse_drug_all()
 drugs_types <- classlist(drugs)
 test_that(desc = "Read all drug nodes",
           code = {
-            expect_equal(length(drugs), 72)
-            expect_equal(length(drugs_types[1,] == "tbl_df"), 72)
+            expect_equal(length(drugs), 73)
+            expect_equal(length(drugs_types[1,] == "tbl_df"), 73)
             expect_error(parse_drug_all(TRUE))
           })
 
 test_that(desc = "Read selected drug nodes",
           code = {
-            expect_equal(length(parse_drug_element()), 72)
-            expect_equal(length(parse_drug_element(c("all"))), 72)
+            expect_equal(length(parse_drug_element()), 73)
+            expect_equal(length(parse_drug_element(c("all"))), 73)
             expect_error(parse_drug_element(save_table = TRUE))
             expect_error(parse_drug_element(c("all"), save_table = TRUE))
             expect_message(
@@ -46,7 +46,7 @@ test_that(desc = "Read selected drug nodes",
                 to know valid options"
               )
               )
-            expect_equal(length(parse_drug_element_options()), 73)
+            expect_equal(length(parse_drug_element_options()), 74)
             expect_equal(length(parse_drug_element(
               c(
                 "drug_ahfs_codes",

@@ -6,6 +6,7 @@
 * Fix serveral typoes in documentation and code
 * Fix consistency issue of CLASS of Data Frames Returned by dbparser
 * Check if drugbank database exist before parsing
+* Add support for *international_brands* element
 
 # dbparser 1.0.0
 
