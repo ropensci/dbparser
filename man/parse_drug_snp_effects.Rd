@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{parse_drug_snp_effects}
 \alias{parse_drug_snp_effects}
-\title{Extracts the drug snp effects element and return data as data frame.}
+\title{Extracts the drug snp effects element and return data as tibble.}
 \usage{
 parse_drug_snp_effects(save_table = FALSE)
 }
@@ -10,16 +10,16 @@ parse_drug_snp_effects(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug snp effects node attributes date frame
+drug snp effects node attributes tibble
 }
 \description{
-\code{parse_drug_snp_effects} returns data frame of snp effects groups elements.
+\code{parse_drug_snp_effects} returns tibble of snp effects groups elements.
 }
 \details{
-This functions extracts the snp effects element of drug node in drug bank
+This functions extracts the snp effects element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{parse_drug_external_links}
 \alias{parse_drug_external_links}
-\title{Extracts the drug external links element and return data as data frame.}
+\title{Extracts the drug external links element and return data as tibble.}
 \usage{
 parse_drug_external_links(save_table = FALSE)
 }
@@ -10,16 +10,16 @@ parse_drug_external_links(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug external links node attributes date frame
+drug external links node attributes tibble
 }
 \description{
-\code{parse_drug_external_links} returns data frame of drug external links elements.
+\code{parse_drug_external_links} returns tibble of drug external links elements.
 }
 \details{
-This functions extracts the external links element of drug node in drug bank
+This functions extracts the external links element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{parse_drug_groups}
 \alias{parse_drug_groups}
-\title{Extracts the drug groups element and return data as data frame.}
+\title{Extracts the drug groups element and return data as tibble.}
 \usage{
 parse_drug_groups(save_table = FALSE)
 }
@@ -10,16 +10,16 @@ parse_drug_groups(save_table = FALSE)
 \item{save_table}{boolean, save table in database if true.}
 }
 \value{
-drug groups node attributes date frame
+drug groups node attributes tibble
 }
 \description{
-\code{parse_drug_groups} returns data frame of drug groups elements.
+\code{parse_drug_groups} returns tibble of drug groups elements.
 }
 \details{
-This functions extracts the groups element of drug node in drug bank
+This functions extracts the groups element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
 If \code{\link{get_xml_db_rows}} is called before for any reason, so
