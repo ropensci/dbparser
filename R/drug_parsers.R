@@ -335,7 +335,7 @@ parse_drug_salts <- function(save_table = FALSE) {
     map_df(pkg.env$children, ~ drug_sub_df(.x, "salts"))
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
-                  df = drug_international_brands,
+                  df = drug_salts,
                   table_name = "salts")
   }
   return(tibble::as_tibble(drug_salts))
