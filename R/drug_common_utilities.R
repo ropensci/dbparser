@@ -45,8 +45,8 @@ drug_sub_df <-
 #' no need to call it again.
 #'
 #' @param xml_db_name string, full path for the drug bank xml.
-#' @return nothing but sets the db tree in memory to be used by parser
-#' methods
+#' @return TRUE when sets the db tree in memory to be used by parser
+#' methods and FALSE otherwise
 #'
 #' @examples
 #' \donttest{
@@ -55,12 +55,25 @@ drug_sub_df <-
 #' }
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
-  drugbank_db <- xmlParse(xml_db_name)
-  top <- xmlRoot(drugbank_db)
-  pkg.env$version <- XML::xmlAttrs(top)[["version"]]
-  pkg.env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
-  pkg.env$children  <- xmlChildren(top)
-  return(TRUE)
+  if (file.exists(xml_db_name)) {
+    drugbank_db <- xmlParse(xml_db_name)
+    top <- xmlRoot(drugbank_db)
+    pkg.env$version <- XML::xmlAttrs(top)[["version"]]
+    pkg.env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
+    pkg.env$children  <- xmlChildren(top)
+    return(TRUE)
+  } else {
+    stop(
+      paste(
+        "Could not find the file:",
+        xml_db_name,
+        ".Please ensure",
+        "that the file name is entered correctly",
+        "and that it exists at the specified location."
+      )
+    )
+    return(FALSE)
+  }
 }
 
 #' Establish connection to given data base

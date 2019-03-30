@@ -13,6 +13,7 @@ test_that(desc = "Read database",
             expect_true(get_xml_db_rows(
               system.file("extdata", "drugbank_record.xml", package = "dbparser")
             ))
+            expect_error(get_xml_db_rows("I_do_not_exist_file.xml"))
           })
 
 test_that(desc = "Read all drug nodes",

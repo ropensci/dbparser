@@ -10,8 +10,8 @@ get_xml_db_rows(xml_db_name)
 \item{xml_db_name}{string, full path for the drug bank xml.}
 }
 \value{
-nothing but sets the db tree in memory to be used by parser
-methods
+TRUE when sets the db tree in memory to be used by parser
+methods and FALSE otherwise
 }
 \description{
 \code{get_xml_db_rows} sets drug bank db xml full tree in memory
