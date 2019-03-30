@@ -61,7 +61,7 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE) {
       save_table_only = TRUE
     )
   }
-  return(drug_pathway_enzymes)
+  return(tibble::as_tibble(drug_pathway_enzymes))
 }
 
 #' Extracts the drug pathway drugs element and return data as data frame.
@@ -97,7 +97,7 @@ parse_drug_pathway_drugs <- function(save_table = FALSE) {
       save_table_only = TRUE
     )
   }
-  return(drug_pathway_drugs)
+  return(tibble::as_tibble(drug_pathway_drugs))
 }
 
 #' Extracts the drug pathway element and return data as data frame.

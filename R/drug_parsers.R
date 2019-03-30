@@ -80,7 +80,7 @@ parse_drug_groups <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_groups, table_name = "drug_groups")
     }
-    return(drug_groups)
+    return(tibble::as_tibble(drug_groups))
 }
 
 #' Extracts the drug articles element and return data as data frame.
@@ -112,7 +112,7 @@ parse_drug_articles <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_articles, table_name = "drug_articles")
     }
-    return(drug_articles)
+    return(tibble::as_tibble(drug_articles))
 }
 
 #' Extracts the drug books element and return data as data frame.
@@ -143,7 +143,7 @@ parse_drug_books <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_books, table_name = "drug_books")
     }
-    return(drug_books)
+    return(tibble::as_tibble(drug_books))
 }
 
 #' Extracts the drug links element and return data as data frame.
@@ -174,7 +174,7 @@ parse_drug_links <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_links, table_name = "drug_links")
     }
-    return(drug_links)
+    return(tibble::as_tibble(drug_links))
 }
 
 
@@ -240,7 +240,7 @@ parse_drug_products <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_products, table_name = "drug_products")
     }
-    return(drug_products)
+    return(tibble::as_tibble(drug_products))
 }
 
 #' Extracts the drug mixtures element and return data as data frame.
@@ -271,7 +271,7 @@ parse_drug_mixtures <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_mixtures, table_name = "drug_mixtures")
     }
-    return(drug_mixtures)
+    return(tibble::as_tibble(drug_mixtures))
 }
 
 #' Extracts the drug packagers element and return data as data frame.
@@ -302,7 +302,7 @@ parse_drug_packagers <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_packagers, table_name = "drug_packagers")
     }
-    return(drug_packagers)
+    return(tibble::as_tibble(drug_packagers))
 }
 
 
@@ -334,7 +334,7 @@ parse_drug_categories <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_categories, table_name = "drug_categories")
     }
-    return(drug_categories)
+    return(tibble::as_tibble(drug_categories))
 }
 
 #' Extracts the drug affected organisms element and return data as data frame.
@@ -365,7 +365,7 @@ parse_drug_affected_organisms <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_affected_organisms, table_name = "drug_affected_organisms")
     }
-    return(drug_affected_organisms)
+    return(tibble::as_tibble(drug_affected_organisms))
 }
 
 #' Extracts the drug dosages element and return data as data frame.
@@ -396,7 +396,7 @@ parse_drug_dosages <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_dosages, table_name = "drug_dosages")
     }
-    return(drug_dosages)
+    return(tibble::as_tibble(drug_dosages))
 }
 
 
@@ -428,7 +428,7 @@ parse_drug_ahfs_codes <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_ahfs_codes, table_name = "drug_ahfs_codes")
     }
-    return(drug_ahfs_codes)
+    return(tibble::as_tibble(drug_ahfs_codes))
 }
 
 #' Extracts the drug pdb entries element and return data as data frame.
@@ -459,7 +459,7 @@ parse_drug_pdb_entries <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_pdb_entries, table_name = "drug_pdb_entries")
     }
-    return(drug_pdb_entries)
+    return(tibble::as_tibble(drug_pdb_entries))
 }
 
 #' Extracts the drug patents element and return data as data frame.
@@ -490,7 +490,7 @@ parse_drug_patents <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_patents, table_name = "drug_patents")
     }
-    return(drug_patents)
+    return(tibble::as_tibble(drug_patents))
 }
 
 #' Extracts the drug food interactions element and return data as data frame.
@@ -522,7 +522,7 @@ parse_drug_food_interactions <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_food_interactions, table_name = "drug_food_interactions")
     }
-    return(drug_food_interactions)
+    return(tibble::as_tibble(drug_food_interactions))
 }
 
 #' Extracts the drug interactions element and return data as data frame.
@@ -553,7 +553,7 @@ parse_drug_interactions <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_drug_interactions, table_name = "drug_drug_interactions")
     }
-    return(drug_drug_interactions)
+    return(tibble::as_tibble(drug_drug_interactions))
 }
 
 #' Extracts the drug experimental properties element and return data as data frame.
@@ -586,7 +586,7 @@ parse_drug_experimental_properties <- function(save_table = FALSE) {
       save_drug_sub(con = pkg.env$con, df = drug_experimental_properties,
                     table_name = "drug_experimental_properties")
     }
-    return(drug_experimental_properties)
+    return(tibble::as_tibble(drug_experimental_properties))
 }
 
 #' Extracts the drug external identifiers element and return data as data frame.
@@ -649,7 +649,7 @@ parse_drug_external_links <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_external_links, table_name = "drug_external_links")
     }
-    return(drug_external_links)
+    return(tibble::as_tibble(drug_external_links))
 }
 
 #' Extracts the drug snp effects element and return data as data frame.
@@ -680,7 +680,7 @@ parse_drug_snp_effects <- function(save_table = FALSE) {
     if (save_table) {
       save_drug_sub(con = pkg.env$con, df = drug_snp_effects, table_name = "drug_snp_effects")
     }
-    return(drug_snp_effects)
+    return(tibble::as_tibble(drug_snp_effects))
 }
 
 #' Extracts the drug snp adverse drug reactions element and return data as data frame.
@@ -714,5 +714,5 @@ parse_drug_snp_adverse_drug_reactions <- function(save_table = FALSE) {
                     df = drug_snp_adverse_drug_reactions,
                     table_name = "drug_snp_adverse_drug_reactions")
     }
-    return(drug_snp_adverse_drug_reactions)
+    return(tibble::as_tibble(drug_snp_adverse_drug_reactions))
 }

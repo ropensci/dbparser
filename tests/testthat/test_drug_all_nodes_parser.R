@@ -6,7 +6,9 @@ library(XML)
 library(tibble)
 library(purrr)
 
-
+classlist <- function(x) {
+  sapply(x, class)
+}
 
 test_that(desc = "Read database",
           code = {
@@ -15,10 +17,12 @@ test_that(desc = "Read database",
             ))
             expect_error(get_xml_db_rows("I_do_not_exist_file.xml"))
           })
-
+drugs <- parse_drug_all()
+drugs_types <- classlist(drugs)
 test_that(desc = "Read all drug nodes",
           code = {
-            expect_equal(length(parse_drug_all()), 72)
+            expect_equal(length(drugs), 72)
+            expect_equal(length(drugs_types[1,] == "tbl_df"), 72)
             expect_error(parse_drug_all(TRUE))
           })
 

@@ -43,5 +43,5 @@ parse_drug_manufacturers <- function(save_table = FALSE) {
                   df = drug_manufacturers,
                   table_name = "drug_manufacturers")
   }
-  return(drug_manufacturers)
+  return(tibble::as_tibble(drug_manufacturers))
 }

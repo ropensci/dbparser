@@ -92,7 +92,7 @@ parse_drug_targets_polypeptides_external_identifiers <-
         save_table_only = TRUE
       )
     }
-    return(drug_targets_polypeptide_external_identifiers)
+    return(tibble::as_tibble(drug_targets_polypeptide_external_identifiers))
   }
 
 
@@ -174,7 +174,7 @@ parse_drug_targets_polypeptides_pfams <-
         save_table_only = TRUE
       )
     }
-    return(drug_targets_polypeptide_pfams)
+    return(tibble::as_tibble(drug_targets_polypeptide_pfams))
   }
 
 
@@ -216,7 +216,7 @@ parse_drug_targets_polypeptides_go_classifiers <-
         save_table_only = TRUE
       )
     }
-    return(drug_targets_polypeptides_go_classifiers)
+    return(tibble::as_tibble(drug_targets_polypeptides_go_classifiers))
   }
 
 #' Extracts the drug targets actions element and return data as data frame.
@@ -254,7 +254,7 @@ parse_drug_targets_actions <- function(save_table = FALSE) {
       save_table_only = TRUE
     )
   }
-  return(drug_targets_actions)
+  return(tibble::as_tibble(drug_targets_actions))
 }
 
 #' Extracts the drug targets articles element and return data as data frame.
@@ -292,7 +292,7 @@ parse_drug_targets_articles <- function(save_table = FALSE) {
       save_table_only = TRUE
     )
   }
-  return(drug_targets_articles)
+  return(tibble::as_tibble(drug_targets_articles))
 }
 
 #' Extracts the drug targets textbooks element and return data as data frame.
@@ -330,7 +330,7 @@ parse_drug_targets_textbooks <- function(save_table = FALSE) {
       save_table_only = TRUE
     )
   }
-  return(drug_targets_textbooks)
+  return(tibble::as_tibble(drug_targets_textbooks))
 }
 
 #' Extracts the drug targets links element and return data as data frame.
@@ -375,7 +375,7 @@ parse_drug_targets_links <- function(save_table = FALSE) {
       )
     )
   }
-  return(drug_targets_links)
+  return(tibble::as_tibble(drug_targets_links))
 }
 
 #' Extracts the drug targets polypeptides element and return data as data frame.
