@@ -15,7 +15,7 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug targets actions attributes",
           code = {
-            expect_match(as.character(parse_drug_targets_actions()[["text"]][[1]]),
+            expect_match(as.character(parse_drug_targets_actions()[["action"]][[1]]),
                          "inhibitor")
             expect_error(parse_drug_targets_actions(TRUE))
           })

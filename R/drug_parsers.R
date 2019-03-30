@@ -82,6 +82,11 @@ parse_drug <- function(save_table = FALSE) {
 #' @export
 parse_drug_groups <- function(save_table = FALSE) {
   drug_groups <- map_df(pkg.env$children, ~ drug_sub_df(.x, "groups"))
+
+  if (nrow(drug_groups) > 0){
+    colnames(drug_groups) <- c("group", "drugbank_id")
+  }
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_groups,
@@ -470,6 +475,11 @@ parse_drug_categories <- function(save_table = FALSE) {
 parse_drug_affected_organisms <- function(save_table = FALSE) {
   drug_affected_organisms <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "affected-organisms"))
+
+  if (nrow(drug_affected_organisms) > 0){
+    colnames(drug_affected_organisms) = c("affected_organism", "drugbank_id")
+  }
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_affected_organisms,
@@ -539,6 +549,9 @@ parse_drug_dosages <- function(save_table = FALSE) {
 parse_drug_ahfs_codes <- function(save_table = FALSE) {
   drug_ahfs_codes <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "ahfs-codes"))
+  if (nrow(drug_ahfs_codes) > 0){
+    colnames(drug_ahfs_codes) <- c("ahfs_code", "drugbank_id")
+  }
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_ahfs_codes,
@@ -573,6 +586,11 @@ parse_drug_ahfs_codes <- function(save_table = FALSE) {
 parse_drug_pdb_entries <- function(save_table = FALSE) {
   drug_pdb_entries <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "pdb-entries"))
+
+  if (nrow(drug_pdb_entries) > 0){
+    colnames(drug_pdb_entries) <- c("pdb_entry", "drugbank_id")
+  }
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_pdb_entries,
@@ -642,6 +660,11 @@ parse_drug_patents <- function(save_table = FALSE) {
 parse_drug_food_interactions <- function(save_table = FALSE) {
   drug_food_interactions <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "food-interactions"))
+
+  if (nrow(drug_food_interactions) > 0){
+    colnames(drug_food_interactions) <- c("food_interaction", "drugbank_id")
+  }
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_food_interactions,

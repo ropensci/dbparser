@@ -38,6 +38,11 @@ get_manufactures_df <- function(rec) {
 parse_drug_manufacturers <- function(save_table = FALSE) {
   drug_manufacturers <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers"))
+
+  if (nrow(drug_manufacturers) > 0) {
+    colnames(drug_manufacturers) <- c("manufacturer", "drugbank_id")
+  }
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_manufacturers,

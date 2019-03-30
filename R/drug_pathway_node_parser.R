@@ -53,6 +53,11 @@ get_pathways_enzymes_df <- function(rec) {
 parse_drug_pathway_enzyme <- function(save_table = FALSE) {
   drug_pathway_enzymes <-
     map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x))
+
+  if (nrow(drug_pathway_enzymes) > 0) {
+    colnames(drug_pathway_enzymes) <- c("enzyme", "pathway_id")
+  }
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

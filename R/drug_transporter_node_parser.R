@@ -79,6 +79,11 @@ get_transporters_polypeptide_go_classifiers_df <- function(rec) {
 parse_drug_transporters_actions <- function(save_table = FALSE) {
   drug_transporters_actions <-
     map_df(pkg.env$children, ~ get_transporters_actions_df(.x))
+
+  if (nrow(drug_transporters_actions) > 0) {
+    colnames(drug_transporters_actions) <- c("action", "transporter_id")
+  }
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

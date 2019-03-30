@@ -101,6 +101,11 @@ get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
 parse_drug_enzymes_actions <- function(save_table = FALSE) {
   drug_enzymes_actions <-
     map_df(pkg.env$children, ~ get_enzymes_actions_df(.x))
+
+  if (nrow(drug_enzymes_actions) > 0) {
+    colnames(drug_enzymes_actions) <- c("action", "enzyme_id")
+  }
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

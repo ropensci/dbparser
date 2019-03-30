@@ -246,6 +246,11 @@ parse_drug_targets_polypeptides_go_classifiers <-
 parse_drug_targets_actions <- function(save_table = FALSE) {
   drug_targets_actions <-
     map_df(pkg.env$children, ~ get_targets_actions_df(.x))
+
+  if (nrow(drug_targets_actions) > 0) {
+    colnames(drug_targets_actions) <- c("action", "target_id")
+  }
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

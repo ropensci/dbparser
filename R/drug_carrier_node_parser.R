@@ -81,6 +81,10 @@ get_carriers_polypeptide_go_classifiers_df <- function(rec) {
 parse_drug_carriers_actions <- function(save_table = FALSE) {
   drug_carriers_actions <-
     map_df(pkg.env$children, ~ get_carriers_actions_df(.x))
+  if (nrow(drug_carriers_actions) > 0) {
+    colnames(drug_carriers_actions) <- c("action", "carrier_id")
+  }
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

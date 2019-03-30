@@ -30,7 +30,7 @@ test_that(desc = "Read darug pathway drugs attributes",
 
 test_that(desc = "Read darug pathway enzyme attributes",
           code = {
-            expect_match(as.character(parse_drug_pathway_enzyme()[["text"]][[1]]),
+            expect_match(as.character(parse_drug_pathway_enzyme()[["enzyme"]][[1]]),
                          "P00734")
             expect_error(parse_drug_pathway_enzyme(TRUE))
           })
