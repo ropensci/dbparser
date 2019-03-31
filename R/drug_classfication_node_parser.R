@@ -33,7 +33,9 @@ drug_classifications_df <- function(rec) {
 #' }
 #' @export
 parse_drug_classification <- function(save_table = FALSE) {
-  drug_classifications <- map_df(pkg.env$children, ~ drug_classifications_df(.x))
+  drug_classifications <-
+    map_df(pkg.env$children, ~ drug_classifications_df(.x)) %>%
+    unique()
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_classifications,

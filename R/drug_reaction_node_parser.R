@@ -44,7 +44,9 @@ get_reactions_enzymes_df <- function(rec) {
 #' }
 #' @export
 parse_drug_reactions <- function(save_table = FALSE) {
-  drug_reactions <- map_df(pkg.env$children, ~ get_reactions_df(.x))
+  drug_reactions <-
+    map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
+    unique()
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -81,7 +83,9 @@ parse_drug_reactions <- function(save_table = FALSE) {
 #' @export
 parse_drug_reactions_enzymes <- function(save_table = FALSE) {
   drug_reactions_enzymes <-
-    map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x))
+    map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
+    unique()
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,

@@ -41,7 +41,10 @@ get_sequences_df <- function(rec) {
 #' }
 #' @export
 parse_drug_sequences <- function(save_table = FALSE) {
-  drug_sequences <- map_df(pkg.env$children, ~ get_sequences_df(.x))
+  drug_sequences <-
+    map_df(pkg.env$children, ~ get_sequences_df(.x)) %>%
+    unique()
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_sequences,

@@ -37,7 +37,8 @@ get_manufactures_df <- function(rec) {
 #' @export
 parse_drug_manufacturers <- function(save_table = FALSE) {
   drug_manufacturers <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers"))
+    map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
+    unique()
 
   if (nrow(drug_manufacturers) > 0) {
     colnames(drug_manufacturers) <- c("manufacturer", "drugbank_id")
