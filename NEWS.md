@@ -9,6 +9,7 @@
 * Add support for *international_brands* and *salts* elements
 * Properly rename some features to have clear names
 * Reduce datasets size by getting unique rows only
+* Support reading zip file containing DrugBank xml database
 
 # dbparser 1.0.0
 

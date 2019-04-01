@@ -44,7 +44,7 @@ drug_sub_df <-
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
 #' no need to call it again.
 #'
-#' @param xml_db_name string, full path for the drug bank xml.
+#' @param xml_db_name string, full path for the drug bank xml or zip file.
 #' @return TRUE when sets the db tree in memory to be used by parser
 #' methods and FALSE otherwise
 #'
@@ -55,6 +55,25 @@ drug_sub_df <-
 #' }
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
+  ext <- file_ext(xml_db_name)
+  dir_name <- dirname(xml_db_name)
+  if (!ext %in% c("zip", "xml")) {
+    stop("Unsupported file format, Kindly use an XML or zip file.")
+  }
+
+  if (ext == "zip") {
+    tryCatch(
+      {
+        db <- unzip(xml_db_name, list = TRUE)
+        xml_db_name <- paste0(dir_name, "/", db$Name[1])
+        message(xml_db_name)
+      },
+      error = function(e) {
+        stop(e)
+      }
+    )
+  }
+
   if (file.exists(xml_db_name)) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)

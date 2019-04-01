@@ -7,7 +7,7 @@
 get_xml_db_rows(xml_db_name)
 }
 \arguments{
-\item{xml_db_name}{string, full path for the drug bank xml.}
+\item{xml_db_name}{string, full path for the drug bank xml or zip file.}
 }
 \value{
 TRUE when sets the db tree in memory to be used by parser
