@@ -18,6 +18,7 @@ Imports:
     odbc,
     purrr,
     tibble,
+    tidyr,
     tools,
     XML
 RoxygenNote: 6.1.0
