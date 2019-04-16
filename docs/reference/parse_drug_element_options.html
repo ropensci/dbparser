@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
       </span>
     </div>
 
@@ -87,12 +87,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/Dainanahan/dbparser">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,7 +101,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Returns <code>parse_drug_element</code> valid options.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Dainanahan/dbparser/blob/master/R/drug_all_nodes_parser.R'><code>R/drug_all_nodes_parser.R</code></a></small>
+    
     <div class="hidden name"><code>parse_drug_element_options.Rd</code></div>
     </div>
 
@@ -124,79 +119,81 @@
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>parse_drug_element_options</span>()</div><div class='output co'>#&gt;  [1] "all"                                                
-#&gt;  [2] "drugs"                                              
-#&gt;  [3] "drug_affected_organisms"                            
-#&gt;  [4] "drug_ahfs_codes"                                    
-#&gt;  [5] "drug_articles"                                      
-#&gt;  [6] "drug_atc_codes"                                     
-#&gt;  [7] "drug_books"                                         
-#&gt;  [8] "drug_carriers"                                      
-#&gt;  [9] "drug_carriers_actions"                              
-#&gt; [10] "drug_carriers_articles"                             
-#&gt; [11] "drug_carriers_links"                                
-#&gt; [12] "drug_carriers_polypeptides"                         
-#&gt; [13] "drug_carriers_polypeptides_external_identifiers"    
-#&gt; [14] "drug_carriers_polypeptides_go_classifiers"          
-#&gt; [15] "drug_carriers_polypeptides_pfams"                   
-#&gt; [16] "drug_carriers_polypeptides_synonyms"                
-#&gt; [17] "drug_carriers_textbooks"                            
-#&gt; [18] "drug_categories"                                    
-#&gt; [19] "drug_classifications"                               
-#&gt; [20] "drug_dosages"                                       
-#&gt; [21] "drug_enzymes"                                       
-#&gt; [22] "drug_enzymes_actions"                               
-#&gt; [23] "drug_enzymes_articles"                              
-#&gt; [24] "drug_enzymes_links"                                 
-#&gt; [25] "drug_enzymes_polypeptides"                          
-#&gt; [26] "drug_enzymes_polypeptides_external_identifiers"     
-#&gt; [27] "drug_enzymes_polypeptides_go_classifiers"           
-#&gt; [28] "drug_enzymes_polypeptides_pfams"                    
-#&gt; [29] "drug_enzymes_polypeptides_synonyms"                 
-#&gt; [30] "drug_enzymes_textbooks"                             
-#&gt; [31] "drug_experimental_properties"                       
-#&gt; [32] "drug_external_identifiers"                          
-#&gt; [33] "drug_external_links"                                
-#&gt; [34] "drug_food_interactions"                             
-#&gt; [35] "drug_groups"                                        
-#&gt; [36] "drug_interactions"                                  
-#&gt; [37] "drug_links"                                         
-#&gt; [38] "drug_manufacturers"                                 
-#&gt; [39] "drug_mixtures"                                      
-#&gt; [40] "drug_packagers"                                     
-#&gt; [41] "drug_patents"                                       
-#&gt; [42] "drug_pathway"                                       
-#&gt; [43] "drug_pathway_drugs"                                 
-#&gt; [44] "drug_pathway_enzyme"                                
-#&gt; [45] "drug_pdb_entries"                                   
-#&gt; [46] "drug_prices"                                        
-#&gt; [47] "drug_products"                                      
-#&gt; [48] "drug_reactions"                                     
-#&gt; [49] "drug_reactions_enzymes"                             
-#&gt; [50] "drug_sequences"                                     
-#&gt; [51] "drug_snp_adverse_drug_reactions"                    
-#&gt; [52] "drug_snp_effects"                                   
-#&gt; [53] "drug_synonyms"                                      
-#&gt; [54] "drug_targets"                                       
-#&gt; [55] "drug_targets_actions"                               
-#&gt; [56] "drug_targets_articles"                              
-#&gt; [57] "drug_targets_links"                                 
-#&gt; [58] "drug_targets_polypeptides"                          
-#&gt; [59] "drug_targets_polypeptides_external_identifiers"     
-#&gt; [60] "drug_targets_polypeptides_go_classifiers"           
-#&gt; [61] "drug_targets_polypeptides_pfams"                    
-#&gt; [62] "drug_targets_polypeptides_synonyms"                 
-#&gt; [63] "drug_targets_textbooks"                             
-#&gt; [64] "drug_transporters"                                  
-#&gt; [65] "drug_transporters_actions"                          
-#&gt; [66] "drug_transporters_articles"                         
-#&gt; [67] "drug_transporters_links"                            
-#&gt; [68] "drug_transporters_polypeptides"                     
-#&gt; [69] "drug_transporters_polypeptides_external_identifiers"
-#&gt; [70] "drug_transporters_polypeptides_go_classifiers"      
-#&gt; [71] "drug_transporters_polypeptides_pfams"               
-#&gt; [72] "drug_transporters_polypeptides_synonyms"            
-#&gt; [73] "drug_transporters_textbooks"                        </div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>parse_drug_element_options</span>()</div><div class='output co'>#&gt;  [1] "all"                                          
+#&gt;  [2] "Drugs"                                        
+#&gt;  [3] "Groups_Drug"                                  
+#&gt;  [4] "Articles_Drug"                                
+#&gt;  [5] "Books_Drug"                                   
+#&gt;  [6] "Links_Drug"                                   
+#&gt;  [7] "Synonyms_Drug"                                
+#&gt;  [8] "Products_Drug"                                
+#&gt;  [9] "Mixtures_Drug"                                
+#&gt; [10] "Packagers_Drug"                               
+#&gt; [11] "Categories_Drug"                              
+#&gt; [12] "Affected_Organisms_Drug"                      
+#&gt; [13] "Dosages_Drug"                                 
+#&gt; [14] "AHFS_Codes_Drug"                              
+#&gt; [15] "PDB_Entries_Drug"                             
+#&gt; [16] "Patents_Drug"                                 
+#&gt; [17] "Food_Interactions_Drug"                       
+#&gt; [18] "Interactions_Drug"                            
+#&gt; [19] "Experimental_Properties_Drug"                 
+#&gt; [20] "External_Identifiers_Drug"                    
+#&gt; [21] "External_Links_Drug"                          
+#&gt; [22] "SNP_Effects_Drug"                             
+#&gt; [23] "SNP_Adverse_Drug_Reactions_Drug"              
+#&gt; [24] "ATC_Codes_Drug"                               
+#&gt; [25] "Actions_Carrier_Drug"                         
+#&gt; [26] "Articles_Carrier_Drug"                        
+#&gt; [27] "Textbooks_Carrier_Drug"                       
+#&gt; [28] "Links_Carrier_Drug"                           
+#&gt; [29] "Polypeptides_Carrier_Drug"                    
+#&gt; [30] "External_Identifiers_Polypeptide_Carrier_Drug"
+#&gt; [31] "Synonyms_Polypeptide_Carrier_Drug"            
+#&gt; [32] "PFAMS_Polypeptide_Carrier_Drug"               
+#&gt; [33] "GO_Classifiers_Polypeptide_Carrier_Drug"      
+#&gt; [34] "Carriers_Drug"                                
+#&gt; [35] "Classifications_Drug"                         
+#&gt; [36] "Actions_Enzyme_Drug"                          
+#&gt; [37] "Articles_Enzyme_Drug"                         
+#&gt; [38] "Textbooks_Enzyme_Drug"                        
+#&gt; [39] "Links_Enzyme_Drug"                            
+#&gt; [40] "Polypeptides_Enzyme_Drug"                     
+#&gt; [41] "External_Identifiers_Polypeptide_Enzyme_Drug" 
+#&gt; [42] "Synonyms_Polypeptides_Enzyme_Drug"            
+#&gt; [43] "PFAMS_Polypeptides_Enzyme_Drug"               
+#&gt; [44] "GO_Classifiers_Polypeptides_Enzyme_Drug"      
+#&gt; [45] "Enzymes_Drug"                                 
+#&gt; [46] "Manufacturers_Drug"                           
+#&gt; [47] "Enzymes_Pathway_Drug"                         
+#&gt; [48] "Drugs_Pathway_Drug"                           
+#&gt; [49] "Pathways_Drug"                                
+#&gt; [50] "Prices_Drug"                                  
+#&gt; [51] "Reactions_Drug"                               
+#&gt; [52] "Enzymes_Reactions_Drug"                       
+#&gt; [53] "Sequences_Drug"                               
+#&gt; [54] "External_Identifiers_Polypeptide_Target_Drug" 
+#&gt; [55] "Synonyms_Polypeptide_Target_Drug"             
+#&gt; [56] "PFAMS_Polypeptide_Target_Drug"                
+#&gt; [57] "GO_Classifiers_Polypeptide_Target_Drug"       
+#&gt; [58] "Actions_Target_Drug"                          
+#&gt; [59] "Articles_Target_Drug"                         
+#&gt; [60] "Textbooks_Target_Drug"                        
+#&gt; [61] "Links_Target_Drug"                            
+#&gt; [62] "Polypeptide_Target_Drug"                      
+#&gt; [63] "Targets_Drug"                                 
+#&gt; [64] "Actions_Transporter_Drug"                     
+#&gt; [65] "Articles_Transporter_Drug"                    
+#&gt; [66] "Textbooks_Transporter_Drug"                   
+#&gt; [67] "Links_Transporter_Drug"                       
+#&gt; [68] "Polypeptides_Transporter_Drug"                
+#&gt; [69] "External_Identifiers_Transporter_Drug"        
+#&gt; [70] "Synonyms_Polypeptide_Transporter_Drug"        
+#&gt; [71] "PFAMS_Polypeptid_Transporter_Drug"            
+#&gt; [72] "GO_Classifiers_Polypeptide_Target_Drug"       
+#&gt; [73] "Transporters_Drug"                            
+#&gt; [74] "International_Brands_Drug"                    
+#&gt; [75] "Salts_Drug"                                   </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

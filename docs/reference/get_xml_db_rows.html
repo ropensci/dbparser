@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
       </span>
     </div>
 
@@ -87,12 +87,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/Dainanahan/dbparser">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -106,7 +101,7 @@
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Reads drug bank xml database and set it in memory.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Dainanahan/dbparser/blob/master/R/drug_common_utilities.R'><code>R/drug_common_utilities.R</code></a></small>
+    
     <div class="hidden name"><code>get_xml_db_rows.Rd</code></div>
     </div>
 
@@ -123,14 +118,14 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>xml_db_name</th>
-      <td><p>string, full path for the drug bank xml.</p></td>
+      <td><p>string, full path for the drug bank xml or zip file.</p></td>
     </tr>
     </table>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>nothing but sets the db tree in memory to be used by parser
-methods</p>
+    <p>TRUE when sets the db tree in memory to be used by parser
+methods and FALSE otherwise</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
@@ -144,7 +139,7 @@ no need to call it again.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error: XML content does not seem to be XML: 'db_full_path'</span></div><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='kw'>xml_db_name</span> <span class='kw'>=</span> <span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error: XML content does not seem to be XML: 'db_full_path'</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in file_ext(xml_db_name): could not find function "file_ext"</span></div><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='kw'>xml_db_name</span> <span class='kw'>=</span> <span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in file_ext(xml_db_name): could not find function "file_ext"</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

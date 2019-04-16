@@ -32,7 +32,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
       </span>
     </div>
 
@@ -54,14 +54,7 @@
   <a href="news/index.html">Changelog</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right">
-<li>
-  <a href="https://github.com/Dainanahan/dbparser">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
-      </ul>
+<ul class="nav navbar-nav navbar-right"></ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -86,100 +79,100 @@
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>You can install the released version of dbparser from <a href="https://CRAN.R-project.org">CRAN</a> with:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"dbparser"</span>)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/utils/topics/install.packages">install.packages</a></span>(<span class="st">"dbparser"</span>)</a></code></pre></div>
 <p>or you can install the latest updates directly from the repo</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)
-devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"Dainanahan/dbparser"</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(devtools)</a>
+<a class="sourceLine" id="cb2-2" title="2">devtools<span class="op">::</span><span class="kw"><a href="https://www.rdocumentation.org/packages/devtools/topics/reexports">install_github</a></span>(<span class="st">"Dainanahan/dbparser"</span>)</a></code></pre></div>
 </div>
 <div id="example" class="section level2">
 <h2 class="hasAnchor">
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## parse data from XML and save it to memory
-<span class="kw"><a href="reference/get_xml_db_rows.html">get_xml_db_rows</a></span>(
-              <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"drugbank_record.xml"</span>, <span class="dt">package =</span> <span class="st">"dbparser"</span>)
-            )
-
-## load drugs data
-drugs &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug.html">parse_drug</a></span>()
-
-## load drug groups data
-drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug_groups.html">parse_drug_groups</a></span>()
-
-## load drug targets actions data
-drug_targets_actions &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>()</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="co">## parse data from XML and save it to memory</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="kw"><a href="reference/get_xml_db_rows.html">get_xml_db_rows</a></span>(</a>
+<a class="sourceLine" id="cb3-3" title="3">              <span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/system.file">system.file</a></span>(<span class="st">"extdata"</span>, <span class="st">"drugbank_record.xml"</span>, <span class="dt">package =</span> <span class="st">"dbparser"</span>)</a>
+<a class="sourceLine" id="cb3-4" title="4">            )</a>
+<a class="sourceLine" id="cb3-5" title="5"></a>
+<a class="sourceLine" id="cb3-6" title="6"><span class="co">## load drugs data</span></a>
+<a class="sourceLine" id="cb3-7" title="7">drugs &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug.html">parse_drug</a></span>()</a>
+<a class="sourceLine" id="cb3-8" title="8"></a>
+<a class="sourceLine" id="cb3-9" title="9"><span class="co">## load drug groups data</span></a>
+<a class="sourceLine" id="cb3-10" title="10">drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug_groups.html">parse_drug_groups</a></span>()</a>
+<a class="sourceLine" id="cb3-11" title="11"></a>
+<a class="sourceLine" id="cb3-12" title="12"><span class="co">## load drug targets actions data</span></a>
+<a class="sourceLine" id="cb3-13" title="13">drug_targets_actions &lt;-<span class="st"> </span><span class="kw"><a href="reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>()</a></code></pre></div>
 </div>
 <div id="saving-into-a-database" class="section level2">
 <h2 class="hasAnchor">
 <a href="#saving-into-a-database" class="anchor"></a>Saving into a database</h2>
 <p>The parsed data may be saved into a given database. Databases supported by <code>dbparser</code> include MS SQL Server, MySQL and any database supported by <code>DBI</code> package. Following is an example of saving the parsed data into a MySQL database.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dbparser)
-
-## open a connection to the desired database engine with an already
-## created database
- <span class="kw"><a href="reference/open_db.html">open_db</a></span>(<span class="dt">xml_db_name =</span>  <span class="st">"drugbank.xml"</span>, <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,
- <span class="dt">server =</span> <span class="st">"ServerName</span><span class="ch">\\\\</span><span class="st">SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span>)
-
-## save 'drugs' dataframe to DB
- <span class="kw"><a href="reference/parse_drug.html">parse_drug</a></span>(<span class="ot">TRUE</span>)
-
-## save 'drug_groups' dataframe to DB
- <span class="kw"><a href="reference/parse_drug_groups.html">parse_drug_groups</a></span>(<span class="ot">TRUE</span>)
-
-## save 'drug_targets_actions' dataframe to DB
- <span class="kw"><a href="reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>(<span class="ot">TRUE</span>)
-
-## finally close db connection 
- <span class="kw"><a href="reference/close_db.html">close_db</a></span>()</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw"><a href="https://www.rdocumentation.org/packages/base/topics/library">library</a></span>(dbparser)</a>
+<a class="sourceLine" id="cb4-2" title="2"></a>
+<a class="sourceLine" id="cb4-3" title="3"><span class="co">## open a connection to the desired database engine with an already</span></a>
+<a class="sourceLine" id="cb4-4" title="4"><span class="co">## created database</span></a>
+<a class="sourceLine" id="cb4-5" title="5"> <span class="kw"><a href="reference/open_db.html">open_db</a></span>(<span class="dt">xml_db_name =</span>  <span class="st">"drugbank.xml"</span>, <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,</a>
+<a class="sourceLine" id="cb4-6" title="6"> <span class="dt">server =</span> <span class="st">"ServerName</span><span class="ch">\\\\</span><span class="st">SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span>)</a>
+<a class="sourceLine" id="cb4-7" title="7"></a>
+<a class="sourceLine" id="cb4-8" title="8"><span class="co">## save 'drugs' dataframe to DB</span></a>
+<a class="sourceLine" id="cb4-9" title="9"> <span class="kw"><a href="reference/parse_drug.html">parse_drug</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-10" title="10"></a>
+<a class="sourceLine" id="cb4-11" title="11"><span class="co">## save 'drug_groups' dataframe to DB</span></a>
+<a class="sourceLine" id="cb4-12" title="12"> <span class="kw"><a href="reference/parse_drug_groups.html">parse_drug_groups</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-13" title="13"></a>
+<a class="sourceLine" id="cb4-14" title="14"><span class="co">## save 'drug_targets_actions' dataframe to DB</span></a>
+<a class="sourceLine" id="cb4-15" title="15"> <span class="kw"><a href="reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-16" title="16"></a>
+<a class="sourceLine" id="cb4-17" title="17"><span class="co">## finally close db connection </span></a>
+<a class="sourceLine" id="cb4-18" title="18"> <span class="kw"><a href="reference/close_db.html">close_db</a></span>()</a></code></pre></div>
 </div>
 <div id="exploring-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#exploring-the-data" class="anchor"></a>Exploring the data</h2>
 <p>Following is an example involving a quick look at a few aspects of the parsed data. First we look at the proportions of <code>biotech</code> and <code>small-molecule</code> drugs in the data.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## view proportions of the different drug types (biotech vs. small molecule)
-drugs <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(type) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)     ## removes legend for the bar colors</code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## view proportions of the different drug types (biotech vs. small molecule)</span></a>
+<a class="sourceLine" id="cb5-2" title="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-3" title="3"><span class="st">    </span><span class="kw">select</span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb5-6" title="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)     <span class="co">## removes legend for the bar colors</span></a></code></pre></div>
 <p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## view proportions of the different drug types for each drug group
-drugs <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">rename</span>(<span class="dt">parent_key =</span> primary_key) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">full_join</span>(drug_groups, <span class="dt">by =</span> <span class="st">'parent_key'</span>) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">select</span>(type, text) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> text, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span> <span class="st">'bottom'</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Drug Group'</span>, 
-         <span class="dt">y =</span> <span class="st">'Quantity'</span>, 
-         <span class="dt">title=</span><span class="st">"Drug Type Distribution per Drug Group"</span>, 
-         <span class="dt">caption=</span><span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">coord_flip</span>()</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" title="1"><span class="co">## view proportions of the different drug types for each drug group</span></a>
+<a class="sourceLine" id="cb6-2" title="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-3" title="3"><span class="st">    </span><span class="kw">rename</span>(<span class="dt">parent_key =</span> primary_key) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-4" title="4"><span class="st">    </span><span class="kw">full_join</span>(drug_groups, <span class="dt">by =</span> <span class="st">'parent_key'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-5" title="5"><span class="st">    </span><span class="kw">select</span>(type, text) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-6" title="6"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> text, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-7" title="7"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-8" title="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span> <span class="st">'bottom'</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-9" title="9"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Drug Group'</span>, </a>
+<a class="sourceLine" id="cb6-10" title="10">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
+<a class="sourceLine" id="cb6-11" title="11">         <span class="dt">title=</span><span class="st">"Drug Type Distribution per Drug Group"</span>, </a>
+<a class="sourceLine" id="cb6-12" title="12">         <span class="dt">caption=</span><span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb6-13" title="13"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p>Finally, we look at the <code>drug_targets_actions</code> to observe their proportions as well.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">## get counts of the different target actions in the data
-targetActionCounts &lt;-<span class="st"> </span>
-<span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">group_by</span>(text) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))
-
-## get bar chart of the 10 most occurring target actions in the data
-p &lt;-<span class="st"> </span>
-<span class="st">    </span><span class="kw">ggplot</span>(targetActionCounts[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], 
-           <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/reorder.factor">reorder</a></span>(text,count), <span class="dt">y =</span> count, <span class="dt">fill =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">'identity'</span>) <span class="op">+</span>
-<span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">'action'</span>, 
-         <span class="dt">x =</span> <span class="st">'Target Action'</span>, 
-         <span class="dt">y =</span> <span class="st">'Quantity'</span>, 
-         <span class="dt">title =</span> <span class="st">'Target Actions Distribution'</span>, 
-         <span class="dt">subtitle =</span> <span class="st">'Distribution of Target Actions in the Data'</span>,
-         <span class="dt">caption =</span> <span class="st">'created by ggplot'</span>) <span class="op">+</span><span class="st"> </span>
-<span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">    </span>## removes legend for the bar colors
-<span class="st">    </span><span class="kw">coord_flip</span>()              ## switches the X and Y axes
-
-## display plot
-p</code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" title="1"><span class="co">## get counts of the different target actions in the data</span></a>
+<a class="sourceLine" id="cb7-2" title="2">targetActionCounts &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb7-3" title="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-4" title="4"><span class="st">    </span><span class="kw">group_by</span>(text) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-5" title="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-6" title="6"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a>
+<a class="sourceLine" id="cb7-7" title="7"></a>
+<a class="sourceLine" id="cb7-8" title="8"><span class="co">## get bar chart of the 10 most occurring target actions in the data</span></a>
+<a class="sourceLine" id="cb7-9" title="9">p &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb7-10" title="10"><span class="st">    </span><span class="kw">ggplot</span>(targetActionCounts[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], </a>
+<a class="sourceLine" id="cb7-11" title="11">           <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw"><a href="https://www.rdocumentation.org/packages/stats/topics/reorder.factor">reorder</a></span>(text,count), <span class="dt">y =</span> count, <span class="dt">fill =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-12" title="12"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">'identity'</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb7-13" title="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">'action'</span>, </a>
+<a class="sourceLine" id="cb7-14" title="14">         <span class="dt">x =</span> <span class="st">'Target Action'</span>, </a>
+<a class="sourceLine" id="cb7-15" title="15">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
+<a class="sourceLine" id="cb7-16" title="16">         <span class="dt">title =</span> <span class="st">'Target Actions Distribution'</span>, </a>
+<a class="sourceLine" id="cb7-17" title="17">         <span class="dt">subtitle =</span> <span class="st">'Distribution of Target Actions in the Data'</span>,</a>
+<a class="sourceLine" id="cb7-18" title="18">         <span class="dt">caption =</span> <span class="st">'created by ggplot'</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb7-19" title="19"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">    </span><span class="co">## removes legend for the bar colors</span></a>
+<a class="sourceLine" id="cb7-20" title="20"><span class="st">    </span><span class="kw">coord_flip</span>()              <span class="co">## switches the X and Y axes</span></a>
+<a class="sourceLine" id="cb7-21" title="21"></a>
+<a class="sourceLine" id="cb7-22" title="22"><span class="co">## display plot</span></a>
+<a class="sourceLine" id="cb7-23" title="23">p</a></code></pre></div>
 </div>
 </div>
   </div>
@@ -189,8 +182,6 @@ p</code></pre></div>
 <h2>Links</h2>
 <ul class="list-unstyled">
 <li>Download from CRAN at <br><a href="https://cloud.r-project.org/package=dbparser">https://​cloud.r-project.org/​package=dbparser</a>
-</li>
-<li>Browse source code at <br><a href="https://github.com/Dainanahan/dbparser">https://​github.com/​Dainanahan/​dbparser</a>
 </li>
 <li>Report a bug at <br><a href="https://github.com/Dainanahan/dbparser/issues">https://​github.com/​Dainanahan/​dbparser/​issues</a>
 </li>

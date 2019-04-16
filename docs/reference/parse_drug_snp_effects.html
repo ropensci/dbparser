@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extracts the drug snp effects element and return data as data frame. — parse_drug_snp_effects • dbparser</title>
+<title>Extracts the drug snp effects element and return data as tibble. — parse_drug_snp_effects • dbparser</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -30,9 +30,9 @@
 
 
 
-<meta property="og:title" content="Extracts the drug snp effects element and return data as data frame. — parse_drug_snp_effects" />
+<meta property="og:title" content="Extracts the drug snp effects element and return data as tibble. — parse_drug_snp_effects" />
 
-<meta property="og:description" content="parse_drug_snp_effects returns data frame of snp effects groups elements." />
+<meta property="og:description" content="parse_drug_snp_effects returns tibble of snp effects groups elements." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
       </span>
     </div>
 
@@ -87,12 +87,7 @@
       </ul>
       
       <ul class="nav navbar-nav navbar-right">
-        <li>
-  <a href="https://github.com/Dainanahan/dbparser">
-    <span class="fa fa-github fa-lg"></span>
-     
-  </a>
-</li>
+        
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -105,14 +100,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extracts the drug snp effects element and return data as data frame.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/Dainanahan/dbparser/blob/master/R/drug_parsers.R'><code>R/drug_parsers.R</code></a></small>
+    <h1>Extracts the drug snp effects element and return data as tibble.</h1>
+    
     <div class="hidden name"><code>parse_drug_snp_effects.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><code>parse_drug_snp_effects</code> returns data frame of snp effects groups elements.</p>
+    <p><code>parse_drug_snp_effects</code> returns tibble of snp effects groups elements.</p>
     
     </div>
 
@@ -129,14 +124,14 @@
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>drug snp effects node attributes date frame</p>
+    <p>drug snp effects node attributes tibble</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the snp effects element of drug node in drug bank
+    <p>This functions extracts the snp effects element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 <code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
 any other parser function.
 If <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so

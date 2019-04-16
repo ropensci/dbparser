@@ -6,8 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extracts the drug carriers polypeptides go classifiers
- element and return data as data frame. — parse_drug_carriers_polypeptides_go_classifiers • dbparser</title>
+<title>Extracts the drug international brands and return data as tibble. — parse_drug_international_brands • dbparser</title>
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -31,11 +30,9 @@
 
 
 
-<meta property="og:title" content="Extracts the drug carriers polypeptides go classifiers
- element and return data as data frame. — parse_drug_carriers_polypeptides_go_classifiers" />
+<meta property="og:title" content="Extracts the drug international brands and return data as tibble. — parse_drug_international_brands" />
 
-<meta property="og:description" content="parse_drug_carriers_polypeptides_go_classifiers returns
-data frame of drug carriers polypeptides go classifiers elements." />
+<meta property="og:description" content="parse_drug_international_brands returns tibble of drug products elements." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -103,20 +100,18 @@ data frame of drug carriers polypeptides go classifiers elements." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extracts the drug carriers polypeptides go classifiers
- element and return data as data frame.</h1>
+    <h1>Extracts the drug international brands and return data as tibble.</h1>
     
-    <div class="hidden name"><code>parse_drug_carriers_polypeptides_go_classifiers.Rd</code></div>
+    <div class="hidden name"><code>parse_drug_international_brands.Rd</code></div>
     </div>
 
     <div class="ref-description">
     
-    <p><code>parse_drug_carriers_polypeptides_go_classifiers</code> returns
-data frame of drug carriers polypeptides go classifiers elements.</p>
+    <p><code>parse_drug_international_brands</code> returns tibble of drug products elements.</p>
     
     </div>
 
-    <pre class="usage"><span class='fu'>parse_drug_carriers_polypeptides_go_classifiers</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+    <pre class="usage"><span class='fu'>parse_drug_international_brands</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -129,15 +124,14 @@ data frame of drug carriers polypeptides go classifiers elements.</p>
     
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>drug carriers polypeptides go classifiers node attributes date frame</p>
+    <p>drug international brands node attributes tibble</p>
     
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the carriers polypeptides go
-classifiers element of drug node in drug bank
+    <p>This functions extracts the international brands element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 <code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
 any other parser function.
 If <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so
@@ -145,7 +139,7 @@ no need to call it again before calling this function.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>parse_drug_carriers_polypeptides_go_classifiers</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'><span class='fu'>parse_drug_carriers_polypeptides_go_classifiers</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "tbl_df"'</span></div><div class='input'><span class='fu'>parse_drug_carriers_polypeptides_go_classifiers</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span></div></span></pre>
+    <pre class="examples"><div class='input'><span class='fu'>parse_drug_international_brands</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'><span class='fu'>parse_drug_international_brands</span>(<span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "tbl_df"'</span></div><div class='input'><span class='fu'>parse_drug_international_brands</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
