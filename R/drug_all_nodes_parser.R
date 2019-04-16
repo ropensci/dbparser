@@ -234,7 +234,7 @@ parse_drug_all <- function(save_table = FALSE) {
         External_Identifiers_Polypeptide_Carrier_Drug,
       Synonyms_Polypeptide_Carrier_Drug = Synonyms_Polypeptide_Carrier_Drug,
       PFAMS_Polypeptide_Carrier_Drug = PFAMS_Polypeptide_Carrier_Drug,
-      drug_carriers_polypeptides_go_classifiers =
+      GO_Classifiers_Polypeptide_Carrier_Drug =
         GO_Classifiers_Polypeptide_Carrier_Drug,
       Carriers_Drug = Carriers_Drug,
       Classifications_Drug =
@@ -404,7 +404,7 @@ parse_drug_element <- function(elements_options = c("all"), save_table = FALSE) 
       "Polypeptides_Transporter_Drug" = parse_drug_enzymes_polypeptides(save_table),
       "External_Identifiers_Transporter_Drug" =
         parse_drug_transporters_polypeptides_external_identifiers(save_table),
-      "GO_Classifiers_Polypeptide_Target_Drug" =
+      "GO_Classifiers_Polypeptide_Transporters_Drug" =
         parse_drug_transporters_polypeptides_go_classifiers(save_table),
       "PFAMS_Polypeptid_Transporter_Drug" = parse_drug_transporters_polypeptides_pfams(save_table),
       "Synonyms_Polypeptide_Transporter_Drug" = parse_drug_transporters_polypeptides_synonyms(save_table),
