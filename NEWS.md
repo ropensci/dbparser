@@ -1,3 +1,4 @@
+# dbparser 1.0.2
 # dbparser 1.0.1
 * Fix CRAN Note
 * Improve documentation
