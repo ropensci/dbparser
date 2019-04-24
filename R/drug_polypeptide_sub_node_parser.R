@@ -91,8 +91,10 @@ get_polypeptide_go_classifiers <- function(r) {
           xmlValue(p[["go-classifiers"]]) != "\n    ") {
         polypeptide_go_classifiers <-
           xmlToDataFrame(xmlChildren(p[["go-classifiers"]]), stringsAsFactors = FALSE)
-        polypeptide_go_classifiers$polypeptide_id <-
-          polypeptide_id
+        if (nrow(polypeptide_go_classifiers) > 0) {
+          polypeptide_go_classifiers$polypeptide_id <-
+            polypeptide_id
+        }
         return(polypeptide_go_classifiers)
       }
     }
