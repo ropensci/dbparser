@@ -501,7 +501,7 @@ parse_drug_element_options <- function() {
       "External_Identifiers_Transporter_Drug",
       "Synonyms_Polypeptide_Transporter_Drug",
       "PFAMS_Polypeptid_Transporter_Drug",
-      "GO_Classifiers_Polypeptide_Target_Drug",
+      "GO_Classifiers_Polypeptide_Transporters_Drug",
       "Transporters_Drug",
       "International_Brands_Drug",
       "Salts_Drug"
