@@ -23,7 +23,7 @@ get_polypeptide_rec <- function(r) {
                                              name = "ncbi-taxonomy-id"),
       amino_acid_sequence = xmlValue(p[["amino-acid-sequence"]]),
       amino_acid_format = xmlGetAttr(p[["amino-acid-sequence"]],
-                                      name = "format"),
+                                     name = "format"),
       gene_sequence = xmlValue(p[["gene-sequence"]]),
       gene_format = xmlGetAttr(p[["gene-sequence"]],
                                name = "format"),
@@ -66,11 +66,14 @@ get_polypeptide_pfams <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA, xmlGetAttr(p, name = "id"))
-    firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
-    if (firstCell != "\n    ") {
-      polypeptide_pfams <- xmlToDataFrame(xmlChildren(p[["pfams"]]), stringsAsFactors = FALSE)
-      polypeptide_pfams$polypeptide_id <- polypeptide_id
-      return(polypeptide_pfams)
+    if (length(xmlChildren(p[["pfams"]])) > 0) {
+      firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
+      if (firstCell != "\n    ") {
+        polypeptide_pfams <-
+          xmlToDataFrame(xmlChildren(p[["pfams"]]), stringsAsFactors = FALSE)
+        polypeptide_pfams$polypeptide_id <- polypeptide_id
+        return(polypeptide_pfams)
+      }
     }
   }
 }
@@ -81,15 +84,17 @@ get_polypeptide_go_classifiers <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA, xmlGetAttr(p, name = "id"))
-    firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
-    if (firstCell != "\n    " &&
-        !is.null(p[["go-classifiers"]]) &&
-        xmlValue(p[["go-classifiers"]]) != "\n    ") {
-      polypeptide_go_classifiers <-
-        xmlToDataFrame(xmlChildren(p[["go-classifiers"]]), stringsAsFactors = FALSE)
-      polypeptide_go_classifiers$polypeptide_id <-
-        polypeptide_id
-      return(polypeptide_go_classifiers)
+    if (length(xmlChildren(p[["pfams"]])) > 0) {
+      firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
+      if (firstCell != "\n    " &&
+          !is.null(p[["go-classifiers"]]) &&
+          xmlValue(p[["go-classifiers"]]) != "\n    ") {
+        polypeptide_go_classifiers <-
+          xmlToDataFrame(xmlChildren(p[["go-classifiers"]]), stringsAsFactors = FALSE)
+        polypeptide_go_classifiers$polypeptide_id <-
+          polypeptide_id
+        return(polypeptide_go_classifiers)
+      }
     }
   }
 }
