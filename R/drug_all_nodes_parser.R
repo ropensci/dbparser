@@ -280,8 +280,8 @@ parse_drug_all <- function(save_table = FALSE) {
       Synonyms_Polypeptide_Transporter_Drug =
         Synonyms_Polypeptide_Transporter_Drug,
       PFAMS_Polypeptid_Transporter_Drug = PFAMS_Polypeptid_Transporter_Drug,
-      GO_Classifiers_Polypeptide_Target_Drug =
-        GO_Classifiers_Polypeptide_Target_Drug,
+      GO_Classifiers_Polypeptide_Transporter_Drug =
+        GO_Classifiers_Polypeptide_Transporter_Drug,
       Transporters_Drug = Transporters_Drug,
       International_Brands_Drug = International_Brands_Drug,
       Salts_Drug = Salts_Drug
