@@ -64,6 +64,7 @@ get_xml_db_rows <- function(xml_db_name) {
   if (ext == "zip") {
     tryCatch(
       {
+        db <- unzip(xml_db_name, exdir = dir_name)
         db <- unzip(xml_db_name, list = TRUE)
         xml_db_name <- paste0(dir_name, "/", db$Name[1])
         message(xml_db_name)
