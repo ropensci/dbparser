@@ -1,4 +1,5 @@
 # dbparser 1.0.2
+* Fix zip file location issue
 # dbparser 1.0.1
 * Fix CRAN Note
 * Improve documentation
