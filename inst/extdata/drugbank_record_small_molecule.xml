@@ -1,0 +1,3491 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<drugbank xmlns="http://www.drugbank.ca" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.drugbank.ca http://www.drugbank.ca/docs/drugbank.xsd" version="5.1" exported-on="2018-07-03">
+<drug type="small molecule" created="2005-06-13" updated="2018-07-03">
+  <drugbank-id primary="true">DB00006</drugbank-id>
+  <drugbank-id>BTD00076</drugbank-id>
+  <drugbank-id>EXPT03302</drugbank-id>
+  <drugbank-id>BIOD00076</drugbank-id>
+  <drugbank-id>DB02351</drugbank-id>
+  <name>Bivalirudin</name>
+  <description>Bivalirudin is a synthetic 20 residue peptide (thrombin inhibitor) which reversibly inhibits thrombin. Once bound to the active site, thrombin cannot activate fibrinogen into fibrin, the crucial step in the formation of thrombus. It is administered intravenously. Because it can cause blood stagnation, it is important to monitor changes in hematocrit, activated partial thromboplastin time, international normalized ratio and blood pressure.</description>
+  <cas-number>128270-60-0</cas-number>
+  <unii>TN9BEX005G</unii>
+  <average-mass>2180.2853</average-mass>
+  <monoisotopic-mass>2178.985813062</monoisotopic-mass>
+  <state>solid</state>
+  <groups>
+    <group>approved</group>
+    <group>investigational</group>
+  </groups>
+  <general-references>
+    <articles>
+      <article>
+        <pubmed-id>16466327</pubmed-id>
+        <citation>Seybert AL, Coons JC, Zerumsky K: Treatment of heparin-induced thrombocytopenia: is there a role for bivalirudin? Pharmacotherapy. 2006 Feb;26(2):229-41.</citation>
+      </article>
+      <article>
+        <pubmed-id>17381384</pubmed-id>
+        <citation>Dager WE, Dougherty JA, Nguyen PH, Militello MA, Smythe MA: Heparin-induced thrombocytopenia: treatment options and special considerations. Pharmacotherapy. 2007 Apr;27(4):564-87.</citation>
+      </article>
+      <article>
+        <pubmed-id>16553503</pubmed-id>
+        <citation>Dang CH, Durkalski VL, Nappi JM: Evaluation of treatment with direct thrombin inhibitors in patients with heparin-induced thrombocytopenia. Pharmacotherapy. 2006 Apr;26(4):461-8.</citation>
+      </article>
+      <article>
+        <pubmed-id>11156732</pubmed-id>
+        <citation>Robson R: The use of bivalirudin in patients with renal impairment. J Invasive Cardiol. 2000 Dec;12 Suppl F:33F-6.</citation>
+      </article>
+      <article>
+        <pubmed-id>21108549</pubmed-id>
+        <citation>Van De Car DA, Rao SV, Ohman EM: Bivalirudin: a review of the pharmacology and clinical application. Expert Rev Cardiovasc Ther. 2010 Dec;8(12):1673-81. doi: 10.1586/erc.10.158.</citation>
+      </article>
+      <article>
+        <pubmed-id>16614733</pubmed-id>
+        <citation>Shammas NW: Bivalirudin: pharmacology and clinical applications. Cardiovasc Drug Rev. 2005 Winter;23(4):345-60.</citation>
+      </article>
+      <article>
+        <pubmed-id>12851152</pubmed-id>
+        <citation>Gleason TG, Chengelis CP, Jackson CB, Lindstrom P: A 24-hour continuous infusion study of bivalirudin in the rat. Int J Toxicol. 2003 May-Jun;22(3):195-206.</citation>
+      </article>
+    </articles>
+    <textbooks/>
+    <links/>
+  </general-references>
+  <synthesis-reference>Avi Tovi, Chaim Eidelman, Shimon Shushan, Alon Hagi, Alexander Ivchenko, Gabriel-Marcus Butilca, Leah Bar-Oz, Tehila Gadi, Gil Zaovi, "Process for production of Bivalirudin." U.S. Patent US20070093423, issued April 26, 2007.</synthesis-reference>
+  <indication>For treatment of heparin-induced thrombocytopenia and for the prevention of thrombosis. Bivalirudin is indicated for use in patients undergoing percutaneous coronary intervention (PCI), in patients at moderate to high risk acute coronary syndromes due to unstable angina or non-ST segment elevation in whom a PCI is planned.</indication>
+  <pharmacodynamics>Bivalirudin directly and reversibly inhibits thrombin by specifically binding both to the catalytic site and to the anion-binding exosite of circulating and clot-bound thrombin.  The action of bivalirudin is reversible because thrombin will slowly cleave the thrombin-bivalirudin bond which recovers the active site of thrombin. </pharmacodynamics>
+  <mechanism-of-action>Inhibits the action of thrombin by binding both to its catalytic site and to its anion-binding exosite. Thrombin is a serine proteinase that plays a central role in the thrombotic process, acting to cleave fibrinogen into fibrin monomers and to activate Factor XIII to Factor XIIIa, allowing fibrin to develop a covalently cross-linked framework which stabilizes the thrombus; thrombin also activates Factors V and VIII, promoting further thrombin generation, and activates platelets, stimulating aggregation and granule release.</mechanism-of-action>
+  <toxicity>Based on a study by Gleason et al., the no-observed-adverse-effect level (NOAEL) for bivalirudin, administered to rats via intravenous infusion over a 24-hour period, was 2000 mg/kg/24 h.</toxicity>
+  <metabolism>80% proteolytic cleavage</metabolism>
+  <absorption>Following intravenous administration, bivalirudin exhibits linear pharmacokinetics.  The mean steady state concentration is 12.3 +/- 1.7mcg/mL after administration of an intravenous bolus of 1mg/kg followd by a 2.5mg/kg/hr intravenous infusion given over 4 hours.</absorption>
+  <half-life>* Normal renal function: 25 min (in normal conditions)&#13;
+* Creatinine clearance 10-29mL/min: 57min&#13;
+* Dialysis-dependant patients: 3.5h</half-life>
+  <protein-binding>Other than thrombin and red blood cells, bivalirudin does not bind to plasma proteins.</protein-binding>
+  <route-of-elimination>Bivalirudin is cleared from plasma by a combination of renal mechanisms (20%) and proteolytic cleavage.</route-of-elimination>
+  <volume-of-distribution>0.2L/kg</volume-of-distribution>
+  <clearance>* 3.4 mL/min/kg [Normal renal function]&#13;
+* 3.4 mL/min/kg [mild renal function]&#13;
+* 2.7 mL/min/kg [moderate renal function]&#13;
+* 2.8 mL/min/kg [severe renal function]&#13;
+* 1 mL/min/kg [Dialysis-dependent patients]</clearance>
+  <classification>
+    <description>This compound belongs to the class of organic compounds known as polypeptides. These are peptides containing ten or more amino acid residues.</description>
+    <direct-parent>Polypeptides</direct-parent>
+    <kingdom>Organic compounds</kingdom>
+    <superclass>Organic Polymers</superclass>
+    <class>Polypeptides</class>
+    <subclass/>
+    <alternative-parent>1-hydroxy-2-unsubstituted benzenoids</alternative-parent>
+    <alternative-parent>Alpha amino acid amides</alternative-parent>
+    <alternative-parent>Amino acids</alternative-parent>
+    <alternative-parent>Amphetamines and derivatives</alternative-parent>
+    <alternative-parent>Aralkylamines</alternative-parent>
+    <alternative-parent>Asparagine and derivatives</alternative-parent>
+    <alternative-parent>Aspartic acid and derivatives</alternative-parent>
+    <alternative-parent>Azacyclic compounds</alternative-parent>
+    <alternative-parent>Carbonyl compounds</alternative-parent>
+    <alternative-parent>Carboximidamides</alternative-parent>
+    <alternative-parent>Carboxylic acids</alternative-parent>
+    <alternative-parent>Glutamic acid and derivatives</alternative-parent>
+    <alternative-parent>Guanidines</alternative-parent>
+    <alternative-parent>Hexacarboxylic acids and derivatives</alternative-parent>
+    <alternative-parent>Hydrocarbon derivatives</alternative-parent>
+    <alternative-parent>Imines</alternative-parent>
+    <alternative-parent>Isoleucine and derivatives</alternative-parent>
+    <alternative-parent>Leucine and derivatives</alternative-parent>
+    <alternative-parent>Monoalkylamines</alternative-parent>
+    <alternative-parent>N-acyl amines</alternative-parent>
+    <alternative-parent>N-acyl-L-alpha-amino acids</alternative-parent>
+    <alternative-parent>N-acylpyrrolidines</alternative-parent>
+    <alternative-parent>Organic oxides</alternative-parent>
+    <alternative-parent>Organopnictogen compounds</alternative-parent>
+    <alternative-parent>Peptides</alternative-parent>
+    <alternative-parent>Phenylalanine and derivatives</alternative-parent>
+    <alternative-parent>Primary carboxylic acid amides</alternative-parent>
+    <alternative-parent>Proline and derivatives</alternative-parent>
+    <alternative-parent>Pyrrolidinecarboxamides</alternative-parent>
+    <alternative-parent>Secondary carboxylic acid amides</alternative-parent>
+    <alternative-parent>Tertiary carboxylic acid amides</alternative-parent>
+    <alternative-parent>Tyrosine and derivatives</alternative-parent>
+    <substituent>1-hydroxy-2-unsubstituted benzenoid</substituent>
+    <substituent>Alpha peptide</substituent>
+    <substituent>Alpha-amino acid amide</substituent>
+    <substituent>Alpha-amino acid or derivatives</substituent>
+    <substituent>Amine</substituent>
+    <substituent>Amino acid</substituent>
+    <substituent>Amino acid or derivatives</substituent>
+    <substituent>Amphetamine or derivatives</substituent>
+    <substituent>Aralkylamine</substituent>
+    <substituent>Aromatic heteromonocyclic compound</substituent>
+    <substituent>Asparagine or derivatives</substituent>
+    <substituent>Aspartic acid or derivatives</substituent>
+    <substituent>Azacycle</substituent>
+    <substituent>Benzenoid</substituent>
+    <substituent>Carbonyl group</substituent>
+    <substituent>Carboxamide group</substituent>
+    <substituent>Carboximidamide</substituent>
+    <substituent>Carboxylic acid</substituent>
+    <substituent>Carboxylic acid derivative</substituent>
+    <substituent>Fatty acyl</substituent>
+    <substituent>Fatty amide</substituent>
+    <substituent>Glutamic acid or derivatives</substituent>
+    <substituent>Guanidine</substituent>
+    <substituent>Hexacarboxylic acid or derivatives</substituent>
+    <substituent>Hydrocarbon derivative</substituent>
+    <substituent>Imine</substituent>
+    <substituent>Isoleucine or derivatives</substituent>
+    <substituent>Leucine or derivatives</substituent>
+    <substituent>Monocyclic benzene moiety</substituent>
+    <substituent>N-acyl-alpha amino acid or derivatives</substituent>
+    <substituent>N-acyl-alpha-amino acid</substituent>
+    <substituent>N-acyl-amine</substituent>
+    <substituent>N-acyl-l-alpha-amino acid</substituent>
+    <substituent>N-acylpyrrolidine</substituent>
+    <substituent>N-substituted-alpha-amino acid</substituent>
+    <substituent>Organic nitrogen compound</substituent>
+    <substituent>Organic oxide</substituent>
+    <substituent>Organic oxygen compound</substituent>
+    <substituent>Organoheterocyclic compound</substituent>
+    <substituent>Organonitrogen compound</substituent>
+    <substituent>Organooxygen compound</substituent>
+    <substituent>Organopnictogen compound</substituent>
+    <substituent>Phenol</substituent>
+    <substituent>Phenylalanine or derivatives</substituent>
+    <substituent>Polypeptide</substituent>
+    <substituent>Primary aliphatic amine</substituent>
+    <substituent>Primary amine</substituent>
+    <substituent>Primary carboxylic acid amide</substituent>
+    <substituent>Proline or derivatives</substituent>
+    <substituent>Pyrrolidine</substituent>
+    <substituent>Pyrrolidine carboxylic acid or derivatives</substituent>
+    <substituent>Pyrrolidine-2-carboxamide</substituent>
+    <substituent>Secondary carboxylic acid amide</substituent>
+    <substituent>Tertiary carboxylic acid amide</substituent>
+    <substituent>Tyrosine or derivatives</substituent>
+  </classification>
+  <salts/>
+  <synonyms>
+    <synonym language="Spanish" coder="">Bivalirudina</synonym>
+    <synonym language="Latin" coder="">Bivalirudinum</synonym>
+    <synonym language="" coder="">Hirulog</synonym>
+  </synonyms>
+  <products>
+    <product>
+      <name>Angiomax</name>
+      <labeller>Sandoz Canada Incorporated</labeller>
+      <ndc-id/>
+      <ndc-product-code/>
+      <dpd-id>02246533</dpd-id>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2003-05-08</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Powder, for solution</dosage-form>
+      <strength>250 mg</strength>
+      <route>Intravenous</route>
+      <fda-application-number/>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>Canada</country>
+      <source>DPD</source>
+    </product>
+    <product>
+      <name>Angiomax</name>
+      <labeller>The Medicines Company</labeller>
+      <ndc-id/>
+      <ndc-product-code>65293-001</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2000-12-15</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA020873</fda-application-number>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Angiomax</name>
+      <labeller>Cardinal Health</labeller>
+      <ndc-id/>
+      <ndc-product-code>55154-2275</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2000-12-15</started-marketing-on>
+      <ended-marketing-on>2017-10-26</ended-marketing-on>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA020873</fda-application-number>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Fresenius Kabi</labeller>
+      <ndc-id/>
+      <ndc-product-code>63323-562</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2016-06-08</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>ANDA090189</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Sandoz Canada Incorporated</labeller>
+      <ndc-id/>
+      <ndc-product-code/>
+      <dpd-id>02450402</dpd-id>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on/>
+      <ended-marketing-on/>
+      <dosage-form>Powder, for solution</dosage-form>
+      <strength>250 mg</strength>
+      <route>Intravenous</route>
+      <fda-application-number/>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>Canada</country>
+      <source>DPD</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Sandoz</labeller>
+      <ndc-id/>
+      <ndc-product-code>0781-3158</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2015-06-15</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA020873</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Dr Reddy's Laboratories</labeller>
+      <ndc-id/>
+      <ndc-product-code>55111-652</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2017-05-31</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intracavernous</route>
+      <fda-application-number>ANDA201577</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Sandoz</labeller>
+      <ndc-id/>
+      <ndc-product-code>0781-9158</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2015-10-23</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA020873</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Mylan Institutional</labeller>
+      <ndc-id/>
+      <ndc-product-code>67457-256</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2018-06-05</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/5mL</strength>
+      <route>Intravenous</route>
+      <fda-application-number>ANDA202471</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Sagent Pharmaceuticals</labeller>
+      <ndc-id/>
+      <ndc-product-code>25021-405</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2016-10-01</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>ANDA091602</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Apotex Corporation</labeller>
+      <ndc-id/>
+      <ndc-product-code>60505-6101</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2017-07-17</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>ANDA204876</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin</name>
+      <labeller>Hospira, Inc.</labeller>
+      <ndc-id/>
+      <ndc-product-code>0409-8300</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2015-07-14</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection, powder, lyophilized, for solution</dosage-form>
+      <strength>250 mg/1</strength>
+      <route>Intravenous</route>
+      <fda-application-number>ANDA090811</fda-application-number>
+      <generic>true</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin for Injection</name>
+      <labeller>Fresenius Kabi</labeller>
+      <ndc-id/>
+      <ndc-product-code/>
+      <dpd-id>02435268</dpd-id>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on/>
+      <ended-marketing-on/>
+      <dosage-form>Powder, for solution</dosage-form>
+      <strength>250 mg</strength>
+      <route>Intravenous</route>
+      <fda-application-number/>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>Canada</country>
+      <source>DPD</source>
+    </product>
+    <product>
+      <name>Bivalirudin in 0.9% Sodium Chloride</name>
+      <labeller>Baxter Laboratories</labeller>
+      <ndc-id/>
+      <ndc-product-code>0338-9572</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2017-12-21</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection</dosage-form>
+      <strength>250 mg/50mL</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA208374</fda-application-number>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+    <product>
+      <name>Bivalirudin in 0.9% Sodium Chloride</name>
+      <labeller>Baxter Laboratories</labeller>
+      <ndc-id/>
+      <ndc-product-code>0338-9576</ndc-product-code>
+      <dpd-id/>
+      <ema-product-code/>
+      <ema-ma-number/>
+      <started-marketing-on>2017-12-21</started-marketing-on>
+      <ended-marketing-on/>
+      <dosage-form>Injection</dosage-form>
+      <strength>500 mg/100mL</strength>
+      <route>Intravenous</route>
+      <fda-application-number>NDA208374</fda-application-number>
+      <generic>false</generic>
+      <over-the-counter>false</over-the-counter>
+      <approved>true</approved>
+      <country>US</country>
+      <source>FDA NDC</source>
+    </product>
+  </products>
+  <international-brands>
+    <international-brand>
+      <name>Angiox</name>
+      <company/>
+    </international-brand>
+  </international-brands>
+  <mixtures>
+    <mixture>
+      <name>Angiomax</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin for Injection</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Angiomax</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Angiomax</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin in 0.9% Sodium Chloride</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin in 0.9% Sodium Chloride</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+    <mixture>
+      <name>Bivalirudin</name>
+      <ingredients>Bivalirudin</ingredients>
+    </mixture>
+  </mixtures>
+  <packagers>
+    <packager>
+      <name>Ben Venue Laboratories Inc.</name>
+      <url>http://www.benvenue.com</url>
+    </packager>
+    <packager>
+      <name>Oryx Pharmaceuticals Inc.</name>
+      <url/>
+    </packager>
+    <packager>
+      <name>Sepracor Pharmaceuticals Inc.</name>
+      <url>http://www.sepracor.com</url>
+    </packager>
+    <packager>
+      <name>The Medicines Co.</name>
+      <url>http://www.themedicinescompany.com</url>
+    </packager>
+  </packagers>
+  <manufacturers>
+    <manufacturer generic="false" url="">The medicines co</manufacturer>
+  </manufacturers>
+  <prices>
+    <price>
+      <description>Angiomax 250 mg vial</description>
+      <cost currency="USD">780.0</cost>
+      <unit>vial</unit>
+    </price>
+  </prices>
+  <categories>
+    <category>
+      <category>Amino Acids, Peptides, and Proteins</category>
+      <mesh-id>D000602</mesh-id>
+    </category>
+    <category>
+      <category>Anticoagulants</category>
+      <mesh-id>D000925</mesh-id>
+    </category>
+    <category>
+      <category>Antithrombin Proteins</category>
+      <mesh-id>D058833</mesh-id>
+    </category>
+    <category>
+      <category>Antithrombins</category>
+      <mesh-id>D000991</mesh-id>
+    </category>
+    <category>
+      <category>Blood and Blood Forming Organs</category>
+      <mesh-id/>
+    </category>
+    <category>
+      <category>Enzyme Inhibitors</category>
+      <mesh-id>D004791</mesh-id>
+    </category>
+    <category>
+      <category>Hematologic Agents</category>
+      <mesh-id>D006401</mesh-id>
+    </category>
+    <category>
+      <category>Peptides</category>
+      <mesh-id>D010455</mesh-id>
+    </category>
+    <category>
+      <category>Proteins</category>
+      <mesh-id>D011506</mesh-id>
+    </category>
+    <category>
+      <category>Serine Proteinase Inhibitors</category>
+      <mesh-id>D015842</mesh-id>
+    </category>
+    <category>
+      <category>Serpins</category>
+      <mesh-id>D015843</mesh-id>
+    </category>
+  </categories>
+  <affected-organisms>
+    <affected-organism>Humans and other mammals</affected-organism>
+  </affected-organisms>
+  <dosages>
+    <dosage>
+      <form>Injection, powder, lyophilized, for solution</form>
+      <route>Intravenous</route>
+      <strength>250 mg/1</strength>
+    </dosage>
+    <dosage>
+      <form>Injection</form>
+      <route>Intracavernous</route>
+      <strength>250 mg/1</strength>
+    </dosage>
+    <dosage>
+      <form>Injection, powder, lyophilized, for solution</form>
+      <route>Intravenous</route>
+      <strength>250 mg/5mL</strength>
+    </dosage>
+    <dosage>
+      <form>Powder, for solution</form>
+      <route>Intravenous</route>
+      <strength>250 mg</strength>
+    </dosage>
+    <dosage>
+      <form>Injection</form>
+      <route>Intravenous</route>
+      <strength>250 mg/50mL</strength>
+    </dosage>
+    <dosage>
+      <form>Injection</form>
+      <route>Intravenous</route>
+      <strength>500 mg/100mL</strength>
+    </dosage>
+  </dosages>
+  <atc-codes>
+    <atc-code code="B01AE06">
+      <level code="B01AE">Direct thrombin inhibitors</level>
+      <level code="B01A">ANTITHROMBOTIC AGENTS</level>
+      <level code="B01">ANTITHROMBOTIC AGENTS</level>
+      <level code="B">BLOOD AND BLOOD FORMING ORGANS</level>
+    </atc-code>
+  </atc-codes>
+  <ahfs-codes>
+    <ahfs-code>20:12.04.12</ahfs-code>
+  </ahfs-codes>
+  <pdb-entries/>
+  <fda-label>//s3-us-west-2.amazonaws.com/drugbank/fda_labels/DB00006.pdf?1265922803</fda-label>
+  <patents>
+    <patent>
+      <number>5196404</number>
+      <country>United States</country>
+      <approved>1993-05-23</approved>
+      <expires>2010-05-23</expires>
+      <pediatric-extension>false</pediatric-extension>
+    </patent>
+    <patent>
+      <number>2065150</number>
+      <country>Canada</country>
+      <approved>1999-12-14</approved>
+      <expires>2010-08-17</expires>
+      <pediatric-extension>false</pediatric-extension>
+    </patent>
+    <patent>
+      <number>7598343</number>
+      <country>United States</country>
+      <approved>2009-01-27</approved>
+      <expires>2029-01-27</expires>
+      <pediatric-extension>true</pediatric-extension>
+    </patent>
+    <patent>
+      <number>7582727</number>
+      <country>United States</country>
+      <approved>2009-01-27</approved>
+      <expires>2029-01-27</expires>
+      <pediatric-extension>true</pediatric-extension>
+    </patent>
+  </patents>
+  <food-interactions>
+    <food-interaction>Dan shen, dong quai, evening primrose oil, gingko, policosanol, willow bark</food-interaction>
+    <food-interaction>Echinacea</food-interaction>
+  </food-interactions>
+  <drug-interactions>
+    <drug-interaction>
+      <drugbank-id>DB01323</drugbank-id>
+      <name>St. John's Wort</name>
+      <description>The metabolism of Bivalirudin can be increased when combined with St. John's Wort.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00346</drugbank-id>
+      <name>Alfuzosin</name>
+      <description>The serum concentration of Alfuzosin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13783</drugbank-id>
+      <name>Acemetacin</name>
+      <description>The risk or severity of bleeding can be increased when Bivalirudin is combined with Acemetacin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06605</drugbank-id>
+      <name>Apixaban</name>
+      <description>Apixaban may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06695</drugbank-id>
+      <name>Dabigatran etexilate</name>
+      <description>Dabigatran etexilate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09075</drugbank-id>
+      <name>Edoxaban</name>
+      <description>Edoxaban may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06228</drugbank-id>
+      <name>Rivaroxaban</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Rivaroxaban.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00227</drugbank-id>
+      <name>Lovastatin</name>
+      <description>The serum concentration of Lovastatin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00013</drugbank-id>
+      <name>Urokinase</name>
+      <description>Urokinase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09030</drugbank-id>
+      <name>Vorapaxar</name>
+      <description>The risk or severity of adverse effects can be increased when Vorapaxar is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00683</drugbank-id>
+      <name>Midazolam</name>
+      <description>The serum concentration of Midazolam can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00641</drugbank-id>
+      <name>Simvastatin</name>
+      <description>The serum concentration of Simvastatin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00932</drugbank-id>
+      <name>Tipranavir</name>
+      <description>The serum concentration of Bivalirudin can be decreased when it is combined with Tipranavir.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00248</drugbank-id>
+      <name>Cabergoline</name>
+      <description>The serum concentration of Cabergoline can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01200</drugbank-id>
+      <name>Bromocriptine</name>
+      <description>The serum concentration of Bromocriptine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00320</drugbank-id>
+      <name>Dihydroergotamine</name>
+      <description>The serum concentration of Dihydroergotamine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00696</drugbank-id>
+      <name>Ergotamine</name>
+      <description>The serum concentration of Ergotamine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01049</drugbank-id>
+      <name>Ergoloid mesylate</name>
+      <description>The serum concentration of Ergoloid mesylate can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01253</drugbank-id>
+      <name>Ergonovine</name>
+      <description>The serum concentration of Ergonovine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00353</drugbank-id>
+      <name>Methylergometrine</name>
+      <description>The serum concentration of Methylergometrine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00897</drugbank-id>
+      <name>Triazolam</name>
+      <description>The serum concentration of Triazolam can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB03404</drugbank-id>
+      <name>Hemin</name>
+      <description>Hemin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00977</drugbank-id>
+      <name>Ethinyl Estradiol</name>
+      <description>The serum concentration of Ethinyl Estradiol can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01357</drugbank-id>
+      <name>Mestranol</name>
+      <description>The serum concentration of Mestranol can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00783</drugbank-id>
+      <name>Estradiol</name>
+      <description>The serum concentration of Estradiol can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00255</drugbank-id>
+      <name>Diethylstilbestrol</name>
+      <description>The serum concentration of Diethylstilbestrol can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00091</drugbank-id>
+      <name>Cyclosporine</name>
+      <description>The serum concentration of Cyclosporine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB10532</drugbank-id>
+      <name>Garlic</name>
+      <description>The serum concentration of Bivalirudin can be decreased when it is combined with Garlic.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00864</drugbank-id>
+      <name>Tacrolimus</name>
+      <description>The metabolism of Tacrolimus can be decreased when combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00454</drugbank-id>
+      <name>Pethidine</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Pethidine.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00404</drugbank-id>
+      <name>Alprazolam</name>
+      <description>The serum concentration of Alprazolam can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08873</drugbank-id>
+      <name>Boceprevir</name>
+      <description>The serum concentration of Bivalirudin can be decreased when it is combined with Boceprevir.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00564</drugbank-id>
+      <name>Carbamazepine</name>
+      <description>The metabolism of Bivalirudin can be increased when combined with Carbamazepine.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01211</drugbank-id>
+      <name>Clarithromycin</name>
+      <description>The therapeutic efficacy of Clarithromycin can be decreased when used in combination with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00705</drugbank-id>
+      <name>Delavirdine</name>
+      <description>The serum concentration of Delavirdine can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00269</drugbank-id>
+      <name>Chlorotrianisene</name>
+      <description>Chlorotrianisene may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00286</drugbank-id>
+      <name>Conjugated estrogens</name>
+      <description>Conjugated estrogens may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00655</drugbank-id>
+      <name>Estrone</name>
+      <description>Estrone may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00890</drugbank-id>
+      <name>Dienestrol</name>
+      <description>Dienestrol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09369</drugbank-id>
+      <name>Polyestradiol phosphate</name>
+      <description>Polyestradiol phosphate may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01645</drugbank-id>
+      <name>Genistein</name>
+      <description>Genistein may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04575</drugbank-id>
+      <name>Quinestrol</name>
+      <description>Quinestrol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB07931</drugbank-id>
+      <name>Hexestrol</name>
+      <description>Hexestrol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09317</drugbank-id>
+      <name>Synthetic Conjugated Estrogens, A</name>
+      <description>Synthetic Conjugated Estrogens, A may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09318</drugbank-id>
+      <name>Synthetic Conjugated Estrogens, B</name>
+      <description>Synthetic Conjugated Estrogens, B may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11478</drugbank-id>
+      <name>Zeranol</name>
+      <description>Zeranol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11674</drugbank-id>
+      <name>Equol</name>
+      <description>Equol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12179</drugbank-id>
+      <name>Secoisolariciresinol</name>
+      <description>Secoisolariciresinol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13182</drugbank-id>
+      <name>Daidzein</name>
+      <description>Daidzein may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13386</drugbank-id>
+      <name>Epimestrol</name>
+      <description>Epimestrol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04573</drugbank-id>
+      <name>Estriol</name>
+      <description>Estriol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12487</drugbank-id>
+      <name>Promestriene</name>
+      <description>Promestriene may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13143</drugbank-id>
+      <name>Methallenestril</name>
+      <description>Methallenestril may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13418</drugbank-id>
+      <name>Moxestrol</name>
+      <description>Moxestrol may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13952</drugbank-id>
+      <name>Estradiol acetate</name>
+      <description>Estradiol acetate may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13954</drugbank-id>
+      <name>Estradiol cypionate</name>
+      <description>Estradiol cypionate may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13956</drugbank-id>
+      <name>Estradiol valerate</name>
+      <description>Estradiol valerate may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09381</drugbank-id>
+      <name>Estrogens, esterified</name>
+      <description>Estrogens, esterified may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06401</drugbank-id>
+      <name>Bazedoxifene</name>
+      <description>Bazedoxifene may decrease the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04865</drugbank-id>
+      <name>Omacetaxine mepesuccinate</name>
+      <description>The risk or severity of bleeding can be increased when Bivalirudin is combined with Omacetaxine mepesuccinate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01149</drugbank-id>
+      <name>Nefazodone</name>
+      <description>The serum concentration of Nefazodone can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06692</drugbank-id>
+      <name>Aprotinin</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Aprotinin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13943</drugbank-id>
+      <name>Testosterone cypionate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be increased when used in combination with Testosterone cypionate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13944</drugbank-id>
+      <name>Testosterone enanthate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be increased when used in combination with Testosterone enanthate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01431</drugbank-id>
+      <name>Allylestrenol</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Allylestrenol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00294</drugbank-id>
+      <name>Etonogestrel</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Etonogestrel.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00603</drugbank-id>
+      <name>Medroxyprogesterone acetate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Medroxyprogesterone acetate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00396</drugbank-id>
+      <name>Progesterone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Progesterone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00717</drugbank-id>
+      <name>Norethisterone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Norethisterone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06789</drugbank-id>
+      <name>Hydroxyprogesterone caproate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Hydroxyprogesterone caproate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00304</drugbank-id>
+      <name>Desogestrel</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Desogestrel.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00378</drugbank-id>
+      <name>Dydrogesterone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Dydrogesterone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06730</drugbank-id>
+      <name>Gestodene</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Gestodene.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11372</drugbank-id>
+      <name>Altrenogest</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Altrenogest.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11619</drugbank-id>
+      <name>Gestrinone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Gestrinone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09124</drugbank-id>
+      <name>Medrogestone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Medrogestone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11636</drugbank-id>
+      <name>Nomegestrol</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Nomegestrol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13230</drugbank-id>
+      <name>Gestonorone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Gestonorone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13533</drugbank-id>
+      <name>Methylestrenolone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Methylestrenolone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13563</drugbank-id>
+      <name>Norgestrienone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Norgestrienone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13602</drugbank-id>
+      <name>Promegestone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Promegestone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13857</drugbank-id>
+      <name>Demegestone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Demegestone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00351</drugbank-id>
+      <name>Megestrol acetate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Megestrol acetate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00367</drugbank-id>
+      <name>Levonorgestrel</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Levonorgestrel.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09123</drugbank-id>
+      <name>Dienogest</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Dienogest.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01395</drugbank-id>
+      <name>Drospirenone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Drospirenone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12474</drugbank-id>
+      <name>Lynestrenol</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Lynestrenol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13528</drugbank-id>
+      <name>Chlormadinone</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Chlormadinone.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13685</drugbank-id>
+      <name>Quingestanol</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Quingestanol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13866</drugbank-id>
+      <name>Ethynodiol</name>
+      <description>The therapeutic efficacy of Bivalirudin can be decreased when used in combination with Ethynodiol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13946</drugbank-id>
+      <name>Testosterone undecanoate</name>
+      <description>The therapeutic efficacy of Bivalirudin can be increased when used in combination with Testosterone undecanoate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08931</drugbank-id>
+      <name>Riociguat</name>
+      <description>The serum concentration of Riociguat can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00203</drugbank-id>
+      <name>Sildenafil</name>
+      <description>The serum concentration of Sildenafil can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06287</drugbank-id>
+      <name>Temsirolimus</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Temsirolimus.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00343</drugbank-id>
+      <name>Diltiazem</name>
+      <description>The metabolism of Diltiazem can be decreased when combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00661</drugbank-id>
+      <name>Verapamil</name>
+      <description>The metabolism of Verapamil can be decreased when combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00686</drugbank-id>
+      <name>Pentosan Polysulfate</name>
+      <description>Pentosan Polysulfate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09568</drugbank-id>
+      <name>Omega-3-carboxylic acids</name>
+      <description>The therapeutic efficacy of Bivalirudin can be increased when used in combination with Omega-3-carboxylic acids.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00321</drugbank-id>
+      <name>Amitriptyline</name>
+      <description>The serum concentration of Amitriptyline can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00344</drugbank-id>
+      <name>Protriptyline</name>
+      <description>The serum concentration of Protriptyline can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00458</drugbank-id>
+      <name>Imipramine</name>
+      <description>The serum concentration of Imipramine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00540</drugbank-id>
+      <name>Nortriptyline</name>
+      <description>The serum concentration of Nortriptyline can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00726</drugbank-id>
+      <name>Trimipramine</name>
+      <description>The serum concentration of Trimipramine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01142</drugbank-id>
+      <name>Doxepin</name>
+      <description>The serum concentration of Doxepin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01151</drugbank-id>
+      <name>Desipramine</name>
+      <description>The serum concentration of Desipramine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01242</drugbank-id>
+      <name>Clomipramine</name>
+      <description>The serum concentration of Clomipramine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09016</drugbank-id>
+      <name>Butriptyline</name>
+      <description>The serum concentration of Butriptyline can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13114</drugbank-id>
+      <name>Amitriptylinoxide</name>
+      <description>The serum concentration of Amitriptylinoxide can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13384</drugbank-id>
+      <name>Melitracen</name>
+      <description>The serum concentration of Melitracen can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08996</drugbank-id>
+      <name>Dimetacrine</name>
+      <description>The serum concentration of Dimetacrine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04836</drugbank-id>
+      <name>Amineptine</name>
+      <description>The serum concentration of Amineptine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09167</drugbank-id>
+      <name>Dosulepin</name>
+      <description>The serum concentration of Dosulepin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09289</drugbank-id>
+      <name>Tianeptine</name>
+      <description>The serum concentration of Tianeptine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12930</drugbank-id>
+      <name>Opipramol</name>
+      <description>The serum concentration of Opipramol can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13225</drugbank-id>
+      <name>Dibenzepin</name>
+      <description>The serum concentration of Dibenzepin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13411</drugbank-id>
+      <name>Lofepramine</name>
+      <description>The serum concentration of Lofepramine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13496</drugbank-id>
+      <name>Iprindole</name>
+      <description>The serum concentration of Iprindole can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00543</drugbank-id>
+      <name>Amoxapine</name>
+      <description>The serum concentration of Amoxapine can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01048</drugbank-id>
+      <name>Abacavir</name>
+      <description>The serum concentration of Abacavir can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00531</drugbank-id>
+      <name>Cyclophosphamide</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Cyclophosphamide.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00390</drugbank-id>
+      <name>Digoxin</name>
+      <description>The serum concentration of Digoxin can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00109</drugbank-id>
+      <name>Enfuvirtide</name>
+      <description>The serum concentration of Enfuvirtide can be increased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06414</drugbank-id>
+      <name>Etravirine</name>
+      <description>The serum concentration of Etravirine can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01254</drugbank-id>
+      <name>Dasatinib</name>
+      <description>Dasatinib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01609</drugbank-id>
+      <name>Deferasirox</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Deferasirox.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB03619</drugbank-id>
+      <name>Deoxycholic Acid</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Deoxycholic Acid.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00078</drugbank-id>
+      <name>Ibritumomab tiuxetan</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Ibritumomab tiuxetan.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09053</drugbank-id>
+      <name>Ibrutinib</name>
+      <description>The risk or severity of adverse effects can be increased when Ibrutinib is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09079</drugbank-id>
+      <name>Nintedanib</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Nintedanib.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08935</drugbank-id>
+      <name>Obinutuzumab</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Obinutuzumab.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00048</drugbank-id>
+      <name>Collagenase clostridium histolyticum</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Collagenase clostridium histolyticum.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06206</drugbank-id>
+      <name>Sugammadex</name>
+      <description>Sugammadex may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09211</drugbank-id>
+      <name>Limaprost</name>
+      <description>The risk or severity of adverse effects can be increased when Limaprost is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09070</drugbank-id>
+      <name>Tibolone</name>
+      <description>Tibolone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00465</drugbank-id>
+      <name>Ketorolac</name>
+      <description>Ketorolac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00586</drugbank-id>
+      <name>Diclofenac</name>
+      <description>Diclofenac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00712</drugbank-id>
+      <name>Flurbiprofen</name>
+      <description>Flurbiprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00963</drugbank-id>
+      <name>Bromfenac</name>
+      <description>Bromfenac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06802</drugbank-id>
+      <name>Nepafenac</name>
+      <description>Nepafenac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00005</drugbank-id>
+      <name>Etanercept</name>
+      <description>Etanercept may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00179</drugbank-id>
+      <name>Masoprocol</name>
+      <description>Masoprocol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00210</drugbank-id>
+      <name>Adapalene</name>
+      <description>Adapalene may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00244</drugbank-id>
+      <name>Mesalazine</name>
+      <description>Mesalazine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00328</drugbank-id>
+      <name>Indomethacin</name>
+      <description>Indomethacin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00337</drugbank-id>
+      <name>Pimecrolimus</name>
+      <description>Pimecrolimus may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00461</drugbank-id>
+      <name>Nabumetone</name>
+      <description>Nabumetone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00469</drugbank-id>
+      <name>Tenoxicam</name>
+      <description>Tenoxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00482</drugbank-id>
+      <name>Celecoxib</name>
+      <description>Celecoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00500</drugbank-id>
+      <name>Tolmetin</name>
+      <description>Tolmetin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00533</drugbank-id>
+      <name>Rofecoxib</name>
+      <description>Rofecoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00554</drugbank-id>
+      <name>Piroxicam</name>
+      <description>Piroxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00573</drugbank-id>
+      <name>Fenoprofen</name>
+      <description>Fenoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00580</drugbank-id>
+      <name>Valdecoxib</name>
+      <description>Valdecoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00605</drugbank-id>
+      <name>Sulindac</name>
+      <description>Sulindac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00608</drugbank-id>
+      <name>Chloroquine</name>
+      <description>Chloroquine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00688</drugbank-id>
+      <name>Mycophenolate mofetil</name>
+      <description>Mycophenolate mofetil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00735</drugbank-id>
+      <name>Naftifine</name>
+      <description>Naftifine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00744</drugbank-id>
+      <name>Zileuton</name>
+      <description>Zileuton may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00749</drugbank-id>
+      <name>Etodolac</name>
+      <description>Etodolac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00768</drugbank-id>
+      <name>Olopatadine</name>
+      <description>Olopatadine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00784</drugbank-id>
+      <name>Mefenamic acid</name>
+      <description>Mefenamic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00788</drugbank-id>
+      <name>Naproxen</name>
+      <description>Naproxen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00795</drugbank-id>
+      <name>Sulfasalazine</name>
+      <description>Sulfasalazine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00812</drugbank-id>
+      <name>Phenylbutazone</name>
+      <description>Phenylbutazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00814</drugbank-id>
+      <name>Meloxicam</name>
+      <description>Meloxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00821</drugbank-id>
+      <name>Carprofen</name>
+      <description>Carprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00861</drugbank-id>
+      <name>Diflunisal</name>
+      <description>Diflunisal may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00870</drugbank-id>
+      <name>Suprofen</name>
+      <description>Suprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00936</drugbank-id>
+      <name>Salicylic acid</name>
+      <description>Salicylic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00939</drugbank-id>
+      <name>Meclofenamic acid</name>
+      <description>Meclofenamic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00945</drugbank-id>
+      <name>Acetylsalicylic acid</name>
+      <description>Acetylsalicylic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00972</drugbank-id>
+      <name>Azelastine</name>
+      <description>Azelastine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00991</drugbank-id>
+      <name>Oxaprozin</name>
+      <description>Oxaprozin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01009</drugbank-id>
+      <name>Ketoprofen</name>
+      <description>Ketoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01014</drugbank-id>
+      <name>Balsalazide</name>
+      <description>Balsalazide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01024</drugbank-id>
+      <name>Mycophenolic acid</name>
+      <description>Mycophenolic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01050</drugbank-id>
+      <name>Ibuprofen</name>
+      <description>Ibuprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01097</drugbank-id>
+      <name>Leflunomide</name>
+      <description>Leflunomide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01250</drugbank-id>
+      <name>Olsalazine</name>
+      <description>Olsalazine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01283</drugbank-id>
+      <name>Lumiracoxib</name>
+      <description>Lumiracoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01397</drugbank-id>
+      <name>Magnesium salicylate</name>
+      <description>Magnesium salicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01399</drugbank-id>
+      <name>Salsalate</name>
+      <description>Salsalate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01401</drugbank-id>
+      <name>Choline magnesium trisalicylate</name>
+      <description>Choline magnesium trisalicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01435</drugbank-id>
+      <name>Antipyrine</name>
+      <description>Antipyrine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01600</drugbank-id>
+      <name>Tiaprofenic acid</name>
+      <description>Tiaprofenic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01628</drugbank-id>
+      <name>Etoricoxib</name>
+      <description>Etoricoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01816</drugbank-id>
+      <name>Castanospermine</name>
+      <description>Castanospermine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB02709</drugbank-id>
+      <name>Resveratrol</name>
+      <description>Resveratrol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB03585</drugbank-id>
+      <name>Oxyphenbutazone</name>
+      <description>Oxyphenbutazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04552</drugbank-id>
+      <name>Niflumic Acid</name>
+      <description>Niflumic Acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04743</drugbank-id>
+      <name>Nimesulide</name>
+      <description>Nimesulide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04812</drugbank-id>
+      <name>Benoxaprofen</name>
+      <description>Benoxaprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04817</drugbank-id>
+      <name>Metamizole</name>
+      <description>Metamizole may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04828</drugbank-id>
+      <name>Zomepirac</name>
+      <description>Zomepirac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04951</drugbank-id>
+      <name>Pirfenidone</name>
+      <description>Pirfenidone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05073</drugbank-id>
+      <name>SRT501</name>
+      <description>SRT501 may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05173</drugbank-id>
+      <name>PTC299</name>
+      <description>PTC299 may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05289</drugbank-id>
+      <name>Tarenflurbil</name>
+      <description>Tarenflurbil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05676</drugbank-id>
+      <name>Apremilast</name>
+      <description>Apremilast may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05767</drugbank-id>
+      <name>Andrographolide</name>
+      <description>Andrographolide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06196</drugbank-id>
+      <name>Icatibant</name>
+      <description>Icatibant may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06246</drugbank-id>
+      <name>Exisulind</name>
+      <description>Exisulind may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06725</drugbank-id>
+      <name>Lornoxicam</name>
+      <description>Lornoxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06736</drugbank-id>
+      <name>Aceclofenac</name>
+      <description>Aceclofenac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06737</drugbank-id>
+      <name>Zaltoprofen</name>
+      <description>Zaltoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06739</drugbank-id>
+      <name>Seratrodast</name>
+      <description>Seratrodast may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB07402</drugbank-id>
+      <name>Azapropazone</name>
+      <description>Azapropazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB07477</drugbank-id>
+      <name>Felbinac</name>
+      <description>Felbinac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB07615</drugbank-id>
+      <name>Tranilast</name>
+      <description>Tranilast may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB07767</drugbank-id>
+      <name>Ferulic acid</name>
+      <description>Ferulic acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08439</drugbank-id>
+      <name>Parecoxib</name>
+      <description>Parecoxib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08797</drugbank-id>
+      <name>Salicylamide</name>
+      <description>Salicylamide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08880</drugbank-id>
+      <name>Teriflunomide</name>
+      <description>Teriflunomide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08921</drugbank-id>
+      <name>(4R)-limonene</name>
+      <description>(4R)-limonene may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08940</drugbank-id>
+      <name>Kebuzone</name>
+      <description>Kebuzone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08942</drugbank-id>
+      <name>Isoxicam</name>
+      <description>Isoxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08951</drugbank-id>
+      <name>Indoprofen</name>
+      <description>Indoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08955</drugbank-id>
+      <name>Ibuproxam</name>
+      <description>Ibuproxam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08976</drugbank-id>
+      <name>Floctafenine</name>
+      <description>Floctafenine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08981</drugbank-id>
+      <name>Fenbufen</name>
+      <description>Fenbufen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08984</drugbank-id>
+      <name>Etofenamate</name>
+      <description>Etofenamate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08991</drugbank-id>
+      <name>Epirizole</name>
+      <description>Epirizole may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09212</drugbank-id>
+      <name>Loxoprofen</name>
+      <description>Loxoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09215</drugbank-id>
+      <name>Droxicam</name>
+      <description>Droxicam may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09216</drugbank-id>
+      <name>Tolfenamic Acid</name>
+      <description>Tolfenamic Acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09218</drugbank-id>
+      <name>Clonixin</name>
+      <description>Clonixin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09288</drugbank-id>
+      <name>Propacetamol</name>
+      <description>Propacetamol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11358</drugbank-id>
+      <name>Evening primrose oil</name>
+      <description>Evening primrose oil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11444</drugbank-id>
+      <name>Orgotein</name>
+      <description>Orgotein may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11466</drugbank-id>
+      <name>Tepoxalin</name>
+      <description>Tepoxalin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11518</drugbank-id>
+      <name>Flunixin</name>
+      <description>Flunixin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11672</drugbank-id>
+      <name>Curcumin</name>
+      <description>Curcumin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11687</drugbank-id>
+      <name>E-6201</name>
+      <description>E-6201 may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11785</drugbank-id>
+      <name>Anisodamine</name>
+      <description>Anisodamine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11952</drugbank-id>
+      <name>Duvelisib</name>
+      <description>Duvelisib may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12025</drugbank-id>
+      <name>Triptolide</name>
+      <description>Triptolide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12094</drugbank-id>
+      <name>Semapimod</name>
+      <description>Semapimod may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12160</drugbank-id>
+      <name>Bucillamine</name>
+      <description>Bucillamine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12406</drugbank-id>
+      <name>Lisofylline</name>
+      <description>Lisofylline may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12445</drugbank-id>
+      <name>Nitroaspirin</name>
+      <description>Nitroaspirin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12598</drugbank-id>
+      <name>Nafamostat</name>
+      <description>Nafamostat may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12617</drugbank-id>
+      <name>Mizoribine</name>
+      <description>Mizoribine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12618</drugbank-id>
+      <name>Apocynin</name>
+      <description>Apocynin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12779</drugbank-id>
+      <name>Higenamine</name>
+      <description>Higenamine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13001</drugbank-id>
+      <name>Tinoridine</name>
+      <description>Tinoridine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13063</drugbank-id>
+      <name>Parthenolide</name>
+      <description>Parthenolide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13131</drugbank-id>
+      <name>Serrapeptase</name>
+      <description>Serrapeptase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13167</drugbank-id>
+      <name>Alclofenac</name>
+      <description>Alclofenac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13217</drugbank-id>
+      <name>Fentiazac</name>
+      <description>Fentiazac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13227</drugbank-id>
+      <name>Tribenoside</name>
+      <description>Tribenoside may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13232</drugbank-id>
+      <name>Suxibuzone</name>
+      <description>Suxibuzone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13286</drugbank-id>
+      <name>Bumadizone</name>
+      <description>Bumadizone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13314</drugbank-id>
+      <name>Alminoprofen</name>
+      <description>Alminoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13317</drugbank-id>
+      <name>Flunoxaprofen</name>
+      <description>Flunoxaprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13346</drugbank-id>
+      <name>Bufexamac</name>
+      <description>Bufexamac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13364</drugbank-id>
+      <name>Feprazone</name>
+      <description>Feprazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13371</drugbank-id>
+      <name>Difenpiramide</name>
+      <description>Difenpiramide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13407</drugbank-id>
+      <name>Nifenazone</name>
+      <description>Nifenazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13432</drugbank-id>
+      <name>Lonazolac</name>
+      <description>Lonazolac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13481</drugbank-id>
+      <name>Tenidap</name>
+      <description>Tenidap may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13501</drugbank-id>
+      <name>Bendazac</name>
+      <description>Bendazac may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13514</drugbank-id>
+      <name>Pranoprofen</name>
+      <description>Pranoprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13524</drugbank-id>
+      <name>Propyphenazone</name>
+      <description>Propyphenazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13527</drugbank-id>
+      <name>Proglumetacin</name>
+      <description>Proglumetacin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13538</drugbank-id>
+      <name>Guacetisal</name>
+      <description>Guacetisal may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13542</drugbank-id>
+      <name>Bevonium</name>
+      <description>Bevonium may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13544</drugbank-id>
+      <name>Ethenzamide</name>
+      <description>Ethenzamide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13612</drugbank-id>
+      <name>Carbaspirin calcium</name>
+      <description>Carbaspirin calcium may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13629</drugbank-id>
+      <name>Mofebutazone</name>
+      <description>Mofebutazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13649</drugbank-id>
+      <name>Proquazone</name>
+      <description>Proquazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13657</drugbank-id>
+      <name>Benorilate</name>
+      <description>Benorilate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13722</drugbank-id>
+      <name>Pirprofen</name>
+      <description>Pirprofen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13860</drugbank-id>
+      <name>Imidazole salicylate</name>
+      <description>Imidazole salicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09084</drugbank-id>
+      <name>Benzydamine</name>
+      <description>Benzydamine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB14043</drugbank-id>
+      <name>Palmidrol</name>
+      <description>Palmidrol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11133</drugbank-id>
+      <name>Omega-3 fatty acids</name>
+      <description>Omega-3 fatty acids may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00163</drugbank-id>
+      <name>Vitamin E</name>
+      <description>Vitamin E may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00081</drugbank-id>
+      <name>Tositumomab</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Tositumomab.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00054</drugbank-id>
+      <name>Abciximab</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Abciximab.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00102</drugbank-id>
+      <name>Becaplermin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Becaplermin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00266</drugbank-id>
+      <name>Dicoumarol</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Dicoumarol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00278</drugbank-id>
+      <name>Argatroban</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Argatroban.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00407</drugbank-id>
+      <name>Ardeparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Ardeparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00498</drugbank-id>
+      <name>Phenindione</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Phenindione.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00569</drugbank-id>
+      <name>Fondaparinux</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Fondaparinux sodium.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00682</drugbank-id>
+      <name>Warfarin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Warfarin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00946</drugbank-id>
+      <name>Phenprocoumon</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Phenprocoumon.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00974</drugbank-id>
+      <name>Edetic Acid</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Edetic Acid.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01109</drugbank-id>
+      <name>Heparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Heparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01225</drugbank-id>
+      <name>Enoxaparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Enoxaparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01418</drugbank-id>
+      <name>Acenocoumarol</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Acenocoumarol.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04272</drugbank-id>
+      <name>Citric Acid</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Citric Acid.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04898</drugbank-id>
+      <name>Ximelagatran</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Ximelagatran.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05099</drugbank-id>
+      <name>Ancrod</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Ancrod.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06154</drugbank-id>
+      <name>Pentaerythritol Tetranitrate</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Pentaerythritol Tetranitrate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06271</drugbank-id>
+      <name>Sulodexide</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Sulodexide.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06406</drugbank-id>
+      <name>Idraparinux</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Idraparinux.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06635</drugbank-id>
+      <name>Otamixaban</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Otamixaban.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06754</drugbank-id>
+      <name>Danaparoid</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Danaparoid.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06779</drugbank-id>
+      <name>Dalteparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Dalteparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08794</drugbank-id>
+      <name>Ethyl biscoumacetate</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Ethyl biscoumacetate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08813</drugbank-id>
+      <name>Nadroparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Nadroparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09255</drugbank-id>
+      <name>Dextran</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Dextran.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09259</drugbank-id>
+      <name>Reviparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Reviparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09261</drugbank-id>
+      <name>Certoparin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Certoparin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11095</drugbank-id>
+      <name>Desirudin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Desirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11268</drugbank-id>
+      <name>Protocatechualdehyde</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Protocatechualdehyde.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11312</drugbank-id>
+      <name>Protein C</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Protein C.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11598</drugbank-id>
+      <name>Antithrombin III human</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Antithrombin III human.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11984</drugbank-id>
+      <name>Letaxaban</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Letaxaban.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12289</drugbank-id>
+      <name>Darexaban</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Darexaban.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12831</drugbank-id>
+      <name>Gabexate</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Gabexate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13124</drugbank-id>
+      <name>Troxerutin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Troxerutin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13136</drugbank-id>
+      <name>Fluindione</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Fluindione.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13149</drugbank-id>
+      <name>Protein S human</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Protein S human.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13616</drugbank-id>
+      <name>Melagatran</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Melagatran.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09125</drugbank-id>
+      <name>Potassium Citrate</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Potassium Citrate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09154</drugbank-id>
+      <name>Sodium Citrate</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Sodium Citrate.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00001</drugbank-id>
+      <name>Lepirudin</name>
+      <description>Bivalirudin may increase the anticoagulant activities of Lepirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00233</drugbank-id>
+      <name>Aminosalicylic Acid</name>
+      <description>Aminosalicylic Acid may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06251</drugbank-id>
+      <name>Dersalazine</name>
+      <description>Dersalazine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06807</drugbank-id>
+      <name>Phenyl aminosalicylate</name>
+      <description>Phenyl aminosalicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13509</drugbank-id>
+      <name>Aloxiprin</name>
+      <description>Aloxiprin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13864</drugbank-id>
+      <name>Hemoglobin crosfumaril</name>
+      <description>Hemoglobin crosfumaril may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09543</drugbank-id>
+      <name>Methyl salicylate</name>
+      <description>Methyl salicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11079</drugbank-id>
+      <name>Trolamine salicylate</name>
+      <description>Trolamine salicylate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00009</drugbank-id>
+      <name>Alteplase</name>
+      <description>Alteplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00015</drugbank-id>
+      <name>Reteplase</name>
+      <description>Reteplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00029</drugbank-id>
+      <name>Anistreplase</name>
+      <description>Anistreplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00031</drugbank-id>
+      <name>Tenecteplase</name>
+      <description>Tenecteplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00055</drugbank-id>
+      <name>Drotrecogin alfa</name>
+      <description>Drotrecogin alfa may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00208</drugbank-id>
+      <name>Ticlopidine</name>
+      <description>Ticlopidine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00775</drugbank-id>
+      <name>Tirofiban</name>
+      <description>Tirofiban may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01166</drugbank-id>
+      <name>Cilostazol</name>
+      <description>Cilostazol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04932</drugbank-id>
+      <name>Defibrotide</name>
+      <description>Defibrotide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06822</drugbank-id>
+      <name>Tinzaparin</name>
+      <description>Tinzaparin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13199</drugbank-id>
+      <name>Brinase</name>
+      <description>Brinase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13646</drugbank-id>
+      <name>Saruplase</name>
+      <description>Saruplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00086</drugbank-id>
+      <name>Streptokinase</name>
+      <description>Streptokinase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00261</drugbank-id>
+      <name>Anagrelide</name>
+      <description>Anagrelide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00412</drugbank-id>
+      <name>Rosiglitazone</name>
+      <description>Rosiglitazone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04925</drugbank-id>
+      <name>Desmoteplase</name>
+      <description>Desmoteplase may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05254</drugbank-id>
+      <name>Fibrinolysin</name>
+      <description>Fibrinolysin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06081</drugbank-id>
+      <name>Caplacizumab</name>
+      <description>Caplacizumab may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06392</drugbank-id>
+      <name>eplivanserine</name>
+      <description>eplivanserine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06543</drugbank-id>
+      <name>Astaxanthin</name>
+      <description>Astaxanthin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09005</drugbank-id>
+      <name>Batroxobin</name>
+      <description>Batroxobin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12017</drugbank-id>
+      <name>Ozagrel</name>
+      <description>Ozagrel may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12163</drugbank-id>
+      <name>Sarpogrelate</name>
+      <description>Sarpogrelate may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12177</drugbank-id>
+      <name>Eplivanserin</name>
+      <description>Eplivanserin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00063</drugbank-id>
+      <name>Eptifibatide</name>
+      <description>Eptifibatide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00374</drugbank-id>
+      <name>Treprostinil</name>
+      <description>Treprostinil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00758</drugbank-id>
+      <name>Clopidogrel</name>
+      <description>Clopidogrel may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00975</drugbank-id>
+      <name>Dipyridamole</name>
+      <description>Dipyridamole may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01088</drugbank-id>
+      <name>Iloprost</name>
+      <description>Iloprost may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01240</drugbank-id>
+      <name>Epoprostenol</name>
+      <description>Epoprostenol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05229</drugbank-id>
+      <name>Beraprost</name>
+      <description>Beraprost may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06209</drugbank-id>
+      <name>Prasugrel</name>
+      <description>Prasugrel may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB06441</drugbank-id>
+      <name>Cangrelor</name>
+      <description>Cangrelor may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08814</drugbank-id>
+      <name>Triflusal</name>
+      <description>Triflusal may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08816</drugbank-id>
+      <name>Ticagrelor</name>
+      <description>Ticagrelor may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08994</drugbank-id>
+      <name>Ditazole</name>
+      <description>Ditazole may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09258</drugbank-id>
+      <name>Bemiparin</name>
+      <description>Bemiparin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09260</drugbank-id>
+      <name>Parnaparin</name>
+      <description>Parnaparin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11362</drugbank-id>
+      <name>Selexipag</name>
+      <description>Selexipag may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12545</drugbank-id>
+      <name>Indobufen</name>
+      <description>Indobufen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13275</drugbank-id>
+      <name>Clorindione</name>
+      <description>Clorindione may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13327</drugbank-id>
+      <name>Picotamide</name>
+      <description>Picotamide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13347</drugbank-id>
+      <name>Diphenadione</name>
+      <description>Diphenadione may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13367</drugbank-id>
+      <name>Cloricromen</name>
+      <description>Cloricromen may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13451</drugbank-id>
+      <name>Tioclomarol</name>
+      <description>Tioclomarol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00235</drugbank-id>
+      <name>Milrinone</name>
+      <description>Milrinone may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00751</drugbank-id>
+      <name>Epinastine</name>
+      <description>Epinastine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00770</drugbank-id>
+      <name>Alprostadil</name>
+      <description>Alprostadil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00806</drugbank-id>
+      <name>Pentoxifylline</name>
+      <description>Pentoxifylline may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01207</drugbank-id>
+      <name>Ridogrel</name>
+      <description>Ridogrel may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01236</drugbank-id>
+      <name>Sevoflurane</name>
+      <description>Sevoflurane may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB04905</drugbank-id>
+      <name>Tesmilifene</name>
+      <description>Tesmilifene may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB05266</drugbank-id>
+      <name>Ibudilast</name>
+      <description>Ibudilast may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08887</drugbank-id>
+      <name>Icosapent ethyl</name>
+      <description>Icosapent ethyl may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB08954</drugbank-id>
+      <name>Ifenprodil</name>
+      <description>Ifenprodil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB09283</drugbank-id>
+      <name>Trapidil</name>
+      <description>Trapidil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12092</drugbank-id>
+      <name>Naftopidil</name>
+      <description>Naftopidil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12321</drugbank-id>
+      <name>Ifetroban</name>
+      <description>Ifetroban may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12465</drugbank-id>
+      <name>Ketanserin</name>
+      <description>Ketanserin may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12749</drugbank-id>
+      <name>Butylphthalide</name>
+      <description>Butylphthalide may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB12771</drugbank-id>
+      <name>Hydroxytyrosol</name>
+      <description>Hydroxytyrosol may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13036</drugbank-id>
+      <name>Ramatroban</name>
+      <description>Ramatroban may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13400</drugbank-id>
+      <name>Linsidomine</name>
+      <description>Linsidomine may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13510</drugbank-id>
+      <name>Buflomedil</name>
+      <description>Buflomedil may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13929</drugbank-id>
+      <name>Relcovaptan</name>
+      <description>Relcovaptan may increase the anticoagulant activities of Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB13141</drugbank-id>
+      <name>Ambroxol acefyllinate</name>
+      <description>The serum concentration of Ambroxol acefyllinate can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00277</drugbank-id>
+      <name>Theophylline</name>
+      <description>The serum concentration of Theophylline can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00651</drugbank-id>
+      <name>Dyphylline</name>
+      <description>The serum concentration of Dyphylline can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB01223</drugbank-id>
+      <name>Aminophylline</name>
+      <description>The serum concentration of Aminophylline can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00313</drugbank-id>
+      <name>Valproic Acid</name>
+      <description>The serum concentration of Valproic Acid can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB00495</drugbank-id>
+      <name>Zidovudine</name>
+      <description>The serum concentration of Zidovudine can be decreased when it is combined with Bivalirudin.</description>
+    </drug-interaction>
+    <drug-interaction>
+      <drugbank-id>DB11051</drugbank-id>
+      <name>Azficel-T</name>
+      <description>The risk or severity of adverse effects can be increased when Bivalirudin is combined with Azficel-T.</description>
+    </drug-interaction>
+  </drug-interactions>
+  <calculated-properties>
+    <property>
+      <kind>logP</kind>
+      <value>-0.76</value>
+      <source>ALOGPS</source>
+    </property>
+    <property>
+      <kind>logS</kind>
+      <value>-4.7</value>
+      <source>ALOGPS</source>
+    </property>
+    <property>
+      <kind>Water Solubility</kind>
+      <value>4.64e-02 g/l</value>
+      <source>ALOGPS</source>
+    </property>
+    <property>
+      <kind>logP</kind>
+      <value>-14</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>IUPAC Name</kind>
+      <value>(4S)-4-[(2S)-2-[(2S)-2-[(2S)-2-{2-[(2S)-2-(2-{2-[2-(2-{[(2S)-1-[(2S)-2-{[(2S)-1-[(2R)-2-amino-3-phenylpropanoyl]pyrrolidin-2-yl]formamido}-5-carbamimidamidopentanoyl]pyrrolidin-2-yl]formamido}acetamido)acetamido]acetamido}acetamido)-3-carbamoylpropanamido]acetamido}-3-carboxypropanamido]-3-phenylpropanamido]-4-carboxybutanamido]-4-{[(2S,3S)-1-[(2S)-2-{[(1S)-3-carboxy-1-{[(1S)-3-carboxy-1-{[(1S)-1-{[(1S)-1-carboxy-3-methylbutyl]carbamoyl}-2-(4-hydroxyphenyl)ethyl]carbamoyl}propyl]carbamoyl}propyl]carbamoyl}pyrrolidin-1-yl]-3-methyl-1-oxopentan-2-yl]carbamoyl}butanoic acid</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Traditional IUPAC Name</kind>
+      <value>bivalirudin</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Molecular Weight</kind>
+      <value>2180.2853</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Monoisotopic Weight</kind>
+      <value>2178.985813062</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>SMILES</kind>
+      <value>CC[C@H](C)[C@H](NC(=O)[C@H](CCC(O)=O)NC(=O)[C@H](CCC(O)=O)NC(=O)[C@H](CC1=CC=CC=C1)NC(=O)[C@H](CC(O)=O)NC(=O)CNC(=O)[C@H](CC(N)=O)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]1CCCN1C(=O)[C@H](CCCNC(N)=N)NC(=O)[C@@H]1CCCN1C(=O)[C@H](N)CC1=CC=CC=C1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](CCC(O)=O)C(=O)N[C@@H](CCC(O)=O)C(=O)N[C@@H](CC1=CC=C(O)C=C1)C(=O)N[C@@H](CC(C)C)C(O)=O</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Molecular Formula</kind>
+      <value>C98H138N24O33</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>InChI</kind>
+      <value>InChI=1S/C98H138N24O33/c1-5-52(4)82(96(153)122-39-15-23-70(122)92(149)114-60(30-34-79(134)135)85(142)111-59(29-33-78(132)133)86(143)116-64(43-55-24-26-56(123)27-25-55)89(146)118-67(97(154)155)40-51(2)3)119-87(144)61(31-35-80(136)137)112-84(141)58(28-32-77(130)131)113-88(145)63(42-54-18-10-7-11-19-54)117-90(147)66(45-81(138)139)110-76(129)50-107-83(140)65(44-71(100)124)109-75(128)49-106-73(126)47-104-72(125)46-105-74(127)48-108-91(148)68-21-13-38-121(68)95(152)62(20-12-36-103-98(101)102)115-93(150)69-22-14-37-120(69)94(151)57(99)41-53-16-8-6-9-17-53/h6-11,16-19,24-27,51-52,57-70,82,123H,5,12-15,20-23,28-50,99H2,1-4H3,(H2,100,124)(H,104,125)(H,105,127)(H,106,126)(H,107,140)(H,108,148)(H,109,128)(H,110,129)(H,111,142)(H,112,141)(H,113,145)(H,114,149)(H,115,150)(H,116,143)(H,117,147)(H,118,146)(H,119,144)(H,130,131)(H,132,133)(H,134,135)(H,136,137)(H,138,139)(H,154,155)(H4,101,102,103)/t52-,57+,58-,59-,60-,61-,62-,63-,64-,65-,66-,67-,68-,69-,70-,82-/m0/s1</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>InChIKey</kind>
+      <value>OIRCOABEOLEUMC-GEJPAHFPSA-N</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Polar Surface Area (PSA)</kind>
+      <value>901.57</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Refractivity</kind>
+      <value>543.33</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Polarizability</kind>
+      <value>215.46</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Rotatable Bond Count</kind>
+      <value>66</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>H Bond Acceptor Count</kind>
+      <value>37</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>H Bond Donor Count</kind>
+      <value>28</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>pKa (strongest acidic)</kind>
+      <value>2.79</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>pKa (strongest basic)</kind>
+      <value>11.88</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Physiological Charge</kind>
+      <value>-4</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Number of Rings</kind>
+      <value>6</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Bioavailability</kind>
+      <value>0</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Rule of Five</kind>
+      <value>0</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>Ghose Filter</kind>
+      <value>0</value>
+      <source>ChemAxon</source>
+    </property>
+    <property>
+      <kind>MDDR-Like Rule</kind>
+      <value>1</value>
+      <source>ChemAxon</source>
+    </property>
+  </calculated-properties>
+  <experimental-properties/>
+  <external-identifiers>
+    <external-identifier>
+      <resource>Drugs Product Database (DPD)</resource>
+      <identifier>12945</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>ChEBI</resource>
+      <identifier>59173</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>PubChem Compound</resource>
+      <identifier>16129704</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>PubChem Substance</resource>
+      <identifier>46507415</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>KEGG Drug</resource>
+      <identifier>D03136</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>ChemSpider</resource>
+      <identifier>10482069</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>PharmGKB</resource>
+      <identifier>PA10032</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>Therapeutic Targets Database</resource>
+      <identifier>DAP000542</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>Wikipedia</resource>
+      <identifier>Bivalirudin</identifier>
+    </external-identifier>
+    <external-identifier>
+      <resource>ChEMBL</resource>
+      <identifier>CHEMBL2103749</identifier>
+    </external-identifier>
+  </external-identifiers>
+  <external-links>
+    <external-link>
+      <resource>RxList</resource>
+      <url>http://www.rxlist.com/cgi/generic/angiomax.htm</url>
+    </external-link>
+    <external-link>
+      <resource>Drugs.com</resource>
+      <url>http://www.drugs.com/cdi/bivalirudin.html</url>
+    </external-link>
+  </external-links>
+  <pathways>
+    <pathway>
+      <smpdb-id>SMP00277</smpdb-id>
+      <name>Bivalirudin Action Pathway</name>
+      <category>drug_action</category>
+      <drugs>
+        <drug>
+          <drugbank-id>DB00006</drugbank-id>
+          <name>Bivalirudin</name>
+        </drug>
+        <drug>
+          <drugbank-id>DB01022</drugbank-id>
+          <name>Phylloquinone</name>
+        </drug>
+        <drug>
+          <drugbank-id>DB01373</drugbank-id>
+          <name>Calcium</name>
+        </drug>
+      </drugs>
+      <enzymes>
+        <uniprot-id>P00734</uniprot-id>
+        <uniprot-id>P00748</uniprot-id>
+        <uniprot-id>P02452</uniprot-id>
+        <uniprot-id>P03952</uniprot-id>
+        <uniprot-id>P03951</uniprot-id>
+        <uniprot-id>P00740</uniprot-id>
+        <uniprot-id>P00451</uniprot-id>
+        <uniprot-id>P12259</uniprot-id>
+        <uniprot-id>P00742</uniprot-id>
+        <uniprot-id>P02671</uniprot-id>
+        <uniprot-id>P02675</uniprot-id>
+        <uniprot-id>P02679</uniprot-id>
+        <uniprot-id>P00488</uniprot-id>
+        <uniprot-id>P05160</uniprot-id>
+        <uniprot-id>P00747</uniprot-id>
+        <uniprot-id>P00750</uniprot-id>
+        <uniprot-id>P08709</uniprot-id>
+        <uniprot-id>P13726</uniprot-id>
+        <uniprot-id>Q9BQB6</uniprot-id>
+        <uniprot-id>P38435</uniprot-id>
+      </enzymes>
+    </pathway>
+  </pathways>
+  <reactions/>
+  <snp-effects/>
+  <snp-adverse-drug-reactions/>
+  <targets>
+    <target>
+      <id>BE0000048</id>
+      <name>Prothrombin</name>
+      <organism>Human</organism>
+      <actions>
+        <action>inhibitor</action>
+      </actions>
+      <references>
+        <articles>
+          <article>
+            <pubmed-id>11060732</pubmed-id>
+            <citation>Scatena R: Bivalirudin: a new generation antithrombotic drug. Expert Opin Investig Drugs. 2000 May;9(5):1119-27.</citation>
+          </article>
+          <article>
+            <pubmed-id>11504570</pubmed-id>
+            <citation>Bates ER: Bivalirudin for percutaneous coronary intervention and in acute coronary syndromes. Curr Cardiol Rep. 2001 Sep;3(5):348-54.</citation>
+          </article>
+          <article>
+            <pubmed-id>11833835</pubmed-id>
+            <citation>Gladwell TD: Bivalirudin: a direct thrombin inhibitor. Clin Ther. 2002 Jan;24(1):38-58.</citation>
+          </article>
+          <article>
+            <pubmed-id>11923794</pubmed-id>
+            <citation>Kleiman NS, Klem J, Fernandes LS, Rubin H, Challa S, Solomon S, Maresh K, Arora U, Klem E, Buergler J, Mathew S, Browning A, DeLao T: Pharmacodynamic profile of the direct thrombin antagonist bivalirudin given in combination with the glycoprotein IIb/IIIa antagonist eptifibatide. Am Heart J. 2002 Apr;143(4):585-93.</citation>
+          </article>
+          <article>
+            <pubmed-id>11929334</pubmed-id>
+            <citation>Carswell CI, Plosker GL: Bivalirudin: a review of its potential place in the management of acute coronary syndromes. Drugs. 2002;62(5):841-70.</citation>
+          </article>
+          <article>
+            <pubmed-id>11752352</pubmed-id>
+            <citation>Chen X, Ji ZL, Chen YZ: TTD: Therapeutic Target Database. Nucleic Acids Res. 2002 Jan 1;30(1):412-5.</citation>
+          </article>
+        </articles>
+        <textbooks/>
+        <links/>
+      </references>
+      <known-action>yes</known-action>
+      <polypeptide id="P00734" source="Swiss-Prot">
+    <name>Prothrombin</name>
+    <general-function>Thrombospondin receptor activity</general-function>
+    <specific-function>Thrombin, which cleaves bonds after Arg and Lys, converts fibrinogen to fibrin and activates factors V, VII, VIII, XIII, and, in complex with thrombomodulin, protein C. Functions in blood homeostasis, inflammation and wound healing.</specific-function>
+    <gene-name>F2</gene-name>
+    <locus>11p11-q12</locus>
+    <cellular-location>Secreted</cellular-location>
+    <transmembrane-regions/>
+    <signal-regions>1-24</signal-regions>
+    <theoretical-pi>5.7</theoretical-pi>
+    <molecular-weight>70036.295</molecular-weight>
+    <chromosome-location>11</chromosome-location>
+    <organism ncbi-taxonomy-id="9606">Human</organism>
+    <external-identifiers>
+      <external-identifier>
+        <resource>HUGO Gene Nomenclature Committee (HGNC)</resource>
+        <identifier>HGNC:3535</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenAtlas</resource>
+        <identifier>F2</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenBank Gene Database</resource>
+        <identifier>M17262</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenBank Protein Database</resource>
+        <identifier>339641</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>Guide to Pharmacology</resource>
+        <identifier>2362</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>UniProtKB</resource>
+        <identifier>P00734</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>UniProt Accession</resource>
+        <identifier>THRB_HUMAN</identifier>
+      </external-identifier>
+    </external-identifiers>
+    <synonyms>
+      <synonym>3.4.21.5</synonym>
+      <synonym>Coagulation factor II</synonym>
+    </synonyms>
+    <amino-acid-sequence format="FASTA">&gt;lcl|BSEQ0016004|Prothrombin
+MAHVRGLQLPGCLALAALCSLVHSQHVFLAPQQARSLLQRVRRANTFLEEVRKGNLEREC
+VEETCSYEEAFEALESSTATDVFWAKYTACETARTPRDKLAACLEGNCAEGLGTNYRGHV
+NITRSGIECQLWRSRYPHKPEINSTTHPGADLQENFCRNPDSSTTGPWCYTTDPTVRRQE
+CSIPVCGQDQVTVAMTPRSEGSSVNLSPPLEQCVPDRGQQYQGRLAVTTHGLPCLAWASA
+QAKALSKHQDFNSAVQLVENFCRNPDGDEEGVWCYVAGKPGDFGYCDLNYCEEAVEEETG
+DGLDEDSDRAIEGRTATSEYQTFFNPRTFGSGEADCGLRPLFEKKSLEDKTERELLESYI
+DGRIVEGSDAEIGMSPWQVMLFRKSPQELLCGASLISDRWVLTAAHCLLYPPWDKNFTEN
+DLLVRIGKHSRTRYERNIEKISMLEKIYIHPRYNWRENLDRDIALMKLKKPVAFSDYIHP
+VCLPDRETAASLLQAGYKGRVTGWGNLKETWTANVGKGQPSVLQVVNLPIVERPVCKDST
+RIRITDNMFCAGYKPDEGKRGDACEGDSGGPFVMKSPFNNRWYQMGIVSWGEGCDRDGKY
+GFYTHVFRLKKWIQKVIDQFGE</amino-acid-sequence>
+    <gene-sequence format="FASTA">&gt;lcl|BSEQ0016005|Prothrombin (F2)
+ATGGCGCACGTCCGAGGCTTGCAGCTGCCTGGCTGCCTGGCCCTGGCTGCCCTGTGTAGC
+CTTGTGCACAGCCAGCATGTGTTCCTGGCTCCTCAGCAAGCACGGTCGCTGCTCCAGCGG
+GTCCGGCGAGCCAACACCTTCTTGGAGGAGGTGCGCAAGGGCAACCTGGAGCGAGAGTGC
+GTGGAGGAGACGTGCAGCTACGAGGAGGCCTTCGAGGCTCTGGAGTCCTCCACGGCTACG
+GATGTGTTCTGGGCCAAGTACACAGCTTGTGAGACAGCGAGGACGCCTCGAGATAAGCTT
+GCTGCATGTCTGGAAGGTAACTGTGCTGAGGGTCTGGGTACGAACTACCGAGGGCATGTG
+AACATCACCCGGTCAGGCATTGAGTGCCAGCTATGGAGGAGTCGCTACCCACATAAGCCT
+GAAATCAACTCCACTACCCATCCTGGGGCCGACCTACAGGAGAATTTCTGCCGCAACCCC
+GACAGCAGCACCACGGGACCCTGGTGCTACACTACAGACCCCACCGTGAGGAGGCAGGAA
+TGCAGCATCCCTGTCTGTGGCCAGGATCAAGTCACTGTAGCGATGACTCCACGCTCCGAA
+GGCTCCAGTGTGAATCTGTCACCTCCATTGGAGCAGTGTGTCCCTGATCGGGGGCAGCAG
+TACCAGGGGCGCCTGGCGGTGACCACACATGGGCTCCCCTGCCTGGCCTGGGCCAGCGCA
+CAGGCCAAGGCCCTGAGCAAGCACCAGGACTTCAACTCAGCTGTGCAGCTGGTGGAGAAC
+TTCTGCCGCAACCCAGACGGGGATGAGGAGGGCGTGTGGTGCTATGTGGCCGGGAAGCCT
+GGCGACTTTGGGTACTGCGACCTCAACTATTGTGAGGAGGCCGTGGAGGAGGAGACAGGA
+GATGGGCTGGATGAGGACTCAGACAGGGCCATCGAAGGGCGTACCGCCACCAGTGAGTAC
+CAGACTTTCTTCAATCCGAGGACCTTTGGCTCGGGAGAGGCAGACTGTGGGCTGCGACCT
+CTGTTCGAGAAGAAGTCGCTGGAGGACAAAACCGAAAGAGAGCTCCTGGAATCCTACATC
+GACGGGCGCATTGTGGAGGGCTCGGATGCAGAGATCGGCATGTCACCTTGGCAGGTGATG
+CTTTTCCGGAAGAGTCCCCAGGAGCTGCTGTGTGGGGCCAGCCTCATCAGTGACCGCTGG
+GTCCTCACCGCCGCCCACTGCCTCCTGTACCCGCCCTGGGACAAGAACTTCACCGAGAAT
+GACCTTCTGGTGCGCATTGGCAAGCACTCCCGCACCAGGTACGAGCGAAACATTGAAAAG
+ATATCCATGTTGGAAAAGATCTACATCCACCCCAGGTACAACTGGCGGGAGAACCTGGAC
+CGGGACATTGCCCTGATGAAGCTGAAGAAGCCTGTTGCCTTCAGTGACTACATTCACCCT
+GTGTGTCTGCCCGACAGGGAGACGGCAGCCAGCTTGCTCCAGGCTGGATACAAGGGGCGG
+GTGACAGGCTGGGGCAACCTGAAGGAGACGTGGACAGCCAACGTTGGTAAGGGGCAGCCC
+AGTGTCCTGCAGGTGGTGAACCTGCCCATTGTGGAGCGGCCGGTCTGCAAGGACTCCACC
+CGGATCCGCATCACTGACAACATGTTCTGTGCTGGTTACAAGCCTGATGAAGGGAAACGA
+GGGGATGCCTGTGAAGGTGACAGTGGGGGACCCTTTGTCATGAAGAGCCCCTTTAACAAC
+CGCTGGTATCAAATGGGCATCGTCTCATGGGGTGAAGGCTGTGACCGGGATGGGAAATAT
+GGCTTCTACACACATGTGTTCCGCCTGAAGAAGTGGATACAGAAGGTCATTGATCAGTTT
+GGAGAGTAG</gene-sequence>
+    <pfams>
+      <pfam>
+        <identifier>PF00594</identifier>
+        <name>Gla</name>
+      </pfam>
+      <pfam>
+        <identifier>PF00051</identifier>
+        <name>Kringle</name>
+      </pfam>
+      <pfam>
+        <identifier>PF00089</identifier>
+        <name>Trypsin</name>
+      </pfam>
+      <pfam>
+        <identifier>PF09396</identifier>
+        <name>Thrombin_light</name>
+      </pfam>
+    </pfams>
+    <go-classifiers>
+      <go-classifier>
+        <category>component</category>
+        <description>blood microparticle</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular matrix</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>Golgi lumen</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>cytosol</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular exosome</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular region</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>endoplasmic reticulum lumen</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>plasma membrane</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular space</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>thrombospondin receptor activity</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>calcium ion binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>serine-type endopeptidase activity</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>growth factor activity</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>receptor binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of platelet activation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>regulation of cell shape</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>regulation of gene expression</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>blood coagulation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of proteolysis</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>platelet activation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>response to inactivity</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of blood coagulation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>response to wounding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>acute-phase response</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of cell growth</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>blood coagulation, intrinsic pathway</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>proteolysis</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of cell proliferation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of protein phosphorylation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>cell surface receptor signaling pathway</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of collagen biosynthetic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>cytosolic calcium ion homeostasis</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of phosphatidylinositol 3-kinase signaling</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>cellular response to mechanical stimulus</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>fibrinolysis</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of phospholipase C-activating G-protein coupled receptor signaling pathway</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>leukocyte migration</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>multicellular organismal development</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of reactive oxygen species metabolic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>cellular protein metabolic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of astrocyte differentiation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>peptidyl-glutamic acid carboxylation</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>positive regulation of release of sequestered calcium ion into cytosol</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>post-translational protein modification</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of fibrinolysis</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>regulation of blood coagulation</description>
+      </go-classifier>
+    </go-classifiers>
+  </polypeptide>
+    </target>
+  </targets>
+  <enzymes>
+    <enzyme position="1">
+      <id>BE0001075</id>
+      <name>Myeloperoxidase</name>
+      <organism>Human</organism>
+      <actions>
+        <action>inhibitor</action>
+      </actions>
+      <references>
+        <articles>
+          <article>
+            <pubmed-id>18701766</pubmed-id>
+            <citation>Rudolph V, Rudolph TK, Schopfer FJ, Bonacci G, Lau D, Szocs K, Klinke A, Meinertz T, Freeman BA, Baldus S: Bivalirudin decreases NO bioavailability by vascular immobilization of myeloperoxidase. J Pharmacol Exp Ther. 2008 Nov;327(2):324-31. doi: 10.1124/jpet.108.142414. Epub  2008 Aug 13.</citation>
+          </article>
+        </articles>
+        <textbooks/>
+        <links/>
+      </references>
+      <known-action>unknown</known-action>
+      <polypeptide id="P05164" source="Swiss-Prot">
+    <name>Myeloperoxidase</name>
+    <general-function>Peroxidase activity</general-function>
+    <specific-function>Part of the host defense system of polymorphonuclear leukocytes. It is responsible for microbicidal activity against a wide range of organisms. In the stimulated PMN, MPO catalyzes the production of hypohalous acids, primarily hypochlorous acid in physiologic situations, and other toxic intermediates that greatly enhance PMN microbicidal activity.</specific-function>
+    <gene-name>MPO</gene-name>
+    <locus>17q23.1</locus>
+    <cellular-location>Lysosome</cellular-location>
+    <transmembrane-regions/>
+    <signal-regions>1-48</signal-regions>
+    <theoretical-pi>9.14</theoretical-pi>
+    <molecular-weight>83867.71</molecular-weight>
+    <chromosome-location>17</chromosome-location>
+    <organism ncbi-taxonomy-id="9606">Human</organism>
+    <external-identifiers>
+      <external-identifier>
+        <resource>HUGO Gene Nomenclature Committee (HGNC)</resource>
+        <identifier>HGNC:7218</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenAtlas</resource>
+        <identifier>MPO</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenBank Gene Database</resource>
+        <identifier>J02694</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>GenBank Protein Database</resource>
+        <identifier>189040</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>Guide to Pharmacology</resource>
+        <identifier>2789</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>UniProtKB</resource>
+        <identifier>P05164</identifier>
+      </external-identifier>
+      <external-identifier>
+        <resource>UniProt Accession</resource>
+        <identifier>PERM_HUMAN</identifier>
+      </external-identifier>
+    </external-identifiers>
+    <synonyms>
+      <synonym>1.11.2.2</synonym>
+      <synonym>MPO</synonym>
+    </synonyms>
+    <amino-acid-sequence format="FASTA">&gt;lcl|BSEQ0002139|Myeloperoxidase
+MGVPFFSSLRCMVDLGPCWAGGLTAEMKLLLALAGLLAILATPQPSEGAAPAVLGEVDTS
+LVLSSMEEAKQLVDKAYKERRESIKQRLRSGSASPMELLSYFKQPVAATRTAVRAADYLH
+VALDLLERKLRSLWRRPFNVTDVLTPAQLNVLSKSSGCAYQDVGVTCPEQDKYRTITGMC
+NNRRSPTLGASNRAFVRWLPAEYEDGFSLPYGWTPGVKRNGFPVALARAVSNEIVRFPTD
+QLTPDQERSLMFMQWGQLLDHDLDFTPEPAARASFVTGVNCETSCVQQPPCFPLKIPPND
+PRIKNQADCIPFFRSCPACPGSNITIRNQINALTSFVDASMVYGSEEPLARNLRNMSNQL
+GLLAVNQRFQDNGRALLPFDNLHDDPCLLTNRSARIPCFLAGDTRSSEMPELTSMHTLLL
+REHNRLATELKSLNPRWDGERLYQEARKIVGAMVQIITYRDYLPLVLGPTAMRKYLPTYR
+SYNDSVDPRIANVFTNAFRYGHTLIQPFMFRLDNRYQPMEPNPRVPLSRVFFASWRVVLE
+GGIDPILRGLMATPAKLNRQNQIAVDEIRERLFEQVMRIGLDLPALNMQRSRDHGLPGYN
+AWRRFCGLPQPETVGQLGTVLRNLKLARKLMEQYGTPNNIDIWMGGVSEPLKRKGRVGPL
+LACIIGTQFRKLRDGDRFWWENEGVFSMQQRQALAQISLPRIICDNTGITTVSKNNIFMS
+NSYPRDFVNCSTLPALNLASWREAS</amino-acid-sequence>
+    <gene-sequence format="FASTA">&gt;lcl|BSEQ0016304|Myeloperoxidase (MPO)
+ATGGGGGTTCCCTTCTTCTCTTCTCTCAGATGCATGGTGGACTTAGGACCTTGCTGGGCT
+GGGGGTCTCACTGCAGAGATGAAGCTGCTTCTGGCCCTAGCAGGGCTCCTGGCCATTCTG
+GCCACGCCCCAGCCCTCTGAAGGTGCTGCTCCAGCTGTCCTGGGGGAGGTGGACACCTCG
+TTGGTGCTGAGCTCCATGGAGGAGGCCAAGCAGCTGGTGGACAAGGCCTACAAGGAGCGG
+CGGGAAAGCATCAAGCAGCGGCTTCGCAGCGGCTCAGCCAGCCCCATGGAACTCCTATCC
+TACTTCAAGCAGCCGGTGGCAGCCACCAGGACGGCGGTGAGGGCCGCTGACTACCTGCAC
+GTGGCTCTAGACCTGCTGGAGAGGAAGCTGCGGTCCCTGTGGCGAAGGCCATTCAATGTC
+ACTGATGTGCTGACGCCCGCCCAGCTGAATGTGTTGTCCAAGTCAAGCGGCTGCGCCTAC
+CAGGACGTGGGGGTGACTTGCCCGGAGCAGGACAAATACCGCACCATCACCGGGATGTGC
+AACAACAGACGCAGCCCCACGCTGGGGGCCTCCAACCGTGCCTTTGTGCGCTGGCTGCCG
+GCGGAGTATGAGGACGGCTTCTCTCTTCCCTACGGCTGGACGCCCGGGGTCAAGCGCAAC
+GGCTTCCCGGTGGCTCTGGCTCGCGCGGTCTCCAACGAGATCGTGCGCTTCCCCACTGAT
+CAGCTGACTCCGGACCAGGAGCGCTCACTCATGTTCATGCAATGGGGCCAGCTGTTGGAC
+CACGACCTCGACTTCACCCCTGAGCCGGCCGCCCGGGCCTCCTTCGTCACTGGCGTCAAC
+TGCGAGACCAGCTGCGTTCAGCAGCCGCCCTGCTTCCCGCTCAAGATCCCGCCCAATGAC
+CCCCGCATCAAGAACCAAGCCGACTGCATCCCGTTCTTCCGCTCCTGCCCGGCTTGCCCC
+GGGAGCAACATCACCATCCGCAACCAGATCAACGCGCTCACTTCCTTCGTGGACGCCAGC
+ATGGTGTACGGCAGCGAGGAGCCCCTGGCCAGGAACCTGCGCAACATGTCCAACCAGCTG
+GGGCTGCTGGCCGTCAACCAGCGCTTCCAAGACAACGGCCGGGCCCTGCTGCCCTTTGAC
+AACCTGCACGATGACCCCTGTCTCCTCACCAACCGCTCAGCGCGCATCCCCTGCTTCCTG
+GCAGGGGACACCCGTTCCAGTGAGATGCCCGAGCTCACCTCCATGCACACCCTCTTACTT
+CGGGAGCACAACCGGCTGGCCACAGAGCTCAAGAGCCTGAACCCTAGGTGGGATGGGGAG
+AGGCTCTACCAGGAAGCCCGGAAGATCGTGGGGGCCATGGTCCAGATCATCACTTACCGG
+GACTACCTGCCCCTGGTGCTGGGGCCAACGGCCATGAGGAAGTACCTGCCCACGTACCGT
+TCCTACAATGACTCAGTGGACCCACGCATCGCCAACGTCTTCACCAATGCCTTCCGCTAC
+GGCCACACCCTCATCCAACCCTTCATGTTCCGCCTGGACAATCGGTACCAGCCCATGGAA
+CCCAACCCCCGTGTCCCCCTCAGCAGGGTCTTTTTTGCCTCCTGGAGGGTCGTGCTGGAA
+GGTGGCATTGACCCCATCCTCCGGGGCCTCATGGCCACCCCTGCCAAGCTGAATCGTCAG
+AACCAAATTGCAGTGGATGAGATCCGGGAGCGATTGTTTGAGCAGGTCATGAGGATTGGG
+CTGGACCTGCCTGCTCTGAACATGCAGCGCAGCAGGGACCACGGCCTCCCAGGATACAAT
+GCCTGGAGGCGCTTCTGTGGGCTCCCGCAGCCTGAAACTGTGGGCCAGCTGGGCACGGTG
+CTGAGGAACCTGAAATTGGCGAGGAAACTGATGGAGCAGTATGGCACGCCCAACAACATC
+GACATCTGGATGGGCGGCGTGTCCGAGCCTCTGAAGCGCAAAGGCCGCGTGGGCCCACTC
+CTCGCCTGCATCATCGGTACCCAGTTCAGGAAGCTCCGGGATGGTGATCGGTTTTGGTGG
+GAGAACGAGGGTGTGTTCAGCATGCAGCAGCGACAGGCCCTGGCCCAGATCTCATTGCCC
+CGGATCATCTGCGACAACACAGGCATCACCACCGTGTCTAAGAACAACATCTTCATGTCC
+AACTCATATCCCCGGGACTTTGTCAACTGCAGTACACTTCCTGCATTGAACCTGGCTTCC
+TGGAGGGAAGCCTCCTAG</gene-sequence>
+    <pfams>
+      <pfam>
+        <identifier>PF03098</identifier>
+        <name>An_peroxidase</name>
+      </pfam>
+    </pfams>
+    <go-classifiers>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular exosome</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>azurophil granule</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>mitochondrion</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>secretory granule</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>nucleus</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>extracellular space</description>
+      </go-classifier>
+      <go-classifier>
+        <category>component</category>
+        <description>lysosome</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>heme binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>peroxidase activity</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>heparin binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>chromatin binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>function</category>
+        <description>metal ion binding</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>respiratory burst involved in defense response</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>hypochlorous acid biosynthetic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>oxidation-reduction process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of apoptotic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>defense response</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>low-density lipoprotein particle remodeling</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>response to oxidative stress</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>removal of superoxide radicals</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>hydrogen peroxide catabolic process</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>negative regulation of growth of symbiont in host</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>response to yeast</description>
+      </go-classifier>
+      <go-classifier>
+        <category>process</category>
+        <description>defense response to fungus</description>
+      </go-classifier>
+    </go-classifiers>
+  </polypeptide>
+      <inhibition-strength>unknown</inhibition-strength>
+      <induction-strength>unknown</induction-strength>
+    </enzyme>
+  </enzymes>
+  <carriers/>
+  <transporters/>
+</drug>
+</drugbank>
