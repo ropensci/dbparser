@@ -15,9 +15,15 @@ test_that(desc = "Read database",
             ))
           })
 
-test_that(desc = "Read darug main attributes",
+test_that(desc = "Read darug primary key attribute",
           code = {
             expect_match(parse_drug()[1][["primary_key"]], "DB00006")
+            expect_error(parse_drug(TRUE))
+          })
+
+test_that(desc = "Read darug other keys attribute",
+          code = {
+            expect_match(parse_drug()$other_keys, "BTD00076,EXPT03302,BIOD00076,DB02351")
             expect_error(parse_drug(TRUE))
           })
 
