@@ -27,6 +27,11 @@ test_that(desc = "Read darug other keys attribute",
             expect_error(parse_drug(TRUE))
           })
 
+test_that(desc = "Read darug average mass attribute",
+          code = {
+            expect_match(parse_drug()$average_mass, "2180.2853")
+          })
+
 test_that(desc = "Read darug groups attributes",
           code = {
             expect_match(as.character(parse_drug_groups()[1][["group"]][1]), "approved")

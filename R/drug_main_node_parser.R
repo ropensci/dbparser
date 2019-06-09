@@ -13,6 +13,7 @@ drug_df <- function(rec) {
     description = xmlValue(rec[["description"]]),
     cas_number = xmlValue(rec[["cas-number"]]),
     unii = xmlValue(rec[["unii"]]),
+    average_mass = xmlValue(rec[["average-mass"]]),
     state = xmlValue(rec[["state"]]),
     groups_count = xmlSize(rec[["groups"]]),
     articles_count = xmlSize(rec[["general-references"]][["articles"]]),
