@@ -55,7 +55,7 @@ drug_sub_df <-
 #' }
 #' @export
 get_xml_db_rows <- function(xml_db_name) {
-  ext <- file_ext(xml_db_name)
+  ext <- tools::file_ext(xml_db_name)
   dir_name <- dirname(xml_db_name)
   if (!ext %in% c("zip", "xml")) {
     stop("Unsupported file format, Kindly use an XML or zip file.")

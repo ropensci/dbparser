@@ -282,6 +282,42 @@ parse_drug_products <- function(save_table = FALSE) {
   return(tibble::as_tibble(drug_products))
 }
 
+#' Extracts the drug calculated properties element and return data as tibble.
+#'
+#' \code{parse_drug_calculated_properties} returns tibble of drug calculated
+#' properties elements.
+#'
+#' This functions extracts the calculated properties element of drug node in
+#'  drugbank
+#' xml database with the option to save it in a predefined database via
+#' \code{\link{open_db}} method. It takes one single optional argument to
+#' save the returned tibble in the database.
+#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' any other parser function.
+#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' no need to call it again before calling this function.
+#'
+#' @param save_table boolean, save table in database if true.
+#' @return drug calculated properties node attributes tibble
+#'
+#' @examples
+#' \donttest{
+#' parse_drug_calculated_properties()
+#' parse_drug_calculated_properties(TRUE)
+#' parse_drug_calculated_properties(save_table = FALSE)
+#' }
+#' @export
+parse_drug_calculated_properties <- function(save_table = FALSE) {
+  drug_calculated_properties <-
+    map_df(pkg.env$children, ~ drug_sub_df(.x, "calculated-properties")) %>% unique()
+  if (save_table) {
+    save_drug_sub(con = pkg.env$con,
+                  df = drug_calculated_properties,
+                  table_name = "drug_calculated_properties")
+  }
+  return(tibble::as_tibble(drug_calculated_properties))
+}
+
 #' Extracts the drug international brands and return data as tibble.
 #'
 #' \code{parse_drug_international_brands} returns tibble of drug products elements.
