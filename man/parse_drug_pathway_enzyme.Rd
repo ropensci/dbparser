@@ -4,10 +4,17 @@
 \alias{parse_drug_pathway_enzyme}
 \title{Extracts the drug pathway enzyme element and return data as data frame.}
 \usage{
-parse_drug_pathway_enzyme(save_table = FALSE)
+parse_drug_pathway_enzyme(save_table = FALSE, save_csv = FALSE,
+  csv_path = ".", override_csv = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
+
+\item{save_csv}{boolean, save csv version of parsed dataframe if true}
+
+\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+
+\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
 }
 \value{
 drug pathway enzyme node attributes date frame
@@ -27,8 +34,26 @@ no need to call it again before calling this function.
 }
 \examples{
 \donttest{
+# return only the parsed dataframe
 parse_drug_pathway_enzyme()
-parse_drug_pathway_enzyme(TRUE)
-parse_drug_pathway_enzyme(save_table = FALSE)
+
+# save in database and return parsed dataframe
+parse_drug_pathway_enzyme(save_table = TRUE)
+
+# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_pathway_enzyme(save_csv = TRUE)
+
+# save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_pathway_enzyme(ssave_table = TRUE, save_csv = TRUE)
+
+# save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist override it and return it.
+parse_drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }

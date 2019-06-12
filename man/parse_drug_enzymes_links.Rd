@@ -4,7 +4,8 @@
 \alias{parse_drug_enzymes_links}
 \title{Extracts the drug enzymes links element and return data as data frame.}
 \usage{
-parse_drug_enzymes_links(save_table = FALSE)
+parse_drug_enzymes_links(save_table = FALSE, save_csv = FALSE,
+  csv_path = ".", override_csv = FALSE)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -27,8 +28,26 @@ no need to call it again before calling this function.
 }
 \examples{
 \donttest{
+# return only the parsed dataframe
 parse_drug_enzymes_links()
-parse_drug_enzymes_links(TRUE)
-parse_drug_enzymes_links(save_table = FALSE)
+
+# save in database and return parsed dataframe
+parse_drug_enzymes_links(save_table = TRUE)
+
+# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_enzymes_links(save_csv = TRUE)
+
+# save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_enzymes_links(ssave_table = TRUE, save_csv = TRUE)
+
+# save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+# If the csv exist before read it and return its data.
+parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# If the csv exist override it and return it.
+parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }

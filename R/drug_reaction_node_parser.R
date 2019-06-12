@@ -34,16 +34,37 @@ get_reactions_enzymes_df <- function(rec) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug reactions node attributes date frame
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_reactions()
-#' parse_drug_reactions(TRUE)
-#' parse_drug_reactions(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_reactions(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_reactions <- function(save_table = FALSE) {
+parse_drug_reactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_reactions <-
     map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
     unique()
@@ -72,16 +93,37 @@ parse_drug_reactions <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug reactions enzymes node attributes date frame
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_reactions_enzymes()
-#' parse_drug_reactions_enzymes(TRUE)
-#' parse_drug_reactions_enzymes(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_reactions_enzymes(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions_enzymes(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions_enzymes(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_reactions_enzymes <- function(save_table = FALSE) {
+parse_drug_reactions_enzymes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_reactions_enzymes <-
     map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
     unique()

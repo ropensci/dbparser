@@ -34,16 +34,37 @@ get_atc_codes_df <- function(rec) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug atc_codes node attributes date frame
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_atc_codes()
-#' parse_drug_atc_codes(TRUE)
-#' parse_drug_atc_codes(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_atc_codes(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_atc_codes(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_atc_codes(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_atc_codes(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_atc_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_atc_codes <- function(save_table = FALSE) {
+parse_drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_atc_codes <- map_df(pkg.env$children, ~ get_atc_codes_df(.x)) %>% unique()
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

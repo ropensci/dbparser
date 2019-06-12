@@ -9,6 +9,9 @@ drug_sub_df <-
            main_node,
            seconadary_node = NULL,
            id = "drugbank-id") {
+    if (is.null(rec[[main_node]])) {
+      return()
+    }
     parent_key <- NULL
     if (!is.null(id)) {
       parent_key <- xmlValue(rec[id][[1]])

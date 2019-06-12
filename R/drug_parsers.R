@@ -12,16 +12,37 @@
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug main node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug()
-#' parse_drug(TRUE)
-#' parse_drug(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug <- function(save_table = FALSE) {
+parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   # db connection
   drugs <- map_df(pkg.env$children, ~ drug_df(.x)) %>% unique()
   if (save_table) {
@@ -71,16 +92,37 @@ parse_drug <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug groups node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_groups()
-#' parse_drug_groups(TRUE)
-#' parse_drug_groups(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_groups(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_groups(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_groups(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_groups(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_groups(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_groups <- function(save_table = FALSE) {
+parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_groups <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "groups")) %>% unique()
 
@@ -110,16 +152,37 @@ parse_drug_groups <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug articles node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_articles()
-#' parse_drug_articles(TRUE)
-#' parse_drug_articles(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_articles(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_articles(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_articles(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_articles(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_articles <- function(save_table = FALSE) {
+parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_articles <-
     map_df(
       pkg.env$children,
@@ -149,16 +212,37 @@ parse_drug_articles <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug books node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_books()
-#' parse_drug_books(TRUE)
-#' parse_drug_books(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_books(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_books(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_books(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_books(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_books(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_books <- function(save_table = FALSE) {
+parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_books <-
     map_df(
       pkg.env$children,
@@ -187,16 +271,37 @@ parse_drug_books <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug links node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_links()
-#' parse_drug_links(TRUE)
-#' parse_drug_links(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_links(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_links(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_links(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_links(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_links <- function(save_table = FALSE) {
+parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_links <-
     map_df(
       pkg.env$children,
@@ -226,16 +331,37 @@ parse_drug_links <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug synonyms node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_synonyms()
-#' parse_drug_synonyms(TRUE)
-#' parse_drug_synonyms(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_synonyms(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_synonyms(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_synonyms(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_synonyms <- function(save_table = FALSE) {
+parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_synonyms <- map_df(pkg.env$children, ~ get_synonyms_df(.x)) %>% unique()
   if (save_table) {
     save_drug_sub(
@@ -262,16 +388,37 @@ parse_drug_synonyms <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug products node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_products()
-#' parse_drug_products(TRUE)
-#' parse_drug_products(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_products(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_products(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_products(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_products(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_products(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_products <- function(save_table = FALSE) {
+parse_drug_products <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_products <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "products")) %>% unique()
   if (save_table) {
@@ -298,16 +445,38 @@ parse_drug_products <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug calculated properties node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_calculated_properties()
-#' parse_drug_calculated_properties(TRUE)
-#' parse_drug_calculated_properties(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_calculated_properties(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_calculated_properties(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_calculated_properties(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_calculated_properties <- function(save_table = FALSE) {
+parse_drug_calculated_properties <- function(save_table = FALSE,
+                                             save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_calculated_properties <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "calculated-properties")) %>% unique()
   if (save_table) {
@@ -332,16 +501,37 @@ parse_drug_calculated_properties <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug international brands node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_international_brands()
-#' parse_drug_international_brands(TRUE)
-#' parse_drug_international_brands(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_international_brands(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_international_brands(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_international_brands(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_international_brands <- function(save_table = FALSE) {
+parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_international_brands <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "international-brands")) %>%
     unique()
@@ -368,16 +558,37 @@ parse_drug_international_brands <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug salts node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_salts()
-#' parse_drug_salts(TRUE)
-#' parse_drug_salts(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_salts(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_salts(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_salts(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_salts(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_salts(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_salts <- function(save_table = FALSE) {
+parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_salts <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "salts")) %>%
     unique()
@@ -404,16 +615,37 @@ parse_drug_salts <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug mixtures node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_mixtures()
-#' parse_drug_mixtures(TRUE)
-#' parse_drug_mixtures(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_mixtures(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_mixtures(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_mixtures(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_mixtures(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_mixtures(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_mixtures <- function(save_table = FALSE) {
+parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_mixtures <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "mixtures")) %>% unique()
   if (save_table) {
@@ -438,16 +670,37 @@ parse_drug_mixtures <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug packagers node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_packagers()
-#' parse_drug_packagers(TRUE)
-#' parse_drug_packagers(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_packagers(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_packagers(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_packagers(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_packagers(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_packagers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_packagers <- function(save_table = FALSE) {
+parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_packagers <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "packagers")) %>% unique()
   if (save_table) {
@@ -473,16 +726,37 @@ parse_drug_packagers <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug categories node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_categories()
-#' parse_drug_categories(TRUE)
-#' parse_drug_categories(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_categories(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_categories(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_categories(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_categories(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_categories(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_categories <- function(save_table = FALSE) {
+parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_categories <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "categories")) %>% unique()
   if (save_table) {
@@ -507,16 +781,37 @@ parse_drug_categories <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug affected organisms node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_affected_organisms()
-#' parse_drug_affected_organisms(TRUE)
-#' parse_drug_affected_organisms(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_affected_organisms(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_affected_organisms(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_affected_organisms(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_affected_organisms(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_affected_organisms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_affected_organisms <- function(save_table = FALSE) {
+parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_affected_organisms <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "affected-organisms")) %>% unique()
 
@@ -546,16 +841,37 @@ parse_drug_affected_organisms <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug dosages node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_dosages()
-#' parse_drug_dosages(TRUE)
-#' parse_drug_dosages(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_dosages(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_dosages(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_dosages(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_dosages(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_dosages(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_dosages <- function(save_table = FALSE) {
+parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_dosages <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "dosages")) %>% unique()
   if (save_table) {
@@ -581,16 +897,37 @@ parse_drug_dosages <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug ahfs codes node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_ahfs_codes()
-#' parse_drug_ahfs_codes(TRUE)
-#' parse_drug_ahfs_codes(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_ahfs_codes(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_ahfs_codes(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_ahfs_codes(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_ahfs_codes <- function(save_table = FALSE) {
+parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_ahfs_codes <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "ahfs-codes")) %>% unique()
   if (nrow(drug_ahfs_codes) > 0) {
@@ -618,16 +955,37 @@ parse_drug_ahfs_codes <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug pdb entries node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_pdb_entries()
-#' parse_drug_pdb_entries(TRUE)
-#' parse_drug_pdb_entries(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_pdb_entries(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_pdb_entries(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_pdb_entries(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_pdb_entries(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_pdb_entries(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pdb_entries <- function(save_table = FALSE) {
+parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_pdb_entries <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "pdb-entries")) %>% unique()
 
@@ -657,16 +1015,37 @@ parse_drug_pdb_entries <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug patents node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_patents()
-#' parse_drug_patents(TRUE)
-#' parse_drug_patents(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_patents(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_patents(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_patents(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_patents(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_patents(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_patents <- function(save_table = FALSE) {
+parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_patents <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "patents")) %>% unique()
   if (save_table) {
@@ -692,16 +1071,37 @@ parse_drug_patents <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug food interactions node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_food_interactions()
-#' parse_drug_food_interactions(TRUE)
-#' parse_drug_food_interactions(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_food_interactions(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_food_interactions(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_food_interactions(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_food_interactions(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_food_interactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_food_interactions <- function(save_table = FALSE) {
+parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_food_interactions <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "food-interactions")) %>% unique()
 
@@ -732,16 +1132,37 @@ parse_drug_food_interactions <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug interactions node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_interactions()
-#' parse_drug_interactions(TRUE)
-#' parse_drug_interactions(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_interactions(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_interactions(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_interactions(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_interactions(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_interactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_interactions <- function(save_table = FALSE) {
+parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_drug_interactions <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "drug-interactions")) %>% unique()
   if (save_table) {
@@ -767,16 +1188,37 @@ parse_drug_interactions <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug experimental properties node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_experimental_properties()
-#' parse_drug_experimental_properties(TRUE)
-#' parse_drug_experimental_properties(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_experimental_properties(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_experimental_properties(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_experimental_properties(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_experimental_properties <- function(save_table = FALSE) {
+parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_experimental_properties <-
     map_df(pkg.env$children,
            ~ drug_sub_df(.x, "experimental-properties")) %>% unique()
@@ -803,16 +1245,37 @@ parse_drug_experimental_properties <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug external identifiers node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_external_identifiers()
-#' parse_drug_external_identifiers(TRUE)
-#' parse_drug_external_identifiers(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_external_identifiers(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_identifiers(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_external_identifiers <- function(save_table = FALSE) {
+parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_external_identifiers <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "external-identifiers"))
   if (save_table) {
@@ -837,16 +1300,37 @@ parse_drug_external_identifiers <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug external links node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_external_links()
-#' parse_drug_external_links(TRUE)
-#' parse_drug_external_links(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_external_links(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_links(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_links(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_external_links(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_external_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_external_links <- function(save_table = FALSE) {
+parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_external_links <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "external-links")) %>% unique()
   if (save_table) {
@@ -871,16 +1355,37 @@ parse_drug_external_links <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug snp effects node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_snp_effects()
-#' parse_drug_snp_effects(TRUE)
-#' parse_drug_snp_effects(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_snp_effects(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_effects(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_effects(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_effects(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_snp_effects(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_snp_effects <- function(save_table = FALSE) {
+parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_snp_effects <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "snp-effects")) %>% unique()
   if (save_table) {
@@ -906,17 +1411,38 @@ parse_drug_snp_effects <- function(save_table = FALSE) {
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
 #' @return drug snp adverse drug reactions node attributes tibble
 #'
 #' @examples
 #' \donttest{
+#' # return only the parsed dataframe
 #' parse_drug_snp_adverse_drug_reactions()
-#' parse_drug_snp_adverse_drug_reactions(TRUE)
-#' parse_drug_snp_adverse_drug_reactions(save_table = FALSE)
+#'
+#' # save in database and return parsed dataframe
+#' parse_drug_snp_adverse_drug_reactions(save_table = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE)
+#'
+#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_adverse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # If the csv exist before read it and return its data.
+#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # If the csv exist override it and return it.
+#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
 parse_drug_snp_adverse_drug_reactions <-
-  function(save_table = FALSE) {
+  function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     drug_snp_adverse_drug_reactions <-
       map_df(pkg.env$children,
              ~ drug_sub_df(.x, "snp-adverse-drug-reactions")) %>% unique()
