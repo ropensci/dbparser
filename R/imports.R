@@ -2,5 +2,7 @@
 #' @importFrom odbc odbc
 #' @importFrom purrr map_df map_chr
 #' @importFrom tibble tibble
+#' @importFrom tidyr '%>%'
+#' @importFrom utils unzip
 #' @importFrom XML xmlChildren xmlGetAttr xmlValue xmlToList xmlToDataFrame xmlParse xmlRoot xmlSize xmlApply
 NULL
