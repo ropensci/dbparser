@@ -9,6 +9,12 @@ parse_drug_enzymes_links(save_table = FALSE, save_csv = FALSE,
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
+
+\item{save_csv}{boolean, save csv version of parsed dataframe if true}
+
+\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+
+\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
 }
 \value{
 drug enzymes links node attributes date frame
@@ -34,19 +40,23 @@ parse_drug_enzymes_links()
 # save in database and return parsed dataframe
 parse_drug_enzymes_links(save_table = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in current
+# location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_links(save_csv = TRUE)
 
-# save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save in database, save parsed dataframe as csv if it does not exist
+# in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_links(ssave_table = TRUE, save_csv = TRUE)
 
-# save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in given
+# location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in current
+#location and return parsed dataframe.
 # If the csv exist override it and return it.
 parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }

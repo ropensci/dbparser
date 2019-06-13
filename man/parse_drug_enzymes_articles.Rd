@@ -40,19 +40,23 @@ parse_drug_enzymes_articles()
 # save in database and return parsed dataframe
 parse_drug_enzymes_articles(save_table = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in current
+# location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_articles(save_csv = TRUE)
 
-# save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save in database, save parsed dataframe as csv if it does not exist
+# in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_articles(ssave_table = TRUE, save_csv = TRUE)
 
-# save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in given
+# location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_enzymes_articles(save_csv = TRUE, csv_path = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+# save parsed dataframe as csv if it does not exist in current
+# location and return parsed dataframe.
 # If the csv exist override it and return it.
 parse_drug_enzymes_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }

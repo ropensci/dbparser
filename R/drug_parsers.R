@@ -25,19 +25,23 @@
 #' # save in database and return parsed dataframe
 #' parse_drug(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' #  and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -105,19 +109,23 @@ parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", ove
 #' # save in database and return parsed dataframe
 #' parse_drug_groups(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_groups(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_groups(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_groups(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_groups(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -165,19 +173,23 @@ parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = "
 #' # save in database and return parsed dataframe
 #' parse_drug_articles(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_articles(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it
+#' # does not exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_articles(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -225,19 +237,23 @@ parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' # save in database and return parsed dataframe
 #' parse_drug_books(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_books(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_books(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given l
+#' # ocation and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_books(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_books(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -284,19 +300,23 @@ parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' # save in database and return parsed dataframe
 #' parse_drug_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_links(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -344,19 +364,23 @@ parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' # save in database and return parsed dataframe
 #' parse_drug_synonyms(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_synonyms(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_synonyms(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -401,19 +425,23 @@ parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' # save in database and return parsed dataframe
 #' parse_drug_products(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_products(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_products(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_products(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_products(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -458,19 +486,23 @@ parse_drug_products <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' # save in database and return parsed dataframe
 #' parse_drug_calculated_properties(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_calculated_properties(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_calculated_properties(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -514,19 +546,23 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
 #' # save in database and return parsed dataframe
 #' parse_drug_international_brands(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_international_brands(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_international_brands(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -571,19 +607,23 @@ parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE
 #' # save in database and return parsed dataframe
 #' parse_drug_salts(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_salts(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_salts(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_salts(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_salts(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -628,19 +668,23 @@ parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' # save in database and return parsed dataframe
 #' parse_drug_mixtures(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_mixtures(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_mixtures(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_mixtures(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_mixtures(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -683,19 +727,23 @@ parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' # save in database and return parsed dataframe
 #' parse_drug_packagers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_packagers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_packagers(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_packagers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_packagers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -739,19 +787,23 @@ parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path 
 #' # save in database and return parsed dataframe
 #' parse_drug_categories(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_categories(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' #  in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_categories(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_categories(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_categories(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -794,19 +846,23 @@ parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path
 #' # save in database and return parsed dataframe
 #' parse_drug_affected_organisms(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_affected_organisms(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_affected_organisms(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_affected_organisms(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_affected_organisms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -854,19 +910,23 @@ parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, 
 #' # save in database and return parsed dataframe
 #' parse_drug_dosages(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_dosages(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_dosages(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' #  and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_dosages(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_dosages(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -910,19 +970,23 @@ parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 #' # save in database and return parsed dataframe
 #' parse_drug_ahfs_codes(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_ahfs_codes(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_ahfs_codes(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location and
+#' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -968,19 +1032,23 @@ parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path
 #' # save in database and return parsed dataframe
 #' parse_drug_pdb_entries(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_pdb_entries(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_pdb_entries(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_pdb_entries(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_pdb_entries(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1028,19 +1096,23 @@ parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_pat
 #' # save in database and return parsed dataframe
 #' parse_drug_patents(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_patents(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # 'in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_patents(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_patents(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_patents(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1084,19 +1156,23 @@ parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 #' # save in database and return parsed dataframe
 #' parse_drug_food_interactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_food_interactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_food_interactions(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_food_interactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' #  and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_food_interactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1145,19 +1221,23 @@ parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, c
 #' # save in database and return parsed dataframe
 #' parse_drug_interactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_interactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_interactions(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_interactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_interactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1201,19 +1281,23 @@ parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_pa
 #' # save in database and return parsed dataframe
 #' parse_drug_experimental_properties(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_experimental_properties(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_experimental_properties(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1258,19 +1342,23 @@ parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FA
 #' # save in database and return parsed dataframe
 #' parse_drug_external_identifiers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_identifiers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location and
+#' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location and
+#' # return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1313,19 +1401,23 @@ parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE
 #' # save in database and return parsed dataframe
 #' parse_drug_external_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location and
+#' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_links(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_external_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_external_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1368,19 +1460,23 @@ parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_
 #' # save in database and return parsed dataframe
 #' parse_drug_snp_effects(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_effects(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_effects(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_effects(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_snp_effects(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1424,19 +1520,23 @@ parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_pat
 #' # save in database and return parsed dataframe
 #' parse_drug_snp_adverse_drug_reactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_adverse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }

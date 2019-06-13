@@ -47,37 +47,45 @@ get_reactions_enzymes_df <- function(rec) {
 #' # save in database and return parsed dataframe
 #' parse_drug_reactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_reactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  drug_reactions <-
-    map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
-    unique()
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_reactions,
-      table_name = "drug_reactions",
-      foreign_key = "drug_key"
-    )
+parse_drug_reactions <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    drug_reactions <-
+      map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
+      unique()
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_reactions,
+        table_name = "drug_reactions",
+        foreign_key = "drug_key"
+      )
+    }
+    return(drug_reactions)
   }
-  return(drug_reactions)
-}
 
 #' Extracts the drug reactions enzymes element and return data as data frame.
 #'
@@ -106,35 +114,43 @@ parse_drug_reactions <- function(save_table = FALSE, save_csv = FALSE, csv_path 
 #' # save in database and return parsed dataframe
 #' parse_drug_reactions_enzymes(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions_enzymes(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions_enzymes(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in
+#' #  given location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist i
+#' # n current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_reactions_enzymes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  drug_reactions_enzymes <-
-    map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
-    unique()
+parse_drug_reactions_enzymes <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    drug_reactions_enzymes <-
+      map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
+      unique()
 
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_reactions_enzymes,
-      table_name = "drug_reactions_enzymes",
-      save_table_only = TRUE
-    )
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_reactions_enzymes,
+        table_name = "drug_reactions_enzymes",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_reactions_enzymes)
   }
-  return(drug_reactions_enzymes)
-}

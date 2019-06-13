@@ -80,19 +80,23 @@ get_transporters_polypeptide_go_classifiers_df <- function(rec) {
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_actions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_actions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_actions(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_actions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' #  and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -145,19 +149,23 @@ parse_drug_transporters_actions <- function(save_table = FALSE, save_csv = FALSE
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_articles(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_articles(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_articles(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -207,19 +215,23 @@ parse_drug_transporters_articles <- function(save_table = FALSE, save_csv = FALS
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_textbooks(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_textbooks(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_textbooks(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' #  and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -268,19 +280,23 @@ parse_drug_transporters_textbooks <- function(save_table = FALSE, save_csv = FAL
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_links(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -332,19 +348,23 @@ parse_drug_transporters_links <- function(save_table = FALSE, save_csv = FALSE, 
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_polypeptides(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_polypeptides(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -417,21 +437,26 @@ parse_drug_transporters_polypeptides <-
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_polypeptides_external_identifiers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist
+#' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_transporters_polypeptides_external_identifiers(
+#' save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
 parse_drug_transporters_polypeptides_external_identifiers <-
@@ -483,19 +508,23 @@ parse_drug_transporters_polypeptides_external_identifiers <-
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_polypeptides_synonyms(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_synonyms(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_synonyms(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -549,19 +578,23 @@ parse_drug_transporters_polypeptides_synonyms <-
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_polypeptides_pfams(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_pfams(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -616,21 +649,26 @@ parse_drug_transporters_polypeptides_pfams <-
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters_polypeptides_go_classifiers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_go_classifiers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_go_classifiers(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given location
+#' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters_polypeptides_go_classifiers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_polypeptides_go_classifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_transporters_polypeptides_go_classifiers(
+#' save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
 parse_drug_transporters_polypeptides_go_classifiers <-
@@ -681,19 +719,23 @@ parse_drug_transporters_polypeptides_go_classifiers <-
 #' # save in database and return parsed dataframe
 #' parse_drug_transporters(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in
+#' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed dataframe as csv if it does not
+#' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters(ssave_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in given
+#' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_transporters(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
+#' # save parsed dataframe as csv if it does not exist in current
+#' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_drug_transporters(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
