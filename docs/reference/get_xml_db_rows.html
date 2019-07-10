@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2.9000</span>
       </span>
     </div>
 
@@ -131,7 +131,7 @@ methods and FALSE otherwise</p>
 
     <p>This functions reads drug bank xml database and sets the full tree
  save it in a predefined database via
-<code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
+<code>open_db</code> method. It takes one single optional argument to
 in memory directly without returning it.
 It must be called one before using parser functions, and once it is called
 If <code>get_xml_db_rows</code> is called before for any reason, so
@@ -139,7 +139,7 @@ no need to call it again.</p>
     
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in file_ext(xml_db_name): could not find function "file_ext"</span></div><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='kw'>xml_db_name</span> <span class='kw'>=</span> <span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in file_ext(xml_db_name): could not find function "file_ext"</span></div></pre>
+    <pre class="examples"><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in get_xml_db_rows("db_full_path"): Unsupported file format, Kindly use an XML or zip file.</span></div><div class='input'><span class='fu'>get_xml_db_rows</span>(<span class='kw'>xml_db_name</span> <span class='kw'>=</span> <span class='st'>"db_full_path"</span>)</div><div class='output co'>#&gt; <span class='error'>Error in get_xml_db_rows(xml_db_name = "db_full_path"): Unsupported file format, Kindly use an XML or zip file.</span></div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

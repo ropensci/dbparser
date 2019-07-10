@@ -60,7 +60,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.2.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.2.9000</span>
       </span>
     </div>
 
@@ -103,8 +103,14 @@
 
     <div id="dbparser-102" class="section level1">
 <h1 class="page-header">
-<a href="#dbparser-102" class="anchor"></a>dbparser 1.0.2<small> Unreleased </small>
+<a href="#dbparser-102" class="anchor"></a>dbparser 1.0.2<small> 2019-07-08 </small>
 </h1>
+<ul>
+<li>Fix zip file location issue</li>
+<li>Replace Secondary and third keys columns from drug framework with <em>other_keys</em> column that contains any other keys that might exist in addition to the primary key</li>
+<li>Add <strong>average-mass</strong>, <strong>monoisotopic-mass</strong> and <strong>calculated-properties</strong> parsers.</li>
+<li>Support saving parsed drugs related parsed database as csv</li>
+</ul>
 </div>
     <div id="dbparser-101" class="section level1">
 <h1 class="page-header">
@@ -115,7 +121,7 @@
 <li>Improve documentation</li>
 <li>Refactor unused functions</li>
 <li>Remove <em>Count</em> features from drug data set</li>
-<li>Fix serveral typoes in documentation and code</li>
+<li>Fix several typos in documentation and code</li>
 <li>Fix consistency issue of CLASS of Data Frames Returned by dbparser</li>
 <li>Check if drugbank database exist before parsing</li>
 <li>Add support for <em>international_brands</em> and <em>salts</em> elements</li>
