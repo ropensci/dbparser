@@ -13,8 +13,6 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     DBI,
-    dplyr,
-    ggplot2,
     odbc,
     purrr,
     tibble,
