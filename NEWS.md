@@ -1,3 +1,6 @@
+# dbparser 1.0.3
+* Fix CRAN errors and notes
+
 # dbparser 1.0.2
 * Fix zip file location issue
 * Replace Secondary and third keys columns from drug framework with *other_keys* column that contains any other keys that might exist in addition to the primary key
