@@ -12,9 +12,6 @@ classlist <- function(x) {
 
 test_that(desc = "Read database",
           code = {
-            expect_true(get_xml_db_rows(
-              system.file("extdata", "drugbank_record.zip", package = "dbparser")
-            ))
             expect_error(get_xml_db_rows("I_do_not_exist_file.xml"))
             expect_error(get_xml_db_rows("drugbank_record"))
           })
