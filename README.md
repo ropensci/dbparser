@@ -142,5 +142,3 @@ p <-
 p
 ```
 
-## Our Code of Conduct
-[Code of Conduct](https://github.com/Dainanahan/dbparser/blob/master/CODE_OF_CONDUCT.md)
