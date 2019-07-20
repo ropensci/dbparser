@@ -6,7 +6,7 @@
 [![Build
 Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://travis-ci.org/Dainanahan/dbparser)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
-<https://cranlogs.r-pkg.org/badges/grand-total/dbparser>
+[![DOWNLOADSTOTAL](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)
 [![Rdoc](http://www.rdocumentation.org/badges/version/dbparser)](http://www.rdocumentation.org/packages/dbparser)
 
 The main purpose of the `dbparser` package is to parse the
