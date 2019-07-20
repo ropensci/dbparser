@@ -141,3 +141,6 @@ p <-
 ## display plot
 p
 ```
+
+## Our Code of Conduct
+(https://github.com/Dainanahan/dbparser/blob/master/CODE_OF_CONDUCT.md)[Code of Conduct]
