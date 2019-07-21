@@ -46,7 +46,8 @@ This is a basic example which shows you how to solve a common problem:
 ```{r}
 ## parse data from XML and save it to memory
 dbparser::get_xml_db_rows(
-              system.file("extdata", "drugbank_record.xml", package = "dbparser")
+  "D:/DS Projects/Drug_Interaction/drugbank.xml"
+              #system.file("extdata", "drugbank_record.xml", package = "dbparser")
             )
 
 ## load drugs data
@@ -99,7 +100,7 @@ in the data.
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
-    ggplot(aes(x = type)) + 
+    ggplot(aes(x = type, fill = type)) + 
     geom_bar() + 
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```

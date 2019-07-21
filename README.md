@@ -92,7 +92,7 @@ data.
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
-    ggplot(aes(x = type)) + 
+    ggplot(aes(x = type, fill = type)) + 
     geom_bar() + 
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```
@@ -146,7 +146,6 @@ p <-
 
 ## display plot
 p
-#> Warning: Removed 9 rows containing missing values (position_stack).
 ```
 
 <img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
