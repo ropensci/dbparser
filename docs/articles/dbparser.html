@@ -130,7 +130,7 @@
 <a class="sourceLine" id="cb3-4" title="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-5" title="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-6" title="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)     <span class="co">## removes legend for the bar colors</span></a></code></pre></div>
-<p><img src="../../../DS%20Projects/dbparser/vignettes/fig1.png"></p>
+<p><img src="../reference/figures/fig1.png"></p>
 <p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="co">## view proportions of the different drug types for each drug group</span></a>
 <a class="sourceLine" id="cb4-2" title="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -145,7 +145,7 @@
 <a class="sourceLine" id="cb4-11" title="11">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
 <a class="sourceLine" id="cb4-12" title="12">         <span class="dt">caption=</span><span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb4-13" title="13"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="../../../DS%20Projects/dbparser/vignettes/fig2.png"></p>
+<p><img src="../reference/figures/fig2.png"></p>
 <p>Finally, we look at the <code>drug_targets_actions</code> to observe their proportions as well.</p>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1"><span class="co">## get counts of the different target actions in the data</span></a>
 <a class="sourceLine" id="cb5-2" title="2">targetActionCounts &lt;-<span class="st"> </span></a>
@@ -168,7 +168,7 @@
 <a class="sourceLine" id="cb5-19" title="19"></a>
 <a class="sourceLine" id="cb5-20" title="20"><span class="co">## display plot</span></a>
 <a class="sourceLine" id="cb5-21" title="21">p</a></code></pre></div>
-<p><img src="../../../DS%20Projects/dbparser/vignettes/fig3.png"></p>
+<p><img src="../reference/figures/fig3.png"></p>
 </div>
   </div>
 
