@@ -97,7 +97,7 @@ drugs %>%
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```
 
-<img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-2-1.png" width="100%" />
 
 Below, we view the different `drug_groups` in the data and how prevalent
 they are.
@@ -117,7 +117,7 @@ drugs %>%
     coord_flip()
 ```
 
-<img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-3-1.png" width="100%" />
 
 Finally, we look at the `drug_targets_actions` to observe their
 proportions as well.
@@ -148,4 +148,4 @@ p <-
 p
 ```
 
-<img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%" />
+<img src="man/figures/README-unnamed-chunk-4-1.png" width="100%" />
