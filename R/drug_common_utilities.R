@@ -4,6 +4,14 @@ pkg.env$con <- NULL
 pkg.env$version <- NULL
 pkg.env$exported_date <- NULL
 
+write_csv <- function(data, save_csv = FALSE, csv_path = ".") {
+  if (save_csv) {
+    path = ifelse(csv_path == ".", file.path(getwd(), paste0(deparse(substitute(data)), ".csv")),
+                  file.path(csv_path, paste0(deparse(substitute(data)), ".csv")))
+    readr::write_csv(data, path)
+  }
+}
+
 drug_sub_df <-
   function(rec,
            main_node,
@@ -149,3 +157,4 @@ open_db <-
 close_db <- function() {
   dbDisconnect(conn = pkg.env$con)
 }
+

@@ -61,6 +61,9 @@ parse_drug_classification <- function(save_table = FALSE, save_csv = FALSE, csv_
   drug_classifications <-
     map_df(pkg.env$children, ~ drug_classifications_df(.x)) %>%
     unique()
+
+  write_csv(drug_classifications, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_classifications,

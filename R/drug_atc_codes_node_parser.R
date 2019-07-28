@@ -70,6 +70,9 @@ get_atc_codes_df <- function(rec) {
 #' @export
 parse_drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_atc_codes <- map_df(pkg.env$children, ~ get_atc_codes_df(.x)) %>% unique()
+
+  write_csv(drug_atc_codes, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_atc_codes,

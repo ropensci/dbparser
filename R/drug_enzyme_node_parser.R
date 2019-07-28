@@ -132,6 +132,8 @@ parse_drug_enzymes_actions <- function(save_table = FALSE, save_csv = FALSE, csv
     colnames(drug_enzymes_actions) <- c("action", "enzyme_id")
   }
 
+  write_csv(drug_enzymes_actions, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -195,6 +197,9 @@ parse_drug_enzymes_articles <- function(save_table = FALSE, save_csv = FALSE, cs
   drug_enzymes_articles <-
     map_df(pkg.env$children, ~ get_enzymes_articles_df(.x)) %>%
     unique()
+
+  write_csv(drug_enzymes_articles, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -258,6 +263,9 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE, save_csv = FALSE, c
   drug_enzymes_textbooks <-
     map_df(pkg.env$children, ~ get_enzymes_textbooks_df(.x)) %>%
     unique()
+
+  write_csv(drug_enzymes_textbooks, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -321,6 +329,9 @@ parse_drug_enzymes_links <- function(save_table = FALSE, save_csv = FALSE, csv_p
   drug_enzymes_links <-
     map_df(pkg.env$children, ~ get_enzymes_links_df(.x)) %>%
     unique()
+
+  write_csv(drug_enzymes_links, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -385,6 +396,9 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
   drug_enzymes_polypeptides <-
     map_df(pkg.env$children, ~ get_enzymes_polypeptide_df(.x)) %>%
     unique()
+
+  write_csv(drug_enzymes_polypeptides, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -477,6 +491,9 @@ parse_drug_enzymes_polypeptides_external_identifiers <-
       map_df(pkg.env$children,
              ~ get_enzymes_polypeptide_external_identifiers_df(.x)) %>%
       unique()
+
+    write_csv(drug_enzymes_polypeptide_external_identifiers, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -546,6 +563,9 @@ parse_drug_enzymes_polypeptides_synonyms <-
       map_df(pkg.env$children,
              ~ get_enzymes_polypeptide_synonyms_df(.x)) %>%
       unique()
+
+    write_csv(drug_enzymes_polypeptide_synonyms, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -615,6 +635,8 @@ parse_drug_enzymes_polypeptides_pfams <-
              ~ get_enzymes_polypeptide_pfams_df(.x)) %>%
       unique()
 
+    write_csv(drug_enzymes_polypeptide_pfams, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -683,6 +705,8 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
              ~ get_enzymes_polypeptide_go_classifiers_df(.x)) %>%
       unique()
 
+    write_csv(drug_enzymes_polypeptides_go_classifiers, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -746,6 +770,8 @@ parse_drug_enzymes <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
   drug_enzymes <-
     map_df(pkg.env$children, ~ get_enzymes_df(.x)) %>%
     unique()
+
+  write_csv(drug_enzymes, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

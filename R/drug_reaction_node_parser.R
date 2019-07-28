@@ -76,6 +76,9 @@ parse_drug_reactions <-
     drug_reactions <-
       map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
       unique()
+
+    write_csv(drug_reactions, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -143,6 +146,8 @@ parse_drug_reactions_enzymes <-
     drug_reactions_enzymes <-
       map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
       unique()
+
+    write_csv(drug_reactions_enzymes, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(

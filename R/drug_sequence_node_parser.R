@@ -70,6 +70,8 @@ parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE, csv_path 
     map_df(pkg.env$children, ~ get_sequences_df(.x)) %>%
     unique()
 
+  write_csv(drug_sequences, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_sequences,

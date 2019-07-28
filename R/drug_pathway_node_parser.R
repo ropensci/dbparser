@@ -84,6 +84,8 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
     colnames(drug_pathway_enzymes) <- c("enzyme", "pathway_id")
   }
 
+  write_csv(drug_pathway_enzymes, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -147,6 +149,9 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
   drug_pathway_drugs <-
     map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
     unique()
+
+  write_csv(drug_pathway_drugs, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -210,6 +215,8 @@ parse_drug_pathway <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
   drug_pathway <-
     map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
     unique()
+
+  write_csv(drug_pathway, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

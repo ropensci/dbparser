@@ -102,7 +102,7 @@ parse_drug_all <-
       parse_drug_experimental_properties(save_table, save_csv, csv_path, override_csv)
     print("Parsed Experimental_Properties_Drug, 18/75")
     External_Identifiers_Drug <-
-      parse_drug_experimental_properties(save_table, save_csv, csv_path, override_csv)
+      parse_drug_external_identifiers(save_table, save_csv, csv_path, override_csv)
     print("Parsed External_Identifiers_Drug, 19/75")
     External_Links_Drug <-
       parse_drug_external_links(save_table, save_csv, csv_path, override_csv)

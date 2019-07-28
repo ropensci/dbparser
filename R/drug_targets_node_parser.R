@@ -111,6 +111,9 @@ parse_drug_targets_polypeptides_external_identifiers <-
       map_df(pkg.env$children,
              ~ get_targets_polypeptide_external_identifiers_df(.x)) %>%
       unique()
+
+    write_csv(drug_targets_polypeptide_external_identifiers, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -179,6 +182,9 @@ parse_drug_targets_polypeptides_synonyms <-
       map_df(pkg.env$children,
              ~ get_targets_polypeptide_synonyms_df(.x)) %>%
       unique()
+
+    write_csv(drug_targets_polypeptide_synonyms, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -247,6 +253,8 @@ parse_drug_targets_polypeptides_pfams <-
       map_df(pkg.env$children,
              ~ get_targets_polypeptide_pfams_df(.x)) %>%
       unique()
+
+    write_csv(drug_targets_polypeptide_pfams, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -318,6 +326,8 @@ parse_drug_targets_polypeptides_go_classifiers <-
              ~ get_targets_polypeptide_go_classifiers_df(.x)) %>%
       unique()
 
+    write_csv(drug_targets_polypeptides_go_classifiers, save_csv, csv_path)
+
     if (save_table) {
       save_drug_sub(
         con = pkg.env$con,
@@ -387,6 +397,8 @@ parse_drug_targets_actions <- function(save_table = FALSE, save_csv = FALSE, csv
     colnames(drug_targets_actions) <- c("action", "target_id")
   }
 
+  write_csv(drug_targets_actions, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -450,6 +462,9 @@ parse_drug_targets_actions <- function(save_table = FALSE, save_csv = FALSE, csv
 parse_drug_targets_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_targets_articles <-
     map_df(pkg.env$children, ~ get_targets_articles_df(.x)) %>% unique()
+
+  write_csv(drug_targets_articles, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -513,6 +528,9 @@ parse_drug_targets_articles <- function(save_table = FALSE, save_csv = FALSE, cs
 parse_drug_targets_textbooks <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_targets_textbooks <-
     map_df(pkg.env$children, ~ get_targets_textbooks_df(.x)) %>% unique()
+
+  write_csv(drug_targets_textbooks, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -574,6 +592,9 @@ parse_drug_targets_textbooks <- function(save_table = FALSE, save_csv = FALSE, c
 #' @export
 parse_drug_targets_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   drug_targets_links <- map_df(pkg.env$children, ~ get_targets_links_df(.x)) %>% unique()
+
+  write_csv(drug_targets_links, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -648,6 +669,9 @@ parse_drug_targets_polypeptides <- function(save_table = FALSE, save_csv = FALSE
   drug_targets_polypeptides <-
     map_df(pkg.env$children, ~ get_targets_polypeptide_df(.x)) %>%
     unique()
+
+  write_csv(drug_targets_polypeptides, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
@@ -722,6 +746,9 @@ parse_drug_targets <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
   drug_targets <-
     map_df(pkg.env$children, ~ get_targets_df(.x)) %>%
     unique()
+
+  write_csv(drug_targets, save_csv, csv_path)
+
   if (save_table) {
     save_drug_sub(
       con = pkg.env$con,
