@@ -15,6 +15,7 @@ Imports:
     DBI,
     odbc,
     purrr,
+    readr,
     tibble,
     tidyr,
     tools,
