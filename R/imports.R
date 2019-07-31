@@ -1,7 +1,7 @@
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect
 #' @importFrom odbc odbc
 #' @importFrom purrr map_df map_chr
-#' @importFrom readr write_csv
+#' @importFrom readr read_csv write_csv
 #' @importFrom tibble tibble
 #' @importFrom tidyr '%>%'
 #' @importFrom utils unzip

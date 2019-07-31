@@ -73,6 +73,12 @@ parse_drug_reactions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_reactions", csv_path)
+    if (override_csv & file.exists(path)) {
+      return(readr::read_csv(path))
+    }
+
     drug_reactions <-
       map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
       unique()
@@ -143,6 +149,12 @@ parse_drug_reactions_enzymes <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_reactions_enzymes", csv_path)
+    if (override_csv & file.exists(path)) {
+      return(readr::read_csv(path))
+    }
+
     drug_reactions_enzymes <-
       map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
       unique()

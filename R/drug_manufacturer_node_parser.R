@@ -61,6 +61,12 @@ get_manufactures_df <- function(rec) {
 #' }
 #' @export
 parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  path <-
+    get_dataset_full_path("drug_manufacturers", csv_path)
+  if (override_csv & file.exists(path)) {
+    return(readr::read_csv(path))
+  }
+
   drug_manufacturers <-
     map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
     unique()

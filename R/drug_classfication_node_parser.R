@@ -58,6 +58,12 @@ drug_classifications_df <- function(rec) {
 #' }
 #' @export
 parse_drug_classification <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  path <-
+    get_dataset_full_path("drug_classifications", csv_path)
+  if (override_csv & file.exists(path)) {
+    return(readr::read_csv(path))
+  }
+
   drug_classifications <-
     map_df(pkg.env$children, ~ drug_classifications_df(.x)) %>%
     unique()

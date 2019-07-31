@@ -76,6 +76,12 @@ get_pathways_enzymes_df <- function(rec) {
 #' }
 #' @export
 parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  path <-
+    get_dataset_full_path("drug_pathway_enzymes", csv_path)
+  if (override_csv & file.exists(path)) {
+    return(readr::read_csv(path))
+  }
+
   drug_pathway_enzymes <-
     map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
     unique()
@@ -146,6 +152,12 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
 #' }
 #' @export
 parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  path <-
+    get_dataset_full_path("drug_pathway_drugs", csv_path)
+  if (override_csv & file.exists(path)) {
+    return(readr::read_csv(path))
+  }
+
   drug_pathway_drugs <-
     map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
     unique()
@@ -212,6 +224,12 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
 #' }
 #' @export
 parse_drug_pathway <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  path <-
+    get_dataset_full_path("drug_pathway", csv_path)
+  if (override_csv & file.exists(path)) {
+    return(readr::read_csv(path))
+  }
+
   drug_pathway <-
     map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
     unique()
