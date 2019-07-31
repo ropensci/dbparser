@@ -4,11 +4,15 @@ pkg.env$con <- NULL
 pkg.env$version <- NULL
 pkg.env$exported_date <- NULL
 
+get_dataset_full_path <- function(data, csv_path = ".") {
+  return(ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),
+                file.path(csv_path, paste0(data, ".csv"))))
+}
+
 write_csv <- function(data, save_csv = FALSE, csv_path = ".") {
   if (save_csv) {
-    path = ifelse(csv_path == ".", file.path(getwd(), paste0(deparse(substitute(data)), ".csv")),
-                  file.path(csv_path, paste0(deparse(substitute(data)), ".csv")))
-    write_csv(data, path)
+    path <- get_dataset_full_path(deparse(substitute(data)), csv_path)
+    readr::write_csv(data, path)
   }
 }
 
