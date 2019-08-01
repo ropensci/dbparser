@@ -70,7 +70,7 @@ get_atc_codes_df <- function(rec) {
 #' @export
 parse_drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_atc_codes", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 

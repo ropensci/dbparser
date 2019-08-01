@@ -75,7 +75,7 @@ parse_drug_reactions <-
            override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_reactions", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -151,7 +151,7 @@ parse_drug_reactions_enzymes <-
            override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_reactions_enzymes", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 

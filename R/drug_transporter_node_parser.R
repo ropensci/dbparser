@@ -104,7 +104,7 @@ get_transporters_polypeptide_go_classifiers_df <- function(rec) {
 parse_drug_transporters_actions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_transporters_actions", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -181,7 +181,7 @@ parse_drug_transporters_actions <- function(save_table = FALSE, save_csv = FALSE
 parse_drug_transporters_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_transporters_articles", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -255,7 +255,7 @@ parse_drug_transporters_articles <- function(save_table = FALSE, save_csv = FALS
 parse_drug_transporters_textbooks <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_transporters_textbooks", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -328,7 +328,7 @@ parse_drug_transporters_textbooks <- function(save_table = FALSE, save_csv = FAL
 parse_drug_transporters_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_transporters_links", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -405,7 +405,7 @@ parse_drug_transporters_polypeptides <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_transporters_polypeptides", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -503,7 +503,7 @@ parse_drug_transporters_polypeptides_external_identifiers <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_transporters_polypeptide_external_identifiers", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -581,7 +581,7 @@ parse_drug_transporters_polypeptides_synonyms <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_transporter_polypeptide_synonyms", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -659,7 +659,7 @@ parse_drug_transporters_polypeptides_pfams <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_transporters_polypeptides_pfams", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -739,7 +739,7 @@ parse_drug_transporters_polypeptides_go_classifiers <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_transporters_polypeptides_go_classifiers", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 
@@ -815,7 +815,7 @@ parse_drug_transporters_polypeptides_go_classifiers <-
 parse_drug_transporters <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_transporters", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 

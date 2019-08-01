@@ -48,7 +48,7 @@
 #' @export
 parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drugs", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -140,7 +140,7 @@ parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", ove
 #' @export
 parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_groups", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -211,7 +211,7 @@ parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = "
 #' @export
 parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_articles", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -282,7 +282,7 @@ parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' @export
 parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_books", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -352,7 +352,7 @@ parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' @export
 parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_links", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -423,7 +423,7 @@ parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' @export
 parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_synonyms", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -492,7 +492,7 @@ parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' @export
 parse_drug_products <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_products", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -563,7 +563,7 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
                                              save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_calculated_properties", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -631,7 +631,7 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
 parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_international_brands", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -700,7 +700,7 @@ parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE
 parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_salts", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -768,7 +768,7 @@ parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 #' @export
 parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_mixtures", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -835,7 +835,7 @@ parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 #' @export
 parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_packagers", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -903,7 +903,7 @@ parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path 
 #' @export
 parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_categories", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -970,7 +970,7 @@ parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path
 #' @export
 parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_affected_organisms", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1041,7 +1041,7 @@ parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, 
 #' @export
 parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_dosages", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1109,7 +1109,7 @@ parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 #' @export
 parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_ahfs_codes", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1179,7 +1179,7 @@ parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path
 #' @export
 parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_pdb_entries", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1250,7 +1250,7 @@ parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_pat
 #' @export
 parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_patents", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1318,7 +1318,7 @@ parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 #' @export
 parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_food_interactions", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1390,7 +1390,7 @@ parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, c
 #' @export
 parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_drug_interactions", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1459,7 +1459,7 @@ parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_pa
 #' @export
 parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_experimental_properties", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1528,7 +1528,7 @@ parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FA
 #' @export
 parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_external_identifiers", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1595,7 +1595,7 @@ parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE
 #' @export
 parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_external_links", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1662,7 +1662,7 @@ parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_
 #' @export
 parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_snp_effects", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -1731,7 +1731,7 @@ parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_pat
 parse_drug_snp_adverse_drug_reactions <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <- get_dataset_full_path("drug_snp_adverse_drug_reactions", csv_path)
-    if (override_csv & file.exists(path)) {
+    if (!override_csv & file.exists(path)) {
       return(readr::read_csv(path))
     }
 

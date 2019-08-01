@@ -1,3 +1,6 @@
+# dbparser 1.1.0
+* fix save csv options several issues
+
 # dbparser 1.0.3
 * Fix CRAN errors and notes
 

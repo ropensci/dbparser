@@ -78,7 +78,7 @@ get_pathways_enzymes_df <- function(rec) {
 parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_pathway_enzymes", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -154,7 +154,7 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
 parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_pathway_drugs", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
@@ -226,7 +226,7 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
 parse_drug_pathway <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_pathway", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 

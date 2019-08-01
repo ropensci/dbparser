@@ -64,7 +64,7 @@ get_prices_df <- function(rec) {
 parse_drug_prices <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_prices", csv_path)
-  if (override_csv & file.exists(path)) {
+  if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
   }
 
