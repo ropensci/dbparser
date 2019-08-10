@@ -127,7 +127,7 @@ get_xml_db_rows <- function(xml_db_name) {
 #'
 #' @examples
 #' \donttest{
-#' open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+#' open_db(driver = "SQL Server",
 #' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
 #' }
 #' @export

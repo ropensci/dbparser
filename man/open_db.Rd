@@ -28,7 +28,7 @@ to store, \emph{optionally}, the parsed drug bank elements.
 }
 \examples{
 \donttest{
-open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
+open_db(driver = "SQL Server",
 server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")
 }
 }
