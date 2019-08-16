@@ -65,6 +65,7 @@ parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", ove
       primary_key = "primary_key",
       foreign_key = NULL,
       field.types = list(
+        primary_key = "varchar(125)",
         description = "varchar(6349)",
         mechanism_of_action = "varchar(7189)",
         pharmacodynamics = "varchar(3179)",
