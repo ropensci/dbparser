@@ -5,7 +5,7 @@ save_drug_sub <-
            save_table_only = FALSE,
            field.types = NULL,
            primary_key = NULL,
-           foreign_key = "parent_key",
+           foreign_key = NULL,
            ref_table = "drug(primary_key)") {
     # store drug sub_Table in db
     dbWriteTable(
