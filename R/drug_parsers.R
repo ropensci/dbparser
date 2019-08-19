@@ -49,13 +49,11 @@
 parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drugs", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drugs <- readr::read_csv(path)
+  } else {
+    drugs <- map_df(pkg.env$children, ~ drug_df(.x)) %>% unique()
+    write_csv(drugs, save_csv, csv_path)
   }
-
-  # db connection
-  drugs <- map_df(pkg.env$children, ~ drug_df(.x)) %>% unique()
-
-  write_csv(drugs, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -146,13 +144,13 @@ parse_drug <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", ove
 parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_groups", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_groups <- readr::read_csv(path)
+  } else {
+    drug_groups <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "groups")) %>% unique()
+    write_csv(drug_groups, save_csv, csv_path)
   }
 
-  drug_groups <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "groups")) %>% unique()
-
-  write_csv(drug_groups, save_csv, csv_path)
 
   if (nrow(drug_groups) > 0) {
     colnames(drug_groups) <- c("group", "drugbank_id")
@@ -163,7 +161,7 @@ parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = "
                   df = drug_groups,
                   table_name = "drug_groups")
   }
-  return(tibble::as_tibble(drug_groups))
+  return(drug_groups)
 }
 
 #' Extracts the drug articles element and return data as tibble.
@@ -217,24 +215,24 @@ parse_drug_groups <- function(save_table = FALSE, save_csv = FALSE, csv_path = "
 parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_articles", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_articles <- readr::read_csv(path)
+  } else {
+    drug_articles <-
+      map_df(
+        pkg.env$children,
+        ~ drug_sub_df(.x, "general-references",
+                      seconadary_node = "articles")
+      ) %>% unique()
+
+    write_csv(drug_articles, save_csv, csv_path)
   }
-
-  drug_articles <-
-    map_df(
-      pkg.env$children,
-      ~ drug_sub_df(.x, "general-references",
-                    seconadary_node = "articles")
-    ) %>% unique()
-
-  write_csv(drug_articles, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_articles,
                   table_name = "drug_articles")
   }
-  return(tibble::as_tibble(drug_articles))
+  return(drug_articles)
 }
 
 #' Extracts the drug books element and return data as tibble.
@@ -288,23 +286,23 @@ parse_drug_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_books", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_books <- readr::read_csv(path)
+  } else {
+    drug_books <-
+      map_df(
+        pkg.env$children,
+        ~ drug_sub_df(.x, "general-references", seconadary_node = "textbooks")
+      ) %>% unique()
+
+    write_csv(drug_books, save_csv, csv_path)
   }
-
-  drug_books <-
-    map_df(
-      pkg.env$children,
-      ~ drug_sub_df(.x, "general-references", seconadary_node = "textbooks")
-    ) %>% unique()
-
-  write_csv(drug_books, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_books,
                   table_name = "drug_books")
   }
-  return(tibble::as_tibble(drug_books))
+  return(drug_books)
 }
 
 #' Extracts the drug links element and return data as tibble.
@@ -358,23 +356,23 @@ parse_drug_books <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_links", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_links <- readr::read_csv(path)
+  } else {
+    drug_links <-
+      map_df(
+        pkg.env$children,
+        ~ drug_sub_df(.x, "general-references", seconadary_node = "links")
+      ) %>% unique()
+
+    write_csv(drug_links, save_csv, csv_path)
   }
-
-  drug_links <-
-    map_df(
-      pkg.env$children,
-      ~ drug_sub_df(.x, "general-references", seconadary_node = "links")
-    ) %>% unique()
-
-  write_csv(drug_links, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_links,
                   table_name = "drug_links")
   }
-  return(tibble::as_tibble(drug_links))
+  return(drug_links)
 }
 
 
@@ -429,12 +427,12 @@ parse_drug_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_synonyms", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_synonyms <- readr::read_csv(path)
+  } else {
+    drug_synonyms <- map_df(pkg.env$children, ~ get_synonyms_df(.x)) %>% unique()
+    write_csv(drug_synonyms, save_csv, csv_path)
   }
 
-  drug_synonyms <- map_df(pkg.env$children, ~ get_synonyms_df(.x)) %>% unique()
-
-  write_csv(drug_synonyms, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -498,20 +496,20 @@ parse_drug_synonyms <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 parse_drug_products <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_products", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_products <- readr::read_csv(path)
+  } else {
+    drug_products <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "products")) %>% unique()
+    write_csv(drug_products, save_csv, csv_path)
   }
 
-  drug_products <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "products")) %>% unique()
-
-  write_csv(drug_products, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_products,
                   table_name = "drug_products")
   }
-  return(tibble::as_tibble(drug_products))
+  return(drug_products)
 }
 
 #' Extracts the drug calculated properties element and return data as tibble.
@@ -582,7 +580,7 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
                   df = drug_calculated_properties,
                   table_name = "drug_calculated_properties")
   }
-  return(tibble::as_tibble(drug_calculated_properties))
+  return(drug_calculated_properties)
 }
 
 #' Extracts the drug international brands and return data as tibble.
@@ -651,7 +649,7 @@ parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE
                   df = drug_international_brands,
                   table_name = "international_brands")
   }
-  return(tibble::as_tibble(drug_international_brands))
+  return(drug_international_brands)
 }
 
 #' Extracts the drug salts and return data as tibble.
@@ -720,7 +718,7 @@ parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
                   df = drug_salts,
                   table_name = "salts")
   }
-  return(tibble::as_tibble(drug_salts))
+  return(drug_salts)
 }
 
 #' Extracts the drug mixtures element and return data as tibble.
@@ -774,20 +772,21 @@ parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
 parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_mixtures", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_mixtures <- readr::read_csv(path)
+  } else {
+    drug_mixtures <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "mixtures")) %>% unique()
+
+    write_csv(drug_mixtures, save_csv, csv_path)
   }
 
-  drug_mixtures <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "mixtures")) %>% unique()
-
-  write_csv(drug_mixtures, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_mixtures,
                   table_name = "drug_mixtures")
   }
-  return(tibble::as_tibble(drug_mixtures))
+  return(drug_mixtures)
 }
 
 #' Extracts the drug packagers element and return data as tibble.
@@ -841,20 +840,19 @@ parse_drug_mixtures <- function(save_table = FALSE, save_csv = FALSE, csv_path =
 parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_packagers", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_packagers <- readr::read_csv(path)
+  } else {
+    drug_packagers <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "packagers")) %>% unique()
+    write_csv(drug_packagers, save_csv, csv_path)
   }
-
-  drug_packagers <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "packagers")) %>% unique()
-
-  write_csv(drug_packagers, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_packagers,
                   table_name = "drug_packagers")
   }
-  return(tibble::as_tibble(drug_packagers))
+  return(drug_packagers)
 }
 
 
@@ -909,20 +907,19 @@ parse_drug_packagers <- function(save_table = FALSE, save_csv = FALSE, csv_path 
 parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_categories", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_categories <- readr::read_csv(path)
+  } else {
+    drug_categories <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "categories")) %>% unique()
+    write_csv(drug_categories, save_csv, csv_path)
   }
-
-  drug_categories <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "categories")) %>% unique()
-
-  write_csv(drug_categories, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_categories,
                   table_name = "drug_categories")
   }
-  return(tibble::as_tibble(drug_categories))
+  return(drug_categories)
 }
 
 #' Extracts the drug affected organisms element and return data as tibble.
@@ -976,24 +973,25 @@ parse_drug_categories <- function(save_table = FALSE, save_csv = FALSE, csv_path
 parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_affected_organisms", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_affected_organisms <- readr::read_csv(path)
+  } else {
+    drug_affected_organisms <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "affected-organisms")) %>% unique()
+    write_csv(drug_affected_organisms, save_csv, csv_path)
   }
 
-  drug_affected_organisms <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "affected-organisms")) %>% unique()
 
   if (nrow(drug_affected_organisms) > 0) {
     colnames(drug_affected_organisms) = c("affected_organism", "drugbank_id")
   }
 
-  write_csv(drug_affected_organisms, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_affected_organisms,
                   table_name = "drug_affected_organisms")
   }
-  return(tibble::as_tibble(drug_affected_organisms))
+  return(drug_affected_organisms)
 }
 
 #' Extracts the drug dosages element and return data as tibble.
@@ -1047,20 +1045,20 @@ parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, 
 parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_dosages", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_dosages <- readr::read_csv(path)
+  } else {
+    drug_dosages <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "dosages")) %>% unique()
+
+    write_csv(drug_dosages, save_csv, csv_path)
   }
-
-  drug_dosages <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "dosages")) %>% unique()
-
-  write_csv(drug_dosages, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_dosages,
                   table_name = "drug_dosages")
   }
-  return(tibble::as_tibble(drug_dosages))
+  return(drug_dosages)
 }
 
 
@@ -1116,22 +1114,22 @@ parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path
   path <- get_dataset_full_path("drug_ahfs_codes", csv_path)
   if (!override_csv & file.exists(path)) {
     return(readr::read_csv(path))
+  } else {
+    drug_ahfs_codes <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "ahfs-codes")) %>% unique()
+    write_csv(drug_ahfs_codes, save_csv, csv_path)
   }
 
-  drug_ahfs_codes <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "ahfs-codes")) %>% unique()
   if (nrow(drug_ahfs_codes) > 0) {
     colnames(drug_ahfs_codes) <- c("ahfs_code", "drugbank_id")
   }
-
-  write_csv(drug_ahfs_codes, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_ahfs_codes,
                   table_name = "drug_ahfs_codes")
   }
-  return(tibble::as_tibble(drug_ahfs_codes))
+  return(drug_ahfs_codes)
 }
 
 #' Extracts the drug pdb entries element and return data as tibble.
@@ -1185,24 +1183,23 @@ parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path
 parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_pdb_entries", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_pdb_entries <- readr::read_csv(path)
+  } else {
+    drug_pdb_entries <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "pdb-entries")) %>% unique()
+    write_csv(drug_pdb_entries, save_csv, csv_path)
   }
-
-  drug_pdb_entries <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "pdb-entries")) %>% unique()
 
   if (nrow(drug_pdb_entries) > 0) {
     colnames(drug_pdb_entries) <- c("pdb_entry", "drugbank_id")
   }
-
-  write_csv(drug_pdb_entries, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_pdb_entries,
                   table_name = "drug_pdb_entries")
   }
-  return(tibble::as_tibble(drug_pdb_entries))
+  return(drug_pdb_entries)
 }
 
 #' Extracts the drug patents element and return data as tibble.
@@ -1256,20 +1253,20 @@ parse_drug_pdb_entries <- function(save_table = FALSE, save_csv = FALSE, csv_pat
 parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_patents", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_patents <- readr::read_csv(path)
+  } else {
+    drug_patents <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "patents")) %>% unique()
+
+    write_csv(drug_patents, save_csv, csv_path)
   }
-
-  drug_patents <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "patents")) %>% unique()
-
-  write_csv(drug_patents, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_patents,
                   table_name = "drug_patents")
   }
-  return(tibble::as_tibble(drug_patents))
+  return(drug_patents)
 }
 
 #' Extracts the drug food interactions element and return data as tibble.
@@ -1324,25 +1321,26 @@ parse_drug_patents <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_food_interactions", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_food_interactions <- readr::read_csv(path)
+  } else {
+    drug_food_interactions <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "food-interactions")) %>% unique()
+    write_csv(drug_food_interactions, save_csv, csv_path)
   }
 
-  drug_food_interactions <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "food-interactions")) %>% unique()
+
 
   if (nrow(drug_food_interactions) > 0) {
     colnames(drug_food_interactions) <-
       c("food_interaction", "drugbank_id")
   }
 
-  write_csv(drug_food_interactions, save_csv, csv_path)
-
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_food_interactions,
                   table_name = "drug_food_interactions")
   }
-  return(tibble::as_tibble(drug_food_interactions))
+  return(drug_food_interactions)
 }
 
 #' Extracts the drug interactions element and return data as tibble.
@@ -1396,21 +1394,21 @@ parse_drug_food_interactions <- function(save_table = FALSE, save_csv = FALSE, c
 parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_drug_interactions", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_drug_interactions <- readr::read_csv(path)
+  } else {
+    drug_drug_interactions <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "drug-interactions")) %>% unique()
+
+    write_csv(drug_drug_interactions, save_csv, csv_path)
   }
 
-
-  drug_drug_interactions <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "drug-interactions")) %>% unique()
-
-  write_csv(drug_drug_interactions, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_drug_interactions,
                   table_name = "drug_drug_interactions")
   }
-  return(tibble::as_tibble(drug_drug_interactions))
+  return(drug_drug_interactions)
 }
 
 #' Extracts the drug experimental properties element and return data as tibble.
@@ -1465,21 +1463,20 @@ parse_drug_interactions <- function(save_table = FALSE, save_csv = FALSE, csv_pa
 parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_experimental_properties", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_experimental_properties <- readr::read_csv(path)
+  } else {
+    drug_experimental_properties <-
+      map_df(pkg.env$children,
+             ~ drug_sub_df(.x, "experimental-properties")) %>% unique()
+    write_csv(drug_experimental_properties, save_csv, csv_path)
   }
-
-  drug_experimental_properties <-
-    map_df(pkg.env$children,
-           ~ drug_sub_df(.x, "experimental-properties")) %>% unique()
-
-  write_csv(drug_experimental_properties, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_experimental_properties,
                   table_name = "drug_experimental_properties")
   }
-  return(tibble::as_tibble(drug_experimental_properties))
+  return(drug_experimental_properties)
 }
 
 #' Extracts the drug external identifiers element and return data as tibble.
@@ -1534,13 +1531,13 @@ parse_drug_experimental_properties <- function(save_table = FALSE, save_csv = FA
 parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_external_identifiers", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_external_identifiers <- readr::read_csv(path)
+  } else {
+    drug_external_identifiers <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "external-identifiers"))
+
+    write_csv(drug_external_identifiers, save_csv, csv_path)
   }
-
-  drug_external_identifiers <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "external-identifiers"))
-
-  write_csv(drug_external_identifiers, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
@@ -1601,20 +1598,20 @@ parse_drug_external_identifiers <- function(save_table = FALSE, save_csv = FALSE
 parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_external_links", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_external_links <- readr::read_csv(path)
+  } else {
+    drug_external_links <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "external-links")) %>% unique()
+
+    write_csv(drug_external_links, save_csv, csv_path)
   }
-
-  drug_external_links <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "external-links")) %>% unique()
-
-  write_csv(drug_external_links, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_external_links,
                   table_name = "drug_external_links")
   }
-  return(tibble::as_tibble(drug_external_links))
+  return(drug_external_links)
 }
 
 #' Extracts the drug snp effects element and return data as tibble.
@@ -1681,7 +1678,7 @@ parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_pat
                   df = drug_snp_effects,
                   table_name = "drug_snp_effects")
   }
-  return(tibble::as_tibble(drug_snp_effects))
+  return(drug_snp_effects)
 }
 
 #' Extracts the drug snp adverse drug reactions element and return data as tibble.
@@ -1737,19 +1734,19 @@ parse_drug_snp_adverse_drug_reactions <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
     path <- get_dataset_full_path("drug_snp_adverse_drug_reactions", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_snp_adverse_drug_reactions <- readr::read_csv(path)
+    } else {
+      drug_snp_adverse_drug_reactions <-
+        map_df(pkg.env$children,
+               ~ drug_sub_df(.x, "snp-adverse-drug-reactions")) %>% unique()
+
+      write_csv(drug_snp_adverse_drug_reactions, save_csv, csv_path)
     }
-
-    drug_snp_adverse_drug_reactions <-
-      map_df(pkg.env$children,
-             ~ drug_sub_df(.x, "snp-adverse-drug-reactions")) %>% unique()
-
-    write_csv(drug_snp_adverse_drug_reactions, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(con = pkg.env$con,
                     df = drug_snp_adverse_drug_reactions,
                     table_name = "drug_snp_adverse_drug_reactions")
     }
-    return(tibble::as_tibble(drug_snp_adverse_drug_reactions))
+    return(drug_snp_adverse_drug_reactions)
   }

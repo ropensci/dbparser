@@ -61,14 +61,15 @@ parse_drug_classification <- function(save_table = FALSE, save_csv = FALSE, csv_
   path <-
     get_dataset_full_path("drug_classifications", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_classifications <- readr::read_csv(path)
+  } else {
+    drug_classifications <-
+      map_df(pkg.env$children, ~ drug_classifications_df(.x)) %>%
+      unique()
+
+    write_csv(drug_classifications, save_csv, csv_path)
   }
 
-  drug_classifications <-
-    map_df(pkg.env$children, ~ drug_classifications_df(.x)) %>%
-    unique()
-
-  write_csv(drug_classifications, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
