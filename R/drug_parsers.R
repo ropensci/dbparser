@@ -567,13 +567,14 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
   path <-
     get_dataset_full_path("drug_calculated_properties", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_calculated_properties <- readr::read_csv(path)
+  } else {
+    drug_calculated_properties <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "calculated-properties")) %>% unique()
+
+    write_csv(drug_calculated_properties, save_csv, csv_path)
   }
 
-  drug_calculated_properties <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "calculated-properties")) %>% unique()
-
-  write_csv(drug_calculated_properties, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
@@ -635,14 +636,14 @@ parse_drug_international_brands <- function(save_table = FALSE, save_csv = FALSE
   path <-
     get_dataset_full_path("drug_international_brands", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_international_brands <- readr::read_csv(path)
+  } else {
+    drug_international_brands <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "international-brands")) %>%
+      unique()
+
+    write_csv(drug_international_brands, save_csv, csv_path)
   }
-
-  drug_international_brands <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "international-brands")) %>%
-    unique()
-
-  write_csv(drug_international_brands, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
@@ -704,14 +705,14 @@ parse_drug_salts <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".
   path <-
     get_dataset_full_path("drug_salts", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_salts <- readr::read_csv(path)
+  } else {
+    drug_salts <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "salts")) %>%
+      unique()
+
+    write_csv(drug_salts, save_csv, csv_path)
   }
-
-  drug_salts <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "salts")) %>%
-    unique()
-
-  write_csv(drug_salts, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
@@ -1113,7 +1114,7 @@ parse_drug_dosages <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
 parse_drug_ahfs_codes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_ahfs_codes", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_ahfs_codes <- readr::read_csv(path)
   } else {
     drug_ahfs_codes <-
       map_df(pkg.env$children, ~ drug_sub_df(.x, "ahfs-codes")) %>% unique()
@@ -1665,13 +1666,14 @@ parse_drug_external_links <- function(save_table = FALSE, save_csv = FALSE, csv_
 parse_drug_snp_effects <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
   path <- get_dataset_full_path("drug_snp_effects", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_snp_effects <- readr::read_csv(path)
+  } else {
+    drug_snp_effects <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "snp-effects")) %>% unique()
+
+    write_csv(drug_snp_effects, save_csv, csv_path)
   }
 
-  drug_snp_effects <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "snp-effects")) %>% unique()
-
-  write_csv(drug_snp_effects, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
