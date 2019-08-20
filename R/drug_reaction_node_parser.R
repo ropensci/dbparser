@@ -90,7 +90,7 @@ parse_drug_reactions <-
         con = pkg.env$con,
         df = drug_reactions,
         table_name = "drug_reactions",
-        foreign_key = "drug_key"
+        foreign_key = "parent_key"
       )
     }
     return(drug_reactions)

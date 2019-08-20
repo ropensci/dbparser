@@ -659,7 +659,7 @@ parse_drug_targets_links <- function(save_table = FALSE, save_csv = FALSE, csv_p
         title = paste("varchar(",
                       max(nchar(
                         drug_targets_links$title
-                      )) + 100, ")", sep = ""),
+                      ), na.rm = TRUE) + 100, ")", sep = ""),
         url = paste("varchar(", max(nchar(
           drug_targets_links$url
         )) + 100, ")", sep = "")
@@ -742,7 +742,7 @@ parse_drug_targets_polypeptides <- function(save_table = FALSE, save_csv = FALSE
       field.types = list(
         general_function = paste("varchar(",
                                  max(
-                                   nchar(drug_targets_polypeptides$general_function)
+                                   nchar(drug_targets_polypeptides$general_function), na.rm = TRUE
                                  ),
                                  ")", sep = ""),
         specific_function = paste("varchar(max)", sep = ""),
@@ -822,7 +822,7 @@ parse_drug_targets <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
       con = pkg.env$con,
       df = drug_targets,
       table_name = "drug_targets",
-      foreign_key = "drug_key"
+      foreign_key = "parent_key"
     )
   }
   return(drug_targets)

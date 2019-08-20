@@ -439,22 +439,22 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
       field.types = list(
         general_function = paste("varchar(",
                                  max(
-                                   nchar(drug_enzymes_polypeptides$general_function)
+                                   nchar(drug_enzymes_polypeptides$general_function), na.rm = TRUE
                                  ),
                                  ")", sep = ""),
         specific_function = paste("varchar(",
                                   max(
-                                    nchar(drug_enzymes_polypeptides$specific_function)
+                                    nchar(drug_enzymes_polypeptides$specific_function), na.rm = TRUE
                                   ),
                                   ")", sep = ""),
         amino_acid_sequence = paste("varchar(",
                                     max(
-                                      nchar(drug_enzymes_polypeptides$amino_acid_sequence)
+                                      nchar(drug_enzymes_polypeptides$amino_acid_sequence), na.rm = TRUE
                                     ),
                                     ")", sep = ""),
         gene_sequence = paste("varchar(",
                               max(
-                                nchar(drug_enzymes_polypeptides$gene_sequence)
+                                nchar(drug_enzymes_polypeptides$gene_sequence), na.rm = TRUE
                               ),
                               ")", sep = "")
       )

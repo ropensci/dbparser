@@ -417,17 +417,17 @@ parse_drug_carriers_polypeptides <- function(save_table = FALSE, save_csv = FALS
       field.types = list(
         general_function = paste("varchar(",
                                  max(
-                                   nchar(drug_carriers_polypeptides$general_function)
+                                   nchar(drug_carriers_polypeptides$general_function), na.rm = TRUE
                                  ),
                                  ")", sep = ""),
         specific_function = paste("varchar(",
                                   max(
-                                    nchar(drug_carriers_polypeptides$specific_function)
+                                    nchar(drug_carriers_polypeptides$specific_function), na.rm = TRUE
                                   ),
                                   ")", sep = ""),
         amino_acid_sequence = paste("varchar(",
                                     max(
-                                      nchar(drug_carriers_polypeptides$amino_acid_sequence)
+                                      nchar(drug_carriers_polypeptides$amino_acid_sequence), na.rm = TRUE
                                     ),
                                     ")", sep = ""),
         gene_sequence = paste("varchar(max)", sep = "")
@@ -807,7 +807,7 @@ parse_drug_carriers <- function(save_table = FALSE, save_csv = FALSE, csv_path =
       con = pkg.env$con,
       df = drug_carriers,
       table_name = "drug_carriers",
-      foreign_key = "drug_key"
+      foreign_key = "parent_key"
     )
   }
   return(drug_carriers)
