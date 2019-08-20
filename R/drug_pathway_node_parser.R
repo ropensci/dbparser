@@ -79,18 +79,18 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
   path <-
     get_dataset_full_path("drug_pathway_enzymes", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_pathway_enzymes <- readr::read_csv(path)
+  } else {
+    drug_pathway_enzymes <-
+      map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
+      unique()
+    write_csv(drug_pathway_enzymes, save_csv, csv_path)
   }
 
-  drug_pathway_enzymes <-
-    map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
-    unique()
 
   if (nrow(drug_pathway_enzymes) > 0) {
     colnames(drug_pathway_enzymes) <- c("enzyme", "pathway_id")
   }
-
-  write_csv(drug_pathway_enzymes, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -100,7 +100,7 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
       save_table_only = TRUE
     )
   }
-  return(tibble::as_tibble(drug_pathway_enzymes))
+  return(drug_pathway_enzymes)
 }
 
 #' Extracts the drug pathway drugs element and return data as data frame.
@@ -155,14 +155,14 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
   path <-
     get_dataset_full_path("drug_pathway_drugs", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_pathway_drugs <- readr::read_csv(path)
+  } else {
+    drug_pathway_drugs <-
+      map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
+      unique()
+
+    write_csv(drug_pathway_drugs, save_csv, csv_path)
   }
-
-  drug_pathway_drugs <-
-    map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
-    unique()
-
-  write_csv(drug_pathway_drugs, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -172,7 +172,7 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
       save_table_only = TRUE
     )
   }
-  return(tibble::as_tibble(drug_pathway_drugs))
+  return(drug_pathway_drugs)
 }
 
 #' Extracts the drug pathway element and return data as data frame.
@@ -227,14 +227,14 @@ parse_drug_pathway <- function(save_table = FALSE, save_csv = FALSE, csv_path = 
   path <-
     get_dataset_full_path("drug_pathway", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_pathway <- readr::read_csv(path)
+  } else {
+    drug_pathway <-
+      map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
+      unique()
+
+    write_csv(drug_pathway, save_csv, csv_path)
   }
-
-  drug_pathway <-
-    map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
-    unique()
-
-  write_csv(drug_pathway, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,

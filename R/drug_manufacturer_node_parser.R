@@ -64,23 +64,23 @@ parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE, csv_p
   path <-
     get_dataset_full_path("drug_manufacturers", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_manufacturers <- readr::read_csv(path)
+  } else {
+    drug_manufacturers <-
+      map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
+      unique()
+    write_csv(drug_manufacturers, save_csv, csv_path)
   }
-
-  drug_manufacturers <-
-    map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
-    unique()
 
   if (nrow(drug_manufacturers) > 0) {
     colnames(drug_manufacturers) <- c("manufacturer", "drugbank_id")
   }
 
-  write_csv(drug_manufacturers, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(con = pkg.env$con,
                   df = drug_manufacturers,
                   table_name = "drug_manufacturers")
   }
-  return(tibble::as_tibble(drug_manufacturers))
+  return(drug_manufacturers)
 }

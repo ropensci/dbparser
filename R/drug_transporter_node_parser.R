@@ -105,18 +105,19 @@ parse_drug_transporters_actions <- function(save_table = FALSE, save_csv = FALSE
   path <-
     get_dataset_full_path("drug_transporters_actions", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_transporters_actions <- readr::read_csv(path)
+  } else {
+    drug_transporters_actions <-
+      map_df(pkg.env$children, ~ get_transporters_actions_df(.x)) %>%
+      unique()
+
+    write_csv(drug_transporters_actions, save_csv, csv_path)
   }
 
-  drug_transporters_actions <-
-    map_df(pkg.env$children, ~ get_transporters_actions_df(.x)) %>%
-    unique()
-
-  if (nrow(drug_transporters_actions) > 0) {
+    if (nrow(drug_transporters_actions) > 0) {
     colnames(drug_transporters_actions) <- c("action", "transporter_id")
   }
 
-  write_csv(drug_transporters_actions, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -182,14 +183,14 @@ parse_drug_transporters_articles <- function(save_table = FALSE, save_csv = FALS
   path <-
     get_dataset_full_path("drug_transporters_articles", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_transporters_articles <- readr::read_csv(path)
+  } else {
+    drug_transporters_articles <-
+      map_df(pkg.env$children, ~ get_transporters_articles_df(.x)) %>%
+      unique()
+
+    write_csv(drug_transporters_articles, save_csv, csv_path)
   }
-
-  drug_transporters_articles <-
-    map_df(pkg.env$children, ~ get_transporters_articles_df(.x)) %>%
-    unique()
-
-  write_csv(drug_transporters_articles, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -256,14 +257,14 @@ parse_drug_transporters_textbooks <- function(save_table = FALSE, save_csv = FAL
   path <-
     get_dataset_full_path("drug_transporters_textbooks", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_transporters_textbooks <- readr::read_csv(path)
+  } else {
+    drug_transporters_textbooks <-
+      map_df(pkg.env$children, ~ get_transporters_textbooks_df(.x)) %>%
+      unique()
+
+    write_csv(drug_transporters_textbooks, save_csv, csv_path)
   }
-
-  drug_transporters_textbooks <-
-    map_df(pkg.env$children, ~ get_transporters_textbooks_df(.x)) %>%
-    unique()
-
-  write_csv(drug_transporters_textbooks, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -329,14 +330,14 @@ parse_drug_transporters_links <- function(save_table = FALSE, save_csv = FALSE, 
   path <-
     get_dataset_full_path("drug_transporters_links", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_transporters_links <- readr::read_csv(path)
+  } else {
+    drug_transporters_links <-
+      map_df(pkg.env$children, ~ get_transporters_links_df(.x)) %>%
+      unique()
+
+    write_csv(drug_transporters_links, save_csv, csv_path)
   }
-
-  drug_transporters_links <-
-    map_df(pkg.env$children, ~ get_transporters_links_df(.x)) %>%
-    unique()
-
-  write_csv(drug_transporters_links, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
@@ -406,14 +407,14 @@ parse_drug_transporters_polypeptides <-
     path <-
       get_dataset_full_path("drug_transporters_polypeptides", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_transporters_polypeptides <- readr::read_csv(path)
+    } else {
+      drug_transporters_polypeptides <-
+        map_df(pkg.env$children, ~ get_transporters_polypeptide_df(.x)) %>%
+        unique()
+
+      write_csv(drug_transporters_polypeptides, save_csv, csv_path)
     }
-
-    drug_transporters_polypeptides <-
-      map_df(pkg.env$children, ~ get_transporters_polypeptide_df(.x)) %>%
-      unique()
-
-    write_csv(drug_transporters_polypeptides, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -504,15 +505,15 @@ parse_drug_transporters_polypeptides_external_identifiers <-
     path <-
       get_dataset_full_path("drug_transporters_polypeptide_external_identifiers", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_transporters_polypeptide_external_identifiers <- readr::read_csv(path)
+    } else {
+      drug_transporters_polypeptide_external_identifiers <-
+        map_df(pkg.env$children,
+               ~ get_transporters_polypeptide_external_identifiers_df(.x)) %>%
+        unique()
+
+      write_csv(drug_transporters_polypeptide_external_identifiers, save_csv, csv_path)
     }
-
-    drug_transporters_polypeptide_external_identifiers <-
-      map_df(pkg.env$children,
-             ~ get_transporters_polypeptide_external_identifiers_df(.x)) %>%
-      unique()
-
-    write_csv(drug_transporters_polypeptide_external_identifiers, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -582,15 +583,15 @@ parse_drug_transporters_polypeptides_synonyms <-
     path <-
       get_dataset_full_path("drug_transporter_polypeptide_synonyms", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_transporter_polypeptide_synonyms <- readr::read_csv(path)
+    } else {
+      drug_transporter_polypeptide_synonyms <-
+        map_df(pkg.env$children,
+               ~ get_transporters_polypeptide_synonyms_df(.x)) %>%
+        unique()
+
+      write_csv(drug_transporter_polypeptide_synonyms, save_csv, csv_path)
     }
-
-    drug_transporter_polypeptide_synonyms <-
-      map_df(pkg.env$children,
-             ~ get_transporters_polypeptide_synonyms_df(.x)) %>%
-      unique()
-
-    write_csv(drug_transporter_polypeptide_synonyms, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -660,15 +661,16 @@ parse_drug_transporters_polypeptides_pfams <-
     path <-
       get_dataset_full_path("drug_transporters_polypeptides_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_transporters_polypeptides_pfams <- readr::read_csv(path)
+    } else {
+      drug_transporters_polypeptides_pfams <-
+        map_df(pkg.env$children,
+               ~ get_transporters_polypeptide_pfams_df(.x)) %>%
+        unique()
+
+      write_csv(drug_transporters_polypeptides_pfams, save_csv, csv_path)
     }
 
-    drug_transporters_polypeptides_pfams <-
-      map_df(pkg.env$children,
-             ~ get_transporters_polypeptide_pfams_df(.x)) %>%
-      unique()
-
-    write_csv(drug_transporters_polypeptides_pfams, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -740,15 +742,16 @@ parse_drug_transporters_polypeptides_go_classifiers <-
     path <-
       get_dataset_full_path("drug_transporters_polypeptides_go_classifiers", csv_path)
     if (!override_csv & file.exists(path)) {
-      return(readr::read_csv(path))
+      drug_transporters_polypeptides_go_classifiers <- readr::read_csv(path)
+    } else {
+      drug_transporters_polypeptides_go_classifiers <-
+        map_df(pkg.env$children,
+               ~ get_transporters_polypeptide_go_classifiers_df(.x)) %>%
+        unique()
+
+      write_csv(drug_transporters_polypeptides_go_classifiers, save_csv, csv_path)
     }
 
-    drug_transporters_polypeptides_go_classifiers <-
-      map_df(pkg.env$children,
-             ~ get_transporters_polypeptide_go_classifiers_df(.x)) %>%
-      unique()
-
-    write_csv(drug_transporters_polypeptides_go_classifiers, save_csv, csv_path)
 
     if (save_table) {
       save_drug_sub(
@@ -816,14 +819,15 @@ parse_drug_transporters <- function(save_table = FALSE, save_csv = FALSE, csv_pa
   path <-
     get_dataset_full_path("drug_transporters", csv_path)
   if (!override_csv & file.exists(path)) {
-    return(readr::read_csv(path))
+    drug_transporters <- readr::read_csv(path)
+  } else {
+    drug_transporters <-
+      map_df(pkg.env$children, ~ get_transporters_df(.x)) %>%
+      unique()
+
+    write_csv(drug_transporters, save_csv, csv_path)
   }
 
-  drug_transporters <-
-    map_df(pkg.env$children, ~ get_transporters_df(.x)) %>%
-    unique()
-
-  write_csv(drug_transporters, save_csv, csv_path)
 
   if (save_table) {
     save_drug_sub(
