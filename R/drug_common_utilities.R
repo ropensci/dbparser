@@ -147,6 +147,46 @@ open_db <-
 
   }
 
+#' Establish connection to given data base
+#'
+#' \code{open_mdb} opens connection to given database.
+#'
+#' This function establishes connection to given database
+#' to store, \emph{optionally}, the parsed drug bank elements.
+#'
+#' @param driver odbc object to define database driver.
+#' @param server string, indicated the db server name.
+#' @param output_database string, the database name to be used,
+#' it has to be created before using it
+#' @param trusted_connection boolean, is the connection secure
+#' @return sets the open connection in memory to be used by other functions
+#'
+#' @examples
+#' \donttest{
+#' open_mdb(driver = "SQL Server",
+#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' }
+#' @export
+open_mdb <-
+  function(username = "root",
+           password = "root",
+           server,
+           output_database,
+           host = "localhost",
+           port = 3306) {
+    # db connection
+    pkg.env$con <- RMariaDB::dbConnect(
+      drv = RMariaDB::MariaDB(),
+      dbname = output_database,
+      username = username,
+      password = password,
+      Server = server,
+      host = host,
+      port = port
+    )
+
+  }
+
 #' Close open drug bank sql database
 #'
 #' \code{close_db} closes connection to pre-given database.
