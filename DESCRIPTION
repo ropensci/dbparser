@@ -16,6 +16,7 @@ Imports:
     odbc,
     purrr,
     readr,
+    RMariaDB,
     tibble,
     tidyr,
     tools,
