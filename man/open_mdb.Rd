@@ -33,6 +33,7 @@ to store, \emph{optionally}, the parsed drug bank elements.
 }
 \examples{
 \donttest{
-open_mdb(username = "root", password = "root", host = "localhost", port = 3306, output_database = "drugs")
+open_mdb(username = "root", password = "root",
+ host = "localhost", port = 3306, output_database = "drugs")
 }
 }
