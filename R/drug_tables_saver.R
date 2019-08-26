@@ -7,6 +7,12 @@ save_drug_sub <-
            primary_key = NULL,
            foreign_key = NULL,
            ref_table = "drug(primary_key)") {
+    if (grepl("MariaDB", class(con))) {
+      field.types <- unlist(field.types[1])
+      # tmp <- str_replace_all(field.types, "varchar\\(max\\)", "BLOB")
+      # names(tmp) <- names(field.types)
+      # field.types <-  tmp
+    }
     # store drug sub_Table in db
     dbWriteTable(
       conn = con,
@@ -18,18 +24,6 @@ save_drug_sub <-
     if (!save_table_only) {
       # add primary key of drug table
       if (!is.null(primary_key)) {
-        for (key in primary_key) {
-          dbExecute(
-            conn = con,
-            statement = paste(
-              "Alter table",
-              table_name,
-              "alter column",
-              key,
-              "varchar(255) NOT NULL;"
-            )
-          )
-        }
         dbExecute(
           conn = con,
           statement = paste(
