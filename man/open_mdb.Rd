@@ -2,34 +2,37 @@
 % Please edit documentation in R/drug_common_utilities.R
 \name{open_mdb}
 \alias{open_mdb}
-\title{Establish connection to given data base}
+\title{Establish connection to given Maria database}
 \usage{
 open_mdb(username = "root", password = "root", server, output_database,
   host = "localhost", port = 3306)
 }
 \arguments{
+\item{username}{database user name}
+
+\item{password}{database user password}
+
 \item{server}{string, indicated the db server name.}
 
 \item{output_database}{string, the database name to be used,
 it has to be created before using it}
 
-\item{driver}{odbc object to define database driver.}
+\item{host}{database host}
 
-\item{trusted_connection}{boolean, is the connection secure}
+\item{port}{database port}
 }
 \value{
 sets the open connection in memory to be used by other functions
 }
 \description{
-\code{open_mdb} opens connection to given database.
+\code{open_mdb} opens connection to given Maria database.
 }
 \details{
-This function establishes connection to given database
+This function establishes connection to given Maria database
 to store, \emph{optionally}, the parsed drug bank elements.
 }
 \examples{
 \donttest{
-open_mdb(driver = "SQL Server",
-server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")
+open_mdb(username = "root", password = "root", host = "localhost", port = 3306, output_database = "drugs")
 }
 }

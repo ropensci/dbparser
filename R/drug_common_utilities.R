@@ -147,24 +147,25 @@ open_db <-
 
   }
 
-#' Establish connection to given data base
+#' Establish connection to given Maria database
 #'
-#' \code{open_mdb} opens connection to given database.
+#' \code{open_mdb} opens connection to given Maria database.
 #'
-#' This function establishes connection to given database
+#' This function establishes connection to given Maria database
 #' to store, \emph{optionally}, the parsed drug bank elements.
 #'
-#' @param driver odbc object to define database driver.
+#' @param username database user name
+#' @param password database user password
 #' @param server string, indicated the db server name.
 #' @param output_database string, the database name to be used,
 #' it has to be created before using it
-#' @param trusted_connection boolean, is the connection secure
+#' @param host database host
+#' @param port database port
 #' @return sets the open connection in memory to be used by other functions
 #'
 #' @examples
 #' \donttest{
-#' open_mdb(driver = "SQL Server",
-#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' open_mdb(username = "root", password = "root", host = "localhost", port = 3306, output_database = "drugs")
 #' }
 #' @export
 open_mdb <-
