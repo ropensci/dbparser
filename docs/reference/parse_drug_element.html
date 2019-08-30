@@ -63,7 +63,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5.9000</span>
       </span>
     </div>
 
@@ -159,7 +159,10 @@ this method</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># return only the parsed dataframe</span>
-<span class='fu'>parse_drug_element</span>()</div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
+<span class='fu'>parse_drug_element</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = <span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
 #&gt; [1] "Parsed Groups_Drug, 2/75"
 #&gt; [1] "Parsed Articles_Drug, 3/75"
 #&gt; [1] "Parsed Books_Drug, 4/75"
@@ -234,7 +237,8 @@ this method</p>
 #&gt; [1] "Parsed International_Brands_Drug, 73/75"
 #&gt; [1] "Parsed Salts_Drug, 74/75"
 #&gt; [1] "Parsed Calculated_Properties_Drug, 75/75"</div><div class='output co'>#&gt; $Drugs
-#&gt; <span style='color: #555555;'># A tibble: 0 x 0</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
 #&gt; $Groups_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
@@ -459,11 +463,17 @@ this method</p>
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; </div><div class='input'>
 <span class='co'># save in database and return parsed dataframe</span>
-<span class='fu'>parse_drug_element</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "tbl_df"'</span></div><div class='input'>
+<span class='fu'>parse_drug_element</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "spec_tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "spec_tbl_df"'</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in current location and</span>
 <span class='co'># return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
+<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
 #&gt; [1] "Parsed Groups_Drug, 2/75"
 #&gt; [1] "Parsed Articles_Drug, 3/75"
 #&gt; [1] "Parsed Books_Drug, 4/75"
@@ -538,7 +548,8 @@ this method</p>
 #&gt; [1] "Parsed International_Brands_Drug, 73/75"
 #&gt; [1] "Parsed Salts_Drug, 74/75"
 #&gt; [1] "Parsed Calculated_Properties_Drug, 75/75"</div><div class='output co'>#&gt; $Drugs
-#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
 #&gt; $Groups_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
@@ -769,7 +780,10 @@ this method</p>
 <span class='co'># save parsed dataframe as csv if it does not exist in given location and</span>
 <span class='co'># return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
+<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
 #&gt; [1] "Parsed Groups_Drug, 2/75"
 #&gt; [1] "Parsed Articles_Drug, 3/75"
 #&gt; [1] "Parsed Books_Drug, 4/75"
@@ -844,7 +858,8 @@ this method</p>
 #&gt; [1] "Parsed International_Brands_Drug, 73/75"
 #&gt; [1] "Parsed Salts_Drug, 74/75"
 #&gt; [1] "Parsed Calculated_Properties_Drug, 75/75"</div><div class='output co'>#&gt; $Drugs
-#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
 #&gt; $Groups_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
@@ -1071,7 +1086,10 @@ this method</p>
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
+<span class='fu'>parse_drug_element</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
 #&gt; [1] "Parsed Groups_Drug, 2/75"
 #&gt; [1] "Parsed Articles_Drug, 3/75"
 #&gt; [1] "Parsed Books_Drug, 4/75"
@@ -1146,7 +1164,8 @@ this method</p>
 #&gt; [1] "Parsed International_Brands_Drug, 73/75"
 #&gt; [1] "Parsed Salts_Drug, 74/75"
 #&gt; [1] "Parsed Calculated_Properties_Drug, 75/75"</div><div class='output co'>#&gt; $Drugs
-#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
 #&gt; $Groups_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
@@ -1370,7 +1389,10 @@ this method</p>
 #&gt; $Culculated_Properties_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; </div><div class='input'><span class='fu'>parse_drug_element</span>(<span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"drug_ahfs_codes"</span>, <span class='st'>"drug_carriers"</span>), <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE): Invalid options</span>
-#&gt; <span class='error'>please use parse_drug_element_options() to know valid options</span></div><div class='input'><span class='fu'>parse_drug_element</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
+#&gt; <span class='error'>please use parse_drug_element_options() to know valid options</span></div><div class='input'><span class='fu'>parse_drug_element</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+#&gt; <span class='message'>cols(</span>
+#&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; [1] "Parsed Drugs main attributes, 1/75"
 #&gt; [1] "Parsed Groups_Drug, 2/75"
 #&gt; [1] "Parsed Articles_Drug, 3/75"
 #&gt; [1] "Parsed Books_Drug, 4/75"
@@ -1445,7 +1467,8 @@ this method</p>
 #&gt; [1] "Parsed International_Brands_Drug, 73/75"
 #&gt; [1] "Parsed Salts_Drug, 74/75"
 #&gt; [1] "Parsed Calculated_Properties_Drug, 75/75"</div><div class='output co'>#&gt; $Drugs
-#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
+#&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
+#&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
 #&gt; $Groups_Drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
