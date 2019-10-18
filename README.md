@@ -3,7 +3,14 @@
 
 # dbparser
 
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable
+state and is being actively
+developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![Build
 Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://travis-ci.org/Dainanahan/dbparser)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
@@ -40,7 +47,8 @@ This is a basic example which shows you how to solve a common problem:
 ``` r
 ## parse data from XML and save it to memory
 dbparser::get_xml_db_rows(
-              system.file("extdata", "drugbank_record.xml", package = "dbparser")
+  "D:/DS Projects/Drug_Interaction/drugbank.xml"
+              #system.file("extdata", "drugbank_record.xml", package = "dbparser")
             )
 #> [1] TRUE
 
