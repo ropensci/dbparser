@@ -9,3 +9,4 @@
 ^\.github$
 ^docs$
 ^codemeta\.json$
+^appveyor\.yml$
