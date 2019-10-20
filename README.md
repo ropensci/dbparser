@@ -12,6 +12,7 @@ stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://
 [![Build
 Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://travis-ci.org/Dainanahan/dbparser)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
+[![codecov](https://codecov.io/gh/Dainanahan/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/Dainanahan/dbparser)
 [![DOWNLOADSTOTAL](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)
 [![Rdoc](http://www.rdocumentation.org/badges/version/dbparser)](http://www.rdocumentation.org/packages/dbparser)
 
