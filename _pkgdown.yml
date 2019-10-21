@@ -1,0 +1,115 @@
+navbar:
+  structure:
+    left:
+    - home
+    - intro
+    - reference
+    - articles
+    - tutorials
+    - news
+    right: github
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+    reference:
+      text: Reference
+      href: reference/index.html
+    intro:
+      text: Get started
+      href: articles/dbparser.html
+    news:
+      text: Changelog
+      href: news/index.html
+
+reference:
+- title: All functions
+  desc: ~
+  contents:
+  - '`close_db`'
+  - '`dbparser`'
+  - '`get_drugbank_exported_date`'
+  - '`get_drugbank_metadata`'
+  - '`get_drugbank_version`'
+  - '`get_xml_db_rows`'
+  - '`open_db`'
+  - '`open_mdb`'
+  - '`parse_drug`'
+  - '`parse_drug_affected_organisms`'
+  - '`parse_drug_ahfs_codes`'
+  - '`parse_drug_all`'
+  - '`parse_drug_articles`'
+  - '`parse_drug_atc_codes`'
+  - '`parse_drug_books`'
+  - '`parse_drug_calculated_properties`'
+  - '`parse_drug_carriers`'
+  - '`parse_drug_carriers_actions`'
+  - '`parse_drug_carriers_articles`'
+  - '`parse_drug_carriers_links`'
+  - '`parse_drug_carriers_polypeptides`'
+  - '`parse_drug_carriers_polypeptides_external_identifiers`'
+  - '`parse_drug_carriers_polypeptides_go_classifiers`'
+  - '`parse_drug_carriers_polypeptides_pfams`'
+  - '`parse_drug_carriers_polypeptides_synonyms`'
+  - '`parse_drug_carriers_textbooks`'
+  - '`parse_drug_categories`'
+  - '`parse_drug_classification`'
+  - '`parse_drug_dosages`'
+  - '`parse_drug_element`'
+  - '`parse_drug_element_options`'
+  - '`parse_drug_enzymes`'
+  - '`parse_drug_enzymes_actions`'
+  - '`parse_drug_enzymes_articles`'
+  - '`parse_drug_enzymes_links`'
+  - '`parse_drug_enzymes_polypeptides`'
+  - '`parse_drug_enzymes_polypeptides_external_identifiers`'
+  - '`parse_drug_enzymes_polypeptides_go_classifiers`'
+  - '`parse_drug_enzymes_polypeptides_pfams`'
+  - '`parse_drug_enzymes_polypeptides_synonyms`'
+  - '`parse_drug_enzymes_textbooks`'
+  - '`parse_drug_experimental_properties`'
+  - '`parse_drug_external_identifiers`'
+  - '`parse_drug_external_links`'
+  - '`parse_drug_food_interactions`'
+  - '`parse_drug_groups`'
+  - '`parse_drug_interactions`'
+  - '`parse_drug_international_brands`'
+  - '`parse_drug_links`'
+  - '`parse_drug_manufacturers`'
+  - '`parse_drug_mixtures`'
+  - '`parse_drug_packagers`'
+  - '`parse_drug_patents`'
+  - '`parse_drug_pathway`'
+  - '`parse_drug_pathway_drugs`'
+  - '`parse_drug_pathway_enzyme`'
+  - '`parse_drug_pdb_entries`'
+  - '`parse_drug_prices`'
+  - '`parse_drug_products`'
+  - '`parse_drug_reactions`'
+  - '`parse_drug_reactions_enzymes`'
+  - '`parse_drug_salts`'
+  - '`parse_drug_sequences`'
+  - '`parse_drug_snp_adverse_drug_reactions`'
+  - '`parse_drug_snp_effects`'
+  - '`parse_drug_synonyms`'
+  - '`parse_drug_targets`'
+  - '`parse_drug_targets_actions`'
+  - '`parse_drug_targets_articles`'
+  - '`parse_drug_targets_links`'
+  - '`parse_drug_targets_polypeptides`'
+  - '`parse_drug_targets_polypeptides_external_identifiers`'
+  - '`parse_drug_targets_polypeptides_go_classifiers`'
+  - '`parse_drug_targets_polypeptides_pfams`'
+  - '`parse_drug_targets_polypeptides_synonyms`'
+  - '`parse_drug_targets_textbooks`'
+  - '`parse_drug_transporters`'
+  - '`parse_drug_transporters_actions`'
+  - '`parse_drug_transporters_articles`'
+  - '`parse_drug_transporters_links`'
+  - '`parse_drug_transporters_polypeptides`'
+  - '`parse_drug_transporters_polypeptides_external_identifiers`'
+  - '`parse_drug_transporters_polypeptides_go_classifiers`'
+  - '`parse_drug_transporters_polypeptides_pfams`'
+  - '`parse_drug_transporters_polypeptides_synonyms`'
+  - '`parse_drug_transporters_textbooks`'
+
