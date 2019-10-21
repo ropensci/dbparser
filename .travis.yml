@@ -6,6 +6,8 @@ cache: packages
 
 r_packages:
   - covr
+  - goodpractice
 
 after_success:
   - Rscript -e 'library(covr); codecov()'
+  - Rscript -e 'Sys.setenv(NOT_CRAN = "true"); goodpractice::gp()'
