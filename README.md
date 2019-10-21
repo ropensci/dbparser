@@ -16,6 +16,7 @@ Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://tr
 [![codecov](https://codecov.io/gh/Dainanahan/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/Dainanahan/dbparser)
 [![DOWNLOADSTOTAL](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)
 [![Rdoc](http://www.rdocumentation.org/badges/version/dbparser)](http://www.rdocumentation.org/packages/dbparser)
+[![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 
 The main purpose of the `dbparser` package is to parse the
 [DrugBank](http://drugbank.ca/) database which is downloadable in XML
