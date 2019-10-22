@@ -135,3 +135,9 @@ reference:
     - '`parse_drug_all`'
     - '`parse_drug_element`'
     - '`parse_drug_element_options`'
+
+authors:
+  Mohammed Ali:
+    href: "http://mohammedfcis.github.io"
+  Ali Ezzat:
+    href: "https://www.linkedin.com/in/aliezzat1985/"
