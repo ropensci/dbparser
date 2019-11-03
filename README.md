@@ -167,3 +167,35 @@ p
 Please note that the ‘dbparser’ project is released with a [Contributor
 Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
 you agree to abide by its terms.
+
+## Contributing Guide
+
+👍🎉 First off, thanks for taking the time to contribute\! 🎉👍 Please
+review our [Contributing Guide](CONTRIBUTING.md).
+
+## Share the love ❤️
+
+Think **dbparser** is useful? Let others discover it, by telling them in
+person, via Twitter or a blog post.
+
+Using **dbparser** for a paper you are writing? Consider citing it
+
+``` r
+citation("dbparser")
+#> 
+#> To cite dbparser in publications use:
+#> 
+#>   Mohammed Ali, Ali Ezzat (2018). dbparser: DrugBank Database XML
+#>   Parser. R package version 1.0.5.9000.
+#> 
+#> A BibTeX entry for LaTeX users is
+#> 
+#>   @Manual{,
+#>     title = {DrugBank Database XML Parser},
+#>     author = {Mohammed Ali and Ali Ezzat},
+#>     organization = {Dainanahan},
+#>     year = {2018},
+#>     note = {R package version 1.0.5.9000},
+#>     url = {https://CRAN.R-project.org/package=drugverse},
+#>   }
+```

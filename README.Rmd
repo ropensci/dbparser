@@ -163,3 +163,16 @@ p
 Please note that the 'dbparser' project is released with a
   [Contributor Code of Conduct](CODE_OF_CONDUCT.md).
   By contributing to this project, you agree to abide by its terms.
+  
+## Contributing Guide
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍
+Please review our [Contributing Guide](CONTRIBUTING.md).
+
+## Share the love ❤️
+
+Think **dbparser** is useful? Let others discover it, by telling them in person, via Twitter or a blog post.
+
+Using **dbparser** for a paper you are writing? Consider citing it
+```{r}
+citation("dbparser")
+```

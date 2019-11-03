@@ -1,6 +1,7 @@
 Package: dbparser
 Title: 'DrugBank' Database XML Parser
 Version: 1.0.5.9000
+Date: 2018
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
