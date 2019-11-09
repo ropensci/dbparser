@@ -10,7 +10,8 @@ get_drugbank_exported_date()
 drugbank exported date
 }
 \description{
-\code{get_drugbank_exported_date} returns uploaded drugbank database exported date.
+\code{get_drugbank_exported_date} returns uploaded drugbank database
+exported date.
 }
 \examples{
 \donttest{

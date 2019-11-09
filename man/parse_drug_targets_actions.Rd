@@ -12,9 +12,11 @@ parse_drug_targets_actions(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug targets actions node attributes date frame
@@ -24,7 +26,7 @@ drug targets actions node attributes date frame
 actions elements.
 }
 \details{
-This functions extracts the targets actions element of drug node in drug bank
+This functions extracts the targets actions element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.

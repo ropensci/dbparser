@@ -59,23 +59,23 @@ test_that(desc =
           code = {
             expect_match(
               as.character(
-                parse_drug_targets_polypeptides_external_identifiers()
+                parse_targ_poly_ext_identity()
                 [["identifier"]][1]
               ),
               "HGNC:3535"
             )
             expect_error(
-              parse_drug_targets_polypeptides_external_identifiers(TRUE))
+              parse_targ_poly_ext_identity(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides synonyms attributes",
           code = {
             expect_match(
-              as.character(parse_drug_targets_polypeptides_synonyms()
+              as.character(parse_targ_poly_syn()
                            [["synonyms"]][1]),
               "3.4.21.5,Coagulation factor II"
             )
-            expect_error(parse_drug_targets_polypeptides_synonyms(TRUE))
+            expect_error(parse_targ_poly_syn(TRUE))
           })
 
 test_that(desc = "Read darug targets polypeptides pfams attributes",
@@ -89,11 +89,11 @@ test_that(desc = "Read darug targets polypeptides pfams attributes",
 test_that(desc = "Read darug targets polypeptides go classifiers attributes",
           code = {
             expect_match(
-              as.character(parse_drug_targets_polypeptides_go_classifiers()
+              as.character(parse_targ_poly_go()
                            [["description"]][1]),
               "blood microparticle"
             )
-            expect_error(parse_drug_targets_polypeptides_go_classifiers(TRUE))
+            expect_error(parse_targ_poly_go(TRUE))
           })
 
 test_that(desc = "Read darug targets attributes",

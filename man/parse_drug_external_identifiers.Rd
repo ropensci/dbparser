@@ -12,9 +12,11 @@ parse_drug_external_identifiers(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug external identifiers node attributes tibble
@@ -24,7 +26,8 @@ drug external identifiers node attributes tibble
 identifiers groups elements.
 }
 \details{
-This functions extracts the external identifiers element of drug node in drugbank
+This functions extracts the external identifiers element of drug node in
+drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned tibble in the database.
@@ -59,6 +62,7 @@ parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist in current location and
 # return parsed dataframe.
 # If the csv exist override it and return it.
-parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE,
+override = TRUE)
 }
 }

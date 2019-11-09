@@ -10,7 +10,8 @@ get_drugbank_metadata()
 drugbank metadata
 }
 \description{
-\code{get_drugbank_metadata} returns uploaded drugbank database version and exported date.
+\code{get_drugbank_metadata} returns uploaded drugbank database version and
+exported date.
 }
 \examples{
 \donttest{

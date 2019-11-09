@@ -572,7 +572,7 @@ parse_carr_poly_ext_identity  <-
 #' Extracts the drug carriers polypeptides synonyms element and return data as
 #' data frame.
 #'
-#' \code{parse_drug_carriers_polypeptides_synonyms} returns
+#' \code{parse_carr_polypeptides_syn} returns
 #'  data frame of drug carriers polypeptides synonyms elements.
 #'
 #' This functions extracts the carriers polypeptides synonyms
@@ -596,35 +596,35 @@ parse_carr_poly_ext_identity  <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_polypeptides_synonyms()
+#' parse_carr_polypeptides_syn()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_polypeptides_synonyms(save_table = TRUE)
+#' parse_carr_polypeptides_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_synonyms(save_csv = TRUE)
+#' parse_carr_polypeptides_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_synonyms(ssave_table = TRUE,
+#' parse_carr_polypeptides_syn(ssave_table = TRUE,
 #'  save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE)
+#' parse_carr_polypeptides_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE,
+#' parse_carr_polypeptides_syn(save_csv = TRUE, csv_path = TRUE,
 #'  override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_polypeptides_synonyms <-
+parse_carr_polypeptides_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -656,7 +656,7 @@ parse_drug_carriers_polypeptides_synonyms <-
 #' Extracts the drug carriers polypeptides pfams element and return data as
 #' data frame.
 #'
-#' \code{parse_drug_carriers_polypeptides_pfams} returns data frame
+#' \code{parse_carr_polypeptides_pfams} returns data frame
 #'  of drug carriers polypeptides pfams elements.
 #'
 #' This functions extracts the carriers polypeptides pfams element of
@@ -680,34 +680,34 @@ parse_drug_carriers_polypeptides_synonyms <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_polypeptides_pfams()
+#' parse_carr_polypeptides_pfams()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_polypeptides_pfams(save_table = TRUE)
+#' parse_carr_polypeptides_pfams(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_pfams(save_csv = TRUE)
+#' parse_carr_polypeptides_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' parse_carr_polypeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
+#' parse_carr_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE,
+#' parse_carr_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE,
 #'  override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_polypeptides_pfams <-
+parse_carr_polypeptides_pfams <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -740,7 +740,7 @@ parse_drug_carriers_polypeptides_pfams <-
 #' Extracts the drug carriers polypeptides go classifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_carriers_polypeptides_go_classifiers} returns
+#' \code{parse_carr_polypeptides_go} returns
 #' data frame of drug carriers polypeptides go classifiers elements.
 #'
 #' This functions extracts the carriers polypeptides go
@@ -764,37 +764,37 @@ parse_drug_carriers_polypeptides_pfams <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_polypeptides_go_classifiers()
+#' parse_carr_polypeptides_go()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_polypeptides_go_classifiers(save_table = TRUE)
+#' parse_carr_polypeptides_go(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_go_classifiers(save_csv = TRUE)
+#' parse_carr_polypeptides_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_go_classifiers(ssave_table = TRUE,
+#' parse_carr_polypeptides_go(ssave_table = TRUE,
 #' save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_go_classifiers(save_csv = TRUE,
+#' parse_carr_polypeptides_go(save_csv = TRUE,
 #' csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_polypeptides_go_classifiers(save_csv = TRUE,
+#' parse_carr_polypeptides_go(save_csv = TRUE,
 #' csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_polypeptides_go_classifiers <-
+parse_carr_polypeptides_go <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",

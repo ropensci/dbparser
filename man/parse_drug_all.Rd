@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_all_nodes_parser.R
 \name{parse_drug_all}
 \alias{parse_drug_all}
-\title{Extracts the all drug elements and return data as list of dataframes.}
+\title{extracts the all drug elements and return data as list of dataframes.}
 \usage{
 parse_drug_all(save_table = FALSE, save_csv = FALSE, csv_path = ".",
   override_csv = FALSE)
@@ -12,21 +12,23 @@ parse_drug_all(save_table = FALSE, save_csv = FALSE, csv_path = ".",
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 all drug elements dataframes
 }
 \description{
-This functions extracts all element of drug nodes in drug bank
+this functions extracts all element of drug nodes in drug bank
 xml database with the option to save it in a predefined database via
-\code{\link{open_db}} method. It takes one single optional argument to
+\code{\link{open_db}} method. it takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after \code{\link{get_xml_db_rows}} function like
+it must be called after \code{\link{get_xml_db_rows}} function like
 any other parser function.
-If \code{\link{get_xml_db_rows}} is called before for any reason, so
+if \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this function.
 }
 \examples{
@@ -35,25 +37,26 @@ no need to call it again before calling this function.
 parse_drug_all()
 
 # save in database and return parsed dataframe
-parse_drug_all(save_table = TRUE)
+parse_drug_all(save_table = trUe)
 
 # save parsed dataframe as csv if it does not exist in current location,
 # and return parsed dataframe.
-# If the csv exist before read it and return its data.
-parse_drug_all(save_csv = TRUE)
+# if the csv exist before read it and return its data.
+parse_drug_all(save_csv = trUe)
 
 # save in database, save parsed dataframe as csv,
 # if it does not exist in current location and return parsed dataframe.
-# If the csv exist before read it and return its data.
-parse_drug_all(ssave_table = TRUE, save_csv = TRUE)
+# if the csv exist before read it and return its data.
+parse_drug_all(ssave_table = trUe, save_csv = trUe)
 
 # save parsed dataframe as csv if it does not exist in given location,
 # and return parsed dataframe.
-# If the csv exist before read it and return its data.
-parse_drug_all(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+parse_drug_all(save_csv = trUe, csv_path = trUe)
 
-# save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.
-# If the csv exist override it and return it.
-parse_drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+# save parsed dataframe as csv if it does not exist in current location and
+return parsed dataframe.
+# if the csv exist override it and return it.
+parse_drug_all(save_csv = trUe, csv_path = trUe, override = trUe)
 }
 }

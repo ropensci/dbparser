@@ -56,7 +56,7 @@ get_targets_polypeptide_go_classifiers_df <- function(rec) {
 #' Extracts the drug targets polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_targets_polypeptides_external_identifiers}
+#' \code{parse_targ_poly_ext_identity}
 #'  returns data frame of drug targets polypeptides external identifiers
 #'  elements.
 #'
@@ -82,37 +82,37 @@ get_targets_polypeptide_go_classifiers_df <- function(rec) {
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_targets_polypeptides_external_identifiers()
+#' parse_targ_poly_ext_identity()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targets_polypeptides_external_identifiers(save_table = TRUE)
+#' parse_targ_poly_ext_identity(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_external_identifiers(save_csv = TRUE)
+#' parse_targ_poly_ext_identity(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_external_identifiers(ssave_table = TRUE,
+#' parse_targ_poly_ext_identity(ssave_table = TRUE,
 #' save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_external_identifiers(save_csv = TRUE,
+#' parse_targ_poly_ext_identity(save_csv = TRUE,
 #'  csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targets_polypeptides_external_identifiers(
+#' parse_targ_poly_ext_identity(
 #' save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_targets_polypeptides_external_identifiers <-
+parse_targ_poly_ext_identity <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -145,7 +145,7 @@ parse_drug_targets_polypeptides_external_identifiers <-
 #' Extracts the drug targets polypeptides synonyms element
 #' and return data as data frame.
 #'
-#' \code{parse_drug_targets_polypeptides_synonyms} returns data
+#' \code{parse_targ_poly_syn} returns data
 #'  frame of drug targets polypeptides synonyms elements.
 #'
 #' This functions extracts the targets polypeptides synonyms element of
@@ -169,34 +169,34 @@ parse_drug_targets_polypeptides_external_identifiers <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_targets_polypeptides_synonyms()
+#' parse_targ_poly_syn()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targets_polypeptides_synonyms(save_table = TRUE)
+#' parse_targ_poly_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_synonyms(save_csv = TRUE)
+#' parse_targ_poly_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_synonyms(ssave_table = TRUE, save_csv = TRUE)
+#' parse_targ_poly_syn(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE)
+#' parse_targ_poly_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targets_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE,
+#' parse_targ_poly_syn(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_targets_polypeptides_synonyms <-
+parse_targ_poly_syn <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -311,7 +311,7 @@ parse_drug_targets_polypeptides_pfams <-
 #' Extracts the drug targets polypeptides go classifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_targets_polypeptides_go_classifiers}
+#' \code{parse_targ_poly_go}
 #'  returns data frame of drug targets polypeptides go classifiers elements.
 #'
 #' This functions extracts the targets polypeptides go classifiers
@@ -335,36 +335,36 @@ parse_drug_targets_polypeptides_pfams <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_targets_polypeptides_go_classifiers()
+#' parse_targ_poly_go()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targets_polypeptides_go_classifiers(save_table = TRUE)
+#' parse_targ_poly_go(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_go_classifiers(save_csv = TRUE)
+#' parse_targ_poly_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_go_classifiers(ssave_table = TRUE,
+#' parse_targ_poly_go(ssave_table = TRUE,
 #'  save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targets_polypeptides_go_classifiers(save_csv = TRUE,
+#' parse_targ_poly_go(save_csv = TRUE,
 #' csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targets_polypeptides_go_classifiers(save_csv = TRUE,
+#' parse_targ_poly_go(save_csv = TRUE,
 #' csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_targets_polypeptides_go_classifiers <-
+parse_targ_poly_go <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-

@@ -13,9 +13,11 @@ parse_drug_enzymes_polypeptides_pfams(save_table = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug groups node attributes date frame
@@ -61,6 +63,7 @@ parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist in
 # current location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE,
+override = TRUE)
 }
 }

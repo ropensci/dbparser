@@ -2,7 +2,8 @@
 % Please edit documentation in R/drug_transporter_node_parser.R
 \name{parse_drug_transporters_textbooks}
 \alias{parse_drug_transporters_textbooks}
-\title{Extracts the drug transporters textbooks element and return data as data frame.}
+\title{Extracts the drug transporters textbooks element and return data as
+ data frame.}
 \usage{
 parse_drug_transporters_textbooks(save_table = FALSE, save_csv = FALSE,
   csv_path = ".", override_csv = FALSE)
@@ -12,19 +13,23 @@ parse_drug_transporters_textbooks(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug transporters textbooks node attributes date frame
 }
 \description{
-\code{parse_drug_transporters_textbooks} returns data frame of drug transporters
+\code{parse_drug_transporters_textbooks} returns data frame of drug
+transporters
  textbooks elements.
 }
 \details{
-This functions extracts the transporters textbooks element of drug node in drug bank
+This functions extracts the transporters textbooks element of drug node in
+drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -59,6 +64,7 @@ parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist in current
 # location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE,
+override = TRUE)
 }
 }

@@ -12,15 +12,18 @@ parse_drug_external_links(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug external links node attributes tibble
 }
 \description{
-\code{parse_drug_external_links} returns tibble of drug external links elements.
+\code{parse_drug_external_links} returns tibble of drug external links
+elements.
 }
 \details{
 This functions extracts the external links element of drug node in drugbank

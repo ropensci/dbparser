@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_all_nodes_parser.R
 \name{parse_drug_element_options}
 \alias{parse_drug_element_options}
-\title{Returns \code{parse_drug_element} valid options.}
+\title{returns \code{parse_drug_element} valid options.}
 \usage{
 parse_drug_element_options()
 }
@@ -10,7 +10,7 @@ parse_drug_element_options()
 list of \code{parse_drug_element} valid options
 }
 \description{
-Returns \code{parse_drug_element} valid options.
+returns \code{parse_drug_element} valid options.
 }
 \examples{
 \donttest{

@@ -12,18 +12,21 @@ parse_drug_pathway_enzyme(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in
+the new parse operation}
 }
 \value{
 drug pathway enzyme node attributes date frame
 }
 \description{
-\code{parse_drug_pathway_enzyme} returns data frame of drug pathway enzyme elements.
+\code{parse_drug_pathway_enzyme} returns data frame of drug pathway enzyme
+ elements.
 }
 \details{
-This functions extracts the pathway enzyme element of drug node in drug bank
+This functions extracts the pathway enzyme element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.

@@ -14,9 +14,11 @@
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 }
 \value{
 drug transporters polypeptides external identifiers
@@ -54,12 +56,14 @@ parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE)
 # save in database, save parsed dataframe as csv if it does not exist
 # in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_drug_transporters_polypeptides_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
+parse_drug_transporters_polypeptides_external_identifiers(
+save_table = TRUE, save_csv = TRUE)
 
 # save parsed dataframe as csv if it does not exist in given location
 # and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE, csv_path = TRUE)
+parse_drug_transporters_polypeptides_external_identifiers(
+save_csv = TRUE, csv_path = TRUE)
 
 # save parsed dataframe as csv if it does not exist in current
 # location and return parsed dataframe.

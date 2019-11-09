@@ -61,24 +61,24 @@ test_that(
 
 test_that(desc = "Read darug transporters polypeptides synonyms attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides_synonyms()),
+            expect_equal(nrow(parse_trans_poly_syn()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides_synonyms(TRUE))
+            expect_error(parse_trans_poly_syn(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides pfams attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides_pfams()),
+            expect_equal(nrow(parse_trans_poly_pfams()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides_pfams(TRUE))
+            expect_error(parse_trans_poly_pfams(TRUE))
           })
 
 test_that(
   desc = "Read darug transporters polypeptides go classifiers attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_transporters_polypeptides_go_classifiers()), 0)
-    expect_error(parse_drug_transporters_polypeptides_go_classifiers(TRUE))})
+      nrow(parse_trans_poly_go()), 0)
+    expect_error(parse_trans_poly_go(TRUE))})
 
 test_that(desc = "Read darug transporters attributes",
           code = {

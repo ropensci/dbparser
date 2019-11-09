@@ -12,15 +12,18 @@ parse_drug_classification(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in
+the new parse operation}
 }
 \value{
 drug classifications node attributes date frame
 }
 \description{
-\code{parse_drug_classification} returns data frame of drug classifications elements.
+\code{parse_drug_classification} returns data frame of drug classifications
+ elements.
 }
 \details{
 This functions extracts the classifications element of drug node in drug bank

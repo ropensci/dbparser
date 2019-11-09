@@ -12,15 +12,18 @@ parse_drug_targets_links(save_table = FALSE, save_csv = FALSE,
 
 \item{save_csv}{boolean, save csv version of parsed dataframe if true}
 
-\item{csv_path}{location to save csv files into it, default is current location, save_csv must be true}
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in
+the new parse operation}
 }
 \value{
 drug targets_links node attributes date frame
 }
 \description{
-\code{parse_drug_targets_links} returns data frame of drug targets links elements.
+\code{parse_drug_targets_links} returns data frame of drug targets links
+ elements.
 }
 \details{
 This functions extracts the targets links element of drug node in drug bank
