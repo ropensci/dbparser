@@ -7,7 +7,7 @@ library(tibble)
 library(purrr)
 
 classlist <- function(x) {
-  sapply(x, class)
+  map_df(x, class)
 }
 
 test_that(desc = "Read database",
@@ -20,7 +20,7 @@ drugs_types <- classlist(drugs)
 test_that(desc = "Read all drug nodes",
           code = {
             expect_equal(length(drugs), 75)
-            expect_equal(length(drugs_types[1,] == "tbl_df"), 75)
+            expect_equal(dim(drugs_types), c(3, 75))
             expect_error(parse_drug_all(TRUE))
           })
 
