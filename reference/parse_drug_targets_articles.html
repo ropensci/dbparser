@@ -133,11 +133,13 @@ articles elements.</p>
     </tr>
     <tr>
       <th>csv_path</th>
-      <td><p>location to save csv files into it, default is current location, save_csv must be true</p></td>
+      <td><p>location to save csv files into it, default is current
+location, save_csv must be true</p></td>
     </tr>
     <tr>
       <th>override_csv</th>
-      <td><p>override existing csv, if any, in case it is true in the new parse operation</p></td>
+      <td><p>override existing csv, if any, in case it is true in the
+new parse operation</p></td>
     </tr>
     </table>
 
@@ -146,7 +148,7 @@ articles elements.</p>
     <p>drug targets articles node attributes date frame</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the targets articles element of drug node in drug bank
+    <p>This functions extracts the targets articles element of drug node in drugbank
 xml database with the option to save it in a predefined database via
 <code>open_db</code> method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -176,7 +178,8 @@ no need to call it again before calling this function.</p>
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_targets_articles</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_targets_articles.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
+<span class='fu'>parse_drug_targets_articles</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+<span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_targets_articles.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
 </div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
