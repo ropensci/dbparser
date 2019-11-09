@@ -77,14 +77,14 @@ parse_drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE,
   if (!override_csv & file.exists(path)) {
     drug_atc_codes <- readr::read_csv(path)
   } else {
-    drug_atc_codes <- map_df(pkg.env$children, ~
+    drug_atc_codes <- map_df(pkg_env$children, ~
                                get_atc_codes_df(.x)) %>% unique()
     write_csv(drug_atc_codes, save_csv, csv_path)
   }
 
 
   if (save_table) {
-    save_drug_sub(con = pkg.env$con,
+    save_drug_sub(con = pkg_env$con,
                   df = drug_atc_codes,
                   table_name = "drug_atc_codes")
   }

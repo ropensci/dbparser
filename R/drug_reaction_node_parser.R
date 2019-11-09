@@ -81,7 +81,7 @@ parse_drug_reactions <-
       drug_reactions <- readr::read_csv(path)
     } else {
       drug_reactions <-
-        map_df(pkg.env$children, ~ get_reactions_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_reactions_df(.x)) %>%
         unique()
 
       write_csv(drug_reactions, save_csv, csv_path)
@@ -89,7 +89,7 @@ parse_drug_reactions <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_reactions,
         table_name = "drug_reactions",
         foreign_key = "parent_key"
@@ -162,7 +162,7 @@ parse_drug_reactions_enzymes <-
       drug_reactions_enzymes <- readr::read_csv(path)
     } else {
       drug_reactions_enzymes <-
-        map_df(pkg.env$children, ~ get_reactions_enzymes_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_reactions_enzymes_df(.x)) %>%
         unique()
 
       write_csv(drug_reactions_enzymes, save_csv, csv_path)
@@ -172,7 +172,7 @@ parse_drug_reactions_enzymes <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_reactions_enzymes,
         table_name = "drug_reactions_enzymes",
         save_table_only = TRUE

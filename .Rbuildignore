@@ -10,4 +10,4 @@
 ^docs$
 ^codemeta\.json$
 ^appveyor\.yml$
-^pkgdown\.yml$
+^_pkgdown\.yml$

@@ -122,7 +122,7 @@ parse_drug_transporters_actions <-
       drug_transporters_actions <- readr::read_csv(path)
     } else {
       drug_transporters_actions <-
-        map_df(pkg.env$children, ~ get_transporters_actions_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_actions_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters_actions, save_csv, csv_path)
@@ -135,7 +135,7 @@ parse_drug_transporters_actions <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_actions,
         table_name = "drug_transporters_actions",
         save_table_only = TRUE
@@ -210,7 +210,7 @@ parse_drug_transporters_articles <-
       drug_transporters_articles <- readr::read_csv(path)
     } else {
       drug_transporters_articles <-
-        map_df(pkg.env$children, ~ get_transporters_articles_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_articles_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters_articles, save_csv, csv_path)
@@ -218,7 +218,7 @@ parse_drug_transporters_articles <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_articles,
         table_name = "drug_transporters_articles",
         save_table_only = TRUE
@@ -294,7 +294,7 @@ parse_drug_transporters_textbooks <-
       drug_transporters_textbooks <- readr::read_csv(path)
     } else {
       drug_transporters_textbooks <-
-        map_df(pkg.env$children, ~ get_transporters_textbooks_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_textbooks_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters_textbooks, save_csv, csv_path)
@@ -302,7 +302,7 @@ parse_drug_transporters_textbooks <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_textbooks,
         table_name = "drug_transporters_textbooks",
         save_table_only = TRUE
@@ -376,7 +376,7 @@ parse_drug_transporters_links <-
       drug_transporters_links <- readr::read_csv(path)
     } else {
       drug_transporters_links <-
-        map_df(pkg.env$children, ~ get_transporters_links_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_links_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters_links, save_csv, csv_path)
@@ -384,7 +384,7 @@ parse_drug_transporters_links <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_links,
         table_name = "drug_transporters_links",
         save_table_only = TRUE
@@ -459,7 +459,7 @@ parse_drug_transporters_polypeptides <-
       drug_transporters_polypeptides <- readr::read_csv(path)
     } else {
       drug_transporters_polypeptides <-
-        map_df(pkg.env$children, ~ get_transporters_polypeptide_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_polypeptide_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters_polypeptides, save_csv, csv_path)
@@ -467,11 +467,11 @@ parse_drug_transporters_polypeptides <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_polypeptides,
         table_name = "drug_transporters_polypeptides",
         save_table_only = TRUE,
-        field.types = list(
+        field_types = list(
           general_function =
             paste("varchar(",
                   max(
@@ -570,7 +570,7 @@ parse_drug_transporters_polypeptides_external_identifiers <-
         readr::read_csv(path)
     } else {
       drug_transporters_polypeptide_external_identifiers <-
-        map_df(pkg.env$children,
+        map_df(pkg_env$children,
                ~ get_transporters_polypeptide_external_identifiers_df(.x)) %>%
         unique()
 
@@ -581,7 +581,7 @@ parse_drug_transporters_polypeptides_external_identifiers <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_polypeptide_external_identifiers,
         table_name = "drug_transporters_polypeptides_external_identifiers",
         save_table_only = TRUE
@@ -658,7 +658,7 @@ parse_drug_transporters_polypeptides_synonyms <-
       drug_transporter_polypeptide_synonyms <- readr::read_csv(path)
     } else {
       drug_transporter_polypeptide_synonyms <-
-        map_df(pkg.env$children,
+        map_df(pkg_env$children,
                ~ get_transporters_polypeptide_synonyms_df(.x)) %>%
         unique()
 
@@ -669,7 +669,7 @@ parse_drug_transporters_polypeptides_synonyms <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporter_polypeptide_synonyms,
         table_name = "drug_transporters_polypeptides_synonyms",
         save_table_only = TRUE
@@ -745,7 +745,7 @@ parse_drug_transporters_polypeptides_pfams <-
       drug_transporters_polypeptides_pfams <- readr::read_csv(path)
     } else {
       drug_transporters_polypeptides_pfams <-
-        map_df(pkg.env$children,
+        map_df(pkg_env$children,
                ~ get_transporters_polypeptide_pfams_df(.x)) %>%
         unique()
 
@@ -755,7 +755,7 @@ parse_drug_transporters_polypeptides_pfams <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_polypeptides_pfams,
         table_name = "drug_transporters_polypeptides_pfams",
         save_table_only = TRUE
@@ -836,7 +836,7 @@ parse_drug_transporters_polypeptides_go_classifiers <-
         readr::read_csv(path)
     } else {
       drug_transporters_polypeptides_go_classifiers <-
-        map_df(pkg.env$children,
+        map_df(pkg_env$children,
                ~ get_transporters_polypeptide_go_classifiers_df(.x)) %>%
         unique()
 
@@ -848,7 +848,7 @@ parse_drug_transporters_polypeptides_go_classifiers <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters_polypeptides_go_classifiers,
         table_name = "drug_transporters_polypeptides_go_classifiers",
         save_table_only = TRUE
@@ -922,7 +922,7 @@ parse_drug_transporters <-
       drug_transporters <- readr::read_csv(path)
     } else {
       drug_transporters <-
-        map_df(pkg.env$children, ~ get_transporters_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_transporters_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters, save_csv, csv_path)
@@ -931,7 +931,7 @@ parse_drug_transporters <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_transporters,
         table_name = "drug_transporters",
         foreign_key = "parent_key"

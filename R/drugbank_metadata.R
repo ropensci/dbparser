@@ -10,7 +10,7 @@
 #' }
 #' @export
 get_drugbank_version <- function() {
-  return(pkg.env$version)
+  return(pkg_env$version)
 }
 
 #' Return uploaded drugbank database exported date
@@ -26,7 +26,7 @@ get_drugbank_version <- function() {
 #' }
 #' @export
 get_drugbank_exported_date <- function() {
-  return(pkg.env$exported_date)
+  return(pkg_env$exported_date)
 }
 
 
@@ -43,5 +43,5 @@ get_drugbank_exported_date <- function() {
 #' }
 #' @export
 get_drugbank_metadata <- function() {
-  return(list(pkg.env$version, pkg.env$exported_date))
+  return(list(pkg_env$version, pkg_env$exported_date))
 }

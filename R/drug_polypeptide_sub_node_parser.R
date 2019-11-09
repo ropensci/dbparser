@@ -73,8 +73,8 @@ get_polypeptide_pfams <- function(r) {
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
              xmlGetAttr(p, name = "id"))
     if (length(xmlChildren(p[["pfams"]])) > 0) {
-      firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
-      if (firstCell != "\n    ") {
+      first_cell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
+      if (first_cell != "\n    ") {
         polypeptide_pfams <-
           xmlToDataFrame(xmlChildren(p[["pfams"]]), stringsAsFactors = FALSE)
         polypeptide_pfams$polypeptide_id <- polypeptide_id
@@ -92,8 +92,8 @@ get_polypeptide_go_classifiers <- function(r) {
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
              xmlGetAttr(p, name = "id"))
     if (length(xmlChildren(p[["pfams"]])) > 0) {
-      firstCell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
-      if (firstCell != "\n    " &&
+      first_cell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
+      if (first_cell != "\n    " &&
           !is.null(p[["go-classifiers"]]) &&
           xmlValue(p[["go-classifiers"]]) != "\n    ") {
         polypeptide_go_classifiers <-

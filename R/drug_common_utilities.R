@@ -1,8 +1,8 @@
-pkg.env <- new.env(parent = emptyenv())
-pkg.env$children  <- NULL
-pkg.env$con <- NULL
-pkg.env$version <- NULL
-pkg.env$exported_date <- NULL
+pkg_env <- new.env(parent = emptyenv())
+pkg_env$children  <- NULL
+pkg_env$con <- NULL
+pkg_env$version <- NULL
+pkg_env$exported_date <- NULL
 
 get_dataset_full_path <- function(data, csv_path = ".") {
   return(ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),
@@ -94,9 +94,9 @@ get_xml_db_rows <- function(xml_db_name) {
   if (file.exists(xml_db_name)) {
     drugbank_db <- xmlParse(xml_db_name)
     top <- xmlRoot(drugbank_db)
-    pkg.env$version <- XML::xmlAttrs(top)[["version"]]
-    pkg.env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
-    pkg.env$children  <- xmlChildren(top)
+    pkg_env$version <- XML::xmlAttrs(top)[["version"]]
+    pkg_env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
+    pkg_env$children  <- xmlChildren(top)
     return(TRUE)
   } else {
     stop(
@@ -138,7 +138,7 @@ open_db <-
            output_database,
            trusted_connection = TRUE) {
     # db connection
-    pkg.env$con <- dbConnect(
+    pkg_env$con <- dbConnect(
       odbc(),
       Driver = driver,
       Server = server,
@@ -178,7 +178,7 @@ open_mdb <-
            host = "localhost",
            port = 3306) {
     # db connection
-    pkg.env$con <- RMariaDB::dbConnect(
+    pkg_env$con <- RMariaDB::dbConnect(
       drv = RMariaDB::MariaDB(),
       dbname = output_database,
       username = username,
@@ -202,6 +202,6 @@ open_mdb <-
 #' }
 #' @export
 close_db <- function() {
-  dbDisconnect(conn = pkg.env$con)
+  dbDisconnect(conn = pkg_env$con)
 }
 

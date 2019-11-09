@@ -89,7 +89,7 @@ parse_drug_pathway_enzyme <-
       drug_pathway_enzymes <- readr::read_csv(path)
     } else {
       drug_pathway_enzymes <-
-        map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_pathways_enzymes_df(.x)) %>%
         unique()
       write_csv(drug_pathway_enzymes, save_csv, csv_path)
     }
@@ -101,7 +101,7 @@ parse_drug_pathway_enzyme <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_pathway_enzymes,
         table_name = "drug_pathway_enzyme",
         save_table_only = TRUE
@@ -173,7 +173,7 @@ parse_drug_pathway_drugs <-
       drug_pathway_drugs <- readr::read_csv(path)
     } else {
       drug_pathway_drugs <-
-        map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_pathways_drugs_df(.x)) %>%
         unique()
 
       write_csv(drug_pathway_drugs, save_csv, csv_path)
@@ -181,7 +181,7 @@ parse_drug_pathway_drugs <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg.env$con,
+        con = pkg_env$con,
         df = drug_pathway_drugs,
         table_name = "drug_pathway_drugs",
         save_table_only = TRUE
@@ -251,14 +251,14 @@ parse_drug_pathway <-
       drug_pathway <- readr::read_csv(path)
     } else {
       drug_pathway <-
-        map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_pathways_df(.x)) %>%
         unique()
 
       write_csv(drug_pathway, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg.env$con,
+      save_drug_sub(con = pkg_env$con,
                     df = drug_pathway,
                     table_name = "drug_pathway")
     }

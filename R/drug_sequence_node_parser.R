@@ -75,7 +75,7 @@ parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
     drug_sequences <- readr::read_csv(path)
   } else {
     drug_sequences <-
-      map_df(pkg.env$children, ~ get_sequences_df(.x)) %>%
+      map_df(pkg_env$children, ~ get_sequences_df(.x)) %>%
       unique()
 
     write_csv(drug_sequences, save_csv, csv_path)
@@ -83,7 +83,7 @@ parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
 
 
   if (save_table) {
-    save_drug_sub(con = pkg.env$con,
+    save_drug_sub(con = pkg_env$con,
                   df = drug_sequences,
                   table_name = "drug_sequences")
   }

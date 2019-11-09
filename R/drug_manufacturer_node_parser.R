@@ -73,7 +73,7 @@ parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
     drug_manufacturers <- readr::read_csv(path)
   } else {
     drug_manufacturers <-
-      map_df(pkg.env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
+      map_df(pkg_env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
       unique()
     write_csv(drug_manufacturers, save_csv, csv_path)
   }
@@ -84,7 +84,7 @@ parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
 
 
   if (save_table) {
-    save_drug_sub(con = pkg.env$con,
+    save_drug_sub(con = pkg_env$con,
                   df = drug_manufacturers,
                   table_name = "drug_manufacturers")
   }

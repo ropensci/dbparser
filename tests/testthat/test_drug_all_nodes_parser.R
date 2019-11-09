@@ -35,9 +35,9 @@ test_that(desc = "Read selected drug nodes",
             expect_equal(length(parse_drug_element_options()), 76)
             expect_equal(length(parse_drug_element(
               c(
-                "AHFS_Codes_Drug",
-                "Affected_Organisms_Drug",
-                "Textbooks_Transporter_Drug"
+                "ahfs_codes_drug",
+                "affected_organisms_drug",
+                "textbooks_transporter_drug"
               )
             )), 3)
           })

@@ -3,19 +3,19 @@ save_drug_sub <-
            df,
            table_name,
            save_table_only = FALSE,
-           field.types = NULL,
+           field_types = NULL,
            primary_key = NULL,
            foreign_key = NULL,
            ref_table = "drug(primary_key)") {
     if (grepl("MariaDB", class(con))) {
-      field.types <- unlist(field.types[1])
+      field_types <- unlist(field_types[1])
     }
     # store drug sub_Table in db
     dbWriteTable(
       conn = con,
       value = df,
       name = table_name,
-      field.types = field.types,
+      field_types = field_types,
       overwrite = TRUE
     )
 
