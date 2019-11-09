@@ -48,7 +48,8 @@ test_that(desc = "Read drug carriers polypeptides external identifiers that",
               parse_drug_carriers_polypeptides_external_identifiers()
             ),
             0)
-            expect_error(parse_drug_carriers_polypeptides_external_identifiers(TRUE))
+            expect_error(
+              parse_drug_carriers_polypeptides_external_identifiers(TRUE))
           })
 
 test_that(desc = "Read drug carriers polypeptides synonyms that",
@@ -60,7 +61,8 @@ test_that(desc = "Read drug carriers polypeptides synonyms that",
 
 test_that(desc = "Read drug carriers polypeptides go classifiers that",
           code = {
-            expect_equal(nrow(parse_drug_carriers_polypeptides_go_classifiers()),
+            expect_equal(
+              nrow(parse_drug_carriers_polypeptides_go_classifiers()),
                          0)
             expect_error(parse_drug_carriers_polypeptides_go_classifiers(TRUE))
           })

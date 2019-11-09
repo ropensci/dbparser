@@ -10,8 +10,7 @@ small_molecule <- "drugbank_record_small_molecule.xml"
 test_that(desc = "Read database",
           code = {
             expect_true(get_xml_db_rows(
-              system.file("extdata", small_molecule, package = "dbparser")
-            ))
+              system.file("extdata", small_molecule, package = "dbparser")))
           })
 
 test_that(desc = "Read drug carriers actions that",
@@ -44,11 +43,11 @@ test_that(desc = "Read drug carriers polypeptides that",
 
 test_that(desc = "Read drug carriers polypeptides external identifiers that",
           code = {
-            expect_equal(nrow(
-              parse_drug_carriers_polypeptides_external_identifiers()
-            ),
-            0)
-            expect_error(parse_drug_carriers_polypeptides_external_identifiers(TRUE))
+            expect_equal(
+              nrow(parse_drug_carriers_polypeptides_external_identifiers()),
+                         0)
+            expect_error(
+              parse_drug_carriers_polypeptides_external_identifiers(TRUE))
           })
 
 test_that(desc = "Read drug carriers polypeptides synonyms that",
@@ -60,7 +59,8 @@ test_that(desc = "Read drug carriers polypeptides synonyms that",
 
 test_that(desc = "Read drug carriers polypeptides go classifiers that",
           code = {
-            expect_equal(nrow(parse_drug_carriers_polypeptides_go_classifiers()),
+            expect_equal(
+              nrow(parse_drug_carriers_polypeptides_go_classifiers()),
                          0)
             expect_error(parse_drug_carriers_polypeptides_go_classifiers(TRUE))
           })

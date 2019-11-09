@@ -90,8 +90,10 @@ get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes actions node attributes date frame
 #'
 #' @examples
@@ -123,39 +125,44 @@ get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
 #' parse_drug_enzymes_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_actions <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_enzymes_actions", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_enzymes_actions <- readr::read_csv(path)
-  } else {
-    drug_enzymes_actions <-
-      map_df(pkg.env$children, ~ get_enzymes_actions_df(.x)) %>%
-      unique()
-    write_csv(drug_enzymes_actions, save_csv, csv_path)
-  }
+parse_drug_enzymes_actions <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_enzymes_actions", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_enzymes_actions <- readr::read_csv(path)
+    } else {
+      drug_enzymes_actions <-
+        map_df(pkg.env$children, ~ get_enzymes_actions_df(.x)) %>%
+        unique()
+      write_csv(drug_enzymes_actions, save_csv, csv_path)
+    }
 
-  if (nrow(drug_enzymes_actions) > 0) {
-    colnames(drug_enzymes_actions) <- c("action", "enzyme_id")
-  }
+    if (nrow(drug_enzymes_actions) > 0) {
+      colnames(drug_enzymes_actions) <- c("action", "enzyme_id")
+    }
 
 
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_enzymes_actions,
-      table_name = "drug_enzymes_actions",
-      save_table_only = TRUE
-    )
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_enzymes_actions,
+        table_name = "drug_enzymes_actions",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_enzymes_actions)
   }
-  return(drug_enzymes_actions)
-}
 
 #' Extracts the drug enzymes articles element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_articles} returns data frame of drug enzymes articles elements.
+#' \code{parse_drug_enzymes_articles} returns data frame of drug enzymes
+#' articles elements.
 #'
-#' This functions extracts the enzymes articles element of drug node in drug bank
+#' This functions extracts the enzymes articles element of drug node in drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -166,8 +173,10 @@ parse_drug_enzymes_actions <- function(save_table = FALSE, save_csv = FALSE, csv
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true
+#' in the new parse operation
 #' @return drug enzymes articles node attributes date frame
 #'
 #' @examples
@@ -196,38 +205,45 @@ parse_drug_enzymes_actions <- function(save_table = FALSE, save_csv = FALSE, csv
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_articles(save_csv = TRUE, csv_path = TRUE,
+#' override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_articles <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_enzymes_articles", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_enzymes_articles <- readr::read_csv(path)
-  } else {
-    drug_enzymes_articles <-
-      map_df(pkg.env$children, ~ get_enzymes_articles_df(.x)) %>%
-      unique()
+parse_drug_enzymes_articles <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_enzymes_articles", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_enzymes_articles <- readr::read_csv(path)
+    } else {
+      drug_enzymes_articles <-
+        map_df(pkg.env$children, ~ get_enzymes_articles_df(.x)) %>%
+        unique()
 
-    write_csv(drug_enzymes_articles, save_csv, csv_path)
-  }
+      write_csv(drug_enzymes_articles, save_csv, csv_path)
+    }
 
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_enzymes_articles,
-      table_name = "drug_enzymes_articles",
-      save_table_only = TRUE
-    )
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_enzymes_articles,
+        table_name = "drug_enzymes_articles",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_enzymes_articles)
   }
-  return(drug_enzymes_articles)
-}
 
 #' Extracts the drug enzymes textbooks element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_textbooks} returns data frame of drug enzymes textbooks elements.
+#' \code{parse_drug_enzymes_textbooks} returns data frame of drug enzymes
+#' textbooks elements.
 #'
-#' This functions extracts the enzymes textbooks element of drug node in drug bank
+#' This functions extracts the enzymes textbooks element of drug node in
+#' drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -238,8 +254,10 @@ parse_drug_enzymes_articles <- function(save_table = FALSE, save_csv = FALSE, cs
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in
+#' the new parse operation
 #' @return drug enzymes textbooks node attributes date frame
 #'
 #' @examples
@@ -268,10 +286,14 @@ parse_drug_enzymes_articles <- function(save_table = FALSE, save_csv = FALSE, cs
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_textbooks(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_textbooks(save_csv = TRUE, csv_path = TRUE,
+#'  override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_textbooks <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+parse_drug_enzymes_textbooks <- function(save_table = FALSE,
+                                         save_csv = FALSE,
+                                         csv_path = ".",
+                                         override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_enzymes_textbooks", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -297,7 +319,8 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE, save_csv = FALSE, c
 
 #' Extracts the drug enzymes links element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_links} returns data frame of drug enzymes links elements.
+#' \code{parse_drug_enzymes_links} returns data frame of drug enzymes links
+#' elements.
 #'
 #' This functions extracts the enzymes links element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
@@ -310,8 +333,10 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE, save_csv = FALSE, c
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes links node attributes date frame
 #'
 #' @examples
@@ -343,37 +368,42 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE, save_csv = FALSE, c
 #' parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_links <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_enzymes_links", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_enzymes_links <- readr::read_csv(path)
-  } else {
-    drug_enzymes_links <-
-      map_df(pkg.env$children, ~ get_enzymes_links_df(.x)) %>%
-      unique()
+parse_drug_enzymes_links <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_enzymes_links", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_enzymes_links <- readr::read_csv(path)
+    } else {
+      drug_enzymes_links <-
+        map_df(pkg.env$children, ~ get_enzymes_links_df(.x)) %>%
+        unique()
 
-    write_csv(drug_enzymes_links, save_csv, csv_path)
+      write_csv(drug_enzymes_links, save_csv, csv_path)
+    }
+
+
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_enzymes_links,
+        table_name = "drug_enzymes_links",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_enzymes_links)
   }
-
-
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_enzymes_links,
-      table_name = "drug_enzymes_links",
-      save_table_only = TRUE
-    )
-  }
-  return(drug_enzymes_links)
-}
 
 #' Extracts the drug enzymes polypeptides element and return data as data frame.
 #'
 #' \code{parse_drug_enzymes_polypeptides} returns data frame of drug enzymes
 #' polypeptides elements.
 #'
-#' This functions extracts the enzymes polypeptides element of drug node in drug bank
+#' This functions extracts the enzymes polypeptides element of drug node in
+#' drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -384,8 +414,10 @@ parse_drug_enzymes_links <- function(save_table = FALSE, save_csv = FALSE, csv_p
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true
+#' in the new parse operation
 #' @return drug enzymes polypeptides node attributes date frame
 #'
 #' @examples
@@ -414,10 +446,14 @@ parse_drug_enzymes_links <- function(save_table = FALSE, save_csv = FALSE, csv_p
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_polypeptides(save_csv = TRUE, csv_path = TRUE,
+#' override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+parse_drug_enzymes_polypeptides <- function(save_table = FALSE,
+                                            save_csv = FALSE,
+                                            csv_path = ".",
+                                            override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_enzymes_polypeptides", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -437,26 +473,30 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
       table_name = "drug_enzymes_polypeptides",
       save_table_only = TRUE,
       field.types = list(
-        general_function = paste("varchar(",
-                                 max(
-                                   nchar(drug_enzymes_polypeptides$general_function), na.rm = TRUE
-                                 ),
-                                 ")", sep = ""),
-        specific_function = paste("varchar(",
-                                  max(
-                                    nchar(drug_enzymes_polypeptides$specific_function), na.rm = TRUE
-                                  ),
-                                  ")", sep = ""),
-        amino_acid_sequence = paste("varchar(",
-                                    max(
-                                      nchar(drug_enzymes_polypeptides$amino_acid_sequence), na.rm = TRUE
-                                    ),
-                                    ")", sep = ""),
-        gene_sequence = paste("varchar(",
-                              max(
-                                nchar(drug_enzymes_polypeptides$gene_sequence), na.rm = TRUE
-                              ),
-                              ")", sep = "")
+        general_function =
+          paste("varchar(",
+                max(
+                  nchar(drug_enzymes_polypeptides$general_function),
+                  na.rm = TRUE
+                ), ")", sep = ""),
+        specific_function =
+          paste("varchar(",
+                max(
+                  nchar(drug_enzymes_polypeptides$specific_function),
+                  na.rm = TRUE
+                ), ")", sep = ""),
+        amino_acid_sequence =
+          paste("varchar(",
+                max(
+                  nchar(drug_enzymes_polypeptides$amino_acid_sequence),
+                  na.rm = TRUE
+                ), ")", sep = ""),
+        gene_sequence =
+          paste("varchar(",
+                max(
+                  nchar(drug_enzymes_polypeptides$gene_sequence),
+                  na.rm = TRUE
+                ), ")", sep = "")
       )
     )
   }
@@ -481,8 +521,10 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#'  location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes polypeptides external identifiers node
 #'  attributes date frame
 #'
@@ -502,12 +544,14 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_enzymes_polypeptides_external_identifiers(ssave_table = TRUE,
+#' save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_external_identifiers(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_enzymes_polypeptides_external_identifiers(save_csv = TRUE,
+#' csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
@@ -517,18 +561,25 @@ parse_drug_enzymes_polypeptides <- function(save_table = FALSE, save_csv = FALSE
 #' }
 #' @export
 parse_drug_enzymes_polypeptides_external_identifiers <-
-  function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_enzymes_polypeptide_external_identifiers", csv_path)
+      get_dataset_full_path("drug_enzymes_polypeptide_external_identifiers",
+                            csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_enzymes_polypeptide_external_identifiers <- readr::read_csv(path)
+      drug_enzymes_polypeptide_external_identifiers <-
+        readr::read_csv(path)
     } else {
       drug_enzymes_polypeptide_external_identifiers <-
         map_df(pkg.env$children,
                ~ get_enzymes_polypeptide_external_identifiers_df(.x)) %>%
         unique()
 
-      write_csv(drug_enzymes_polypeptide_external_identifiers, save_csv, csv_path)
+      write_csv(drug_enzymes_polypeptide_external_identifiers,
+                save_csv,
+                csv_path)
     }
 
 
@@ -562,8 +613,10 @@ parse_drug_enzymes_polypeptides_external_identifiers <-
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes polypeptides synonyms node attributes date frame
 #'
 #' @examples
@@ -592,11 +645,15 @@ parse_drug_enzymes_polypeptides_external_identifiers <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_polypeptides_synonyms(save_csv = TRUE, csv_path = TRUE,
+#' override = TRUE)
 #' }
 #' @export
 parse_drug_enzymes_polypeptides_synonyms <-
-  function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_enzymes_polypeptide_synonyms", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -640,8 +697,10 @@ parse_drug_enzymes_polypeptides_synonyms <-
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug groups node attributes date frame
 #'
 #' @examples
@@ -670,11 +729,15 @@ parse_drug_enzymes_polypeptides_synonyms <-
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE,
+#' override = TRUE)
 #' }
 #' @export
 parse_drug_enzymes_polypeptides_pfams <-
-  function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
     path <-
       get_dataset_full_path("drug_enzymes_polypeptide_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -716,8 +779,10 @@ parse_drug_enzymes_polypeptides_pfams <-
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes polypeptides go classifiers node attributes date frame
 #'
 #' @examples
@@ -736,23 +801,30 @@ parse_drug_enzymes_polypeptides_pfams <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_go_classifiers(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_enzymes_polypeptides_go_classifiers(ssave_table = TRUE,
+#' save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_go_classifiers(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_enzymes_polypeptides_go_classifiers(save_csv = TRUE,
+#' csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides_go_classifiers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_enzymes_polypeptides_go_classifiers(save_csv = TRUE,
+#' csv_path = TRUE, override = TRUE)
 #' }
 #' @export
 parse_drug_enzymes_polypeptides_go_classifiers <-
-  function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_enzymes_polypeptides_go_classifiers", csv_path)
+      get_dataset_full_path("drug_enzymes_polypeptides_go_classifiers",
+                            csv_path)
     if (!override_csv & file.exists(path)) {
       drug_enzymes_polypeptides_go_classifiers <- readr::read_csv(path)
     } else {
@@ -761,7 +833,9 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
                ~ get_enzymes_polypeptide_go_classifiers_df(.x)) %>%
         unique()
 
-      write_csv(drug_enzymes_polypeptides_go_classifiers, save_csv, csv_path)
+      write_csv(drug_enzymes_polypeptides_go_classifiers,
+                save_csv,
+                csv_path)
     }
 
 
@@ -791,8 +865,10 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug enzymes node attributes date frame
 #'
 #' @examples
@@ -824,7 +900,10 @@ parse_drug_enzymes_polypeptides_go_classifiers <-
 #' parse_drug_enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+parse_drug_enzymes <- function(save_table = FALSE,
+                               save_csv = FALSE,
+                               csv_path = ".",
+                               override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_enzymes", csv_path)
   if (!override_csv & file.exists(path)) {

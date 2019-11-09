@@ -29,9 +29,10 @@ get_pathways_enzymes_df <- function(rec) {
 
 #' Extracts the drug pathway enzyme element and return data as data frame.
 #'
-#' \code{parse_drug_pathway_enzyme} returns data frame of drug pathway enzyme elements.
+#' \code{parse_drug_pathway_enzyme} returns data frame of drug pathway enzyme
+#'  elements.
 #'
-#' This functions extracts the pathway enzyme element of drug node in drug bank
+#' This functions extracts the pathway enzyme element of drug node in drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -42,8 +43,10 @@ get_pathways_enzymes_df <- function(rec) {
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in
+#' the new parse operation
 #' @return drug pathway enzyme node attributes date frame
 #'
 #' @examples
@@ -75,37 +78,42 @@ get_pathways_enzymes_df <- function(rec) {
 #' parse_drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_pathway_enzymes", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_pathway_enzymes <- readr::read_csv(path)
-  } else {
-    drug_pathway_enzymes <-
-      map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
-      unique()
-    write_csv(drug_pathway_enzymes, save_csv, csv_path)
-  }
+parse_drug_pathway_enzyme <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_pathway_enzymes", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_pathway_enzymes <- readr::read_csv(path)
+    } else {
+      drug_pathway_enzymes <-
+        map_df(pkg.env$children, ~ get_pathways_enzymes_df(.x)) %>%
+        unique()
+      write_csv(drug_pathway_enzymes, save_csv, csv_path)
+    }
 
 
-  if (nrow(drug_pathway_enzymes) > 0) {
-    colnames(drug_pathway_enzymes) <- c("enzyme", "pathway_id")
-  }
+    if (nrow(drug_pathway_enzymes) > 0) {
+      colnames(drug_pathway_enzymes) <- c("enzyme", "pathway_id")
+    }
 
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_pathway_enzymes,
-      table_name = "drug_pathway_enzyme",
-      save_table_only = TRUE
-    )
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_pathway_enzymes,
+        table_name = "drug_pathway_enzyme",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_pathway_enzymes)
   }
-  return(drug_pathway_enzymes)
-}
 
 #' Extracts the drug pathway drugs element and return data as data frame.
 #'
-#' \code{parse_drug_pathway_drugs} returns data frame of drug pathway drugs elements.
+#' \code{parse_drug_pathway_drugs} returns data frame of drug pathway drugs
+#'  elements.
 #'
 #' This functions extracts the pathway drugs element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
@@ -118,8 +126,10 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in
+#' the new parse operation
 #' @return drug pathway drugs node attributes date frame
 #'
 #' @examples
@@ -135,7 +145,8 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
 #' # If the csv exist before read it and return its data.
 #' parse_drug_pathway_drugs(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in current
+#' # save in database, save parsed dataframe as csv if it does not exist in
+#' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_pathway_drugs(ssave_table = TRUE, save_csv = TRUE)
@@ -151,29 +162,33 @@ parse_drug_pathway_enzyme <- function(save_table = FALSE, save_csv = FALSE, csv_
 #' parse_drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_pathway_drugs", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_pathway_drugs <- readr::read_csv(path)
-  } else {
-    drug_pathway_drugs <-
-      map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
-      unique()
+parse_drug_pathway_drugs <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_pathway_drugs", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_pathway_drugs <- readr::read_csv(path)
+    } else {
+      drug_pathway_drugs <-
+        map_df(pkg.env$children, ~ get_pathways_drugs_df(.x)) %>%
+        unique()
 
-    write_csv(drug_pathway_drugs, save_csv, csv_path)
-  }
+      write_csv(drug_pathway_drugs, save_csv, csv_path)
+    }
 
-  if (save_table) {
-    save_drug_sub(
-      con = pkg.env$con,
-      df = drug_pathway_drugs,
-      table_name = "drug_pathway_drugs",
-      save_table_only = TRUE
-    )
+    if (save_table) {
+      save_drug_sub(
+        con = pkg.env$con,
+        df = drug_pathway_drugs,
+        table_name = "drug_pathway_drugs",
+        save_table_only = TRUE
+      )
+    }
+    return(drug_pathway_drugs)
   }
-  return(drug_pathway_drugs)
-}
 
 #' Extracts the drug pathway element and return data as data frame.
 #'
@@ -190,8 +205,10 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#' new parse operation
 #' @return drug pathway node attributes date frame
 #'
 #' @examples
@@ -223,23 +240,27 @@ parse_drug_pathway_drugs <- function(save_table = FALSE, save_csv = FALSE, csv_p
 #' parse_drug_pathway(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
-  path <-
-    get_dataset_full_path("drug_pathway", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_pathway <- readr::read_csv(path)
-  } else {
-    drug_pathway <-
-      map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
-      unique()
+parse_drug_pathway <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE) {
+    path <-
+      get_dataset_full_path("drug_pathway", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_pathway <- readr::read_csv(path)
+    } else {
+      drug_pathway <-
+        map_df(pkg.env$children, ~ get_pathways_df(.x)) %>%
+        unique()
 
-    write_csv(drug_pathway, save_csv, csv_path)
-  }
+      write_csv(drug_pathway, save_csv, csv_path)
+    }
 
-  if (save_table) {
-    save_drug_sub(con = pkg.env$con,
-                  df = drug_pathway,
-                  table_name = "drug_pathway")
+    if (save_table) {
+      save_drug_sub(con = pkg.env$con,
+                    df = drug_pathway,
+                    table_name = "drug_pathway")
+    }
+    return(drug_pathway)
   }
-  return(drug_pathway)
-}

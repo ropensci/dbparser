@@ -34,7 +34,8 @@ drug_sub_df <-
       df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
     } else {
       df <-
-        xmlToDataFrame(rec[[main_node]][[seconadary_node]], stringsAsFactors = FALSE)
+        xmlToDataFrame(rec[[main_node]][[seconadary_node]],
+                       stringsAsFactors = FALSE)
     }
 
 

@@ -15,7 +15,8 @@ get_drugbank_version <- function() {
 
 #' Return uploaded drugbank database exported date
 #'
-#' \code{get_drugbank_exported_date} returns uploaded drugbank database exported date.
+#' \code{get_drugbank_exported_date} returns uploaded drugbank database
+#' exported date.
 #'
 #' @return drugbank exported date
 #'
@@ -31,7 +32,8 @@ get_drugbank_exported_date <- function() {
 
 #' Return uploaded drugbank database metadata
 #'
-#' \code{get_drugbank_metadata} returns uploaded drugbank database version and exported date.
+#' \code{get_drugbank_metadata} returns uploaded drugbank database version and
+#' exported date.
 #'
 #' @return drugbank metadata
 #'

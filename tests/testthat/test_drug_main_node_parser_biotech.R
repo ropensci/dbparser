@@ -10,9 +10,9 @@ library(purrr)
 biotech <- "drugbank_record_biotech.xml"
 test_that(desc = "Read database",
           code = {
-            expect_true(get_xml_db_rows(
-              system.file("extdata", biotech, package = "dbparser")
-            ))
+            expect_true(
+              get_xml_db_rows(
+                system.file("extdata", biotech, package = "dbparser")))
           })
 
 test_that(desc = "Read darug primary key attribute",
@@ -29,13 +29,15 @@ test_that(desc = "Read darug other keys attribute",
 
 test_that(desc = "Read darug groups attributes",
           code = {
-            expect_match(as.character(parse_drug_groups()[1][["group"]]), "approved")
+            expect_match(as.character(parse_drug_groups()[1][["group"]]),
+                         "approved")
             expect_error(parse_drug_groups(TRUE))
           })
 
 test_that(desc = "Read darug articles attributes",
           code = {
-            expect_match(as.character(parse_drug_articles()[["pubmed-id"]][1]), "16244762")
+            expect_match(as.character(parse_drug_articles()[["pubmed-id"]][1]),
+                         "16244762")
             expect_error(parse_drug_articles(TRUE))
           })
 
@@ -47,43 +49,50 @@ test_that(desc = "Read darug books attributes",
 
 test_that(desc = "Read darug links attributes",
           code = {
-            expect_match(as.character(parse_drug_links()[1][["title"]]), "Google books")
+            expect_match(as.character(parse_drug_links()[1][["title"]]),
+                         "Google books")
             expect_error(parse_drug_links(TRUE))
           })
 
 test_that(desc = "Read darug classification attributes",
           code = {
-            expect_match(parse_drug_classification()[1][["parent_key"]], "DB00001")
+            expect_match(parse_drug_classification()[1][["parent_key"]],
+                         "DB00001")
             expect_error(parse_drug_classification(TRUE))
           })
 
 test_that(desc = "Read darug synonyms attributes",
           code = {
-            expect_match(parse_drug_synonyms()[["synonym"]][[1]], "Hirudin variant-1")
+            expect_match(parse_drug_synonyms()[["synonym"]][[1]],
+                         "Hirudin variant-1")
             expect_error(parse_drug_synonyms(TRUE))
           })
 
 test_that(desc = "Read darug articles attributes",
           code = {
-            expect_match(as.character(parse_drug_articles()[["pubmed-id"]][1]), "16244762")
+            expect_match(as.character(parse_drug_articles()[["pubmed-id"]][1]),
+                         "16244762")
             expect_error(parse_drug_articles(TRUE))
           })
 
 test_that(desc = "Read darug products attributes",
           code = {
-            expect_match(as.character(parse_drug_products()[["name"]][1]), "Refludan")
+            expect_match(as.character(parse_drug_products()[["name"]][1]),
+                         "Refludan")
             expect_error(parse_drug_products(TRUE))
           })
 
 test_that(desc = "Read darug mixtures attributes",
           code = {
-            expect_match(as.character(parse_drug_mixtures()[["name"]][1]), "Refludan")
+            expect_match(as.character(parse_drug_mixtures()[["name"]][1]),
+                         "Refludan")
             expect_error(parse_drug_mixtures(TRUE))
           })
 
 test_that(desc = "Read darug packagers attributes",
           code = {
-            expect_match(as.character(parse_drug_packagers()[["name"]][1]), "Bayer Healthcare")
+            expect_match(as.character(parse_drug_packagers()[["name"]][1]),
+                         "Bayer Healthcare")
             expect_error(parse_drug_packagers(TRUE))
           })
 
@@ -105,14 +114,17 @@ test_that(desc = "Read darug prices attributes",
 
 test_that(desc = "Read darug categories attributes",
           code = {
-            expect_match(as.character(parse_drug_categories()[["mesh-id"]][[1]]),
+            expect_match(
+              as.character(parse_drug_categories()[["mesh-id"]][[1]]),
                          "D000602")
             expect_error(parse_drug_categories(TRUE))
           })
 
 test_that(desc = "Read darug affected organisms attributes",
           code = {
-            expect_match(as.character(parse_drug_affected_organisms()[["affected_organism"]][[1]]),
+            expect_match(
+              as.character(
+                parse_drug_affected_organisms()[["affected_organism"]][[1]]),
                          "Humans and other mammals")
             expect_error(parse_drug_affected_organisms(TRUE))
           })
@@ -126,7 +138,8 @@ test_that(desc = "Read darug dosages attributes",
 
 test_that(desc = "Read darug atc codes attributes",
           code = {
-            expect_match(as.character(parse_drug_atc_codes()[["atc_code"]][[1]]),
+            expect_match(
+              as.character(parse_drug_atc_codes()[["atc_code"]][[1]]),
                          "B01AE02")
             expect_error(parse_drug_atc_codes(TRUE))
           })
@@ -175,7 +188,8 @@ test_that(desc = "Read darug sequences attributes",
 
 test_that(desc = "Read darug experimental properties attributes",
           code = {
-            expect_match(as.character(parse_drug_experimental_properties()[["kind"]][[1]]),
+            expect_match(
+              as.character(parse_drug_experimental_properties()[["kind"]][[1]]),
                          "Melting Point")
             expect_error(parse_drug_experimental_properties(TRUE))
           })
@@ -183,7 +197,8 @@ test_that(desc = "Read darug experimental properties attributes",
 test_that(desc = "Read darug external identifiers attributes",
           code = {
             expect_match(
-              as.character(parse_drug_external_identifiers()[["resource"]][[1]]),
+              as.character(
+                parse_drug_external_identifiers()[["resource"]][[1]]),
               "Drugs Product Database \\(DPD\\)"
             )
             expect_error(parse_drug_external_identifiers(TRUE))
@@ -191,7 +206,8 @@ test_that(desc = "Read darug external identifiers attributes",
 
 test_that(desc = "Read darug external links attributes",
           code = {
-            expect_match(as.character(parse_drug_external_links()[["resource"]][[1]]),
+            expect_match(
+              as.character(parse_drug_external_links()[["resource"]][[1]]),
                          "RxList")
             expect_error(parse_drug_external_links(TRUE))
           })

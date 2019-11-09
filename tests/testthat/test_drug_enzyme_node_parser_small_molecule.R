@@ -57,13 +57,15 @@ test_that(desc = "Read darug enzymes polypeptides attributes",
             expect_error(parse_drug_enzymes_polypeptides(TRUE))
           })
 
-test_that(desc = "Read darug enzymes polypeptides external identifiers attributes",
+test_that(desc =
+            "Read darug enzymes polypeptides external identifiers attributes",
           code = {
             expect_equal(nrow(
               parse_drug_enzymes_polypeptides_external_identifiers()
             ),
             7)
-            expect_error(parse_drug_enzymes_polypeptides_external_identifiers(TRUE))
+            expect_error(
+              parse_drug_enzymes_polypeptides_external_identifiers(TRUE))
           })
 
 

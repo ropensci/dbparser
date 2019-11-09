@@ -32,8 +32,10 @@ get_sequences_df <- function(rec) {
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug sequences node attributes date frame
 #'
 #' @examples
@@ -65,7 +67,8 @@ get_sequences_df <- function(rec) {
 #' parse_drug_sequences(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
+                                 csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_sequences", csv_path)
   if (!override_csv & file.exists(path)) {

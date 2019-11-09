@@ -6,5 +6,6 @@
 #' @importFrom tibble tibble
 #' @importFrom tidyr '%>%'
 #' @importFrom utils unzip
-#' @importFrom XML xmlChildren xmlGetAttr xmlValue xmlToList xmlToDataFrame xmlParse xmlRoot xmlSize xmlApply
+#' @importFrom XML xmlChildren xmlGetAttr xmlValue xmlToList xmlToDataFrame
+#' xmlParse xmlRoot xmlSize xmlApply
 NULL

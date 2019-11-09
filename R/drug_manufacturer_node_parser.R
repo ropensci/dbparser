@@ -9,12 +9,15 @@ get_manufacturer_rec <- function(r, drug_key) {
 }
 
 get_manufactures_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["manufacturers"]]), ~ get_manufacturer_rec(., xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["manufacturers"]]),
+    ~ get_manufacturer_rec(., xmlValue(rec["drugbank-id"][[1]]))))
 }
 
 #' Extracts the drug manufacturers element and return data as data frame.
 #'
-#' \code{parse_drug_manufacturers} returns data frame of drug manufacturers elements.
+#' \code{parse_drug_manufacturers} returns data frame of drug manufacturers
+#' elements.
 #'
 #' This functions extracts the manufacturers element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
@@ -27,8 +30,10 @@ get_manufactures_df <- function(rec) {
 #'
 #' @param save_table boolean, save table in database if true.
 #' @param save_csv boolean, save csv version of parsed dataframe if true
-#' @param csv_path location to save csv files into it, default is current location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the new parse operation
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
 #' @return drug manufacturers node attributes date frame
 #'
 #' @examples
@@ -60,7 +65,8 @@ get_manufactures_df <- function(rec) {
 #' parse_drug_manufacturers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE, csv_path = ".", override_csv = FALSE) {
+parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
+                                     csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_manufacturers", csv_path)
   if (!override_csv & file.exists(path)) {
