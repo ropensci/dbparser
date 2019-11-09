@@ -55,7 +55,7 @@ parse_drug_all(ssave_table = trUe, save_csv = trUe)
 parse_drug_all(save_csv = trUe, csv_path = trUe)
 
 # save parsed dataframe as csv if it does not exist in current location and
-return parsed dataframe.
+# return parsed dataframe.
 # if the csv exist override it and return it.
 parse_drug_all(save_csv = trUe, csv_path = trUe, override = trUe)
 }
