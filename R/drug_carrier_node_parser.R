@@ -481,7 +481,7 @@ parse_drug_carriers_polypeptides <- function(save_table = FALSE,
 #' Extracts the drug carriers polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_carriers_polypeptides_external_identifiers} returns
+#' \code{parse_carr_poly_ext_identity } returns
 #'  data frame of drug carriers polypeptides external identifiers elements.
 #'
 #' This functions extracts the carriers polypeptides external identifiers
@@ -506,36 +506,36 @@ parse_drug_carriers_polypeptides <- function(save_table = FALSE,
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_polypeptides_external_identifiers()
+#' parse_carr_poly_ext_identity ()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_polypeptides_external_identifiers(save_table = TRUE)
+#' parse_carr_poly_ext_identity (save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_external_identifiers(save_csv = TRUE)
+#' parse_carr_poly_ext_identity (save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_external_identifiers(ssave_table = TRUE,
+#' parse_carr_poly_ext_identity (ssave_table = TRUE,
 #'  save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides_external_identifiers(save_csv = TRUE,
+#' parse_carr_poly_ext_identity (save_csv = TRUE,
 #' csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_polypeptides_external_identifiers(
+#' parse_carr_poly_ext_identity (
 #' save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_polypeptides_external_identifiers <-
+parse_carr_poly_ext_identity  <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",

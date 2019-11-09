@@ -1889,7 +1889,7 @@ parse_drug_snp_effects <-
 #' Extracts the drug snp adverse drug reactions element and return data as
 #' tibble.
 #'
-#' \code{parse_drug_snp_adverse_drug_reactions} returns tibble of drug
+#' \code{parse_snp_adverse_reactions} returns tibble of drug
 #'  snp adverse drug reactions elements.
 #'
 #' This functions extracts the groups element of drug node in drugbank
@@ -1912,54 +1912,54 @@ parse_drug_snp_effects <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_snp_adverse_drug_reactions()
+#' parse_snp_adverse_reactions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_snp_adverse_drug_reactions(save_table = TRUE)
+#' parse_snp_adverse_reactions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE)
+#' parse_snp_adverse_reactions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_snp_adverse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
+#' parse_snp_adverse_reactions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
+#' parse_snp_adverse_reactions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_snp_adverse_drug_reactions(save_csv = TRUE, csv_path = TRUE,
+#' parse_snp_adverse_reactions(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_snp_adverse_drug_reactions <-
+parse_snp_adverse_reactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_snp_adverse_drug_reactions", csv_path)
+      get_dataset_full_path("snp_adverse_reactions", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_snp_adverse_drug_reactions <- readr::read_csv(path)
+      snp_adverse_reactions <- readr::read_csv(path)
     } else {
-      drug_snp_adverse_drug_reactions <-
+      snp_adverse_reactions <-
         map_df(pkg_env$children,
                ~ drug_sub_df(.x, "snp-adverse-drug-reactions")) %>% unique()
 
-      write_csv(drug_snp_adverse_drug_reactions, save_csv, csv_path)
+      write_csv(snp_adverse_reactions, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(con = pkg_env$con,
-                    df = drug_snp_adverse_drug_reactions,
-                    table_name = "drug_snp_adverse_drug_reactions")
+                    df = snp_adverse_reactions,
+                    table_name = "snp_adverse_reactions")
     }
-    return(drug_snp_adverse_drug_reactions)
+    return(snp_adverse_reactions)
   }

@@ -78,17 +78,15 @@ get_xml_db_rows <- function(xml_db_name) {
   }
 
   if (ext == "zip") {
-    tryCatch(
-      {
-        db <- unzip(xml_db_name, exdir = dir_name)
-        db <- unzip(xml_db_name, list = TRUE)
-        xml_db_name <- paste0(dir_name, "/", db$Name[1])
-        message(xml_db_name)
-      },
-      error = function(e) {
-        stop(e)
-      }
-    )
+    tryCatch({
+      db <- unzip(xml_db_name, exdir = dir_name)
+      db <- unzip(xml_db_name, list = TRUE)
+      xml_db_name <- paste0(dir_name, "/", db$Name[1])
+      message(xml_db_name)
+    },
+    error = function(e) {
+      stop(e)
+    })
   }
 
   if (file.exists(xml_db_name)) {
@@ -204,4 +202,3 @@ open_mdb <-
 close_db <- function() {
   dbDisconnect(conn = pkg_env$con)
 }
-

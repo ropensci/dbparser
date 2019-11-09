@@ -116,10 +116,10 @@ parse_drug_all <-
     snp_effects_drug <-
       parse_drug_snp_effects(save_table, save_csv, csv_path, override_csv)
     message("parsed snp_effects_drug, 21/75")
-    snp_adverse_drug_reactions_drug <-
-      parse_drug_snp_adverse_drug_reactions(save_table, save_csv, csv_path,
+    snp_adverse_reactions <-
+      parse_snp_adverse_reactions(save_table, save_csv, csv_path,
                                             override_csv)
-    message("parsed snp_adverse_drug_reactions_drug, 22/75")
+    message("parsed snp_adverse_reactions, 22/75")
     atc_codes_drug <-
       parse_drug_atc_codes(save_table, save_csv, csv_path, override_csv)
     message("parsed atc_codes_drug, 23/75")
@@ -140,11 +140,11 @@ parse_drug_all <-
       parse_drug_carriers_polypeptides(save_table, save_csv, csv_path,
                                        override_csv)
     message("parsed polypeptides_carrier_drug, 28/75")
-    external_identifiers_polypeptide_carrier_drug <-
-      parse_drug_carriers_polypeptides_external_identifiers(save_table,
+    carr_poly_ext_identity <-
+      parse_carr_poly_ext_identity (save_table,
                                                             save_csv, csv_path,
                                                             override_csv)
-    message("parsed external_identifiers_polypeptide_carrier_drug, 29/75")
+    message("parsed carr_poly_ext_identity, 29/75")
     synonyms_polypeptide_carrier_drug <-
       parse_drug_carriers_polypeptides_synonyms(save_table, save_csv, csv_path,
                                                 override_csv)
@@ -335,15 +335,15 @@ parse_drug_all <-
         external_identifiers_drug = external_identifiers_drug,
         external_links_drug = external_links_drug,
         snp_effects_drug = snp_effects_drug,
-        snp_adverse_drug_reactions_drug = snp_adverse_drug_reactions_drug,
+        snp_adverse_reactions = snp_adverse_reactions,
         atc_codes_drug = atc_codes_drug,
         actions_carrier_drug = actions_carrier_drug,
         articles_carrier_drug = articles_carrier_drug,
         textbooks_carrier_drug = textbooks_carrier_drug,
         links_carrier_drug = links_carrier_drug,
         polypeptides_carrier_drug = polypeptides_carrier_drug,
-        external_identifiers_polypeptide_carrier_drug =
-          external_identifiers_polypeptide_carrier_drug,
+        carr_poly_ext_identity =
+          carr_poly_ext_identity,
         synonyms_polypeptide_carrier_drug = synonyms_polypeptide_carrier_drug,
         pfams_polypeptide_carrier_drug = pfams_polypeptide_carrier_drug,
         go_classifiers_polypeptide_carrier_drug =
@@ -478,7 +478,7 @@ parse_drug_element <-
     }
     parsed_list <- list()
     for (option in elements_options) {
-      parsed_element <- switch (
+      parsed_element <- switch(
         option,
         "drugs" = parse_drug(save_table, save_csv, csv_path, override_csv),
         "affected_organisms_drug" = parse_drug_affected_organisms(save_table,
@@ -509,8 +509,8 @@ parse_drug_element <-
                                                          override_csv),
         "polypeptides_carrier_drugs" = parse_drug_carriers_polypeptides(
           save_table, save_csv, csv_path, override_csv),
-        "external_identifiers_polypeptide_carrier_drug" =
-          parse_drug_carriers_polypeptides_external_identifiers(save_table,
+        "carr_poly_ext_identity" =
+          parse_carr_poly_ext_identity (save_table,
                                                                 save_csv,
                                                                 csv_path,
                                                                 override_csv),
@@ -564,7 +564,7 @@ parse_drug_element <-
                                                          csv_path,
                                                          override_csv),
         "pfams_polypeptides_enzyme_drug" =
-          parse_drug_enzymes_polypeptides_pfams(save_table,save_csv, csv_path,
+          parse_drug_enzymes_polypeptides_pfams(save_table, save_csv, csv_path,
                                                 override_csv),
         "synonyms_polypeptides_enzyme_drug" =
           parse_drug_enzymes_polypeptides_synonyms(save_table,
@@ -621,8 +621,8 @@ parse_drug_element <-
                                                                 override_csv),
         "sequences_drug" = parse_drug_sequences(save_table, save_csv, csv_path,
                                                 override_csv),
-        "snp_adverse_drug_reactions_drug" =
-          parse_drug_snp_adverse_drug_reactions(save_table,
+        "snp_adverse_reactions" =
+          parse_snp_adverse_reactions(save_table,
                                                 save_csv, csv_path,
                                                 override_csv),
         "snp_effects_drug" = parse_drug_snp_effects(save_table, save_csv,
@@ -640,7 +640,7 @@ parse_drug_element <-
         "links_target_drug" = parse_drug_targets_links(save_table, save_csv,
                                                        csv_path, override_csv),
         "polypeptide_target_drug" =
-          parse_drug_targets_polypeptides(save_table,save_csv,csv_path,
+          parse_drug_targets_polypeptides(save_table, save_csv, csv_path,
                                           override_csv),
         "external_identifiers_polypeptide_target_drug" =
           parse_drug_targets_polypeptides_external_identifiers(save_table,
@@ -746,14 +746,14 @@ parse_drug_element_options <- function() {
       "external_identifiers_drug",
       "external_links_drug",
       "snp_effects_drug",
-      "snp_adverse_drug_reactions_drug",
+      "snp_adverse_reactions",
       "atc_codes_drug",
       "actions_carrier_drug",
       "articles_carrier_drug",
       "textbooks_carrier_drug",
       "links_carrier_drug",
       "polypeptides_carrier_drug",
-      "external_identifiers_polypeptide_carrier_drug",
+      "carr_poly_ext_identity",
       "synonyms_polypeptide_carrier_drug",
       "pfams_polypeptide_carrier_drug",
       "go_classifiers_polypeptide_carrier_drug",

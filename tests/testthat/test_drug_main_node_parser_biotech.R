@@ -222,7 +222,7 @@ test_that(desc = "Read darug snp effects attributes",
 
 test_that(desc = "Read darug snp adverse drug reactions attributes",
           code = {
-            expect_equal(nrow(parse_drug_snp_adverse_drug_reactions()),
+            expect_equal(nrow(parse_snp_adverse_reactions()),
                          0)
-            expect_error(parse_drug_snp_adverse_drug_reactions(TRUE))
+            expect_error(parse_snp_adverse_reactions(TRUE))
           })
