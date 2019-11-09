@@ -1,6 +1,6 @@
 # Extract drug polypeptide df
 get_polypeptide_rec <- function(r) {
-  parent_id = xmlValue(r[["id"]])
+  parent_id <- xmlValue(r[["id"]])
   p <- r[["polypeptide"]]
   if (!is.null(p)) {
     tibble(

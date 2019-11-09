@@ -983,7 +983,7 @@ parse_drug_affected_organisms <- function(save_table = FALSE, save_csv = FALSE, 
 
 
   if (nrow(drug_affected_organisms) > 0) {
-    colnames(drug_affected_organisms) = c("affected_organism", "drugbank_id")
+    colnames(drug_affected_organisms) <- c("affected_organism", "drugbank_id")
   }
 
 
