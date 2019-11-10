@@ -52,26 +52,26 @@ get_enzymes_polypeptide_df <- function(rec) {
                 ~ get_polypeptide_rec(.x)))
 }
 
-get_enzymes_polypeptide_external_identifiers_df <- function(rec) {
+get_enzy_poly_ex_identity_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["enzymes"]]),
-    ~ get_polypeptide_external_identifiers(.x)
+    ~ get_poly_ex_identity(.x)
   ))
 }
 
-get_enzymes_polypeptide_synonyms_df <- function(rec) {
+get_enzy_poly_syn_df <- function(rec) {
   return(map_df(xmlChildren(rec[["enzymes"]]),
-                ~ get_polypeptide_synonyms(.x)))
+                ~ get_polypeptide_syn(.x)))
 }
 
-get_enzymes_polypeptide_pfams_df <- function(rec) {
+get_enzy_poly_pfams_df <- function(rec) {
   return(map_df(xmlChildren(rec[["enzymes"]]),
                 ~ get_polypeptide_pfams(.x)))
 }
 
-get_enzymes_polypeptide_go_classifiers_df <- function(rec) {
+get_enzy_poly_go_df <- function(rec) {
   return(map_df(xmlChildren(rec[["enzymes"]]),
-                ~ get_polypeptide_go_classifiers(.x)))
+                ~ get_polypeptide_go(.x)))
 }
 
 #' Extracts the drug enzymes actions element and return data as data frame.
@@ -399,7 +399,7 @@ parse_drug_enzymes_links <-
 
 #' Extracts the drug enzymes polypeptides element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_polypeptides} returns data frame of drug enzymes
+#' \code{parse_enzy_poly} returns data frame of drug enzymes
 #' polypeptides elements.
 #'
 #' This functions extracts the enzymes polypeptides element of drug node in
@@ -423,34 +423,34 @@ parse_drug_enzymes_links <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_polypeptides()
+#' parse_enzy_poly()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_polypeptides(save_table = TRUE)
+#' parse_enzy_poly(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides(save_csv = TRUE)
+#' parse_enzy_poly(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides(ssave_table = TRUE, save_csv = TRUE)
+#' parse_enzy_poly(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides(save_csv = TRUE, csv_path = TRUE)
+#' parse_enzy_poly(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides(save_csv = TRUE, csv_path = TRUE,
+#' parse_enzy_poly(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_polypeptides <- function(save_table = FALSE,
+parse_enzy_poly <- function(save_table = FALSE,
                                             save_csv = FALSE,
                                             csv_path = ".",
                                             override_csv = FALSE) {
@@ -566,18 +566,18 @@ parse_enzy_poly_ext_identitys <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_enzymes_polypeptide_external_identifiers",
+      get_dataset_full_path("drug_enzy_poly_ex_identity",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_enzymes_polypeptide_external_identifiers <-
+      drug_enzy_poly_ex_identity <-
         readr::read_csv(path)
     } else {
-      drug_enzymes_polypeptide_external_identifiers <-
+      drug_enzy_poly_ex_identity <-
         map_df(pkg_env$children,
-               ~ get_enzymes_polypeptide_external_identifiers_df(.x)) %>%
+               ~ get_enzy_poly_ex_identity_df(.x)) %>%
         unique()
 
-      write_csv(drug_enzymes_polypeptide_external_identifiers,
+      write_csv(drug_enzy_poly_ex_identity,
                 save_csv,
                 csv_path)
     }
@@ -586,22 +586,22 @@ parse_enzy_poly_ext_identitys <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_enzymes_polypeptide_external_identifiers,
+        df = drug_enzy_poly_ex_identity,
         table_name = "drug_enzymes_polypeptides_external_identifiers",
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_polypeptide_external_identifiers)
+    return(drug_enzy_poly_ex_identity)
   }
 
 
-#' Extracts the drug enzymes polypeptides synonyms
+#' Extracts the drug enzymes polypeptides syn
 #'  element and return data as data frame.
 #'
 #' \code{parse_enzy_poly_syn} returns data frame of drug
-#' enzymes polypeptides synonyms elements.
+#' enzymes polypeptides syn elements.
 #'
-#' This functions extracts the enzymes polypeptides synonyms
+#' This functions extracts the enzymes polypeptides syn
 #' element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
@@ -617,7 +617,7 @@ parse_enzy_poly_ext_identitys <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
-#' @return drug enzymes polypeptides synonyms node attributes date frame
+#' @return drug enzymes polypeptides syn node attributes date frame
 #'
 #' @examples
 #' \donttest{
@@ -655,34 +655,34 @@ parse_enzy_poly_syn <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_enzymes_polypeptide_synonyms", csv_path)
+      get_dataset_full_path("drug_enzy_poly_syn", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_enzymes_polypeptide_synonyms <- readr::read_csv(path)
+      drug_enzy_poly_syn <- readr::read_csv(path)
     } else {
-      drug_enzymes_polypeptide_synonyms <-
+      drug_enzy_poly_syn <-
         map_df(pkg_env$children,
-               ~ get_enzymes_polypeptide_synonyms_df(.x)) %>%
+               ~ get_enzy_poly_syn_df(.x)) %>%
         unique()
 
-      write_csv(drug_enzymes_polypeptide_synonyms, save_csv, csv_path)
+      write_csv(drug_enzy_poly_syn, save_csv, csv_path)
     }
 
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_enzymes_polypeptide_synonyms,
-        table_name = "drug_enzymes_polypeptides_synonyms",
+        df = drug_enzy_poly_syn,
+        table_name = "drug_enzymes_polypeptides_syn",
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_polypeptide_synonyms)
+    return(drug_enzy_poly_syn)
   }
 
 #' Extracts the drug enzymes polypeptides pfams element and return
 #'  data as data frame.
 #'
-#' \code{parse_drug_enzymes_polypeptides_pfams} returns data frame of drug
+#' \code{parse_enzy_poly_pfams} returns data frame of drug
 #' enzymes polypeptides pfams elements.
 #'
 #' This functions extracts the enzymes polypeptides pfams element of drug
@@ -706,34 +706,34 @@ parse_enzy_poly_syn <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_polypeptides_pfams()
+#' parse_enzy_poly_pfams()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_polypeptides_pfams(save_table = TRUE)
+#' parse_enzy_poly_pfams(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE)
+#' parse_enzy_poly_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' parse_enzy_poly_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
+#' parse_enzy_poly_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE,
+#' parse_enzy_poly_pfams(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_polypeptides_pfams <-
+parse_enzy_poly_pfams <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -745,7 +745,7 @@ parse_drug_enzymes_polypeptides_pfams <-
     } else {
       drug_enzymes_polypeptide_pfams <-
         map_df(pkg_env$children,
-               ~ get_enzymes_polypeptide_pfams_df(.x)) %>%
+               ~ get_enzy_poly_pfams_df(.x)) %>%
         unique()
 
       write_csv(drug_enzymes_polypeptide_pfams, save_csv, csv_path)
@@ -823,17 +823,17 @@ parse_enzy_poly_go <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_enzymes_polypeptides_go_classifiers",
+      get_dataset_full_path("drug_enzy_poly_go",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_enzymes_polypeptides_go_classifiers <- readr::read_csv(path)
+      drug_enzy_poly_go <- readr::read_csv(path)
     } else {
-      drug_enzymes_polypeptides_go_classifiers <-
+      drug_enzy_poly_go <-
         map_df(pkg_env$children,
-               ~ get_enzymes_polypeptide_go_classifiers_df(.x)) %>%
+               ~ get_enzy_poly_go_df(.x)) %>%
         unique()
 
-      write_csv(drug_enzymes_polypeptides_go_classifiers,
+      write_csv(drug_enzy_poly_go,
                 save_csv,
                 csv_path)
     }
@@ -842,12 +842,12 @@ parse_enzy_poly_go <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_enzymes_polypeptides_go_classifiers,
-        table_name = "drug_enzymes_polypeptides_go_classifiers",
+        df = drug_enzy_poly_go,
+        table_name = "drug_enzy_poly_go",
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_polypeptides_go_classifiers)
+    return(drug_enzy_poly_go)
   }
 
 #' Extracts the drug enzymes element and return data as data frame.

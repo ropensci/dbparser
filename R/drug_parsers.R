@@ -443,11 +443,11 @@ parse_drug_links <-
   }
 
 
-#' Extracts the drug synonyms element and return data as tibble.
+#' Extracts the drug syn element and return data as tibble.
 #'
-#' \code{parse_drug_synonyms} returns tibble of drug synonyms elements.
+#' \code{parse_drug_syn} returns tibble of drug syn elements.
 #'
-#' This functions extracts the synonyms element of drug node in drugbank
+#' This functions extracts the syn element of drug node in drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned tibble in the database.
@@ -462,61 +462,61 @@ parse_drug_links <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
-#' @return drug synonyms node attributes tibble
+#' @return drug syn node attributes tibble
 #'
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_synonyms()
+#' parse_drug_syn()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_synonyms(save_table = TRUE)
+#' parse_drug_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_synonyms(save_csv = TRUE)
+#' parse_drug_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_synonyms(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_syn(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_synonyms(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' parse_drug_syn(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_synonyms <-
+parse_drug_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    path <- get_dataset_full_path("drug_synonyms", csv_path)
+    path <- get_dataset_full_path("drug_syn", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_synonyms <- readr::read_csv(path)
+      drug_syn <- readr::read_csv(path)
     } else {
-      drug_synonyms <-
-        map_df(pkg_env$children, ~ get_synonyms_df(.x)) %>% unique()
-      write_csv(drug_synonyms, save_csv, csv_path)
+      drug_syn <-
+        map_df(pkg_env$children, ~ get_syn_df(.x)) %>% unique()
+      write_csv(drug_syn, save_csv, csv_path)
     }
 
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_synonyms,
-        table_name = "drug_synonyms",
+        df = drug_syn,
+        table_name = "drug_syn",
         field_types = list(synonym = "varchar(534)")
       )
     }
-    return(drug_synonyms)
+    return(drug_syn)
   }
 
 #' Extracts the drug products element and return data as tibble.
@@ -594,7 +594,7 @@ parse_drug_products <-
 
 #' Extracts the drug calculated properties element and return data as tibble.
 #'
-#' \code{parse_drug_calculated_properties} returns tibble of drug calculated
+#' \code{parse_drug_calc_prop} returns tibble of drug calculated
 #' properties elements.
 #'
 #' This functions extracts the calculated properties element of drug node in
@@ -618,34 +618,34 @@ parse_drug_products <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_calculated_properties()
+#' parse_drug_calc_prop()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_calculated_properties(save_table = TRUE)
+#' parse_drug_calc_prop(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_calculated_properties(save_csv = TRUE)
+#' parse_drug_calc_prop(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_calculated_properties(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_calc_prop(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_calc_prop(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_calculated_properties(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_calc_prop(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_calculated_properties <- function(save_table = FALSE,
+parse_drug_calc_prop <- function(save_table = FALSE,
                                              save_csv = FALSE,
                                              csv_path = ".",
                                              override_csv = FALSE) {
@@ -672,7 +672,7 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
 
 #' Extracts the drug international brands and return data as tibble.
 #'
-#' \code{parse_drug_international_brands} returns tibble of drug products
+#' \code{parse_drug_intern_brand} returns tibble of drug products
 #' elements.
 #'
 #' This functions extracts the international brands element of drug node in
@@ -696,34 +696,34 @@ parse_drug_calculated_properties <- function(save_table = FALSE,
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_international_brands()
+#' parse_drug_intern_brand()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_international_brands(save_table = TRUE)
+#' parse_drug_intern_brand(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_international_brands(save_csv = TRUE)
+#' parse_drug_intern_brand(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_international_brands(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_intern_brand(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_intern_brand(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_international_brands(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_intern_brand(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_international_brands <-
+parse_drug_intern_brand <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -1584,7 +1584,7 @@ parse_drug_interactions <-
 
 #' Extracts the drug experimental properties element and return data as tibble.
 #'
-#' \code{parse_drug_experimental_properties} returns tibble of drug
+#' \code{parse_drug_exp_prop} returns tibble of drug
 #'  experimental
 #'  properties elements.
 #'
@@ -1609,34 +1609,34 @@ parse_drug_interactions <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_experimental_properties()
+#' parse_drug_exp_prop()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_experimental_properties(save_table = TRUE)
+#' parse_drug_exp_prop(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_experimental_properties(save_csv = TRUE)
+#' parse_drug_exp_prop(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_experimental_properties(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_exp_prop(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_exp_prop(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_experimental_properties(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_exp_prop(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_experimental_properties <-
+parse_drug_exp_prop <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -1662,7 +1662,7 @@ parse_drug_experimental_properties <-
 
 #' Extracts the drug external identifiers element and return data as tibble.
 #'
-#' \code{parse_drug_external_identifiers} returns tibble of external
+#' \code{parse_drug_ex_identity} returns tibble of external
 #' identifiers groups elements.
 #'
 #' This functions extracts the external identifiers element of drug node in
@@ -1686,34 +1686,34 @@ parse_drug_experimental_properties <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_external_identifiers()
+#' parse_drug_ex_identity()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_external_identifiers(save_table = TRUE)
+#' parse_drug_ex_identity(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_external_identifiers(save_csv = TRUE)
+#' parse_drug_ex_identity(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_external_identifiers(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_ex_identity(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_ex_identity(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_external_identifiers(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_ex_identity(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_external_identifiers <-
+parse_drug_ex_identity <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",

@@ -34,31 +34,31 @@ get_polypeptide_rec <- function(r) {
   }
 }
 
-# Extract drug polypeptide_external_identifiers df
-get_polypeptide_external_identifiers <- function(r) {
+# Extract drug poly_ex_identity df
+get_poly_ex_identity <- function(r) {
   p <- r[["polypeptide"]]
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
              xmlGetAttr(p, name = "id"))
-    polypeptide_external_identifiers <-
+    poly_ex_identity <-
       xmlToDataFrame(p[["external-identifiers"]], stringsAsFactors = FALSE)
-    polypeptide_external_identifiers$polypeptide_id <-
+    poly_ex_identity$polypeptide_id <-
       polypeptide_id
-    return(polypeptide_external_identifiers)
+    return(poly_ex_identity)
   }
 }
 
-# Extract drug polypeptid synonyms df
-get_polypeptide_synonyms <- function(r) {
+# Extract drug polypeptid syn df
+get_polypeptide_syn <- function(r) {
   p <- r[["polypeptide"]]
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
              xmlGetAttr(p, name = "id"))
-    polypeptide_synonyms <- p[["synonyms"]]
-    if (xmlSize(polypeptide_synonyms) > 0) {
-      tibble(synonyms = paste(xmlApply(polypeptide_synonyms, xmlValue),
+    polypeptide_syn <- p[["synonyms"]]
+    if (xmlSize(polypeptide_syn) > 0) {
+      tibble(syn = paste(xmlApply(polypeptide_syn, xmlValue),
                               collapse = ","),
              polypeptide_id = polypeptide_id)
     }
@@ -85,7 +85,7 @@ get_polypeptide_pfams <- function(r) {
 }
 
 # Extract drug polypeptide go-classifiers df
-get_polypeptide_go_classifiers <- function(r) {
+get_polypeptide_go <- function(r) {
   p <- r[["polypeptide"]]
   if (!is.null(p)) {
     polypeptide_id <-
@@ -96,14 +96,14 @@ get_polypeptide_go_classifiers <- function(r) {
       if (first_cell != "\n    " &&
           !is.null(p[["go-classifiers"]]) &&
           xmlValue(p[["go-classifiers"]]) != "\n    ") {
-        polypeptide_go_classifiers <-
+        polypeptide_go <-
           xmlToDataFrame(xmlChildren(p[["go-classifiers"]]),
                          stringsAsFactors = FALSE)
-        if (nrow(polypeptide_go_classifiers) > 0) {
-          polypeptide_go_classifiers$polypeptide_id <-
+        if (nrow(polypeptide_go) > 0) {
+          polypeptide_go$polypeptide_id <-
             polypeptide_id
         }
-        return(polypeptide_go_classifiers)
+        return(polypeptide_go)
       }
     }
   }

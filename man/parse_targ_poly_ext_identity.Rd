@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_targets_node_parser.R
 \name{parse_targ_poly_ext_identity}
 \alias{parse_targ_poly_ext_identity}
-\title{Extracts the drug targets polypeptides external identifiers
+\title{Extracts the drug targ polypeptides external identifiers
  element and return data as data frame.}
 \usage{
 parse_targ_poly_ext_identity(save_table = FALSE, save_csv = FALSE,
@@ -20,16 +20,16 @@ location, save_csv must be true}
 new parse operation}
 }
 \value{
-drug targets polypeptides external identifiers node attributes
+drug targ polypeptides external identifiers node attributes
 date frame
 }
 \description{
 \code{parse_targ_poly_ext_identity}
- returns data frame of drug targets polypeptides external identifiers
+ returns data frame of drug targ polypeptides external identifiers
  elements.
 }
 \details{
-This functions extracts the targets polypeptides external identifiers
+This functions extracts the targ polypeptides external identifiers
  element of drug node in drug bank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to

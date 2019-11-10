@@ -34,17 +34,17 @@ get_transporters_polypeptide_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]), ~ get_polypeptide_rec(.x)))
 }
 
-get_transporters_polypeptide_external_identifiers_df <-
+get_transporters_poly_ex_identity_df <-
   function(rec) {
     return(map_df(
       xmlChildren(rec[["transporters"]]),
-      ~ get_polypeptide_external_identifiers(.x)
+      ~ get_poly_ex_identity(.x)
     ))
   }
 
-get_transporters_polypeptide_synonyms_df <- function(rec) {
+get_transporters_polypeptide_syn_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_polypeptide_synonyms(.x)))
+                ~ get_polypeptide_syn(.x)))
 }
 
 get_transporters_polypeptide_pfams_df <- function(rec) {
@@ -52,9 +52,9 @@ get_transporters_polypeptide_pfams_df <- function(rec) {
                 ~ get_polypeptide_pfams(.x)))
 }
 
-get_transporters_polypeptide_go_classifiers_df <- function(rec) {
+get_transporters_polypeptide_go_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_polypeptide_go_classifiers(.x)))
+                ~ get_polypeptide_go(.x)))
 }
 
 #' Extracts the drug transporters actions element and return data as data frame.
@@ -501,7 +501,7 @@ parse_drug_transporters_polypeptides <-
 #' Extracts the drug transporters polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_transporters_polypeptides_external_identifiers}
+#' \code{parse_trans_poly_ex_identity}
 #' returns data frame of drug transporters polypeptides external identifiers
 #' elements.
 #'
@@ -527,54 +527,54 @@ parse_drug_transporters_polypeptides <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_polypeptides_external_identifiers()
+#' parse_trans_poly_ex_identity()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_polypeptides_external_identifiers(save_table = TRUE)
+#' parse_trans_poly_ex_identity(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides_external_identifiers(save_csv = TRUE)
+#' parse_trans_poly_ex_identity(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides_external_identifiers(
+#' parse_trans_poly_ex_identity(
 #' save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides_external_identifiers(
+#' parse_trans_poly_ex_identity(
 #' save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_polypeptides_external_identifiers(
+#' parse_trans_poly_ex_identity(
 #' save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_polypeptides_external_identifiers <-
+parse_trans_poly_ex_identity <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
       get_dataset_full_path(
-        "drug_transporters_polypeptide_external_identifiers",
+        "drug_transporters_poly_ex_identity",
         csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_polypeptide_external_identifiers <-
+      drug_transporters_poly_ex_identity <-
         readr::read_csv(path)
     } else {
-      drug_transporters_polypeptide_external_identifiers <-
+      drug_transporters_poly_ex_identity <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_external_identifiers_df(.x)) %>%
+               ~ get_transporters_poly_ex_identity_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_polypeptide_external_identifiers,
+      write_csv(drug_transporters_poly_ex_identity,
                 save_csv,
                 csv_path)
     }
@@ -582,22 +582,22 @@ parse_drug_transporters_polypeptides_external_identifiers <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_polypeptide_external_identifiers,
+        df = drug_transporters_poly_ex_identity,
         table_name = "drug_transporters_polypeptides_external_identifiers",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_polypeptide_external_identifiers)
+    return(drug_transporters_poly_ex_identity)
   }
 
 
-#' Extracts the drug transporters polypeptides synonyms
+#' Extracts the drug transporters polypeptides syn
 #' element and return data as data frame.
 #'
 #' \code{parse_trans_poly_syn} returns data
-#' frame of drug transporters polypeptides synonyms elements.
+#' frame of drug transporters polypeptides syn elements.
 #'
-#' This functions extracts the transporters polypeptides synonyms
+#' This functions extracts the transporters polypeptides syn
 #'  element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
@@ -613,7 +613,7 @@ parse_drug_transporters_polypeptides_external_identifiers <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
-#' @return drug transporters polypeptides synonyms node attributes date frame
+#' @return drug transporters polypeptides syn node attributes date frame
 #'
 #' @examples
 #' \donttest{
@@ -653,16 +653,16 @@ parse_trans_poly_syn <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporter_polypeptide_synonyms", csv_path)
+      get_dataset_full_path("drug_transporter_polypeptide_syn", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporter_polypeptide_synonyms <- readr::read_csv(path)
+      drug_transporter_polypeptide_syn <- readr::read_csv(path)
     } else {
-      drug_transporter_polypeptide_synonyms <-
+      drug_transporter_polypeptide_syn <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_synonyms_df(.x)) %>%
+               ~ get_transporters_polypeptide_syn_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporter_polypeptide_synonyms,
+      write_csv(drug_transporter_polypeptide_syn,
                 save_csv,
                 csv_path)
     }
@@ -670,12 +670,12 @@ parse_trans_poly_syn <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporter_polypeptide_synonyms,
-        table_name = "drug_transporters_polypeptides_synonyms",
+        df = drug_transporter_polypeptide_syn,
+        table_name = "drug_transporters_polypeptides_syn",
         save_table_only = TRUE
       )
     }
-    return(drug_transporter_polypeptide_synonyms)
+    return(drug_transporter_polypeptide_syn)
   }
 
 
@@ -829,18 +829,18 @@ parse_trans_poly_go <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_polypeptides_go_classifiers",
+      get_dataset_full_path("drug_transporters_polypeptides_go",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_polypeptides_go_classifiers <-
+      drug_transporters_polypeptides_go <-
         readr::read_csv(path)
     } else {
-      drug_transporters_polypeptides_go_classifiers <-
+      drug_transporters_polypeptides_go <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_go_classifiers_df(.x)) %>%
+               ~ get_transporters_polypeptide_go_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_polypeptides_go_classifiers,
+      write_csv(drug_transporters_polypeptides_go,
                 save_csv,
                 csv_path)
     }
@@ -849,12 +849,12 @@ parse_trans_poly_go <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_polypeptides_go_classifiers,
-        table_name = "drug_transporters_polypeptides_go_classifiers",
+        df = drug_transporters_polypeptides_go,
+        table_name = "drug_transporters_polypeptides_go",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_polypeptides_go_classifiers)
+    return(drug_transporters_polypeptides_go)
   }
 
 

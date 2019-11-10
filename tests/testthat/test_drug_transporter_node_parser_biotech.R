@@ -53,13 +53,13 @@ test_that(
   desc = "Read darug transporters polypeptides external identifiers attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_transporters_polypeptides_external_identifiers()),
+      nrow(parse_trans_poly_ex_identity()),
             0)
     expect_error(
-      parse_drug_transporters_polypeptides_external_identifiers(TRUE))
+      parse_trans_poly_ex_identity(TRUE))
           })
 
-test_that(desc = "Read darug transporters polypeptides synonyms attributes",
+test_that(desc = "Read darug transporters polypeptides syn attributes",
           code = {
             expect_equal(nrow(parse_trans_poly_syn()),
                          0)

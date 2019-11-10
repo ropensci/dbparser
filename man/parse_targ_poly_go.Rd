@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_targets_node_parser.R
 \name{parse_targ_poly_go}
 \alias{parse_targ_poly_go}
-\title{Extracts the drug targets polypeptides go classifiers
+\title{Extracts the drug targ polypeptides go classifiers
  element and return data as data frame.}
 \usage{
 parse_targ_poly_go(save_table = FALSE, save_csv = FALSE,
@@ -20,14 +20,14 @@ location, save_csv must be true}
 new parse operation}
 }
 \value{
-drug targets polypeptides go classifiers node attributes date frame
+drug targ polypeptides go classifiers node attributes date frame
 }
 \description{
 \code{parse_targ_poly_go}
- returns data frame of drug targets polypeptides go classifiers elements.
+ returns data frame of drug targ polypeptides go classifiers elements.
 }
 \details{
-This functions extracts the targets polypeptides go classifiers
+This functions extracts the targ polypeptides go classifiers
  element of drug node in drug bank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to

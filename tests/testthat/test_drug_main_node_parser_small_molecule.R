@@ -67,11 +67,11 @@ test_that(desc = "Read drug classification attributes",
             expect_error(parse_drug_classification(TRUE))
           })
 
-test_that(desc = "Read drug synonyms attributes",
+test_that(desc = "Read drug syn attributes",
           code = {
-            expect_match(parse_drug_synonyms()[["synonym"]][[1]],
+            expect_match(parse_drug_syn()[["synonym"]][[1]],
                          "Bivalirudina")
-            expect_error(parse_drug_synonyms(TRUE))
+            expect_error(parse_drug_syn(TRUE))
           })
 
 test_that(desc = "Read drug articles attributes",
@@ -92,8 +92,8 @@ test_that(desc = "Read drug calculated properties attributes",
           code = {
             expect_match(
               as.character(
-                parse_drug_calculated_properties()[1][["kind"]][[1]]), "logP")
-            expect_error(parse_drug_calculated_properties(TRUE))
+                parse_drug_calc_prop()[1][["kind"]][[1]]), "logP")
+            expect_error(parse_drug_calc_prop(TRUE))
           })
 
 test_that(desc = "Read drug mixtures attributes",
@@ -201,19 +201,19 @@ test_that(desc = "Read drug sequences attributes",
 
 test_that(desc = "Read drug experimental properties attributes",
           code = {
-            expect_equal(nrow(parse_drug_experimental_properties()),
+            expect_equal(nrow(parse_drug_exp_prop()),
                          0)
-            expect_error(parse_drug_experimental_properties(TRUE))
+            expect_error(parse_drug_exp_prop(TRUE))
           })
 
 test_that(desc = "Read drug external identifiers attributes",
           code = {
             expect_match(
               as.character(
-                parse_drug_external_identifiers()[["resource"]][[1]]),
+                parse_drug_ex_identity()[["resource"]][[1]]),
               "Drugs Product Database \\(DPD\\)"
             )
-            expect_error(parse_drug_external_identifiers(TRUE))
+            expect_error(parse_drug_ex_identity(TRUE))
           })
 
 test_that(desc = "Read drug external links attributes",

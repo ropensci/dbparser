@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_transporter_node_parser.R
 \name{parse_trans_poly_syn}
 \alias{parse_trans_poly_syn}
-\title{Extracts the drug transporters polypeptides synonyms
+\title{Extracts the drug transporters polypeptides syn
 element and return data as data frame.}
 \usage{
 parse_trans_poly_syn(save_table = FALSE, save_csv = FALSE,
@@ -20,14 +20,14 @@ location, save_csv must be true}
 new parse operation}
 }
 \value{
-drug transporters polypeptides synonyms node attributes date frame
+drug transporters polypeptides syn node attributes date frame
 }
 \description{
 \code{parse_trans_poly_syn} returns data
-frame of drug transporters polypeptides synonyms elements.
+frame of drug transporters polypeptides syn elements.
 }
 \details{
-This functions extracts the transporters polypeptides synonyms
+This functions extracts the transporters polypeptides syn
  element of drug node in drug bank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to

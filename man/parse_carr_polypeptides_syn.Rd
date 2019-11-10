@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_carrier_node_parser.R
 \name{parse_carr_polypeptides_syn}
 \alias{parse_carr_polypeptides_syn}
-\title{Extracts the drug carriers polypeptides synonyms element and return data as
+\title{Extracts the drug carriers polypeptides syn element and return data as
 data frame.}
 \usage{
 parse_carr_polypeptides_syn(save_table = FALSE, save_csv = FALSE,
@@ -20,14 +20,14 @@ location, save_csv must be true}
 in the new parse operation}
 }
 \value{
-drug carriers polypeptides synonyms node attributes date frame
+drug carriers polypeptides syn node attributes date frame
 }
 \description{
 \code{parse_carr_polypeptides_syn} returns
- data frame of drug carriers polypeptides synonyms elements.
+ data frame of drug carriers polypeptides syn elements.
 }
 \details{
-This functions extracts the carriers polypeptides synonyms
+This functions extracts the carriers polypeptides syn
  element of drug node in drug bank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to

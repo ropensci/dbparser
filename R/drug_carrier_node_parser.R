@@ -33,24 +33,24 @@ get_carriers_polypeptide_df <- function(rec) {
   return(map_df(xmlChildren(rec[["carriers"]]), ~ get_polypeptide_rec(.x)))
 }
 
-get_carriers_polypeptide_external_identifiers_df <- function(rec) {
+get_carr_poly_ex_identity_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["carriers"]]),
-    ~ get_polypeptide_external_identifiers(.x)
+    ~ get_poly_ex_identity(.x)
   ))
 }
 
-get_carriers_polypeptide_synonyms_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["carriers"]]), ~ get_polypeptide_synonyms(.x)))
+get_carr_poly_syn_df <- function(rec) {
+  return(map_df(xmlChildren(rec[["carriers"]]), ~ get_polypeptide_syn(.x)))
 }
 
-get_carriers_polypeptide_pfams_df <- function(rec) {
+get_carr_poly_pfams_df <- function(rec) {
   return(map_df(xmlChildren(rec[["carriers"]]), ~ get_polypeptide_pfams(.x)))
 }
 
-get_carriers_polypeptide_go_classifiers_df <- function(rec) {
+get_carr_poly_go_df <- function(rec) {
   return(map_df(xmlChildren(rec[["carriers"]]),
-                ~ get_polypeptide_go_classifiers(.x)))
+                ~ get_polypeptide_go(.x)))
 }
 
 #' Extracts the drug carriers actions element and return data as data frame.
@@ -403,34 +403,34 @@ parse_drug_carriers_links <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_polypeptides()
+#' parse_carr_poly()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_polypeptides(save_table = TRUE)
+#' parse_carr_poly(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides(save_csv = TRUE)
+#' parse_carr_poly(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides(ssave_table = TRUE, save_csv = TRUE)
+#' parse_carr_poly(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_polypeptides(save_csv = TRUE, csv_path = TRUE)
+#' parse_carr_poly(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_polypeptides(save_csv = TRUE, csv_path = TRUE,
+#' parse_carr_poly(save_csv = TRUE, csv_path = TRUE,
 #'  override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_polypeptides <- function(save_table = FALSE,
+parse_carr_poly <- function(save_table = FALSE,
                                              save_csv = FALSE,
                                              csv_path = ".",
                                              override_csv = FALSE) {
@@ -541,18 +541,18 @@ parse_carr_poly_ext_identity  <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_carriers_polypeptide_external_identifiers",
+      get_dataset_full_path("carr_poly_ex_identitys",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_carriers_polypeptide_external_identifiers <-
+      carr_poly_ex_identitys <-
         readr::read_csv(path)
     } else {
-      drug_carriers_polypeptide_external_identifiers <-
+      carr_poly_ex_identitys <-
         map_df(pkg_env$children,
-               ~ get_carriers_polypeptide_external_identifiers_df(.x)) %>%
+               ~ get_carr_poly_ex_identity_df(.x)) %>%
         unique()
 
-      write_csv(drug_carriers_polypeptide_external_identifiers,
+      write_csv(carr_poly_ex_identitys,
                 save_csv,
                 csv_path)
     }
@@ -561,21 +561,21 @@ parse_carr_poly_ext_identity  <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_carriers_polypeptide_external_identifiers,
+        df = carr_poly_ex_identitys,
         table_name = "drug_carriers_polypeptides_external_identifiers",
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_polypeptide_external_identifiers)
+    return(carr_poly_ex_identitys)
   }
 
-#' Extracts the drug carriers polypeptides synonyms element and return data as
+#' Extracts the drug carriers polypeptides syn element and return data as
 #' data frame.
 #'
 #' \code{parse_carr_polypeptides_syn} returns
-#'  data frame of drug carriers polypeptides synonyms elements.
+#'  data frame of drug carriers polypeptides syn elements.
 #'
-#' This functions extracts the carriers polypeptides synonyms
+#' This functions extracts the carriers polypeptides syn
 #'  element of drug node in drug bank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
@@ -591,7 +591,7 @@ parse_carr_poly_ext_identity  <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
-#' @return drug carriers polypeptides synonyms node attributes date frame
+#' @return drug carriers polypeptides syn node attributes date frame
 #'
 #' @examples
 #' \donttest{
@@ -629,28 +629,28 @@ parse_carr_polypeptides_syn <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    path <- get_dataset_full_path("drug_carriers_polypeptide_synonyms",
+    path <- get_dataset_full_path("carr_poly_syn",
                                   csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_carriers_polypeptide_synonyms <- readr::read_csv(path)
+      carr_poly_syn <- readr::read_csv(path)
     } else {
-      drug_carriers_polypeptide_synonyms <-
+      carr_poly_syn <-
         map_df(pkg_env$children,
-               ~ get_carriers_polypeptide_synonyms_df(.x)) %>%
+               ~ get_carr_poly_syn_df(.x)) %>%
         unique()
 
-      write_csv(drug_carriers_polypeptide_synonyms, save_csv, csv_path)
+      write_csv(carr_poly_syn, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_carriers_polypeptide_synonyms,
-        table_name = "drug_carriers_polypeptides_synonyms",
+        df = carr_poly_syn,
+        table_name = "drug_carriers_polypeptides_syn",
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_polypeptide_synonyms)
+    return(carr_poly_syn)
   }
 
 #' Extracts the drug carriers polypeptides pfams element and return data as
@@ -713,28 +713,28 @@ parse_carr_polypeptides_pfams <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_carriers_polypeptide_pfams", csv_path)
+      get_dataset_full_path("carr_poly_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_carriers_polypeptide_pfams <- readr::read_csv(path)
+      carr_poly_pfams <- readr::read_csv(path)
     } else {
-      drug_carriers_polypeptide_pfams <-
+      carr_poly_pfams <-
         map_df(pkg_env$children,
-               ~ get_carriers_polypeptide_pfams_df(.x)) %>%
+               ~ get_carr_poly_pfams_df(.x)) %>%
         unique()
 
-      write_csv(drug_carriers_polypeptide_pfams, save_csv, csv_path)
+      write_csv(carr_poly_pfams, save_csv, csv_path)
     }
 
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_carriers_polypeptide_pfams,
-        table_name = "drug_carriers_polypeptide_pfams",
+        df = carr_poly_pfams,
+        table_name = "carr_poly_pfams",
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_polypeptide_pfams)
+    return(carr_poly_pfams)
   }
 
 #' Extracts the drug carriers polypeptides go classifiers
@@ -800,16 +800,16 @@ parse_carr_polypeptides_go <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_carriers_polypeptides_go_classifiers",
+      get_dataset_full_path("carr_poly_go",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_carriers_polypeptides_go_classifiers <- readr::read_csv(path)
+      carr_poly_go <- readr::read_csv(path)
     } else {
-      drug_carriers_polypeptides_go_classifiers <-
+      carr_poly_go <-
         map_df(pkg_env$children,
-               ~ get_carriers_polypeptide_go_classifiers_df(.x)) %>% unique()
+               ~ get_carr_poly_go_df(.x)) %>% unique()
 
-      write_csv(drug_carriers_polypeptides_go_classifiers,
+      write_csv(carr_poly_go,
                 save_csv,
                 csv_path)
     }
@@ -817,12 +817,12 @@ parse_carr_polypeptides_go <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_carriers_polypeptides_go_classifiers,
-        table_name = "drug_carriers_polypeptides_go_classifiers",
+        df = carr_poly_go,
+        table_name = "carr_poly_go",
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_polypeptides_go_classifiers)
+    return(carr_poly_go)
   }
 
 #' Extracts the drug carriers element and return data as data frame.

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_targets_node_parser.R
 \name{parse_targ_poly_syn}
 \alias{parse_targ_poly_syn}
-\title{Extracts the drug targets polypeptides synonyms element
+\title{Extracts the drug targ polypeptides syn element
 and return data as data frame.}
 \usage{
 parse_targ_poly_syn(save_table = FALSE, save_csv = FALSE,
@@ -20,14 +20,14 @@ location, save_csv must be true}
 new parse operation}
 }
 \value{
-drug targets polypeptides synonyms node attributes date frame
+drug targ polypeptides syn node attributes date frame
 }
 \description{
 \code{parse_targ_poly_syn} returns data
- frame of drug targets polypeptides synonyms elements.
+ frame of drug targ polypeptides syn elements.
 }
 \details{
-This functions extracts the targets polypeptides synonyms element of
+This functions extracts the targ polypeptides syn element of
 drug node in drug bank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to

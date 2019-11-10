@@ -65,9 +65,9 @@ parse_drug_all <-
     links_drug <-
       parse_drug_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_drug, 5/75")
-    synonyms_drug <-
-      parse_drug_synonyms(save_table, save_csv, csv_path, override_csv)
-    message("parsed synonyms_drug, 6/75")
+    syn_drug <-
+      parse_drug_syn(save_table, save_csv, csv_path, override_csv)
+    message("parsed syn_drug, 6/75")
     products_drug <-
       parse_drug_products(save_table, save_csv, csv_path, override_csv)
     message("parsed products_drug, 7/75")
@@ -81,8 +81,10 @@ parse_drug_all <-
       parse_drug_categories(save_table, save_csv, csv_path, override_csv)
     message("parsed categories_drug, 10/75")
     affected_organisms_drug <-
-      parse_drug_affected_organisms(save_table, save_csv, csv_path,
-                                    override_csv)
+      parse_drug_affected_organisms(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed affected_organisms_drug, 11/75")
     dosages_drug <-
       parse_drug_dosages(save_table, save_csv, csv_path, override_csv)
@@ -103,12 +105,16 @@ parse_drug_all <-
       parse_drug_interactions(save_table, save_csv, csv_path, override_csv)
     message("parsed interactions_drug, 17/75")
     experimental_properties_drug <-
-      parse_drug_experimental_properties(save_table, save_csv, csv_path,
-                                         override_csv)
+      parse_drug_exp_prop(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed experimental_properties_drug, 18/75")
     external_identifiers_drug <-
-      parse_drug_external_identifiers(save_table, save_csv, csv_path,
-                                      override_csv)
+      parse_drug_ex_identity(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed external_identifiers_drug, 19/75")
     external_links_drug <-
       parse_drug_external_links(save_table, save_csv, csv_path, override_csv)
@@ -117,8 +123,10 @@ parse_drug_all <-
       parse_drug_snp_effects(save_table, save_csv, csv_path, override_csv)
     message("parsed snp_effects_drug, 21/75")
     snp_adverse_reactions <-
-      parse_snp_adverse_reactions(save_table, save_csv, csv_path,
-                                            override_csv)
+      parse_snp_adverse_reactions(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed snp_adverse_reactions, 22/75")
     atc_codes_drug <-
       parse_drug_atc_codes(save_table, save_csv, csv_path, override_csv)
@@ -130,32 +138,44 @@ parse_drug_all <-
       parse_drug_carriers_articles(save_table, save_csv, csv_path, override_csv)
     message("parsed articles_carrier_drug, 25/75")
     textbooks_carrier_drug <-
-      parse_drug_carriers_textbooks(save_table, save_csv, csv_path,
-                                    override_csv)
+      parse_drug_carriers_textbooks(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed textbooks_carrier_drug, 26/75")
     links_carrier_drug <-
       parse_drug_carriers_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_carrier_drug, 27/75")
     polypeptides_carrier_drug <-
-      parse_drug_carriers_polypeptides(save_table, save_csv, csv_path,
-                                       override_csv)
+      parse_carr_poly(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed polypeptides_carrier_drug, 28/75")
     carr_poly_ext_identity <-
-      parse_carr_poly_ext_identity (save_table,
-                                                            save_csv, csv_path,
-                                                            override_csv)
+      parse_carr_poly_ext_identity(
+        save_table,
+        save_csv, csv_path,
+        override_csv
+      )
     message("parsed carr_poly_ext_identity, 29/75")
     carr_polypeptides_syn <-
-      parse_carr_polypeptides_syn(save_table, save_csv, csv_path,
-                                                override_csv)
+      parse_carr_polypeptides_syn(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed carr_polypeptides_syn, 30/75")
     carr_polypeptides_pfams <-
-      parse_carr_polypeptides_pfams(save_table, save_csv, csv_path,
-                                             override_csv)
+      parse_carr_polypeptides_pfams(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed carr_polypeptides_pfams, 31/75")
     carr_polypeptides_go <-
-      parse_carr_polypeptides_go(save_table, save_csv,
-                                                      csv_path, override_csv)
+      parse_carr_polypeptides_go(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
     message("parsed carr_polypeptides_go, 32/75")
     carriers_drug <-
       parse_drug_carriers(save_table, save_csv, csv_path, override_csv)
@@ -176,25 +196,35 @@ parse_drug_all <-
       parse_drug_enzymes_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_enzyme_drug, 38/75")
     polypeptides_enzyme_drug <-
-      parse_drug_enzymes_polypeptides(save_table, save_csv, csv_path,
-                                      override_csv)
+      parse_enzy_poly(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed polypeptides_enzyme_drug, 39/75")
     enzy_poly_ext_identity <-
-      parse_enzy_poly_ext_identitys(save_table,
-                                                           save_csv, csv_path,
-                                                           override_csv)
+      parse_enzy_poly_ext_identitys(
+        save_table,
+        save_csv, csv_path,
+        override_csv
+      )
     message("parsed external_identifiers_polypeptides_enzyme_drug, 40/75")
-    enzy_poly_syn<-
-      parse_enzy_poly_syn(save_table, save_csv, csv_path,
-                                               override_csv)
+    enzy_poly_syn <-
+      parse_enzy_poly_syn(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed enzy_poly_syn, 41/75")
     pfams_polypeptides_enzyme_drug <-
-      parse_drug_enzymes_polypeptides_pfams(save_table, save_csv, csv_path,
-                                            override_csv)
+      parse_enzy_poly_pfams(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed pfams_polypeptides_enzyme_drug, 42/75")
     enzy_poly_go <-
-      parse_enzy_poly_go(save_table, save_csv,
-                                                     csv_path, override_csv)
+      parse_enzy_poly_go(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
     message("parsed enzy_poly_go, 43/75")
     enzymes_drug <-
       parse_drug_enzymes(save_table, save_csv, csv_path, override_csv)
@@ -224,93 +254,123 @@ parse_drug_all <-
       parse_drug_sequences(save_table, save_csv, csv_path, override_csv)
     message("parsed sequences_drug, 52/75")
     targ_poly_ext_identity <-
-      parse_targ_poly_ext_identity(save_table, save_csv,
-                                                           csv_path,
-                                                           override_csv)
+      parse_targ_poly_ext_identity(
+        save_table, save_csv,
+        csv_path,
+        override_csv
+      )
     message("parsed targ_poly_ext_identity, 53/75")
     targ_poly_syn <-
-      parse_targ_poly_syn(save_table, save_csv, csv_path,
-                                               override_csv)
+      parse_targ_poly_syn(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed targ_poly_syn, 54/75")
     pfams_polypeptide_target_drug <-
-      parse_drug_targets_polypeptides_pfams(save_table, save_csv, csv_path,
-                                            override_csv)
+      parse_drug_targ_polys_pfams(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed pfams_polypeptide_target_drug, 55/75")
     targ_poly_go <-
-      parse_targ_poly_go(save_table, save_csv,
-                                                     csv_path, override_csv)
+      parse_targ_poly_go(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
     message("parsed targ_poly_go attributes, 56/75")
     actions_target_drug <-
-      parse_drug_targets_actions(save_table, save_csv, csv_path, override_csv)
+      parse_drug_targ_actions(save_table, save_csv, csv_path, override_csv)
     message("parsed actions_target_drug, 57/75")
     articles_target_drug <-
-      parse_drug_targets_articles(save_table, save_csv, csv_path, override_csv)
+      parse_drug_targ_articles(save_table, save_csv, csv_path, override_csv)
     message("parsed articles_target_drug, 58/75")
     textbooks_target_drug <-
-      parse_drug_targets_textbooks(save_table, save_csv, csv_path, override_csv)
+      parse_drug_targ_textbooks(save_table, save_csv, csv_path, override_csv)
     message("parsed textbooks_target_drug, 59/75")
     links_target_drug <-
-      parse_drug_targets_links(save_table, save_csv, csv_path, override_csv)
+      parse_drug_targ_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_target_drug, 60/75")
     polypeptide_target_drug <-
-      parse_drug_targets_polypeptides(save_table, save_csv, csv_path,
-                                      override_csv)
+      parse_drug_targ_polys(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed polypeptide_target_drug, 61/75")
-    targets_drug <-
-      parse_drug_targets(save_table, save_csv, csv_path, override_csv)
-    message("parsed targets_drug, 62/75")
+    targ_drug <-
+      parse_drug_targ(save_table, save_csv, csv_path, override_csv)
+    message("parsed targ_drug, 62/75")
     actions_transporter_drug <-
-      parse_drug_transporters_actions(save_table, save_csv, csv_path,
-                                      override_csv)
+      parse_drug_transporters_actions(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed actions_transporter_drug, 63/75")
     articles_transporter_drug <-
-      parse_drug_transporters_articles(save_table, save_csv, csv_path,
-                                       override_csv)
+      parse_drug_transporters_articles(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed articles_transporter_drug, 64/75")
     textbooks_transporter_drug <-
-      parse_drug_transporters_textbooks(save_table, save_csv, csv_path,
-                                        override_csv)
+      parse_drug_transporters_textbooks(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed textbooks_transporter_drug, 65/75")
     links_transporter_drug <-
-      parse_drug_transporters_links(save_table, save_csv, csv_path,
-                                    override_csv)
+      parse_drug_transporters_links(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed links_transporter_drug, 66/75")
     polypeptides_transporter_drug <-
-      parse_drug_transporters_polypeptides(save_table, save_csv, csv_path,
-                                           override_csv)
+      parse_drug_transporters_polypeptides(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed polypeptides_transporter_drug, 67/75")
-    external_identifiers_transporter_drug <-
-      parse_drug_transporters_polypeptides_external_identifiers(save_table,
-                                                                save_csv,
-                                                                csv_path,
-                                                                override_csv)
-    message("parsed external_identifiers_transporter_drug, 68/75")
+    trans_poly_ex_identity <-
+      parse_trans_poly_ex_identity(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
+    message("parsed trans_poly_ex_identity, 68/75")
     trans_poly_syn <-
-      parse_trans_poly_syn(save_table, save_csv,
-                                                    csv_path, override_csv)
-    message("parsed synonyms_polypeptides_transporter_drug, 69/75")
+      parse_trans_poly_syn(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
+    message("parsed syn_polypeptides_transporter_drug, 69/75")
     trans_poly_pfams <-
-      parse_trans_poly_pfams(save_table, save_csv,
-                                                 csv_path, override_csv)
+      parse_trans_poly_pfams(
+        save_table, save_csv,
+        csv_path, override_csv
+      )
     message("parsed pfams_polypeptides_transporter_drug, 70/75")
     trans_poly_go <-
-      parse_trans_poly_go(save_table, save_csv,
-                                                          csv_path,
-                                                          override_csv)
-    message("parsed go_classifiers_polypeptides_transporter_drug, 71/75")
+      parse_trans_poly_go(
+        save_table, save_csv,
+        csv_path,
+        override_csv
+      )
+    message("parsed go_polypeptides_transporter_drug, 71/75")
     transporters_drug <-
       parse_drug_transporters(save_table, save_csv, csv_path, override_csv)
     message("parsed transporters_drug, 72/75")
     international_brands_drug <-
-      parse_drug_international_brands(save_table, save_csv, csv_path,
-                                      override_csv)
+      parse_drug_intern_brand(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed international_brands_drug, 73/75")
     salts_drug <-
       parse_drug_salts(save_table, save_csv, csv_path, override_csv)
     message("parsed salts_drug, 74/75")
     calculated_properties_drug <-
-      parse_drug_calculated_properties(save_table, save_csv, csv_path,
-                                       override_csv)
+      parse_drug_calc_prop(
+        save_table, save_csv, csv_path,
+        override_csv
+      )
     message("parsed calculated_properties_drug, 75/75")
     return(
       list(
@@ -319,7 +379,7 @@ parse_drug_all <-
         articles_drug = articles_drug,
         books_drug = books_drug,
         links_drug = links_drug,
-        synonyms_drug = synonyms_drug,
+        syn_drug = syn_drug,
         products_drug = products_drug,
         mixtures_drug = mixtures_drug,
         packagers_drug = packagers_drug,
@@ -358,7 +418,7 @@ parse_drug_all <-
         polypeptides_enzyme_drug = polypeptides_enzyme_drug,
         enzy_poly_ext_identity =
           enzy_poly_ext_identity,
-        enzy_poly_syn= enzy_poly_syn,
+        enzy_poly_syn = enzy_poly_syn,
         pfams_polypeptides_enzyme_drug = pfams_polypeptides_enzyme_drug,
         enzy_poly_go =
           enzy_poly_go,
@@ -382,14 +442,14 @@ parse_drug_all <-
         textbooks_target_drug = textbooks_target_drug,
         links_target_drug = links_target_drug,
         polypeptide_target_drug = polypeptide_target_drug,
-        targets_drug = targets_drug,
+        targ_drug = targ_drug,
         actions_transporter_drug = actions_transporter_drug,
         articles_transporter_drug = articles_transporter_drug,
         textbooks_transporter_drug = textbooks_transporter_drug,
         links_transporter_drug = links_transporter_drug,
         polypeptides_transporter_drug = polypeptides_transporter_drug,
-        external_identifiers_transporter_drug =
-          external_identifiers_transporter_drug,
+        trans_poly_ex_identity =
+          trans_poly_ex_identity,
         trans_poly_syn =
           trans_poly_syn,
         trans_poly_pfams = trans_poly_pfams,
@@ -481,229 +541,371 @@ parse_drug_element <-
       parsed_element <- switch(
         option,
         "drugs" = parse_drug(save_table, save_csv, csv_path, override_csv),
-        "affected_organisms_drug" = parse_drug_affected_organisms(save_table,
-                                                                  save_csv,
-                                                                  csv_path,
-                                                                  override_csv),
-        "ahfs_codes_drug" = parse_drug_ahfs_codes(save_table, save_csv,
-                                                  csv_path, override_csv),
-        "articles_drug" = parse_drug_articles(save_table, save_csv, csv_path,
-                                              override_csv),
-        "atc_codes_drug" = parse_drug_atc_codes(save_table, save_csv, csv_path,
-                                                override_csv),
-        "books_drug" = parse_drug_books(save_table, save_csv, csv_path,
-                                        override_csv),
-        "carriers_drug" = parse_drug_carriers(save_table, save_csv, csv_path,
-                                              override_csv),
-        "actions_carrier_drug" = parse_drug_carriers_actions(save_table,
-                                                             save_csv,
-                                                             csv_path,
-                                                             override_csv),
-        "articles_carrier_drug" = parse_drug_carriers_articles(save_table,
-                                                               save_csv,
-                                                               csv_path,
-                                                               override_csv),
-        "links_carrier_drug" = parse_drug_carriers_links(save_table,
-                                                         save_csv,
-                                                         csv_path,
-                                                         override_csv),
-        "polypeptides_carrier_drugs" = parse_drug_carriers_polypeptides(
-          save_table, save_csv, csv_path, override_csv),
+        "affected_organisms_drug" = parse_drug_affected_organisms(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "ahfs_codes_drug" = parse_drug_ahfs_codes(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "articles_drug" = parse_drug_articles(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "atc_codes_drug" = parse_drug_atc_codes(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "books_drug" = parse_drug_books(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "carriers_drug" = parse_drug_carriers(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "actions_carrier_drug" = parse_drug_carriers_actions(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "articles_carrier_drug" = parse_drug_carriers_articles(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "links_carrier_drug" = parse_drug_carriers_links(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "polypeptides_carrier_drugs" = parse_carr_poly(
+          save_table, save_csv, csv_path, override_csv
+        ),
         "carr_poly_ext_identity" =
-          parse_carr_poly_ext_identity (save_table,
-                                                                save_csv,
-                                                                csv_path,
-                                                                override_csv),
+          parse_carr_poly_ext_identity(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "carr_polypeptides_go" =
-          parse_carr_polypeptides_go(save_table,
-                                                          save_csv,
-                                                          csv_path,
-                                                          override_csv),
+          parse_carr_polypeptides_go(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "carr_polypeptides_pfams" =
-          parse_carr_polypeptides_pfams(save_table,
-                                                 save_csv, csv_path,
-                                                 override_csv),
+          parse_carr_polypeptides_pfams(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
         "carr_polypeptides_syn" =
-          parse_carr_polypeptides_syn(save_table,
-                                                    save_csv, csv_path,
-                                                    override_csv),
-        "textbooks_carrier_drug" = parse_drug_carriers_textbooks(save_table,
-                                                                 save_csv,
-                                                                 csv_path,
-                                                                 override_csv),
-        "categories_drug" = parse_drug_carriers(save_table, save_csv, csv_path,
-                                                override_csv),
-        "classifications_drug" = parse_drug_classification(save_table, save_csv,
-                                                           csv_path,
-                                                           override_csv),
-        "dosages_drug" = parse_drug_dosages(save_table, save_csv, csv_path,
-                                            override_csv),
-        "enzymes_drug" = parse_drug_enzymes(save_table, save_csv, csv_path,
-                                            override_csv),
-        "actions_enzyme_drug" = parse_drug_enzymes_actions(save_table, save_csv,
-                                                           csv_path,
-                                                           override_csv),
-        "articles_enzyme_drug" = parse_drug_enzymes_articles(save_table,
-                                                             save_csv,
-                                                             csv_path,
-                                                             override_csv),
-        "links_enzyme_drug" = parse_drug_enzymes_links(save_table,
-                                                       save_csv,
-                                                       csv_path,
-                                                       override_csv),
+          parse_carr_polypeptides_syn(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
+        "textbooks_carrier_drug" = parse_drug_carriers_textbooks(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "categories_drug" = parse_drug_carriers(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "classifications_drug" = parse_drug_classification(
+          save_table, save_csv,
+          csv_path,
+          override_csv
+        ),
+        "dosages_drug" = parse_drug_dosages(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "enzymes_drug" = parse_drug_enzymes(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "actions_enzyme_drug" = parse_drug_enzymes_actions(
+          save_table, save_csv,
+          csv_path,
+          override_csv
+        ),
+        "articles_enzyme_drug" = parse_drug_enzymes_articles(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "links_enzyme_drug" = parse_drug_enzymes_links(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
         "polypeptides_enzyme_drug" =
-          parse_drug_enzymes_polypeptides(save_table, save_csv, csv_path,
-                                          override_csv),
+          parse_enzy_poly(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
         "enzy_poly_ext_identity" =
-          parse_enzy_poly_ext_identitys(save_table,
-                                                               save_csv,
-                                                               csv_path,
-                                                               override_csv),
+          parse_enzy_poly_ext_identitys(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "enzy_poly_go" =
-          parse_enzy_poly_go(save_table, save_csv,
-                                                         csv_path,
-                                                         override_csv),
+          parse_enzy_poly_go(
+            save_table, save_csv,
+            csv_path,
+            override_csv
+          ),
         "pfams_polypeptides_enzyme_drug" =
-          parse_drug_enzymes_polypeptides_pfams(save_table, save_csv, csv_path,
-                                                override_csv),
+          parse_enzy_poly_pfams(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
         "enzy_poly_syn" =
-          parse_enzy_poly_syn(save_table,
-                                                   save_csv, csv_path,
-                                                   override_csv),
-        "textbooks_enzyme_drug" = parse_drug_enzymes_textbooks(save_table,
-                                                               save_csv,
-                                                               csv_path,
-                                                               override_csv),
+          parse_enzy_poly_syn(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
+        "textbooks_enzyme_drug" = parse_drug_enzymes_textbooks(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
         "experimental_properties_drug" =
-          parse_drug_experimental_properties(save_table, save_csv, csv_path,
-                                             override_csv),
-        "external_identifiers_drug" = parse_drug_external_identifiers(
-          save_table, save_csv, csv_path, override_csv),
-        "external_links_drug" = parse_drug_external_links(save_table, save_csv,
-                                                          csv_path,
-                                                          override_csv),
-        "food_interactions_drug" = parse_drug_food_interactions(save_table,
-                                                                save_csv,
-                                                                csv_path,
-                                                                override_csv),
-        "groups_drugs" = parse_drug_groups(save_table, save_csv, csv_path,
-                                           override_csv),
-        "interactions_drug" = parse_drug_interactions(save_table, save_csv,
-                                                      csv_path, override_csv),
-        "links_drug" = parse_drug_interactions(save_table, save_csv, csv_path,
-                                               override_csv),
-        "manufacturers_drug" = parse_drug_manufacturers(save_table, save_csv,
-                                                        csv_path, override_csv),
-        "mixtures_drug" = parse_drug_mixtures(save_table, save_csv, csv_path,
-                                              override_csv),
-        "packagers_drug" = parse_drug_packagers(save_table, save_csv, csv_path,
-                                                override_csv),
-        "patents_drugs" = parse_drug_patents(save_table, save_csv, csv_path,
-                                             override_csv),
-        "pathways_drug" = parse_drug_pathway(save_table, save_csv, csv_path,
-                                             override_csv),
-        "drugs_pathway_drug" = parse_drug_pathway_drugs(save_table, save_csv,
-                                                        csv_path, override_csv),
-        "enzymes_pathway_drug" = parse_drug_pathway_enzyme(save_table, save_csv,
-                                                           csv_path,
-                                                           override_csv),
-        "pdb_entries_drug" = parse_drug_pdb_entries(save_table, save_csv,
-                                                    csv_path, override_csv),
-        "prices_drug" = parse_drug_prices(save_table, save_csv, csv_path,
-                                          override_csv),
-        "products_drug" = parse_drug_products(save_table, save_csv, csv_path,
-                                              override_csv),
-        "reactions_drugs" = parse_drug_reactions(save_table, save_csv, csv_path,
-                                                 override_csv),
-        "enzymes_reactions_drug" = parse_drug_reactions_enzymes(save_table,
-                                                                save_csv,
-                                                                csv_path,
-                                                                override_csv),
-        "sequences_drug" = parse_drug_sequences(save_table, save_csv, csv_path,
-                                                override_csv),
+          parse_drug_exp_prop(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
+        "external_identifiers_drug" = parse_drug_ex_identity(
+          save_table, save_csv, csv_path, override_csv
+        ),
+        "external_links_drug" = parse_drug_external_links(
+          save_table, save_csv,
+          csv_path,
+          override_csv
+        ),
+        "food_interactions_drug" = parse_drug_food_interactions(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "groups_drugs" = parse_drug_groups(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "interactions_drug" = parse_drug_interactions(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "links_drug" = parse_drug_interactions(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "manufacturers_drug" = parse_drug_manufacturers(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "mixtures_drug" = parse_drug_mixtures(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "packagers_drug" = parse_drug_packagers(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "patents_drugs" = parse_drug_patents(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "pathways_drug" = parse_drug_pathway(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "drugs_pathway_drug" = parse_drug_pathway_drugs(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "enzymes_pathway_drug" = parse_drug_pathway_enzyme(
+          save_table, save_csv,
+          csv_path,
+          override_csv
+        ),
+        "pdb_entries_drug" = parse_drug_pdb_entries(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "prices_drug" = parse_drug_prices(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "products_drug" = parse_drug_products(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "reactions_drugs" = parse_drug_reactions(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "enzymes_reactions_drug" = parse_drug_reactions_enzymes(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "sequences_drug" = parse_drug_sequences(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
         "snp_adverse_reactions" =
-          parse_snp_adverse_reactions(save_table,
-                                                save_csv, csv_path,
-                                                override_csv),
-        "snp_effects_drug" = parse_drug_snp_effects(save_table, save_csv,
-                                                    csv_path, override_csv),
-        "synonyms_drug" = parse_drug_synonyms(save_table, save_csv, csv_path,
-                                              override_csv),
-        "targets_drug" = parse_drug_targets(save_table, save_csv, csv_path,
-                                            override_csv),
-        "actions_target_drug" = parse_drug_targets_actions(save_table, save_csv,
-                                                           csv_path,
-                                                           override_csv),
-        "articles_target_drug" = parse_drug_targets_articles(save_table,
-                                                             save_csv, csv_path,
-                                                             override_csv),
-        "links_target_drug" = parse_drug_targets_links(save_table, save_csv,
-                                                       csv_path, override_csv),
+          parse_snp_adverse_reactions(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
+        "snp_effects_drug" = parse_drug_snp_effects(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
+        "syn_drug" = parse_drug_syn(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "targ_drug" = parse_drug_targ(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "actions_target_drug" = parse_drug_targ_actions(
+          save_table, save_csv,
+          csv_path,
+          override_csv
+        ),
+        "articles_target_drug" = parse_drug_targ_articles(
+          save_table,
+          save_csv, csv_path,
+          override_csv
+        ),
+        "links_target_drug" = parse_drug_targ_links(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
         "polypeptide_target_drug" =
-          parse_drug_targets_polypeptides(save_table, save_csv, csv_path,
-                                          override_csv),
+          parse_drug_targ_polys(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
         "targ_poly_ext_identity" =
-          parse_targ_poly_ext_identity(save_table,
-                                                               save_csv,
-                                                               csv_path,
-                                                               override_csv),
+          parse_targ_poly_ext_identity(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "targ_poly_go" =
-          parse_targ_poly_go(save_table,
-                                                         save_csv,
-                                                         csv_path,
-                                                         override_csv),
+          parse_targ_poly_go(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "pfams_polypeptide_target_drug" =
-          parse_drug_targets_polypeptides_pfams(save_table,
-                                                save_csv, csv_path,
-                                                override_csv),
+          parse_drug_targ_polys_pfams(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
         "targ_poly_syn" =
-          parse_targ_poly_syn(save_table,
-                                                   save_csv, csv_path,
-                                                   override_csv),
-        "textbooks_target_drug" = parse_drug_targets_textbooks(save_table,
-                                                               save_csv,
-                                                               csv_path,
-                                                               override_csv),
-        "transporters_drug" = parse_drug_transporters(save_table, save_csv,
-                                                      csv_path, override_csv),
+          parse_targ_poly_syn(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
+        "textbooks_target_drug" = parse_drug_targ_textbooks(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "transporters_drug" = parse_drug_transporters(
+          save_table, save_csv,
+          csv_path, override_csv
+        ),
         "actions_transporter_drug" =
-          parse_drug_transporters_actions(save_table, save_csv, csv_path,
-                                          override_csv),
-        "articles_transporter_drug" = parse_drug_targets_articles(save_table,
-                                                                  save_csv,
-                                                                  csv_path,
-                                                                  override_csv),
-        "links_transporter_drug" = parse_drug_transporters_links(save_table,
-                                                                 save_csv,
-                                                                 csv_path,
-                                                                 override_csv),
+          parse_drug_transporters_actions(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
+        "articles_transporter_drug" = parse_drug_targ_articles(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
+        "links_transporter_drug" = parse_drug_transporters_links(
+          save_table,
+          save_csv,
+          csv_path,
+          override_csv
+        ),
         "polypeptides_transporter_drug" =
-          parse_drug_enzymes_polypeptides(save_table, save_csv, csv_path,
-                                          override_csv),
-        "external_identifiers_transporter_drug" =
-          parse_drug_transporters_polypeptides_external_identifiers(
-            save_table, save_csv, csv_path, override_csv),
-        "go_classifiers_polypeptide_transporters_drug" =
-          parse_trans_poly_go(save_table,
-                                                              save_csv,
-                                                              csv_path,
-                                                              override_csv),
+          parse_enzy_poly(
+            save_table, save_csv, csv_path,
+            override_csv
+          ),
+        "trans_poly_ex_identity" =
+          parse_trans_poly_ex_identity(
+            save_table, save_csv, csv_path, override_csv
+          ),
+        "go_polypeptide_transporters_drug" =
+          parse_trans_poly_go(
+            save_table,
+            save_csv,
+            csv_path,
+            override_csv
+          ),
         "trans_poly_pfams" =
-          parse_trans_poly_pfams(save_table,
-                                                     save_csv, csv_path,
-                                                     override_csv),
+          parse_trans_poly_pfams(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
         "trans_poly_syn" =
-          parse_trans_poly_syn(save_table,
-                                                        save_csv, csv_path,
-                                                        override_csv),
+          parse_trans_poly_syn(
+            save_table,
+            save_csv, csv_path,
+            override_csv
+          ),
         "textbooks_transporter_drug" = parse_drug_transporters_textbooks(
-          save_table, save_csv, csv_path, override_csv),
-        "international_brands_drug" = parse_drug_international_brands(
-          save_table, save_csv, csv_path, override_csv),
-        "salts_drug" = parse_drug_salts(save_table, save_csv, csv_path,
-                                        override_csv),
-        "culculated_properties_drug" = parse_drug_calculated_properties(
-          save_table, save_csv, csv_path, override_csv)
+          save_table, save_csv, csv_path, override_csv
+        ),
+        "international_brands_drug" = parse_drug_intern_brand(
+          save_table, save_csv, csv_path, override_csv
+        ),
+        "salts_drug" = parse_drug_salts(
+          save_table, save_csv, csv_path,
+          override_csv
+        ),
+        "culculated_properties_drug" = parse_drug_calc_prop(
+          save_table, save_csv, csv_path, override_csv
+        )
       )
       parsed_list[[option]] <- parsed_element
       message(paste("parsed", option))
@@ -729,7 +931,7 @@ parse_drug_element_options <- function() {
       "articles_drug",
       "books_drug",
       "links_drug",
-      "synonyms_drug",
+      "syn_drug",
       "products_drug",
       "culculated_properties_drug",
       "mixtures_drug",
@@ -786,16 +988,16 @@ parse_drug_element_options <- function() {
       "textbooks_target_drug",
       "links_target_drug",
       "polypeptide_target_drug",
-      "targets_drug",
+      "targ_drug",
       "actions_transporter_drug",
       "articles_transporter_drug",
       "textbooks_transporter_drug",
       "links_transporter_drug",
       "polypeptides_transporter_drug",
-      "external_identifiers_transporter_drug",
+      "trans_poly_ex_identity",
       "trans_poly_syn",
       "trans_poly_pfams",
-      "go_classifiers_polypeptide_transporters_drug",
+      "go_polypeptide_transporters_drug",
       "transporters_drug",
       "international_brands_drug",
       "salts_drug"

@@ -61,11 +61,11 @@ test_that(desc = "Read darug classification attributes",
             expect_error(parse_drug_classification(TRUE))
           })
 
-test_that(desc = "Read darug synonyms attributes",
+test_that(desc = "Read darug syn attributes",
           code = {
-            expect_match(parse_drug_synonyms()[["synonym"]][[1]],
+            expect_match(parse_drug_syn()[["synonym"]][[1]],
                          "Hirudin variant-1")
-            expect_error(parse_drug_synonyms(TRUE))
+            expect_error(parse_drug_syn(TRUE))
           })
 
 test_that(desc = "Read darug articles attributes",
@@ -189,19 +189,19 @@ test_that(desc = "Read darug sequences attributes",
 test_that(desc = "Read darug experimental properties attributes",
           code = {
             expect_match(
-              as.character(parse_drug_experimental_properties()[["kind"]][[1]]),
+              as.character(parse_drug_exp_prop()[["kind"]][[1]]),
                          "Melting Point")
-            expect_error(parse_drug_experimental_properties(TRUE))
+            expect_error(parse_drug_exp_prop(TRUE))
           })
 
 test_that(desc = "Read darug external identifiers attributes",
           code = {
             expect_match(
               as.character(
-                parse_drug_external_identifiers()[["resource"]][[1]]),
+                parse_drug_ex_identity()[["resource"]][[1]]),
               "Drugs Product Database \\(DPD\\)"
             )
-            expect_error(parse_drug_external_identifiers(TRUE))
+            expect_error(parse_drug_ex_identity(TRUE))
           })
 
 test_that(desc = "Read darug external links attributes",
