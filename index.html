@@ -99,7 +99,7 @@
 <a class="sourceLine" id="cb3-12" data-line-number="12">drug_groups &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_groups.html">parse_drug_groups</a></span>()</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">## load drug targets actions data</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">drug_targets_actions &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb3-15" data-line-number="15">drug_targets_actions &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw">parse_drug_targets_actions</span>()</a></code></pre></div>
 </div>
 <div id="saving-into-a-database" class="section level2">
 <h2 class="hasAnchor">
@@ -119,7 +119,7 @@
 <a class="sourceLine" id="cb4-12" data-line-number="12"> <span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_groups.html">parse_drug_groups</a></span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb4-13" data-line-number="13"></a>
 <a class="sourceLine" id="cb4-14" data-line-number="14">## save 'drug_targets_actions' dataframe to DB</a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"> <span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb4-15" data-line-number="15"> <span class="kw">parse_drug_targets_actions</span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb4-16" data-line-number="16"></a>
 <a class="sourceLine" id="cb4-17" data-line-number="17">## finally close db connection </a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"> <span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/close_db.html">close_db</a></span>()</a></code></pre></div>

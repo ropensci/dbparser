@@ -36,8 +36,7 @@
 
 
 <meta property="og:title" content="Extracts the drug transporters links element and return data as data frame. — parse_drug_transporters_links" />
-<meta property="og:description" content="parse_drug_transporters_links returns data frame of drug
-transporters_links elements." />
+<meta property="og:description" content="parse_drug_transporters_links returns data frame of drug transporters_ inks elements." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -113,8 +112,7 @@ transporters_links elements." />
     </div>
 
     <div class="ref-description">
-    <p><code>parse_drug_transporters_links</code> returns data frame of drug
-transporters_links elements.</p>
+    <p><code>parse_drug_transporters_links</code> returns data frame of drug transporters_ inks elements.</p>
     </div>
 
     <pre class="usage"><span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
@@ -133,13 +131,11 @@ transporters_links elements.</p>
     </tr>
     <tr>
       <th>csv_path</th>
-      <td><p>location to save csv files into it, default is current
-location, save_csv must be true</p></td>
+      <td><p>location to save csv files into it, default is current location, save_csv must be true</p></td>
     </tr>
     <tr>
       <th>override_csv</th>
-      <td><p>override existing csv, if any, in case it is true in the
-new parse operation</p></td>
+      <td><p>override existing csv, if any, in case it is true in the new parse operation</p></td>
     </tr>
     </table>
 
@@ -148,26 +144,25 @@ new parse operation</p></td>
     <p>drug transporters links node attributes date frame</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the transporters links element of drug node in
-drugbank
+    <p>This functions extracts the transporters links element of drug node in drug bank
 xml database with the option to save it in a predefined database via
-<code>open_db</code> method. It takes one single optional argument to
+<code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after <code>get_xml_db_rows</code> function like
+It must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
 any other parser function.
-If <code>get_xml_db_rows</code> is called before for any reason, so
+If <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so
 no need to call it again before calling this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='co'># return only the parsed dataframe</span>
-<span class='fu'>parse_drug_transporters_links</span>()</div><div class='output co'>#&gt; # A tibble: 0 x 0</div><div class='input'>
+<span class='fu'>parse_drug_transporters_links</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'>
 <span class='co'># save in database and return parsed dataframe</span>
-<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘dbWriteTable’ for signature ‘"NULL", "character", "tbl_df"’</span></div><div class='input'>
+<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "tbl_df"'</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 0 x 0</div><div class='input'>
+<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'>
 <span class='co'># save in database, save parsed dataframe as csv if it does not exist</span>
 <span class='co'># in current location and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
@@ -179,9 +174,8 @@ no need to call it again before calling this function.</p>
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-<span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_transporters_links.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
-</div></pre>
+<span class='fu'>parse_drug_transporters_links</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_transporters_links.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -202,7 +196,7 @@ no need to call it again before calling this function.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
 
       </footer>
