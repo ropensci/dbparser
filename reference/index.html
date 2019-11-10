@@ -125,6 +125,12 @@
       <tr>
         
         <td>
+          <p><code><a href="close_db.html">close_db()</a></code> </p>
+        </td>
+        <td><p>Close open drug bank sql database</p></td>
+      </tr><tr>
+        
+        <td>
           <p><code><a href="open_db.html">open_db()</a></code> </p>
         </td>
         <td><p>Establish connection to given data base</p></td>
@@ -134,12 +140,6 @@
           <p><code><a href="open_mdb.html">open_mdb()</a></code> </p>
         </td>
         <td><p>Establish connection to given Maria database</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="close_db.html">close_db()</a></code> </p>
-        </td>
-        <td><p>Close open drug bank sql database</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -180,6 +180,324 @@
           <p><code><a href="get_xml_db_rows.html">get_xml_db_rows()</a></code> </p>
         </td>
         <td><p>Reads drug bank xml database and set it in memory.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-drug-carriers-parsers" class="hasAnchor"><a href="#section-drug-carriers-parsers" class="anchor"></a>Drug Carriers Parsers</h2>
+          <p class="section-desc"><p>Get Drug carriers and its related information</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="parse_carr_poly.html">parse_carr_poly()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers polypeptides element and return data as
+data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_carr_poly_ext_identity.html">parse_carr_poly_ext_identity()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers polypeptides external identifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_carr_polypeptides_go.html">parse_carr_polypeptides_go()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers polypeptides go classifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_carr_polypeptides_pfams.html">parse_carr_polypeptides_pfams()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers polypeptides pfams element and return data as
+data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_carr_polypeptides_syn.html">parse_carr_polypeptides_syn()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers polypeptides syn element and return data as
+data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_carriers.html">parse_drug_carriers()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_carriers_actions.html">parse_drug_carriers_actions()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers actions element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_carriers_articles.html">parse_drug_carriers_articles()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers articles element and return
+ data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_carriers_links.html">parse_drug_carriers_links()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers links element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_carriers_textbooks.html">parse_drug_carriers_textbooks()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug carriers textbooks element and return data as data frame.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-drug-enzymes-parsers" class="hasAnchor"><a href="#section-drug-enzymes-parsers" class="anchor"></a>Drug Enzymes Parsers</h2>
+          <p class="section-desc"><p>Get Drug enzymes and its related information</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="parse_enzy_poly.html">parse_enzy_poly()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes polypeptides element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_enzy_poly_ext_identitys.html">parse_enzy_poly_ext_identitys()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes polypeptides external identifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_enzy_poly_go.html">parse_enzy_poly_go()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug groups element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_enzy_poly_pfams.html">parse_enzy_poly_pfams()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes polypeptides pfams element and return
+ data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_enzy_poly_syn.html">parse_enzy_poly_syn()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes polypeptides syn
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_enzymes.html">parse_drug_enzymes()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_enzymes_actions.html">parse_drug_enzymes_actions()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes actions element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_enzymes_articles.html">parse_drug_enzymes_articles()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes articles element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_enzymes_links.html">parse_drug_enzymes_links()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes links element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_enzymes_textbooks.html">parse_drug_enzymes_textbooks()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug enzymes textbooks element and return data as data frame.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-drug-targets-parsers" class="hasAnchor"><a href="#section-drug-targets-parsers" class="anchor"></a>Drug Targets Parsers</h2>
+          <p class="section-desc"><p>Get Drug targets and its related information</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="parse_targ_poly_ext_identity.html">parse_targ_poly_ext_identity()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ polypeptides external identifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_targ_poly_go.html">parse_targ_poly_go()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ polypeptides go classifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_targ_poly_syn.html">parse_targ_poly_syn()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ polypeptides syn element
+and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ.html">parse_drug_targ()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_actions.html">parse_drug_targ_actions()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ actions element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_articles.html">parse_drug_targ_articles()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ articles element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_links.html">parse_drug_targ_links()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ links element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_polys.html">parse_drug_targ_polys()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ polypeptides element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_polys_pfams.html">parse_drug_targ_polys_pfams()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ polypeptides pfams
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_targ_textbooks.html">parse_drug_targ_textbooks()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug targ textbooks element and return data as data frame.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-drug-transporters-parsers" class="hasAnchor"><a href="#section-drug-transporters-parsers" class="anchor"></a>Drug Transporters Parsers</h2>
+          <p class="section-desc"><p>Get Drug transporters and its related information</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="parse_trans_poly_ex_identity.html">parse_trans_poly_ex_identity()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters polypeptides external identifiers
+ element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_trans_poly_go.html">parse_trans_poly_go()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters polypeptides go
+classifiers element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_trans_poly_pfams.html">parse_trans_poly_pfams()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters polypeptides pfams element
+and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_trans_poly_syn.html">parse_trans_poly_syn()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters polypeptides syn
+element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_trans_actions.html">parse_drug_trans_actions()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters actions element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_trans_articles.html">parse_drug_trans_articles()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters articles element and return data as
+data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_trans_links.html">parse_drug_trans_links()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters links element and return data as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_trans_polys.html">parse_drug_trans_polys()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters polypeptides element and return data
+ as data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_trans_textbooks.html">parse_drug_trans_textbooks()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters textbooks element and return data as
+ data frame.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_transporters.html">parse_drug_transporters()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug transporters element and return data as data frame.</p></td>
+      </tr>
+    </tbody><tbody>
+      <tr>
+        <th colspan="2">
+          <h2 id="section-drug-common-parsers" class="hasAnchor"><a href="#section-drug-common-parsers" class="anchor"></a>Drug Common Parsers</h2>
+          <p class="section-desc"><p>Parse all/specific information in DrugBank database</p></p>
+        </th>
+      </tr>
+      <tr>
+        
+        <td>
+          <p><code><a href="parse_drug_all.html">parse_drug_all()</a></code> </p>
+        </td>
+        <td><p>extracts the all drug elements and return data as list of dataframes.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_element.html">parse_drug_element()</a></code> </p>
+        </td>
+        <td><p>extracts the given drug elements and return data as list of dataframes.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_element_options.html">parse_drug_element_options()</a></code> </p>
+        </td>
+        <td><p>returns <code>parse_drug_element</code> valid options.</p></td>
       </tr>
     </tbody><tbody>
       <tr>
@@ -227,392 +545,12 @@
       </tr><tr>
         
         <td>
-          <p><code><a href="parse_drug_categories.html">parse_drug_categories()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug categories element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_classification.html">parse_drug_classification()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug classifications element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_dosages.html">parse_drug_dosages()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug dosages element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_external_links.html">parse_drug_external_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug external links element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_food_interactions.html">parse_drug_food_interactions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug food interactions element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_groups.html">parse_drug_groups()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug groups element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_interactions.html">parse_drug_interactions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug interactions element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_links.html">parse_drug_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug links element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_manufacturers.html">parse_drug_manufacturers()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug manufacturers element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_mixtures.html">parse_drug_mixtures()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug mixtures element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_packagers.html">parse_drug_packagers()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug packagers element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_patents.html">parse_drug_patents()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug patents element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_pathway.html">parse_drug_pathway()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug pathway element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_pathway_drugs.html">parse_drug_pathway_drugs()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug pathway drugs element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_pathway_enzyme.html">parse_drug_pathway_enzyme()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug pathway enzyme element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_pdb_entries.html">parse_drug_pdb_entries()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug pdb entries element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_prices.html">parse_drug_prices()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug prices element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_products.html">parse_drug_products()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug products element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_reactions.html">parse_drug_reactions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug reactions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_reactions_enzymes.html">parse_drug_reactions_enzymes()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug reactions enzymes element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_salts.html">parse_drug_salts()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug salts and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_sequences.html">parse_drug_sequences()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug sequences element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_snp_effects.html">parse_drug_snp_effects()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug snp effects element and return data as tibble.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-drug-carriers-parsers" class="hasAnchor"><a href="#section-drug-carriers-parsers" class="anchor"></a>Drug Carriers Parsers</h2>
-          <p class="section-desc"><p>Get Drug carriers and its related information</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers.html">parse_drug_carriers()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_actions.html">parse_drug_carriers_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_articles.html">parse_drug_carriers_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers articles element and return
- data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_links.html">parse_drug_carriers_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_textbooks.html">parse_drug_carriers_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers textbooks element and return data as data frame.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-drug-enzymes-parsers" class="hasAnchor"><a href="#section-drug-enzymes-parsers" class="anchor"></a>Drug Enzymes Parsers</h2>
-          <p class="section-desc"><p>Get Drug enzymes and its related information</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes.html">parse_drug_enzymes()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_actions.html">parse_drug_enzymes_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_articles.html">parse_drug_enzymes_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes articles element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_links.html">parse_drug_enzymes_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_textbooks.html">parse_drug_enzymes_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes textbooks element and return data as data frame.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-drug-targets-parsers" class="hasAnchor"><a href="#section-drug-targets-parsers" class="anchor"></a>Drug Targets Parsers</h2>
-          <p class="section-desc"><p>Get Drug targets and its related information</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="close_db.html">close_db()</a></code> </p>
-        </td>
-        <td><p>Close open drug bank sql database</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="dbparser.html">dbparser</a></code> </p>
-        </td>
-        <td><p>dbparser: A package for reading and parsing drug bank xml with the option to
- save it in a given db.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_drugbank_exported_date.html">get_drugbank_exported_date()</a></code> </p>
-        </td>
-        <td><p>Return uploaded drugbank database exported date</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_drugbank_metadata.html">get_drugbank_metadata()</a></code> </p>
-        </td>
-        <td><p>Return uploaded drugbank database metadata</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_drugbank_version.html">get_drugbank_version()</a></code> </p>
-        </td>
-        <td><p>Return uploaded drugbank database version</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="get_xml_db_rows.html">get_xml_db_rows()</a></code> </p>
-        </td>
-        <td><p>Reads drug bank xml database and set it in memory.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="open_db.html">open_db()</a></code> </p>
-        </td>
-        <td><p>Establish connection to given data base</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="open_mdb.html">open_mdb()</a></code> </p>
-        </td>
-        <td><p>Establish connection to given Maria database</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_carr_poly.html">parse_carr_poly()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers polypeptides element and return data as
-data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_carr_poly_ext_identity.html">parse_carr_poly_ext_identity()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers polypeptides external identifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_carr_polypeptides_go.html">parse_carr_polypeptides_go()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers polypeptides go classifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_carr_polypeptides_pfams.html">parse_carr_polypeptides_pfams()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers polypeptides pfams element and return data as
-data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_carr_polypeptides_syn.html">parse_carr_polypeptides_syn()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers polypeptides syn element and return data as
-data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug.html">parse_drug()</a></code> </p>
-        </td>
-        <td><p>Extracts the main drug elements and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_affected_organisms.html">parse_drug_affected_organisms()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug affected organisms element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_ahfs_codes.html">parse_drug_ahfs_codes()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug ahfs codes element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_all.html">parse_drug_all()</a></code> </p>
-        </td>
-        <td><p>extracts the all drug elements and return data as list of dataframes.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_articles.html">parse_drug_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug articles element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_atc_codes.html">parse_drug_atc_codes()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug atc codes element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_books.html">parse_drug_books()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug books element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="parse_drug_calc_prop.html">parse_drug_calc_prop()</a></code> </p>
         </td>
         <td><p>Extracts the drug calculated properties element and return data as tibble.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="parse_drug_carriers.html">parse_drug_carriers()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_actions.html">parse_drug_carriers_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_articles.html">parse_drug_carriers_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers articles element and return
- data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_links.html">parse_drug_carriers_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_carriers_textbooks.html">parse_drug_carriers_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug carriers textbooks element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="parse_drug_categories.html">parse_drug_categories()</a></code> </p>
         </td>
         <td><p>Extracts the drug categories element and return data as tibble.</p></td>
@@ -628,54 +566,6 @@ data frame.</p></td>
           <p><code><a href="parse_drug_dosages.html">parse_drug_dosages()</a></code> </p>
         </td>
         <td><p>Extracts the drug dosages element and return data as tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_element.html">parse_drug_element()</a></code> </p>
-        </td>
-        <td><p>extracts the given drug elements and return data as list of dataframes.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_element_options.html">parse_drug_element_options()</a></code> </p>
-        </td>
-        <td><p>returns <code>parse_drug_element</code> valid options.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes.html">parse_drug_enzymes()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_actions.html">parse_drug_enzymes_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_articles.html">parse_drug_enzymes_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes articles element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_links.html">parse_drug_enzymes_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_enzymes_textbooks.html">parse_drug_enzymes_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes textbooks element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_ex_identity.html">parse_drug_ex_identity()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug external identifiers element and return data as tibble.</p></td>
       </tr><tr>
         
         <td>
@@ -688,6 +578,12 @@ data frame.</p></td>
           <p><code><a href="parse_drug_external_links.html">parse_drug_external_links()</a></code> </p>
         </td>
         <td><p>Extracts the drug external links element and return data as tibble.</p></td>
+      </tr><tr>
+        
+        <td>
+          <p><code><a href="parse_drug_ex_identity.html">parse_drug_ex_identity()</a></code> </p>
+        </td>
+        <td><p>Extracts the drug external identifiers element and return data as tibble.</p></td>
       </tr><tr>
         
         <td>
@@ -817,214 +713,10 @@ data frame.</p></td>
       </tr><tr>
         
         <td>
-          <p><code><a href="parse_drug_targ.html">parse_drug_targ()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_actions.html">parse_drug_targ_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_articles.html">parse_drug_targ_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ articles element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_links.html">parse_drug_targ_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_polys.html">parse_drug_targ_polys()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ polypeptides element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_polys_pfams.html">parse_drug_targ_polys_pfams()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ polypeptides pfams
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_targ_textbooks.html">parse_drug_targ_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ textbooks element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_trans_actions.html">parse_drug_trans_actions()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters actions element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_trans_articles.html">parse_drug_trans_articles()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters articles element and return data as
-data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_trans_links.html">parse_drug_trans_links()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters links element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_trans_polys.html">parse_drug_trans_polys()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters polypeptides element and return data
- as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_trans_textbooks.html">parse_drug_trans_textbooks()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters textbooks element and return data as
- data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_transporters.html">parse_drug_transporters()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_enzy_poly.html">parse_enzy_poly()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes polypeptides element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_enzy_poly_ext_identitys.html">parse_enzy_poly_ext_identitys()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes polypeptides external identifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_enzy_poly_go.html">parse_enzy_poly_go()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug groups element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_enzy_poly_pfams.html">parse_enzy_poly_pfams()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes polypeptides pfams element and return
- data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_enzy_poly_syn.html">parse_enzy_poly_syn()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug enzymes polypeptides syn
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
           <p><code><a href="parse_snp_adverse_reactions.html">parse_snp_adverse_reactions()</a></code> </p>
         </td>
         <td><p>Extracts the drug snp adverse drug reactions element and return data as
 tibble.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_targ_poly_ext_identity.html">parse_targ_poly_ext_identity()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ polypeptides external identifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_targ_poly_go.html">parse_targ_poly_go()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ polypeptides go classifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_targ_poly_syn.html">parse_targ_poly_syn()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug targ polypeptides syn element
-and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_trans_poly_ex_identity.html">parse_trans_poly_ex_identity()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters polypeptides external identifiers
- element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_trans_poly_go.html">parse_trans_poly_go()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters polypeptides go
-classifiers element and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_trans_poly_pfams.html">parse_trans_poly_pfams()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters polypeptides pfams element
-and return data as data frame.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_trans_poly_syn.html">parse_trans_poly_syn()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters polypeptides syn
-element and return data as data frame.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-drug-transporters-parsers" class="hasAnchor"><a href="#section-drug-transporters-parsers" class="anchor"></a>Drug Transporters Parsers</h2>
-          <p class="section-desc"><p>Get Drug transporters and its related information</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_drug_transporters.html">parse_drug_transporters()</a></code> </p>
-        </td>
-        <td><p>Extracts the drug transporters element and return data as data frame.</p></td>
-      </tr>
-    </tbody><tbody>
-      <tr>
-        <th colspan="2">
-          <h2 id="section-drug-common-parsers" class="hasAnchor"><a href="#section-drug-common-parsers" class="anchor"></a>Drug Common Parsers</h2>
-          <p class="section-desc"><p>Parse all/specific information in DrugBank database</p></p>
-        </th>
-      </tr>
-      <tr>
-        
-        <td>
-          <p><code><a href="parse_drug_all.html">parse_drug_all()</a></code> </p>
-        </td>
-        <td><p>extracts the all drug elements and return data as list of dataframes.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_element.html">parse_drug_element()</a></code> </p>
-        </td>
-        <td><p>extracts the given drug elements and return data as list of dataframes.</p></td>
-      </tr><tr>
-        
-        <td>
-          <p><code><a href="parse_drug_element_options.html">parse_drug_element_options()</a></code> </p>
-        </td>
-        <td><p>returns <code>parse_drug_element</code> valid options.</p></td>
       </tr>
     </tbody>
     </table>
@@ -1036,12 +728,12 @@ element and return data as data frame.</p></td>
       <li><a href="#section-database-communication">Database Communication</a></li>
       <li><a href="#section-drugbank-database-loading">DrugBank Database Loading</a></li>
       <li><a href="#section-drugbank-meta-data">DrugBank Meta Data</a></li>
-      <li><a href="#section-drug-parsers">Drug Parsers</a></li>
       <li><a href="#section-drug-carriers-parsers">Drug Carriers Parsers</a></li>
       <li><a href="#section-drug-enzymes-parsers">Drug Enzymes Parsers</a></li>
       <li><a href="#section-drug-targets-parsers">Drug Targets Parsers</a></li>
       <li><a href="#section-drug-transporters-parsers">Drug Transporters Parsers</a></li>
       <li><a href="#section-drug-common-parsers">Drug Common Parsers</a></li>
+      <li><a href="#section-drug-parsers">Drug Parsers</a></li>
     </ul>
   </div>
 </div>
