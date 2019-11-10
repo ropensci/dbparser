@@ -16,37 +16,37 @@ test_that(desc = "Read database",
 
 test_that(desc = "Read darug transporters actions attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_actions()),
+            expect_equal(nrow(parse_drug_trans_actions()),
                          0)
-            expect_error(parse_drug_transporters_actions(TRUE))
+            expect_error(parse_drug_trans_actions(TRUE))
           })
 
 test_that(desc = "Read darug transporters_articles attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_articles()),
+            expect_equal(nrow(parse_drug_trans_articles()),
                          0)
-            expect_error(parse_drug_transporters_articlese(TRUE))
+            expect_error(parse_drug_trans_articlese(TRUE))
           })
 
 test_that(desc = "Read darug transporters textbooks attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_textbooks()),
+            expect_equal(nrow(parse_drug_trans_textbooks()),
                          0)
-            expect_error(parse_drug_transporters_textbooks(TRUE))
+            expect_error(parse_drug_trans_textbooks(TRUE))
           })
 
 test_that(desc = "Read darug transporters links attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_links()),
+            expect_equal(nrow(parse_drug_trans_links()),
                          0)
-            expect_error(parse_drug_transporters_links(TRUE))
+            expect_error(parse_drug_trans_links(TRUE))
           })
 
 test_that(desc = "Read darug transporters polypeptides attributes",
           code = {
-            expect_equal(nrow(parse_drug_transporters_polypeptides()),
+            expect_equal(nrow(parse_drug_trans_polys()),
                          0)
-            expect_error(parse_drug_transporters_polypeptides(TRUE))
+            expect_error(parse_drug_trans_polys(TRUE))
           })
 
 test_that(

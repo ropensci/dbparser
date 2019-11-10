@@ -44,10 +44,10 @@ test_that(desc = "Read drug carriers polypeptides that",
 test_that(desc = "Read drug carriers polypeptides external identifiers that",
           code = {
             expect_equal(
-              nrow(parse_carr_poly_ext_identity ()),
+              nrow(parse_carr_poly_ext_identity()),
                          0)
             expect_error(
-              parse_carr_poly_ext_identity (TRUE))
+              parse_carr_poly_ext_identity(TRUE))
           })
 
 test_that(desc = "Read drug carriers polypeptides syn that",

@@ -300,31 +300,31 @@ parse_drug_all <-
       parse_drug_targ(save_table, save_csv, csv_path, override_csv)
     message("parsed targ_drug, 62/75")
     actions_transporter_drug <-
-      parse_drug_transporters_actions(
+      parse_drug_trans_actions(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed actions_transporter_drug, 63/75")
     articles_transporter_drug <-
-      parse_drug_transporters_articles(
+      parse_drug_trans_articles(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed articles_transporter_drug, 64/75")
     textbooks_transporter_drug <-
-      parse_drug_transporters_textbooks(
+      parse_drug_trans_textbooks(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed textbooks_transporter_drug, 65/75")
     links_transporter_drug <-
-      parse_drug_transporters_links(
+      parse_drug_trans_links(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed links_transporter_drug, 66/75")
     polypeptides_transporter_drug <-
-      parse_drug_transporters_polypeptides(
+      parse_drug_trans_polys(
         save_table, save_csv, csv_path,
         override_csv
       )
@@ -849,7 +849,7 @@ parse_drug_element <-
           csv_path, override_csv
         ),
         "actions_transporter_drug" =
-          parse_drug_transporters_actions(
+          parse_drug_trans_actions(
             save_table, save_csv, csv_path,
             override_csv
           ),
@@ -859,7 +859,7 @@ parse_drug_element <-
           csv_path,
           override_csv
         ),
-        "links_transporter_drug" = parse_drug_transporters_links(
+        "links_transporter_drug" = parse_drug_trans_links(
           save_table,
           save_csv,
           csv_path,
@@ -874,7 +874,7 @@ parse_drug_element <-
           parse_trans_poly_ex_identity(
             save_table, save_csv, csv_path, override_csv
           ),
-        "go_polypeptide_transporters_drug" =
+        "go_polypeptide_trans_drug" =
           parse_trans_poly_go(
             save_table,
             save_csv,
@@ -893,7 +893,7 @@ parse_drug_element <-
             save_csv, csv_path,
             override_csv
           ),
-        "textbooks_transporter_drug" = parse_drug_transporters_textbooks(
+        "textbooks_transporter_drug" = parse_drug_trans_textbooks(
           save_table, save_csv, csv_path, override_csv
         ),
         "international_brands_drug" = parse_drug_intern_brand(
@@ -997,7 +997,7 @@ parse_drug_element_options <- function() {
       "trans_poly_ex_identity",
       "trans_poly_syn",
       "trans_poly_pfams",
-      "go_polypeptide_transporters_drug",
+      "go_polypeptide_trans_drug",
       "transporters_drug",
       "international_brands_drug",
       "salts_drug"

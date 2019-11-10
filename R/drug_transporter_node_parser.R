@@ -1,40 +1,40 @@
-get_transporters_df <- function(rec) {
+get_trans_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
                 ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
 }
 
-get_transporters_actions_df <- function(rec) {
+get_trans_actions_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]), ~ drug_sub_df(.x,
                                                                   "actions",
                                                                   id = "id")))
 }
 
-get_transporters_articles_df <- function(rec) {
+get_trans_articles_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["transporters"]]),
     ~ drug_sub_df(.x, "references", seconadary_node = "articles", id = "id")
   ))
 }
 
-get_transporters_textbooks_df <- function(rec) {
+get_trans_textbooks_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["transporters"]]),
     ~ drug_sub_df(.x, "references", seconadary_node = "textbooks", id = "id")
   ))
 }
 
-get_transporters_links_df <- function(rec) {
+get_trans_links_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["transporters"]]),
     ~ drug_sub_df(.x, "references", seconadary_node = "links", id = "id")
   ))
 }
 
-get_transporters_polypeptide_df <- function(rec) {
+get_trans_poly_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]), ~ get_polypeptide_rec(.x)))
 }
 
-get_transporters_poly_ex_identity_df <-
+get_trans_poly_ex_identity_df <-
   function(rec) {
     return(map_df(
       xmlChildren(rec[["transporters"]]),
@@ -42,17 +42,17 @@ get_transporters_poly_ex_identity_df <-
     ))
   }
 
-get_transporters_polypeptide_syn_df <- function(rec) {
+get_trans_poly_syn_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
                 ~ get_polypeptide_syn(.x)))
 }
 
-get_transporters_polypeptide_pfams_df <- function(rec) {
+get_trans_poly_pfams_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
                 ~ get_polypeptide_pfams(.x)))
 }
 
-get_transporters_polypeptide_go_df <- function(rec) {
+get_trans_poly_go_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]),
                 ~ get_polypeptide_go(.x)))
 }
@@ -84,64 +84,64 @@ get_transporters_polypeptide_go_df <- function(rec) {
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_actions()
+#' parse_drug_trans_actions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_actions(save_table = TRUE)
+#' parse_drug_trans_actions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_actions(save_csv = TRUE)
+#' parse_drug_trans_actions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_actions(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_trans_actions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_actions(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_trans_actions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' #  and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_actions(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_trans_actions(save_csv = TRUE, csv_path = TRUE,
 #'  override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_actions <-
+parse_drug_trans_actions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_actions", csv_path)
+      get_dataset_full_path("drug_trans_actions", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_actions <- readr::read_csv(path)
+      drug_trans_actions <- readr::read_csv(path)
     } else {
-      drug_transporters_actions <-
-        map_df(pkg_env$children, ~ get_transporters_actions_df(.x)) %>%
+      drug_trans_actions <-
+        map_df(pkg_env$children, ~ get_trans_actions_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_actions, save_csv, csv_path)
+      write_csv(drug_trans_actions, save_csv, csv_path)
     }
 
-    if (nrow(drug_transporters_actions) > 0) {
-      colnames(drug_transporters_actions) <- c("action", "transporter_id")
+    if (nrow(drug_trans_actions) > 0) {
+      colnames(drug_trans_actions) <- c("action", "transporter_id")
     }
 
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_actions,
-        table_name = "drug_transporters_actions",
+        df = drug_trans_actions,
+        table_name = "drug_trans_actions",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_actions)
+    return(drug_trans_actions)
   }
 
 
@@ -172,66 +172,66 @@ parse_drug_transporters_actions <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_articles()
+#' parse_drug_trans_articles()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_articles(save_table = TRUE)
+#' parse_drug_trans_articles(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_articles(save_csv = TRUE)
+#' parse_drug_trans_articles(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_articles(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_trans_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_articles(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_trans_articles(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_articles(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_trans_articles(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_articles <-
+parse_drug_trans_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_articles", csv_path)
+      get_dataset_full_path("drug_trans_articles", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_articles <- readr::read_csv(path)
+      drug_trans_articles <- readr::read_csv(path)
     } else {
-      drug_transporters_articles <-
-        map_df(pkg_env$children, ~ get_transporters_articles_df(.x)) %>%
+      drug_trans_articles <-
+        map_df(pkg_env$children, ~ get_trans_articles_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_articles, save_csv, csv_path)
+      write_csv(drug_trans_articles, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_articles,
-        table_name = "drug_transporters_articles",
+        df = drug_trans_articles,
+        table_name = "drug_trans_articles",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_articles)
+    return(drug_trans_articles)
   }
 
 
 #' Extracts the drug transporters textbooks element and return data as
 #'  data frame.
 #'
-#' \code{parse_drug_transporters_textbooks} returns data frame of drug
+#' \code{parse_drug_trans_textbooks} returns data frame of drug
 #' transporters
 #'  textbooks elements.
 #'
@@ -256,65 +256,65 @@ parse_drug_transporters_articles <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_textbooks()
+#' parse_drug_trans_textbooks()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_textbooks(save_table = TRUE)
+#' parse_drug_trans_textbooks(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_textbooks(save_csv = TRUE)
+#' parse_drug_trans_textbooks(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_trans_textbooks(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' #  and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_trans_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_textbooks(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_trans_textbooks(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_textbooks <-
+parse_drug_trans_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_textbooks", csv_path)
+      get_dataset_full_path("drug_trans_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_textbooks <- readr::read_csv(path)
+      drug_trans_textbooks <- readr::read_csv(path)
     } else {
-      drug_transporters_textbooks <-
-        map_df(pkg_env$children, ~ get_transporters_textbooks_df(.x)) %>%
+      drug_trans_textbooks <-
+        map_df(pkg_env$children, ~ get_trans_textbooks_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_textbooks, save_csv, csv_path)
+      write_csv(drug_trans_textbooks, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_textbooks,
-        table_name = "drug_transporters_textbooks",
+        df = drug_trans_textbooks,
+        table_name = "drug_trans_textbooks",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_textbooks)
+    return(drug_trans_textbooks)
   }
 
 
 #' Extracts the drug transporters links element and return data as data frame.
 #'
-#' \code{parse_drug_transporters_links} returns data frame of drug
+#' \code{parse_drug_trans_links} returns data frame of drug
 #' transporters_links elements.
 #'
 #' This functions extracts the transporters links element of drug node in
@@ -338,66 +338,66 @@ parse_drug_transporters_textbooks <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_links()
+#' parse_drug_trans_links()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_links(save_table = TRUE)
+#' parse_drug_trans_links(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_links(save_csv = TRUE)
+#' parse_drug_trans_links(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_links(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_trans_links(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_links(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_trans_links(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_links(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_trans_links(save_csv = TRUE, csv_path = TRUE,
 #' override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_links <-
+parse_drug_trans_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_links", csv_path)
+      get_dataset_full_path("drug_trans_links", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_links <- readr::read_csv(path)
+      drug_trans_links <- readr::read_csv(path)
     } else {
-      drug_transporters_links <-
-        map_df(pkg_env$children, ~ get_transporters_links_df(.x)) %>%
+      drug_trans_links <-
+        map_df(pkg_env$children, ~ get_trans_links_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_links, save_csv, csv_path)
+      write_csv(drug_trans_links, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_links,
-        table_name = "drug_transporters_links",
+        df = drug_trans_links,
+        table_name = "drug_trans_links",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_links)
+    return(drug_trans_links)
   }
 
 
 #' Extracts the drug transporters polypeptides element and return data
 #'  as data frame.
 #'
-#' \code{parse_drug_transporters_polypeptides} returns data frame of
+#' \code{parse_drug_trans_polys} returns data frame of
 #' transporters polypeptides groups elements.
 #'
 #' This functions extracts the transporters polypeptides element of drug
@@ -421,80 +421,80 @@ parse_drug_transporters_links <-
 #' @examples
 #' \donttest{
 #' # return only the parsed dataframe
-#' parse_drug_transporters_polypeptides()
+#' parse_drug_trans_polys()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_transporters_polypeptides(save_table = TRUE)
+#' parse_drug_trans_polys(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides(save_csv = TRUE)
+#' parse_drug_trans_polys(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides(ssave_table = TRUE, save_csv = TRUE)
+#' parse_drug_trans_polys(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_transporters_polypeptides(save_csv = TRUE, csv_path = TRUE)
+#' parse_drug_trans_polys(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_transporters_polypeptides(save_csv = TRUE, csv_path = TRUE,
+#' parse_drug_trans_polys(save_csv = TRUE, csv_path = TRUE,
 #'  override = TRUE)
 #' }
 #' @export
-parse_drug_transporters_polypeptides <-
+parse_drug_trans_polys <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_polypeptides", csv_path)
+      get_dataset_full_path("drug_trans_polys", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_polypeptides <- readr::read_csv(path)
+      drug_trans_polys <- readr::read_csv(path)
     } else {
-      drug_transporters_polypeptides <-
-        map_df(pkg_env$children, ~ get_transporters_polypeptide_df(.x)) %>%
+      drug_trans_polys <-
+        map_df(pkg_env$children, ~ get_trans_poly_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_polypeptides, save_csv, csv_path)
+      write_csv(drug_trans_polys, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_polypeptides,
-        table_name = "drug_transporters_polypeptides",
+        df = drug_trans_polys,
+        table_name = "drug_trans_polys",
         save_table_only = TRUE,
         field_types = list(
           general_function =
             paste("varchar(",
                   max(
-                    nchar(drug_transporters_polypeptides$general_function),
+                    nchar(drug_trans_polys$general_function),
                     na.rm = TRUE
                   ), ")", sep = ""),
           specific_function =
             paste("varchar(",
                   max(
-                    nchar(drug_transporters_polypeptides$specific_function),
+                    nchar(drug_trans_polys$specific_function),
                     na.rm = TRUE
                   ), ")", sep = ""),
           amino_acid_sequence =
             paste("varchar(",
                   max(
-                    nchar(drug_transporters_polypeptides$amino_acid_sequence),
+                    nchar(drug_trans_polys$amino_acid_sequence),
                     na.rm = TRUE
                   ), ")", sep = ""),
           gene_sequence = paste("varchar(max)", sep = "")
         )
       )
     }
-    return(drug_transporters_polypeptides)
+    return(drug_trans_polys)
   }
 
 
@@ -563,18 +563,18 @@ parse_trans_poly_ex_identity <-
            override_csv = FALSE) {
     path <-
       get_dataset_full_path(
-        "drug_transporters_poly_ex_identity",
+        "drug_trans_poly_ex_identity",
         csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_poly_ex_identity <-
+      drug_trans_poly_ex_identity <-
         readr::read_csv(path)
     } else {
-      drug_transporters_poly_ex_identity <-
+      drug_trans_poly_ex_identity <-
         map_df(pkg_env$children,
-               ~ get_transporters_poly_ex_identity_df(.x)) %>%
+               ~ get_trans_poly_ex_identity_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_poly_ex_identity,
+      write_csv(drug_trans_poly_ex_identity,
                 save_csv,
                 csv_path)
     }
@@ -582,12 +582,12 @@ parse_trans_poly_ex_identity <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_poly_ex_identity,
-        table_name = "drug_transporters_polypeptides_external_identifiers",
+        df = drug_trans_poly_ex_identity,
+        table_name = "drug_trans_polys_external_identifiers",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_poly_ex_identity)
+    return(drug_trans_poly_ex_identity)
   }
 
 
@@ -653,16 +653,16 @@ parse_trans_poly_syn <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporter_polypeptide_syn", csv_path)
+      get_dataset_full_path("drug_trans_poly_syn", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporter_polypeptide_syn <- readr::read_csv(path)
+      drug_trans_poly_syn <- readr::read_csv(path)
     } else {
-      drug_transporter_polypeptide_syn <-
+      drug_trans_poly_syn <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_syn_df(.x)) %>%
+               ~ get_trans_poly_syn_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporter_polypeptide_syn,
+      write_csv(drug_trans_poly_syn,
                 save_csv,
                 csv_path)
     }
@@ -670,12 +670,12 @@ parse_trans_poly_syn <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporter_polypeptide_syn,
-        table_name = "drug_transporters_polypeptides_syn",
+        df = drug_trans_poly_syn,
+        table_name = "drug_trans_polys_syn",
         save_table_only = TRUE
       )
     }
-    return(drug_transporter_polypeptide_syn)
+    return(drug_trans_poly_syn)
   }
 
 
@@ -740,28 +740,28 @@ parse_trans_poly_pfams <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_polypeptides_pfams", csv_path)
+      get_dataset_full_path("drug_trans_polys_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_polypeptides_pfams <- readr::read_csv(path)
+      drug_trans_polys_pfams <- readr::read_csv(path)
     } else {
-      drug_transporters_polypeptides_pfams <-
+      drug_trans_polys_pfams <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_pfams_df(.x)) %>%
+               ~ get_trans_poly_pfams_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_polypeptides_pfams, save_csv, csv_path)
+      write_csv(drug_trans_polys_pfams, save_csv, csv_path)
     }
 
 
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_polypeptides_pfams,
-        table_name = "drug_transporters_polypeptides_pfams",
+        df = drug_trans_polys_pfams,
+        table_name = "drug_trans_polys_pfams",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_polypeptides_pfams)
+    return(drug_trans_polys_pfams)
   }
 
 
@@ -829,18 +829,18 @@ parse_trans_poly_go <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_transporters_polypeptides_go",
+      get_dataset_full_path("drug_trans_polys_go",
                             csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_transporters_polypeptides_go <-
+      drug_trans_polys_go <-
         readr::read_csv(path)
     } else {
-      drug_transporters_polypeptides_go <-
+      drug_trans_polys_go <-
         map_df(pkg_env$children,
-               ~ get_transporters_polypeptide_go_df(.x)) %>%
+               ~ get_trans_poly_go_df(.x)) %>%
         unique()
 
-      write_csv(drug_transporters_polypeptides_go,
+      write_csv(drug_trans_polys_go,
                 save_csv,
                 csv_path)
     }
@@ -849,12 +849,12 @@ parse_trans_poly_go <-
     if (save_table) {
       save_drug_sub(
         con = pkg_env$con,
-        df = drug_transporters_polypeptides_go,
-        table_name = "drug_transporters_polypeptides_go",
+        df = drug_trans_polys_go,
+        table_name = "drug_trans_polys_go",
         save_table_only = TRUE
       )
     }
-    return(drug_transporters_polypeptides_go)
+    return(drug_trans_polys_go)
   }
 
 
@@ -922,7 +922,7 @@ parse_drug_transporters <-
       drug_transporters <- readr::read_csv(path)
     } else {
       drug_transporters <-
-        map_df(pkg_env$children, ~ get_transporters_df(.x)) %>%
+        map_df(pkg_env$children, ~ get_trans_df(.x)) %>%
         unique()
 
       write_csv(drug_transporters, save_csv, csv_path)
