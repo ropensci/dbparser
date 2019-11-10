@@ -6,7 +6,8 @@ get_organizm_rec <- function(r, drug_key) {
     organism = xmlValue(r[["organism"]]),
     known_action = xmlValue(r[["known-action"]]),
     position = ifelse(is.null(xmlGetAttr(r, name = "position")), NA,
-                      xmlGetAttr(r, name = "position")),
+      xmlGetAttr(r, name = "position")
+    ),
     parent_key = drug_key
-    )
+  )
 }

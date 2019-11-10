@@ -1,11 +1,15 @@
 get_targ_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["targets"]]),
-                ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["targets"]]),
+    ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 get_targ_actions_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["targets"]]),
-                ~ drug_sub_df(.x, "actions", id = "id")))
+  return(map_df(
+    xmlChildren(rec[["targets"]]),
+    ~ drug_sub_df(.x, "actions", id = "id")
+  ))
 }
 
 get_targ_articles_df <- function(rec) {
@@ -49,8 +53,10 @@ get_targ_poly_pfams_df <- function(rec) {
 }
 
 get_targ_poly_go_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["targets"]]),
-                ~ get_polypeptide_go(.x)))
+  return(map_df(
+    xmlChildren(rec[["targets"]]),
+    ~ get_polypeptide_go(.x)
+  ))
 }
 
 #' Extracts the drug targ polypeptides external identifiers
@@ -96,38 +102,49 @@ get_targ_poly_go_df <- function(rec) {
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_ext_identity(ssave_table = TRUE,
-#' save_csv = TRUE)
+#' parse_targ_poly_ext_identity(
+#'   ssave_table = TRUE,
+#'   save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_ext_identity(save_csv = TRUE,
-#'  csv_path = TRUE)
+#' parse_targ_poly_ext_identity(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_targ_poly_ext_identity(
-#' save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#'   save_csv = TRUE, csv_path = TRUE, override = TRUE
+#' )
 #' }
 #' @export
 parse_targ_poly_ext_identity <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_targ_poly_ex_identity",
-                            csv_path)
+      get_dataset_full_path(
+        "drug_targ_poly_ex_identity",
+        csv_path
+      )
     if (!override_csv & file.exists(path)) {
       drug_targ_poly_ex_identity <- readr::read_csv(path)
     } else {
       drug_targ_poly_ex_identity <-
-        map_df(pkg_env$children,
-               ~ get_targ_poly_ex_identity_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_targ_poly_ex_identity_df(.x)
+        ) %>%
         unique()
 
-      write_csv(drug_targ_poly_ex_identity, save_csv,
-                csv_path)
+      write_csv(
+        drug_targ_poly_ex_identity, save_csv,
+        csv_path
+      )
     }
 
     if (save_table) {
@@ -192,8 +209,10 @@ parse_targ_poly_ext_identity <-
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_targ_poly_syn(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_targ_poly_syn(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_targ_poly_syn <-
@@ -205,8 +224,10 @@ parse_targ_poly_syn <-
       drug_targ_poly_syn <- readr::read_csv(path)
     } else {
       drug_targ_poly_syn <-
-        map_df(pkg_env$children,
-               ~ get_targ_poly_syn_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_targ_poly_syn_df(.x)
+        ) %>%
         unique()
 
       write_csv(drug_targ_poly_syn, save_csv, csv_path)
@@ -262,7 +283,7 @@ parse_targ_poly_syn <-
 #' parse_drug_targ_polys_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
-#'  current
+#' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_targ_polys_pfams(ssave_table = TRUE, save_csv = TRUE)
@@ -275,8 +296,10 @@ parse_targ_poly_syn <-
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_polys_pfams(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_targ_polys_pfams(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_targ_polys_pfams <-
@@ -288,8 +311,10 @@ parse_drug_targ_polys_pfams <-
       drug_targ_poly_pfams <- readr::read_csv(path)
     } else {
       drug_targ_poly_pfams <-
-        map_df(pkg_env$children,
-               ~ get_targ_poly_pfams_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_targ_poly_pfams_df(.x)
+        ) %>%
         unique()
 
       write_csv(drug_targ_poly_pfams, save_csv, csv_path)
@@ -348,34 +373,44 @@ parse_drug_targ_polys_pfams <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_go(ssave_table = TRUE,
-#'  save_csv = TRUE)
+#' parse_targ_poly_go(
+#'   ssave_table = TRUE,
+#'   save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_go(save_csv = TRUE,
-#' csv_path = TRUE)
+#' parse_targ_poly_go(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_targ_poly_go(save_csv = TRUE,
-#' csv_path = TRUE, override = TRUE)
+#' parse_targ_poly_go(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE, override = TRUE
+#' )
 #' }
 #' @export
 parse_targ_poly_go <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_targ_polys_go",
-                            csv_path)
+      get_dataset_full_path(
+        "drug_targ_polys_go",
+        csv_path
+      )
     if (!override_csv & file.exists(path)) {
       drug_targ_polys_go <- readr::read_csv(path)
     } else {
       drug_targ_polys_go <-
-        map_df(pkg_env$children,
-               ~ get_targ_poly_go_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_targ_poly_go_df(.x)
+        ) %>%
         unique()
 
       write_csv(drug_targ_polys_go, save_csv, csv_path)
@@ -445,7 +480,7 @@ parse_targ_poly_go <-
 #' }
 #' @export
 parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
-                                       csv_path = ".", override_csv = FALSE) {
+                                    csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_actions", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -522,12 +557,14 @@ parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_articles(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_targ_articles(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
-                                        csv_path = ".", override_csv = FALSE) {
+                                     csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_articles", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -599,12 +636,14 @@ parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_textbooks(save_csv = TRUE, csv_path = TRUE,
-#'  override = TRUE)
+#' parse_drug_targ_textbooks(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
-                                         csv_path = ".", override_csv = FALSE) {
+                                      csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_textbooks", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -680,14 +719,14 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' }
 #' @export
 parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
-                                     csv_path = ".", override_csv = FALSE) {
+                                  csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_links", csv_path)
   if (!override_csv & file.exists(path)) {
     drug_targ_links <- readr::read_csv(path)
   } else {
     drug_targ_links <- map_df(pkg_env$children, ~
-                                   get_targ_links_df(.x)) %>% unique()
+    get_targ_links_df(.x)) %>% unique()
 
     write_csv(drug_targ_links, save_csv, csv_path)
   }
@@ -702,9 +741,11 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
       save_table_only = TRUE,
       field_types = list(
         title = paste("varchar(",
-                      max(nchar(
-                        drug_targ_links$title
-                      ), na.rm = TRUE) + 100, ")", sep = ""),
+          max(nchar(
+            drug_targ_links$title
+          ), na.rm = TRUE) + 100, ")",
+          sep = ""
+        ),
         url = paste("varchar(", max(nchar(
           drug_targ_links$url
         )) + 100, ")", sep = "")
@@ -763,13 +804,15 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_polys(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_targ_polys(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_targ_polys <- function(save_table = FALSE,
-                                            save_csv = FALSE, csv_path = ".",
-                                            override_csv = FALSE) {
+                                  save_csv = FALSE, csv_path = ".",
+                                  override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_polys", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -792,8 +835,11 @@ parse_drug_targ_polys <- function(save_table = FALSE,
       field_types = list(
         general_function =
           paste("varchar(",
-                max(nchar(drug_targ_polys$general_function),
-                    na.rm = TRUE), ")", sep = ""),
+            max(nchar(drug_targ_polys$general_function),
+              na.rm = TRUE
+            ), ")",
+            sep = ""
+          ),
         specific_function = paste("varchar(max)", sep = ""),
         amino_acid_sequence = paste("varchar(max)", sep = ""),
         gene_sequence = paste("varchar(max)", sep = "")
@@ -855,7 +901,7 @@ parse_drug_targ_polys <- function(save_table = FALSE,
 #' }
 #' @export
 parse_drug_targ <- function(save_table = FALSE, save_csv = FALSE,
-                               csv_path = ".", override_csv = FALSE) {
+                            csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ", csv_path)
   if (!override_csv & file.exists(path)) {

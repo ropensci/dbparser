@@ -10,14 +10,18 @@ get_reactions_rec <- function(r, drug_key) {
   )
 }
 get_reactions_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["reactions"]]),
-                ~ get_reactions_rec(., xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["reactions"]]),
+    ~ get_reactions_rec(., xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 # Extract drug reactions enzymes df
 get_reactions_enzymes_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["reactions"]]),
-                ~ drug_sub_df(.x, "enzymes", id = NULL)))
+  return(map_df(
+    xmlChildren(rec[["reactions"]]),
+    ~ drug_sub_df(.x, "enzymes", id = NULL)
+  ))
 }
 
 #' Extracts the drug reactions element and return data as data frame.
@@ -147,8 +151,10 @@ parse_drug_reactions <-
 #' # save parsed dataframe as csv if it does not exist i
 #' # n current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_reactions_enzymes(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_reactions_enzymes <-

@@ -3,9 +3,13 @@ drug_df <- function(rec) {
   tibble(
     primary_key = xmlValue(rec["drugbank-id"][[1]]),
     other_keys = ifelse(length(rec["drugbank-id"]) > 1,
-                        paste(map_chr(c(2:length(rec["drugbank-id"])),
-                                      ~ xmlValue(rec["drugbank-id"][[.]]))
-                              , collapse = ","), NA),
+      paste(map_chr(
+        c(2:length(rec["drugbank-id"])),
+        ~ xmlValue(rec["drugbank-id"][[.]])
+      ),
+      collapse = ","
+      ), NA
+    ),
     type = xmlGetAttr(node = rec, name = "type"),
     created = as.Date(xmlGetAttr(node = rec, name = "created")),
     updated = as.Date(xmlGetAttr(node = rec, name = "updated")),

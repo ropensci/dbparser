@@ -1,12 +1,15 @@
 get_trans_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["transporters"]]),
+    ~ get_organizm_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 get_trans_actions_df <- function(rec) {
   return(map_df(xmlChildren(rec[["transporters"]]), ~ drug_sub_df(.x,
-                                                                  "actions",
-                                                                  id = "id")))
+    "actions",
+    id = "id"
+  )))
 }
 
 get_trans_articles_df <- function(rec) {
@@ -43,18 +46,24 @@ get_trans_poly_ex_identity_df <-
   }
 
 get_trans_poly_syn_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_polypeptide_syn(.x)))
+  return(map_df(
+    xmlChildren(rec[["transporters"]]),
+    ~ get_polypeptide_syn(.x)
+  ))
 }
 
 get_trans_poly_pfams_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_polypeptide_pfams(.x)))
+  return(map_df(
+    xmlChildren(rec[["transporters"]]),
+    ~ get_polypeptide_pfams(.x)
+  ))
 }
 
 get_trans_poly_go_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["transporters"]]),
-                ~ get_polypeptide_go(.x)))
+  return(map_df(
+    xmlChildren(rec[["transporters"]]),
+    ~ get_polypeptide_go(.x)
+  ))
 }
 
 #' Extracts the drug transporters actions element and return data as data frame.
@@ -107,8 +116,10 @@ get_trans_poly_go_df <- function(rec) {
 #' # save parsed dataframe as csv if it does not exist in current location
 #' #  and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_trans_actions(save_csv = TRUE, csv_path = TRUE,
-#'  override = TRUE)
+#' parse_drug_trans_actions(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_trans_actions <-
@@ -195,8 +206,10 @@ parse_drug_trans_actions <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_trans_articles(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_trans_articles(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_trans_articles <-
@@ -279,8 +292,10 @@ parse_drug_trans_articles <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_trans_textbooks(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_trans_textbooks(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_trans_textbooks <-
@@ -361,8 +376,10 @@ parse_drug_trans_textbooks <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_trans_links(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_trans_links(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_trans_links <-
@@ -444,8 +461,10 @@ parse_drug_trans_links <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_trans_polys(save_csv = TRUE, csv_path = TRUE,
-#'  override = TRUE)
+#' parse_drug_trans_polys(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_trans_polys <-
@@ -474,22 +493,28 @@ parse_drug_trans_polys <-
         field_types = list(
           general_function =
             paste("varchar(",
-                  max(
-                    nchar(drug_trans_polys$general_function),
-                    na.rm = TRUE
-                  ), ")", sep = ""),
+              max(
+                nchar(drug_trans_polys$general_function),
+                na.rm = TRUE
+              ), ")",
+              sep = ""
+            ),
           specific_function =
             paste("varchar(",
-                  max(
-                    nchar(drug_trans_polys$specific_function),
-                    na.rm = TRUE
-                  ), ")", sep = ""),
+              max(
+                nchar(drug_trans_polys$specific_function),
+                na.rm = TRUE
+              ), ")",
+              sep = ""
+            ),
           amino_acid_sequence =
             paste("varchar(",
-                  max(
-                    nchar(drug_trans_polys$amino_acid_sequence),
-                    na.rm = TRUE
-                  ), ")", sep = ""),
+              max(
+                nchar(drug_trans_polys$amino_acid_sequence),
+                na.rm = TRUE
+              ), ")",
+              sep = ""
+            ),
           gene_sequence = paste("varchar(max)", sep = "")
         )
       )
@@ -541,19 +566,22 @@ parse_drug_trans_polys <-
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_trans_poly_ex_identity(
-#' save_table = TRUE, save_csv = TRUE)
+#'   save_table = TRUE, save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_trans_poly_ex_identity(
-#' save_csv = TRUE, csv_path = TRUE)
+#'   save_csv = TRUE, csv_path = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_trans_poly_ex_identity(
-#' save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#'   save_csv = TRUE, csv_path = TRUE, override = TRUE
+#' )
 #' }
 #' @export
 parse_trans_poly_ex_identity <-
@@ -564,19 +592,24 @@ parse_trans_poly_ex_identity <-
     path <-
       get_dataset_full_path(
         "drug_trans_poly_ex_identity",
-        csv_path)
+        csv_path
+      )
     if (!override_csv & file.exists(path)) {
       drug_trans_poly_ex_identity <-
         readr::read_csv(path)
     } else {
       drug_trans_poly_ex_identity <-
-        map_df(pkg_env$children,
-               ~ get_trans_poly_ex_identity_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_trans_poly_ex_identity_df(.x)
+        ) %>%
         unique()
 
-      write_csv(drug_trans_poly_ex_identity,
-                save_csv,
-                csv_path)
+      write_csv(
+        drug_trans_poly_ex_identity,
+        save_csv,
+        csv_path
+      )
     }
 
     if (save_table) {
@@ -631,20 +664,26 @@ parse_trans_poly_ex_identity <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_trans_poly_syn(ssave_table = TRUE,
-#' save_csv = TRUE)
+#' parse_trans_poly_syn(
+#'   ssave_table = TRUE,
+#'   save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_trans_poly_syn(save_csv = TRUE,
-#'  csv_path = TRUE)
+#' parse_trans_poly_syn(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_trans_poly_syn(save_csv = TRUE,
-#'  csv_path = TRUE, override = TRUE)
+#' parse_trans_poly_syn(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE, override = TRUE
+#' )
 #' }
 #' @export
 parse_trans_poly_syn <-
@@ -658,13 +697,17 @@ parse_trans_poly_syn <-
       drug_trans_poly_syn <- readr::read_csv(path)
     } else {
       drug_trans_poly_syn <-
-        map_df(pkg_env$children,
-               ~ get_trans_poly_syn_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_trans_poly_syn_df(.x)
+        ) %>%
         unique()
 
-      write_csv(drug_trans_poly_syn,
-                save_csv,
-                csv_path)
+      write_csv(
+        drug_trans_poly_syn,
+        save_csv,
+        csv_path
+      )
     }
 
     if (save_table) {
@@ -719,8 +762,10 @@ parse_trans_poly_syn <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_trans_poly_pfams(ssave_table = TRUE,
-#' save_csv = TRUE)
+#' parse_trans_poly_pfams(
+#'   ssave_table = TRUE,
+#'   save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -730,8 +775,10 @@ parse_trans_poly_syn <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_trans_poly_pfams(save_csv = TRUE, csv_path = TRUE,
-#'  override = TRUE)
+#' parse_trans_poly_pfams(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_trans_poly_pfams <-
@@ -745,8 +792,10 @@ parse_trans_poly_pfams <-
       drug_trans_polys_pfams <- readr::read_csv(path)
     } else {
       drug_trans_polys_pfams <-
-        map_df(pkg_env$children,
-               ~ get_trans_poly_pfams_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_trans_poly_pfams_df(.x)
+        ) %>%
         unique()
 
       write_csv(drug_trans_polys_pfams, save_csv, csv_path)
@@ -807,20 +856,25 @@ parse_trans_poly_pfams <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_trans_poly_go(ssave_table = TRUE,
-#' save_csv = TRUE)
+#' parse_trans_poly_go(
+#'   ssave_table = TRUE,
+#'   save_csv = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_trans_poly_go(save_csv = TRUE,
-#' csv_path = TRUE)
+#' parse_trans_poly_go(
+#'   save_csv = TRUE,
+#'   csv_path = TRUE
+#' )
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
 #' parse_trans_poly_go(
-#' save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#'   save_csv = TRUE, csv_path = TRUE, override = TRUE
+#' )
 #' }
 #' @export
 parse_trans_poly_go <-
@@ -829,20 +883,26 @@ parse_trans_poly_go <-
            csv_path = ".",
            override_csv = FALSE) {
     path <-
-      get_dataset_full_path("drug_trans_polys_go",
-                            csv_path)
+      get_dataset_full_path(
+        "drug_trans_polys_go",
+        csv_path
+      )
     if (!override_csv & file.exists(path)) {
       drug_trans_polys_go <-
         readr::read_csv(path)
     } else {
       drug_trans_polys_go <-
-        map_df(pkg_env$children,
-               ~ get_trans_poly_go_df(.x)) %>%
+        map_df(
+          pkg_env$children,
+          ~ get_trans_poly_go_df(.x)
+        ) %>%
         unique()
 
-      write_csv(drug_trans_polys_go,
-                save_csv,
-                csv_path)
+      write_csv(
+        drug_trans_polys_go,
+        save_csv,
+        csv_path
+      )
     }
 
 

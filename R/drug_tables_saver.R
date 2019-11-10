@@ -47,7 +47,6 @@ save_drug_sub <-
             ");"
           )
         )
-
       }
       # add foreign key of drug table
       if (!is.null(foreign_key)) {
@@ -58,7 +57,9 @@ save_drug_sub <-
             table_name,
             "ADD CONSTRAINT",
             paste("FK_", table_name,
-                  "_drug", sep = ""),
+              "_drug",
+              sep = ""
+            ),
             paste(
               "FOREIGN KEY (",
               foreign_key,
@@ -69,6 +70,5 @@ save_drug_sub <-
           )
         )
       }
-
     }
   }

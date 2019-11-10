@@ -10,8 +10,10 @@ get_price_rec <- function(r, drug_key) {
 }
 
 get_prices_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["prices"]]),
-                ~ get_price_rec(., xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["prices"]]),
+    ~ get_price_rec(., xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 #' Extracts the drug prices element and return data as data frame.
@@ -79,9 +81,11 @@ parse_drug_prices <- function(save_table = FALSE, save_csv = FALSE,
   }
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_prices,
-                  table_name = "drug_prices")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_prices,
+      table_name = "drug_prices"
+    )
   }
   return(drug_prices)
 }

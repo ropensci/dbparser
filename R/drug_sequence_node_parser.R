@@ -3,17 +3,21 @@ get_sequence_rec <- function(r, drug_key) {
   tibble(
     sequence = xmlValue(r),
     format = ifelse(is.null(xmlGetAttr(r, name = "format")),
-                    NA,
-                    xmlGetAttr(r, name = "format")),
+      NA,
+      xmlGetAttr(r, name = "format")
+    ),
     parent_key = drug_key
   )
 }
 
 get_sequences_df <- function(rec) {
-  if (is.null(rec[["sequences"]]))
+  if (is.null(rec[["sequences"]])) {
     return()
-  return(map_df(xmlChildren(rec[["sequences"]]),
-                ~ get_sequence_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
+  }
+  return(map_df(
+    xmlChildren(rec[["sequences"]]),
+    ~ get_sequence_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 
@@ -83,9 +87,11 @@ parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
 
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_sequences,
-                  table_name = "drug_sequences")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_sequences,
+      table_name = "drug_sequences"
+    )
   }
   return(drug_sequences)
 }

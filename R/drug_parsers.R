@@ -72,27 +72,33 @@ parse_drug <-
           primary_key = paste0("varchar(", max(nchar(
             drugs$primary_key
           )), ")"),
-          other_keys = paste0("varchar(",
-                              max(nchar(
-                                drugs$other_keys
-                              ), na.rm = T), ")"),
+          other_keys = paste0(
+            "varchar(",
+            max(nchar(
+              drugs$other_keys
+            ), na.rm = T), ")"
+          ),
           type = paste0("varchar(", max(nchar(drugs$type), na.rm = T), ")"),
           name = paste0("varchar(", max(nchar(drugs$name), na.rm = T), ")"),
           description = paste0("varchar(", max(nchar(
             drugs$description
           ),
-          na.rm = T) + 10, ")"),
+          na.rm = T
+          ) + 10, ")"),
           cas_number = paste0("varchar(", max(nchar(
             drugs$cas_number
           ),
-          na.rm = T), ")"),
+          na.rm = T
+          ), ")"),
           unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = T), ")"),
           state = paste0("varchar(", max(nchar(drugs$state), na.rm = T), ")"),
           mechanism_of_action = paste0("varchar(", max(
-            nchar(drugs$mechanism_of_action), na.rm = T
+            nchar(drugs$mechanism_of_action),
+            na.rm = T
           ) + 10, ")"),
           pharmacodynamics = paste0("varchar(", max(
-            nchar(drugs$pharmacodynamics), na.rm = T
+            nchar(drugs$pharmacodynamics),
+            na.rm = T
           ) + 10, ")"),
           indication = paste0("varchar(", max(nchar(
             drugs$indication
@@ -101,23 +107,27 @@ parse_drug <-
             drugs$absorption
           ), na.rm = T) + 10, ")"),
           route_of_elimination = paste0("varchar(", max(
-            nchar(drugs$route_of_elimination), na.rm = T
+            nchar(drugs$route_of_elimination),
+            na.rm = T
           ) + 10, ")"),
           metabolism = paste0("varchar(", max(nchar(
             drugs$metabolism
           ), na.rm = T) + 10, ")"),
           international_brands = paste0("varchar(", max(
-            nchar(drugs$international_brands), na.rm = T
+            nchar(drugs$international_brands),
+            na.rm = T
           ) + 10, ")"),
           fda_label = paste0("varchar(", max(nchar(
             drugs$fda_label
           ), na.rm = T), ")"),
           msds = paste0("varchar(", max(nchar(drugs$msds), na.rm = T), ")"),
           protein_binding = paste0("varchar(", max(
-            nchar(drugs$protein_binding), na.rm = T
+            nchar(drugs$protein_binding),
+            na.rm = T
           ) + 10, ")"),
           synthesis_reference = paste0("varchar(", max(
-            nchar(drugs$synthesis_reference), na.rm = T
+            nchar(drugs$synthesis_reference),
+            na.rm = T
           ) + 10, ")"),
           clearance = paste0("varchar(", max(nchar(
             drugs$clearance
@@ -126,7 +136,8 @@ parse_drug <-
             drugs$half_life
           ), na.rm = T) + 10, ")"),
           volume_of_distribution = paste0("varchar(", max(
-            nchar(drugs$volume_of_distribution), na.rm = T
+            nchar(drugs$volume_of_distribution),
+            na.rm = T
           ) + 10, ")"),
           toxicity = "varchar(max)"
         )
@@ -206,9 +217,11 @@ parse_drug_groups <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_groups,
-                    table_name = "drug_groups")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_groups,
+        table_name = "drug_groups"
+      )
     }
     return(drug_groups)
   }
@@ -276,16 +289,19 @@ parse_drug_articles <-
         map_df(
           pkg_env$children,
           ~ drug_sub_df(.x, "general-references",
-                        seconadary_node = "articles")
+            seconadary_node = "articles"
+          )
         ) %>% unique()
 
       write_csv(drug_articles, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_articles,
-                    table_name = "drug_articles")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_articles,
+        table_name = "drug_articles"
+      )
     }
     return(drug_articles)
   }
@@ -359,9 +375,11 @@ parse_drug_books <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_books,
-                    table_name = "drug_books")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_books,
+        table_name = "drug_books"
+      )
     }
     return(drug_books)
   }
@@ -435,9 +453,11 @@ parse_drug_links <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_links,
-                    table_name = "drug_links")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_links,
+        table_name = "drug_links"
+      )
     }
     return(drug_links)
   }
@@ -585,9 +605,11 @@ parse_drug_products <-
 
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_products,
-                    table_name = "drug_products")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_products,
+        table_name = "drug_products"
+      )
     }
     return(drug_products)
   }
@@ -641,31 +663,37 @@ parse_drug_products <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_calc_prop(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_calc_prop(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_calc_prop <- function(save_table = FALSE,
-                                             save_csv = FALSE,
-                                             csv_path = ".",
-                                             override_csv = FALSE) {
+                                 save_csv = FALSE,
+                                 csv_path = ".",
+                                 override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_calculated_properties", csv_path)
   if (!override_csv & file.exists(path)) {
     drug_calculated_properties <- readr::read_csv(path)
   } else {
     drug_calculated_properties <-
-      map_df(pkg_env$children,
-             ~ drug_sub_df(.x, "calculated-properties")) %>% unique()
+      map_df(
+        pkg_env$children,
+        ~ drug_sub_df(.x, "calculated-properties")
+      ) %>% unique()
 
     write_csv(drug_calculated_properties, save_csv, csv_path)
   }
 
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_calculated_properties,
-                  table_name = "drug_calculated_properties")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_calculated_properties,
+      table_name = "drug_calculated_properties"
+    )
   }
   return(drug_calculated_properties)
 }
@@ -719,8 +747,10 @@ parse_drug_calc_prop <- function(save_table = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_intern_brand(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_intern_brand(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_intern_brand <-
@@ -734,17 +764,21 @@ parse_drug_intern_brand <-
       drug_international_brands <- readr::read_csv(path)
     } else {
       drug_international_brands <-
-        map_df(pkg_env$children,
-               ~ drug_sub_df(.x, "international-brands")) %>%
+        map_df(
+          pkg_env$children,
+          ~ drug_sub_df(.x, "international-brands")
+        ) %>%
         unique()
 
       write_csv(drug_international_brands, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_international_brands,
-                    table_name = "international_brands")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_international_brands,
+        table_name = "international_brands"
+      )
     }
     return(drug_international_brands)
   }
@@ -817,9 +851,11 @@ parse_drug_salts <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_salts,
-                    table_name = "salts")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_salts,
+        table_name = "salts"
+      )
     }
     return(drug_salts)
   }
@@ -891,9 +927,11 @@ parse_drug_mixtures <-
 
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_mixtures,
-                    table_name = "drug_mixtures")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_mixtures,
+        table_name = "drug_mixtures"
+      )
     }
     return(drug_mixtures)
   }
@@ -963,9 +1001,11 @@ parse_drug_packagers <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_packagers,
-                    table_name = "drug_packagers")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_packagers,
+        table_name = "drug_packagers"
+      )
     }
     return(drug_packagers)
   }
@@ -1036,9 +1076,11 @@ parse_drug_categories <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_categories,
-                    table_name = "drug_categories")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_categories,
+        table_name = "drug_categories"
+      )
     }
     return(drug_categories)
   }
@@ -1092,8 +1134,10 @@ parse_drug_categories <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_affected_organisms(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_affected_organisms(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_affected_organisms <-
@@ -1119,9 +1163,11 @@ parse_drug_affected_organisms <-
 
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_affected_organisms,
-                    table_name = "drug_affected_organisms")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_affected_organisms,
+        table_name = "drug_affected_organisms"
+      )
     }
     return(drug_affected_organisms)
   }
@@ -1192,9 +1238,11 @@ parse_drug_dosages <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_dosages,
-                    table_name = "drug_dosages")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_dosages,
+        table_name = "drug_dosages"
+      )
     }
     return(drug_dosages)
   }
@@ -1269,9 +1317,11 @@ parse_drug_ahfs_codes <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_ahfs_codes,
-                    table_name = "drug_ahfs_codes")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_ahfs_codes,
+        table_name = "drug_ahfs_codes"
+      )
     }
     return(drug_ahfs_codes)
   }
@@ -1345,9 +1395,11 @@ parse_drug_pdb_entries <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_pdb_entries,
-                    table_name = "drug_pdb_entries")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_pdb_entries,
+        table_name = "drug_pdb_entries"
+      )
     }
     return(drug_pdb_entries)
   }
@@ -1418,9 +1470,11 @@ parse_drug_patents <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_patents,
-                    table_name = "drug_patents")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_patents,
+        table_name = "drug_patents"
+      )
     }
     return(drug_patents)
   }
@@ -1473,8 +1527,10 @@ parse_drug_patents <-
 #' # save parsed dataframe as csv if it does not exist in current location
 #' #  and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_food_interactions(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_food_interactions(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_food_interactions <-
@@ -1500,9 +1556,11 @@ parse_drug_food_interactions <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_food_interactions,
-                    table_name = "drug_food_interactions")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_food_interactions,
+        table_name = "drug_food_interactions"
+      )
     }
     return(drug_food_interactions)
   }
@@ -1575,9 +1633,11 @@ parse_drug_interactions <-
 
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_drug_interactions,
-                    table_name = "drug_drug_interactions")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_drug_interactions,
+        table_name = "drug_drug_interactions"
+      )
     }
     return(drug_drug_interactions)
   }
@@ -1632,8 +1692,10 @@ parse_drug_interactions <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_exp_prop(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_exp_prop(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_exp_prop <-
@@ -1647,15 +1709,19 @@ parse_drug_exp_prop <-
       drug_experimental_properties <- readr::read_csv(path)
     } else {
       drug_experimental_properties <-
-        map_df(pkg_env$children,
-               ~ drug_sub_df(.x, "experimental-properties")) %>% unique()
+        map_df(
+          pkg_env$children,
+          ~ drug_sub_df(.x, "experimental-properties")
+        ) %>% unique()
       write_csv(drug_experimental_properties, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_experimental_properties,
-                    table_name = "drug_experimental_properties")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_experimental_properties,
+        table_name = "drug_experimental_properties"
+      )
     }
     return(drug_experimental_properties)
   }
@@ -1709,8 +1775,10 @@ parse_drug_exp_prop <-
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_ex_identity(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_drug_ex_identity(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_drug_ex_identity <-
@@ -1723,16 +1791,20 @@ parse_drug_ex_identity <-
       drug_external_identifiers <- readr::read_csv(path)
     } else {
       drug_external_identifiers <-
-        map_df(pkg_env$children,
-               ~ drug_sub_df(.x, "external-identifiers"))
+        map_df(
+          pkg_env$children,
+          ~ drug_sub_df(.x, "external-identifiers")
+        )
 
       write_csv(drug_external_identifiers, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_external_identifiers,
-                    table_name = "drug_external_identifiers")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_external_identifiers,
+        table_name = "drug_external_identifiers"
+      )
     }
     return(drug_external_identifiers)
   }
@@ -1805,9 +1877,11 @@ parse_drug_external_links <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_external_links,
-                    table_name = "drug_external_links")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_external_links,
+        table_name = "drug_external_links"
+      )
     }
     return(drug_external_links)
   }
@@ -1879,9 +1953,11 @@ parse_drug_snp_effects <-
 
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_snp_effects,
-                    table_name = "drug_snp_effects")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_snp_effects,
+        table_name = "drug_snp_effects"
+      )
     }
     return(drug_snp_effects)
   }
@@ -1935,8 +2011,10 @@ parse_drug_snp_effects <-
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_snp_adverse_reactions(save_csv = TRUE, csv_path = TRUE,
-#' override = TRUE)
+#' parse_snp_adverse_reactions(
+#'   save_csv = TRUE, csv_path = TRUE,
+#'   override = TRUE
+#' )
 #' }
 #' @export
 parse_snp_adverse_reactions <-
@@ -1950,16 +2028,20 @@ parse_snp_adverse_reactions <-
       snp_adverse_reactions <- readr::read_csv(path)
     } else {
       snp_adverse_reactions <-
-        map_df(pkg_env$children,
-               ~ drug_sub_df(.x, "snp-adverse-drug-reactions")) %>% unique()
+        map_df(
+          pkg_env$children,
+          ~ drug_sub_df(.x, "snp-adverse-drug-reactions")
+        ) %>% unique()
 
       write_csv(snp_adverse_reactions, save_csv, csv_path)
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = snp_adverse_reactions,
-                    table_name = "snp_adverse_reactions")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = snp_adverse_reactions,
+        table_name = "snp_adverse_reactions"
+      )
     }
     return(snp_adverse_reactions)
   }

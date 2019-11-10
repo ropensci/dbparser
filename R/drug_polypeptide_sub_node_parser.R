@@ -5,10 +5,13 @@ get_polypeptide_rec <- function(r) {
   if (!is.null(p)) {
     tibble(
       id = ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-                  xmlGetAttr(p, name = "id")),
+        xmlGetAttr(p, name = "id")
+      ),
       source = ifelse(is.null(xmlGetAttr(p,
-                                         name = "source")), NA,
-                      xmlGetAttr(p, name = "source")),
+        name = "source"
+      )), NA,
+      xmlGetAttr(p, name = "source")
+      ),
       name = xmlValue(p[["name"]]),
       general_function = xmlValue(p[["general-function"]]),
       specific_function = xmlValue(p[["specific-function"]]),
@@ -22,13 +25,16 @@ get_polypeptide_rec <- function(r) {
       chromosome_location = xmlValue(p[["chromosome_location"]]),
       organism = xmlValue(p[["organism"]]),
       organism_ncbi_taxonomy_id = xmlGetAttr(p[["organism"]],
-                                             name = "ncbi-taxonomy-id"),
+        name = "ncbi-taxonomy-id"
+      ),
       amino_acid_sequence = xmlValue(p[["amino-acid-sequence"]]),
       amino_acid_format = xmlGetAttr(p[["amino-acid-sequence"]],
-                                     name = "format"),
+        name = "format"
+      ),
       gene_sequence = xmlValue(p[["gene-sequence"]]),
       gene_format = xmlGetAttr(p[["gene-sequence"]],
-                               name = "format"),
+        name = "format"
+      ),
       parent_id = parent_id
     )
   }
@@ -40,7 +46,8 @@ get_poly_ex_identity <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-             xmlGetAttr(p, name = "id"))
+        xmlGetAttr(p, name = "id")
+      )
     poly_ex_identity <-
       xmlToDataFrame(p[["external-identifiers"]], stringsAsFactors = FALSE)
     poly_ex_identity$polypeptide_id <-
@@ -55,12 +62,16 @@ get_polypeptide_syn <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-             xmlGetAttr(p, name = "id"))
+        xmlGetAttr(p, name = "id")
+      )
     polypeptide_syn <- p[["synonyms"]]
     if (xmlSize(polypeptide_syn) > 0) {
-      tibble(syn = paste(xmlApply(polypeptide_syn, xmlValue),
-                              collapse = ","),
-             polypeptide_id = polypeptide_id)
+      tibble(
+        syn = paste(xmlApply(polypeptide_syn, xmlValue),
+          collapse = ","
+        ),
+        polypeptide_id = polypeptide_id
+      )
     }
   }
 }
@@ -71,7 +82,8 @@ get_polypeptide_pfams <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-             xmlGetAttr(p, name = "id"))
+        xmlGetAttr(p, name = "id")
+      )
     if (length(xmlChildren(p[["pfams"]])) > 0) {
       first_cell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
       if (first_cell != "\n    ") {
@@ -90,15 +102,17 @@ get_polypeptide_go <- function(r) {
   if (!is.null(p)) {
     polypeptide_id <-
       ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-             xmlGetAttr(p, name = "id"))
+        xmlGetAttr(p, name = "id")
+      )
     if (length(xmlChildren(p[["pfams"]])) > 0) {
       first_cell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
       if (first_cell != "\n    " &&
-          !is.null(p[["go-classifiers"]]) &&
-          xmlValue(p[["go-classifiers"]]) != "\n    ") {
+        !is.null(p[["go-classifiers"]]) &&
+        xmlValue(p[["go-classifiers"]]) != "\n    ") {
         polypeptide_go <-
           xmlToDataFrame(xmlChildren(p[["go-classifiers"]]),
-                         stringsAsFactors = FALSE)
+            stringsAsFactors = FALSE
+          )
         if (nrow(polypeptide_go) > 0) {
           polypeptide_go$polypeptide_id <-
             polypeptide_id

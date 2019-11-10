@@ -9,14 +9,18 @@ get_pathway_rec <- function(r, drug_key) {
 }
 
 get_pathways_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["pathways"]]),
-                ~ get_pathway_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["pathways"]]),
+    ~ get_pathway_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 # Extract drug pathways drugs df
 get_pathways_drugs_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["pathways"]]),
-                ~ drug_sub_df(.x, "drugs", id = "smpdb-id")))
+  return(map_df(
+    xmlChildren(rec[["pathways"]]),
+    ~ drug_sub_df(.x, "drugs", id = "smpdb-id")
+  ))
 }
 
 # Extract drug pathways enzymes df
@@ -258,9 +262,11 @@ parse_drug_pathway <-
     }
 
     if (save_table) {
-      save_drug_sub(con = pkg_env$con,
-                    df = drug_pathway,
-                    table_name = "drug_pathway")
+      save_drug_sub(
+        con = pkg_env$con,
+        df = drug_pathway,
+        table_name = "drug_pathway"
+      )
     }
     return(drug_pathway)
   }

@@ -1,12 +1,13 @@
 pkg_env <- new.env(parent = emptyenv())
-pkg_env$children  <- NULL
+pkg_env$children <- NULL
 pkg_env$con <- NULL
 pkg_env$version <- NULL
 pkg_env$exported_date <- NULL
 
 get_dataset_full_path <- function(data, csv_path = ".") {
   return(ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),
-                file.path(csv_path, paste0(data, ".csv"))))
+    file.path(csv_path, paste0(data, ".csv"))
+  ))
 }
 
 write_csv <- function(data, save_csv = FALSE, csv_path = ".") {
@@ -30,12 +31,13 @@ drug_sub_df <-
     }
 
     if (is.null(seconadary_node) &&
-        !is.null(rec[[main_node]])) {
+      !is.null(rec[[main_node]])) {
       df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
     } else {
       df <-
         xmlToDataFrame(rec[[main_node]][[seconadary_node]],
-                       stringsAsFactors = FALSE)
+          stringsAsFactors = FALSE
+        )
     }
 
 
@@ -78,15 +80,17 @@ get_xml_db_rows <- function(xml_db_name) {
   }
 
   if (ext == "zip") {
-    tryCatch({
-      unzip(xml_db_name, exdir = dir_name)
-      db <- unzip(xml_db_name, list = TRUE)
-      xml_db_name <- paste0(dir_name, "/", db[[1]])
-      message(xml_db_name)
-    },
-    error = function(e) {
-      stop(e)
-    })
+    tryCatch(
+      {
+        unzip(xml_db_name, exdir = dir_name)
+        db <- unzip(xml_db_name, list = TRUE)
+        xml_db_name <- paste0(dir_name, "/", db[[1]])
+        message(xml_db_name)
+      },
+      error = function(e) {
+        stop(e)
+      }
+    )
   }
 
   if (file.exists(xml_db_name)) {
@@ -94,7 +98,7 @@ get_xml_db_rows <- function(xml_db_name) {
     top <- xmlRoot(drugbank_db)
     pkg_env$version <- XML::xmlAttrs(top)[["version"]]
     pkg_env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
-    pkg_env$children  <- xmlChildren(top)
+    pkg_env$children <- xmlChildren(top)
     return(TRUE)
   } else {
     stop(
@@ -126,8 +130,10 @@ get_xml_db_rows <- function(xml_db_name) {
 #'
 #' @examples
 #' \donttest{
-#' open_db(driver = "SQL Server",
-#' server = "MOHAMMED\\\\SQL2016", output_database = "drugbank2")
+#' open_db(
+#'   driver = "SQL Server",
+#'   server = "SQL2016", output_database = "drugbank"
+#' )
 #' }
 #' @export
 open_db <-
@@ -143,7 +149,6 @@ open_db <-
       Database = output_database,
       Trusted_Connection = trusted_connection
     )
-
   }
 
 #' Establish connection to given Maria database
@@ -164,8 +169,10 @@ open_db <-
 #'
 #' @examples
 #' \donttest{
-#' open_mdb(username = "root", password = "root",
-#'  host = "localhost", port = 3306, output_database = "drugs")
+#' open_mdb(
+#'   username = "root", password = "root",
+#'   host = "localhost", port = 3306, output_database = "drugs"
+#' )
 #' }
 #' @export
 open_mdb <-
@@ -185,7 +192,6 @@ open_mdb <-
       host = host,
       port = port
     )
-
   }
 
 #' Close open drug bank sql database

@@ -5,7 +5,8 @@ get_synonym_rec <- function(rec, parent_key) {
       synonym = xmlValue(rec),
       language = xmlGetAttr(rec, name = "language"),
       coder = xmlGetAttr(rec,
-                         name = "coder")
+        name = "coder"
+      )
     )
   )
 }

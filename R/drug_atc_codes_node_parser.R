@@ -14,9 +14,13 @@ get_atc_codes_rec <- function(r, drug_key) {
 }
 
 get_atc_codes_df <- function(rec) {
-  return(map_df(xmlChildren(rec[["atc-codes"]]),
-                 ~ get_atc_codes_rec(.x,
-                                     xmlValue(rec["drugbank-id"][[1]]))))
+  return(map_df(
+    xmlChildren(rec[["atc-codes"]]),
+    ~ get_atc_codes_rec(
+      .x,
+      xmlValue(rec["drugbank-id"][[1]])
+    )
+  ))
 }
 
 
@@ -55,7 +59,7 @@ get_atc_codes_df <- function(rec) {
 #' parse_drug_atc_codes(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
-#'  current
+#' current
 #' #  location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' parse_drug_atc_codes(ssave_table = TRUE, save_csv = TRUE)
@@ -78,15 +82,17 @@ parse_drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE,
     drug_atc_codes <- readr::read_csv(path)
   } else {
     drug_atc_codes <- map_df(pkg_env$children, ~
-                               get_atc_codes_df(.x)) %>% unique()
+    get_atc_codes_df(.x)) %>% unique()
     write_csv(drug_atc_codes, save_csv, csv_path)
   }
 
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_atc_codes,
-                  table_name = "drug_atc_codes")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_atc_codes,
+      table_name = "drug_atc_codes"
+    )
   }
   return(drug_atc_codes)
 }

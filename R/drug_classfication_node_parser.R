@@ -1,7 +1,8 @@
 # Extract drug classifications df
 drug_classifications_df <- function(rec) {
-  if (is.null(rec[["classification"]]))
+  if (is.null(rec[["classification"]])) {
     return()
+  }
   a <- xmlToList(rec[["classification"]])
   return(tibble(
     parent_key = xmlValue(rec["drugbank-id"][[1]]),
@@ -76,9 +77,11 @@ parse_drug_classification <- function(save_table = FALSE, save_csv = FALSE,
 
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_classifications,
-                  table_name = "drug_classifications")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_classifications,
+      table_name = "drug_classifications"
+    )
   }
   return(drug_classifications)
 }

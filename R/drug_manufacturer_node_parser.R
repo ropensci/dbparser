@@ -11,7 +11,8 @@ get_manufacturer_rec <- function(r, drug_key) {
 get_manufactures_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["manufacturers"]]),
-    ~ get_manufacturer_rec(., xmlValue(rec["drugbank-id"][[1]]))))
+    ~ get_manufacturer_rec(., xmlValue(rec["drugbank-id"][[1]]))
+  ))
 }
 
 #' Extracts the drug manufacturers element and return data as data frame.
@@ -84,9 +85,11 @@ parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
 
 
   if (save_table) {
-    save_drug_sub(con = pkg_env$con,
-                  df = drug_manufacturers,
-                  table_name = "drug_manufacturers")
+    save_drug_sub(
+      con = pkg_env$con,
+      df = drug_manufacturers,
+      table_name = "drug_manufacturers"
+    )
   }
   return(drug_manufacturers)
 }
