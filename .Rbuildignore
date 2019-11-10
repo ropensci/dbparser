@@ -11,3 +11,4 @@
 ^codemeta\.json$
 ^appveyor\.yml$
 ^_pkgdown\.yml$
+^pkgdown$

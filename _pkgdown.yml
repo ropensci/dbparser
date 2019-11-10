@@ -26,19 +26,41 @@ reference:
 - title: "Database Communication"
   desc: "How to connect/disconnect databases"
   contents:
-    - '`open_db`'
-    - '`open_mdb`'
-    - '`close_db`'
+    - ends_with("_*db")
 - title: "DrugBank Database Loading"
   desc: "Get DrugBank metadata, version and/or exported date"
   contents:
-    - '`get_drugbank_exported_date`'
-    - '`get_drugbank_metadata`'
-    - '`get_drugbank_version`'
+   - starts_with("get_drugbank")
 - title: "DrugBank Meta Data"
   desc: "Read DrugBank database"
   contents:
     - '`get_xml_db_rows`'
+- title: "Drug Carriers Parsers"
+  desc: "Get Drug carriers and its related information"
+  contents:
+    - starts_with("*parse_carr*")
+    - starts_with("parse_drug_carriers*")
+- title: "Drug Enzymes Parsers"
+  desc: "Get Drug enzymes and its related information"
+  contents:
+    - starts_with("*parse_enz*")
+    - starts_with("parse_drug_enzymes*")
+- title: "Drug Targets Parsers"
+  desc: "Get Drug targets and its related information"
+  contents:
+    - starts_with("*parse_targ*")
+    - starts_with("parse_drug_targ*")
+- title: "Drug Transporters Parsers"
+  desc: "Get Drug transporters and its related information"
+  contents:
+    - starts_with("*parse_trans*")
+    - starts_with("parse_drug_trans*")
+- title: "Drug Common Parsers"
+  desc: "Parse all/specific information in DrugBank database"
+  contents:
+    - '`parse_drug_all`'
+    - '`parse_drug_element`'
+    - '`parse_drug_element_options`'
 - title: "Drug Parsers"
   desc: "Get Drug and its related information"
   contents:
@@ -48,17 +70,17 @@ reference:
     - '`parse_drug_articles`'
     - '`parse_drug_atc_codes`'
     - '`parse_drug_books`'
-    - '`parse_drug_calculated_properties`'
+    - '`parse_drug_calc_prop`'
     - '`parse_drug_categories`'
     - '`parse_drug_classification`'
     - '`parse_drug_dosages`'
-    - '`parse_drug_experimental_properties`'
-    - '`parse_drug_external_identifiers`'
+    - '`parse_drug_exp_prop`'
     - '`parse_drug_external_links`'
+    - '`parse_drug_ex_identity`'
     - '`parse_drug_food_interactions`'
     - '`parse_drug_groups`'
     - '`parse_drug_interactions`'
-    - '`parse_drug_international_brands`'
+    - '`parse_drug_intern_brand`'
     - '`parse_drug_links`'
     - '`parse_drug_manufacturers`'
     - '`parse_drug_mixtures`'
@@ -74,70 +96,13 @@ reference:
     - '`parse_drug_reactions_enzymes`'
     - '`parse_drug_salts`'
     - '`parse_drug_sequences`'
-    - '`parse_drug_snp_adverse_drug_reactions`'
     - '`parse_drug_snp_effects`'
-    - '`parse_drug_synonyms`'
-- title: "Drug Carriers Parsers"
-  desc: "Get Drug carriers and its related information"
-  contents:
-    - '`parse_drug_carriers`'
-    - '`parse_drug_carriers_actions`'
-    - '`parse_drug_carriers_articles`'
-    - '`parse_drug_carriers_links`'
-    - '`parse_drug_carriers_polypeptides`'
-    - '`parse_drug_carriers_polypeptides_external_identifiers`'
-    - '`parse_drug_carriers_polypeptides_go_classifiers`'
-    - '`parse_drug_carriers_polypeptides_pfams`'
-    - '`parse_drug_carriers_polypeptides_synonyms`'
-    - '`parse_drug_carriers_textbooks`'
-- title: "Drug Enzymes Parsers"
-  desc: "Get Drug enzymes and its related information"
-  contents:
-    - '`parse_drug_enzymes`'
-    - '`parse_drug_enzymes_actions`'
-    - '`parse_drug_enzymes_articles`'
-    - '`parse_drug_enzymes_links`'
-    - '`parse_drug_enzymes_polypeptides`'
-    - '`parse_drug_enzymes_polypeptides_external_identifiers`'
-    - '`parse_drug_enzymes_polypeptides_go_classifiers`'
-    - '`parse_drug_enzymes_polypeptides_pfams`'
-    - '`parse_drug_enzymes_polypeptides_synonyms`'
-    - '`parse_drug_enzymes_textbooks`'
-- title: "Drug Targets Parsers"
-  desc: "Get Drug targets and its related information"
-  contents:
-    - '`parse_drug_targets`'
-    - '`parse_drug_targets_actions`'
-    - '`parse_drug_targets_articles`'
-    - '`parse_drug_targets_links`'
-    - '`parse_drug_targets_polypeptides`'
-    - '`parse_drug_targets_polypeptides_external_identifiers`'
-    - '`parse_drug_targets_polypeptides_go_classifiers`'
-    - '`parse_drug_targets_polypeptides_pfams`'
-    - '`parse_drug_targets_polypeptides_synonyms`'
-    - '`parse_drug_targets_textbooks`'
-- title: "Drug Transporters Parsers"
-  desc: "Get Drug transporters and its related information"
-  contents:
-    - '`parse_drug_transporters`'
-    - '`parse_drug_transporters_actions`'
-    - '`parse_drug_transporters_articles`'
-    - '`parse_drug_transporters_links`'
-    - '`parse_drug_transporters_polypeptides`'
-    - '`parse_drug_transporters_polypeptides_external_identifiers`'
-    - '`parse_drug_transporters_polypeptides_go_classifiers`'
-    - '`parse_drug_transporters_polypeptides_pfams`'
-    - '`parse_drug_transporters_polypeptides_synonyms`'
-    - '`parse_drug_transporters_textbooks`'
-- title: "Drug Common Parsers"
-  desc: "Parse all/specific information in DrugBank database"
-  contents:
-    - '`parse_drug_all`'
-    - '`parse_drug_element`'
-    - '`parse_drug_element_options`'
+    - '`parse_drug_syn`'
+    - '`parse_snp_adverse_reactions`'
 
 authors:
   Mohammed Ali:
     href: "http://mohammedfcis.github.io"
   Ali Ezzat:
     href: "https://www.linkedin.com/in/aliezzat1985/"
+

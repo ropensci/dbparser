@@ -69,7 +69,7 @@
       <h1>DrugBank Database XML Parser</h1>
                         <h4 class="author">Mohammed Ali, Ali Ezzat</h4>
             
-            <h4 class="date">2019-10-22</h4>
+            <h4 class="date">2019-11-10</h4>
       
       
       <div class="hidden name"><code>dbparser.Rmd</code></div>
@@ -99,7 +99,7 @@
 <a class="sourceLine" id="cb1-14" title="14">drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="../reference/parse_drug_groups.html">parse_drug_groups</a></span>()</a>
 <a class="sourceLine" id="cb1-15" title="15"></a>
 <a class="sourceLine" id="cb1-16" title="16"><span class="co">## load drug targets actions data</span></a>
-<a class="sourceLine" id="cb1-17" title="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw"><a href="../reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb1-17" title="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw">parse_drug_targets_actions</span>()</a></code></pre></div>
 </div>
 <div id="saving-into-a-database" class="section level2">
 <h2 class="hasAnchor">
@@ -117,7 +117,7 @@
 <a class="sourceLine" id="cb2-10" title="10"><span class="kw"><a href="../reference/parse_drug_groups.html">parse_drug_groups</a></span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb2-11" title="11"></a>
 <a class="sourceLine" id="cb2-12" title="12"><span class="co">## save 'drug_targets_actions' dataframe to DB</span></a>
-<a class="sourceLine" id="cb2-13" title="13"><span class="kw"><a href="../reference/parse_drug_targets_actions.html">parse_drug_targets_actions</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-13" title="13"><span class="kw">parse_drug_targets_actions</span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb2-14" title="14"></a>
 <a class="sourceLine" id="cb2-15" title="15"><span class="co">## finally close db connection</span></a>
 <a class="sourceLine" id="cb2-16" title="16"><span class="kw"><a href="../reference/close_db.html">close_db</a></span>()</a></code></pre></div>
@@ -192,7 +192,7 @@
 
 
       <footer><div class="copyright">
-  <p>Developed by <a href="http://mohammedfcis.github.io">Mohammed Ali</a>, <a href="https://www.linkedin.com/in/aliezzat1985/">Ali Ezzat</a>.</p>
+  <p>Developed by Mohammed Ali, Ali Ezzat.</p>
 </div>
 
 <div class="pkgdown">

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extracts the all drug elements and return data as list of dataframes. — parse_drug_all • dbparser</title>
+<title>extracts the all drug elements and return data as list of dataframes. — parse_drug_all • dbparser</title>
 
 
 <!-- jquery -->
@@ -35,14 +35,14 @@
 
 
 
-<meta property="og:title" content="Extracts the all drug elements and return data as list of dataframes. — parse_drug_all" />
-<meta property="og:description" content="This functions extracts all element of drug nodes in drug bank
+<meta property="og:title" content="extracts the all drug elements and return data as list of dataframes. — parse_drug_all" />
+<meta property="og:description" content="this functions extracts all element of drug nodes in drug bank
 xml database with the option to save it in a predefined database via
-open_db method. It takes one single optional argument to
+open_db method. it takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after get_xml_db_rows function like
+it must be called after get_xml_db_rows function like
 any other parser function.
-If get_xml_db_rows is called before for any reason, so
+if get_xml_db_rows is called before for any reason, so
 no need to call it again before calling this function." />
 <meta name="twitter:card" content="summary" />
 
@@ -113,19 +113,19 @@ no need to call it again before calling this function." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extracts the all drug elements and return data as list of dataframes.</h1>
+    <h1>extracts the all drug elements and return data as list of dataframes.</h1>
     
     <div class="hidden name"><code>parse_drug_all.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>This functions extracts all element of drug nodes in drug bank
+    <p>this functions extracts all element of drug nodes in drug bank
 xml database with the option to save it in a predefined database via
-<code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
+<code><a href='open_db.html'>open_db</a></code> method. it takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
+it must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
 any other parser function.
-If <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so
+if <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so
 no need to call it again before calling this function.</p>
     </div>
 
@@ -145,11 +145,13 @@ no need to call it again before calling this function.</p>
     </tr>
     <tr>
       <th>csv_path</th>
-      <td><p>location to save csv files into it, default is current location, save_csv must be true</p></td>
+      <td><p>location to save csv files into it, default is current
+location, save_csv must be true</p></td>
     </tr>
     <tr>
       <th>override_csv</th>
-      <td><p>override existing csv, if any, in case it is true in the new parse operation</p></td>
+      <td><p>override existing csv, if any, in case it is true in the
+new parse operation</p></td>
     </tr>
     </table>
 
@@ -163,480 +165,481 @@ no need to call it again before calling this function.</p>
 <span class='fu'>parse_drug_all</span>()</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  X1 = <span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed Drugs main attributes, 1/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Groups_Drug, 2/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Drug, 3/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Books_Drug, 4/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Drug, 5/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Drug, 6/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Products_Drug, 7/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Mixtures_Drug, 8/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Packagers_Drug, 9/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Categories_Drug, 10/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Affected_Organisms_Drug, 11/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Dosages_Drug, 12/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed AHFS_Codes_Drug, 13/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PDB_Entries_Drug, 14/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Patents_Drug, 15/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Food_Interactions_Drug, 16/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Interactions_Drug, 17/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Experimental_Properties_Drug, 18/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Drug, 19/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Links_Drug, 20/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed SNP_Effects_Drug, 21/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed SNP_Adverse_Drug_Reactions_Drug, 22/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed ATC_Codes_Drug, 23/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Carrier_Drug, 24/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Carrier_Drug, 25/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Carrier_Drug, 26/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Carrier_Drug, 27/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Carrier_Drug, 28/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptide_Carrier_Drug, 29/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptide_Carrier_Drug, 30/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptide_Carrier_Drug, 31/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptide_Carrier_Drug, 32/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Carriers_Drug, 33/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Classifications_Drug, 34/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Enzyme_Drug, 35/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Enzyme_Drug, 36/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Enzyme_Drug, 37/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Enzyme_Drug, 38/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Enzyme_Drug, 39/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptides_Enzyme_Drug, 40/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptides_Enzyme_Drug, 41/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptides_Enzyme_Drug, 42/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptides_Enzyme_Drug, 43/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzyme_Drug, 44/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Manufacturers_Drug, 45/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzymes_Pathway_Drug, 46/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed drug_pathway_drugs, 47/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Pathways_Drug, 48/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Prices_Drug, 49/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Reactions_Drug, 50/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzymes_Reactions_Drug, 51/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Sequences_Drug, 52/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptide_Target_Drug, 53/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptide_Target_Drug, 54/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptide_Target_Drug, 55/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptide_Target_Drug attributes, 56/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Target_Drug, 57/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Target_Drug, 58/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Target_Drug, 59/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Target_Drug, 60/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptide_Target_Drug, 61/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Targets_Drug, 62/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Transporter_Drug, 63/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Transporter_Drug, 64/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Transporter_Drug, 65/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Transporter_Drug, 66/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Transporter_Drug, 67/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Transporter_Drug, 68/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptides_Transporter_Drug, 69/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptides_Transporter_Drug, 70/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptides_Transporter_Drug, 71/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Transporters_Drug, 72/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed International_Brands_Drug, 73/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Salts_Drug, 74/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Calculated_Properties_Drug, 75/75</span></div><div class='output co'>#&gt; $Drugs
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>parsed drugs main attributes, 1/75</span></div><div class='output co'>#&gt; <span class='message'>parsed groups_drug, 2/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_drug, 3/75</span></div><div class='output co'>#&gt; <span class='message'>parsed books_drug, 4/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_drug, 5/75</span></div><div class='output co'>#&gt; <span class='message'>parsed syn_drug, 6/75</span></div><div class='output co'>#&gt; <span class='message'>parsed products_drug, 7/75</span></div><div class='output co'>#&gt; <span class='message'>parsed mixtures_drug, 8/75</span></div><div class='output co'>#&gt; <span class='message'>parsed packagers_drug, 9/75</span></div><div class='output co'>#&gt; <span class='message'>parsed categories_drug, 10/75</span></div><div class='output co'>#&gt; <span class='message'>parsed affected_organisms_drug, 11/75</span></div><div class='output co'>#&gt; <span class='message'>parsed dosages_drug, 12/75</span></div><div class='output co'>#&gt; <span class='message'>parsed ahfs_codes_drug, 13/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pdb_entries_drug, 14/75</span></div><div class='output co'>#&gt; <span class='message'>parsed patents_drug, 15/75</span></div><div class='output co'>#&gt; <span class='message'>parsed food_interactions_drug, 16/75</span></div><div class='output co'>#&gt; <span class='message'>parsed interactions_drug, 17/75</span></div><div class='output co'>#&gt; <span class='message'>parsed experimental_properties_drug, 18/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_identifiers_drug, 19/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_links_drug, 20/75</span></div><div class='output co'>#&gt; <span class='message'>parsed snp_effects_drug, 21/75</span></div><div class='output co'>#&gt; <span class='message'>parsed snp_adverse_reactions, 22/75</span></div><div class='output co'>#&gt; <span class='message'>parsed atc_codes_drug, 23/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_carrier_drug, 24/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_carrier_drug, 25/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_carrier_drug, 26/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_carrier_drug, 27/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_carrier_drug, 28/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_poly_ext_identity, 29/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_syn, 30/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_pfams, 31/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_go, 32/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carriers_drug, 33/75</span></div><div class='output co'>#&gt; <span class='message'>parsed classifications_drug, 34/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_enzyme_drug, 35/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_enzyme_drug, 36/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_enzyme_drug, 37/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_enzyme_drug, 38/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_enzyme_drug, 39/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_identifiers_polypeptides_enzyme_drug, 40/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzy_poly_syn, 41/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptides_enzyme_drug, 42/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzy_poly_go, 43/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzyme_drug, 44/75</span></div><div class='output co'>#&gt; <span class='message'>parsed manufacturers_drug, 45/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzymes_pathway_drug, 46/75</span></div><div class='output co'>#&gt; <span class='message'>parsed drug_pathway_drugs, 47/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pathways_drug, 48/75</span></div><div class='output co'>#&gt; <span class='message'>parsed prices_drug, 49/75</span></div><div class='output co'>#&gt; <span class='message'>parsed reactions_drug, 50/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzymes_reactions_drug, 51/75</span></div><div class='output co'>#&gt; <span class='message'>parsed sequences_drug, 52/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_ext_identity, 53/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_syn, 54/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptide_target_drug, 55/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_go attributes, 56/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_target_drug, 57/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_target_drug, 58/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_target_drug, 59/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_target_drug, 60/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptide_target_drug, 61/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_drug, 62/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_transporter_drug, 63/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_transporter_drug, 64/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_transporter_drug, 65/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_transporter_drug, 66/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_transporter_drug, 67/75</span></div><div class='output co'>#&gt; <span class='message'>parsed trans_poly_ex_identity, 68/75</span></div><div class='output co'>#&gt; <span class='message'>parsed syn_polypeptides_transporter_drug, 69/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptides_transporter_drug, 70/75</span></div><div class='output co'>#&gt; <span class='message'>parsed go_polypeptides_transporter_drug, 71/75</span></div><div class='output co'>#&gt; <span class='message'>parsed transporters_drug, 72/75</span></div><div class='output co'>#&gt; <span class='message'>parsed international_brands_drug, 73/75</span></div><div class='output co'>#&gt; <span class='message'>parsed salts_drug, 74/75</span></div><div class='output co'>#&gt; <span class='message'>parsed calculated_properties_drug, 75/75</span></div><div class='output co'>#&gt; $drugs
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
 #&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
-#&gt; $Groups_Drug
+#&gt; $groups_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Drug
+#&gt; $articles_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Books_Drug
+#&gt; $books_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Drug
+#&gt; $links_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Drug
+#&gt; $syn_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Products_Drug
+#&gt; $products_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Mixtures_Drug
+#&gt; $mixtures_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Packagers_Drug
+#&gt; $packagers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Categories_Drug
+#&gt; $categories_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Affected_Organisms_Drug
+#&gt; $affected_organisms_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Dosages_Drug
+#&gt; $dosages_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $AHFS_Codes_Drug
+#&gt; $ahfs_codes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PDB_Entries_Drug
+#&gt; $pdb_entries_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Patents_Drug
+#&gt; $patents_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Food_Interactions_Drug
+#&gt; $food_interactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Interactions_Drug
+#&gt; $interactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Experimental_Properties_Drug
+#&gt; $experimental_properties_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Drug
+#&gt; $external_identifiers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Links_Drug
+#&gt; $external_links_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $SNP_Effects_Drug
+#&gt; $snp_effects_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $SNP_Adverse_Drug_Reactions_Drug
+#&gt; $snp_adverse_reactions
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $ATC_Codes_Drug
+#&gt; $atc_codes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Carrier_Drug
+#&gt; $actions_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Carrier_Drug
+#&gt; $articles_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Carrier_Drug
+#&gt; $textbooks_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Carrier_Drug
+#&gt; $links_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Carrier_Drug
+#&gt; $polypeptides_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Carrier_Drug
+#&gt; $carr_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_pfams
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Carriers_Drug
+#&gt; $carriers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Classifications_Drug
+#&gt; $classifications_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Enzyme_Drug
+#&gt; $actions_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Enzyme_Drug
+#&gt; $articles_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Enzyme_Drug
+#&gt; $textbooks_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Enzyme_Drug
+#&gt; $links_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Enzyme_Drug
+#&gt; $polypeptides_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Enzyme_Drug
+#&gt; $enzy_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptides_Enzyme_Drug
+#&gt; $enzy_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptides_Enzyme_Drug
+#&gt; $pfams_polypeptides_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptides_Enzyme_Drug
+#&gt; $enzy_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Drug
+#&gt; $enzymes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Manufacturers_Drug
+#&gt; $manufacturers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Pathway_Drug
+#&gt; $enzymes_pathway_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Drugs_Pathway_Drug
+#&gt; $drugs_pathway_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Pathways_Drug
+#&gt; $pathways_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Prices_Drug
+#&gt; $prices_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Reactions_Drug
+#&gt; $reactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Reactions_Drug
+#&gt; $enzymes_reactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Sequences_Drug
+#&gt; $sequences_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Target_Drug
+#&gt; $targ_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Target_Drug
+#&gt; $targ_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptide_Target_Drug
+#&gt; $pfams_polypeptide_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Target_Drug
+#&gt; $targ_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Target_Drug
+#&gt; $actions_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Target_Drug
+#&gt; $articles_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Target_Drug
+#&gt; $textbooks_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Target_Drug
+#&gt; $links_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptide_Target_Drug
+#&gt; $polypeptide_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Targets_Drug
+#&gt; $targ_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Transporter_Drug
+#&gt; $actions_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Transporter_Drug
+#&gt; $articles_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Transporter_Drug
+#&gt; $textbooks_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Transporter_Drug
+#&gt; $links_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Transporter_Drug
+#&gt; $polypeptides_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Transporter_Drug
+#&gt; $trans_poly_ex_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Transporter_Drug
+#&gt; $trans_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptid_Transporter_Drug
+#&gt; $trans_poly_pfams
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Transporter_Drug
+#&gt; $trans_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Transporters_Drug
+#&gt; $transporters_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $International_Brands_Drug
+#&gt; $international_brands_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Salts_Drug
+#&gt; $salts_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Culculated_Properties_Drug
+#&gt; $culculated_properties_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; </div><div class='input'>
 <span class='co'># save in database and return parsed dataframe</span>
-<span class='fu'>parse_drug_all</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+<span class='fu'>parse_drug_all</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='no'>trUe</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "spec_tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "spec_tbl_df"'</span></div><div class='input'>
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='error'>Error in parse_drug(save_table, save_csv, csv_path, override_csv): object 'trUe' not found</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in current location,</span>
 <span class='co'># and return parsed dataframe.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='no'>trUe</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: Missing column names filled in: 'X1' [1]</span></div><div class='output co'>#&gt; <span class='message'>Parsed with column specification:</span>
 #&gt; <span class='message'>cols(</span>
 #&gt; <span class='message'>  X1 = </span><span style='color: #BB0000;'>col_character()</span><span></span>
-#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>Parsed Drugs main attributes, 1/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Groups_Drug, 2/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Drug, 3/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Books_Drug, 4/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Drug, 5/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Drug, 6/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Products_Drug, 7/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Mixtures_Drug, 8/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Packagers_Drug, 9/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Categories_Drug, 10/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Affected_Organisms_Drug, 11/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Dosages_Drug, 12/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed AHFS_Codes_Drug, 13/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PDB_Entries_Drug, 14/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Patents_Drug, 15/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Food_Interactions_Drug, 16/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Interactions_Drug, 17/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Experimental_Properties_Drug, 18/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Drug, 19/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Links_Drug, 20/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed SNP_Effects_Drug, 21/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed SNP_Adverse_Drug_Reactions_Drug, 22/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed ATC_Codes_Drug, 23/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Carrier_Drug, 24/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Carrier_Drug, 25/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Carrier_Drug, 26/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Carrier_Drug, 27/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Carrier_Drug, 28/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptide_Carrier_Drug, 29/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptide_Carrier_Drug, 30/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptide_Carrier_Drug, 31/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptide_Carrier_Drug, 32/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Carriers_Drug, 33/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Classifications_Drug, 34/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Enzyme_Drug, 35/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Enzyme_Drug, 36/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Enzyme_Drug, 37/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Enzyme_Drug, 38/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Enzyme_Drug, 39/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptides_Enzyme_Drug, 40/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptides_Enzyme_Drug, 41/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptides_Enzyme_Drug, 42/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptides_Enzyme_Drug, 43/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzyme_Drug, 44/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Manufacturers_Drug, 45/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzymes_Pathway_Drug, 46/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed drug_pathway_drugs, 47/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Pathways_Drug, 48/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Prices_Drug, 49/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Reactions_Drug, 50/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Enzymes_Reactions_Drug, 51/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Sequences_Drug, 52/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Polypeptide_Target_Drug, 53/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptide_Target_Drug, 54/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptide_Target_Drug, 55/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptide_Target_Drug attributes, 56/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Target_Drug, 57/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Target_Drug, 58/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Target_Drug, 59/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Target_Drug, 60/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptide_Target_Drug, 61/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Targets_Drug, 62/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Actions_Transporter_Drug, 63/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Articles_Transporter_Drug, 64/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Textbooks_Transporter_Drug, 65/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Links_Transporter_Drug, 66/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Polypeptides_Transporter_Drug, 67/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed External_Identifiers_Transporter_Drug, 68/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Synonyms_Polypeptides_Transporter_Drug, 69/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed PFAMS_Polypeptides_Transporter_Drug, 70/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed GO_Classifiers_Polypeptides_Transporter_Drug, 71/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Transporters_Drug, 72/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed International_Brands_Drug, 73/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Salts_Drug, 74/75</span></div><div class='output co'>#&gt; <span class='message'>Parsed Calculated_Properties_Drug, 75/75</span></div><div class='output co'>#&gt; $Drugs
+#&gt; <span class='message'>)</span></div><div class='output co'>#&gt; <span class='message'>parsed drugs main attributes, 1/75</span></div><div class='output co'>#&gt; <span class='message'>parsed groups_drug, 2/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_drug, 3/75</span></div><div class='output co'>#&gt; <span class='message'>parsed books_drug, 4/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_drug, 5/75</span></div><div class='output co'>#&gt; <span class='message'>parsed syn_drug, 6/75</span></div><div class='output co'>#&gt; <span class='message'>parsed products_drug, 7/75</span></div><div class='output co'>#&gt; <span class='message'>parsed mixtures_drug, 8/75</span></div><div class='output co'>#&gt; <span class='message'>parsed packagers_drug, 9/75</span></div><div class='output co'>#&gt; <span class='message'>parsed categories_drug, 10/75</span></div><div class='output co'>#&gt; <span class='message'>parsed affected_organisms_drug, 11/75</span></div><div class='output co'>#&gt; <span class='message'>parsed dosages_drug, 12/75</span></div><div class='output co'>#&gt; <span class='message'>parsed ahfs_codes_drug, 13/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pdb_entries_drug, 14/75</span></div><div class='output co'>#&gt; <span class='message'>parsed patents_drug, 15/75</span></div><div class='output co'>#&gt; <span class='message'>parsed food_interactions_drug, 16/75</span></div><div class='output co'>#&gt; <span class='message'>parsed interactions_drug, 17/75</span></div><div class='output co'>#&gt; <span class='message'>parsed experimental_properties_drug, 18/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_identifiers_drug, 19/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_links_drug, 20/75</span></div><div class='output co'>#&gt; <span class='message'>parsed snp_effects_drug, 21/75</span></div><div class='output co'>#&gt; <span class='message'>parsed snp_adverse_reactions, 22/75</span></div><div class='output co'>#&gt; <span class='message'>parsed atc_codes_drug, 23/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_carrier_drug, 24/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_carrier_drug, 25/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_carrier_drug, 26/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_carrier_drug, 27/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_carrier_drug, 28/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_poly_ext_identity, 29/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_syn, 30/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_pfams, 31/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carr_polypeptides_go, 32/75</span></div><div class='output co'>#&gt; <span class='message'>parsed carriers_drug, 33/75</span></div><div class='output co'>#&gt; <span class='message'>parsed classifications_drug, 34/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_enzyme_drug, 35/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_enzyme_drug, 36/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_enzyme_drug, 37/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_enzyme_drug, 38/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_enzyme_drug, 39/75</span></div><div class='output co'>#&gt; <span class='message'>parsed external_identifiers_polypeptides_enzyme_drug, 40/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzy_poly_syn, 41/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptides_enzyme_drug, 42/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzy_poly_go, 43/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzyme_drug, 44/75</span></div><div class='output co'>#&gt; <span class='message'>parsed manufacturers_drug, 45/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzymes_pathway_drug, 46/75</span></div><div class='output co'>#&gt; <span class='message'>parsed drug_pathway_drugs, 47/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pathways_drug, 48/75</span></div><div class='output co'>#&gt; <span class='message'>parsed prices_drug, 49/75</span></div><div class='output co'>#&gt; <span class='message'>parsed reactions_drug, 50/75</span></div><div class='output co'>#&gt; <span class='message'>parsed enzymes_reactions_drug, 51/75</span></div><div class='output co'>#&gt; <span class='message'>parsed sequences_drug, 52/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_ext_identity, 53/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_syn, 54/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptide_target_drug, 55/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_poly_go attributes, 56/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_target_drug, 57/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_target_drug, 58/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_target_drug, 59/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_target_drug, 60/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptide_target_drug, 61/75</span></div><div class='output co'>#&gt; <span class='message'>parsed targ_drug, 62/75</span></div><div class='output co'>#&gt; <span class='message'>parsed actions_transporter_drug, 63/75</span></div><div class='output co'>#&gt; <span class='message'>parsed articles_transporter_drug, 64/75</span></div><div class='output co'>#&gt; <span class='message'>parsed textbooks_transporter_drug, 65/75</span></div><div class='output co'>#&gt; <span class='message'>parsed links_transporter_drug, 66/75</span></div><div class='output co'>#&gt; <span class='message'>parsed polypeptides_transporter_drug, 67/75</span></div><div class='output co'>#&gt; <span class='message'>parsed trans_poly_ex_identity, 68/75</span></div><div class='output co'>#&gt; <span class='message'>parsed syn_polypeptides_transporter_drug, 69/75</span></div><div class='output co'>#&gt; <span class='message'>parsed pfams_polypeptides_transporter_drug, 70/75</span></div><div class='output co'>#&gt; <span class='message'>parsed go_polypeptides_transporter_drug, 71/75</span></div><div class='output co'>#&gt; <span class='message'>parsed transporters_drug, 72/75</span></div><div class='output co'>#&gt; <span class='message'>parsed international_brands_drug, 73/75</span></div><div class='output co'>#&gt; <span class='message'>parsed salts_drug, 74/75</span></div><div class='output co'>#&gt; <span class='message'>parsed calculated_properties_drug, 75/75</span></div><div class='output co'>#&gt; $drugs
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 1</span><span>
 #&gt; </span><span style='color: #555555;'># ... with 1 variable: X1 </span><span style='color: #555555;font-style: italic;'>&lt;chr&gt;</span><span>
 #&gt; 
-#&gt; $Groups_Drug
+#&gt; $groups_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Drug
+#&gt; $articles_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Books_Drug
+#&gt; $books_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Drug
+#&gt; $links_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Drug
+#&gt; $syn_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Products_Drug
+#&gt; $products_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Mixtures_Drug
+#&gt; $mixtures_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Packagers_Drug
+#&gt; $packagers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Categories_Drug
+#&gt; $categories_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Affected_Organisms_Drug
+#&gt; $affected_organisms_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Dosages_Drug
+#&gt; $dosages_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $AHFS_Codes_Drug
+#&gt; $ahfs_codes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PDB_Entries_Drug
+#&gt; $pdb_entries_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Patents_Drug
+#&gt; $patents_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Food_Interactions_Drug
+#&gt; $food_interactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Interactions_Drug
+#&gt; $interactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Experimental_Properties_Drug
+#&gt; $experimental_properties_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Drug
+#&gt; $external_identifiers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Links_Drug
+#&gt; $external_links_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $SNP_Effects_Drug
+#&gt; $snp_effects_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $SNP_Adverse_Drug_Reactions_Drug
+#&gt; $snp_adverse_reactions
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $ATC_Codes_Drug
+#&gt; $atc_codes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Carrier_Drug
+#&gt; $actions_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Carrier_Drug
+#&gt; $articles_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Carrier_Drug
+#&gt; $textbooks_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Carrier_Drug
+#&gt; $links_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Carrier_Drug
+#&gt; $polypeptides_carrier_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Carrier_Drug
+#&gt; $carr_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_pfams
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Carrier_Drug
+#&gt; $carr_polypeptides_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Carriers_Drug
+#&gt; $carriers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Classifications_Drug
+#&gt; $classifications_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Enzyme_Drug
+#&gt; $actions_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Enzyme_Drug
+#&gt; $articles_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Enzyme_Drug
+#&gt; $textbooks_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Enzyme_Drug
+#&gt; $links_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Enzyme_Drug
+#&gt; $polypeptides_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Enzyme_Drug
+#&gt; $enzy_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptides_Enzyme_Drug
+#&gt; $enzy_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptides_Enzyme_Drug
+#&gt; $pfams_polypeptides_enzyme_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptides_Enzyme_Drug
+#&gt; $enzy_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Drug
+#&gt; $enzymes_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Manufacturers_Drug
+#&gt; $manufacturers_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Pathway_Drug
+#&gt; $enzymes_pathway_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Drugs_Pathway_Drug
+#&gt; $drugs_pathway_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Pathways_Drug
+#&gt; $pathways_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Prices_Drug
+#&gt; $prices_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Reactions_Drug
+#&gt; $reactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Enzymes_Reactions_Drug
+#&gt; $enzymes_reactions_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Sequences_Drug
+#&gt; $sequences_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Polypeptide_Target_Drug
+#&gt; $targ_poly_ext_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Target_Drug
+#&gt; $targ_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptide_Target_Drug
+#&gt; $pfams_polypeptide_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Target_Drug
+#&gt; $targ_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Target_Drug
+#&gt; $actions_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Target_Drug
+#&gt; $articles_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Target_Drug
+#&gt; $textbooks_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Target_Drug
+#&gt; $links_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptide_Target_Drug
+#&gt; $polypeptide_target_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Targets_Drug
+#&gt; $targ_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Actions_Transporter_Drug
+#&gt; $actions_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Articles_Transporter_Drug
+#&gt; $articles_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Textbooks_Transporter_Drug
+#&gt; $textbooks_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Links_Transporter_Drug
+#&gt; $links_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Polypeptides_Transporter_Drug
+#&gt; $polypeptides_transporter_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $External_Identifiers_Transporter_Drug
+#&gt; $trans_poly_ex_identity
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Synonyms_Polypeptide_Transporter_Drug
+#&gt; $trans_poly_syn
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $PFAMS_Polypeptid_Transporter_Drug
+#&gt; $trans_poly_pfams
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $GO_Classifiers_Polypeptide_Transporter_Drug
+#&gt; $trans_poly_go
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Transporters_Drug
+#&gt; $transporters_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $International_Brands_Drug
+#&gt; $international_brands_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Salts_Drug
+#&gt; $salts_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; 
-#&gt; $Culculated_Properties_Drug
+#&gt; $culculated_properties_drug
 #&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span>
 #&gt; </div><div class='input'>
 <span class='co'># save in database, save parsed dataframe as csv,</span>
 <span class='co'># if it does not exist in current location and return parsed dataframe.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_all</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_all(ssave_table = TRUE, save_csv = TRUE): unused argument (ssave_table = TRUE)</span></div><div class='input'>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'>parse_drug_all</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='no'>trUe</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='no'>trUe</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_all(ssave_table = trUe, save_csv = trUe): unused argument (ssave_table = trUe)</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in given location,</span>
 <span class='co'># and return parsed dataframe.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drugs.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'>
-<span class='co'># save parsed dataframe as csv if it does not exist in current location and return parsed dataframe.</span>
-<span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drugs.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='no'>trUe</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='no'>trUe</span>)</div><div class='output co'>#&gt; <span class='error'>Error in ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),     file.path(csv_path, paste0(data, ".csv"))): object 'trUe' not found</span></div><div class='input'>
+<span class='co'># save parsed dataframe as csv if it does not exist in current location and</span>
+<span class='co'># return parsed dataframe.</span>
+<span class='co'># if the csv exist override it and return it.</span>
+<span class='fu'>parse_drug_all</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='no'>trUe</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='no'>trUe</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='no'>trUe</span>)</div><div class='output co'>#&gt; <span class='error'>Error in ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),     file.path(csv_path, paste0(data, ".csv"))): object 'trUe' not found</span></div><div class='input'># }
 </div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
@@ -653,7 +656,7 @@ no need to call it again before calling this function.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://mohammedfcis.github.io'>Mohammed Ali</a>, <a href='https://www.linkedin.com/in/aliezzat1985/'>Ali Ezzat</a>.</p>
+  <p>Developed by Mohammed Ali, Ali Ezzat.</p>
 </div>
 
 <div class="pkgdown">
