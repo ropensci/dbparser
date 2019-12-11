@@ -146,7 +146,7 @@ new parse operation</p></td>
     <p>drug atc_codes node attributes date frame</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the atc codes element of drug node in drug bank
+    <p>This functions extracts the atc codes element of drug node in <strong>DrugBank</strong>
 xml database with the option to save it in a predefined database via
 <code>open_db</code> method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -166,7 +166,7 @@ no need to call it again before calling this function.</p>
 <span class='co'># If the csv exist before read it and return its data.</span>
 <span class='fu'>parse_drug_atc_codes</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 0 x 0</div><div class='input'>
 <span class='co'># save in database, save parsed dataframe as csv if it does not exist in</span>
- <span class='no'>current</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'current' not found</span></div><div class='input'><span class='co'>#  location and return parsed dataframe.</span>
+<span class='no'>current</span></div><div class='output co'>#&gt; <span class='error'>Error in eval(expr, envir, enclos): object 'current' not found</span></div><div class='input'><span class='co'>#  location and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
 <span class='fu'>parse_drug_atc_codes</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_atc_codes(ssave_table = TRUE, save_csv = TRUE): unused argument (ssave_table = TRUE)</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in given location and</span>
