@@ -28,7 +28,7 @@ reference:
   contents:
     - ends_with("_*db")
 - title: "DrugBank Database Loading"
-  desc: "Read DrugBank database"
+  desc: "Read DrugBank database and load it into memory for later processing"
   contents:
    - has_concept("DrugBank DB Loading")
 - title: "DrugBank Meta Data"

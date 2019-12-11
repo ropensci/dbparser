@@ -50,22 +50,21 @@ drug_sub_df <-
 
 
 
-#' Reads \strong{DrugBank} xml database and load it in memory.
+#' Reads \strong{DrugBank} xml database and load it into memory.
 #'
-#' \code{read_drugbank_xml_db} sets \strong{DrugBank} db xml full tree in memory
+#' \code{read_drugbank_xml_db} loads \strong{DrugBank} xml database full tree
+#' into memory.
 #'
-#' This functions reads \strong{DrugBank} xml database and sets the full tree
-#'  save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' in memory directly without returning it.
-#' It must be called one before using parser functions, and once it is called
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again.
+#' This functions reads \strong{DrugBank} xml database and load it into memory
+#'  for later processing. Hence; this method \strong{must} be called before any
+#'  other function in the package and it needs to be called one time only.
 #'
-#' @param drugbank_db_path string, full path for the \strong{DrugBank} xml or
-#'  zip file.
-#' @return TRUE when sets the db tree in memory to be used by parser
-#' methods and FALSE otherwise
+#' It takes one single mandatory argument which is the location of DrugBank db.
+#'
+#' @param drugbank_db_path \strong{string}, full path for the
+#'  \strong{DrugBank} xml or zip file.
+#' @return \strong{TRUE} when the loading process into memory to be used by
+#' parser methods is completed successfully and \strong{FALSE} otherwise.
 #'
 #'@family DrugBank DB Loading
 #'
