@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Reads <strong>DrugBank</strong> xml database and load it in memory. — read_drugbank_xml_db • dbparser</title>
+<title>Reads <strong>DrugBank</strong> xml database and load it into memory. — read_drugbank_xml_db • dbparser</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,9 @@
 
 
 
-<meta property="og:title" content="Reads <strong>DrugBank</strong> xml database and load it in memory. — read_drugbank_xml_db" />
-<meta property="og:description" content="read_drugbank_xml_db sets DrugBank db xml full tree in memory" />
+<meta property="og:title" content="Reads <strong>DrugBank</strong> xml database and load it into memory. — read_drugbank_xml_db" />
+<meta property="og:description" content="read_drugbank_xml_db loads DrugBank xml database full tree
+into memory." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,13 +107,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Reads <strong>DrugBank</strong> xml database and load it in memory.</h1>
+    <h1>Reads <strong>DrugBank</strong> xml database and load it into memory.</h1>
     
     <div class="hidden name"><code>read_drugbank_xml_db.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>read_drugbank_xml_db</code> sets <strong>DrugBank</strong> db xml full tree in memory</p>
+    <p><code>read_drugbank_xml_db</code> loads <strong>DrugBank</strong> xml database full tree
+into memory.</p>
     </div>
 
     <pre class="usage"><span class='fu'>read_drugbank_xml_db</span>(<span class='no'>drugbank_db_path</span>)</pre>
@@ -122,24 +124,21 @@
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>drugbank_db_path</th>
-      <td><p>string, full path for the <strong>DrugBank</strong> xml or
-zip file.</p></td>
+      <td><p><strong>string</strong>, full path for the
+<strong>DrugBank</strong> xml or zip file.</p></td>
     </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>TRUE when sets the db tree in memory to be used by parser
-methods and FALSE otherwise</p>
+    <p><strong>TRUE</strong> when the loading process into memory to be used by
+parser methods is completed successfully and <strong>FALSE</strong> otherwise.</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions reads <strong>DrugBank</strong> xml database and sets the full tree
- save it in a predefined database via
-<code>open_db</code> method. It takes one single optional argument to
-in memory directly without returning it.
-It must be called one before using parser functions, and once it is called
-If <code>read_drugbank_xml_db</code> is called before for any reason, so
-no need to call it again.</p>
+    <p>This functions reads <strong>DrugBank</strong> xml database and load it into memory
+ for later processing. Hence; this method <strong>must</strong> be called before any
+ other function in the package and it needs to be called one time only.</p>
+<p>It takes one single mandatory argument which is the location of DrugBank db.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
