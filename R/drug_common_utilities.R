@@ -50,11 +50,11 @@ drug_sub_df <-
 
 
 
-#' Reads drug bank xml database and set it in memory.
+#' Reads \strong{DrugBank} xml database and set it in memory.
 #'
-#' \code{get_xml_db_rows} sets drug bank db xml full tree in memory
+#' \code{get_xml_db_rows} sets \strong{DrugBank} db xml full tree in memory
 #'
-#' This functions reads drug bank xml database and sets the full tree
+#' This functions reads \strong{DrugBank} xml database and sets the full tree
 #'  save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' in memory directly without returning it.
@@ -62,7 +62,7 @@ drug_sub_df <-
 #' If \code{\link{get_xml_db_rows}} is called before for any reason, so
 #' no need to call it again.
 #'
-#' @param xml_db_name string, full path for the drug bank xml or zip file.
+#' @param xml_db_name string, full path for the \strong{DrugBank} xml or zip file.
 #' @return TRUE when sets the db tree in memory to be used by parser
 #' methods and FALSE otherwise
 #'
@@ -119,7 +119,7 @@ get_xml_db_rows <- function(xml_db_name) {
 #' \code{open_db} opens connection to given database.
 #'
 #' This function establishes connection to given database
-#' to store, \emph{optionally}, the parsed drug bank elements.
+#' to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 #'
 #' @param driver odbc object to define database driver.
 #' @param server string, indicated the db server name.
@@ -156,7 +156,7 @@ open_db <-
 #' \code{open_mdb} opens connection to given Maria database.
 #'
 #' This function establishes connection to given Maria database
-#' to store, \emph{optionally}, the parsed drug bank elements.
+#' to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 #'
 #' @param username database user name
 #' @param password database user password
@@ -194,7 +194,7 @@ open_mdb <-
     )
   }
 
-#' Close open drug bank sql database
+#' Close open \strong{DrugBank} sql database
 #'
 #' \code{close_db} closes connection to pre-given database.
 #'

@@ -67,7 +67,7 @@ get_targ_poly_go_df <- function(rec) {
 #'  elements.
 #'
 #' This functions extracts the targ polypeptides external identifiers
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -166,7 +166,7 @@ parse_targ_poly_ext_identity <-
 #'  frame of drug targ polypeptides syn elements.
 #'
 #' This functions extracts the targ polypeptides syn element of
-#' drug node in drug bank
+#' drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -252,7 +252,7 @@ parse_targ_poly_syn <-
 #'  drug targ polypeptides pfams elements.
 #'
 #' This functions extracts the targ polypeptides pfams element of drug node
-#' in drug bank
+#' in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -340,7 +340,7 @@ parse_drug_targ_polys_pfams <-
 #'  returns data frame of drug targ polypeptides go classifiers elements.
 #'
 #' This functions extracts the targ polypeptides go classifiers
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -672,7 +672,7 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' \code{parse_drug_targ_links} returns data frame of drug targ links
 #'  elements.
 #'
-#' This functions extracts the targ links element of drug node in drug bank
+#' This functions extracts the targ links element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -761,7 +761,7 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
 #'  polypeptides elements.
 #'
 #' This functions extracts the targ polypeptides element of drug node
-#' in drug bank
+#' in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -854,7 +854,7 @@ parse_drug_targ_polys <- function(save_table = FALSE,
 #'
 #' \code{parse_drug_targ} returns data frame of drug targ elements.
 #'
-#' This functions extracts the target element of drug node in drug bank
+#' This functions extracts the target element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

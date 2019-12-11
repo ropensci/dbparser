@@ -1,6 +1,6 @@
 #' extracts the all drug elements and return data as list of dataframes.
 #'
-#' this functions extracts all element of drug nodes in drug bank
+#' this functions extracts all element of drug nodes in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. it takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -468,7 +468,7 @@ parse_drug_all <-
 #' \code{parse_drug_element} returns list of dataframes of drugs selected
 #' elements.
 #'
-#' this functions extracts selected element of drug nodes in drug bank
+#' this functions extracts selected element of drug nodes in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. it takes one single optional argument to
 #' save the returned dataframe in the database.

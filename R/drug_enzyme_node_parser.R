@@ -92,7 +92,7 @@ get_enzy_poly_go_df <- function(rec) {
 #' \code{parse_drug_enzymes_actions} returns data frame of drug enzymes
 #' actions elements.
 #'
-#' This functions extracts the enzymes actions element of drug node in drug bank
+#' This functions extracts the enzymes actions element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -339,7 +339,7 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE,
 #' \code{parse_drug_enzymes_links} returns data frame of drug enzymes links
 #' elements.
 #'
-#' This functions extracts the enzymes links element of drug node in drug bank
+#' This functions extracts the enzymes links element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -537,7 +537,7 @@ parse_enzy_poly <- function(save_table = FALSE,
 #'  frame of drug enzymes polypeptides external identifiers elements.
 #'
 #' This functions extracts the enzymes polypeptides external identifiers
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -640,7 +640,7 @@ parse_enzy_poly_ext_identitys <-
 #' enzymes polypeptides syn elements.
 #'
 #' This functions extracts the enzymes polypeptides syn
-#' element of drug node in drug bank
+#' element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -728,7 +728,7 @@ parse_enzy_poly_syn <-
 #' enzymes polypeptides pfams elements.
 #'
 #' This functions extracts the enzymes polypeptides pfams element of drug
-#'  node in drug bank
+#'  node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -814,7 +814,7 @@ parse_enzy_poly_pfams <-
 #' frame of drug enzymes polypeptides go classifiers elements.
 #'
 #' This functions extracts the enzymes polypeptides go classifiers
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -912,7 +912,7 @@ parse_enzy_poly_go <-
 #'
 #' \code{parse_drug_enzymes} returns data frame of drug enzymes elements.
 #'
-#' This functions extracts the enzymes element of drug node in drug bank
+#' This functions extracts the enzymes element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

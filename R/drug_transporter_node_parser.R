@@ -418,7 +418,7 @@ parse_drug_trans_links <-
 #' transporters polypeptides groups elements.
 #'
 #' This functions extracts the transporters polypeptides element of drug
-#' node in drug bank
+#' node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -531,7 +531,7 @@ parse_drug_trans_polys <-
 #' elements.
 #'
 #' This functions extracts the transporters polypeptides external
-#'  identifiers element of drug node in drug bank
+#'  identifiers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -631,7 +631,7 @@ parse_trans_poly_ex_identity <-
 #' frame of drug transporters polypeptides syn elements.
 #'
 #' This functions extracts the transporters polypeptides syn
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -729,7 +729,7 @@ parse_trans_poly_syn <-
 #'  of drug transporters polypeptides pfams elements.
 #'
 #' This functions extracts the transporters polypeptides pfams
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -822,7 +822,7 @@ parse_trans_poly_pfams <-
 #' go classifiers elements.
 #'
 #' This functions extracts the transporters polypeptides go
-#'  classifiers element of drug node in drug bank
+#'  classifiers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -925,7 +925,7 @@ parse_trans_poly_go <-
 #' \code{parse_drug_transporters} returns data frame of drug transporters
 #' elements.
 #'
-#' This functions extracts the transporters element of drug node in drug bank
+#' This functions extracts the transporters element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

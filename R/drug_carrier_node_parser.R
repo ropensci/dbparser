@@ -65,7 +65,7 @@ get_carr_poly_go_df <- function(rec) {
 #'  carriers actions elements.
 #'
 #' This functions extracts the carriers actions element of drug
-#'  node in drug bank
+#'  node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -315,7 +315,7 @@ parse_drug_carriers_textbooks <-
 #'
 #' \code{parse_drug_groups} returns data frame of drug carriers links elements.
 #'
-#' This functions extracts the carriers links element of drug node in drug bank
+#' This functions extracts the carriers links element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -395,7 +395,7 @@ parse_drug_carriers_links <-
 #' polypeptides elements.
 #'
 #' This functions extracts the carriers polypeptides element of drug
-#' node in drug bank
+#' node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -505,7 +505,7 @@ parse_carr_poly <- function(save_table = FALSE,
 #'  data frame of drug carriers polypeptides external identifiers elements.
 #'
 #' This functions extracts the carriers polypeptides external identifiers
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -607,7 +607,7 @@ parse_carr_poly_ext_identity <-
 #'  data frame of drug carriers polypeptides syn elements.
 #'
 #' This functions extracts the carriers polypeptides syn
-#'  element of drug node in drug bank
+#'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -699,7 +699,7 @@ parse_carr_polypeptides_syn <-
 #'  of drug carriers polypeptides pfams elements.
 #'
 #' This functions extracts the carriers polypeptides pfams element of
-#'  drug node in drug bank
+#'  drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -787,7 +787,7 @@ parse_carr_polypeptides_pfams <-
 #' data frame of drug carriers polypeptides go classifiers elements.
 #'
 #' This functions extracts the carriers polypeptides go
-#' classifiers element of drug node in drug bank
+#' classifiers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -884,7 +884,7 @@ parse_carr_polypeptides_go <-
 #'
 #' \code{parse_drug_carriers} returns data frame of drug carriers elements.
 #'
-#' This functions extracts the carriers element of drug node in drug bank
+#' This functions extracts the carriers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
