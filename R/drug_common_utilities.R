@@ -52,29 +52,30 @@ drug_sub_df <-
 
 #' Reads \strong{DrugBank} xml database and load it in memory.
 #'
-#' \code{get_xml_db_rows} sets \strong{DrugBank} db xml full tree in memory
+#' \code{read_drugbank_xml_db} sets \strong{DrugBank} db xml full tree in memory
 #'
 #' This functions reads \strong{DrugBank} xml database and sets the full tree
 #'  save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' in memory directly without returning it.
 #' It must be called one before using parser functions, and once it is called
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again.
 #'
-#' @param xml_db_name string, full path for the \strong{DrugBank} xml or zip file.
+#' @param drugbank_db_path string, full path for the \strong{DrugBank} xml or
+#'  zip file.
 #' @return TRUE when sets the db tree in memory to be used by parser
 #' methods and FALSE otherwise
 #'
 #' @examples
 #' \donttest{
-#' get_xml_db_rows("db_full_path")
-#' get_xml_db_rows(xml_db_name = "db_full_path")
+#' read_drugbank_xml_db("db_full_path")
+#' read_drugbank_xml_db(drugbank_db_path = "db_full_path")
 #' }
 #' @export
-get_xml_db_rows <- function(xml_db_name) {
-  ext <- tools::file_ext(xml_db_name)
-  dir_name <- dirname(xml_db_name)
+read_drugbank_xml_db <- function(drugbank_db_path) {
+  ext <- tools::file_ext(drugbank_db_path)
+  dir_name <- dirname(drugbank_db_path)
   if (!ext %in% c("zip", "xml")) {
     stop("Unsupported file format, Kindly use an XML or zip file.")
   }
@@ -82,10 +83,10 @@ get_xml_db_rows <- function(xml_db_name) {
   if (ext == "zip") {
     tryCatch(
       {
-        unzip(xml_db_name, exdir = dir_name)
-        db <- unzip(xml_db_name, list = TRUE)
-        xml_db_name <- paste0(dir_name, "/", db[[1]])
-        message(xml_db_name)
+        unzip(drugbank_db_path, exdir = dir_name)
+        db <- unzip(drugbank_db_path, list = TRUE)
+        drugbank_db_path <- paste0(dir_name, "/", db[[1]])
+        message(drugbank_db_path)
       },
       error = function(e) {
         stop(e)
@@ -93,8 +94,8 @@ get_xml_db_rows <- function(xml_db_name) {
     )
   }
 
-  if (file.exists(xml_db_name)) {
-    drugbank_db <- xmlParse(xml_db_name)
+  if (file.exists(drugbank_db_path)) {
+    drugbank_db <- xmlParse(drugbank_db_path)
     top <- xmlRoot(drugbank_db)
     pkg_env$version <- XML::xmlAttrs(top)[["version"]]
     pkg_env$exported_date <- XML::xmlAttrs(top)[["exported-on"]]
@@ -104,7 +105,7 @@ get_xml_db_rows <- function(xml_db_name) {
     stop(
       paste(
         "Could not find the file:",
-        xml_db_name,
+        drugbank_db_path,
         ".Please ensure",
         "that the file name is entered correctly",
         "and that it exists at the specified location."
