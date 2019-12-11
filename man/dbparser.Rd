@@ -4,21 +4,21 @@
 \name{dbparser}
 \alias{dbparser}
 \alias{dbparser-package}
-\title{dbparser: A package for reading and parsing drug bank xml with the option to
+\title{dbparser: A package for reading and parsing \strong{DrugBank} xml with the option to
  save it in a given db.}
 \description{
 dbparser package provides three categories of important functions:
-database related methods, xml db reader and drug bank elements parsers.
+database related methods, xml db reader and \strong{DrugBank} elements parsers.
 }
 \section{database functions}{
 
- To open a connection to given database in order to store parsed drug bank
+ To open a connection to given database in order to store parsed \strong{DrugBank}
  elements database
 }
 
 \section{xml db reader functions}{
 
- Reads drug bank xml database and build drug elements full tree in database
+ Reads \strong{DrugBank} xml database and build drug elements full tree in database
 }
 
 \section{parsers functions}{

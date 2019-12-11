@@ -50,7 +50,7 @@ drug_sub_df <-
 
 
 
-#' Reads \strong{DrugBank} xml database and set it in memory.
+#' Reads \strong{DrugBank} xml database and load it in memory.
 #'
 #' \code{get_xml_db_rows} sets \strong{DrugBank} db xml full tree in memory
 #'

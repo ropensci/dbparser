@@ -29,11 +29,13 @@ sets the open connection in memory to be used by other functions
 }
 \details{
 This function establishes connection to given Maria database
-to store, \emph{optionally}, the parsed drug bank elements.
+to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 }
 \examples{
 \donttest{
-open_mdb(username = "root", password = "root",
- host = "localhost", port = 3306, output_database = "drugs")
+open_mdb(
+  username = "root", password = "root",
+  host = "localhost", port = 3306, output_database = "drugs"
+)
 }
 }

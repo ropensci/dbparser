@@ -28,7 +28,7 @@ drug targ polypeptides pfams node attributes date frame
 }
 \details{
 This functions extracts the targ polypeptides pfams element of drug node
-in drug bank
+in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -51,7 +51,7 @@ parse_drug_targ_polys_pfams(save_table = TRUE)
 parse_drug_targ_polys_pfams(save_csv = TRUE)
 
 # save in database, save parsed dataframe as csv if it does not exist in
- current
+current
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_targ_polys_pfams(ssave_table = TRUE, save_csv = TRUE)
@@ -64,7 +64,9 @@ parse_drug_targ_polys_pfams(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist in current location
 # and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_drug_targ_polys_pfams(save_csv = TRUE, csv_path = TRUE,
-override = TRUE)
+parse_drug_targ_polys_pfams(
+  save_csv = TRUE, csv_path = TRUE,
+  override = TRUE
+)
 }
 }

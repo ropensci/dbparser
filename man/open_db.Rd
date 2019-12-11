@@ -24,11 +24,13 @@ sets the open connection in memory to be used by other functions
 }
 \details{
 This function establishes connection to given database
-to store, \emph{optionally}, the parsed drug bank elements.
+to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 }
 \examples{
 \donttest{
-open_db(driver = "SQL Server",
-server = "MOHAMMED\\\\\\\\SQL2016", output_database = "drugbank2")
+open_db(
+  driver = "SQL Server",
+  server = "SQL2016", output_database = "drugbank"
+)
 }
 }

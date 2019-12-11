@@ -28,7 +28,7 @@ frame of drug transporters polypeptides syn elements.
 }
 \details{
 This functions extracts the transporters polypeptides syn
- element of drug node in drug bank
+ element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -53,19 +53,25 @@ parse_trans_poly_syn(save_csv = TRUE)
 # save in database, save parsed dataframe as csv if it does not
 # exist in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_trans_poly_syn(ssave_table = TRUE,
-save_csv = TRUE)
+parse_trans_poly_syn(
+  ssave_table = TRUE,
+  save_csv = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in given
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_trans_poly_syn(save_csv = TRUE,
- csv_path = TRUE)
+parse_trans_poly_syn(
+  save_csv = TRUE,
+  csv_path = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in current
 # location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_trans_poly_syn(save_csv = TRUE,
- csv_path = TRUE, override = TRUE)
+parse_trans_poly_syn(
+  save_csv = TRUE,
+  csv_path = TRUE, override = TRUE
+)
 }
 }

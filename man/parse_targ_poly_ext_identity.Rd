@@ -30,7 +30,7 @@ date frame
 }
 \details{
 This functions extracts the targ polypeptides external identifiers
- element of drug node in drug bank
+ element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -56,19 +56,24 @@ parse_targ_poly_ext_identity(save_csv = TRUE)
 current
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_targ_poly_ext_identity(ssave_table = TRUE,
-save_csv = TRUE)
+parse_targ_poly_ext_identity(
+  ssave_table = TRUE,
+  save_csv = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in given location
 # and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_targ_poly_ext_identity(save_csv = TRUE,
- csv_path = TRUE)
+parse_targ_poly_ext_identity(
+  save_csv = TRUE,
+  csv_path = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in current location
 # and return parsed dataframe.
 # If the csv exist override it and return it.
 parse_targ_poly_ext_identity(
-save_csv = TRUE, csv_path = TRUE, override = TRUE)
+  save_csv = TRUE, csv_path = TRUE, override = TRUE
+)
 }
 }

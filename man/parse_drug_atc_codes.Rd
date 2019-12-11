@@ -25,7 +25,7 @@ drug atc_codes node attributes date frame
 \code{parse_drug_atc_codes} returns data frame of drug atc codes elements.
 }
 \details{
-This functions extracts the atc codes element of drug node in drug bank
+This functions extracts the atc codes element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -48,7 +48,7 @@ parse_drug_atc_codes(save_table = TRUE)
 parse_drug_atc_codes(save_csv = TRUE)
 
 # save in database, save parsed dataframe as csv if it does not exist in
- current
+current
 #  location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 parse_drug_atc_codes(ssave_table = TRUE, save_csv = TRUE)

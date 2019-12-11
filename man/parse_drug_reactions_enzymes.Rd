@@ -62,7 +62,9 @@ parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist i
 # n current location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE,
-override = TRUE)
+parse_drug_reactions_enzymes(
+  save_csv = TRUE, csv_path = TRUE,
+  override = TRUE
+)
 }
 }

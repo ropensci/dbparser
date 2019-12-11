@@ -25,7 +25,7 @@ drug enzymes node attributes date frame
 \code{parse_drug_enzymes} returns data frame of drug enzymes elements.
 }
 \details{
-This functions extracts the enzymes element of drug node in drug bank
+This functions extracts the enzymes element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.

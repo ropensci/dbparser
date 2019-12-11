@@ -28,7 +28,7 @@ data frame of drug carriers polypeptides go classifiers elements.
 }
 \details{
 This functions extracts the carriers polypeptides go
-classifiers element of drug node in drug bank
+classifiers element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -54,19 +54,25 @@ parse_carr_polypeptides_go(save_csv = TRUE)
 current
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_carr_polypeptides_go(ssave_table = TRUE,
-save_csv = TRUE)
+parse_carr_polypeptides_go(
+  ssave_table = TRUE,
+  save_csv = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in given
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-parse_carr_polypeptides_go(save_csv = TRUE,
-csv_path = TRUE)
+parse_carr_polypeptides_go(
+  save_csv = TRUE,
+  csv_path = TRUE
+)
 
 # save parsed dataframe as csv if it does not exist in current
 # location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_carr_polypeptides_go(save_csv = TRUE,
-csv_path = TRUE, override = TRUE)
+parse_carr_polypeptides_go(
+  save_csv = TRUE,
+  csv_path = TRUE, override = TRUE
+)
 }
 }

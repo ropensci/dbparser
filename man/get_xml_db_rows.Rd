@@ -2,22 +2,22 @@
 % Please edit documentation in R/drug_common_utilities.R
 \name{get_xml_db_rows}
 \alias{get_xml_db_rows}
-\title{Reads drug bank xml database and set it in memory.}
+\title{Reads \strong{DrugBank} xml database and load it in memory.}
 \usage{
 get_xml_db_rows(xml_db_name)
 }
 \arguments{
-\item{xml_db_name}{string, full path for the drug bank xml or zip file.}
+\item{xml_db_name}{string, full path for the \strong{DrugBank} xml or zip file.}
 }
 \value{
 TRUE when sets the db tree in memory to be used by parser
 methods and FALSE otherwise
 }
 \description{
-\code{get_xml_db_rows} sets drug bank db xml full tree in memory
+\code{get_xml_db_rows} sets \strong{DrugBank} db xml full tree in memory
 }
 \details{
-This functions reads drug bank xml database and sets the full tree
+This functions reads \strong{DrugBank} xml database and sets the full tree
  save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 in memory directly without returning it.

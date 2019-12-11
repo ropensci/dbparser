@@ -28,7 +28,7 @@ enzymes polypeptides pfams elements.
 }
 \details{
 This functions extracts the enzymes polypeptides pfams element of drug
- node in drug bank
+ node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -63,7 +63,9 @@ parse_enzy_poly_pfams(save_csv = TRUE, csv_path = TRUE)
 # save parsed dataframe as csv if it does not exist in
 # current location and return parsed dataframe.
 # If the csv exist override it and return it.
-parse_enzy_poly_pfams(save_csv = TRUE, csv_path = TRUE,
-override = TRUE)
+parse_enzy_poly_pfams(
+  save_csv = TRUE, csv_path = TRUE,
+  override = TRUE
+)
 }
 }

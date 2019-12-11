@@ -26,7 +26,7 @@ drug enzymes links node attributes date frame
 elements.
 }
 \details{
-This functions extracts the enzymes links element of drug node in drug bank
+This functions extracts the enzymes links element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.
@@ -59,7 +59,7 @@ parse_drug_enzymes_links(ssave_table = TRUE, save_csv = TRUE)
 parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE)
 
 # save parsed dataframe as csv if it does not exist in current
-#location and return parsed dataframe.
+# location and return parsed dataframe.
 # If the csv exist override it and return it.
 parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }

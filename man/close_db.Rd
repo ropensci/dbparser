@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_common_utilities.R
 \name{close_db}
 \alias{close_db}
-\title{Close open drug bank sql database}
+\title{Close open \strong{DrugBank} sql database}
 \usage{
 close_db()
 }

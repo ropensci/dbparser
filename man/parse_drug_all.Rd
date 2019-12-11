@@ -22,7 +22,7 @@ new parse operation}
 all drug elements dataframes
 }
 \description{
-this functions extracts all element of drug nodes in drug bank
+this functions extracts all element of drug nodes in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. it takes one single optional argument to
 save the returned dataframe in the database.
