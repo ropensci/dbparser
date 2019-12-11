@@ -67,6 +67,8 @@ drug_sub_df <-
 #' @return TRUE when sets the db tree in memory to be used by parser
 #' methods and FALSE otherwise
 #'
+#'@family DrugBank DB Loading
+#'
 #' @examples
 #' \dontrun{
 #' read_drugbank_xml_db("db_full_path")

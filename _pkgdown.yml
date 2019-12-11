@@ -28,11 +28,11 @@ reference:
   contents:
     - ends_with("_*db")
 - title: "DrugBank Database Loading"
-  desc: "Get DrugBank metadata, version and/or exported date"
-  contents:
-   - starts_with("get_drugbank")
-- title: "DrugBank Meta Data"
   desc: "Read DrugBank database"
+  contents:
+   - has_concept("DrugBank DB Loading")
+- title: "DrugBank Meta Data"
+  desc: "Get DrugBank metadata, version and/or exported date"
   contents:
     - '`get_xml_db_rows`'
 - title: "Drug Carriers Parsers"

@@ -32,3 +32,4 @@ read_drugbank_xml_db("db_full_path")
 read_drugbank_xml_db(drugbank_db_path = "db_full_path")
 }
 }
+\concept{DrugBank DB Loading}
