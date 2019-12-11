@@ -14,7 +14,7 @@ drugbank metadata
 exported date.
 }
 \examples{
-\donttest{
+\dontrun{
 get_drugbank_metadata()
 }
 }

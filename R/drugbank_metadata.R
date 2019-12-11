@@ -5,7 +5,7 @@
 #' @return drugbank version
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_drugbank_version()
 #' }
 #' @export
@@ -21,7 +21,7 @@ get_drugbank_version <- function() {
 #' @return drugbank exported date
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_drugbank_exported_date()
 #' }
 #' @export
@@ -38,7 +38,7 @@ get_drugbank_exported_date <- function() {
 #' @return drugbank metadata
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' get_drugbank_metadata()
 #' }
 #' @export

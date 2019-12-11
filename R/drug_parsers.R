@@ -20,7 +20,7 @@
 #' @return drug main node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug()
 #'
@@ -169,7 +169,7 @@ parse_drug <-
 #' @return drug groups node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_groups()
 #'
@@ -248,7 +248,7 @@ parse_drug_groups <-
 #' @return drug articles node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_articles()
 #'
@@ -328,7 +328,7 @@ parse_drug_articles <-
 #' @return drug books node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_books()
 #'
@@ -406,7 +406,7 @@ parse_drug_books <-
 #' @return drug links node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_links()
 #'
@@ -485,7 +485,7 @@ parse_drug_links <-
 #' @return drug syn node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_syn()
 #'
@@ -561,7 +561,7 @@ parse_drug_syn <-
 #' @return drug products node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_products()
 #'
@@ -638,7 +638,7 @@ parse_drug_products <-
 #' @return drug calculated properties node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_calc_prop()
 #'
@@ -722,7 +722,7 @@ parse_drug_calc_prop <- function(save_table = FALSE,
 #' @return drug international brands node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_intern_brand()
 #'
@@ -805,7 +805,7 @@ parse_drug_intern_brand <-
 #' @return drug salts node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_salts()
 #'
@@ -882,7 +882,7 @@ parse_drug_salts <-
 #' @return drug mixtures node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_mixtures()
 #'
@@ -958,7 +958,7 @@ parse_drug_mixtures <-
 #' @return drug packagers node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_packagers()
 #'
@@ -1033,7 +1033,7 @@ parse_drug_packagers <-
 #' @return drug categories node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_categories()
 #'
@@ -1109,7 +1109,7 @@ parse_drug_categories <-
 #' @return drug affected organisms node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_affected_organisms()
 #'
@@ -1194,7 +1194,7 @@ parse_drug_affected_organisms <-
 #' @return drug dosages node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_dosages()
 #'
@@ -1270,7 +1270,7 @@ parse_drug_dosages <-
 #' @return drug ahfs codes node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_ahfs_codes()
 #'
@@ -1348,7 +1348,7 @@ parse_drug_ahfs_codes <-
 #' @return drug pdb entries node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_pdb_entries()
 #'
@@ -1426,7 +1426,7 @@ parse_drug_pdb_entries <-
 #' @return drug patents node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_patents()
 #'
@@ -1502,7 +1502,7 @@ parse_drug_patents <-
 #' @return drug food interactions node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_food_interactions()
 #'
@@ -1587,7 +1587,7 @@ parse_drug_food_interactions <-
 #' @return drug interactions node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_interactions()
 #'
@@ -1667,7 +1667,7 @@ parse_drug_interactions <-
 #' @return drug experimental properties node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_exp_prop()
 #'
@@ -1750,7 +1750,7 @@ parse_drug_exp_prop <-
 #' @return drug external identifiers node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_ex_identity()
 #'
@@ -1832,7 +1832,7 @@ parse_drug_ex_identity <-
 #' @return drug external links node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_external_links()
 #'
@@ -1908,7 +1908,7 @@ parse_drug_external_links <-
 #' @return drug snp effects node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_snp_effects()
 #'
@@ -1986,7 +1986,7 @@ parse_drug_snp_effects <-
 #' @return drug snp adverse drug reactions node attributes tibble
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_snp_adverse_reactions()
 #'

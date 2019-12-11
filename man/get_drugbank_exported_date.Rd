@@ -14,7 +14,7 @@ drugbank exported date
 exported date.
 }
 \examples{
-\donttest{
+\dontrun{
 get_drugbank_exported_date()
 }
 }

@@ -38,7 +38,7 @@ get_manufactures_df <- function(rec) {
 #' @return drug manufacturers node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_manufacturers()
 #'

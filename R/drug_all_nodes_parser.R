@@ -18,7 +18,7 @@
 #' @return all drug elements dataframes
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_all()
 #'
@@ -491,7 +491,7 @@ parse_drug_all <-
 #' @return list of selected drug elements dataframes
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_element()
 #'
@@ -918,7 +918,7 @@ parse_drug_element <-
 #' @return list of \code{parse_drug_element} valid options
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' parse_drug_element_options()
 #' }
 #' @export

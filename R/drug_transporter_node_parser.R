@@ -91,7 +91,7 @@ get_trans_poly_go_df <- function(rec) {
 #' @return drug transporters actions node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_trans_actions()
 #'
@@ -181,7 +181,7 @@ parse_drug_trans_actions <-
 #' @return drug transporters articles node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_trans_articles()
 #'
@@ -267,7 +267,7 @@ parse_drug_trans_articles <-
 #' @return drug transporters textbooks node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_trans_textbooks()
 #'
@@ -351,7 +351,7 @@ parse_drug_trans_textbooks <-
 #' @return drug transporters links node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_trans_links()
 #'
@@ -436,7 +436,7 @@ parse_drug_trans_links <-
 #' @return drug transporters polypeptides node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_trans_polys()
 #'
@@ -550,7 +550,7 @@ parse_drug_trans_polys <-
 #'  node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_trans_poly_ex_identity()
 #'
@@ -649,7 +649,7 @@ parse_trans_poly_ex_identity <-
 #' @return drug transporters polypeptides syn node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_trans_poly_syn()
 #'
@@ -747,7 +747,7 @@ parse_trans_poly_syn <-
 #' @return drug transporters polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_trans_poly_pfams()
 #'
@@ -841,7 +841,7 @@ parse_trans_poly_pfams <-
 #' date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_trans_poly_go()
 #'
@@ -943,7 +943,7 @@ parse_trans_poly_go <-
 #' @return drug transporters node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_transporters()
 #'

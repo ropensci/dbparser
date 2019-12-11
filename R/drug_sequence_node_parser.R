@@ -43,7 +43,7 @@ get_sequences_df <- function(rec) {
 #' @return drug sequences node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_sequences()
 #'

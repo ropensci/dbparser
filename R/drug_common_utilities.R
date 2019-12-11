@@ -68,7 +68,7 @@ drug_sub_df <-
 #' methods and FALSE otherwise
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' read_drugbank_xml_db("db_full_path")
 #' read_drugbank_xml_db(drugbank_db_path = "db_full_path")
 #' }
@@ -130,7 +130,7 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
 #' @return sets the open connection in memory to be used by other functions
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' open_db(
 #'   driver = "SQL Server",
 #'   server = "SQL2016", output_database = "drugbank"
@@ -169,7 +169,7 @@ open_db <-
 #' @return sets the open connection in memory to be used by other functions
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' open_mdb(
 #'   username = "root", password = "root",
 #'   host = "localhost", port = 3306, output_database = "drugs"
@@ -202,7 +202,7 @@ open_mdb <-
 #' This function closes connection to pre-given database.
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' close_db()
 #' }
 #' @export

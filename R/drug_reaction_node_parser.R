@@ -46,7 +46,7 @@ get_reactions_enzymes_df <- function(rec) {
 #' @return drug reactions node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_reactions()
 #'
@@ -126,7 +126,7 @@ parse_drug_reactions <-
 #' @return drug reactions enzymes node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_reactions_enzymes()
 #'

@@ -13,7 +13,7 @@ close_db()
 This function closes connection to pre-given database.
 }
 \examples{
-\donttest{
+\dontrun{
 close_db()
 }
 }

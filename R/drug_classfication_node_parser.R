@@ -33,7 +33,7 @@ drug_classifications_df <- function(rec) {
 #' @return drug classifications node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_classification()
 #'

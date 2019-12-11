@@ -83,7 +83,7 @@ get_carr_poly_go_df <- function(rec) {
 #' @return drug carriers actions node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_carriers_actions()
 #'
@@ -171,7 +171,7 @@ parse_drug_carriers_actions <-
 #' @return drug carriers_articles node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_carriers_articles()
 #'
@@ -253,7 +253,7 @@ parse_drug_carriers_articles <-
 #' @return drug carriers textbooks node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_carriers_textbooks()
 #'
@@ -333,7 +333,7 @@ parse_drug_carriers_textbooks <-
 #' @return drug carriers_links node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_carriers_links()
 #'
@@ -413,7 +413,7 @@ parse_drug_carriers_links <-
 #' @return drug carriers polypeptides node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_carr_poly()
 #'
@@ -524,7 +524,7 @@ parse_carr_poly <- function(save_table = FALSE,
 #'  node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_carr_poly_ext_identity()
 #'
@@ -625,7 +625,7 @@ parse_carr_poly_ext_identity <-
 #' @return drug carriers polypeptides syn node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_carr_polypeptides_syn()
 #'
@@ -717,7 +717,7 @@ parse_carr_polypeptides_syn <-
 #' @return drug carriers polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_carr_polypeptides_pfams()
 #'
@@ -805,7 +805,7 @@ parse_carr_polypeptides_pfams <-
 #' @return drug carriers polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_carr_polypeptides_go()
 #'
@@ -902,7 +902,7 @@ parse_carr_polypeptides_go <-
 #' @return drug carriers node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_carriers()
 #'

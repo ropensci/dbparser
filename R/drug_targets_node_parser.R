@@ -86,7 +86,7 @@ get_targ_poly_go_df <- function(rec) {
 #' date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_targ_poly_ext_identity()
 #'
@@ -184,7 +184,7 @@ parse_targ_poly_ext_identity <-
 #' @return drug targ polypeptides syn node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_targ_poly_syn()
 #'
@@ -270,7 +270,7 @@ parse_targ_poly_syn <-
 #' @return drug targ polypeptides pfams node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_polys_pfams()
 #'
@@ -358,7 +358,7 @@ parse_drug_targ_polys_pfams <-
 #' @return drug targ polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_targ_poly_go()
 #'
@@ -451,7 +451,7 @@ parse_targ_poly_go <-
 #' @return drug targ actions node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_actions()
 #'
@@ -532,7 +532,7 @@ parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
 #' @return drug targ articles node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_articles()
 #'
@@ -611,7 +611,7 @@ parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
 #' @return drug targ textbooks node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_textbooks()
 #'
@@ -690,7 +690,7 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' @return drug targ_links node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_links()
 #'
@@ -779,7 +779,7 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
 #' @return drug targ polypeptides node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ_polys()
 #'
@@ -872,7 +872,7 @@ parse_drug_targ_polys <- function(save_table = FALSE,
 #' @return drug target node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_targ()
 #'

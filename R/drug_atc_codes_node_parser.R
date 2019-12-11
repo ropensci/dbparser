@@ -46,7 +46,7 @@ get_atc_codes_df <- function(rec) {
 #' @return drug atc_codes node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_atc_codes()
 #'

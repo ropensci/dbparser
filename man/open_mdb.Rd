@@ -32,7 +32,7 @@ This function establishes connection to given Maria database
 to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 }
 \examples{
-\donttest{
+\dontrun{
 open_mdb(
   username = "root", password = "root",
   host = "localhost", port = 3306, output_database = "drugs"

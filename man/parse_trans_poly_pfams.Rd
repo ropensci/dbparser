@@ -38,7 +38,7 @@ If \code{\link{get_xml_db_rows}} is called before for any reason, so
 no need to call it again before calling this function.
 }
 \examples{
-\donttest{
+\dontrun{
 # return only the parsed dataframe
 parse_trans_poly_pfams()
 

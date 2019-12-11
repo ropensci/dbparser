@@ -54,7 +54,7 @@ get_pathways_enzymes_df <- function(rec) {
 #' @return drug pathway enzyme node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_pathway_enzyme()
 #'
@@ -137,7 +137,7 @@ parse_drug_pathway_enzyme <-
 #' @return drug pathway drugs node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_pathway_drugs()
 #'
@@ -216,7 +216,7 @@ parse_drug_pathway_drugs <-
 #' @return drug pathway node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_pathway()
 #'

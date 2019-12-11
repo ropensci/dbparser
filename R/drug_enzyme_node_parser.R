@@ -110,7 +110,7 @@ get_enzy_poly_go_df <- function(rec) {
 #' @return drug enzymes actions node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_enzymes_actions()
 #'
@@ -193,7 +193,7 @@ parse_drug_enzymes_actions <-
 #' @return drug enzymes articles node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_enzymes_articles()
 #'
@@ -276,7 +276,7 @@ parse_drug_enzymes_articles <-
 #' @return drug enzymes textbooks node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_enzymes_textbooks()
 #'
@@ -357,7 +357,7 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE,
 #' @return drug enzymes links node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_enzymes_links()
 #'
@@ -438,7 +438,7 @@ parse_drug_enzymes_links <-
 #' @return drug enzymes polypeptides node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_enzy_poly()
 #'
@@ -556,7 +556,7 @@ parse_enzy_poly <- function(save_table = FALSE,
 #'  attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_enzy_poly_ext_identitys()
 #'
@@ -658,7 +658,7 @@ parse_enzy_poly_ext_identitys <-
 #' @return drug enzymes polypeptides syn node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_enzy_poly_syn()
 #'
@@ -746,7 +746,7 @@ parse_enzy_poly_syn <-
 #' @return drug groups node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_enzy_poly_pfams()
 #'
@@ -832,7 +832,7 @@ parse_enzy_poly_pfams <-
 #' @return drug enzymes polypeptides go classifiers node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_enzy_poly_go()
 #'
@@ -930,7 +930,7 @@ parse_enzy_poly_go <-
 #' @return drug enzymes node attributes date frame
 #'
 #' @examples
-#' \donttest{
+#' \dontrun{
 #' # return only the parsed dataframe
 #' parse_drug_enzymes()
 #'

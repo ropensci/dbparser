@@ -27,7 +27,7 @@ This function establishes connection to given database
 to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 }
 \examples{
-\donttest{
+\dontrun{
 open_db(
   driver = "SQL Server",
   server = "SQL2016", output_database = "drugbank"

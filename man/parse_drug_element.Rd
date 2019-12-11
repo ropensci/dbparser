@@ -42,7 +42,7 @@ parse_drug_element_options can be called to know the valid options for
 this method
 }
 \examples{
-\donttest{
+\dontrun{
 # return only the parsed dataframe
 parse_drug_element()
 
