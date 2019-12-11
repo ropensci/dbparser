@@ -69,9 +69,9 @@ get_carr_poly_go_df <- function(rec) {
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -157,9 +157,9 @@ parse_drug_carriers_actions <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -239,9 +239,9 @@ parse_drug_carriers_articles <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -319,9 +319,9 @@ parse_drug_carriers_textbooks <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -399,9 +399,9 @@ parse_drug_carriers_links <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -509,9 +509,9 @@ parse_carr_poly <- function(save_table = FALSE,
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -611,9 +611,9 @@ parse_carr_poly_ext_identity <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -703,9 +703,9 @@ parse_carr_polypeptides_syn <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -791,9 +791,9 @@ parse_carr_polypeptides_pfams <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -888,9 +888,9 @@ parse_carr_polypeptides_go <-
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
-#' It must be called after \code{\link{get_xml_db_rows}} function like
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
-#' If \code{\link{get_xml_db_rows}} is called before for any reason, so
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.

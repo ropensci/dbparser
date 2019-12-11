@@ -13,8 +13,8 @@ classlist <- function(x) {
 test_that(
   desc = "Read database",
   code = {
-    expect_error(get_xml_db_rows("I_do_not_exist_file.xml"))
-    expect_error(get_xml_db_rows("drugbank_record"))
+    expect_error(read_drugbank_xml_db("I_do_not_exist_file.xml"))
+    expect_error(read_drugbank_xml_db("drugbank_record"))
   }
 )
 drugs <- parse_drug_all()

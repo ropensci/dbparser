@@ -10,7 +10,7 @@ biotech <- "drugbank_record_small_molecule.xml"
 test_that(
   desc = "Read database",
   code = {
-    expect_true(get_xml_db_rows(
+    expect_true(read_drugbank_xml_db(
       system.file("extdata", biotech, package = "dbparser")
     ))
   }
