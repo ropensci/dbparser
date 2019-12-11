@@ -150,34 +150,39 @@ new parse operation</p></td>
 xml database with the option to save it in a predefined database via
 <code>open_db</code> method. It takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after <code>get_xml_db_rows</code> function like
+It must be called after <code>read_drugbank_xml_db</code> function like
 any other parser function.
-If <code>get_xml_db_rows</code> is called before for any reason, so
+If <code>read_drugbank_xml_db</code> is called before for any reason, so
 no need to call it again before calling this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='co'># return only the parsed dataframe</span>
-<span class='fu'>parse_drug_reactions</span>()</div><div class='output co'>#&gt; # A tibble: 0 x 0</div><div class='input'>
+<span class='fu'>parse_drug_reactions</span>()
+
 <span class='co'># save in database and return parsed dataframe</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘dbWriteTable’ for signature ‘"NULL", "character", "tbl_df"’</span></div><div class='input'>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='co'># save parsed dataframe as csv if it does not exist in current location</span>
 <span class='co'># and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; # A tibble: 0 x 0</div><div class='input'>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='co'># save in database, save parsed dataframe as csv if it does not exist</span>
 <span class='co'># in current location and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_reactions(ssave_table = TRUE, save_csv = TRUE): unused argument (ssave_table = TRUE)</span></div><div class='input'>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='co'># save parsed dataframe as csv if it does not exist in given location</span>
 <span class='co'># and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_reactions.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_reactions.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
-</div></pre>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

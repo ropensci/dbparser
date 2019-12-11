@@ -157,12 +157,12 @@ it has to be created before using it</p></td>
 to store, <em>optionally</em>, the parsed <strong>DrugBank</strong> elements.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
 <span class='fu'>open_mdb</span>(
   <span class='kw'>username</span> <span class='kw'>=</span> <span class='st'>"root"</span>, <span class='kw'>password</span> <span class='kw'>=</span> <span class='st'>"root"</span>,
   <span class='kw'>host</span> <span class='kw'>=</span> <span class='st'>"localhost"</span>, <span class='kw'>port</span> <span class='kw'>=</span> <span class='fl'>3306</span>, <span class='kw'>output_database</span> <span class='kw'>=</span> <span class='st'>"drugs"</span>
-)</div><div class='output co'>#&gt; <span class='error'>Error in connection_create(host, username, password, dbname, as.integer(port),     unix.socket, as.integer(client.flag), groups, default.file,     ssl.key, ssl.cert, ssl.ca, ssl.capath, ssl.cipher): Failed to connect: Can't connect to local MySQL server through socket '/var/run/mysqld/mysqld.sock' (2)</span></div><div class='input'># }
-</div></pre>
+)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>

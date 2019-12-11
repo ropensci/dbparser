@@ -123,9 +123,9 @@
     <p>This function closes connection to pre-given database.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>close_db</span>()</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL"), new("standardGeneric", .Data = function (conn,     ...) standardGeneric("dbDisconnect"), generic = structure("dbDisconnect", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = "conn", default = NULL, skeleton = (function (conn,         ...)     stop("invalid call in method dispatch to 'dbDisconnect' (no default method)",         domain = NA))(conn, ...)), &lt;environment&gt;): unable to find an inherited method for function ‘dbDisconnect’ for signature ‘"NULL"’</span></div><div class='input'># }
-</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>close_db</span>()
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
