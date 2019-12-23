@@ -42,8 +42,7 @@ reference:
 - title: "Drug Enzymes Parsers"
   desc: "Get Drug enzymes and its related information"
   contents:
-    - starts_with("*parse_enz*")
-    - starts_with("parse_drug_enzymes*")
+    - has_concept("enzymes")
 - title: "Drug Targets Parsers"
   desc: "Get Drug targets and its related information"
   contents:

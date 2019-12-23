@@ -89,7 +89,7 @@ get_enzy_poly_go_df <- function(rec) {
 
 #' Extracts the drug enzymes actions element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_actions} returns data frame of drug enzymes
+#' \code{enzymes_actions} returns data frame of drug enzymes
 #' actions elements.
 #'
 #' This functions extracts the enzymes actions element of drug node in
@@ -109,37 +109,37 @@ get_enzy_poly_go_df <- function(rec) {
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug enzymes actions node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_actions()
+#' enzymes_actions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_actions(save_table = TRUE)
+#' enzymes_actions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_actions(save_csv = TRUE)
+#' enzymes_actions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_actions(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_actions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_actions(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_actions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' enzymes_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_actions <-
+enzymes_actions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -173,7 +173,7 @@ parse_drug_enzymes_actions <-
 
 #' Extracts the drug enzymes articles element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_articles} returns data frame of drug enzymes
+#' \code{enzymes_articles} returns data frame of drug enzymes
 #' articles elements.
 #'
 #' This functions extracts the enzymes articles element of drug node in drugbank
@@ -192,40 +192,40 @@ parse_drug_enzymes_actions <-
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
 #' @return drug enzymes articles node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_articles()
+#' enzymes_articles()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_articles(save_table = TRUE)
+#' enzymes_articles(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_articles(save_csv = TRUE)
+#' enzymes_articles(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_articles(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_articles(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_articles(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_articles(
+#' enzymes_articles(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_enzymes_articles <-
+enzymes_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -255,7 +255,7 @@ parse_drug_enzymes_articles <-
 
 #' Extracts the drug enzymes textbooks element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_textbooks} returns data frame of drug enzymes
+#' \code{enzymes_textbooks} returns data frame of drug enzymes
 #' textbooks elements.
 #'
 #' This functions extracts the enzymes textbooks element of drug node in
@@ -275,40 +275,40 @@ parse_drug_enzymes_articles <-
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
 #' @return drug enzymes textbooks node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_textbooks()
+#' enzymes_textbooks()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_textbooks(save_table = TRUE)
+#' enzymes_textbooks(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_textbooks(save_csv = TRUE)
+#' enzymes_textbooks(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_textbooks(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_textbooks(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_textbooks(
+#' enzymes_textbooks(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_enzymes_textbooks <- function(save_table = FALSE,
+enzymes_textbooks <- function(save_table = FALSE,
                                          save_csv = FALSE,
                                          csv_path = ".",
                                          override_csv = FALSE) {
@@ -337,7 +337,7 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE,
 
 #' Extracts the drug enzymes links element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes_links} returns data frame of drug enzymes links
+#' \code{enzymes_links} returns data frame of drug enzymes links
 #' elements.
 #'
 #' This functions extracts the enzymes links element of drug node in
@@ -357,37 +357,37 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug enzymes links node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes_links()
+#' enzymes_links()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes_links(save_table = TRUE)
+#' enzymes_links(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_links(save_csv = TRUE)
+#' enzymes_links(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_links(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_links(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_links(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' enzymes_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes_links <-
+enzymes_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -418,7 +418,7 @@ parse_drug_enzymes_links <-
 
 #' Extracts the drug enzymes polypeptides element and return data as data frame.
 #'
-#' \code{parse_enzy_poly} returns data frame of drug enzymes
+#' \code{enzymes_polypeptide} returns data frame of drug enzymes
 #' polypeptides elements.
 #'
 #' This functions extracts the enzymes polypeptides element of drug node in
@@ -438,40 +438,40 @@ parse_drug_enzymes_links <-
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
 #' @return drug enzymes polypeptides node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_enzy_poly()
+#' enzymes_polypeptide()
 #'
 #' # save in database and return parsed dataframe
-#' parse_enzy_poly(save_table = TRUE)
+#' enzymes_polypeptide(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly(save_csv = TRUE)
+#' enzymes_polypeptide(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_polypeptide(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_enzy_poly(
+#' enzymes_polypeptide(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_enzy_poly <- function(save_table = FALSE,
+enzymes_polypeptide <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
                             override_csv = FALSE) {
@@ -535,7 +535,7 @@ parse_enzy_poly <- function(save_table = FALSE,
 #' Extracts the drug enzymes polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_enzy_poly_ext_identitys} returns data
+#' \code{enzymes_polypeptide_ext_ident} returns data
 #'  frame of drug enzymes polypeptides external identifiers elements.
 #'
 #' This functions extracts the enzymes polypeptides external identifiers
@@ -556,24 +556,24 @@ parse_enzy_poly <- function(save_table = FALSE,
 #'  new parse operation
 #' @return drug enzymes polypeptides external identifiers node
 #'  attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_enzy_poly_ext_identitys()
+#' enzymes_polypeptide_ext_ident()
 #'
 #' # save in database and return parsed dataframe
-#' parse_enzy_poly_ext_identitys(save_table = TRUE)
+#' enzymes_polypeptide_ext_ident(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_ext_identitys(save_csv = TRUE)
+#' enzymes_polypeptide_ext_ident(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_ext_identitys(
+#' enzymes_polypeptide_ext_ident(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -581,7 +581,7 @@ parse_enzy_poly <- function(save_table = FALSE,
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_ext_identitys(
+#' enzymes_polypeptide_ext_ident(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -589,12 +589,12 @@ parse_enzy_poly <- function(save_table = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_enzy_poly_ext_identitys(
+#' enzymes_polypeptide_ext_ident(
 #'   save_csv = TRUE, csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_enzy_poly_ext_identitys <-
+enzymes_polypeptide_ext_ident <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -638,7 +638,7 @@ parse_enzy_poly_ext_identitys <-
 #' Extracts the drug enzymes polypeptides syn
 #'  element and return data as data frame.
 #'
-#' \code{parse_enzy_poly_syn} returns data frame of drug
+#' \code{enzymes_polypeptide_syn} returns data frame of drug
 #' enzymes polypeptides syn elements.
 #'
 #' This functions extracts the enzymes polypeptides syn
@@ -658,40 +658,40 @@ parse_enzy_poly_ext_identitys <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug enzymes polypeptides syn node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_enzy_poly_syn()
+#' enzymes_polypeptide_syn()
 #'
 #' # save in database and return parsed dataframe
-#' parse_enzy_poly_syn(save_table = TRUE)
+#' enzymes_polypeptide_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_syn(save_csv = TRUE)
+#' enzymes_polypeptide_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does
 #' # not exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_syn(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide_syn(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # given location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_syn(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_polypeptide_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_enzy_poly_syn(
+#' enzymes_polypeptide_syn(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_enzy_poly_syn <-
+enzymes_polypeptide_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -726,7 +726,7 @@ parse_enzy_poly_syn <-
 #' Extracts the drug enzymes polypeptides pfams element and return
 #'  data as data frame.
 #'
-#' \code{parse_enzy_poly_pfams} returns data frame of drug
+#' \code{enzymes_polypeptide_pfams} returns data frame of drug
 #' enzymes polypeptides pfams elements.
 #'
 #' This functions extracts the enzymes polypeptides pfams element of drug
@@ -746,40 +746,40 @@ parse_enzy_poly_syn <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug groups node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_enzy_poly_pfams()
+#' enzymes_polypeptide_pfams()
 #'
 #' # save in database and return parsed dataframe
-#' parse_enzy_poly_pfams(save_table = TRUE)
+#' enzymes_polypeptide_pfams(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_pfams(save_csv = TRUE)
+#' enzymes_polypeptide_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_pfams(save_csv = TRUE, csv_path = TRUE)
+#' enzymes_polypeptide_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_enzy_poly_pfams(
+#' enzymes_polypeptide_pfams(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_enzy_poly_pfams <-
+enzymes_polypeptide_pfams <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -812,7 +812,7 @@ parse_enzy_poly_pfams <-
 
 #' Extracts the drug groups element and return data as data frame.
 #'
-#' \code{parse_enzy_poly_go} returns data
+#' \code{enzymes_polypeptide_go} returns data
 #' frame of drug enzymes polypeptides go classifiers elements.
 #'
 #' This functions extracts the enzymes polypeptides go classifiers
@@ -832,24 +832,24 @@ parse_enzy_poly_pfams <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug enzymes polypeptides go classifiers node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_enzy_poly_go()
+#' enzymes_polypeptide_go()
 #'
 #' # save in database and return parsed dataframe
-#' parse_enzy_poly_go(save_table = TRUE)
+#' enzymes_polypeptide_go(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_go(save_csv = TRUE)
+#' enzymes_polypeptide_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_go(
+#' enzymes_polypeptide_go(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -857,7 +857,7 @@ parse_enzy_poly_pfams <-
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_enzy_poly_go(
+#' enzymes_polypeptide_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -865,13 +865,13 @@ parse_enzy_poly_pfams <-
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_enzy_poly_go(
+#' enzymes_polypeptide_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_enzy_poly_go <-
+enzymes_polypeptide_go <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -912,7 +912,7 @@ parse_enzy_poly_go <-
 
 #' Extracts the drug enzymes element and return data as data frame.
 #'
-#' \code{parse_drug_enzymes} returns data frame of drug enzymes elements.
+#' \code{enzymes} returns data frame of drug enzymes elements.
 #'
 #' This functions extracts the enzymes element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
@@ -930,37 +930,37 @@ parse_enzy_poly_go <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug enzymes node attributes date frame
-#'
+#' @family enzymes
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_enzymes()
+#' enzymes()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_enzymes(save_table = TRUE)
+#' enzymes(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes(save_csv = TRUE)
+#' enzymes(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_enzymes(save_csv = TRUE, csv_path = TRUE)
+#' enzymes(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_enzymes <- function(save_table = FALSE,
+enzymes <- function(save_table = FALSE,
                                save_csv = FALSE,
                                csv_path = ".",
                                override_csv = FALSE) {

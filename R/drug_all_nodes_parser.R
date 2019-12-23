@@ -184,50 +184,50 @@ parse_drug_all <-
       parse_drug_classification(save_table, save_csv, csv_path, override_csv)
     message("parsed classifications_drug, 34/75")
     actions_enzyme_drug <-
-      parse_drug_enzymes_actions(save_table, save_csv, csv_path, override_csv)
+      enzymes_actions(save_table, save_csv, csv_path, override_csv)
     message("parsed actions_enzyme_drug, 35/75")
     articles_enzyme_drug <-
-      parse_drug_enzymes_articles(save_table, save_csv, csv_path, override_csv)
+      enzymes_articles(save_table, save_csv, csv_path, override_csv)
     message("parsed articles_enzyme_drug, 36/75")
     textbooks_enzyme_drug <-
-      parse_drug_enzymes_textbooks(save_table, save_csv, csv_path, override_csv)
+      enzymes_textbooks(save_table, save_csv, csv_path, override_csv)
     message("parsed textbooks_enzyme_drug, 37/75")
     links_enzyme_drug <-
-      parse_drug_enzymes_links(save_table, save_csv, csv_path, override_csv)
+      enzymes_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_enzyme_drug, 38/75")
     polypeptides_enzyme_drug <-
-      parse_enzy_poly(
+      enzymes_polypeptide(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed polypeptides_enzyme_drug, 39/75")
     enzy_poly_ext_identity <-
-      parse_enzy_poly_ext_identitys(
+      enzymes_polypeptide_ext_ident(
         save_table,
         save_csv, csv_path,
         override_csv
       )
     message("parsed external_identifiers_polypeptides_enzyme_drug, 40/75")
     enzy_poly_syn <-
-      parse_enzy_poly_syn(
+      enzymes_polypeptide_syn(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed enzy_poly_syn, 41/75")
     pfams_polypeptides_enzyme_drug <-
-      parse_enzy_poly_pfams(
+      enzymes_polypeptide_pfams(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed pfams_polypeptides_enzyme_drug, 42/75")
     enzy_poly_go <-
-      parse_enzy_poly_go(
+      enzymes_polypeptide_go(
         save_table, save_csv,
         csv_path, override_csv
       )
     message("parsed enzy_poly_go, 43/75")
     enzymes_drug <-
-      parse_drug_enzymes(save_table, save_csv, csv_path, override_csv)
+      enzymes(save_table, save_csv, csv_path, override_csv)
     message("parsed enzyme_drug, 44/75")
     manufacturers_drug <-
       parse_drug_manufacturers(save_table, save_csv, csv_path, override_csv)
@@ -633,57 +633,57 @@ parse_drug_element <-
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "enzymes_drug" = parse_drug_enzymes(
+        "enzymes_drug" = enzymes(
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "actions_enzyme_drug" = parse_drug_enzymes_actions(
+        "actions_enzyme_drug" = enzymes_actions(
           save_table, save_csv,
           csv_path,
           override_csv
         ),
-        "articles_enzyme_drug" = parse_drug_enzymes_articles(
+        "articles_enzyme_drug" = enzymes_articles(
           save_table,
           save_csv,
           csv_path,
           override_csv
         ),
-        "links_enzyme_drug" = parse_drug_enzymes_links(
+        "links_enzyme_drug" = enzymes_links(
           save_table,
           save_csv,
           csv_path,
           override_csv
         ),
         "polypeptides_enzyme_drug" =
-          parse_enzy_poly(
+          enzymes_polypeptide(
             save_table, save_csv, csv_path,
             override_csv
           ),
         "enzy_poly_ext_identity" =
-          parse_enzy_poly_ext_identitys(
+          enzymes_polypeptide_ext_ident(
             save_table,
             save_csv,
             csv_path,
             override_csv
           ),
         "enzy_poly_go" =
-          parse_enzy_poly_go(
+          enzymes_polypeptide_go(
             save_table, save_csv,
             csv_path,
             override_csv
           ),
         "pfams_polypeptides_enzyme_drug" =
-          parse_enzy_poly_pfams(
+          enzymes_polypeptide_pfams(
             save_table, save_csv, csv_path,
             override_csv
           ),
         "enzy_poly_syn" =
-          parse_enzy_poly_syn(
+          enzymes_polypeptide_syn(
             save_table,
             save_csv, csv_path,
             override_csv
           ),
-        "textbooks_enzyme_drug" = parse_drug_enzymes_textbooks(
+        "textbooks_enzyme_drug" = enzymes_textbooks(
           save_table,
           save_csv,
           csv_path,
@@ -866,7 +866,7 @@ parse_drug_element <-
           override_csv
         ),
         "polypeptides_transporter_drug" =
-          parse_enzy_poly(
+          enzymes_polypeptide(
             save_table, save_csv, csv_path,
             override_csv
           ),
