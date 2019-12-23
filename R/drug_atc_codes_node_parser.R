@@ -28,9 +28,10 @@ get_atc_codes_df <- function(rec) {
 #'
 #' \code{parse_drug_atc_codes} returns data frame of drug atc codes elements.
 #'
-#' This functions extracts the atc codes element of drug node in \strong{DrugBank}
-#' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
+#' This functions extracts the atc codes element of drug node in
+#'  \strong{DrugBank} xml database with the option to save it in a predefined
+#'   database via \code{\link{open_db}} method.
+#' It takes one single optional argument to
 #' save the returned dataframe in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.

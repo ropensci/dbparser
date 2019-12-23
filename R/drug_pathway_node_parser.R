@@ -119,7 +119,8 @@ parse_drug_pathway_enzyme <-
 #' \code{parse_drug_pathway_drugs} returns data frame of drug pathway drugs
 #'  elements.
 #'
-#' This functions extracts the pathway drugs element of drug node in \strong{DrugBank}
+#' This functions extracts the pathway drugs element of drug node in
+#' \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

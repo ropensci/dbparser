@@ -92,7 +92,8 @@ get_enzy_poly_go_df <- function(rec) {
 #' \code{parse_drug_enzymes_actions} returns data frame of drug enzymes
 #' actions elements.
 #'
-#' This functions extracts the enzymes actions element of drug node in \strong{DrugBank}
+#' This functions extracts the enzymes actions element of drug node in
+#'  \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.
@@ -339,7 +340,8 @@ parse_drug_enzymes_textbooks <- function(save_table = FALSE,
 #' \code{parse_drug_enzymes_links} returns data frame of drug enzymes links
 #' elements.
 #'
-#' This functions extracts the enzymes links element of drug node in \strong{DrugBank}
+#' This functions extracts the enzymes links element of drug node in
+#' \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

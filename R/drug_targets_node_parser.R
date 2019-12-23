@@ -672,7 +672,8 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' \code{parse_drug_targ_links} returns data frame of drug targ links
 #'  elements.
 #'
-#' This functions extracts the targ links element of drug node in \strong{DrugBank}
+#' This functions extracts the targ links element of drug node in
+#' \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

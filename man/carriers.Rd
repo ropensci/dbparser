@@ -25,7 +25,8 @@ drug carriers node attributes date frame
 \code{carriers} returns data frame of drug carriers elements.
 }
 \details{
-This functions extracts the carriers element of drug node in \strong{DrugBank}
+This functions extracts the carriers element of drug node in
+ \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.

@@ -925,7 +925,8 @@ parse_trans_poly_go <-
 #' \code{parse_drug_transporters} returns data frame of drug transporters
 #' elements.
 #'
-#' This functions extracts the transporters element of drug node in \strong{DrugBank}
+#' This functions extracts the transporters element of drug node in
+#'  \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
 #' save the returned dataframe in the database.

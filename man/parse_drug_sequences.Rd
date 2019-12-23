@@ -25,7 +25,8 @@ drug sequences node attributes date frame
 \code{parse_drug_sequences} returns data frame of drug sequences elements.
 }
 \details{
-This functions extracts the sequences element of drug node in \strong{DrugBank}
+This functions extracts the sequences element of drug node in
+\strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
 save the returned dataframe in the database.

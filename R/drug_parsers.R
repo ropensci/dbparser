@@ -76,68 +76,69 @@ parse_drug <-
             "varchar(",
             max(nchar(
               drugs$other_keys
-            ), na.rm = T), ")"
+            ), na.rm = TRUE), ")"
           ),
-          type = paste0("varchar(", max(nchar(drugs$type), na.rm = T), ")"),
-          name = paste0("varchar(", max(nchar(drugs$name), na.rm = T), ")"),
+          type = paste0("varchar(", max(nchar(drugs$type), na.rm = TRUE), ")"),
+          name = paste0("varchar(", max(nchar(drugs$name), na.rm = TRUE), ")"),
           description = paste0("varchar(", max(nchar(
             drugs$description
           ),
-          na.rm = T
+          na.rm = TRUE
           ) + 10, ")"),
           cas_number = paste0("varchar(", max(nchar(
             drugs$cas_number
           ),
-          na.rm = T
+          na.rm = TRUE
           ), ")"),
-          unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = T), ")"),
-          state = paste0("varchar(", max(nchar(drugs$state), na.rm = T), ")"),
+          unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = TRUE), ")"),
+          state = paste0("varchar(", max(nchar(drugs$state), na.rm = TRUE),
+                         ")"),
           mechanism_of_action = paste0("varchar(", max(
             nchar(drugs$mechanism_of_action),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           pharmacodynamics = paste0("varchar(", max(
             nchar(drugs$pharmacodynamics),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           indication = paste0("varchar(", max(nchar(
             drugs$indication
-          ), na.rm = T) + 10, ")"),
+          ), na.rm = TRUE) + 10, ")"),
           absorption = paste0("varchar(", max(nchar(
             drugs$absorption
-          ), na.rm = T) + 10, ")"),
+          ), na.rm = TRUE) + 10, ")"),
           route_of_elimination = paste0("varchar(", max(
             nchar(drugs$route_of_elimination),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           metabolism = paste0("varchar(", max(nchar(
             drugs$metabolism
-          ), na.rm = T) + 10, ")"),
+          ), na.rm = TRUE) + 10, ")"),
           international_brands = paste0("varchar(", max(
             nchar(drugs$international_brands),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           fda_label = paste0("varchar(", max(nchar(
             drugs$fda_label
-          ), na.rm = T), ")"),
-          msds = paste0("varchar(", max(nchar(drugs$msds), na.rm = T), ")"),
+          ), na.rm = TRUE), ")"),
+          msds = paste0("varchar(", max(nchar(drugs$msds), na.rm = TRUE), ")"),
           protein_binding = paste0("varchar(", max(
             nchar(drugs$protein_binding),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           synthesis_reference = paste0("varchar(", max(
             nchar(drugs$synthesis_reference),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           clearance = paste0("varchar(", max(nchar(
             drugs$clearance
-          ), na.rm = T) + 10, ")"),
+          ), na.rm = TRUE) + 10, ")"),
           half_life = paste0("varchar(", max(nchar(
             drugs$half_life
-          ), na.rm = T) + 10, ")"),
+          ), na.rm = TRUE) + 10, ")"),
           volume_of_distribution = paste0("varchar(", max(
             nchar(drugs$volume_of_distribution),
-            na.rm = T
+            na.rm = TRUE
           ) + 10, ")"),
           toxicity = "varchar(max)"
         )
