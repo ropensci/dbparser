@@ -62,7 +62,7 @@ get_targ_poly_go_df <- function(rec) {
 #' Extracts the drug targ polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_targ_poly_ext_identity}
+#' \code{targets_polypeptide_ext_ident}
 #'  returns data frame of drug targ polypeptides external identifiers
 #'  elements.
 #'
@@ -84,25 +84,25 @@ get_targ_poly_go_df <- function(rec) {
 #'  new parse operation
 #' @return drug targ polypeptides external identifiers node attributes
 #' date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_targ_poly_ext_identity()
+#' targets_polypeptide_ext_ident()
 #'
 #' # save in database and return parsed dataframe
-#' parse_targ_poly_ext_identity(save_table = TRUE)
+#' targets_polypeptide_ext_ident(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_ext_identity(save_csv = TRUE)
+#' targets_polypeptide_ext_ident(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_ext_identity(
+#' targets_polypeptide_ext_ident(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -110,7 +110,7 @@ get_targ_poly_go_df <- function(rec) {
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_ext_identity(
+#' targets_polypeptide_ext_ident(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -118,12 +118,12 @@ get_targ_poly_go_df <- function(rec) {
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_targ_poly_ext_identity(
+#' targets_polypeptide_ext_ident(
 #'   save_csv = TRUE, csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_targ_poly_ext_identity <-
+targets_polypeptide_ext_ident <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -162,7 +162,7 @@ parse_targ_poly_ext_identity <-
 #' Extracts the drug targ polypeptides syn element
 #' and return data as data frame.
 #'
-#' \code{parse_targ_poly_syn} returns data
+#' \code{targets_polypeptide} returns data
 #'  frame of drug targ polypeptides syn elements.
 #'
 #' This functions extracts the targ polypeptides syn element of
@@ -182,40 +182,40 @@ parse_targ_poly_ext_identity <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ polypeptides syn node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_targ_poly_syn()
+#' targets_polypeptide()
 #'
 #' # save in database and return parsed dataframe
-#' parse_targ_poly_syn(save_table = TRUE)
+#' targets_polypeptide(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_syn(save_csv = TRUE)
+#' targets_polypeptide(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_syn(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_syn(save_csv = TRUE, csv_path = TRUE)
+#' targets_polypeptide(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_targ_poly_syn(
+#' targets_polypeptide(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_targ_poly_syn <-
+targets_polypeptide <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -248,7 +248,7 @@ parse_targ_poly_syn <-
 #' Extracts the drug targ polypeptides pfams
 #'  element and return data as data frame.
 #'
-#' \code{parse_drug_targ_polys_pfams} returns data frame of
+#' \code{targets_polypeptide_pfams} returns data frame of
 #'  drug targ polypeptides pfams elements.
 #'
 #' This functions extracts the targ polypeptides pfams element of drug node
@@ -268,41 +268,41 @@ parse_targ_poly_syn <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #' new parse operation
 #' @return drug targ polypeptides pfams node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_polys_pfams()
+#' targets_polypeptide_pfams()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_polys_pfams(save_table = TRUE)
+#' targets_polypeptide_pfams(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys_pfams(save_csv = TRUE)
+#' targets_polypeptide_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' #  return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys_pfams(save_csv = TRUE, csv_path = TRUE)
+#' targets_polypeptide_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_polys_pfams(
+#' targets_polypeptide_pfams(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_targ_polys_pfams <-
+targets_polypeptide_pfams <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -336,7 +336,7 @@ parse_drug_targ_polys_pfams <-
 #' Extracts the drug targ polypeptides go classifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_targ_poly_go}
+#' \code{targets_polypeptide_go}
 #'  returns data frame of drug targ polypeptides go classifiers elements.
 #'
 #' This functions extracts the targ polypeptides go classifiers
@@ -356,24 +356,24 @@ parse_drug_targ_polys_pfams <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ polypeptides go classifiers node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_targ_poly_go()
+#' targets_polypeptide_go()
 #'
 #' # save in database and return parsed dataframe
-#' parse_targ_poly_go(save_table = TRUE)
+#' targets_polypeptide_go(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_go(save_csv = TRUE)
+#' targets_polypeptide_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_go(
+#' targets_polypeptide_go(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -381,7 +381,7 @@ parse_drug_targ_polys_pfams <-
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_targ_poly_go(
+#' targets_polypeptide_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -389,13 +389,13 @@ parse_drug_targ_polys_pfams <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_targ_poly_go(
+#' targets_polypeptide_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_targ_poly_go <-
+targets_polypeptide_go <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-
@@ -430,7 +430,7 @@ parse_targ_poly_go <-
 
 #' Extracts the drug targ actions element and return data as data frame.
 #'
-#' \code{parse_drug_targ_actions} returns data frame of drug targ
+#' \code{targets_actions} returns data frame of drug targ
 #' actions elements.
 #'
 #' This functions extracts the targ actions element of drug node in drugbank
@@ -449,37 +449,37 @@ parse_targ_poly_go <-
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ actions node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_actions()
+#' targets_actions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_actions(save_table = TRUE)
+#' targets_actions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_actions(save_csv = TRUE)
+#' targets_actions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_actions(ssave_table = TRUE, save_csv = TRUE)
+#' targets_actions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_actions(save_csv = TRUE, csv_path = TRUE)
+#' targets_actions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' targets_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
+targets_actions <- function(save_table = FALSE, save_csv = FALSE,
                                     csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_actions", csv_path)
@@ -511,7 +511,7 @@ parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
 
 #' Extracts the drug targ articles element and return data as data frame.
 #'
-#' \code{parse_drug_targ_articles} returns data frame of drug targ
+#' \code{targets_articles} returns data frame of drug targ
 #' articles elements.
 #'
 #' This functions extracts the targ articles element of drug node in drugbank
@@ -530,40 +530,40 @@ parse_drug_targ_actions <- function(save_table = FALSE, save_csv = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ articles node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_articles()
+#' targets_articles()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_articles(save_table = TRUE)
+#' targets_articles(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_articles(save_csv = TRUE)
+#' targets_articles(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_articles(ssave_table = TRUE, save_csv = TRUE)
+#' targets_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_articles(save_csv = TRUE, csv_path = TRUE)
+#' targets_articles(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_articles(
+#' targets_articles(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
+targets_articles <- function(save_table = FALSE, save_csv = FALSE,
                                      csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_articles", csv_path)
@@ -589,7 +589,7 @@ parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
 
 #' Extracts the drug targ textbooks element and return data as data frame.
 #'
-#' \code{parse_drug_targ_textbooks} returns data frame of drug
+#' \code{targets_textbooks} returns data frame of drug
 #'  targ textbooks elements.
 #'
 #' This functions extracts the targ textbooks element of drug node in
@@ -609,40 +609,40 @@ parse_drug_targ_articles <- function(save_table = FALSE, save_csv = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ textbooks node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_textbooks()
+#' targets_textbooks()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_textbooks(save_table = TRUE)
+#' targets_textbooks(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_textbooks(save_csv = TRUE)
+#' targets_textbooks(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' targets_textbooks(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_textbooks(save_csv = TRUE, csv_path = TRUE)
+#' targets_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_textbooks(
+#' targets_textbooks(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
+targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
                                       csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_textbooks", csv_path)
@@ -669,7 +669,7 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 
 #' Extracts the drug targ links element and return data as data frame.
 #'
-#' \code{parse_drug_targ_links} returns data frame of drug targ links
+#' \code{targets_links} returns data frame of drug targ links
 #'  elements.
 #'
 #' This functions extracts the targ links element of drug node in
@@ -689,37 +689,37 @@ parse_drug_targ_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
 #' @return drug targ_links node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_links()
+#' targets_links()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_links(save_table = TRUE)
+#' targets_links(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_links(save_csv = TRUE)
+#' targets_links(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_links(ssave_table = TRUE, save_csv = TRUE)
+#' targets_links(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_links(save_csv = TRUE, csv_path = TRUE)
+#' targets_links(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' targets_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
+targets_links <- function(save_table = FALSE, save_csv = FALSE,
                                   csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ_links", csv_path)
@@ -758,7 +758,7 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
 
 #' Extracts the drug targ polypeptides element and return data as data frame.
 #'
-#' \code{parse_drug_targ_polys} returns data frame of drug targ
+#' \code{targets_polypeptide} returns data frame of drug targ
 #'  polypeptides elements.
 #'
 #' This functions extracts the targ polypeptides element of drug node
@@ -778,40 +778,40 @@ parse_drug_targ_links <- function(save_table = FALSE, save_csv = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug targ polypeptides node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ_polys()
+#' targets_polypeptide()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ_polys(save_table = TRUE)
+#' targets_polypeptide(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys(save_csv = TRUE)
+#' targets_polypeptide(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ_polys(save_csv = TRUE, csv_path = TRUE)
+#' targets_polypeptide(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ_polys(
+#' targets_polypeptide(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_targ_polys <- function(save_table = FALSE,
+targets_polypeptide <- function(save_table = FALSE,
                                   save_csv = FALSE, csv_path = ".",
                                   override_csv = FALSE) {
   path <-
@@ -853,7 +853,7 @@ parse_drug_targ_polys <- function(save_table = FALSE,
 
 #' Extracts the drug targ element and return data as data frame.
 #'
-#' \code{parse_drug_targ} returns data frame of drug targ elements.
+#' \code{targets} returns data frame of drug targ elements.
 #'
 #' This functions extracts the target element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
@@ -871,37 +871,37 @@ parse_drug_targ_polys <- function(save_table = FALSE,
 #' @param override_csv override existing csv, if any, in case it is true in the
 #' new parse operation
 #' @return drug target node attributes date frame
-#'
+#' @family targets
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_targ()
+#' targets()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_targ(save_table = TRUE)
+#' targets(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ(save_csv = TRUE)
+#' targets(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ(ssave_table = TRUE, save_csv = TRUE)
+#' targets(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_targ(save_csv = TRUE, csv_path = TRUE)
+#' targets(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' #  location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_targ(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' targets(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_targ <- function(save_table = FALSE, save_csv = FALSE,
+targets <- function(save_table = FALSE, save_csv = FALSE,
                             csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_targ", csv_path)

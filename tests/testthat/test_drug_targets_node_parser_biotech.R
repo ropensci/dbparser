@@ -21,11 +21,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_targ_actions()[["action"]][[1]]
+        targets_actions()[["action"]][[1]]
       ),
       "inhibitor"
     )
-    expect_error(parse_drug_targ_actions(TRUE))
+    expect_error(targets_actions(TRUE))
   }
 )
 
@@ -33,13 +33,13 @@ test_that(
   desc = "Read darug targ_articles attributes",
   code = {
     expect_match(
-      as.character(parse_drug_targ_articles()[["citation"]][[1]]),
+      as.character(targets_articles()[["citation"]][[1]]),
       paste0(
         "coronary syndromes\\. Am J Cardiol\\. 1999 ",
         "Sep 2;84\\(5A\\):2M-6M\\."
       )
     )
-    expect_error(parse_drug_targ_articles(TRUE))
+    expect_error(targets_articles(TRUE))
   }
 )
 
@@ -47,10 +47,10 @@ test_that(
   desc = "Read darug targ textbooks attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_targ_textbooks()),
+      nrow(targets_textbooks()),
       0
     )
-    expect_error(parse_drug_targ_textbooks(TRUE))
+    expect_error(targets_textbooks(TRUE))
   }
 )
 
@@ -58,10 +58,10 @@ test_that(
   desc = "Read darug targ links attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_targ_links()),
+      nrow(targets_links()),
       0
     )
-    expect_error(parse_drug_targ_links(TRUE))
+    expect_error(targets_links(TRUE))
   }
 )
 
@@ -70,11 +70,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_targ_polys()[["name"]][[1]]
+        targets_polypeptide()[["name"]][[1]]
       ),
       "Prothrombin"
     )
-    expect_error(parse_drug_targ_polys(TRUE))
+    expect_error(targets_polypeptide(TRUE))
   }
 )
 
@@ -84,13 +84,13 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_targ_poly_ext_identity()
+        targets_polypeptide_ext_ident()
         [["identifier"]][1]
       ),
       "HGNC:3535"
     )
     expect_error(
-      parse_targ_poly_ext_identity(TRUE)
+      targets_polypeptide_ext_ident(TRUE)
     )
   }
 )
@@ -99,11 +99,11 @@ test_that(
   desc = "Read darug targ polypeptides syn attributes",
   code = {
     expect_match(
-      as.character(parse_targ_poly_syn()
+      as.character(targets_polypeptide()
       [["syn"]][1]),
       "3.4.21.5,Coagulation factor II"
     )
-    expect_error(parse_targ_poly_syn(TRUE))
+    expect_error(targets_polypeptide(TRUE))
   }
 )
 
@@ -111,11 +111,11 @@ test_that(
   desc = "Read darug targ polypeptides pfams attributes",
   code = {
     expect_match(
-      as.character(parse_drug_targ_polys_pfams()
+      as.character(targets_polypeptide_pfams()
       [["name"]][1]),
       "Gla"
     )
-    expect_error(parse_drug_targ_polys_pfams(TRUE))
+    expect_error(targets_polypeptide_pfams(TRUE))
   }
 )
 
@@ -123,11 +123,11 @@ test_that(
   desc = "Read darug targ polypeptides go classifiers attributes",
   code = {
     expect_match(
-      as.character(parse_targ_poly_go()
+      as.character(targets_polypeptide_go()
       [["description"]][1]),
       "blood microparticle"
     )
-    expect_error(parse_targ_poly_go(TRUE))
+    expect_error(targets_polypeptide_go(TRUE))
   }
 )
 
@@ -135,9 +135,9 @@ test_that(
   desc = "Read darug targ attributes",
   code = {
     expect_match(
-      as.character(parse_drug_targ()[["name"]][1]),
+      as.character(targets()[["name"]][1]),
       "Prothrombin"
     )
-    expect_error(parse_drug_targ(TRUE))
+    expect_error(targets(TRUE))
   }
 )

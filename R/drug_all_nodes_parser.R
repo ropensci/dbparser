@@ -254,50 +254,50 @@ parse_drug_all <-
       parse_drug_sequences(save_table, save_csv, csv_path, override_csv)
     message("parsed sequences_drug, 52/75")
     targ_poly_ext_identity <-
-      parse_targ_poly_ext_identity(
+      targets_polypeptide_ext_ident(
         save_table, save_csv,
         csv_path,
         override_csv
       )
     message("parsed targ_poly_ext_identity, 53/75")
     targ_poly_syn <-
-      parse_targ_poly_syn(
+      targets_polypeptide(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed targ_poly_syn, 54/75")
     pfams_polypeptide_target_drug <-
-      parse_drug_targ_polys_pfams(
+      targets_polypeptide_pfams(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed pfams_polypeptide_target_drug, 55/75")
     targ_poly_go <-
-      parse_targ_poly_go(
+      targets_polypeptide_go(
         save_table, save_csv,
         csv_path, override_csv
       )
     message("parsed targ_poly_go attributes, 56/75")
     actions_target_drug <-
-      parse_drug_targ_actions(save_table, save_csv, csv_path, override_csv)
+      targets_actions(save_table, save_csv, csv_path, override_csv)
     message("parsed actions_target_drug, 57/75")
     articles_target_drug <-
-      parse_drug_targ_articles(save_table, save_csv, csv_path, override_csv)
+      targets_articles(save_table, save_csv, csv_path, override_csv)
     message("parsed articles_target_drug, 58/75")
     textbooks_target_drug <-
-      parse_drug_targ_textbooks(save_table, save_csv, csv_path, override_csv)
+      targets_textbooks(save_table, save_csv, csv_path, override_csv)
     message("parsed textbooks_target_drug, 59/75")
     links_target_drug <-
-      parse_drug_targ_links(save_table, save_csv, csv_path, override_csv)
+      targets_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_target_drug, 60/75")
     polypeptide_target_drug <-
-      parse_drug_targ_polys(
+      targets_polypeptide(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed polypeptide_target_drug, 61/75")
     targ_drug <-
-      parse_drug_targ(save_table, save_csv, csv_path, override_csv)
+      targets(save_table, save_csv, csv_path, override_csv)
     message("parsed targ_drug, 62/75")
     actions_transporter_drug <-
       parse_drug_trans_actions(
@@ -789,56 +789,56 @@ parse_drug_element <-
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "targ_drug" = parse_drug_targ(
+        "targ_drug" = targets(
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "actions_target_drug" = parse_drug_targ_actions(
+        "actions_target_drug" = targets_actions(
           save_table, save_csv,
           csv_path,
           override_csv
         ),
-        "articles_target_drug" = parse_drug_targ_articles(
+        "articles_target_drug" = targets_articles(
           save_table,
           save_csv, csv_path,
           override_csv
         ),
-        "links_target_drug" = parse_drug_targ_links(
+        "links_target_drug" = targets_links(
           save_table, save_csv,
           csv_path, override_csv
         ),
         "polypeptide_target_drug" =
-          parse_drug_targ_polys(
+          targets_polypeptide(
             save_table, save_csv, csv_path,
             override_csv
           ),
         "targ_poly_ext_identity" =
-          parse_targ_poly_ext_identity(
+          targets_polypeptide_ext_ident(
             save_table,
             save_csv,
             csv_path,
             override_csv
           ),
         "targ_poly_go" =
-          parse_targ_poly_go(
+          targets_polypeptide_go(
             save_table,
             save_csv,
             csv_path,
             override_csv
           ),
         "pfams_polypeptide_target_drug" =
-          parse_drug_targ_polys_pfams(
+          targets_polypeptide_pfams(
             save_table,
             save_csv, csv_path,
             override_csv
           ),
         "targ_poly_syn" =
-          parse_targ_poly_syn(
+          targets_polypeptide(
             save_table,
             save_csv, csv_path,
             override_csv
           ),
-        "textbooks_target_drug" = parse_drug_targ_textbooks(
+        "textbooks_target_drug" = targets_textbooks(
           save_table,
           save_csv,
           csv_path,
@@ -853,7 +853,7 @@ parse_drug_element <-
             save_table, save_csv, csv_path,
             override_csv
           ),
-        "articles_transporter_drug" = parse_drug_targ_articles(
+        "articles_transporter_drug" = targets_articles(
           save_table,
           save_csv,
           csv_path,

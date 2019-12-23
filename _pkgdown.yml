@@ -46,8 +46,7 @@ reference:
 - title: "Drug Targets Parsers"
   desc: "Get Drug targets and its related information"
   contents:
-    - starts_with("*parse_targ*")
-    - starts_with("parse_drug_targ*")
+    - has_concept("targets")
 - title: "Drug Transporters Parsers"
   desc: "Get Drug transporters and its related information"
   contents:
