@@ -61,7 +61,7 @@ get_carr_poly_go_df <- function(rec) {
 
 #' Extracts the drug carriers actions element and return data as data frame.
 #'
-#' \code{parse_drug_carriers_actions} returns data frame of drug
+#' \code{carriers_actions} returns data frame of drug
 #'  carriers actions elements.
 #'
 #' This functions extracts the carriers actions element of drug
@@ -82,40 +82,43 @@ get_carr_poly_go_df <- function(rec) {
 #' the new parse operation
 #' @return drug carriers actions node attributes date frame
 #'
+#' @family carriers
+#'
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_actions()
+#' carriers_actions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_actions(save_table = TRUE)
+#' carriers_actions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_actions(save_csv = TRUE)
+#' carriers_actions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_actions(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_actions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_actions(save_csv = TRUE, csv_path = TRUE)
+#' carriers_actions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_actions(
+#'
+#' carriers_actions(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_carriers_actions <-
+carriers_actions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -149,7 +152,7 @@ parse_drug_carriers_actions <-
 #' Extracts the drug carriers articles element and return
 #'  data as data frame.
 #'
-#' \code{parse_drug_carriers_articles} returns data frame of
+#' \code{carriers_articles} returns data frame of
 #' drug carriers articles elements.
 #'
 #' This functions extracts the carriers articles element of drug node in
@@ -170,39 +173,41 @@ parse_drug_carriers_actions <-
 #'  new parse operation
 #' @return drug carriers_articles node attributes date frame
 #'
+#' @family carriers
+#'
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_articles()
+#' carriers_articles()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_articles(save_table = TRUE)
+#' carriers_articles(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_articles(save_csv = TRUE)
+#' carriers_articles(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_articles(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_articles(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_articles(save_csv = TRUE, csv_path = TRUE)
+#' carriers_articles(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_articles(
+#' carriers_articles(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_carriers_articles <-
+carriers_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -231,7 +236,7 @@ parse_drug_carriers_articles <-
 
 #' Extracts the drug carriers textbooks element and return data as data frame.
 #'
-#' \code{parse_drug_carriers_textbooks} returns data frame of drug carriers
+#' \code{carriers_textbooks} returns data frame of drug carriers
 #'  textbooks elements.
 #'
 #' This functions extracts the carriers textbooks element of drug node in
@@ -252,39 +257,41 @@ parse_drug_carriers_articles <-
 #'  new parse operation
 #' @return drug carriers textbooks node attributes date frame
 #'
+#' @family carriers
+#'
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_textbooks()
+#' carriers_textbooks()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_textbooks(save_table = TRUE)
+#' carriers_textbooks(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_textbooks(save_csv = TRUE)
+#' carriers_textbooks(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_textbooks(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_textbooks(save_csv = TRUE, csv_path = TRUE)
+#' carriers_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_textbooks(
+#' carriers_textbooks(
 #'   save_csv = TRUE, csv_path = TRUE, override =
 #'     TRUE
 #' )
 #' }
 #' @export
-parse_drug_carriers_textbooks <-
+carriers_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -332,37 +339,39 @@ parse_drug_carriers_textbooks <-
 #' in the new parse operation
 #' @return drug carriers_links node attributes date frame
 #'
+#' @family carriers
+#'
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_carriers_links()
+#' carriers_links()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_carriers_links(save_table = TRUE)
+#' carriers_links(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_links(save_csv = TRUE)
+#' carriers_links(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_links(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_links(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_carriers_links(save_csv = TRUE, csv_path = TRUE)
+#' carriers_links(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_carriers_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' carriers_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_carriers_links <-
+carriers_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -412,39 +421,41 @@ parse_drug_carriers_links <-
 #' in the new parse operation
 #' @return drug carriers polypeptides node attributes date frame
 #'
+#' @family carriers
+#'
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_carr_poly()
+#' carriers_polypeptide()
 #'
 #' # save in database and return parsed dataframe
-#' parse_carr_poly(save_table = TRUE)
+#' carriers_polypeptide(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly(save_csv = TRUE)
+#' carriers_polypeptide(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptide(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly(save_csv = TRUE, csv_path = TRUE)
+#' carriers_polypeptide(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_carr_poly(
+#' carriers_polypeptide(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_carr_poly <- function(save_table = FALSE,
+carriers_polypeptide <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
                             override_csv = FALSE) {
@@ -501,7 +512,7 @@ parse_carr_poly <- function(save_table = FALSE,
 #' Extracts the drug carriers polypeptides external identifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_carr_poly_ext_identity } returns
+#' \code{carriers_polypeptide_ext_identity } returns
 #'  data frame of drug carriers polypeptides external identifiers elements.
 #'
 #' This functions extracts the carriers polypeptides external identifiers
@@ -522,24 +533,24 @@ parse_carr_poly <- function(save_table = FALSE,
 #' the new parse operation
 #' @return drug carriers polypeptides external identifiers
 #'  node attributes date frame
-#'
+#' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_carr_poly_ext_identity()
+#' carriers_polypeptide_ext_identity()
 #'
 #' # save in database and return parsed dataframe
-#' parse_carr_poly_ext_identity(save_table = TRUE)
+#' carriers_polypeptide_ext_identity(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly_ext_identity(save_csv = TRUE)
+#' carriers_polypeptide_ext_identity(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly_ext_identity(
+#' carriers_polypeptide_ext_identity(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -547,7 +558,7 @@ parse_carr_poly <- function(save_table = FALSE,
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_poly_ext_identity(
+#' carriers_polypeptide_ext_identity(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -555,12 +566,12 @@ parse_carr_poly <- function(save_table = FALSE,
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_carr_poly_ext_identity(
+#' carriers_polypeptide_ext_identity(
 #'   save_csv = TRUE, csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_carr_poly_ext_identity <-
+carriers_polypeptide_ext_identity <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -603,7 +614,7 @@ parse_carr_poly_ext_identity <-
 #' Extracts the drug carriers polypeptides syn element and return data as
 #' data frame.
 #'
-#' \code{parse_carr_polypeptides_syn} returns
+#' \code{carriers_polypeptidepeptides_syn} returns
 #'  data frame of drug carriers polypeptides syn elements.
 #'
 #' This functions extracts the carriers polypeptides syn
@@ -623,24 +634,24 @@ parse_carr_poly_ext_identity <-
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
 #' @return drug carriers polypeptides syn node attributes date frame
-#'
+#' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_carr_polypeptides_syn()
+#' carriers_polypeptidepeptides_syn()
 #'
 #' # save in database and return parsed dataframe
-#' parse_carr_polypeptides_syn(save_table = TRUE)
+#' carriers_polypeptidepeptides_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_syn(save_csv = TRUE)
+#' carriers_polypeptidepeptides_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_syn(
+#' carriers_polypeptidepeptides_syn(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -648,18 +659,18 @@ parse_carr_poly_ext_identity <-
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_syn(save_csv = TRUE, csv_path = TRUE)
+#' carriers_polypeptidepeptides_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_carr_polypeptides_syn(
+#' carriers_polypeptidepeptides_syn(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_carr_polypeptides_syn <-
+carriers_polypeptidepeptides_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -695,7 +706,7 @@ parse_carr_polypeptides_syn <-
 #' Extracts the drug carriers polypeptides pfams element and return data as
 #' data frame.
 #'
-#' \code{parse_carr_polypeptides_pfams} returns data frame
+#' \code{carriers_polypeptidepeptides_pfams} returns data frame
 #'  of drug carriers polypeptides pfams elements.
 #'
 #' This functions extracts the carriers polypeptides pfams element of
@@ -715,40 +726,40 @@ parse_carr_polypeptides_syn <-
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
 #' @return drug carriers polypeptides pfams node attributes date frame
-#'
+#' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_carr_polypeptides_pfams()
+#' carriers_polypeptidepeptides_pfams()
 #'
 #' # save in database and return parsed dataframe
-#' parse_carr_polypeptides_pfams(save_table = TRUE)
+#' carriers_polypeptidepeptides_pfams(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_pfams(save_csv = TRUE)
+#' carriers_polypeptidepeptides_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptidepeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
+#' carriers_polypeptidepeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_carr_polypeptides_pfams(
+#' carriers_polypeptidepeptides_pfams(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_carr_polypeptides_pfams <-
+carriers_polypeptidepeptides_pfams <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -783,7 +794,7 @@ parse_carr_polypeptides_pfams <-
 #' Extracts the drug carriers polypeptides go classifiers
 #'  element and return data as data frame.
 #'
-#' \code{parse_carr_polypeptides_go} returns
+#' \code{carriers_polypeptidepeptides_go} returns
 #' data frame of drug carriers polypeptides go classifiers elements.
 #'
 #' This functions extracts the carriers polypeptides go
@@ -803,25 +814,25 @@ parse_carr_polypeptides_pfams <-
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
 #' @return drug carriers polypeptides go classifiers node attributes date frame
-#'
+#' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_carr_polypeptides_go()
+#' carriers_polypeptidepeptides_go()
 #'
 #' # save in database and return parsed dataframe
-#' parse_carr_polypeptides_go(save_table = TRUE)
+#' carriers_polypeptidepeptides_go(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_go(save_csv = TRUE)
+#' carriers_polypeptidepeptides_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_go(
+#' carriers_polypeptidepeptides_go(
 #'   ssave_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -829,7 +840,7 @@ parse_carr_polypeptides_pfams <-
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_carr_polypeptides_go(
+#' carriers_polypeptidepeptides_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -837,13 +848,13 @@ parse_carr_polypeptides_pfams <-
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_carr_polypeptides_go(
+#' carriers_polypeptidepeptides_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-parse_carr_polypeptides_go <-
+carriers_polypeptidepeptides_go <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -900,7 +911,7 @@ parse_carr_polypeptides_go <-
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
 #' @return drug carriers node attributes date frame
-#'
+#' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe

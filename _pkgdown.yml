@@ -38,8 +38,7 @@ reference:
 - title: "Drug Carriers Parsers"
   desc: "Get Drug carriers and its related information"
   contents:
-    - starts_with("*parse_carr*")
-    - starts_with("parse_drug_carriers*")
+    - has_concept("carriers")
 - title: "Drug Enzymes Parsers"
   desc: "Get Drug enzymes and its related information"
   contents:

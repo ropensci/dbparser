@@ -132,47 +132,47 @@ parse_drug_all <-
       parse_drug_atc_codes(save_table, save_csv, csv_path, override_csv)
     message("parsed atc_codes_drug, 23/75")
     actions_carrier_drug <-
-      parse_drug_carriers_actions(save_table, save_csv, csv_path, override_csv)
+      carriers_actions(save_table, save_csv, csv_path, override_csv)
     message("parsed actions_carrier_drug, 24/75")
     articles_carrier_drug <-
-      parse_drug_carriers_articles(save_table, save_csv, csv_path, override_csv)
+      carriers_articles(save_table, save_csv, csv_path, override_csv)
     message("parsed articles_carrier_drug, 25/75")
     textbooks_carrier_drug <-
-      parse_drug_carriers_textbooks(
+      carriers_textbooks(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed textbooks_carrier_drug, 26/75")
     links_carrier_drug <-
-      parse_drug_carriers_links(save_table, save_csv, csv_path, override_csv)
+      carriers_links(save_table, save_csv, csv_path, override_csv)
     message("parsed links_carrier_drug, 27/75")
     polypeptides_carrier_drug <-
-      parse_carr_poly(
+      carriers_polypeptide(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed polypeptides_carrier_drug, 28/75")
     carr_poly_ext_identity <-
-      parse_carr_poly_ext_identity(
+      carriers_polypeptide_ext_identity(
         save_table,
         save_csv, csv_path,
         override_csv
       )
     message("parsed carr_poly_ext_identity, 29/75")
     carr_polypeptides_syn <-
-      parse_carr_polypeptides_syn(
+      carriers_polypeptidepeptides_syn(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed carr_polypeptides_syn, 30/75")
     carr_polypeptides_pfams <-
-      parse_carr_polypeptides_pfams(
+      carriers_polypeptidepeptides_pfams(
         save_table, save_csv, csv_path,
         override_csv
       )
     message("parsed carr_polypeptides_pfams, 31/75")
     carr_polypeptides_go <-
-      parse_carr_polypeptides_go(
+      carriers_polypeptidepeptides_go(
         save_table, save_csv,
         csv_path, override_csv
       )
@@ -567,54 +567,54 @@ parse_drug_element <-
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "actions_carrier_drug" = parse_drug_carriers_actions(
+        "actions_carrier_drug" = carriers_actions(
           save_table,
           save_csv,
           csv_path,
           override_csv
         ),
-        "articles_carrier_drug" = parse_drug_carriers_articles(
+        "articles_carrier_drug" = carriers_articles(
           save_table,
           save_csv,
           csv_path,
           override_csv
         ),
-        "links_carrier_drug" = parse_drug_carriers_links(
+        "links_carrier_drug" = carriers_links(
           save_table,
           save_csv,
           csv_path,
           override_csv
         ),
-        "polypeptides_carrier_drugs" = parse_carr_poly(
+        "polypeptides_carrier_drugs" = carriers_polypeptide(
           save_table, save_csv, csv_path, override_csv
         ),
         "carr_poly_ext_identity" =
-          parse_carr_poly_ext_identity(
+          carriers_polypeptide_ext_identity(
             save_table,
             save_csv,
             csv_path,
             override_csv
           ),
         "carr_polypeptides_go" =
-          parse_carr_polypeptides_go(
+          carriers_polypeptidepeptides_go(
             save_table,
             save_csv,
             csv_path,
             override_csv
           ),
         "carr_polypeptides_pfams" =
-          parse_carr_polypeptides_pfams(
+          carriers_polypeptidepeptides_pfams(
             save_table,
             save_csv, csv_path,
             override_csv
           ),
         "carr_polypeptides_syn" =
-          parse_carr_polypeptides_syn(
+          carriers_polypeptidepeptides_syn(
             save_table,
             save_csv, csv_path,
             override_csv
           ),
-        "textbooks_carrier_drug" = parse_drug_carriers_textbooks(
+        "textbooks_carrier_drug" = carriers_textbooks(
           save_table,
           save_csv,
           csv_path,

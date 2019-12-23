@@ -63,3 +63,15 @@ parse_drug_carriers(save_csv = TRUE, csv_path = TRUE)
 parse_drug_carriers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
+\seealso{
+Other carriers: \code{\link{carriers_actions}},
+  \code{\link{carriers_articles}},
+  \code{\link{carriers_links}},
+  \code{\link{carriers_polypeptide_ext_identity}},
+  \code{\link{carriers_polypeptidepeptides_go}},
+  \code{\link{carriers_polypeptidepeptides_pfams}},
+  \code{\link{carriers_polypeptidepeptides_syn}},
+  \code{\link{carriers_polypeptide}},
+  \code{\link{carriers_textbooks}}
+}
+\concept{carriers}
