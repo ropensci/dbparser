@@ -178,7 +178,7 @@ parse_drug_all <-
       )
     message("parsed carr_polypeptides_go, 32/75")
     carriers_drug <-
-      parse_drug_carriers(save_table, save_csv, csv_path, override_csv)
+      carriers(save_table, save_csv, csv_path, override_csv)
     message("parsed carriers_drug, 33/75")
     classifications_drug <-
       parse_drug_classification(save_table, save_csv, csv_path, override_csv)
@@ -563,7 +563,7 @@ parse_drug_element <-
           save_table, save_csv, csv_path,
           override_csv
         ),
-        "carriers_drug" = parse_drug_carriers(
+        "carriers_drug" = carriers(
           save_table, save_csv, csv_path,
           override_csv
         ),
@@ -620,7 +620,7 @@ parse_drug_element <-
           csv_path,
           override_csv
         ),
-        "categories_drug" = parse_drug_carriers(
+        "categories_drug" = carriers(
           save_table, save_csv, csv_path,
           override_csv
         ),

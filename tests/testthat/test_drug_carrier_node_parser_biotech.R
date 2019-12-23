@@ -101,10 +101,10 @@ test_that(
   desc = "Read drug carriers that",
   code = {
     expect_equal(
-      nrow(parse_drug_carriers()),
+      nrow(carriers()),
       0
     )
-    expect_error(parse_drug_carriers(TRUE))
+    expect_error(carriers(TRUE))
   }
 )
 

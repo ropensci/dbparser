@@ -77,7 +77,6 @@ Other carriers: \code{\link{carriers_actions}},
   \code{\link{carriers_polypeptidepeptides_pfams}},
   \code{\link{carriers_polypeptidepeptides_syn}},
   \code{\link{carriers_polypeptide}},
-  \code{\link{carriers_textbooks}},
-  \code{\link{parse_drug_carriers}}
+  \code{\link{carriers_textbooks}}, \code{\link{carriers}}
 }
 \concept{carriers}
