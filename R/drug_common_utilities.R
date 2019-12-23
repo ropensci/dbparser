@@ -130,6 +130,8 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
 #' @param trusted_connection boolean, is the connection secure
 #' @return sets the open connection in memory to be used by other functions
 #'
+#' @family Database Communication
+#'
 #' @examples
 #' \dontrun{
 #' open_db(
@@ -169,6 +171,8 @@ open_db <-
 #' @param port database port
 #' @return sets the open connection in memory to be used by other functions
 #'
+#' @family Database Communication
+#'
 #' @examples
 #' \dontrun{
 #' open_mdb(
@@ -201,6 +205,8 @@ open_mdb <-
 #' \code{close_db} closes connection to pre-given database.
 #'
 #' This function closes connection to pre-given database.
+#'
+#' @family Database Communication
 #'
 #' @examples
 #' \dontrun{

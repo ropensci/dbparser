@@ -34,3 +34,8 @@ open_db(
 )
 }
 }
+\seealso{
+Other Database Communication: \code{\link{close_db}},
+  \code{\link{open_mdb}}
+}
+\concept{Database Communication}

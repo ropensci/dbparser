@@ -17,3 +17,8 @@ This function closes connection to pre-given database.
 close_db()
 }
 }
+\seealso{
+Other Database Communication: \code{\link{open_db}},
+  \code{\link{open_mdb}}
+}
+\concept{Database Communication}

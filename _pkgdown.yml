@@ -26,7 +26,7 @@ reference:
 - title: "Database Communication"
   desc: "How to connect/disconnect databases"
   contents:
-    - ends_with("_*db")
+    - has_concept("Database Communication")
 - title: "DrugBank Database Loading"
   desc: "Read DrugBank database and load it into memory for later processing"
   contents:
