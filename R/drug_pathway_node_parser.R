@@ -33,7 +33,7 @@ get_pathways_enzymes_df <- function(rec) {
 
 #' Extracts the drug pathway enzyme element and return data as data frame.
 #'
-#' \code{parse_drug_pathway_enzyme} returns data frame of drug pathway enzyme
+#' \code{drug_pathway_enzyme} returns data frame of drug pathway enzyme
 #'  elements.
 #'
 #' This functions extracts the pathway enzyme element of drug node in drugbank
@@ -56,33 +56,33 @@ get_pathways_enzymes_df <- function(rec) {
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_pathway_enzyme()
+#' drug_pathway_enzyme()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_pathway_enzyme(save_table = TRUE)
+#' drug_pathway_enzyme(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_enzyme(save_csv = TRUE)
+#' drug_pathway_enzyme(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_enzyme(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway_enzyme(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE)
+#' drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway_enzyme <-
+drug_pathway_enzyme <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -116,7 +116,7 @@ parse_drug_pathway_enzyme <-
 
 #' Extracts the drug pathway drugs element and return data as data frame.
 #'
-#' \code{parse_drug_pathway_drugs} returns data frame of drug pathway drugs
+#' \code{drug_pathway_drugs} returns data frame of drug pathway drugs
 #'  elements.
 #'
 #' This functions extracts the pathway drugs element of drug node in
@@ -140,34 +140,34 @@ parse_drug_pathway_enzyme <-
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_pathway_drugs()
+#' drug_pathway_drugs()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_pathway_drugs(save_table = TRUE)
+#' drug_pathway_drugs(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_drugs(save_csv = TRUE)
+#' drug_pathway_drugs(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_drugs(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway_drugs(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE)
+#' drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway_drugs <-
+drug_pathway_drugs <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -197,7 +197,7 @@ parse_drug_pathway_drugs <-
 
 #' Extracts the drug pathway element and return data as data frame.
 #'
-#' \code{parse_drug_pathway} returns data frame of drug pathway elements.
+#' \code{drug_pathway} returns data frame of drug pathway elements.
 #'
 #' This functions extracts the groups element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
@@ -219,33 +219,33 @@ parse_drug_pathway_drugs <-
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_pathway()
+#' drug_pathway()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_pathway(save_table = TRUE)
+#' drug_pathway(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway(save_csv = TRUE)
+#' drug_pathway(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' #  exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_pathway(save_csv = TRUE, csv_path = TRUE)
+#' drug_pathway(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_pathway(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_pathway(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_pathway <-
+drug_pathway <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",

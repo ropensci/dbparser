@@ -20,10 +20,10 @@ test_that(
   desc = "Read darug reactions attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_reactions()),
+      nrow(drug_reactions()),
       0
     )
-    expect_error(parse_drug_reactions(TRUE))
+    expect_error(drug_reactions(TRUE))
   }
 )
 
@@ -31,9 +31,9 @@ test_that(
   desc = "Read darug reactions enzymes attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_reactions_enzymes()),
+      nrow(drug_reactions_enzymes()),
       0
     )
-    expect_error(parse_drug_reactions_enzymes(TRUE))
+    expect_error(drug_reactions_enzymes(TRUE))
   }
 )

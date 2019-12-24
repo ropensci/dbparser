@@ -52,43 +52,9 @@ reference:
   contents:
     - has_concept("common")
 - title: "Drug Parsers"
-  desc: "Get Drug and its related information"
+  desc: "Get Drug and its related direct information"
   contents:
-    - '`parse_drug`'
-    - '`parse_drug_affected_organisms`'
-    - '`parse_drug_ahfs_codes`'
-    - '`parse_drug_articles`'
-    - '`parse_drug_atc_codes`'
-    - '`parse_drug_books`'
-    - '`parse_drug_calc_prop`'
-    - '`parse_drug_categories`'
-    - '`parse_drug_classification`'
-    - '`parse_drug_dosages`'
-    - '`parse_drug_exp_prop`'
-    - '`parse_drug_external_links`'
-    - '`parse_drug_ex_identity`'
-    - '`parse_drug_food_interactions`'
-    - '`parse_drug_groups`'
-    - '`parse_drug_interactions`'
-    - '`parse_drug_intern_brand`'
-    - '`parse_drug_links`'
-    - '`parse_drug_manufacturers`'
-    - '`parse_drug_mixtures`'
-    - '`parse_drug_packagers`'
-    - '`parse_drug_patents`'
-    - '`parse_drug_pathway`'
-    - '`parse_drug_pathway_drugs`'
-    - '`parse_drug_pathway_enzyme`'
-    - '`parse_drug_pdb_entries`'
-    - '`parse_drug_prices`'
-    - '`parse_drug_products`'
-    - '`parse_drug_reactions`'
-    - '`parse_drug_reactions_enzymes`'
-    - '`parse_drug_salts`'
-    - '`parse_drug_sequences`'
-    - '`parse_drug_snp_effects`'
-    - '`parse_drug_syn`'
-    - '`parse_snp_adverse_reactions`'
+    - has_concept("drugs")
 
 authors:
   Mohammed Ali:

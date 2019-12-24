@@ -12,7 +12,7 @@ drug_classifications_df <- function(rec) {
 
 #' Extracts the drug classifications element and return data as data frame.
 #'
-#' \code{parse_drug_classification} returns data frame of drug classifications
+#' \code{drug_classification} returns data frame of drug classifications
 #'  elements.
 #'
 #' This functions extracts the classifications element of drug node in
@@ -32,37 +32,37 @@ drug_classifications_df <- function(rec) {
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
 #' @return drug classifications node attributes date frame
-#'
+#' @family drugs
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_classification()
+#' drug_classification()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_classification(save_table = TRUE)
+#' drug_classification(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_classification(save_csv = TRUE)
+#' drug_classification(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_classification(ssave_table = TRUE, save_csv = TRUE)
+#' drug_classification(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' #  and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_classification(save_csv = TRUE, csv_path = TRUE)
+#' drug_classification(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_classification(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_classification(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_classification <- function(save_table = FALSE, save_csv = FALSE,
+drug_classification <- function(save_table = FALSE, save_csv = FALSE,
                                       csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_classifications", csv_path)

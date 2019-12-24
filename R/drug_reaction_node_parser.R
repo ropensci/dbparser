@@ -26,7 +26,7 @@ get_reactions_enzymes_df <- function(rec) {
 
 #' Extracts the drug reactions element and return data as data frame.
 #'
-#' \code{parse_drug_reactions} returns data frame of drug reactions elements.
+#' \code{drug_reactions} returns data frame of drug reactions elements.
 #'
 #' This functions extracts the groups element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
@@ -48,33 +48,33 @@ get_reactions_enzymes_df <- function(rec) {
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_reactions()
+#' drug_reactions()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_reactions(save_table = TRUE)
+#' drug_reactions(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions(save_csv = TRUE)
+#' drug_reactions(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions(ssave_table = TRUE, save_csv = TRUE)
+#' drug_reactions(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE)
+#' drug_reactions(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_reactions <-
+drug_reactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -104,7 +104,7 @@ parse_drug_reactions <-
 
 #' Extracts the drug reactions enzymes element and return data as data frame.
 #'
-#' \code{parse_drug_reactions_enzymes} returns data frame of drug reactions
+#' \code{drug_reactions_enzymes} returns data frame of drug reactions
 #' enzymes elements.
 #'
 #' This functions extracts the reactions enzymes element of drug node in
@@ -128,36 +128,36 @@ parse_drug_reactions <-
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_reactions_enzymes()
+#' drug_reactions_enzymes()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_reactions_enzymes(save_table = TRUE)
+#' drug_reactions_enzymes(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions_enzymes(save_csv = TRUE)
+#' drug_reactions_enzymes(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions_enzymes(ssave_table = TRUE, save_csv = TRUE)
+#' drug_reactions_enzymes(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' #  given location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
+#' drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist i
 #' # n current location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_reactions_enzymes(
+#' drug_reactions_enzymes(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_drug_reactions_enzymes <-
+drug_reactions_enzymes <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",

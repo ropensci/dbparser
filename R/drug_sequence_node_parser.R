@@ -23,7 +23,7 @@ get_sequences_df <- function(rec) {
 
 #' Extracts the drug sequences element and return data as data frame.
 #'
-#' \code{parse_drug_sequences} returns data frame of drug sequences elements.
+#' \code{drug_sequences} returns data frame of drug sequences elements.
 #'
 #' This functions extracts the sequences element of drug node in
 #' \strong{DrugBank}
@@ -46,33 +46,33 @@ get_sequences_df <- function(rec) {
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_sequences()
+#' drug_sequences()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_sequences(save_table = TRUE)
+#' drug_sequences(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_sequences(save_csv = TRUE)
+#' drug_sequences(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_sequences(ssave_table = TRUE, save_csv = TRUE)
+#' drug_sequences(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_sequences(save_csv = TRUE, csv_path = TRUE)
+#' drug_sequences(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_sequences(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_sequences(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
+drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
                                  csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_sequences", csv_path)

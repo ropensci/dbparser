@@ -20,8 +20,8 @@ test_that(
 test_that(
   desc = "Read drug primary key attribute",
   code = {
-    expect_match(parse_drug()[1][["primary_key"]], "DB00006")
-    expect_error(parse_drug(TRUE))
+    expect_match(drug()[1][["primary_key"]], "DB00006")
+    expect_error(drug(TRUE))
   }
 )
 
@@ -29,18 +29,18 @@ test_that(
   desc = "Read drug other keys attribute",
   code = {
     expect_match(
-      parse_drug()$other_keys,
+      drug()$other_keys,
       "BTD00076,EXPT03302,BIOD00076,DB02351"
     )
-    expect_error(parse_drug(TRUE))
+    expect_error(drug(TRUE))
   }
 )
 
 test_that(
   desc = "Read drug some small attributes",
   code = {
-    expect_match(parse_drug()$average_mass, "2180.2853")
-    expect_match(parse_drug()$monoisotopic_mass, "2178.985813062")
+    expect_match(drug()$average_mass, "2180.2853")
+    expect_match(drug()$monoisotopic_mass, "2178.985813062")
   }
 )
 
@@ -48,10 +48,10 @@ test_that(
   desc = "Read drug groups attributes",
   code = {
     expect_match(
-      as.character(parse_drug_groups()[1][["group"]][1]),
+      as.character(drug_groups()[1][["group"]][1]),
       "approved"
     )
-    expect_error(parse_drug_groups(TRUE))
+    expect_error(drug_groups(TRUE))
   }
 )
 
@@ -59,25 +59,25 @@ test_that(
   desc = "Read drug articles attributes",
   code = {
     expect_match(as.character(
-      parse_drug_articles()[["pubmed-id"]][1]
+      drug_articles()[["pubmed-id"]][1]
     ), "16466327")
-    expect_error(parse_drug_articles(TRUE))
+    expect_error(drug_articles(TRUE))
   }
 )
 
 test_that(
   desc = "Read drug books attributes",
   code = {
-    expect_equal(nrow(parse_drug_books()), 0)
-    expect_error(parse_drug_books(TRUE))
+    expect_equal(nrow(drug_books()), 0)
+    expect_error(drug_books(TRUE))
   }
 )
 
 test_that(
   desc = "Read drug links attributes",
   code = {
-    expect_equal(nrow(parse_drug_links()), 0)
-    expect_error(parse_drug_links(TRUE))
+    expect_equal(nrow(drug_links()), 0)
+    expect_error(drug_links(TRUE))
   }
 )
 
@@ -85,10 +85,10 @@ test_that(
   desc = "Read drug classification attributes",
   code = {
     expect_match(
-      parse_drug_classification()[1][["parent_key"]],
+      drug_classification()[1][["parent_key"]],
       "DB00006"
     )
-    expect_error(parse_drug_classification(TRUE))
+    expect_error(drug_classification(TRUE))
   }
 )
 
@@ -96,10 +96,10 @@ test_that(
   desc = "Read drug syn attributes",
   code = {
     expect_match(
-      parse_drug_syn()[["synonym"]][[1]],
+      drug_syn()[["synonym"]][[1]],
       "Bivalirudina"
     )
-    expect_error(parse_drug_syn(TRUE))
+    expect_error(drug_syn(TRUE))
   }
 )
 
@@ -107,10 +107,10 @@ test_that(
   desc = "Read drug articles attributes",
   code = {
     expect_match(
-      as.character(parse_drug_articles()[["pubmed-id"]][1]),
+      as.character(drug_articles()[["pubmed-id"]][1]),
       "16466327"
     )
-    expect_error(parse_drug_articles(TRUE))
+    expect_error(drug_articles(TRUE))
   }
 )
 
@@ -118,10 +118,10 @@ test_that(
   desc = "Read drug products attributes",
   code = {
     expect_match(
-      as.character(parse_drug_products()[["name"]][1]),
+      as.character(drug_products()[["name"]][1]),
       "Angiomax"
     )
-    expect_error(parse_drug_products(TRUE))
+    expect_error(drug_products(TRUE))
   }
 )
 
@@ -130,10 +130,10 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_calc_prop()[1][["kind"]][[1]]
+        drug_calc_prop()[1][["kind"]][[1]]
       ), "logP"
     )
-    expect_error(parse_drug_calc_prop(TRUE))
+    expect_error(drug_calc_prop(TRUE))
   }
 )
 
@@ -141,10 +141,10 @@ test_that(
   desc = "Read drug mixtures attributes",
   code = {
     expect_match(
-      as.character(parse_drug_mixtures()[["name"]][1]),
+      as.character(drug_mixtures()[["name"]][1]),
       "Angiomax"
     )
-    expect_error(parse_drug_mixtures(TRUE))
+    expect_error(drug_mixtures(TRUE))
   }
 )
 
@@ -152,10 +152,10 @@ test_that(
   desc = "Read drug packagers attributes",
   code = {
     expect_match(
-      as.character(parse_drug_packagers()[["name"]][1]),
+      as.character(drug_packagers()[["name"]][1]),
       "Ben Venue Laboratories Inc."
     )
-    expect_error(parse_drug_packagers(TRUE))
+    expect_error(drug_packagers(TRUE))
   }
 )
 
@@ -163,10 +163,10 @@ test_that(
   desc = "Read drug manufacturers attributes",
   code = {
     expect_match(
-      as.character(parse_drug_manufacturers()[["manufacturer"]][[1]]),
+      as.character(drug_manufacturers()[["manufacturer"]][[1]]),
       "The medicines co"
     )
-    expect_error(parse_drug_manufacturers(TRUE))
+    expect_error(drug_manufacturers(TRUE))
   }
 )
 
@@ -174,10 +174,10 @@ test_that(
   desc = "Read drug prices attributes",
   code = {
     expect_match(
-      as.character(parse_drug_prices()[["currency"]][[1]]),
+      as.character(drug_prices()[["currency"]][[1]]),
       "USD"
     )
-    expect_error(parse_drug_prices(TRUE))
+    expect_error(drug_prices(TRUE))
   }
 )
 
@@ -186,11 +186,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_categories()[["mesh-id"]][[1]]
+        drug_categories()[["mesh-id"]][[1]]
       ),
       "D000602"
     )
-    expect_error(parse_drug_categories(TRUE))
+    expect_error(drug_categories(TRUE))
   }
 )
 
@@ -199,11 +199,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_affected_organisms()[["affected_organism"]][[1]]
+        drug_affected_organisms()[["affected_organism"]][[1]]
       ),
       "Humans and other mammals"
     )
-    expect_error(parse_drug_affected_organisms(TRUE))
+    expect_error(drug_affected_organisms(TRUE))
   }
 )
 
@@ -211,10 +211,10 @@ test_that(
   desc = "Read drug dosages attributes",
   code = {
     expect_match(
-      as.character(parse_drug_dosages()[["route"]][[1]]),
+      as.character(drug_dosages()[["route"]][[1]]),
       "Intravenous"
     )
-    expect_error(parse_drug_dosages(TRUE))
+    expect_error(drug_dosages(TRUE))
   }
 )
 
@@ -223,11 +223,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_atc_codes()[["atc_code"]][[1]]
+        drug_atc_codes()[["atc_code"]][[1]]
       ),
       "B01AE06"
     )
-    expect_error(parse_drug_atc_codes(TRUE))
+    expect_error(drug_atc_codes(TRUE))
   }
 )
 
@@ -235,10 +235,10 @@ test_that(
   desc = "Read drug ahfs codes attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_ahfs_codes()),
+      nrow(drug_ahfs_codes()),
       1
     )
-    expect_error(parse_drug_ahfs_codes(TRUE))
+    expect_error(drug_ahfs_codes(TRUE))
   }
 )
 
@@ -246,10 +246,10 @@ test_that(
   desc = "Read drug pdb entries attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_pdb_entries()),
+      nrow(drug_pdb_entries()),
       0
     )
-    expect_error(parse_drug_pdb_entries(TRUE))
+    expect_error(drug_pdb_entries(TRUE))
   }
 )
 
@@ -257,10 +257,10 @@ test_that(
   desc = "Read drug patents attributes",
   code = {
     expect_match(
-      as.character(parse_drug_patents()[["country"]][[1]]),
+      as.character(drug_patents()[["country"]][[1]]),
       "United States"
     )
-    expect_error(parse_drug_patents(TRUE))
+    expect_error(drug_patents(TRUE))
   }
 )
 
@@ -268,10 +268,10 @@ test_that(
   desc = "Read drug interactions attributes",
   code = {
     expect_match(
-      as.character(parse_drug_interactions()[["name"]][[1]]),
+      as.character(drug_interactions()[["name"]][[1]]),
       "St. John's Wort"
     )
-    expect_error(parse_drug_interactions(TRUE))
+    expect_error(drug_interactions(TRUE))
   }
 )
 
@@ -279,10 +279,10 @@ test_that(
   desc = "Read drug food interactions attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_food_interactions()),
+      nrow(drug_food_interactions()),
       2
     )
-    expect_error(parse_drug_food_interactions(TRUE))
+    expect_error(drug_food_interactions(TRUE))
   }
 )
 
@@ -290,10 +290,10 @@ test_that(
   desc = "Read drug sequences attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_sequences()),
+      nrow(drug_sequences()),
       0
     )
-    expect_error(parse_drug_sequences(TRUE))
+    expect_error(drug_sequences(TRUE))
   }
 )
 
@@ -301,10 +301,10 @@ test_that(
   desc = "Read drug experimental properties attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_exp_prop()),
+      nrow(drug_exp_prop()),
       0
     )
-    expect_error(parse_drug_exp_prop(TRUE))
+    expect_error(drug_exp_prop(TRUE))
   }
 )
 
@@ -313,11 +313,11 @@ test_that(
   code = {
     expect_match(
       as.character(
-        parse_drug_ex_identity()[["resource"]][[1]]
+        drug_ex_identity()[["resource"]][[1]]
       ),
       "Drugs Product Database \\(DPD\\)"
     )
-    expect_error(parse_drug_ex_identity(TRUE))
+    expect_error(drug_ex_identity(TRUE))
   }
 )
 
@@ -325,10 +325,10 @@ test_that(
   desc = "Read drug external links attributes",
   code = {
     expect_match(
-      as.character(parse_drug_external_links()[["resource"]][[1]]),
+      as.character(drug_external_links()[["resource"]][[1]]),
       "RxList"
     )
-    expect_error(parse_drug_external_links(TRUE))
+    expect_error(drug_external_links(TRUE))
   }
 )
 
@@ -337,10 +337,10 @@ test_that(
   desc = "Read drug snp effects attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_snp_effects()),
+      nrow(drug_snp_effects()),
       0
     )
-    expect_error(parse_drug_snp_effects(TRUE))
+    expect_error(drug_snp_effects(TRUE))
   }
 )
 

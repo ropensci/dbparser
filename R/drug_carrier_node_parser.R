@@ -320,7 +320,7 @@ carriers_textbooks <-
 
 #' Extracts the drug carriers links element and return data as data frame.
 #'
-#' \code{parse_drug_groups} returns data frame of drug carriers links elements.
+#' \code{drug_groups} returns data frame of drug carriers links elements.
 #'
 #' This functions extracts the carriers links element of drug node in
 #' \strong{DrugBank} xml database with the option to save it in a predefined

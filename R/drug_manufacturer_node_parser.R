@@ -17,7 +17,7 @@ get_manufactures_df <- function(rec) {
 
 #' Extracts the drug manufacturers element and return data as data frame.
 #'
-#' \code{parse_drug_manufacturers} returns data frame of drug manufacturers
+#' \code{drug_manufacturers} returns data frame of drug manufacturers
 #' elements.
 #'
 #' This functions extracts the manufacturers element of drug node in
@@ -37,37 +37,37 @@ get_manufactures_df <- function(rec) {
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return drug manufacturers node attributes date frame
-#'
+#' @family drugs
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_manufacturers()
+#' drug_manufacturers()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_manufacturers(save_table = TRUE)
+#' drug_manufacturers(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_manufacturers(save_csv = TRUE)
+#' drug_manufacturers(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_manufacturers(ssave_table = TRUE, save_csv = TRUE)
+#' drug_manufacturers(ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_drug_manufacturers(save_csv = TRUE, csv_path = TRUE)
+#' drug_manufacturers(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_drug_manufacturers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drug_manufacturers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-parse_drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
+drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
                                      csv_path = ".", override_csv = FALSE) {
   path <-
     get_dataset_full_path("drug_manufacturers", csv_path)

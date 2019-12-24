@@ -22,7 +22,7 @@ in the new parse operation}
 drug carriers_links node attributes date frame
 }
 \description{
-\code{parse_drug_groups} returns data frame of drug carriers links elements.
+\code{drug_groups} returns data frame of drug carriers links elements.
 }
 \details{
 This functions extracts the carriers links element of drug node in
