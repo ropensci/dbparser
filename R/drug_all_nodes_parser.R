@@ -123,7 +123,7 @@ drug_all <-
       drug_snp_effects(save_table, save_csv, csv_path, override_csv)
     message("parsed snp_effects_drug, 21/75")
     snp_adverse_reactions <-
-      parse_snp_adverse_reactions(
+      drug_snp_adverse_reactions (
         save_table, save_csv, csv_path,
         override_csv
       )
@@ -776,7 +776,7 @@ drug_element <-
           override_csv
         ),
         "snp_adverse_reactions" =
-          parse_snp_adverse_reactions(
+          drug_snp_adverse_reactions (
             save_table,
             save_csv, csv_path,
             override_csv

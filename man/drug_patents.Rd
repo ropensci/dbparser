@@ -85,8 +85,8 @@ Other drugs: \code{\link{drug_affected_organisms}},
   \code{\link{drug_packagers}},
   \code{\link{drug_pdb_entries}},
   \code{\link{drug_products}}, \code{\link{drug_salts}},
+  \code{\link{drug_snp_adverse_reactions}},
   \code{\link{drug_snp_effects}}, \code{\link{drug_syn}},
-  \code{\link{drug}},
-  \code{\link{parse_snp_adverse_reactions}}
+  \code{\link{drug}}
 }
 \concept{drugs}

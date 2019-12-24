@@ -348,9 +348,9 @@ test_that(
   desc = "Read drug snp adverse drug reactions attributes",
   code = {
     expect_equal(
-      nrow(parse_snp_adverse_reactions()),
+      nrow(drug_snp_adverse_reactions ()),
       0
     )
-    expect_error(parse_snp_adverse_reactions(TRUE))
+    expect_error(drug_snp_adverse_reactions (TRUE))
   }
 )

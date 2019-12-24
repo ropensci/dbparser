@@ -1966,7 +1966,7 @@ drug_snp_effects <-
 #' Extracts the drug snp adverse drug reactions element and return data as
 #' tibble.
 #'
-#' \code{parse_snp_adverse_reactions} returns tibble of drug
+#' \code{drug_snp_adverse_reactions } returns tibble of drug
 #'  snp adverse drug reactions elements.
 #'
 #' This functions extracts the groups element of drug node in drugbank
@@ -1989,36 +1989,36 @@ drug_snp_effects <-
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_snp_adverse_reactions()
+#' drug_snp_adverse_reactions ()
 #'
 #' # save in database and return parsed dataframe
-#' parse_snp_adverse_reactions(save_table = TRUE)
+#' drug_snp_adverse_reactions (save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_snp_adverse_reactions(save_csv = TRUE)
+#' drug_snp_adverse_reactions (save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_snp_adverse_reactions(ssave_table = TRUE, save_csv = TRUE)
+#' drug_snp_adverse_reactions (ssave_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' parse_snp_adverse_reactions(save_csv = TRUE, csv_path = TRUE)
+#' drug_snp_adverse_reactions (save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' parse_snp_adverse_reactions(
+#' drug_snp_adverse_reactions (
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-parse_snp_adverse_reactions <-
+drug_snp_adverse_reactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
