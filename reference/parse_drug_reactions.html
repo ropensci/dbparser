@@ -146,43 +146,38 @@ new parse operation</p></td>
     <p>drug reactions node attributes date frame</p>
     <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
 
-    <p>This functions extracts the groups element of drug node in <strong>DrugBank</strong>
+    <p>This functions extracts the groups element of drug node in drug bank
 xml database with the option to save it in a predefined database via
-<code>open_db</code> method. It takes one single optional argument to
+<code><a href='open_db.html'>open_db</a></code> method. It takes one single optional argument to
 save the returned dataframe in the database.
-It must be called after <code>read_drugbank_xml_db</code> function like
+It must be called after <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> function like
 any other parser function.
-If <code>read_drugbank_xml_db</code> is called before for any reason, so
+If <code><a href='get_xml_db_rows.html'>get_xml_db_rows</a></code> is called before for any reason, so
 no need to call it again before calling this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
 <span class='co'># return only the parsed dataframe</span>
-<span class='fu'>parse_drug_reactions</span>()
-
+<span class='fu'>parse_drug_reactions</span>()</div><div class='output co'>#&gt; <span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'>
 <span class='co'># save in database and return parsed dataframe</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in (function (classes, fdef, mtable) {    methods &lt;- .findInheritedMethods(classes, fdef, mtable)    if (length(methods) == 1L)         return(methods[[1L]])    else if (length(methods) == 0L) {        cnames &lt;- paste0("\"", vapply(classes, as.character,             ""), "\"", collapse = ", ")        stop(gettextf("unable to find an inherited method for function %s for signature %s",             sQuote(fdef@generic), sQuote(cnames)), domain = NA)    }    else stop("Internal error in finding inherited methods; didn't return a unique method",         domain = NA)})(list("NULL", "character", "tbl_df"), new("standardGeneric",     .Data = function (conn, name, value, ...)     standardGeneric("dbWriteTable"), generic = structure("dbWriteTable", package = "DBI"),     package = "DBI", group = list(), valueClass = character(0),     signature = c("conn", "name", "value"), default = NULL, skeleton = (function (conn,         name, value, ...)     stop("invalid call in method dispatch to 'dbWriteTable' (no default method)",         domain = NA))(conn, name, value, ...)), &lt;environment&gt;): unable to find an inherited method for function 'dbWriteTable' for signature '"NULL", "character", "tbl_df"'</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in current location</span>
 <span class='co'># and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; </span><span style='color: #555555;'># A tibble: 0 x 0</span><span></div><div class='input'>
 <span class='co'># save in database, save parsed dataframe as csv if it does not exist</span>
 <span class='co'># in current location and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>ssave_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='error'>Error in parse_drug_reactions(ssave_table = TRUE, save_csv = TRUE): unused argument (ssave_table = TRUE)</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in given location</span>
 <span class='co'># and return parsed dataframe.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_reactions.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'>
 <span class='co'># save parsed dataframe as csv if it does not exist in current</span>
 <span class='co'># location and return parsed dataframe.</span>
 <span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
-}</div></pre>
+<span class='fu'>parse_drug_reactions</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</div><div class='output co'>#&gt; <span class='warning'>Warning: cannot open file 'TRUE/drug_reactions.csv': No such file or directory</span></div><div class='output co'>#&gt; <span class='error'>Error in open.connection(path, "wb"): cannot open the connection</span></div><div class='input'># }
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
@@ -199,11 +194,11 @@ no need to call it again before calling this function.</p>
 
       <footer>
       <div class="copyright">
-  <p>Developed by <a href='http://mohammedfcis.github.io'>Mohammed Ali</a>, <a href='https://www.linkedin.com/in/aliezzat1985/'>Ali Ezzat</a>.</p>
+  <p>Developed by Mohammed Ali, Ali Ezzat.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
 </div>
 
       </footer>

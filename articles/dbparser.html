@@ -93,10 +93,10 @@
 <a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">get_xml_db_rows</span>(<span class="st">"drugbank_database.xml"</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">## load drugs data</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug.html">parse_drug</a></span>()</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw">parse_drug</span>()</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">## load drug groups data</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_groups.html">parse_drug_groups</a></span>()</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw">parse_drug_groups</span>()</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">## load drug targets actions data</a>
 <a class="sourceLine" id="cb1-17" data-line-number="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw">parse_drug_targets_actions</span>()</a></code></pre></div>
@@ -111,10 +111,10 @@
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="dt">server =</span> <span class="st">"MOHAMMED</span><span class="ch">\\\\</span><span class="st">SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span>)</a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6">## save 'drugs' dataframe to DB</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug.html">parse_drug</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">parse_drug</span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb2-8" data-line-number="8"></a>
 <a class="sourceLine" id="cb2-9" data-line-number="9">## save 'drug_groups' dataframe to DB</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/parse_drug_groups.html">parse_drug_groups</a></span>(<span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">parse_drug_groups</span>(<span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"></a>
 <a class="sourceLine" id="cb2-12" data-line-number="12">## save 'drug_targets_actions' dataframe to DB</a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw">parse_drug_targets_actions</span>(<span class="ot">TRUE</span>)</a>
