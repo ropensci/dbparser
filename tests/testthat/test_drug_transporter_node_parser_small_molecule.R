@@ -20,10 +20,10 @@ test_that(
   desc = "Read darug transporters actions attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_trans_actions()),
+      nrow(transporters_actions()),
       0
     )
-    expect_error(parse_drug_trans_actions(TRUE))
+    expect_error(transporters_actions(TRUE))
   }
 )
 
@@ -31,10 +31,10 @@ test_that(
   desc = "Read darug transporters_articles attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_trans_articles()),
+      nrow(transporters_articles()),
       0
     )
-    expect_error(parse_drug_trans_articlese(TRUE))
+    expect_error(transporters_articlese(TRUE))
   }
 )
 
@@ -42,10 +42,10 @@ test_that(
   desc = "Read darug transporters textbooks attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_trans_textbooks()),
+      nrow(transporters_textbooks()),
       0
     )
-    expect_error(parse_drug_trans_textbooks(TRUE))
+    expect_error(transporters_textbooks(TRUE))
   }
 )
 
@@ -53,10 +53,10 @@ test_that(
   desc = "Read darug transporters links attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_trans_links()),
+      nrow(transporters_links()),
       0
     )
-    expect_error(parse_drug_trans_links(TRUE))
+    expect_error(transporters_links(TRUE))
   }
 )
 
@@ -64,10 +64,10 @@ test_that(
   desc = "Read darug transporters polypeptides attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_trans_polys()),
+      nrow(transporters_polypeptide()),
       0
     )
-    expect_error(parse_drug_trans_polys(TRUE))
+    expect_error(transporters_polypeptide(TRUE))
   }
 )
 
@@ -75,11 +75,11 @@ test_that(
   desc = "Read darug transporters polypeptides external identifiers attributes",
   code = {
     expect_equal(
-      nrow(parse_trans_poly_ex_identity()),
+      nrow(transporters_polypep_ex_ident()),
       0
     )
     expect_error(
-      parse_trans_poly_ex_identity(TRUE)
+      transporters_polypep_ex_ident(TRUE)
     )
   }
 )
@@ -88,10 +88,10 @@ test_that(
   desc = "Read darug transporters polypeptides syn attributes",
   code = {
     expect_equal(
-      nrow(parse_trans_poly_syn()),
+      nrow(transporters_polypeptide_syn()),
       0
     )
-    expect_error(parse_trans_poly_syn(TRUE))
+    expect_error(transporters_polypeptide_syn(TRUE))
   }
 )
 
@@ -99,10 +99,10 @@ test_that(
   desc = "Read darug transporters polypeptides pfams attributes",
   code = {
     expect_equal(
-      nrow(parse_trans_poly_pfams()),
+      nrow(transporters_polypeptide_pfams()),
       0
     )
-    expect_error(parse_trans_poly_pfams(TRUE))
+    expect_error(transporters_polypeptide_pfams(TRUE))
   }
 )
 
@@ -110,9 +110,9 @@ test_that(
   desc = "Read darug transporters polypeptides go classifiers attributes",
   code = {
     expect_equal(
-      nrow(parse_trans_poly_go()), 0
+      nrow(transporters_polypeptide_go()), 0
     )
-    expect_error(parse_trans_poly_go(TRUE))
+    expect_error(transporters_polypeptide_go(TRUE))
   }
 )
 
@@ -120,9 +120,9 @@ test_that(
   desc = "Read darug transporters attributes",
   code = {
     expect_equal(
-      nrow(parse_drug_transporters()),
+      nrow(transporters()),
       0
     )
-    expect_error(parse_drug_transporters(TRUE))
+    expect_error(transporters(TRUE))
   }
 )

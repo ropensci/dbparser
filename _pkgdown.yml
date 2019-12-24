@@ -50,8 +50,7 @@ reference:
 - title: "Drug Transporters Parsers"
   desc: "Get Drug transporters and its related information"
   contents:
-    - starts_with("*parse_trans*")
-    - starts_with("parse_drug_trans*")
+    - has_concept("transporters")
 - title: "Drug Common Parsers"
   desc: "Parse all/specific information in DrugBank database"
   contents:
