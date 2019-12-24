@@ -16,37 +16,37 @@
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
 #' @return all drug elements dataframes
-#'
+#' @family common
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_all()
+#' drug_all()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_all(save_table = trUe)
+#' drug_all(save_table = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location,
 #' # and return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_all(save_csv = trUe)
+#' drug_all(save_csv = trUe)
 #'
 #' # save in database, save parsed dataframe as csv,
 #' # if it does not exist in current location and return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_all(ssave_table = trUe, save_csv = trUe)
+#' drug_all(ssave_table = trUe, save_csv = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location,
 #' # and return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_all(save_csv = trUe, csv_path = trUe)
+#' drug_all(save_csv = trUe, csv_path = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # if the csv exist override it and return it.
-#' parse_drug_all(save_csv = trUe, csv_path = trUe, override = trUe)
+#' drug_all(save_csv = trUe, csv_path = trUe, override = trUe)
 #' }
 #' @export
-parse_drug_all <-
+drug_all <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -465,7 +465,7 @@ parse_drug_all <-
 
 #' extracts the given drug elements and return data as list of dataframes.
 #'
-#' \code{parse_drug_element} returns list of dataframes of drugs selected
+#' \code{drug_element} returns list of dataframes of drugs selected
 #' elements.
 #'
 #' this functions extracts selected element of drug nodes in \strong{DrugBank}
@@ -477,7 +477,7 @@ parse_drug_all <-
 #' if \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
-#' parse_drug_element_options can be called to know the valid options for
+#' drug_element_options can be called to know the valid options for
 #' this method
 #'
 #' @param save_table boolean, save table in database if true.
@@ -489,52 +489,52 @@ parse_drug_all <-
 #' @param elements_options list,  options of elements to be parsed. default is
 #'  "all"
 #' @return list of selected drug elements dataframes
-#'
+#' @family common
 #' @examples
 #' \dontrun{
 #' # return only the parsed dataframe
-#' parse_drug_element()
+#' drug_element()
 #'
 #' # save in database and return parsed dataframe
-#' parse_drug_element(save_table = trUe)
+#' drug_element(save_table = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location and
 #' # return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_element(save_csv = trUe)
+#' drug_element(save_csv = trUe)
 #'
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_element(ssave_table = trUe, save_csv = trUe)
+#' drug_element(ssave_table = trUe, save_csv = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # if the csv exist before read it and return its data.
-#' parse_drug_element(save_csv = trUe, csv_path = trUe)
+#' drug_element(save_csv = trUe, csv_path = trUe)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # if the csv exist override it and return it.
-#' parse_drug_element(save_csv = trUe, csv_path = trUe, override = trUe)
-#' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = trUe)
-#' parse_drug_element(save_table = FALSE)
-#' parse_drug_element(c("drug_ahfs_codes", "drug_carriers"))
+#' drug_element(save_csv = trUe, csv_path = trUe, override = trUe)
+#' drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = trUe)
+#' drug_element(save_table = FALSE)
+#' drug_element(c("drug_ahfs_codes", "drug_carriers"))
 #' }
 #' @export
-parse_drug_element <-
+drug_element <-
   function(elements_options = c("all"),
            save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    if (!all(elements_options %in% parse_drug_element_options())) {
-      stop("invalid options\nplease use parse_drug_element_options() to
+    if (!all(elements_options %in% drug_element_options())) {
+      stop("invalid options\nplease use drug_element_options() to
            know valid options")
     }
 
     if ("all" %in% elements_options) {
-      return(parse_drug_all(save_table = save_table))
+      return(drug_all(save_table = save_table))
     }
     parsed_list <- list()
     for (option in elements_options) {
@@ -913,16 +913,16 @@ parse_drug_element <-
     return(parsed_list)
   }
 
-#' returns \code{parse_drug_element} valid options.
+#' returns \code{drug_element} valid options.
 #'
-#' @return list of \code{parse_drug_element} valid options
-#'
+#' @return list of \code{drug_element} valid options
+#' @family common
 #' @examples
 #' \dontrun{
-#' parse_drug_element_options()
+#' drug_element_options()
 #' }
 #' @export
-parse_drug_element_options <- function() {
+drug_element_options <- function() {
   elements_options <-
     c(
       "all",

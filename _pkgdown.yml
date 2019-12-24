@@ -31,10 +31,6 @@ reference:
   desc: "Read DrugBank database and load it into memory for later processing"
   contents:
    - has_concept("DrugBank DB Loading")
-- title: "DrugBank Meta Data"
-  desc: "Get DrugBank metadata, version and/or exported date"
-  contents:
-    - '`get_xml_db_rows`'
 - title: "Drug Carriers Parsers"
   desc: "Get Drug carriers and its related information"
   contents:
@@ -54,9 +50,7 @@ reference:
 - title: "Drug Common Parsers"
   desc: "Parse all/specific information in DrugBank database"
   contents:
-    - '`parse_drug_all`'
-    - '`parse_drug_element`'
-    - '`parse_drug_element_options`'
+    - has_concept("common")
 - title: "Drug Parsers"
   desc: "Get Drug and its related information"
   contents:

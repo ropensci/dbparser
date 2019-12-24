@@ -17,28 +17,28 @@ test_that(
     expect_error(read_drugbank_xml_db("drugbank_record"))
   }
 )
-drugs <- parse_drug_all()
+drugs <- drug_all()
 drugs_types <- classlist(drugs)
 test_that(
   desc = "Read all drug nodes",
   code = {
     expect_equal(length(drugs), 75)
     expect_equal(dim(drugs_types), c(3, 75))
-    expect_error(parse_drug_all(TRUE))
+    expect_error(drug_all(TRUE))
   }
 )
 
 test_that(
   desc = "Read selected drug nodes",
   code = {
-    expect_equal(length(parse_drug_element()), 75)
-    expect_equal(length(parse_drug_element(c("all"))), 75)
-    expect_error(parse_drug_element(save_table = TRUE))
-    expect_error(parse_drug_element(c("all"), save_table = TRUE))
-    expect_error(parse_drug_element(c("notvalid")))
-    expect_error(parse_drug_element(c("drug_ahfs_codes", "notvalid")))
-    expect_equal(length(parse_drug_element_options()), 76)
-    expect_equal(length(parse_drug_element(
+    expect_equal(length(drug_element()), 75)
+    expect_equal(length(drug_element(c("all"))), 75)
+    expect_error(drug_element(save_table = TRUE))
+    expect_error(drug_element(c("all"), save_table = TRUE))
+    expect_error(drug_element(c("notvalid")))
+    expect_error(drug_element(c("drug_ahfs_codes", "notvalid")))
+    expect_equal(length(drug_element_options()), 76)
+    expect_equal(length(drug_element(
       c(
         "ahfs_codes_drug",
         "affected_organisms_drug",
