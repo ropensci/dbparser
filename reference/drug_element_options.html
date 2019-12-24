@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>returns <code>parse_drug_element</code> valid options. — parse_drug_element_options • dbparser</title>
+<title>returns <code>drug_element</code> valid options. — drug_element_options • dbparser</title>
 
 
 <!-- jquery -->
@@ -35,8 +35,8 @@
 
 
 
-<meta property="og:title" content="returns <code>parse_drug_element</code> valid options. — parse_drug_element_options" />
-<meta property="og:description" content="returns parse_drug_element valid options." />
+<meta property="og:title" content="returns <code>drug_element</code> valid options. — drug_element_options" />
+<meta property="og:description" content="returns drug_element valid options." />
 <meta name="twitter:card" content="summary" />
 
 
@@ -106,68 +106,36 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>returns <code>parse_drug_element</code> valid options.</h1>
+    <h1>returns <code>drug_element</code> valid options.</h1>
     
-    <div class="hidden name"><code>parse_drug_element_options.Rd</code></div>
+    <div class="hidden name"><code>drug_element_options.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>returns <code>parse_drug_element</code> valid options.</p>
+    <p>returns <code>drug_element</code> valid options.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>parse_drug_element_options</span>()</pre>
+    <pre class="usage"><span class='fu'>drug_element_options</span>()</pre>
 
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>list of <code>parse_drug_element</code> valid options</p>
+    <p>list of <code>drug_element</code> valid options</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other common: <code>drug_all</code>,
+  <code>drug_element</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># \donttest{</span>
-<span class='fu'>parse_drug_element_options</span>()</div><div class='output co'>#&gt;  [1] "all"                            "drugs"                         
-#&gt;  [3] "groups_drug"                    "articles_drug"                 
-#&gt;  [5] "books_drug"                     "links_drug"                    
-#&gt;  [7] "syn_drug"                       "products_drug"                 
-#&gt;  [9] "culculated_properties_drug"     "mixtures_drug"                 
-#&gt; [11] "packagers_drug"                 "categories_drug"               
-#&gt; [13] "affected_organisms_drug"        "dosages_drug"                  
-#&gt; [15] "ahfs_codes_drug"                "pdb_entries_drug"              
-#&gt; [17] "patents_drug"                   "food_interactions_drug"        
-#&gt; [19] "interactions_drug"              "experimental_properties_drug"  
-#&gt; [21] "external_identifiers_drug"      "external_links_drug"           
-#&gt; [23] "snp_effects_drug"               "snp_adverse_reactions"         
-#&gt; [25] "atc_codes_drug"                 "actions_carrier_drug"          
-#&gt; [27] "articles_carrier_drug"          "textbooks_carrier_drug"        
-#&gt; [29] "links_carrier_drug"             "polypeptides_carrier_drug"     
-#&gt; [31] "carr_poly_ext_identity"         "carr_polypeptides_syn"         
-#&gt; [33] "carr_polypeptides_pfams"        "carr_polypeptides_go"          
-#&gt; [35] "carriers_drug"                  "classifications_drug"          
-#&gt; [37] "actions_enzyme_drug"            "articles_enzyme_drug"          
-#&gt; [39] "textbooks_enzyme_drug"          "links_enzyme_drug"             
-#&gt; [41] "polypeptides_enzyme_drug"       "enzy_poly_ext_identity"        
-#&gt; [43] "enzy_poly_syn"                  "pfams_polypeptides_enzyme_drug"
-#&gt; [45] "enzy_poly_go"                   "enzymes_drug"                  
-#&gt; [47] "manufacturers_drug"             "enzymes_pathway_drug"          
-#&gt; [49] "drugs_pathway_drug"             "pathways_drug"                 
-#&gt; [51] "prices_drug"                    "reactions_drug"                
-#&gt; [53] "enzymes_reactions_drug"         "sequences_drug"                
-#&gt; [55] "targ_poly_ext_identity"         "targ_poly_syn"                 
-#&gt; [57] "pfams_polypeptide_target_drug"  "targ_poly_go"                  
-#&gt; [59] "actions_target_drug"            "articles_target_drug"          
-#&gt; [61] "textbooks_target_drug"          "links_target_drug"             
-#&gt; [63] "polypeptide_target_drug"        "targ_drug"                     
-#&gt; [65] "actions_transporter_drug"       "articles_transporter_drug"     
-#&gt; [67] "textbooks_transporter_drug"     "links_transporter_drug"        
-#&gt; [69] "polypeptides_transporter_drug"  "trans_poly_ex_identity"        
-#&gt; [71] "trans_poly_syn"                 "trans_poly_pfams"              
-#&gt; [73] "go_polypeptide_trans_drug"      "transporters_drug"             
-#&gt; [75] "international_brands_drug"      "salts_drug"                    </div><div class='input'># }
-</div></pre>
+    <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='fu'>drug_element_options</span>()
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
       <li><a href="#value">Value</a></li>
+      <li><a href="#see-also">See also</a></li>
       <li><a href="#examples">Examples</a></li>
     </ul>
 
@@ -177,11 +145,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Mohammed Ali, Ali Ezzat.</p>
+  <p>Developed by <a href='http://mohammedfcis.github.io'>Mohammed Ali</a>, <a href='https://www.linkedin.com/in/aliezzat1985/'>Ali Ezzat</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.1.</p>
 </div>
 
       </footer>
