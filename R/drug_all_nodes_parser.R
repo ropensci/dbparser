@@ -261,7 +261,7 @@ parse_drug_all <-
       )
     message("parsed targ_poly_ext_identity, 53/75")
     targ_poly_syn <-
-      targets_polypeptide(
+      targets_polypeptide_syn(
         save_table, save_csv, csv_path,
         override_csv
       )

@@ -162,7 +162,7 @@ targets_polypeptide_ext_ident <-
 #' Extracts the drug targ polypeptides syn element
 #' and return data as data frame.
 #'
-#' \code{targets_polypeptide} returns data
+#' \code{targets_polypeptide_syn} returns data
 #'  frame of drug targ polypeptides syn elements.
 #'
 #' This functions extracts the targ polypeptides syn element of
@@ -189,33 +189,33 @@ targets_polypeptide_ext_ident <-
 #' targets_polypeptide()
 #'
 #' # save in database and return parsed dataframe
-#' targets_polypeptide(save_table = TRUE)
+#' targets_polypeptide_syn(save_table = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_polypeptide(save_csv = TRUE)
+#' targets_polypeptide_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_polypeptide(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide_syn(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_polypeptide(save_csv = TRUE, csv_path = TRUE)
+#' targets_polypeptide_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in current location
 #' # and return parsed dataframe.
 #' # If the csv exist override it and return it.
-#' targets_polypeptide(
+#' targets_polypeptide_syn(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-targets_polypeptide <-
+targets_polypeptide_syn <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
     path <-

@@ -98,11 +98,11 @@ test_that(
   desc = "Read darug targ polypeptides syn attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide()
+      as.character(targets_polypeptide_syn()
       [["syn"]][1]),
       "3.4.21.5,Coagulation factor II"
     )
-    expect_error(targets_polypeptide(TRUE))
+    expect_error(targets_polypeptide_syn(TRUE))
   }
 )
 
