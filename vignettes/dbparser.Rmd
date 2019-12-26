@@ -29,7 +29,7 @@ further provides the facility of saving the parsed data into a given database.
 Following is sample code that parses the DrugBank database, then loads the 
 drugs info, drug groups info and drug targets actions info.
 
-```{r}
+```{r eval=FALSE}
 ## load dbparser package
 library(dbparser)
 library(dplyr)
@@ -37,7 +37,7 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-read_drugbank_xml_db("drugbank_database.xml")
+read_drugbank_xml_db("drugbank.xml")
 
 ## load drugs data
 drugs <- drug()
@@ -56,19 +56,19 @@ Following is an example involving a quick look at a few aspects of the parsed
 data. First we look at the proportions of `biotech` and `small-molecule` drugs 
 in the data.
 
-```{r}
+```{r eval=FALSE}
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
     ggplot(aes(x = type, fill = type)) + 
     geom_bar() + 
-    guides(fill=FALSE)     ## removes legend for the bar colors
+    guides(fill = FALSE)     ## removes legend for the bar colors
 ```
 
 Below, we view the different `drug_groups` in the data and how prevalent they 
 are.
 
-```{r}
+```{r eval=FALSE}
 ## view proportions of the different drug types for each drug group
 drugs %>% 
     full_join(drug_groups, by = c('primary_key' = 'drugbank_id')) %>% 
@@ -86,7 +86,7 @@ drugs %>%
 Finally, we look at the `drug_targets_actions` to observe their proportions as 
 well.
 
-```{r}
+```{r eval=FALSE}
 ## get counts of the different target actions in the data
 targetActionCounts <- 
     drug_targets_actions %>% 
