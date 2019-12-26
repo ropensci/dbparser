@@ -29,7 +29,7 @@ further provides the facility of saving the parsed data into a given database.
 Following is sample code that parses the DrugBank database, then loads the 
 drugs info, drug groups info and drug targets actions info.
 
-```{r eval=FALSE}
+```{r}
 ## load dbparser package
 library(dbparser)
 library(dplyr)
@@ -37,46 +37,17 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-get_xml_db_rows("drugbank_database.xml")
+read_drugbank_xml_db("drugbank_database.xml")
 
 ## load drugs data
-drugs <- parse_drug()
+drugs <- drug()
 
 ## load drug groups data
-drug_groups <- parse_drug_groups()
+drug_groups <- drug_groups()
 
 ## load drug targets actions data
-drug_targets_actions <- parse_drug_targets_actions()
+drug_targets_actions <- targets_actions()
 ```
-
-
-
-## Saving into a database
-
-The parsed data may be saved into a given database. Databases supported by 
-`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` 
-package. Following is an example of saving the parsed data into a MySQL 
-database.
-
-```{r eval=FALSE}
-## open a connection to the desired database engine with an already
-## created database
-open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
-server = "MOHAMMED\\\\SQL2016", output_database = "drugbank")
-
-## save 'drugs' dataframe to DB
-parse_drug(TRUE)
-
-## save 'drug_groups' dataframe to DB
-parse_drug_groups(TRUE)
-
-## save 'drug_targets_actions' dataframe to DB
-parse_drug_targets_actions(TRUE)
-
-## finally close db connection
-close_db()
-```
-
 
 
 ## Exploring the data
@@ -85,55 +56,54 @@ Following is an example involving a quick look at a few aspects of the parsed
 data. First we look at the proportions of `biotech` and `small-molecule` drugs 
 in the data.
 
-```{r eval=FALSE}
+```{r}
 ## view proportions of the different drug types (biotech vs. small molecule)
 drugs %>% 
     select(type) %>% 
-    ggplot(aes(x = type)) + 
+    ggplot(aes(x = type, fill = type)) + 
     geom_bar() + 
     guides(fill=FALSE)     ## removes legend for the bar colors
 ```
-![](fig1.png)
 
 Below, we view the different `drug_groups` in the data and how prevalent they 
 are.
 
-```{r eval=FALSE}
+```{r}
 ## view proportions of the different drug types for each drug group
 drugs %>% 
-    rename(parent_key = primary_key) %>% 
-    full_join(drug_groups, by = 'parent_key') %>% 
-    select(type, text) %>% 
-    ggplot(aes(x = text, fill = type)) + 
+    full_join(drug_groups, by = c('primary_key' = 'drugbank_id')) %>% 
+    select(type, group) %>% 
+    ggplot(aes(x = group, fill = type)) + 
     geom_bar() + 
-    theme(legend.position= 'bottom', 
-          axis.text.x = element_text(angle=45, vjust=0.5)) + 
+    theme(legend.position = 'bottom') + 
     labs(x = 'Drug Group', 
          y = 'Quantity', 
-         caption="created by ggplot") + 
+         title = "Drug Type Distribution per Drug Group", 
+         caption = "created by ggplot") + 
     coord_flip()
 ```
-![](fig2.png)
 
 Finally, we look at the `drug_targets_actions` to observe their proportions as 
 well.
 
-```{r eval=FALSE}
+```{r}
 ## get counts of the different target actions in the data
 targetActionCounts <- 
     drug_targets_actions %>% 
-    group_by(text) %>% 
+    group_by(action) %>% 
     summarise(count = n()) %>% 
     arrange(desc(count))
 
 ## get bar chart of the 10 most occurring target actions in the data
 p <- 
     ggplot(targetActionCounts[1:10,], 
-           aes(x = reorder(text,count), y = count, fill = letters[1:10])) + 
+           aes(x = reorder(action,count), y = count, fill = letters[1:10])) + 
     geom_bar(stat = 'identity') +
     labs(fill = 'action', 
          x = 'Target Action', 
          y = 'Quantity', 
+         title = 'Target Actions Distribution', 
+         subtitle = 'Distribution of Target Actions in the Data',
          caption = 'created by ggplot') + 
     guides(fill = FALSE) +    ## removes legend for the bar colors
     coord_flip()              ## switches the X and Y axes
@@ -141,6 +111,4 @@ p <-
 ## display plot
 p
 ```
-![](fig3.png)
-
 
