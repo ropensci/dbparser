@@ -86,20 +86,20 @@
 <a href="#example" class="anchor"></a>Example</h2>
 <p>This is a basic example which shows you how to solve a common problem:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## parse data from XML and save it to memory</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">dbparser<span class="op">::</span><span class="kw">get_xml_db_rows</span>(</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(</a>
 <a class="sourceLine" id="cb3-3" data-line-number="3">  <span class="st">"D:/DS Projects/Drug_Interaction/drugbank.xml"</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4">              <span class="co">#system.file("extdata", "drugbank_record.xml", package = "dbparser")</span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5">            )</a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt; [1] TRUE</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8">## load drugs data</a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">drugs &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw">parse_drug</span>()</a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">drugs &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug.html">drug</a></span>()</a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"></a>
 <a class="sourceLine" id="cb3-11" data-line-number="11">## load drug groups data</a>
-<a class="sourceLine" id="cb3-12" data-line-number="12">drug_groups &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw">parse_drug_groups</span>()</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">drug_groups &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_groups.html">drug_groups</a></span>()</a>
 <a class="sourceLine" id="cb3-13" data-line-number="13"></a>
 <a class="sourceLine" id="cb3-14" data-line-number="14">## load drug targets actions data</a>
-<a class="sourceLine" id="cb3-15" data-line-number="15">drug_targets_actions &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw">parse_drug_targets_actions</span>()</a></code></pre></div>
+<a class="sourceLine" id="cb3-15" data-line-number="15">drug_targets_actions &lt;-<span class="st"> </span>dbparser<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/targets_actions.html">targets_actions</a></span>()</a></code></pre></div>
 </div>
 <div id="saving-into-a-database" class="section level2">
 <h2 class="hasAnchor">
@@ -124,57 +124,6 @@
 <a class="sourceLine" id="cb4-17" data-line-number="17">## finally close db connection </a>
 <a class="sourceLine" id="cb4-18" data-line-number="18"> <span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/close_db.html">close_db</a></span>()</a></code></pre></div>
 </div>
-<div id="exploring-the-data" class="section level2">
-<h2 class="hasAnchor">
-<a href="#exploring-the-data" class="anchor"></a>Exploring the data</h2>
-<p>Following is an example involving a quick look at a few aspects of the parsed data. First we look at the proportions of <code>biotech</code> and <code>small-molecule</code> drugs in the data.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">## view proportions of the different drug types (biotech vs. small molecule)</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">    </span><span class="kw">select</span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)     ## removes legend for the bar colors</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-2-1.png" width="100%"></p>
-<p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">## view proportions of the different drug types for each drug group</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3"><span class="st">    </span><span class="kw">full_join</span>(drug_groups, <span class="dt">by =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'primary_key'</span> =<span class="st"> 'drugbank_id'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4"><span class="st">    </span><span class="kw">select</span>(type, group) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span> <span class="st">'bottom'</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Drug Group'</span>, </a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">         <span class="dt">title=</span><span class="st">"Drug Type Distribution per Drug Group"</span>, </a>
-<a class="sourceLine" id="cb6-11" data-line-number="11">         <span class="dt">caption=</span><span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-3-1.png" width="100%"></p>
-<p>Finally, we look at the <code>drug_targets_actions</code> to observe their proportions as well.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">## get counts of the different target actions in the data</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">targetActionCounts &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(action) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">## get bar chart of the 10 most occurring target actions in the data</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">p &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb7-10" data-line-number="10"><span class="st">    </span><span class="kw">ggplot</span>(targetActionCounts[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], </a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">           <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span>(action,count), <span class="dt">y =</span> count, <span class="dt">fill =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">'identity'</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">'action'</span>, </a>
-<a class="sourceLine" id="cb7-14" data-line-number="14">         <span class="dt">x =</span> <span class="st">'Target Action'</span>, </a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">         <span class="dt">title =</span> <span class="st">'Target Actions Distribution'</span>, </a>
-<a class="sourceLine" id="cb7-17" data-line-number="17">         <span class="dt">subtitle =</span> <span class="st">'Distribution of Target Actions in the Data'</span>,</a>
-<a class="sourceLine" id="cb7-18" data-line-number="18">         <span class="dt">caption =</span> <span class="st">'created by ggplot'</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">    </span>## removes legend for the bar colors</a>
-<a class="sourceLine" id="cb7-20" data-line-number="20"><span class="st">    </span><span class="kw">coord_flip</span>()              ## switches the X and Y axes</a>
-<a class="sourceLine" id="cb7-21" data-line-number="21"></a>
-<a class="sourceLine" id="cb7-22" data-line-number="22">## display plot</a>
-<a class="sourceLine" id="cb7-23" data-line-number="23">p</a></code></pre></div>
-<p><img src="reference/figures/README-unnamed-chunk-4-1.png" width="100%"></p>
-</div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
 <a href="#code-of-conduct" class="anchor"></a>Code of Conduct</h2>
@@ -190,23 +139,22 @@
 <a href="#share-the-love" class="anchor"></a>Share the love ❤️</h2>
 <p>Think <strong>dbparser</strong> is useful? Let others discover it, by telling them in person, via Twitter or a blog post.</p>
 <p>Using <strong>dbparser</strong> for a paper you are writing? Consider citing it</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"dbparser"</span>)</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-3" data-line-number="3"><span class="co">#&gt; To cite dbparser in publications use:</span></a>
-<a class="sourceLine" id="cb8-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-5" data-line-number="5"><span class="co">#&gt;   Mohammed Ali, Ali Ezzat (2018). dbparser: DrugBank Database XML</span></a>
-<a class="sourceLine" id="cb8-6" data-line-number="6"><span class="co">#&gt;   Parser. R package version 1.0.5.9000.</span></a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
-<a class="sourceLine" id="cb8-9" data-line-number="9"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10"><span class="co">#&gt;   @Manual{,</span></a>
-<a class="sourceLine" id="cb8-11" data-line-number="11"><span class="co">#&gt;     title = {DrugBank Database XML Parser},</span></a>
-<a class="sourceLine" id="cb8-12" data-line-number="12"><span class="co">#&gt;     author = {Mohammed Ali and Ali Ezzat},</span></a>
-<a class="sourceLine" id="cb8-13" data-line-number="13"><span class="co">#&gt;     organization = {Dainanahan},</span></a>
-<a class="sourceLine" id="cb8-14" data-line-number="14"><span class="co">#&gt;     year = {2018},</span></a>
-<a class="sourceLine" id="cb8-15" data-line-number="15"><span class="co">#&gt;     note = {R package version 1.0.5.9000},</span></a>
-<a class="sourceLine" id="cb8-16" data-line-number="16"><span class="co">#&gt;     url = {https://CRAN.R-project.org/package=drugverse},</span></a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"><span class="co">#&gt;   }</span></a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1"><span class="kw"><a href="https://rdrr.io/r/utils/citation.html">citation</a></span>(<span class="st">"dbparser"</span>)</a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="co">#&gt; To cite dbparser in publications use:</span></a>
+<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="co">#&gt;   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML</span></a>
+<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="co">#&gt;   Parser. R package version 1.0.5.9000.</span></a>
+<a class="sourceLine" id="cb5-7" data-line-number="7"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
+<a class="sourceLine" id="cb5-9" data-line-number="9"><span class="co">#&gt; </span></a>
+<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co">#&gt;   @Manual{,</span></a>
+<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="co">#&gt;     title = {DrugBank Database XML Parser},</span></a>
+<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="co">#&gt;     author = {Mohammed Ali and Ali Ezzat},</span></a>
+<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="co">#&gt;     organization = {Dainanahan},</span></a>
+<a class="sourceLine" id="cb5-14" data-line-number="14"><span class="co">#&gt;     note = {R package version 1.0.5.9000},</span></a>
+<a class="sourceLine" id="cb5-15" data-line-number="15"><span class="co">#&gt;     url = {https://CRAN.R-project.org/package=drugverse},</span></a>
+<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co">#&gt;   }</span></a></code></pre></div>
 </div>
 </div>
   </div>

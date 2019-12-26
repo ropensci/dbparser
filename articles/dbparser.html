@@ -69,7 +69,7 @@
       <h1>DrugBank Database XML Parser</h1>
                         <h4 class="author">Mohammed Ali, Ali Ezzat</h4>
             
-            <h4 class="date">2019-12-24</h4>
+            <h4 class="date">2019-12-26</h4>
       
       
       <div class="hidden name"><code>dbparser.Rmd</code></div>
@@ -90,87 +90,64 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(XML)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">## parse data from XML and save it to memory</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">get_xml_db_rows</span>(<span class="st">"drugbank_database.xml"</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="st">"drugbank.xml"</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">## load drugs data</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw">parse_drug</span>()</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug.html">drug</a></span>()</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">## load drug groups data</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw">parse_drug_groups</span>()</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_groups.html">drug_groups</a></span>()</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">## load drug targets actions data</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw">parse_drug_targets_actions</span>()</a></code></pre></div>
-</div>
-<div id="saving-into-a-database" class="section level2">
-<h2 class="hasAnchor">
-<a href="#saving-into-a-database" class="anchor"></a>Saving into a database</h2>
-<p>The parsed data may be saved into a given database. Databases supported by <code>dbparser</code> include MS SQL Server, MySQL and any database supported by <code>DBI</code> package. Following is an example of saving the parsed data into a MySQL database.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## open a connection to the desired database engine with an already</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">## created database</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/open_db.html">open_db</a></span>(<span class="dt">xml_db_name =</span>  <span class="st">"drugbank.xml"</span>, <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="dt">server =</span> <span class="st">"MOHAMMED</span><span class="ch">\\\\</span><span class="st">SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5"></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">## save 'drugs' dataframe to DB</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="kw">parse_drug</span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">## save 'drug_groups' dataframe to DB</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw">parse_drug_groups</span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12">## save 'drug_targets_actions' dataframe to DB</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="kw">parse_drug_targets_actions</span>(<span class="ot">TRUE</span>)</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15">## finally close db connection</a>
-<a class="sourceLine" id="cb2-16" data-line-number="16"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/close_db.html">close_db</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb1-17" data-line-number="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/targets_actions.html">targets_actions</a></span>()</a></code></pre></div>
 </div>
 <div id="exploring-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#exploring-the-data" class="anchor"></a>Exploring the data</h2>
 <p>Following is an example involving a quick look at a few aspects of the parsed data. First we look at the proportions of <code>biotech</code> and <code>small-molecule</code> drugs in the data.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## view proportions of the different drug types (biotech vs. small molecule)</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill=</span><span class="ot">FALSE</span>)     ## removes legend for the bar colors</a></code></pre></div>
-<p><img src="fig1.png"></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## view proportions of the different drug types (biotech vs. small molecule)</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)     ## removes legend for the bar colors</a></code></pre></div>
 <p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## view proportions of the different drug types for each drug group</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">rename</a></span>(<span class="dt">parent_key =</span> primary_key) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">full_join</a></span>(drug_groups, <span class="dt">by =</span> <span class="st">'parent_key'</span>) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type, text) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> text, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position=</span> <span class="st">'bottom'</span>, </a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">          <span class="dt">axis.text.x =</span> <span class="kw">element_text</span>(<span class="dt">angle=</span><span class="dv">45</span>, <span class="dt">vjust=</span><span class="fl">0.5</span>)) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Drug Group'</span>, </a>
-<a class="sourceLine" id="cb4-11" data-line-number="11">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
-<a class="sourceLine" id="cb4-12" data-line-number="12">         <span class="dt">caption=</span><span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
-<p><img src="fig2.png"></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## view proportions of the different drug types for each drug group</a>
+<a class="sourceLine" id="cb3-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">full_join</a></span>(drug_groups, <span class="dt">by =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'primary_key'</span> =<span class="st"> 'drugbank_id'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type, group) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">'bottom'</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">x =</span> <span class="st">'Drug Group'</span>, </a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
+<a class="sourceLine" id="cb3-10" data-line-number="10">         <span class="dt">title =</span> <span class="st">"Drug Type Distribution per Drug Group"</span>, </a>
+<a class="sourceLine" id="cb3-11" data-line-number="11">         <span class="dt">caption =</span> <span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p>Finally, we look at the <code>drug_targets_actions</code> to observe their proportions as well.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">## get counts of the different target actions in the data</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">targetActionCounts &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(text) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">count =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-6" data-line-number="6"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(count))</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">## get bar chart of the 10 most occurring target actions in the data</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">p &lt;-<span class="st"> </span></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="st">    </span><span class="kw">ggplot</span>(targetActionCounts[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], </a>
-<a class="sourceLine" id="cb5-11" data-line-number="11">           <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span>(text,count), <span class="dt">y =</span> count, <span class="dt">fill =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-12" data-line-number="12"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">'identity'</span>) <span class="op">+</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">'action'</span>, </a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">         <span class="dt">x =</span> <span class="st">'Target Action'</span>, </a>
-<a class="sourceLine" id="cb5-15" data-line-number="15">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
-<a class="sourceLine" id="cb5-16" data-line-number="16">         <span class="dt">caption =</span> <span class="st">'created by ggplot'</span>) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">    </span>## removes legend for the bar colors</a>
-<a class="sourceLine" id="cb5-18" data-line-number="18"><span class="st">    </span><span class="kw">coord_flip</span>()              ## switches the X and Y axes</a>
-<a class="sourceLine" id="cb5-19" data-line-number="19"></a>
-<a class="sourceLine" id="cb5-20" data-line-number="20">## display plot</a>
-<a class="sourceLine" id="cb5-21" data-line-number="21">p</a></code></pre></div>
-<p><img src="fig3.png"></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## get counts of the different target actions in the data</a>
+<a class="sourceLine" id="cb4-2" data-line-number="2">targetActionCounts &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(action) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">count =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(count))</a>
+<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb4-8" data-line-number="8">## get bar chart of the 10 most occurring target actions in the data</a>
+<a class="sourceLine" id="cb4-9" data-line-number="9">p &lt;-<span class="st"> </span></a>
+<a class="sourceLine" id="cb4-10" data-line-number="10"><span class="st">    </span><span class="kw">ggplot</span>(targetActionCounts[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>,], </a>
+<a class="sourceLine" id="cb4-11" data-line-number="11">           <span class="kw">aes</span>(<span class="dt">x =</span> <span class="kw"><a href="https://rdrr.io/r/stats/reorder.factor.html">reorder</a></span>(action,count), <span class="dt">y =</span> count, <span class="dt">fill =</span> letters[<span class="dv">1</span><span class="op">:</span><span class="dv">10</span>])) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="st">    </span><span class="kw">geom_bar</span>(<span class="dt">stat =</span> <span class="st">'identity'</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb4-13" data-line-number="13"><span class="st">    </span><span class="kw">labs</span>(<span class="dt">fill =</span> <span class="st">'action'</span>, </a>
+<a class="sourceLine" id="cb4-14" data-line-number="14">         <span class="dt">x =</span> <span class="st">'Target Action'</span>, </a>
+<a class="sourceLine" id="cb4-15" data-line-number="15">         <span class="dt">y =</span> <span class="st">'Quantity'</span>, </a>
+<a class="sourceLine" id="cb4-16" data-line-number="16">         <span class="dt">title =</span> <span class="st">'Target Actions Distribution'</span>, </a>
+<a class="sourceLine" id="cb4-17" data-line-number="17">         <span class="dt">subtitle =</span> <span class="st">'Distribution of Target Actions in the Data'</span>,</a>
+<a class="sourceLine" id="cb4-18" data-line-number="18">         <span class="dt">caption =</span> <span class="st">'created by ggplot'</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>) <span class="op">+</span><span class="st">    </span>## removes legend for the bar colors</a>
+<a class="sourceLine" id="cb4-20" data-line-number="20"><span class="st">    </span><span class="kw">coord_flip</span>()              ## switches the X and Y axes</a>
+<a class="sourceLine" id="cb4-21" data-line-number="21"></a>
+<a class="sourceLine" id="cb4-22" data-line-number="22">## display plot</a>
+<a class="sourceLine" id="cb4-23" data-line-number="23">p</a></code></pre></div>
 </div>
   </div>
 
@@ -181,7 +158,6 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#getting-started-loading-the-data">Getting Started – Loading the Data</a></li>
-      <li><a href="#saving-into-a-database">Saving into a database</a></li>
       <li><a href="#exploring-the-data">Exploring the data</a></li>
       </ul>
 </div>
