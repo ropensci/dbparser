@@ -21,12 +21,40 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
-The main purpose of the `dbparser` package is to parse the
-[DrugBank](http://drugbank.ca/) database which is downloadable in XML
-format from [this link](https://www.drugbank.ca/releases/latest). The
-parsed data can then be explored and analyzed as desired by the user.
-The `dbparser` package further provides the facility of saving the
-parsed data into a given database.
+## Introduction
+
+[DrugBank](http://drugbank.ca/) database is a comprehensive, freely
+accessible, online database containing information on drugs and drug
+targets. As both a bioinformatics and a cheminformatics resource,
+DrugBank combines detailed drug (i.e. chemical, pharmacological and
+pharmaceutical) data with comprehensive drug target (i.e. sequence,
+structure, and pathway) information, more information about DrugBank can
+be found [here](https://www.drugbank.ca/about/).
+
+Using DrugBank database is not an easy task. As it is stored in a single
+XML file that can be viewed using XMLviewer as stated
+[here](http://shorturl.at/erEM7).
+
+Here come the importance of `dbparser` package that parses DrugBank
+database into different `R` tibbles that can be then be explored and
+analyzed as desired by the user, check this
+[tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html).
+
+Moreover; user can save these tibbles in different databases like **SQL
+Server DDB** and **Maria DB** using `dbparser`.
+
+`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.4*
+successfully. If you found errors with these versions or any other
+version please submit an issue
+[here](https://github.com/Dainanahan/dbparser/issues).
+
+Final note, in order to download DrugBank database you have to create a
+count [here](https://www.drugbank.ca/public_users/sign_up) and wait a
+little for registration confirmation.
+
+While you are waiting you can make use from `dbdataset` data package
+[here](https://dainanahan.github.io/dbdataset/index.html). It contains
+parsed DrugBank database `R` tibbles using `dbparser`.
 
 ## Installation
 
@@ -44,55 +72,12 @@ library(devtools)
 devtools::install_github("Dainanahan/dbparser")
 ```
 
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-## parse data from XML and save it to memory
-dbparser::read_drugbank_xml_db(
-  "D:/DS Projects/Drug_Interaction/drugbank.xml"
-              #system.file("extdata", "drugbank_record.xml", package = "dbparser")
-            )
-#> [1] TRUE
-
-## load drugs data
-drugs <- dbparser::drug()
-
-## load drug groups data
-drug_groups <- dbparser::drug_groups()
-
-## load drug targets actions data
-drug_targets_actions <- dbparser::targets_actions()
-```
-
 ## Saving into a database
 
 The parsed data may be saved into a given database. Databases supported
 by `dbparser` include MS SQL Server, MySQL and any database supported by
 `DBI` package. Following is an example of saving the parsed data into a
 MySQL database.
-
-``` r
-library(dbparser)
-
-## open a connection to the desired database engine with an already
-## created database
- open_db(xml_db_name =  "drugbank.xml", driver = "SQL Server",
- server = "ServerName\\\\SQL2016", output_database = "drugbank")
-
-## save 'drugs' dataframe to DB
- parse_drug(TRUE)
-
-## save 'drug_groups' dataframe to DB
- parse_drug_groups(TRUE)
-
-## save 'drug_targets_actions' dataframe to DB
- parse_drug_targets_actions(TRUE)
-
-## finally close db connection 
- close_db()
-```
 
 ## Code of Conduct
 
