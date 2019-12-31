@@ -103,7 +103,7 @@ get_targ_poly_go_df <- function(rec) {
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' targets_polypeptide_ext_ident(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -286,7 +286,7 @@ targets_polypeptide_syn <-
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_polypeptide_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide_pfams(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' #  return parsed dataframe.
@@ -374,7 +374,7 @@ targets_polypeptide_pfams <-
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' targets_polypeptide_go(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -466,7 +466,7 @@ targets_polypeptide_go <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_actions(ssave_table = TRUE, save_csv = TRUE)
+#' targets_actions(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -547,7 +547,7 @@ targets_actions <- function(save_table = FALSE, save_csv = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_articles(ssave_table = TRUE, save_csv = TRUE)
+#' targets_articles(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -626,7 +626,7 @@ targets_articles <- function(save_table = FALSE, save_csv = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' targets_textbooks(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -706,7 +706,7 @@ targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_links(ssave_table = TRUE, save_csv = TRUE)
+#' targets_links(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -795,7 +795,7 @@ targets_links <- function(save_table = FALSE, save_csv = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets_polypeptide(ssave_table = TRUE, save_csv = TRUE)
+#' targets_polypeptide(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -888,7 +888,7 @@ targets_polypeptide <- function(save_table = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' targets(ssave_table = TRUE, save_csv = TRUE)
+#' targets(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.

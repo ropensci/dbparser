@@ -69,7 +69,7 @@ get_pathways_enzymes_df <- function(rec) {
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' drug_pathway_enzyme(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway_enzyme(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -154,7 +154,7 @@ drug_pathway_enzyme <-
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' drug_pathway_drugs(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway_drugs(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -232,7 +232,7 @@ drug_pathway_drugs <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' #  exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' drug_pathway(ssave_table = TRUE, save_csv = TRUE)
+#' drug_pathway(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.

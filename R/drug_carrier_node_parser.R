@@ -101,7 +101,7 @@ get_carr_poly_go_df <- function(rec) {
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_actions(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_actions(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
@@ -191,7 +191,7 @@ carriers_actions <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_articles(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_articles(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -275,7 +275,7 @@ carriers_articles <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_textbooks(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
@@ -359,7 +359,7 @@ carriers_textbooks <-
 #' current
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_links(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_links(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location and
 #' # return parsed dataframe.
@@ -440,7 +440,7 @@ carriers_links <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' # current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptide(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptide(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -552,7 +552,7 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide_ext_identity(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -653,7 +653,7 @@ carriers_polypeptide_ext_identity <-
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_syn(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -744,7 +744,7 @@ carriers_polypeptidepeptides_syn <-
 #' # save in database, save parsed dataframe as csv if it does not exist in
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptidepeptides_pfams(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -834,7 +834,7 @@ carriers_polypeptidepeptides_pfams <-
 #' # location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_go(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -930,7 +930,7 @@ carriers_polypeptidepeptides_go <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' carriers(ssave_table = TRUE, save_csv = TRUE)
+#' carriers(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.

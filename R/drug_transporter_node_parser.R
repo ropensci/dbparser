@@ -106,7 +106,7 @@ get_trans_poly_go_df <- function(rec) {
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters_actions(ssave_table = TRUE, save_csv = TRUE)
+#' transporters_actions(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -196,7 +196,7 @@ transporters_actions <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters_articles(ssave_table = TRUE, save_csv = TRUE)
+#' transporters_articles(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' # and return parsed dataframe.
@@ -282,7 +282,7 @@ transporters_articles <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' transporters_textbooks(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given location
 #' #  and return parsed dataframe.
@@ -366,7 +366,7 @@ transporters_textbooks <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters_links(ssave_table = TRUE, save_csv = TRUE)
+#' transporters_links(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -451,7 +451,7 @@ transporters_links <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters_polypeptide(ssave_table = TRUE, save_csv = TRUE)
+#' transporters_polypeptide(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -665,7 +665,7 @@ transporters_polypep_ex_ident <-
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' transporters_polypeptide_syn(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -763,7 +763,7 @@ transporters_polypeptide_syn <-
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' transporters_polypeptide_pfams(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -857,7 +857,7 @@ transporters_polypeptide_pfams <-
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' transporters_polypeptide_go(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -959,7 +959,7 @@ transporters_polypeptide_go <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' transporters(ssave_table = TRUE, save_csv = TRUE)
+#' transporters(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.

@@ -126,7 +126,7 @@ get_enzy_poly_go_df <- function(rec) {
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_actions(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_actions(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -209,7 +209,7 @@ enzymes_actions <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_articles(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_articles(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -292,7 +292,7 @@ enzymes_articles <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_textbooks(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_textbooks(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -374,7 +374,7 @@ enzymes_textbooks <- function(save_table = FALSE,
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_links(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_links(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -455,7 +455,7 @@ enzymes_links <-
 #' # save in database, save parsed dataframe as csv if it does not
 #' # exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_polypeptide(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -574,7 +574,7 @@ enzymes_polypeptide <- function(save_table = FALSE,
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' enzymes_polypeptide_ext_ident(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -675,7 +675,7 @@ enzymes_polypeptide_ext_ident <-
 #' # save in database, save parsed dataframe as csv if it does
 #' # not exist in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_polypeptide_syn(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide_syn(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in
 #' # given location and return parsed dataframe.
@@ -763,7 +763,7 @@ enzymes_polypeptide_syn <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes_polypeptide_pfams(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes_polypeptide_pfams(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
@@ -850,7 +850,7 @@ enzymes_polypeptide_pfams <-
 #' #  current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
 #' enzymes_polypeptide_go(
-#'   ssave_table = TRUE,
+#'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
@@ -947,7 +947,7 @@ enzymes_polypeptide_go <-
 #' # save in database, save parsed dataframe as csv if it does not exist
 #' # in current location and return parsed dataframe.
 #' # If the csv exist before read it and return its data.
-#' enzymes(ssave_table = TRUE, save_csv = TRUE)
+#' enzymes(save_table = TRUE, save_csv = TRUE)
 #'
 #' # save parsed dataframe as csv if it does not exist in given
 #' # location and return parsed dataframe.
