@@ -12,7 +12,9 @@ vignette: >
 ```{r setup, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>"
+  comment = "#>",
+  fig.path = "docs/articles/",
+  out.width = "100%"
 )
 ```
 
@@ -65,6 +67,8 @@ drugs %>%
     guides(fill = FALSE)     ## removes legend for the bar colors
 ```
 
+image: ![](fig1.png)
+
 Below, we view the different `drug_groups` in the data and how prevalent they 
 are.
 
@@ -85,6 +89,8 @@ drugs %>%
 
 Finally, we look at the `drug_targets_actions` to observe their proportions as 
 well.
+
+image: ![](fig2.png)
 
 ```{r eval=FALSE}
 ## get counts of the different target actions in the data
@@ -112,3 +118,4 @@ p <-
 p
 ```
 
+image: ![](fig3.png)
