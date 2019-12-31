@@ -78,10 +78,14 @@
 
     
     
-<p>The main purpose of the <code>dbparser</code> package is to parse the <a href="http://drugbank.ca/">DrugBank</a> database which is downloadable in XML format from <a href="https://www.drugbank.ca/releases/latest">this link</a>. The parsed data can then be explored and analyzed as desired by the user. The <code>dbparser</code> package further provides the facility of saving the parsed data into a given database.</p>
-<div id="getting-started-loading-the-data" class="section level2">
+<div id="introduction" class="section level2">
 <h2 class="hasAnchor">
-<a href="#getting-started-loading-the-data" class="anchor"></a>Getting Started – Loading the Data</h2>
+<a href="#introduction" class="anchor"></a>Introduction</h2>
+<p>The main purpose of the <code>dbparser</code> package is to parse the <a href="http://drugbank.ca/">DrugBank</a> database which is downloadable in XML format from <a href="https://www.drugbank.ca/releases/latest">this link</a>. The parsed data can then be explored and analyzed as desired by the user. In this tutorial, we will see how to use <code>dbparser</code> along with <code>dplyr</code> and <code>ggplot2</code> along with other libraries to do simple drug analyasis.</p>
+</div>
+<div id="loading-and-parsing-the-data" class="section level2">
+<h2 class="hasAnchor">
+<a href="#loading-and-parsing-the-data" class="anchor"></a>Loading and Parsing the Data</h2>
 <p>Following is sample code that parses the DrugBank database, then loads the drugs info, drug groups info and drug targets actions info.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">## load dbparser package</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dbparser)</a>
@@ -111,7 +115,6 @@
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)     ## removes legend for the bar colors</a></code></pre></div>
-<p>image: <img src="fig1.png"></p>
 <p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## view proportions of the different drug types for each drug group</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -126,7 +129,7 @@
 <a class="sourceLine" id="cb3-11" data-line-number="11">         <span class="dt">caption =</span> <span class="st">"created by ggplot"</span>) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="st">    </span><span class="kw">coord_flip</span>()</a></code></pre></div>
 <p>Finally, we look at the <code>drug_targets_actions</code> to observe their proportions as well.</p>
-<p>image: <img src="fig2.png"></p>
+<p><img src="fig2.png"></p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## get counts of the different target actions in the data</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">targetActionCounts &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
@@ -150,7 +153,7 @@
 <a class="sourceLine" id="cb4-21" data-line-number="21"></a>
 <a class="sourceLine" id="cb4-22" data-line-number="22">## display plot</a>
 <a class="sourceLine" id="cb4-23" data-line-number="23">p</a></code></pre></div>
-<p>image: <img src="fig3.png"></p>
+<p><img src="fig3.png"></p>
 </div>
   </div>
 
@@ -160,7 +163,8 @@
       <h2 class="hasAnchor">
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
-<li><a href="#getting-started-loading-the-data">Getting Started – Loading the Data</a></li>
+<li><a href="#introduction">Introduction</a></li>
+      <li><a href="#loading-and-parsing-the-data">Loading and Parsing the Data</a></li>
       <li><a href="#exploring-the-data">Exploring the data</a></li>
       </ul>
 </div>
