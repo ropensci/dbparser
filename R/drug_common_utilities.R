@@ -216,3 +216,9 @@ open_mdb <-
 close_db <- function() {
   dbDisconnect(conn = pkg_env$con)
 }
+
+check_database_connection <- function(save_table) {
+  if (save_table && is.null(pkg_env$con)) {
+    stop("Data cannot be saved to database while database connection is null")
+  }
+}

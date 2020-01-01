@@ -144,6 +144,7 @@ enzymes_actions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path("drug_enzymes_actions", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -230,6 +231,7 @@ enzymes_articles <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path("drug_enzymes_articles", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -312,6 +314,7 @@ enzymes_textbooks <- function(save_table = FALSE,
                                          save_csv = FALSE,
                                          csv_path = ".",
                                          override_csv = FALSE) {
+  check_database_connection(save_table)
   path <-
     get_dataset_full_path("drug_enzymes_textbooks", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -392,6 +395,7 @@ enzymes_links <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path("drug_enzymes_links", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -475,6 +479,7 @@ enzymes_polypeptide <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
                             override_csv = FALSE) {
+  check_database_connection(save_table)
   path <-
     get_dataset_full_path("drug_enzymes_polypeptides", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -599,6 +604,7 @@ enzymes_polypeptide_ext_ident <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_enzy_poly_ex_identity",
@@ -696,6 +702,7 @@ enzymes_polypeptide_syn <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path("drug_enzy_poly_syn", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -784,6 +791,7 @@ enzymes_polypeptide_pfams <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path("drug_enzymes_polypeptide_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -876,6 +884,7 @@ enzymes_polypeptide_go <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
+    check_database_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_enzy_poly_go",
@@ -964,6 +973,7 @@ enzymes <- function(save_table = FALSE,
                                save_csv = FALSE,
                                csv_path = ".",
                                override_csv = FALSE) {
+  check_database_connection(save_table)
   path <-
     get_dataset_full_path("drug_enzymes", csv_path)
   if (!override_csv & file.exists(path)) {

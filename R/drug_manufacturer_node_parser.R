@@ -69,6 +69,7 @@ get_manufactures_df <- function(rec) {
 #' @export
 drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
                                      csv_path = ".", override_csv = FALSE) {
+  check_database_connection(save_table)
   path <-
     get_dataset_full_path("drug_manufacturers", csv_path)
   if (!override_csv & file.exists(path)) {
