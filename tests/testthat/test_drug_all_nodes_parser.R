@@ -25,6 +25,8 @@ test_that(
     expect_equal(length(drugs), 75)
     expect_equal(dim(drugs_types), c(3, 75))
     expect_error(drug_all(TRUE))
+    capture_warnings(expect_error(drug_all(save_csv = TRUE,
+                          csv_path = "dummy_path")))
   }
 )
 
