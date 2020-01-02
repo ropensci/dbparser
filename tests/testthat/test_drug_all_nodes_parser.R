@@ -24,7 +24,7 @@ test_that(
   code = {
     expect_equal(length(drugs), 75)
     expect_equal(dim(drugs_types), c(3, 75))
-    with_mock(dbConnect = function(...){"dummy_conn"}, {
+    with_mock(open_db = function(...){"dummy_conn"}, {
       expect_error(drug_all(TRUE))})
   }
 )
