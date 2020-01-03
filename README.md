@@ -72,13 +72,6 @@ library(devtools)
 devtools::install_github("Dainanahan/dbparser")
 ```
 
-## Saving into a database
-
-The parsed data may be saved into a given database. Databases supported
-by `dbparser` include MS SQL Server, MySQL and any database supported by
-`DBI` package. Following is an example of saving the parsed data into a
-MySQL database.
-
 ## Code of Conduct
 
 Please note that the ‘dbparser’ project is released with a [Contributor

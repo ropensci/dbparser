@@ -1,0 +1,26 @@
+---
+title: "Saving data into Database"
+author: "Mohammed Ali"
+date: "`r Sys.Date()`"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{DrugBank Parser}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "docs/articles/",
+  out.width = "100%"
+)
+```
+
+## Saving into a database
+
+The parsed data may be saved into a given database. Databases supported by 
+`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` package. 
+Following is an example of saving the 
+parsed data into a MySQL database.
