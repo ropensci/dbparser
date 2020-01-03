@@ -47,28 +47,28 @@ this method
 drug_element()
 
 # save in database and return parsed dataframe
-drug_element(save_table = trUe)
+drug_element(save_table = TRUE)
 
 # save parsed dataframe as csv if it does not exist in current location and
 # return parsed dataframe.
 # if the csv exist before read it and return its data.
-drug_element(save_csv = trUe)
+drug_element(save_csv = TRUE)
 
 # save in database, save parsed dataframe as csv if it does not
 # exist in current location and return parsed dataframe.
 # if the csv exist before read it and return its data.
-drug_element(ssave_table = trUe, save_csv = trUe)
+drug_element(save_table = TRUE, save_csv = TRUE)
 
 # save parsed dataframe as csv if it does not exist in given location and
 # return parsed dataframe.
 # if the csv exist before read it and return its data.
-drug_element(save_csv = trUe, csv_path = trUe)
+drug_element(save_csv = TRUE, csv_path = TRUE)
 
 # save parsed dataframe as csv if it does not exist in current
 # location and return parsed dataframe.
 # if the csv exist override it and return it.
-drug_element(save_csv = trUe, csv_path = trUe, override = trUe)
-drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = trUe)
+drug_element(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
 drug_element(save_table = FALSE)
 drug_element(c("drug_ahfs_codes", "drug_carriers"))
 }

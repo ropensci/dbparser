@@ -52,7 +52,7 @@ drug_reactions_enzymes(save_csv = TRUE)
 # save in database, save parsed dataframe as csv if it does not
 # exist in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-drug_reactions_enzymes(ssave_table = TRUE, save_csv = TRUE)
+drug_reactions_enzymes(save_table = TRUE, save_csv = TRUE)
 
 # save parsed dataframe as csv if it does not exist in
 #  given location and return parsed dataframe.

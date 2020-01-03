@@ -54,7 +54,7 @@ transporters_polypeptide_pfams(save_csv = TRUE)
 # exist in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 transporters_polypeptide_pfams(
-  ssave_table = TRUE,
+  save_table = TRUE,
   save_csv = TRUE
 )
 

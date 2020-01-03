@@ -55,7 +55,7 @@ current
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 carriers_polypeptidepeptides_go(
-  ssave_table = TRUE,
+  save_table = TRUE,
   save_csv = TRUE
 )
 

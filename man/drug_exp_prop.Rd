@@ -53,7 +53,7 @@ drug_exp_prop(save_csv = TRUE)
 # save in database, save parsed dataframe as csv if it does not exist
 # in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
-drug_exp_prop(ssave_table = TRUE, save_csv = TRUE)
+drug_exp_prop(save_table = TRUE, save_csv = TRUE)
 
 # save parsed dataframe as csv if it does not exist in given location
 # and return parsed dataframe.

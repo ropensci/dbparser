@@ -57,7 +57,7 @@ current
 # location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 targets_polypeptide_ext_ident(
-  ssave_table = TRUE,
+  save_table = TRUE,
   save_csv = TRUE
 )
 

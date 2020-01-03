@@ -54,7 +54,7 @@ targets_polypeptide_go(save_csv = TRUE)
 # in current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 targets_polypeptide_go(
-  ssave_table = TRUE,
+  save_table = TRUE,
   save_csv = TRUE
 )
 

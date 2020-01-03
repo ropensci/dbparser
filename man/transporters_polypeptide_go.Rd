@@ -56,7 +56,7 @@ transporters_polypeptide_go(save_csv = TRUE)
 #  current location and return parsed dataframe.
 # If the csv exist before read it and return its data.
 transporters_polypeptide_go(
-  ssave_table = TRUE,
+  save_table = TRUE,
   save_csv = TRUE
 )
 
