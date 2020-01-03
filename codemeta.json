@@ -1,5 +1,8 @@
 {
-  "@context": ["https://doi.org/10.5063/schema/codemeta-2.0", "http://schema.org"],
+  "@context": [
+    "https://doi.org/10.5063/schema/codemeta-2.0",
+    "http://schema.org"
+  ],
   "@type": "SoftwareSourceCode",
   "identifier": "dbparser",
   "description": "This tool is for parsing the 'DrugBank' XML database <http://drugbank.ca/>. The parsed \n    data are then returned in a proper 'R' dataframe with the ability to save \n    them in a given database.",
@@ -189,8 +192,30 @@
   ],
   "releaseNotes": "https://github.com/Dainanahan/dbparser/blob/master/NEWS.md",
   "readme": "https://github.com/Dainanahan/dbparser/blob/master/README.md",
-  "fileSize": "178.713KB",
+  "fileSize": "147.312KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
-  "relatedLink": "https://CRAN.R-project.org/package=dbparser"
+  "developmentStatus": [
+    "https://www.repostatus.org/#active",
+    "https://www.tidyverse.org/lifecycle/#stable"
+  ],
+  "relatedLink": "https://CRAN.R-project.org/package=dbparser",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Mohammed",
+          "familyName": "Ali"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Ali",
+          "familyName": "Ezzat"
+        }
+      ],
+      "name": "DrugBank Database XML Parser",
+      "url": "https://CRAN.R-project.org/package=drugverse"
+    }
+  ]
 }
