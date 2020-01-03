@@ -4,7 +4,7 @@ author: "Mohammed Ali"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Saving Data into Database}
+  %\VignetteIndexEntry{Saving_Data_into_Database}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
