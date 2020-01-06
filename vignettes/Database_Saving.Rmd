@@ -18,9 +18,41 @@ knitr::opts_chunk$set(
 )
 ```
 
-## Saving into a database
+## Introduction
+This tutorial aim to explain `dbparser` database functionalities to save the parsed drug information to a desired RDBM for the user benefit. To do that successfully user has to: 
 
-The parsed data may be saved into a given database. Databases supported by 
-`dbparser` include MS SQL Server, MySQL and any database supported by `DBI` package. 
-Following is an example of saving the 
-parsed data into a MySQL database.
+* provide a working database connection information to either `open_db` function that uses DBI package or `open_mdb` function that uses MariaDB package.
+* enable `save_table` option in parser functions.
+
+Please note that this tutorial does not explain how to install these databases as it is out of the scope.
+
+## Supported Databases
+`dbparser` package uses two database packages `DBI` and `RMariaDB`.
+
+`DBI` separates the connectivity to the DBMS into a *front-end* and a *back-end*. Applications use only the exposed front-end API. The back-end facilities that communicate with specific DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) are provided by drivers (other packages) that get invoked automatically through S4 methods.
+For more information about DBI package please refer to [this link](https://db.rstudio.com/dbi/)
+
+`RMariaDB` is much more simple and used to connect MariaDB.
+
+The following are two examples of how to make the connection with *SQL Server* and *Maria DB*
+### SQL Server
+
+* Make sure you have a working connection to *SQL Server* instance
+![](sql_connection.png)
+* Create new empty database to store drug information
+![](new_database.png)
+* Provide this information to `open_db` function
+```{r eval=FALSE}
+open_db(
+  driver = "SQL Server",
+  server = "SQL2016", output_database = "drugbank"
+)
+```
+* Enable `save_table` option in parser functions.
+* Call `close_db` method after finishing from parsing to close your database connection properly.
+ 
+### Maria Knowledge Base
+
+* Install MariaDB
+* Install MySQL client for MariaDB
+* Do the same steps as SQL Server above.
