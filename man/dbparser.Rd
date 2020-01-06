@@ -8,8 +8,8 @@
 option to save it in a given db.}
 \description{
 The main purpose of the `dbparser` package is to parse the
-\strong{DrugBank} (\link{http://drugbank.ca}) database which is downloadable
-in XML format from \link{https://www.drugbank.ca/releases/latest}.
+\strong{DrugBank} database which is downloadable
+in XML format.
 The parsed data can then be explored and analyzed as desired by the user.
 In addition to that user can save parsed dataframe into desired database as
 well.
