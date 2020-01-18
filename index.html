@@ -86,13 +86,11 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p><a href="http://drugbank.ca/">DrugBank</a> database is a comprehensive, freely accessible, online database containing information on drugs and drug targets. As both a bioinformatics and a cheminformatics resource, DrugBank combines detailed drug (i.e. chemical, pharmacological and pharmaceutical) data with comprehensive drug target (i.e. sequence, structure, and pathway) information, more information about DrugBank can be found <a href="https://www.drugbank.ca/about/">here</a>.</p>
-<p>Using DrugBank database is not an easy task. As it is stored in a single XML file that can be viewed using XMLviewer as stated <a href="http://shorturl.at/erEM7">here</a>.</p>
-<p>Here come the importance of <code>dbparser</code> package that parses DrugBank database into different <code>R</code> tibbles that can be then be explored and analyzed as desired by the user, check this <a href="https://dainanahan.github.io/dbparser/articles/dbparser.html">tutorial</a>.</p>
-<p>Moreover; user can save these tibbles in different databases like <strong>SQL Server DDB</strong> and <strong>Maria DB</strong> using <code>dbparser</code>.</p>
-<p><code>dbparser</code> is tested against DrugBank versions <em>5.1.0</em> through <em>5.1.4</em> successfully. If you found errors with these versions or any other version please submit an issue <a href="https://github.com/Dainanahan/dbparser/issues">here</a>.</p>
-<p>Final note, in order to download DrugBank database you have to create a count <a href="https://www.drugbank.ca/public_users/sign_up">here</a> and wait a little for registration confirmation.</p>
-<p>While you are waiting you can make use from <code>dbdataset</code> data package <a href="https://dainanahan.github.io/dbdataset/index.html">here</a>. It contains parsed DrugBank database <code>R</code> tibbles using <code>dbparser</code>.</p>
+<p><a href="http://drugbank.ca/">DrugBank</a> database is a comprehensive, freely accessible, online database containing information on drugs and drug targets. As both a bioinformatics and a cheminformatics resource, DrugBank combines detailed drug (i.e. chemical, pharmacological and pharmaceutical) data with comprehensive drug target (i.e. sequence, structure, and pathway) information. More information about DrugBank can be found <a href="https://www.drugbank.ca/about/">here</a>.</p>
+<p>In its raw form, the DrugBank database is a single XML file. Users must create an <a href="https://www.drugbank.ca/public_users/sign_up">account</a> with Drugbank and request permission to <a href="https://www.drugbank.ca/releases/latest">download</a> the database. Note that this may take a couple of days.</p>
+<p>The <code>dbparser</code> package parses the DrugBank XML database into <code>R</code> tibbles to then be explored and analyzed by the user. The package also offers the option to save these tibbles in databases including <strong>SQL Server DDB</strong> and <strong>Maria DB</strong>. See our <a href="https://dainanahan.github.io/dbparser/articles/dbparser.html">tutorial</a> to get started.</p>
+<p>If you are waiting for access to the DrugBank database, or do not intend to do a deep dive with the data, you may wish to use the <code>dbdataset</code> <a href="https://dainanahan.github.io/dbdataset/index.html">package</a>, which contains the DrugBank database already parsed into <code>R</code> tibbles. Note that this is a large package that exceeds the limit set by CRAN. It is only available on GitHub.</p>
+<p><code>dbparser</code> is tested against DrugBank versions <em>5.1.0</em> through <em>5.1.4</em> successfully. If you find errors with these versions or any other version please submit an issue <a href="https://github.com/Dainanahan/dbparser/issues">here</a>.</p>
 </div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
@@ -122,8 +120,8 @@
 <a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">#&gt; To cite dbparser in publications use:</span></a>
 <a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">#&gt; </span></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;   Parser. R package version 1.0.5.9000.</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">#&gt;   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="co">#&gt;   package version 1.0.5.9000.</span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="co">#&gt; </span></a>
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co">#&gt; A BibTeX entry for LaTeX users is</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co">#&gt; </span></a>
