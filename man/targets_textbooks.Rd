@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_targets_node_parser.R
 \name{targets_textbooks}
 \alias{targets_textbooks}
-\title{Extracts the drug targ textbooks element and return data as data frame.}
+\title{Extracts the drug targ textbooks element and return data as tibble.}
 \usage{
 targets_textbooks(save_table = FALSE, save_csv = FALSE,
   csv_path = ".", override_csv = FALSE)
@@ -10,7 +10,7 @@ targets_textbooks(save_table = FALSE, save_csv = FALSE,
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
 
-\item{save_csv}{boolean, save csv version of parsed dataframe if true}
+\item{save_csv}{boolean, save csv version of parsed tibble if true}
 
 \item{csv_path}{location to save csv files into it, default is current
 location, save_csv must be true}
@@ -22,7 +22,7 @@ new parse operation}
 drug targ textbooks node attributes date frame
 }
 \description{
-\code{targets_textbooks} returns data frame of drug
+\code{targets_textbooks} returns tibble of drug
  targ textbooks elements.
 }
 \details{
@@ -30,7 +30,7 @@ This functions extracts the targ textbooks element of drug node in
  drugbank
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after \code{\link{read_drugbank_xml_db}} function like
 any other parser function.
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -38,29 +38,29 @@ no need to call it again before calling this function.
 }
 \examples{
 \dontrun{
-# return only the parsed dataframe
+# return only the parsed tibble
 targets_textbooks()
 
-# save in database and return parsed dataframe
+# save in database and return parsed tibble
 targets_textbooks(save_table = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current
-# location and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current
+# location and return parsed tibble.
 # If the csv exist before read it and return its data.
 targets_textbooks(save_csv = TRUE)
 
-# save in database, save parsed dataframe as csv if it does not
-# exist in current location and return parsed dataframe.
+# save in database, save parsed tibble as csv if it does not
+# exist in current location and return parsed tibble.
 # If the csv exist before read it and return its data.
 targets_textbooks(save_table = TRUE, save_csv = TRUE)
 
-# save parsed dataframe as csv if it does not exist in given location
-# and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in given location
+# and return parsed tibble.
 # If the csv exist before read it and return its data.
 targets_textbooks(save_csv = TRUE, csv_path = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current
-# location and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current
+# location and return parsed tibble.
 # If the csv exist override it and return it.
 targets_textbooks(
   save_csv = TRUE, csv_path = TRUE,

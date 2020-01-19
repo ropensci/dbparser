@@ -11,7 +11,7 @@ The main purpose of the `dbparser` package is to parse the
 \strong{DrugBank} database which is downloadable
 in XML format.
 The parsed data can then be explored and analyzed as desired by the user.
-In addition to that user can save parsed dataframe into desired database as
+In addition to that user can save parsed tibble into desired database as
 well.
 }
 \details{
@@ -34,7 +34,7 @@ database related methods, xml db reader and \strong{DrugBank} elements
 \section{parsers functions}{
 
  Each parser function is responsible of parsing certain drug element and
- returning its dataframe
+ returning its tibble
  with the ability to save it in a predefined database.
 }
 

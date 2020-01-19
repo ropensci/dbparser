@@ -12,7 +12,7 @@
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -21,29 +21,29 @@
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' #  and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' #  and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -163,7 +163,7 @@ drug <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -172,29 +172,29 @@ drug <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_groups()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_groups(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_groups(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_groups(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_groups(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_groups(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -243,7 +243,7 @@ drug_groups <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -252,29 +252,29 @@ drug_groups <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_articles()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_articles(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_articles(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it
-#' # does not exist in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it
+#' # does not exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_articles(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_articles(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -324,7 +324,7 @@ drug_articles <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -333,29 +333,29 @@ drug_articles <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_books()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_books(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_books(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not
-#' # exist in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not
+#' # exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_books(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given l
-#' # ocation and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given l
+#' # ocation and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_books(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_books(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -403,7 +403,7 @@ drug_books <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -412,29 +412,29 @@ drug_books <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_links()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not
-#' # exist in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not
+#' # exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_links(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -483,7 +483,7 @@ drug_links <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -492,29 +492,29 @@ drug_links <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_syn()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_syn(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_syn(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_syn(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_syn(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_syn(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -560,7 +560,7 @@ drug_syn <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -569,29 +569,29 @@ drug_syn <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_products()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_products(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_products(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_products(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_products(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_products(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -638,7 +638,7 @@ drug_products <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -647,29 +647,29 @@ drug_products <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_calc_prop()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_calc_prop(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_calc_prop(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_calc_prop(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_calc_prop(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_calc_prop(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -723,7 +723,7 @@ drug_calc_prop <- function(save_table = FALSE,
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -732,29 +732,29 @@ drug_calc_prop <- function(save_table = FALSE,
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_intern_brand()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_intern_brand(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_intern_brand(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' #  current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' #  current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_intern_brand(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_intern_brand(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_intern_brand(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -807,7 +807,7 @@ drug_intern_brand <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in t
@@ -816,29 +816,29 @@ drug_intern_brand <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_salts()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_salts(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_salts(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_salts(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_salts(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_salts(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -885,7 +885,7 @@ drug_salts <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -894,29 +894,29 @@ drug_salts <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_mixtures()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_mixtures(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_mixtures(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_mixtures(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_mixtures(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_mixtures(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -962,7 +962,7 @@ drug_mixtures <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -971,29 +971,29 @@ drug_mixtures <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_packagers()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_packagers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_packagers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not
-#' # exist in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not
+#' # exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_packagers(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_packagers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_packagers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1038,7 +1038,7 @@ drug_packagers <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1047,29 +1047,29 @@ drug_packagers <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_categories()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_categories(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_categories(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' #  in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' #  in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_categories(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_categories(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_categories(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1115,7 +1115,7 @@ drug_categories <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1124,29 +1124,29 @@ drug_categories <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_affected_organisms()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_affected_organisms(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_affected_organisms(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_affected_organisms(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_affected_organisms(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_affected_organisms(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -1201,7 +1201,7 @@ drug_affected_organisms <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1210,29 +1210,29 @@ drug_affected_organisms <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_dosages()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_dosages(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_dosages(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_dosages(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' #  and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' #  and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_dosages(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_dosages(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1278,7 +1278,7 @@ drug_dosages <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1287,29 +1287,29 @@ drug_dosages <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_ahfs_codes()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_ahfs_codes(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ahfs_codes(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ahfs_codes(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1357,7 +1357,7 @@ drug_ahfs_codes <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1366,29 +1366,29 @@ drug_ahfs_codes <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_pdb_entries()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_pdb_entries(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pdb_entries(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pdb_entries(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pdb_entries(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_pdb_entries(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1436,7 +1436,7 @@ drug_pdb_entries <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1445,29 +1445,29 @@ drug_pdb_entries <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_patents()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_patents(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_patents(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # 'in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # 'in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_patents(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_patents(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_patents(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1513,7 +1513,7 @@ drug_patents <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1522,29 +1522,29 @@ drug_patents <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_food_interactions()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_food_interactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_food_interactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_food_interactions(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_food_interactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' #  and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' #  and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_food_interactions(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -1599,7 +1599,7 @@ drug_food_interactions <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1608,29 +1608,29 @@ drug_food_interactions <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_interactions()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_interactions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_interactions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_interactions(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_interactions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_interactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1680,7 +1680,7 @@ drug_interactions <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1689,29 +1689,29 @@ drug_interactions <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_exp_prop()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_exp_prop(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_exp_prop(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_exp_prop(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_exp_prop(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_exp_prop(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -1764,7 +1764,7 @@ drug_exp_prop <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1773,29 +1773,29 @@ drug_exp_prop <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_ex_identity()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_ex_identity(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ex_identity(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ex_identity(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_ex_identity(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_ex_identity(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -1847,7 +1847,7 @@ drug_ex_identity <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #'  location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1856,29 +1856,29 @@ drug_ex_identity <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_external_links()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_external_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_external_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_external_links(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_external_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_external_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -1924,7 +1924,7 @@ drug_external_links <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -1933,29 +1933,29 @@ drug_external_links <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_snp_effects()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_snp_effects(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_effects(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_effects(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_effects(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_snp_effects(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -2003,7 +2003,7 @@ drug_snp_effects <-
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -2012,29 +2012,29 @@ drug_snp_effects <-
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_snp_adverse_reactions ()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_snp_adverse_reactions (save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_adverse_reactions (save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_adverse_reactions (save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_snp_adverse_reactions (save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_snp_adverse_reactions (
 #'   save_csv = TRUE, csv_path = TRUE,

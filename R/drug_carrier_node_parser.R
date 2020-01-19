@@ -59,23 +59,23 @@ get_carr_poly_go_df <- function(rec) {
   ))
 }
 
-#' Extracts the drug carriers actions element and return data as data frame.
+#' Extracts the drug carriers actions element and return data as tibble.
 #'
-#' \code{carriers_actions} returns data frame of drug
+#' \code{carriers_actions} returns tibble of drug
 #'  carriers actions elements.
 #'
 #' This functions extracts the carriers actions element of drug
 #'  node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -86,30 +86,30 @@ get_carr_poly_go_df <- function(rec) {
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_actions()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_actions(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_actions(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # save in database, save parsed tibble as csv if it does not exist in
 #' current
-#' # location and return parsed dataframe.
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_actions(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_actions(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist override it and return it.
 #'
 #' carriers_actions(
@@ -151,23 +151,23 @@ carriers_actions <-
   }
 
 #' Extracts the drug carriers articles element and return
-#'  data as data frame.
+#'  data as tibble.
 #'
-#' \code{carriers_articles} returns data frame of
+#' \code{carriers_articles} returns tibble of
 #' drug carriers articles elements.
 #'
 #' This functions extracts the carriers articles element of drug node in
 #' drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -178,29 +178,29 @@ carriers_actions <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_articles()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_articles(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_articles(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_articles(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_articles(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_articles(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -236,23 +236,23 @@ carriers_articles <-
   }
 
 
-#' Extracts the drug carriers textbooks element and return data as data frame.
+#' Extracts the drug carriers textbooks element and return data as tibble.
 #'
-#' \code{carriers_textbooks} returns data frame of drug carriers
+#' \code{carriers_textbooks} returns tibble of drug carriers
 #'  textbooks elements.
 #'
 #' This functions extracts the carriers textbooks element of drug node in
 #' drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -263,29 +263,29 @@ carriers_articles <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_textbooks()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_textbooks(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_textbooks(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_textbooks(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_textbooks(
 #'   save_csv = TRUE, csv_path = TRUE, override =
@@ -321,22 +321,22 @@ carriers_textbooks <-
     return(drug_carriers_textbooks %>% as_tibble())
   }
 
-#' Extracts the drug carriers links element and return data as data frame.
+#' Extracts the drug carriers links element and return data as tibble.
 #'
-#' \code{drug_groups} returns data frame of drug carriers links elements.
+#' \code{drug_groups} returns tibble of drug carriers links elements.
 #'
 #' This functions extracts the carriers links element of drug node in
 #' \strong{DrugBank} xml database with the option to save it in a predefined
 #' database via \code{\link{open_db}} method.
 #' It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
@@ -347,30 +347,30 @@ carriers_textbooks <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_links()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_links(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_links(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # save in database, save parsed tibble as csv if it does not exist in
 #' current
-#' # location and return parsed dataframe.
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_links(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_links(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -403,23 +403,23 @@ carriers_links <-
   }
 
 #' Extracts the drug carriers polypeptides element and return data as
-#' data frame.
+#' tibble.
 #'
-#' \code{carriers_polypeptides} returns data frame of drug carriers
+#' \code{carriers_polypeptides} returns tibble of drug carriers
 #' polypeptides elements.
 #'
 #' This functions extracts the carriers polypeptides element of drug
 #' node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #'  location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
@@ -430,29 +430,29 @@ carriers_links <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_polypeptide()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_polypeptide(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_polypeptide(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -516,23 +516,23 @@ carriers_polypeptide <- function(save_table = FALSE,
 }
 
 #' Extracts the drug carriers polypeptides external identifiers
-#'  element and return data as data frame.
+#'  element and return data as tibble.
 #'
 #' \code{carriers_polypeptide_ext_identity } returns
-#'  data frame of drug carriers polypeptides external identifiers elements.
+#'  tibble of drug carriers polypeptides external identifiers elements.
 #'
 #' This functions extracts the carriers polypeptides external identifiers
 #'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -542,35 +542,35 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' @family carriers
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_polypeptide_ext_identity()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_polypeptide_ext_identity(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide_ext_identity(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide_ext_identity(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptide_ext_identity(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_polypeptide_ext_identity(
 #'   save_csv = TRUE, csv_path = TRUE, override = TRUE
@@ -619,23 +619,23 @@ carriers_polypeptide_ext_identity <-
   }
 
 #' Extracts the drug carriers polypeptides syn element and return data as
-#' data frame.
+#' tibble.
 #'
 #' \code{carriers_polypeptidepeptides_syn} returns
-#'  data frame of drug carriers polypeptides syn elements.
+#'  tibble of drug carriers polypeptides syn elements.
 #'
 #' This functions extracts the carriers polypeptides syn
 #'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
@@ -644,32 +644,32 @@ carriers_polypeptide_ext_identity <-
 #' @family carriers
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_polypeptidepeptides_syn()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_polypeptidepeptides_syn(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_syn(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_syn(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_syn(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_polypeptidepeptides_syn(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -712,23 +712,23 @@ carriers_polypeptidepeptides_syn <-
   }
 
 #' Extracts the drug carriers polypeptides pfams element and return data as
-#' data frame.
+#' tibble.
 #'
-#' \code{carriers_polypeptidepeptides_pfams} returns data frame
+#' \code{carriers_polypeptidepeptides_pfams} returns tibble
 #'  of drug carriers polypeptides pfams elements.
 #'
 #' This functions extracts the carriers polypeptides pfams element of
 #'  drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -737,29 +737,29 @@ carriers_polypeptidepeptides_syn <-
 #' @family carriers
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_polypeptidepeptides_pfams()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_polypeptidepeptides_pfams(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_pfams(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' #  current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' #  current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_pfams(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_polypeptidepeptides_pfams(
 #'   save_csv = TRUE, csv_path = TRUE,
@@ -801,23 +801,23 @@ carriers_polypeptidepeptides_pfams <-
   }
 
 #' Extracts the drug carriers polypeptides go classifiers
-#'  element and return data as data frame.
+#'  element and return data as tibble.
 #'
 #' \code{carriers_polypeptidepeptides_go} returns
-#' data frame of drug carriers polypeptides go classifiers elements.
+#' tibble of drug carriers polypeptides go classifiers elements.
 #'
 #' This functions extracts the carriers polypeptides go
 #' classifiers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -826,36 +826,36 @@ carriers_polypeptidepeptides_pfams <-
 #' @family carriers
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers_polypeptidepeptides_go()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers_polypeptidepeptides_go(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_go(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # save in database, save parsed tibble as csv if it does not exist in
 #' current
-#' # location and return parsed dataframe.
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_go(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers_polypeptidepeptides_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers_polypeptidepeptides_go(
 #'   save_csv = TRUE,
@@ -901,22 +901,22 @@ carriers_polypeptidepeptides_go <-
     return(carr_poly_go %>% as_tibble())
   }
 
-#' Extracts the drug carriers element and return data as data frame.
+#' Extracts the drug carriers element and return data as tibble.
 #'
-#' \code{carriers} returns data frame of drug carriers elements.
+#' \code{carriers} returns tibble of drug carriers elements.
 #'
 #' This functions extracts the carriers element of drug node in
 #'  \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #'  location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
@@ -925,29 +925,29 @@ carriers_polypeptidepeptides_go <-
 #' @family carriers
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' carriers()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' carriers(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist
-#' # in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' carriers(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' carriers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }

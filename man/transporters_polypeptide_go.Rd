@@ -3,7 +3,7 @@
 \name{transporters_polypeptide_go}
 \alias{transporters_polypeptide_go}
 \title{Extracts the drug transporters polypeptides go
-classifiers element and return data as data frame.}
+classifiers element and return data as tibble.}
 \usage{
 transporters_polypeptide_go(save_table = FALSE, save_csv = FALSE,
   csv_path = ".", override_csv = FALSE)
@@ -11,7 +11,7 @@ transporters_polypeptide_go(save_table = FALSE, save_csv = FALSE,
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
 
-\item{save_csv}{boolean, save csv version of parsed dataframe if true}
+\item{save_csv}{boolean, save csv version of parsed tibble if true}
 
 \item{csv_path}{location to save csv files into it, default is current
 location, save_csv must be true}
@@ -25,7 +25,7 @@ date frame
 }
 \description{
 \code{transporters_polypeptide_go}
-returns data frame of drug transporters polypeptides
+returns tibble of drug transporters polypeptides
 go classifiers elements.
 }
 \details{
@@ -33,7 +33,7 @@ This functions extracts the transporters polypeptides go
  classifiers element of drug node in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after \code{\link{read_drugbank_xml_db}} function like
 any other parser function.
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -41,35 +41,35 @@ no need to call it again before calling this function.
 }
 \examples{
 \dontrun{
-# return only the parsed dataframe
+# return only the parsed tibble
 transporters_polypeptide_go()
 
-# save in database and return parsed dataframe
+# save in database and return parsed tibble
 transporters_polypeptide_go(save_table = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current
-# location and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current
+# location and return parsed tibble.
 # If the csv exist before read it and return its data.
 transporters_polypeptide_go(save_csv = TRUE)
 
-# save in database, save parsed dataframe as csv if it does not exist in
-#  current location and return parsed dataframe.
+# save in database, save parsed tibble as csv if it does not exist in
+#  current location and return parsed tibble.
 # If the csv exist before read it and return its data.
 transporters_polypeptide_go(
   save_table = TRUE,
   save_csv = TRUE
 )
 
-# save parsed dataframe as csv if it does not exist in given location
-# and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in given location
+# and return parsed tibble.
 # If the csv exist before read it and return its data.
 transporters_polypeptide_go(
   save_csv = TRUE,
   csv_path = TRUE
 )
 
-# save parsed dataframe as csv if it does not exist in current
-# location and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current
+# location and return parsed tibble.
 # If the csv exist override it and return it.
 transporters_polypeptide_go(
   save_csv = TRUE, csv_path = TRUE, override = TRUE

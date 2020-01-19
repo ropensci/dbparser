@@ -31,22 +31,22 @@ get_pathways_enzymes_df <- function(rec) {
   ))
 }
 
-#' Extracts the drug pathway enzyme element and return data as data frame.
+#' Extracts the drug pathway enzyme element and return data as tibble.
 #'
-#' \code{drug_pathway_enzyme} returns data frame of drug pathway enzyme
+#' \code{drug_pathway_enzyme} returns tibble of drug pathway enzyme
 #'  elements.
 #'
 #' This functions extracts the pathway enzyme element of drug node in drugbank
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -55,29 +55,29 @@ get_pathways_enzymes_df <- function(rec) {
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_pathway_enzyme()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_pathway_enzyme(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_enzyme(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
-#' # current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not exist in
+#' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_enzyme(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location
+#' # and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_pathway_enzyme(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -114,23 +114,23 @@ drug_pathway_enzyme <-
     return(drug_pathway_enzymes %>% as_tibble())
   }
 
-#' Extracts the drug pathway drugs element and return data as data frame.
+#' Extracts the drug pathway drugs element and return data as tibble.
 #'
-#' \code{drug_pathway_drugs} returns data frame of drug pathway drugs
+#' \code{drug_pathway_drugs} returns tibble of drug pathway drugs
 #'  elements.
 #'
 #' This functions extracts the pathway drugs element of drug node in
 #' \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
@@ -139,30 +139,30 @@ drug_pathway_enzyme <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_pathway_drugs()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_pathway_drugs(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_drugs(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # save in database, save parsed tibble as csv if it does not exist in
 #' current
-#' # location and return parsed dataframe.
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_drugs(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_pathway_drugs(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
@@ -196,21 +196,21 @@ drug_pathway_drugs <-
     return(drug_pathway_drugs %>% as_tibble())
   }
 
-#' Extracts the drug pathway element and return data as data frame.
+#' Extracts the drug pathway element and return data as tibble.
 #'
-#' \code{drug_pathway} returns data frame of drug pathway elements.
+#' \code{drug_pathway} returns tibble of drug pathway elements.
 #'
 #' This functions extracts the groups element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
 #' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -219,29 +219,29 @@ drug_pathway_drugs <-
 #'
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_pathway()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_pathway(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not
-#' #  exist in current location and return parsed dataframe.
+#' # save in database, save parsed tibble as csv if it does not
+#' #  exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location
-#' # and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location
+#' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_pathway(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current
-#' # location and return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_pathway(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }

@@ -24,22 +24,22 @@ get_atc_codes_df <- function(rec) {
 }
 
 
-#' Extracts the drug atc codes element and return data as data frame.
+#' Extracts the drug atc codes element and return data as tibble.
 #'
-#' \code{drug_atc_codes} returns data frame of drug atc codes elements.
+#' \code{drug_atc_codes} returns tibble of drug atc codes elements.
 #'
 #' This functions extracts the atc codes element of drug node in
 #'  \strong{DrugBank} xml database with the option to save it in a predefined
 #'   database via \code{\link{open_db}} method.
 #' It takes one single optional argument to
-#' save the returned dataframe in the database.
+#' save the returned tibble in the database.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed dataframe if true
+#' @param save_csv boolean, save csv version of parsed tibble if true
 #' @param csv_path location to save csv files into it, default is current
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
@@ -48,30 +48,30 @@ get_atc_codes_df <- function(rec) {
 #' @family drugs
 #' @examples
 #' \dontrun{
-#' # return only the parsed dataframe
+#' # return only the parsed tibble
 #' drug_atc_codes()
 #'
-#' # save in database and return parsed dataframe
+#' # save in database and return parsed tibble
 #' drug_atc_codes(save_table = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_atc_codes(save_csv = TRUE)
 #'
-#' # save in database, save parsed dataframe as csv if it does not exist in
+#' # save in database, save parsed tibble as csv if it does not exist in
 #' current
-#' #  location and return parsed dataframe.
+#' #  location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_atc_codes(save_table = TRUE, save_csv = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in given location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in given location and
+#' # return parsed tibble.
 #' # If the csv exist before read it and return its data.
 #' drug_atc_codes(save_csv = TRUE, csv_path = TRUE)
 #'
-#' # save parsed dataframe as csv if it does not exist in current location and
-#' # return parsed dataframe.
+#' # save parsed tibble as csv if it does not exist in current location and
+#' # return parsed tibble.
 #' # If the csv exist override it and return it.
 #' drug_atc_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }

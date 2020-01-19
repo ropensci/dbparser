@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_all_nodes_parser.R
 \name{drug_element}
 \alias{drug_element}
-\title{extracts the given drug elements and return data as list of dataframes.}
+\title{extracts the given drug elements and return data as list of tibbles.}
 \usage{
 drug_element(elements_options = c("all"), save_table = FALSE,
   save_csv = FALSE, csv_path = ".", override_csv = FALSE)
@@ -13,7 +13,7 @@ drug_element(elements_options = c("all"), save_table = FALSE,
 
 \item{save_table}{boolean, save table in database if true.}
 
-\item{save_csv}{boolean, save csv version of parsed dataframe if true}
+\item{save_csv}{boolean, save csv version of parsed tibble if true}
 
 \item{csv_path}{location to save csv files into it, default is current
 location, save_csv must be true}
@@ -22,17 +22,17 @@ location, save_csv must be true}
 new parse operation}
 }
 \value{
-list of selected drug elements dataframes
+list of selected drug elements tibbles
 }
 \description{
-\code{drug_element} returns list of dataframes of drugs selected
+\code{drug_element} returns list of tibbles of drugs selected
 elements.
 }
 \details{
 this functions extracts selected element of drug nodes in \strong{DrugBank}
 xml database with the option to save it in a predefined database via
 \code{\link{open_db}} method. it takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 it must be called after \code{\link{read_drugbank_xml_db}} function like
 any other parser function.
 if \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -43,29 +43,29 @@ this method
 }
 \examples{
 \dontrun{
-# return only the parsed dataframe
+# return only the parsed tibble
 drug_element()
 
-# save in database and return parsed dataframe
+# save in database and return parsed tibble
 drug_element(save_table = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current location and
-# return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
 # if the csv exist before read it and return its data.
 drug_element(save_csv = TRUE)
 
-# save in database, save parsed dataframe as csv if it does not
-# exist in current location and return parsed dataframe.
+# save in database, save parsed tibble as csv if it does not
+# exist in current location and return parsed tibble.
 # if the csv exist before read it and return its data.
 drug_element(save_table = TRUE, save_csv = TRUE)
 
-# save parsed dataframe as csv if it does not exist in given location and
-# return parsed dataframe.
+# save parsed tibble as csv if it does not exist in given location and
+# return parsed tibble.
 # if the csv exist before read it and return its data.
 drug_element(save_csv = TRUE, csv_path = TRUE)
 
-# save parsed dataframe as csv if it does not exist in current
-# location and return parsed dataframe.
+# save parsed tibble as csv if it does not exist in current
+# location and return parsed tibble.
 # if the csv exist override it and return it.
 drug_element(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
