@@ -68,7 +68,7 @@ get_prices_df <- function(rec) {
 #' @export
 drug_prices <- function(save_table = FALSE, save_csv = FALSE,
                               csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_prices", csv_path)
   if (!override_csv & file.exists(path)) {

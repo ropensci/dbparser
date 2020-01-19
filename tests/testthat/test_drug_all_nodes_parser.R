@@ -11,10 +11,29 @@ classlist <- function(x) {
 }
 
 test_that(
-  desc = "Read database",
+  desc = "Read database incorrectly",
   code = {
     expect_error(read_drugbank_xml_db("I_do_not_exist_file.xml"))
     expect_error(read_drugbank_xml_db("drugbank_record"))
+  }
+)
+
+test_that(
+  desc = "Parse Empty Data Set",
+  code = {
+    expect_error(drug_all())
+  }
+)
+
+biotech <- "drugbank_record_biotech.xml"
+test_that(
+  desc = "Read database",
+  code = {
+    expect_true(
+      read_drugbank_xml_db(
+        system.file("extdata", biotech, package = "dbparser")
+      )
+    )
   }
 )
 drugs <- drug_all()

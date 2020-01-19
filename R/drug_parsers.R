@@ -53,7 +53,7 @@ drug <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drugs", csv_path)
     if (!override_csv & file.exists(path)) {
       drugs <- readr::read_csv(path)
@@ -204,7 +204,7 @@ drug_groups <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_groups", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_groups <- readr::read_csv(path)
@@ -284,7 +284,7 @@ drug_articles <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_articles", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_articles <- readr::read_csv(path)
@@ -365,7 +365,7 @@ drug_books <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_books", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_books <- readr::read_csv(path)
@@ -444,7 +444,7 @@ drug_links <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_links", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_links <- readr::read_csv(path)
@@ -524,7 +524,7 @@ drug_syn <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_syn", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_syn <- readr::read_csv(path)
@@ -601,7 +601,7 @@ drug_products <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_products", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_products <- readr::read_csv(path)
@@ -681,7 +681,7 @@ drug_calc_prop <- function(save_table = FALSE,
                                  save_csv = FALSE,
                                  csv_path = ".",
                                  override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_calculated_properties", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -767,7 +767,7 @@ drug_intern_brand <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_international_brands", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -848,7 +848,7 @@ drug_salts <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_salts", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -926,7 +926,7 @@ drug_mixtures <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_mixtures", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_mixtures <- readr::read_csv(path)
@@ -1003,7 +1003,7 @@ drug_packagers <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_packagers", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_packagers <- readr::read_csv(path)
@@ -1079,7 +1079,7 @@ drug_categories <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_categories", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_categories <- readr::read_csv(path)
@@ -1159,7 +1159,7 @@ drug_affected_organisms <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_affected_organisms", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_affected_organisms <- readr::read_csv(path)
@@ -1242,7 +1242,7 @@ drug_dosages <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_dosages", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_dosages <- readr::read_csv(path)
@@ -1319,7 +1319,7 @@ drug_ahfs_codes <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_ahfs_codes", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_ahfs_codes <- readr::read_csv(path)
@@ -1398,7 +1398,7 @@ drug_pdb_entries <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_pdb_entries", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_pdb_entries <- readr::read_csv(path)
@@ -1477,7 +1477,7 @@ drug_patents <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_patents", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_patents <- readr::read_csv(path)
@@ -1557,7 +1557,7 @@ drug_food_interactions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_food_interactions", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_food_interactions <- readr::read_csv(path)
@@ -1640,7 +1640,7 @@ drug_interactions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_drug_interactions", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_drug_interactions <- readr::read_csv(path)
@@ -1724,7 +1724,7 @@ drug_exp_prop <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_experimental_properties", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -1808,7 +1808,7 @@ drug_ex_identity <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_external_identifiers", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_external_identifiers <- readr::read_csv(path)
@@ -1888,7 +1888,7 @@ drug_external_links <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_external_links", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_external_links <- readr::read_csv(path)
@@ -1965,7 +1965,7 @@ drug_snp_effects <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_snp_effects", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_snp_effects <- readr::read_csv(path)
@@ -2047,7 +2047,7 @@ drug_snp_adverse_reactions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("snp_adverse_reactions", csv_path)
     if (!override_csv & file.exists(path)) {

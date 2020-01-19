@@ -127,7 +127,7 @@ transporters_actions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_actions", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -218,7 +218,7 @@ transporters_articles <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_articles", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -305,7 +305,7 @@ transporters_textbooks <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -390,7 +390,7 @@ transporters_links <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_links", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -476,7 +476,7 @@ transporters_polypeptide <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_polys", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -594,7 +594,7 @@ transporters_polypep_ex_ident <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_trans_poly_ex_identity",
@@ -697,7 +697,7 @@ transporters_polypeptide_syn <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_poly_syn", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -793,7 +793,7 @@ transporters_polypeptide_pfams <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_trans_polys_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -890,7 +890,7 @@ transporters_polypeptide_go <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_trans_polys_go",
@@ -986,7 +986,7 @@ transporters <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_transporters", csv_path)
     if (!override_csv & file.exists(path)) {

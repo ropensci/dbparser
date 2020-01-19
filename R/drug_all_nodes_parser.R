@@ -51,7 +51,7 @@ drug_all <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     drugs <- drug(save_table, save_csv, csv_path, override_csv)
     message("parsed drugs main attributes, 1/75")
     groups_drug <-
@@ -529,7 +529,7 @@ drug_element <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     if (!all(elements_options %in% drug_element_options())) {
       stop("invalid options\nplease use drug_element_options() to
            know valid options")

@@ -172,7 +172,7 @@ drug_pathway_drugs <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_pathway_drugs", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -251,7 +251,7 @@ drug_pathway <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_pathway", csv_path)
     if (!override_csv & file.exists(path)) {

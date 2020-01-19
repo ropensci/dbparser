@@ -126,7 +126,7 @@ get_targ_poly_go_df <- function(rec) {
 targets_polypeptide_ext_ident <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_targ_poly_ex_identity",
@@ -219,7 +219,7 @@ targets_polypeptide_ext_ident <-
 targets_polypeptide_syn <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_targ_poly_syn", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -307,7 +307,7 @@ targets_polypeptide_syn <-
 targets_polypeptide_pfams <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_targ_poly_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -401,7 +401,7 @@ targets_polypeptide_pfams <-
 targets_polypeptide_go <-
   function(save_table = FALSE, save_csv = FALSE, csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "drug_targ_polys_go",
@@ -485,7 +485,7 @@ targets_polypeptide_go <-
 #' @export
 targets_actions <- function(save_table = FALSE, save_csv = FALSE,
                                     csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ_actions", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -570,7 +570,7 @@ targets_actions <- function(save_table = FALSE, save_csv = FALSE,
 #' @export
 targets_articles <- function(save_table = FALSE, save_csv = FALSE,
                                      csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ_articles", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -650,7 +650,7 @@ targets_articles <- function(save_table = FALSE, save_csv = FALSE,
 #' @export
 targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
                                       csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ_textbooks", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -728,7 +728,7 @@ targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
 #' @export
 targets_links <- function(save_table = FALSE, save_csv = FALSE,
                                   csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ_links", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -822,7 +822,7 @@ targets_links <- function(save_table = FALSE, save_csv = FALSE,
 targets_polypeptide <- function(save_table = FALSE,
                                   save_csv = FALSE, csv_path = ".",
                                   override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ_polys", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -912,7 +912,7 @@ targets_polypeptide <- function(save_table = FALSE,
 #' @export
 targets <- function(save_table = FALSE, save_csv = FALSE,
                             csv_path = ".", override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_targ", csv_path)
   if (!override_csv & file.exists(path)) {

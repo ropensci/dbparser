@@ -217,8 +217,12 @@ close_db <- function() {
   dbDisconnect(conn = pkg_env$con)
 }
 
-check_database_connection <- function(save_table) {
+check_data_and_connection <- function(save_table) {
   if (save_table && is.null(pkg_env$con)) {
     stop("Data cannot be saved to database while database connection is null")
+  }
+
+  if (is.null(pkg_env$children)) {
+    stop("Please make sure to call read_drugbank_xml_db method first")
   }
 }

@@ -123,7 +123,7 @@ carriers_actions <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_carriers_actions", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_actions <- readr::read_csv(path)
@@ -213,7 +213,7 @@ carriers_articles <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_carriers_articles", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_articles <- readr::read_csv(path)
@@ -298,7 +298,7 @@ carriers_textbooks <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_carriers_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_textbooks <- readr::read_csv(path)
@@ -380,7 +380,7 @@ carriers_links <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path("drug_carriers_links", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_links <- readr::read_csv(path)
@@ -464,7 +464,7 @@ carriers_polypeptide <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
                             override_csv = FALSE) {
-  check_database_connection(save_table)
+  check_data_and_connection(save_table)
   path <-
     get_dataset_full_path("drug_carriers_polypeptides", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -582,7 +582,7 @@ carriers_polypeptide_ext_identity <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "carr_poly_ex_identitys",
@@ -682,7 +682,7 @@ carriers_polypeptidepeptides_syn <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <- get_dataset_full_path(
       "carr_poly_syn",
       csv_path
@@ -772,7 +772,7 @@ carriers_polypeptidepeptides_pfams <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("carr_poly_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -868,7 +868,7 @@ carriers_polypeptidepeptides_go <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path(
         "carr_poly_go",
@@ -957,7 +957,7 @@ carriers <-
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE) {
-    check_database_connection(save_table)
+    check_data_and_connection(save_table)
     path <-
       get_dataset_full_path("drug_carriers", csv_path)
     if (!override_csv & file.exists(path)) {
