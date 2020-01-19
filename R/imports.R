@@ -3,7 +3,7 @@
 #' @importFrom purrr map_df map_chr
 #' @importFrom readr read_csv write_csv
 #' @importFrom RMariaDB MariaDB
-#' @importFrom tibble tibble
+#' @importFrom tibble tibble as_tibble
 #' @importFrom tidyr '%>%'
 #' @importFrom utils unzip
 #' @importFrom XML xmlChildren xmlGetAttr xmlValue xmlToList xmlToDataFrame

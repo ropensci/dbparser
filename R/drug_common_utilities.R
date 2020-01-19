@@ -143,16 +143,19 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
 open_db <-
   function(driver,
            server,
-           output_database,
+           output_database = ":memory:",
            trusted_connection = TRUE) {
-    # db connection
-    pkg_env$con <- dbConnect(
-      odbc(),
-      Driver = driver,
-      Server = server,
-      Database = output_database,
-      Trusted_Connection = trusted_connection
-    )
+    if (driver == "SQLLite") {
+      pkg_env$con <-  dbConnect(RSQLite::SQLite(), output_database)
+    } else {
+      pkg_env$con <- dbConnect(
+        odbc(),
+        Driver = driver,
+        Server = server,
+        Database = output_database,
+        Trusted_Connection = trusted_connection
+      )
+    }
   }
 
 #' Establish connection to given Maria database

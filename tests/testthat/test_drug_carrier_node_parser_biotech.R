@@ -7,6 +7,8 @@ library(tibble)
 library(purrr)
 
 biotech <- "drugbank_record_biotech.xml"
+sqlDrv <- "SQLLite"
+
 test_that(
   desc = "Read database",
   code = {
@@ -17,13 +19,18 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers actions that",
+  desc = "Read drug carriers actions",
   code = {
     expect_equal(
       nrow(carriers_actions()),
       0
     )
     expect_true(is_tibble(carriers_actions()))
+    open_db("SQLLite")
+    expect_error(
+      nrow(carriers_actions(TRUE))
+    )
+    close_db()
     expect_error(carriers_actions(TRUE))
   }
 )

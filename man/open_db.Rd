@@ -4,7 +4,8 @@
 \alias{open_db}
 \title{Establish connection to given data base}
 \usage{
-open_db(driver, server, output_database, trusted_connection = TRUE)
+open_db(driver, server, output_database = ":memory:",
+  trusted_connection = TRUE)
 }
 \arguments{
 \item{driver}{odbc object to define database driver.}
