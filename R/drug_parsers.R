@@ -146,7 +146,7 @@ drug <-
       )
     }
 
-    return(drugs)
+    return(drugs %>% as_tibble())
   }
 
 #' Extracts the drug groups element and return data as tibble.
@@ -226,7 +226,7 @@ drug_groups <-
         table_name = "drug_groups"
       )
     }
-    return(drug_groups)
+    return(drug_groups %>% as_tibble())
   }
 
 #' Extracts the drug articles element and return data as tibble.
@@ -307,7 +307,7 @@ drug_articles <-
         table_name = "drug_articles"
       )
     }
-    return(drug_articles)
+    return(drug_articles %>% as_tibble())
   }
 
 #' Extracts the drug books element and return data as tibble.
@@ -386,7 +386,7 @@ drug_books <-
         table_name = "drug_books"
       )
     }
-    return(drug_books)
+    return(drug_books %>% as_tibble())
   }
 
 #' Extracts the drug links element and return data as tibble.
@@ -465,7 +465,7 @@ drug_links <-
         table_name = "drug_links"
       )
     }
-    return(drug_links)
+    return(drug_links %>% as_tibble())
   }
 
 
@@ -543,7 +543,7 @@ drug_syn <-
         field_types = list(synonym = "varchar(534)")
       )
     }
-    return(drug_syn)
+    return(drug_syn %>% as_tibble())
   }
 
 #' Extracts the drug products element and return data as tibble.
@@ -619,7 +619,7 @@ drug_products <-
         table_name = "drug_products"
       )
     }
-    return(drug_products)
+    return(drug_products %>% as_tibble())
   }
 
 #' Extracts the drug calculated properties element and return data as tibble.
@@ -704,7 +704,7 @@ drug_calc_prop <- function(save_table = FALSE,
       table_name = "drug_calculated_properties"
     )
   }
-  return(drug_calculated_properties)
+  return(drug_calculated_properties %>% as_tibble())
 }
 
 #' Extracts the drug international brands and return data as tibble.
@@ -790,7 +790,7 @@ drug_intern_brand <-
         table_name = "international_brands"
       )
     }
-    return(drug_international_brands)
+    return(drug_international_brands %>% as_tibble())
   }
 
 #' Extracts the drug salts and return data as tibble.
@@ -868,7 +868,7 @@ drug_salts <-
         table_name = "salts"
       )
     }
-    return(drug_salts)
+    return(drug_salts %>% as_tibble())
   }
 
 #' Extracts the drug mixtures element and return data as tibble.
@@ -945,7 +945,7 @@ drug_mixtures <-
         table_name = "drug_mixtures"
       )
     }
-    return(drug_mixtures)
+    return(drug_mixtures %>% as_tibble())
   }
 
 #' Extracts the drug packagers element and return data as tibble.
@@ -1020,7 +1020,7 @@ drug_packagers <-
         table_name = "drug_packagers"
       )
     }
-    return(drug_packagers)
+    return(drug_packagers %>% as_tibble())
   }
 
 
@@ -1096,7 +1096,7 @@ drug_categories <-
         table_name = "drug_categories"
       )
     }
-    return(drug_categories)
+    return(drug_categories %>% as_tibble())
   }
 
 #' Extracts the drug affected organisms element and return data as tibble.
@@ -1184,7 +1184,7 @@ drug_affected_organisms <-
         table_name = "drug_affected_organisms"
       )
     }
-    return(drug_affected_organisms)
+    return(drug_affected_organisms %>% as_tibble())
   }
 
 #' Extracts the drug dosages element and return data as tibble.
@@ -1260,7 +1260,7 @@ drug_dosages <-
         table_name = "drug_dosages"
       )
     }
-    return(drug_dosages)
+    return(drug_dosages %>% as_tibble())
   }
 
 
@@ -1340,7 +1340,7 @@ drug_ahfs_codes <-
         table_name = "drug_ahfs_codes"
       )
     }
-    return(drug_ahfs_codes)
+    return(drug_ahfs_codes %>% as_tibble())
   }
 
 #' Extracts the drug pdb entries element and return data as tibble.
@@ -1419,7 +1419,7 @@ drug_pdb_entries <-
         table_name = "drug_pdb_entries"
       )
     }
-    return(drug_pdb_entries)
+    return(drug_pdb_entries %>% as_tibble())
   }
 
 #' Extracts the drug patents element and return data as tibble.
@@ -1495,7 +1495,7 @@ drug_patents <-
         table_name = "drug_patents"
       )
     }
-    return(drug_patents)
+    return(drug_patents %>% as_tibble())
   }
 
 #' Extracts the drug food interactions element and return data as tibble.
@@ -1582,7 +1582,7 @@ drug_food_interactions <-
         table_name = "drug_food_interactions"
       )
     }
-    return(drug_food_interactions)
+    return(drug_food_interactions %>% as_tibble())
   }
 
 #' Extracts the drug interactions element and return data as tibble.
@@ -1660,7 +1660,7 @@ drug_interactions <-
         table_name = "drug_drug_interactions"
       )
     }
-    return(drug_drug_interactions)
+    return(drug_drug_interactions %>% as_tibble())
   }
 
 #' Extracts the drug experimental properties element and return data as tibble.
@@ -1745,7 +1745,7 @@ drug_exp_prop <-
         table_name = "drug_experimental_properties"
       )
     }
-    return(drug_experimental_properties)
+    return(drug_experimental_properties %>% as_tibble())
   }
 
 #' Extracts the drug external identifiers element and return data as tibble.
@@ -1829,7 +1829,7 @@ drug_ex_identity <-
         table_name = "drug_external_identifiers"
       )
     }
-    return(drug_external_identifiers)
+    return(drug_external_identifiers %>% as_tibble())
   }
 
 #' Extracts the drug external links element and return data as tibble.
@@ -1907,7 +1907,7 @@ drug_external_links <-
         table_name = "drug_external_links"
       )
     }
-    return(drug_external_links)
+    return(drug_external_links %>% as_tibble())
   }
 
 #' Extracts the drug snp effects element and return data as tibble.
@@ -1984,7 +1984,7 @@ drug_snp_effects <-
         table_name = "drug_snp_effects"
       )
     }
-    return(drug_snp_effects)
+    return(drug_snp_effects %>% as_tibble())
   }
 
 #' Extracts the drug snp adverse drug reactions element and return data as
@@ -2069,5 +2069,5 @@ drug_snp_adverse_reactions <-
         table_name = "snp_adverse_reactions"
       )
     }
-    return(snp_adverse_reactions)
+    return(snp_adverse_reactions %>% as_tibble())
   }

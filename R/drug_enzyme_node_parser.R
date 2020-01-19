@@ -169,7 +169,7 @@ enzymes_actions <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_actions)
+    return(drug_enzymes_actions %>% as_tibble())
   }
 
 #' Extracts the drug enzymes articles element and return data as data frame.
@@ -252,7 +252,7 @@ enzymes_articles <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_articles)
+    return(drug_enzymes_articles %>% as_tibble())
   }
 
 #' Extracts the drug enzymes textbooks element and return data as data frame.
@@ -335,7 +335,7 @@ enzymes_textbooks <- function(save_table = FALSE,
       save_table_only = TRUE
     )
   }
-  return(drug_enzymes_textbooks)
+  return(drug_enzymes_textbooks %>% as_tibble())
 }
 
 #' Extracts the drug enzymes links element and return data as data frame.
@@ -417,7 +417,7 @@ enzymes_links <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_links)
+    return(drug_enzymes_links %>% as_tibble())
   }
 
 #' Extracts the drug enzymes polypeptides element and return data as data frame.
@@ -534,7 +534,7 @@ enzymes_polypeptide <- function(save_table = FALSE,
       )
     )
   }
-  return(drug_enzymes_polypeptides)
+  return(drug_enzymes_polypeptides %>% as_tibble())
 }
 
 #' Extracts the drug enzymes polypeptides external identifiers
@@ -637,7 +637,7 @@ enzymes_polypeptide_ext_ident <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzy_poly_ex_identity)
+    return(drug_enzy_poly_ex_identity %>% as_tibble())
   }
 
 
@@ -727,7 +727,7 @@ enzymes_polypeptide_syn <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzy_poly_syn)
+    return(drug_enzy_poly_syn %>% as_tibble())
   }
 
 #' Extracts the drug enzymes polypeptides pfams element and return
@@ -815,7 +815,7 @@ enzymes_polypeptide_pfams <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzymes_polypeptide_pfams)
+    return(drug_enzymes_polypeptide_pfams %>% as_tibble())
   }
 
 #' Extracts the drug groups element and return data as data frame.
@@ -916,7 +916,7 @@ enzymes_polypeptide_go <-
         save_table_only = TRUE
       )
     }
-    return(drug_enzy_poly_go)
+    return(drug_enzy_poly_go %>% as_tibble())
   }
 
 #' Extracts the drug enzymes element and return data as data frame.
@@ -993,5 +993,5 @@ enzymes <- function(save_table = FALSE,
       table_name = "drug_enzymes"
     )
   }
-  return(drug_enzymes)
+  return(drug_enzymes %>% as_tibble())
 }

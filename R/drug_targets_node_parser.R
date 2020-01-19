@@ -156,7 +156,7 @@ targets_polypeptide_ext_ident <-
         save_table_only = TRUE
       )
     }
-    return(drug_targ_poly_ex_identity)
+    return(drug_targ_poly_ex_identity %>% as_tibble())
   }
 
 
@@ -243,7 +243,7 @@ targets_polypeptide_syn <-
         save_table_only = TRUE
       )
     }
-    return(drug_targ_poly_syn)
+    return(drug_targ_poly_syn %>% as_tibble())
   }
 
 
@@ -332,7 +332,7 @@ targets_polypeptide_pfams <-
         save_table_only = TRUE
       )
     }
-    return(drug_targ_poly_pfams)
+    return(drug_targ_poly_pfams %>% as_tibble())
   }
 
 
@@ -429,7 +429,7 @@ targets_polypeptide_go <-
         save_table_only = TRUE
       )
     }
-    return(drug_targ_polys_go)
+    return(drug_targ_polys_go %>% as_tibble())
   }
 
 #' Extracts the drug targ actions element and return data as data frame.
@@ -511,7 +511,7 @@ targets_actions <- function(save_table = FALSE, save_csv = FALSE,
       save_table_only = TRUE
     )
   }
-  return(drug_targ_actions)
+  return(drug_targ_actions %>% as_tibble())
 }
 
 #' Extracts the drug targ articles element and return data as data frame.
@@ -590,7 +590,7 @@ targets_articles <- function(save_table = FALSE, save_csv = FALSE,
       save_table_only = TRUE
     )
   }
-  return(drug_targ_articles)
+  return(drug_targ_articles %>% as_tibble())
 }
 
 #' Extracts the drug targ textbooks element and return data as data frame.
@@ -671,7 +671,7 @@ targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
       save_table_only = TRUE
     )
   }
-  return(drug_targ_textbooks)
+  return(drug_targ_textbooks %>% as_tibble())
 }
 
 #' Extracts the drug targ links element and return data as data frame.
@@ -761,7 +761,7 @@ targets_links <- function(save_table = FALSE, save_csv = FALSE,
       )
     )
   }
-  return(drug_targ_links)
+  return(drug_targ_links %>% as_tibble())
 }
 
 #' Extracts the drug targ polypeptides element and return data as data frame.
@@ -856,7 +856,7 @@ targets_polypeptide <- function(save_table = FALSE,
       )
     )
   }
-  return(drug_targ_polys)
+  return(drug_targ_polys %>% as_tibble())
 }
 
 
@@ -934,5 +934,5 @@ targets <- function(save_table = FALSE, save_csv = FALSE,
       foreign_key = "parent_key"
     )
   }
-  return(drug_targ)
+  return(drug_targ %>% as_tibble())
 }

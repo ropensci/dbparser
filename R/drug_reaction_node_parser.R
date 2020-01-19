@@ -100,7 +100,7 @@ drug_reactions <-
         foreign_key = "parent_key"
       )
     }
-    return(drug_reactions)
+    return(drug_reactions %>% as_tibble())
   }
 
 #' Extracts the drug reactions enzymes element and return data as data frame.
@@ -186,5 +186,5 @@ drug_reactions_enzymes <-
         save_table_only = TRUE
       )
     }
-    return(drug_reactions_enzymes)
+    return(drug_reactions_enzymes %>% as_tibble())
   }

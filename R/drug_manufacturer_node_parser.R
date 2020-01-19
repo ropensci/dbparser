@@ -93,5 +93,5 @@ drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
       table_name = "drug_manufacturers"
     )
   }
-  return(drug_manufacturers)
+  return(drug_manufacturers %>% as_tibble())
 }

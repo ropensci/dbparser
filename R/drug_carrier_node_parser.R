@@ -147,7 +147,7 @@ carriers_actions <-
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_actions)
+    return(drug_carriers_actions %>% as_tibble())
   }
 
 #' Extracts the drug carriers articles element and return
@@ -232,7 +232,7 @@ carriers_articles <-
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_articles)
+    return(drug_carriers_articles %>% as_tibble())
   }
 
 
@@ -318,7 +318,7 @@ carriers_textbooks <-
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_textbooks)
+    return(drug_carriers_textbooks %>% as_tibble())
   }
 
 #' Extracts the drug carriers links element and return data as data frame.
@@ -399,7 +399,7 @@ carriers_links <-
         save_table_only = TRUE
       )
     }
-    return(drug_carriers_links)
+    return(drug_carriers_links %>% as_tibble())
   }
 
 #' Extracts the drug carriers polypeptides element and return data as
@@ -512,7 +512,7 @@ carriers_polypeptide <- function(save_table = FALSE,
       )
     )
   }
-  return(drug_carriers_polypeptides)
+  return(drug_carriers_polypeptides %>% as_tibble())
 }
 
 #' Extracts the drug carriers polypeptides external identifiers
@@ -615,7 +615,7 @@ carriers_polypeptide_ext_identity <-
         save_table_only = TRUE
       )
     }
-    return(carr_poly_ex_identitys)
+    return(carr_poly_ex_identitys %>% as_tibble())
   }
 
 #' Extracts the drug carriers polypeptides syn element and return data as
@@ -708,7 +708,7 @@ carriers_polypeptidepeptides_syn <-
         save_table_only = TRUE
       )
     }
-    return(carr_poly_syn)
+    return(carr_poly_syn %>% as_tibble())
   }
 
 #' Extracts the drug carriers polypeptides pfams element and return data as
@@ -797,7 +797,7 @@ carriers_polypeptidepeptides_pfams <-
         save_table_only = TRUE
       )
     }
-    return(carr_poly_pfams)
+    return(carr_poly_pfams %>% as_tibble())
   }
 
 #' Extracts the drug carriers polypeptides go classifiers
@@ -898,7 +898,7 @@ carriers_polypeptidepeptides_go <-
         save_table_only = TRUE
       )
     }
-    return(carr_poly_go)
+    return(carr_poly_go %>% as_tibble())
   }
 
 #' Extracts the drug carriers element and return data as data frame.
@@ -978,5 +978,5 @@ carriers <-
         foreign_key = "parent_key"
       )
     }
-    return(drug_carriers)
+    return(drug_carriers %>% as_tibble())
   }

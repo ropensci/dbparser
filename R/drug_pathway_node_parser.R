@@ -111,7 +111,7 @@ drug_pathway_enzyme <-
         save_table_only = TRUE
       )
     }
-    return(drug_pathway_enzymes)
+    return(drug_pathway_enzymes %>% as_tibble())
   }
 
 #' Extracts the drug pathway drugs element and return data as data frame.
@@ -193,7 +193,7 @@ drug_pathway_drugs <-
         save_table_only = TRUE
       )
     }
-    return(drug_pathway_drugs)
+    return(drug_pathway_drugs %>% as_tibble())
   }
 
 #' Extracts the drug pathway element and return data as data frame.
@@ -271,5 +271,5 @@ drug_pathway <-
         table_name = "drug_pathway"
       )
     }
-    return(drug_pathway)
+    return(drug_pathway %>% as_tibble())
   }

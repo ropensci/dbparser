@@ -23,6 +23,7 @@ test_that(
       nrow(transporters_actions()),
       0
     )
+    expect_true(is_tibble(transporters_actions()))
     expect_error(transporters_actions(TRUE))
   }
 )
@@ -34,6 +35,7 @@ test_that(
       nrow(transporters_articles()),
       0
     )
+    expect_true(is_tibble(transporters_articles()))
     expect_error(transporters_articlese(TRUE))
   }
 )
@@ -45,6 +47,7 @@ test_that(
       nrow(transporters_textbooks()),
       0
     )
+    expect_true(is_tibble(transporters_textbooks()))
     expect_error(transporters_textbooks(TRUE))
   }
 )
@@ -56,6 +59,7 @@ test_that(
       nrow(transporters_links()),
       0
     )
+    expect_true(is_tibble(transporters_links()))
     expect_error(transporters_links(TRUE))
   }
 )
@@ -67,6 +71,7 @@ test_that(
       nrow(transporters_polypeptide()),
       0
     )
+    expect_true(is_tibble(transporters_polypeptide()))
     expect_error(transporters_polypeptide(TRUE))
   }
 )
@@ -78,6 +83,7 @@ test_that(
       nrow(transporters_polypep_ex_ident()),
       0
     )
+    expect_true(is_tibble(transporters_polypep_ex_ident()))
     expect_error(
       transporters_polypep_ex_ident(TRUE)
     )
@@ -91,6 +97,7 @@ test_that(
       nrow(transporters_polypeptide_syn()),
       0
     )
+    expect_true(is_tibble(transporters_polypeptide_syn()))
     expect_error(transporters_polypeptide_syn(TRUE))
   }
 )
@@ -102,6 +109,7 @@ test_that(
       nrow(transporters_polypeptide_pfams()),
       0
     )
+    expect_true(is_tibble(transporters_polypeptide_pfams()))
     expect_error(transporters_polypeptide_pfams(TRUE))
   }
 )
@@ -112,6 +120,7 @@ test_that(
     expect_equal(
       nrow(transporters_polypeptide_go()), 0
     )
+    expect_true(is_tibble(transporters_polypeptide_go()))
     expect_error(transporters_polypeptide_go(TRUE))
   }
 )
@@ -123,6 +132,7 @@ test_that(
       nrow(transporters()),
       0
     )
+    expect_true(is_tibble(transporters()))
     expect_error(transporters(TRUE))
   }
 )

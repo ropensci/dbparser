@@ -153,7 +153,7 @@ transporters_actions <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_actions)
+    return(drug_trans_actions %>% as_tibble())
   }
 
 
@@ -239,7 +239,7 @@ transporters_articles <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_articles)
+    return(drug_trans_articles %>% as_tibble())
   }
 
 
@@ -326,7 +326,7 @@ transporters_textbooks <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_textbooks)
+    return(drug_trans_textbooks %>% as_tibble())
   }
 
 
@@ -411,7 +411,7 @@ transporters_links <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_links)
+    return(drug_trans_links %>% as_tibble())
   }
 
 
@@ -524,7 +524,7 @@ transporters_polypeptide <-
         )
       )
     }
-    return(drug_trans_polys)
+    return(drug_trans_polys %>% as_tibble())
   }
 
 
@@ -626,7 +626,7 @@ transporters_polypep_ex_ident <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_poly_ex_identity)
+    return(drug_trans_poly_ex_identity %>% as_tibble())
   }
 
 
@@ -725,7 +725,7 @@ transporters_polypeptide_syn <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_poly_syn)
+    return(drug_trans_poly_syn %>% as_tibble())
   }
 
 
@@ -818,7 +818,7 @@ transporters_polypeptide_pfams <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_polys_pfams)
+    return(drug_trans_polys_pfams %>% as_tibble())
   }
 
 
@@ -923,7 +923,7 @@ transporters_polypeptide_go <-
         save_table_only = TRUE
       )
     }
-    return(drug_trans_polys_go)
+    return(drug_trans_polys_go %>% as_tibble())
   }
 
 
@@ -1008,5 +1008,5 @@ transporters <-
         foreign_key = "parent_key"
       )
     }
-    return(drug_transporters)
+    return(drug_transporters %>% as_tibble())
   }

@@ -23,6 +23,7 @@ test_that(
       nrow(enzymes()),
       1
     )
+    expect_true(is_tibble(enzymes()))
     expect_error(enzymes(TRUE))
   }
 )
@@ -34,6 +35,7 @@ test_that(
       nrow(enzymes_actions()),
       1
     )
+    expect_true(is_tibble(enzymes_actions()))
     expect_error(enzymes_actions(TRUE))
   }
 )
@@ -45,6 +47,7 @@ test_that(
       nrow(enzymes_articles()),
       1
     )
+    expect_true(is_tibble(enzymes_articles()))
     expect_error(enzymes_articles(TRUE))
   }
 )
@@ -57,6 +60,7 @@ test_that(
       nrow(enzymes_textbooks()),
       0
     )
+    expect_true(is_tibble(enzymes_textbooks()))
     expect_error(enzymes_textbooks(TRUE))
   }
 )
@@ -68,6 +72,7 @@ test_that(
       nrow(enzymes_links()),
       0
     )
+    expect_true(is_tibble(enzymes_links()))
     expect_error(enzymes_links(TRUE))
   }
 )
@@ -79,6 +84,7 @@ test_that(
       nrow(enzymes_polypeptide()),
       1
     )
+    expect_true(is_tibble(enzymes_polypeptide()))
     expect_error(enzymes_polypeptide(TRUE))
   }
 )
@@ -93,6 +99,7 @@ test_that(
       ),
       7
     )
+    expect_true(is_tibble(enzymes_polypeptide_ext_ident()))
     expect_error(
       enzymes_polypeptide_ext_ident(TRUE)
     )
@@ -107,6 +114,7 @@ test_that(
       nrow(enzymes_polypeptide_syn()),
       1
     )
+    expect_true(is_tibble(enzymes_polypeptide_syn()))
     expect_error(enzymes_polypeptide_syn(TRUE))
   }
 )
@@ -118,6 +126,7 @@ test_that(
       nrow(enzymes_polypeptide_pfams()),
       1
     )
+    expect_true(is_tibble(enzymes_polypeptide_pfams()))
     expect_error(enzymes_polypeptide_pfams(TRUE))
   }
 )
@@ -129,6 +138,7 @@ test_that(
       nrow(enzymes_polypeptide_go()),
       24
     )
+    expect_true(is_tibble(enzymes_polypeptide_go()))
     expect_error(enzymes_polypeptide_go(TRUE))
   }
 )

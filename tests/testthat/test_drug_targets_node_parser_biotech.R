@@ -25,6 +25,7 @@ test_that(
       ),
       "inhibitor"
     )
+    expect_true(is_tibble(targets_actions()))
     expect_error(targets_actions(TRUE))
   }
 )
@@ -39,6 +40,7 @@ test_that(
         "Sep 2;84\\(5A\\):2M-6M\\."
       )
     )
+    expect_true(is_tibble(targets_articles()))
     expect_error(targets_articles(TRUE))
   }
 )
@@ -50,6 +52,7 @@ test_that(
       nrow(targets_textbooks()),
       0
     )
+    expect_true(is_tibble(targets_textbooks()))
     expect_error(targets_textbooks(TRUE))
   }
 )
@@ -61,6 +64,7 @@ test_that(
       nrow(targets_links()),
       0
     )
+    expect_true(is_tibble(targets_links()))
     expect_error(targets_links(TRUE))
   }
 )
@@ -74,6 +78,7 @@ test_that(
       ),
       "Prothrombin"
     )
+    expect_true(is_tibble(targets_polypeptide()))
     expect_error(targets_polypeptide(TRUE))
   }
 )
@@ -89,6 +94,7 @@ test_that(
       ),
       "HGNC:3535"
     )
+    expect_true(is_tibble(targets_polypeptide_ext_ident()))
     expect_error(
       targets_polypeptide_ext_ident(TRUE)
     )
@@ -103,6 +109,7 @@ test_that(
       [["syn"]][1]),
       "3.4.21.5,Coagulation factor II"
     )
+    expect_true(is_tibble(targets_polypeptide_syn()))
     expect_error(targets_polypeptide_syn(TRUE))
   }
 )
@@ -115,6 +122,7 @@ test_that(
       [["name"]][1]),
       "Gla"
     )
+    expect_true(is_tibble(targets_polypeptide_pfams()))
     expect_error(targets_polypeptide_pfams(TRUE))
   }
 )
@@ -127,6 +135,7 @@ test_that(
       [["description"]][1]),
       "blood microparticle"
     )
+    expect_true(is_tibble(targets_polypeptide_go()))
     expect_error(targets_polypeptide_go(TRUE))
   }
 )
@@ -138,6 +147,7 @@ test_that(
       as.character(targets()[["name"]][1]),
       "Prothrombin"
     )
+    expect_true(is_tibble(targets()))
     expect_error(targets(TRUE))
   }
 )

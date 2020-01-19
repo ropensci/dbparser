@@ -45,6 +45,7 @@ test_that(
       nrow(carriers_textbooks()),
       0
     )
+    expect_true(is_tibble(carriers_textbooks()))
     expect_error(carriers_textbooks(TRUE))
   }
 )
@@ -56,6 +57,7 @@ test_that(
       nrow(carriers_polypeptide()),
       0
     )
+    expect_true(is_tibble(carriers_polypeptide()))
     expect_error(carriers_polypeptide(TRUE))
   }
 )
@@ -67,6 +69,7 @@ test_that(
       nrow(carriers_polypeptide_ext_identity()),
       0
     )
+    expect_true(is_tibble(carriers_polypeptide_ext_identity()))
     expect_error(
       carriers_polypeptide_ext_identity(TRUE)
     )
@@ -80,6 +83,7 @@ test_that(
       nrow(carriers_polypeptidepeptides_syn()),
       0
     )
+    expect_true(is_tibble(carriers_polypeptidepeptides_syn()))
     expect_error(carriers_polypeptidepeptides_syn(TRUE))
   }
 )
@@ -91,6 +95,7 @@ test_that(
       nrow(carriers_polypeptidepeptides_go()),
       0
     )
+    expect_true(is_tibble(carriers_polypeptidepeptides_go()))
     expect_error(carriers_polypeptidepeptides_go(TRUE))
   }
 )
@@ -102,6 +107,7 @@ test_that(
       nrow(carriers()),
       0
     )
+    expect_true(is_tibble(carriers()))
     expect_error(carriers(TRUE))
   }
 )
@@ -113,6 +119,7 @@ test_that(
       nrow(carriers_polypeptidepeptides_pfams()),
       0
     )
+    expect_true(is_tibble(carriers_polypeptidepeptides_pfams()))
     expect_error(carriers_polypeptidepeptides_pfams(TRUE))
   }
 )
