@@ -1,6 +1,6 @@
 # dbparser 1.0.4
-* Fix save drugs dataframes as csv several issues
-* Update sql database dataframes saver functions
+* Fix save drugs tibbles as csv several issues
+* Update sql database tibbles saver functions
 * Update sql database saver functions documentations.
 * Support MariaDB and introduce related functionalities.
 
@@ -19,7 +19,7 @@
 * Refactor unused functions
 * Remove *Count* features from drug data set
 * Fix several typos in documentation and code
-* Fix consistency issue of CLASS of Data Frames Returned by dbparser
+* Fix consistency issue of CLASS of tibbles Returned by dbparser
 * Check if drugbank database exist before parsing
 * Add support for *international_brands* and *salts* elements
 * Properly rename some features to have clear names
