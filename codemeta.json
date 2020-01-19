@@ -150,6 +150,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "RSQLite",
+      "name": "RSQLite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RSQLite"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
       "provider": {
@@ -192,7 +204,7 @@
   ],
   "releaseNotes": "https://github.com/Dainanahan/dbparser/blob/master/NEWS.md",
   "readme": "https://github.com/Dainanahan/dbparser/blob/master/README.md",
-  "fileSize": "147.312KB",
+  "fileSize": "247.573KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",

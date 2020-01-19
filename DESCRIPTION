@@ -19,6 +19,7 @@ Imports:
     purrr,
     readr,
     RMariaDB,
+    RSQLite,
     tibble,
     tidyr,
     tools,
