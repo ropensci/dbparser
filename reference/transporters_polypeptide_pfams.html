@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Extracts the drug transporters polypeptides pfams element
-and return data as data frame. — transporters_polypeptide_pfams • dbparser</title>
+and return data as tibble. — transporters_polypeptide_pfams • dbparser</title>
 
 
 <!-- jquery -->
@@ -37,8 +37,8 @@ and return data as data frame. — transporters_polypeptide_pfams • dbparser</
 
 
 <meta property="og:title" content="Extracts the drug transporters polypeptides pfams element
-and return data as data frame. — transporters_polypeptide_pfams" />
-<meta property="og:description" content="transporters_polypeptide_pfams returns data frame
+and return data as tibble. — transporters_polypeptide_pfams" />
+<meta property="og:description" content="transporters_polypeptide_pfams returns tibble
  of drug transporters polypeptides pfams elements." />
 <meta name="twitter:card" content="summary" />
 
@@ -122,13 +122,13 @@ and return data as data frame. — transporters_polypeptide_pfams" />
   <div class="col-md-9 contents">
     <div class="page-header">
     <h1>Extracts the drug transporters polypeptides pfams element
-and return data as data frame.</h1>
+and return data as tibble.</h1>
     
     <div class="hidden name"><code>transporters_polypeptide_pfams.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>transporters_polypeptide_pfams</code> returns data frame
+    <p><code>transporters_polypeptide_pfams</code> returns tibble
  of drug transporters polypeptides pfams elements.</p>
     </div>
 
@@ -144,7 +144,7 @@ and return data as data frame.</h1>
     </tr>
     <tr>
       <th>save_csv</th>
-      <td><p>boolean, save csv version of parsed dataframe if true</p></td>
+      <td><p>boolean, save csv version of parsed tibble if true</p></td>
     </tr>
     <tr>
       <th>csv_path</th>
@@ -167,7 +167,7 @@ new parse operation</p></td>
  element of drug node in <strong>DrugBank</strong>
 xml database with the option to save it in a predefined database via
 <code>open_db</code> method. It takes one single optional argument to
-save the returned dataframe in the database.
+save the returned tibble in the database.
 It must be called after <code>read_drugbank_xml_db</code> function like
 any other parser function.
 If <code>read_drugbank_xml_db</code> is called before for any reason, so
@@ -186,32 +186,32 @@ no need to call it again before calling this function.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
-<span class='co'># return only the parsed dataframe</span>
+<span class='co'># return only the parsed tibble</span>
 <span class='fu'>transporters_polypeptide_pfams</span>()
 
-<span class='co'># save in database and return parsed dataframe</span>
+<span class='co'># save in database and return parsed tibble</span>
 <span class='fu'>transporters_polypeptide_pfams</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save parsed dataframe as csv if it does not exist in current</span>
-<span class='co'># location and return parsed dataframe.</span>
+<span class='co'># save parsed tibble as csv if it does not exist in current</span>
+<span class='co'># location and return parsed tibble.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
 <span class='fu'>transporters_polypeptide_pfams</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save in database, save parsed dataframe as csv if it does not</span>
-<span class='co'># exist in current location and return parsed dataframe.</span>
+<span class='co'># save in database, save parsed tibble as csv if it does not</span>
+<span class='co'># exist in current location and return parsed tibble.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
 <span class='fu'>transporters_polypeptide_pfams</span>(
   <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
   <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>
 )
 
-<span class='co'># save parsed dataframe as csv if it does not exist in given</span>
-<span class='co'># location and return parsed dataframe.</span>
+<span class='co'># save parsed tibble as csv if it does not exist in given</span>
+<span class='co'># location and return parsed tibble.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
 <span class='fu'>transporters_polypeptide_pfams</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save parsed dataframe as csv if it does not exist in current</span>
-<span class='co'># location and return parsed dataframe.</span>
+<span class='co'># save parsed tibble as csv if it does not exist in current</span>
+<span class='co'># location and return parsed tibble.</span>
 <span class='co'># If the csv exist override it and return it.</span>
 <span class='fu'>transporters_polypeptide_pfams</span>(
   <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
