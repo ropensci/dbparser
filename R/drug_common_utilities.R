@@ -123,7 +123,7 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
 #' This function establishes connection to given database
 #' to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
 #'
-#' @param driver odbc object to define database driver.
+#' @param driver odbc or SQLLite object to define database driver.
 #' @param server string, indicated the db server name.
 #' @param output_database string, the database name to be used,
 #' it has to be created before using it
@@ -138,6 +138,8 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
 #'   driver = "SQL Server",
 #'   server = "SQL2016", output_database = "drugbank"
 #' )
+#' open_db(
+#'   driver = "SQLLite")
 #' }
 #' @export
 open_db <-

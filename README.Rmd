@@ -42,10 +42,9 @@ XML file. Users must create an [account](https://www.drugbank.ca/public_users/si
 with Drugbank and request permission to [download](https://www.drugbank.ca/releases/latest)
 the database. Note that this may take a couple of days.
 
-The `dbparser` package parses the DrugBank XML
-database into `R` tibbles to  then be explored and analyzed by the user. The package also offers
-the option to save these tibbles in databases including **SQL
-Server DDB** and **Maria DB**. See our [tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html) to get started.
+The `dbparser` package parses the DrugBank XML database into `R` tibbles that can be explored and analyzed by the user, check [this tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html) for more details.
+
+Also, the package offers the option to save these tibbles in databases including **SQL Server DDB** and **Maria DB** just by enabling `save_table` option,  check [this tutorial](https://dainanahan.github.io/dbparser/articles/Database_Saving.html) to get started.
 
 If you are waiting for access to the DrugBank database, or do not intend to do a deep dive with
 the data, you may wish to use the `dbdataset`

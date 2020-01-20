@@ -38,10 +38,14 @@ Drugbank and request permission to
 that this may take a couple of days.
 
 The `dbparser` package parses the DrugBank XML database into `R` tibbles
-to then be explored and analyzed by the user. The package also offers
-the option to save these tibbles in databases including **SQL Server
-DDB** and **Maria DB**. See our
-[tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html)
+that can be explored and analyzed by the user, check [this
+tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html)
+for more details.
+
+Also, the package offers the option to save these tibbles in databases
+including **SQL Server DDB** and **Maria DB** just by enabling
+`save_table` option, check [this
+tutorial](https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
 to get started.
 
 If you are waiting for access to the DrugBank database, or do not intend
@@ -95,8 +99,8 @@ citation("dbparser")
 #> 
 #> To cite dbparser in publications use:
 #> 
-#>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.0.5.9000.
+#>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML
+#>   Parser. R package version 1.0.5.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 

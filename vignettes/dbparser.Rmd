@@ -50,7 +50,8 @@ drug_groups <- drug_groups()
 ## load drug targets actions data
 drug_targets_actions <- targets_actions()
 ```
-
+### Saving into Database
+User can save parsed tibbles in database by enabling `save_table` option. More details about that can be found in [database tutorial](https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
 
 ## Exploring the data
 
