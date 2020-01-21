@@ -46,7 +46,7 @@ Also, the package offers the option to save these tibbles in databases
 including **SQL Server DDB** and **Maria DB** just by enabling
 `save_table` option, check [this
 tutorial](https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
-to get started.
+for more details.
 
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
