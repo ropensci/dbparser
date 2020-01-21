@@ -81,7 +81,7 @@
       <h1>Saving data into Database</h1>
                         <h4 class="author">Mohammed Ali</h4>
             
-            <h4 class="date">2020-01-19</h4>
+            <h4 class="date">2020-01-21</h4>
       
       
       <div class="hidden name"><code>Database_Saving.Rmd</code></div>
@@ -93,20 +93,42 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This tutorial aim to explain <code>dbparser</code> database functionalities to save the parsed drug information to a desired RDBM for the user benefit. To do that successfully user has to:</p>
+<p>This tutorial aim to explain <code>dbparser</code> database functionalities to save the parsed drug information to a desired database for the user benefit.</p>
+<p>To do that successfully user has two main options:</p>
+<ul>
+<li>Save the parsed drug tibble(s) into local <em>DBI</em> connection of his own like any other regular <code>R</code> tibble.</li>
+<li>Save the parsed drug tibble(s) into a database using <code>dbparser</code> database functionalities.</li>
+</ul>
+<p>The first option is byond the scope of this tutorial and can be done using normal <em>DBI</em> tutorial. The second option is what interests us here and it is including three options:</p>
+<ul>
+<li>SQLLite</li>
+<li>RDBMS</li>
+<li>Maria Knowledge Base</li>
+</ul>
+<p>The remaining sections of this tutorial will clarify each option in more details.</p>
+<p><em>Please note that this tutorial does not explain how to install these databases as it is out of the scope.</em></p>
+<div id="sqllite" class="section level3">
+<h3 class="hasAnchor">
+<a href="#sqllite" class="anchor"></a>SQLLite</h3>
+<p>SQLLite is an inmemory database you can use locally easily. To save drugs information using this database just do the following call</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">open_db</span>(<span class="dt">driver =</span> <span class="st">"SQLLite"</span>, output_database)</a></code></pre></div>
+<p>where is <code>output_database</code> is the desired file location to save the generated database. If user did not provide this option the default is to save generated tibbles in memory.</p>
+</div>
+<div id="dbi-supported-databases" class="section level3">
+<h3 class="hasAnchor">
+<a href="#dbi-supported-databases" class="anchor"></a>DBI Supported Databases</h3>
+<p><code>dbparser</code> package uses two database packages <code>DBI</code> and <code>RMariaDB</code>.</p>
+<p><code>DBI</code> separates the connectivity to the DBMS into a <em>front-end</em> and a <em>back-end</em>. Applications use only the exposed front-end API. The back-end facilities that communicate with specific DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) are provided by drivers (other packages) that get invoked automatically through S4 methods. For more information about DBI package please refer to <a href="https://db.rstudio.com/dbi/">this link</a></p>
+<p><code>RMariaDB</code> is much more simple and used to connect MariaDB.</p>
+<p>In both cases user needs to do the following:</p>
 <ul>
 <li>provide a working database connection information to either <code>open_db</code> function that uses DBI package or <code>open_mdb</code> function that uses MariaDB package.</li>
 <li>enable <code>save_table</code> option in parser functions.</li>
 </ul>
-<p>Please note that this tutorial does not explain how to install these databases as it is out of the scope.</p>
-</div>
-<div id="supported-databases" class="section level2">
-<h2 class="hasAnchor">
-<a href="#supported-databases" class="anchor"></a>Supported Databases</h2>
-<p><code>dbparser</code> package uses two database packages <code>DBI</code> and <code>RMariaDB</code>.</p>
-<p><code>DBI</code> separates the connectivity to the DBMS into a <em>front-end</em> and a <em>back-end</em>. Applications use only the exposed front-end API. The back-end facilities that communicate with specific DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) are provided by drivers (other packages) that get invoked automatically through S4 methods. For more information about DBI package please refer to <a href="https://db.rstudio.com/dbi/">this link</a></p>
-<p><code>RMariaDB</code> is much more simple and used to connect MariaDB.</p>
-<p>The following are two examples of how to make the connection with <em>SQL Server</em> and <em>Maria DB</em> ### SQL Server</p>
+<p>The following are two examples of how to make the connection with <em>SQL Server</em> and <em>Maria DB</em></p>
+<div id="sql-server" class="section level4">
+<h4 class="hasAnchor">
+<a href="#sql-server" class="anchor"></a>SQL Server</h4>
 <ul>
 <li>Make sure you have a working connection to <em>SQL Server</em> instance <img src="sql_connection.png">
 </li>
@@ -114,22 +136,24 @@
 </li>
 <li>Provide this information to <code>open_db</code> function</li>
 </ul>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">open_db</span>(</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2">  <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3">  <span class="dt">server =</span> <span class="st">"SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span></a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">open_db</span>(</a>
+<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">server =</span> <span class="st">"SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span></a>
+<a class="sourceLine" id="cb2-4" data-line-number="4">)</a></code></pre></div>
 <ul>
 <li>Enable <code>save_table</code> option in parser functions.</li>
 <li>Call <code>close_db</code> method after finishing from parsing to close your database connection properly.</li>
 </ul>
-<div id="maria-knowledge-base" class="section level3">
-<h3 class="hasAnchor">
-<a href="#maria-knowledge-base" class="anchor"></a>Maria Knowledge Base</h3>
+</div>
+<div id="maria-knowledge-base" class="section level4">
+<h4 class="hasAnchor">
+<a href="#maria-knowledge-base" class="anchor"></a>Maria Knowledge Base</h4>
 <ul>
 <li>Install MariaDB</li>
 <li>Install MySQL client for MariaDB</li>
 <li>Do the same steps as SQL Server above.</li>
 </ul>
+</div>
 </div>
 </div>
   </div>
@@ -141,7 +165,6 @@
 <a href="#tocnav" class="anchor"></a>Contents</h2>
       <ul class="nav nav-pills nav-stacked">
 <li><a href="#introduction">Introduction</a></li>
-      <li><a href="#supported-databases">Supported Databases</a></li>
       </ul>
 </div>
       </div>
