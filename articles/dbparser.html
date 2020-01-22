@@ -81,7 +81,7 @@
       <h1>DrugBank Database XML Parser</h1>
                         <h4 class="author">Mohammed Ali, Ali Ezzat</h4>
             
-            <h4 class="date">2020-01-21</h4>
+            <h4 class="date">2020-01-22</h4>
       
       
       <div class="hidden name"><code>dbparser.Rmd</code></div>
@@ -98,7 +98,13 @@
 <div id="loading-and-parsing-the-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#loading-and-parsing-the-data" class="anchor"></a>Loading and Parsing the Data</h2>
-<p>Following is sample code that parses the DrugBank database, then loads the drugs info, drug groups info and drug targets actions info.</p>
+<p>Before starting the code we are assuming the following:</p>
+<ul>
+<li>user already downloaded <em>DrugBank</em> xml database file based on the <a href="https://dainanahan.github.io/dbparser">Read Me</a> instructions or the above note,</li>
+<li>user saved the downloaded database in working directory as <code>C:\</code>.</li>
+<li>user named the downloaded xml file <strong>drugbank.xml</strong>.</li>
+</ul>
+<p>Now we can loads the <code>drugs</code> info, <code>drug groups</code> info and <code>drug targets</code> actions info.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1">## load dbparser package</a>
 <a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dbparser)</a>
 <a class="sourceLine" id="cb1-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dplyr)</a>
@@ -106,16 +112,16 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(XML)</a>
 <a class="sourceLine" id="cb1-6" data-line-number="6"></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7">## parse data from XML and save it to memory</a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="st">"drugbank.xml"</span>)</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw">read_drugbank_xml_db</span>(<span class="st">"C:\drugbank.xml"</span>)</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"></a>
 <a class="sourceLine" id="cb1-10" data-line-number="10">## load drugs data</a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug.html">drug</a></span>()</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11">drugs &lt;-<span class="st"> </span><span class="kw">drug</span>()</a>
 <a class="sourceLine" id="cb1-12" data-line-number="12"></a>
 <a class="sourceLine" id="cb1-13" data-line-number="13">## load drug groups data</a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_groups.html">drug_groups</a></span>()</a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">drug_groups &lt;-<span class="st"> </span><span class="kw">drug_groups</span>()</a>
 <a class="sourceLine" id="cb1-15" data-line-number="15"></a>
 <a class="sourceLine" id="cb1-16" data-line-number="16">## load drug targets actions data</a>
-<a class="sourceLine" id="cb1-17" data-line-number="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/targets_actions.html">targets_actions</a></span>()</a></code></pre></div>
+<a class="sourceLine" id="cb1-17" data-line-number="17">drug_targets_actions &lt;-<span class="st"> </span><span class="kw">targets_actions</span>()</a></code></pre></div>
 <div id="saving-into-database" class="section level3">
 <h3 class="hasAnchor">
 <a href="#saving-into-database" class="anchor"></a>Saving into Database</h3>
@@ -128,15 +134,15 @@
 <p>Following is an example involving a quick look at a few aspects of the parsed data. First we look at the proportions of <code>biotech</code> and <code>small-molecule</code> drugs in the data.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">## view proportions of the different drug types (biotech vs. small molecule)</a>
 <a class="sourceLine" id="cb2-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="st">    </span><span class="kw">select</span>(type) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> type, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-5" data-line-number="5"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">    </span><span class="kw">guides</span>(<span class="dt">fill =</span> <span class="ot">FALSE</span>)     ## removes legend for the bar colors</a></code></pre></div>
 <p>Below, we view the different <code>drug_groups</code> in the data and how prevalent they are.</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">## view proportions of the different drug types for each drug group</a>
 <a class="sourceLine" id="cb3-2" data-line-number="2">drugs <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/join.html">full_join</a></span>(drug_groups, <span class="dt">by =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'primary_key'</span> =<span class="st"> 'drugbank_id'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span>(type, group) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="st">    </span><span class="kw">full_join</span>(drug_groups, <span class="dt">by =</span> <span class="kw"><a href="https://rdrr.io/r/base/c.html">c</a></span>(<span class="st">'primary_key'</span> =<span class="st"> 'drugbank_id'</span>)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="st">    </span><span class="kw">select</span>(type, group) <span class="op">%&gt;%</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-5" data-line-number="5"><span class="st">    </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> group, <span class="dt">fill =</span> type)) <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-6" data-line-number="6"><span class="st">    </span><span class="kw">geom_bar</span>() <span class="op">+</span><span class="st"> </span></a>
 <a class="sourceLine" id="cb3-7" data-line-number="7"><span class="st">    </span><span class="kw">theme</span>(<span class="dt">legend.position =</span> <span class="st">'bottom'</span>) <span class="op">+</span><span class="st"> </span></a>
@@ -150,9 +156,9 @@
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">## get counts of the different target actions in the data</a>
 <a class="sourceLine" id="cb4-2" data-line-number="2">targetActionCounts &lt;-<span class="st"> </span></a>
 <a class="sourceLine" id="cb4-3" data-line-number="3"><span class="st">    </span>drug_targets_actions <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/group_by.html">group_by</a></span>(action) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/summarise.html">summarise</a></span>(<span class="dt">count =</span> <span class="kw"><a href="https://dplyr.tidyverse.org/reference/n.html">n</a></span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">    </span><span class="kw"><a href="https://dplyr.tidyverse.org/reference/arrange.html">arrange</a></span>(<span class="kw"><a href="https://dplyr.tidyverse.org/reference/desc.html">desc</a></span>(count))</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">    </span><span class="kw">group_by</span>(action) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">    </span><span class="kw">summarise</span>(<span class="dt">count =</span> <span class="kw">n</span>()) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-6" data-line-number="6"><span class="st">    </span><span class="kw">arrange</span>(<span class="kw">desc</span>(count))</a>
 <a class="sourceLine" id="cb4-7" data-line-number="7"></a>
 <a class="sourceLine" id="cb4-8" data-line-number="8">## get bar chart of the 10 most occurring target actions in the data</a>
 <a class="sourceLine" id="cb4-9" data-line-number="9">p &lt;-<span class="st"> </span></a>
