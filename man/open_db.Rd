@@ -8,7 +8,7 @@ open_db(driver, server, output_database = ":memory:",
   trusted_connection = TRUE)
 }
 \arguments{
-\item{driver}{odbc object to define database driver.}
+\item{driver}{odbc or SQLLite object to define database driver.}
 
 \item{server}{string, indicated the db server name.}
 
@@ -33,6 +33,8 @@ open_db(
   driver = "SQL Server",
   server = "SQL2016", output_database = "drugbank"
 )
+open_db(
+  driver = "SQLLite")
 }
 }
 \seealso{

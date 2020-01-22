@@ -4,37 +4,49 @@
 \name{dbparser}
 \alias{dbparser}
 \alias{dbparser-package}
-\title{dbparser: A package for reading and parsing \strong{DrugBank} xml with the
-option to save it in a given db.}
+\title{dbparser: A package for reading and parsing \strong{DrugBank} xml database.}
 \description{
-The main purpose of the `dbparser` package is to parse the
-\strong{DrugBank} database which is downloadable
-in XML format.
-The parsed data can then be explored and analyzed as desired by the user.
-In addition to that user can save parsed tibble into desired database as
-well.
+The main purpose of the `dbparser` package is to parse
+[DrugBank](http://drugbank.ca/) database which is downloadable in XML format
+from [this link](https://www.drugbank.ca/releases/latest).
 }
 \details{
-dbparser package provides three categories of important functions:
-database related methods, xml db reader and \strong{DrugBank} elements
- parsers.
-}
-\section{database functions}{
+The parsed data can then be explored and analyzed as desired by the user
+ with the ability to save parsed data into desired database as well.
 
- To open a connection to given database in order to store parsed
- \strong{DrugBank} elements database
-}
+To achieve this purpose, `dbparser`` package provides three main categories
+ of functions:
 
+- xml db reader,
+
+- \strong{DrugBank} elements parsers,
+
+- and database related methods.
+
+For more infomration kindly check the
+reference/index (https://dainanahan.github.io/dbparser/reference/index.html)
+}
 \section{xml db reader functions}{
 
  Reads \strong{DrugBank} xml database and build drug elements full tree in
- database
+ memory
 }
 
 \section{parsers functions}{
 
  Each parser function is responsible of parsing certain drug element and
- returning its tibble
- with the ability to save it in a predefined database.
+ returning its tibble with the ability to save it in a predefined database.
+
+ Check this tutorial
+ (https://dainanahan.github.io/dbparser/articles/dbparser.html)
+}
+
+\section{database functions}{
+
+ To open a connection to given database in order to store parsed
+ \strong{DrugBank} elements database.
+
+ Check this tutorial
+ (https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
 }
 
