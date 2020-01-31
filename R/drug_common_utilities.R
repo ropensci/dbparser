@@ -147,7 +147,7 @@ open_db <-
            server,
            output_database = ":memory:",
            trusted_connection = TRUE) {
-    if (driver == "SQLLite") {
+    if (driver == "SQLite") {
       pkg_env$con <-  dbConnect(RSQLite::SQLite(), output_database)
     } else {
       pkg_env$con <- dbConnect(
