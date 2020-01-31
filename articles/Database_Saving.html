@@ -81,7 +81,7 @@
       <h1>Saving data into Database</h1>
                         <h4 class="author">Mohammed Ali</h4>
             
-            <h4 class="date">2020-01-22</h4>
+            <h4 class="date">2020-01-31</h4>
       
       
       <div class="hidden name"><code>Database_Saving.Rmd</code></div>
@@ -93,26 +93,20 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This tutorial aim to explain <code>dbparser</code> database functionalities to save the parsed drug information to a desired database for the user benefit.</p>
-<p>To do that successfully user has two main options:</p>
+<p>This tutorial aims to explain <code>dbparser</code> database functionalities to save parsed drug information to SQLite or DBI supported databases. If you wish to save parsed data into a local <em>DBI</em> connection, you can do so using standard methods outside of <code>dbparser</code>.</p>
+<p>This tutorial addresses the following three options:</p>
 <ul>
-<li>Save the parsed drug tibble(s) into local <em>DBI</em> connection of his own like any other regular <code>R</code> tibble.</li>
-<li>Save the parsed drug tibble(s) into a database using <code>dbparser</code> database functionalities.</li>
-</ul>
-<p>The first option is byond the scope of this tutorial and can be done using normal <em>DBI</em> tutorial. The second option is what interests us here and it is including three options:</p>
-<ul>
-<li>SQLLite</li>
+<li>SQLite</li>
 <li>RDBMS</li>
 <li>Maria Knowledge Base</li>
 </ul>
-<p>The remaining sections of this tutorial will clarify each option in more details.</p>
-<p><em>Please note that this tutorial does not explain how to install these databases as it is out of the scope.</em></p>
-<div id="sqllite" class="section level3">
+<p><em>Please note that this tutorial does not explain how to install these databases as it is out of scope.</em></p>
+<div id="sqlite" class="section level3">
 <h3 class="hasAnchor">
-<a href="#sqllite" class="anchor"></a>SQLLite</h3>
-<p>SQLLite is an inmemory database you can use locally easily. To save drugs information using this database just do the following call</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">open_db</span>(<span class="dt">driver =</span> <span class="st">"SQLLite"</span>, output_database)</a></code></pre></div>
-<p>where is <code>output_database</code> is the desired file location to save the generated database. If user did not provide this option the default is to save generated tibbles in memory.</p>
+<a href="#sqlite" class="anchor"></a>SQLite</h3>
+<p>SQLite is an inmemory database you can use locally easily. To save drug information using this database run the following</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">open_db</span>(<span class="dt">driver =</span> <span class="st">"SQLite"</span>, output_database)</a></code></pre></div>
+<p>where <code>output_database</code> is the desired file location to save the generated database. If you do not provide this option the default is to save generated tibbles in memory.</p>
 </div>
 <div id="dbi-supported-databases" class="section level3">
 <h3 class="hasAnchor">
