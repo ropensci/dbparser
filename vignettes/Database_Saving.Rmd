@@ -19,29 +19,23 @@ knitr::opts_chunk$set(
 ```
 
 ## Introduction
-This tutorial aim to explain `dbparser` database functionalities to save the parsed drug information to a desired database for the user benefit.
+This tutorial aims to explain `dbparser` database functionalities to save parsed drug information to  SQLite or DBI supported databases. If you wish to save parsed data into a local *DBI* connection, you can do so using standard methods outside of `dbparser`.
 
-To do that successfully user has two main options:
+This tutorial addresses the following three options:
 
-- Save the parsed drug tibble(s) into local *DBI* connection of his own like any other regular `R` tibble.
-- Save the parsed drug tibble(s) into a database using `dbparser` database functionalities.
-
-The first option is byond the scope of this tutorial and can be done using normal *DBI* tutorial. The second option is what interests us here and it is including three options:
-
-- SQLLite
+- SQLite
 - RDBMS
 - Maria Knowledge Base
 
-The remaining sections of this tutorial will clarify each option in more details.
 
-*Please note that this tutorial does not explain how to install these databases as it is out of the scope.*
+*Please note that this tutorial does not explain how to install these databases as it is out of scope.*
 
-### SQLLite
-SQLLite is an inmemory database you can use locally easily. To save drugs information using this database just do the following call
+### SQLite
+SQLite is an inmemory database you can use locally easily. To save drug information using this database run the following
 ```{r eval = FALSE}
-open_db(driver = "SQLLite", output_database)
+open_db(driver = "SQLite", output_database)
 ```
-where is `output_database` is the desired file location to save the generated database. If user did not provide this option the default is to save generated tibbles in memory.
+where `output_database` is the desired file location to save the generated database. If you do not provide this option the default is to save generated tibbles in memory.
 
 ### DBI Supported Databases
 
