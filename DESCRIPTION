@@ -21,7 +21,6 @@ Imports:
     RMariaDB,
     RSQLite,
     tibble,
-    tidyr,
     tools,
     XML
 RoxygenNote: 6.1.1
