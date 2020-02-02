@@ -15,6 +15,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     DBI,
+    dplyr,
     odbc,
     purrr,
     readr,

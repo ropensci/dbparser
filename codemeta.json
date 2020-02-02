@@ -74,6 +74,11 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "odbc",
       "name": "odbc"
     },
@@ -114,7 +119,7 @@
     }
   ],
   "releaseNotes": "https://github.com/Dainanahan/dbparser/blob/master/NEWS.md",
-  "fileSize": "248.346KB",
+  "fileSize": "248.358KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",
