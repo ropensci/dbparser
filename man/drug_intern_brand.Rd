@@ -5,7 +5,7 @@
 \title{Extracts the drug international brands and return data as tibble.}
 \usage{
 drug_intern_brand(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE)
+  csv_path = ".", override_csv = FALSE, database_connection = NULL)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -17,6 +17,10 @@ location, save_csv must be true}
 
 \item{override_csv}{override existing csv, if any, in case it is true in
 the new parse operation}
+
+\item{database_connection}{DBI connection object that holds a connection to
+user defined database. If \code{save_table} is enabled without providing
+value for this function an error will be thrown.}
 }
 \value{
 drug international brands node attributes tibble
@@ -29,8 +33,9 @@ elements.
 This functions extracts the international brands element of drug node in
 drugbank
 xml database with the option to save it in a predefined database via
-\code{\link{open_db}} method. It takes one single optional argument to
-save the returned tibble in the database.
+passed database connection. It takes two optional arguments to
+save the returned tibble in the database \code{save_table} and
+\code{database_connection}.
 It must be called after \code{\link{read_drugbank_xml_db}} function like
 any other parser function.
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -41,8 +46,12 @@ no need to call it again before calling this function.
 # return only the parsed tibble
 drug_intern_brand()
 
-# save in database and return parsed tibble
+# will throw an error, as database_connection is NULL
 drug_intern_brand(save_table = TRUE)
+
+# save in database in SQLite in memory database and return parsed tibble
+sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+drug_intern_brand(save_table = TRUE, database_connection = sqlite_con)
 
 # save parsed tibble as csv if it does not exist in current
 # location and return parsed tibble.
@@ -52,7 +61,8 @@ drug_intern_brand(save_csv = TRUE)
 # save in database, save parsed tibble as csv if it does not exist in
 #  current location and return parsed tibble.
 # If the csv exist before read it and return its data.
-drug_intern_brand(save_table = TRUE, save_csv = TRUE)
+drug_intern_brand(save_table = TRUE, save_csv = TRUE,
+ database_connection = sqlite_con)
 
 # save parsed tibble as csv if it does not exist in given location
 # and return parsed tibble.

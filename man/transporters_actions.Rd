@@ -5,7 +5,7 @@
 \title{Extracts the drug transporters actions element and return data as tibble.}
 \usage{
 transporters_actions(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE)
+  csv_path = ".", override_csv = FALSE, database_connection = NULL)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -17,6 +17,10 @@ location, save_csv must be true}
 
 \item{override_csv}{override existing csv, if any, in case it is true in
 the new parse operation}
+
+\item{database_connection}{DBI connection object that holds a connection to
+user defined database. If \code{save_table} is enabled without providing
+value for this function an error will be thrown.}
 }
 \value{
 drug transporters actions node attributes date frame
@@ -30,8 +34,9 @@ actions elements.
 This functions extracts the transporters actions element of drug node in
 drugbank
 xml database with the option to save it in a predefined database via
-\code{\link{open_db}} method. It takes one single optional argument to
-save the returned tibble in the database.
+passed database connection. It takes two optional arguments to
+save the returned tibble in the database \code{save_table} and
+\code{database_connection}.
 It must be called after \code{\link{read_drugbank_xml_db}} function like
 any other parser function.
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -42,7 +47,7 @@ no need to call it again before calling this function.
 # return only the parsed tibble
 transporters_actions()
 
-# save in database and return parsed tibble
+# will throw an error, as database_connection is NULL
 transporters_actions(save_table = TRUE)
 
 # save parsed tibble as csv if it does not exist in current location

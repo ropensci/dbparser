@@ -33,24 +33,3 @@ test_that(
     )
   }
 )
-
-test_that(
-  desc = "Open DBI database",
-  code = {
-    expect_error(
-      open_db(driver = "SQL Server", server = "dummy_server",
-              output_database = "dummy_database")
-    )
-  }
-)
-
-test_that(
-  desc = "Open MDB database",
-  code = {
-    expect_error(
-      open_mdb(username = "user", password = "pass", server,
-               output_database,
-               host = "localhost", port = 3306)
-    )
-  }
-)

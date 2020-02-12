@@ -66,12 +66,12 @@ test_that(
   desc = "Read drug carriers polypeptides external identifiers that",
   code = {
     expect_equal(
-      nrow(carriers_polypeptide_ext_identity()),
+      nrow(carriers_polypeptide_ext_id()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptide_ext_identity()))
+    expect_true(is_tibble(carriers_polypeptide_ext_id()))
     expect_error(
-      carriers_polypeptide_ext_identity(TRUE)
+      carriers_polypeptide_ext_id(TRUE)
     )
   }
 )
@@ -80,11 +80,11 @@ test_that(
   desc = "Read drug carriers polypeptides syn that",
   code = {
     expect_equal(
-      nrow(carriers_polypeptidepeptides_syn()),
+      nrow(carriers_polypeptides_syn()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptidepeptides_syn()))
-    expect_error(carriers_polypeptidepeptides_syn(TRUE))
+    expect_true(is_tibble(carriers_polypeptides_syn()))
+    expect_error(carriers_polypeptides_syn(TRUE))
   }
 )
 
@@ -92,11 +92,11 @@ test_that(
   desc = "Read drug carriers polypeptides go classifiers that",
   code = {
     expect_equal(
-      nrow(carriers_polypeptidepeptides_go()),
+      nrow(carriers_polypeptides_go()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptidepeptides_go()))
-    expect_error(carriers_polypeptidepeptides_go(TRUE))
+    expect_true(is_tibble(carriers_polypeptides_go()))
+    expect_error(carriers_polypeptides_go(TRUE))
   }
 )
 
@@ -116,10 +116,10 @@ test_that(
   desc = "Read drug carriers polypeptides pfams that",
   code = {
     expect_equal(
-      nrow(carriers_polypeptidepeptides_pfams()),
+      nrow(carriers_polypeptides_pfams()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptidepeptides_pfams()))
-    expect_error(carriers_polypeptidepeptides_pfams(TRUE))
+    expect_true(is_tibble(carriers_polypeptides_pfams()))
+    expect_error(carriers_polypeptides_pfams(TRUE))
   }
 )

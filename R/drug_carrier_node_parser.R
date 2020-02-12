@@ -67,8 +67,9 @@ get_carr_poly_go_df <- function(rec) {
 #' This functions extracts the carriers actions element of drug
 #'  node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -80,6 +81,10 @@ get_carr_poly_go_df <- function(rec) {
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers actions node attributes date frame
 #'
 #' @family carriers
@@ -89,8 +94,12 @@ get_carr_poly_go_df <- function(rec) {
 #' # return only the parsed tibble
 #' carriers_actions()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers_actions(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_actions(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current location and
 #' # return parsed tibble.
@@ -101,7 +110,8 @@ get_carr_poly_go_df <- function(rec) {
 #' current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_actions(save_table = TRUE, save_csv = TRUE)
+#' carriers_actions(save_table = TRUE, save_csv = TRUE,
+#' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location and
 #' # return parsed tibble.
@@ -122,8 +132,9 @@ carriers_actions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <- get_dataset_full_path("drug_carriers_actions", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_actions <- readr::read_csv(path)
@@ -141,7 +152,7 @@ carriers_actions <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = drug_carriers_actions,
         table_name = "drug_carriers_actions",
         save_table_only = TRUE
@@ -159,8 +170,9 @@ carriers_actions <-
 #' This functions extracts the carriers articles element of drug node in
 #' drugbank
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -172,6 +184,10 @@ carriers_actions <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers_articles node attributes date frame
 #'
 #' @family carriers
@@ -181,8 +197,12 @@ carriers_actions <-
 #' # return only the parsed tibble
 #' carriers_articles()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers_articles(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_articles(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
@@ -192,7 +212,8 @@ carriers_actions <-
 #' # save in database, save parsed tibble as csv if it does not exist in
 #' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_articles(save_table = TRUE, save_csv = TRUE)
+#' carriers_articles(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location
 #' # and return parsed tibble.
@@ -212,8 +233,9 @@ carriers_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <- get_dataset_full_path("drug_carriers_articles", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_articles <- readr::read_csv(path)
@@ -226,7 +248,7 @@ carriers_articles <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = drug_carriers_articles,
         table_name = "drug_carriers_articles",
         save_table_only = TRUE
@@ -244,8 +266,9 @@ carriers_articles <-
 #' This functions extracts the carriers textbooks element of drug node in
 #' drugbank
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#'  \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -257,6 +280,10 @@ carriers_articles <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers textbooks node attributes date frame
 #'
 #' @family carriers
@@ -266,8 +293,12 @@ carriers_articles <-
 #' # return only the parsed tibble
 #' carriers_textbooks()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers_textbooks(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_textbooks(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current location
 #' # and return parsed tibble.
@@ -277,7 +308,8 @@ carriers_articles <-
 #' # save in database, save parsed tibble as csv if it does not exist in
 #' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_textbooks(save_table = TRUE, save_csv = TRUE)
+#' carriers_textbooks(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location and
 #' # return parsed tibble.
@@ -297,8 +329,9 @@ carriers_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <- get_dataset_full_path("drug_carriers_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_textbooks <- readr::read_csv(path)
@@ -312,7 +345,7 @@ carriers_textbooks <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = drug_carriers_textbooks,
         table_name = "drug_carriers_textbooks",
         save_table_only = TRUE
@@ -327,9 +360,10 @@ carriers_textbooks <-
 #'
 #' This functions extracts the carriers links element of drug node in
 #' \strong{DrugBank} xml database with the option to save it in a predefined
-#' database via \code{\link{open_db}} method.
-#' It takes one single optional argument to
-#' save the returned tibble in the database.
+#' database via passed database connection.
+#' It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#'  \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -341,6 +375,10 @@ carriers_textbooks <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers_links node attributes date frame
 #'
 #' @family carriers
@@ -350,8 +388,12 @@ carriers_textbooks <-
 #' # return only the parsed tibble
 #' carriers_links()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers_links(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_links(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current location
 #' # and return parsed tibble.
@@ -362,7 +404,8 @@ carriers_textbooks <-
 #' current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_links(save_table = TRUE, save_csv = TRUE)
+#' carriers_links(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location and
 #' # return parsed tibble.
@@ -379,8 +422,9 @@ carriers_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <- get_dataset_full_path("drug_carriers_links", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_links <- readr::read_csv(path)
@@ -393,7 +437,7 @@ carriers_links <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = drug_carriers_links,
         table_name = "drug_carriers_links",
         save_table_only = TRUE
@@ -411,8 +455,9 @@ carriers_links <-
 #' This functions extracts the carriers polypeptides element of drug
 #' node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -424,6 +469,10 @@ carriers_links <-
 #'  location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers polypeptides node attributes date frame
 #'
 #' @family carriers
@@ -433,8 +482,12 @@ carriers_links <-
 #' # return only the parsed tibble
 #' carriers_polypeptide()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers_polypeptide(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_polypeptide(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
@@ -444,7 +497,8 @@ carriers_links <-
 #' # save in database, save parsed tibble as csv if it does not exist in
 #' # current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptide(save_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptide(save_table = TRUE, save_csv = TRUE,
+#' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location
 #' # and return parsed tibble.
@@ -463,8 +517,9 @@ carriers_links <-
 carriers_polypeptide <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
-                            override_csv = FALSE) {
-  check_data_and_connection(save_table)
+                            override_csv = FALSE,
+                            database_connection = NULL) {
+  check_parameters_validation(save_table, database_connection)
   path <-
     get_dataset_full_path("drug_carriers_polypeptides", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -479,7 +534,7 @@ carriers_polypeptide <- function(save_table = FALSE,
 
   if (save_table) {
     save_drug_sub(
-      con = pkg_env$con,
+      con = database_connection,
       df = drug_carriers_polypeptides,
       table_name = "drug_carriers_polypeptides",
       save_table_only = TRUE,
@@ -518,14 +573,15 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' Extracts the drug carriers polypeptides external identifiers
 #'  element and return data as tibble.
 #'
-#' \code{carriers_polypeptide_ext_identity } returns
+#' \code{carriers_polypeptide_ext_id } returns
 #'  tibble of drug carriers polypeptides external identifiers elements.
 #'
 #' This functions extracts the carriers polypeptides external identifiers
 #'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -537,26 +593,35 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers polypeptides external identifiers
 #'  node attributes date frame
 #' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed tibble
-#' carriers_polypeptide_ext_identity()
+#' carriers_polypeptide_ext_id()
 #'
-#' # save in database and return parsed tibble
-#' carriers_polypeptide_ext_identity(save_table = TRUE)
+#' # will throw an error, as database_connection is NULL
+#' carriers_polypeptide_ext_id(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_polypeptide_ext_id(save_table = TRUE,
+#' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptide_ext_identity(save_csv = TRUE)
+#' carriers_polypeptide_ext_id(save_csv = TRUE)
 #'
 #' # save in database, save parsed tibble as csv if it does not exist
 #' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptide_ext_identity(
+#' carriers_polypeptide_ext_id(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -564,7 +629,7 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' # save parsed tibble as csv if it does not exist in given
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptide_ext_identity(
+#' carriers_polypeptide_ext_id(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -572,17 +637,18 @@ carriers_polypeptide <- function(save_table = FALSE,
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
-#' carriers_polypeptide_ext_identity(
+#' carriers_polypeptide_ext_id(
 #'   save_csv = TRUE, csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-carriers_polypeptide_ext_identity <-
+carriers_polypeptide_ext_id <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <-
       get_dataset_full_path(
         "carr_poly_ex_identitys",
@@ -609,7 +675,7 @@ carriers_polypeptide_ext_identity <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = carr_poly_ex_identitys,
         table_name = "drug_carriers_polypeptides_external_identifiers",
         save_table_only = TRUE
@@ -621,14 +687,15 @@ carriers_polypeptide_ext_identity <-
 #' Extracts the drug carriers polypeptides syn element and return data as
 #' tibble.
 #'
-#' \code{carriers_polypeptidepeptides_syn} returns
+#' \code{carriers_polypeptides_syn} returns
 #'  tibble of drug carriers polypeptides syn elements.
 #'
 #' This functions extracts the carriers polypeptides syn
 #'  element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#'  \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -640,25 +707,34 @@ carriers_polypeptide_ext_identity <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers polypeptides syn node attributes date frame
 #' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed tibble
-#' carriers_polypeptidepeptides_syn()
+#' carriers_polypeptides_syn()
 #'
-#' # save in database and return parsed tibble
-#' carriers_polypeptidepeptides_syn(save_table = TRUE)
+#' # will throw an error, as database_connection is NULL
+#' carriers_polypeptides_syn(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_polypeptides_syn(save_table = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_syn(save_csv = TRUE)
+#' carriers_polypeptides_syn(save_csv = TRUE)
 #'
 #' # save in database, save parsed tibble as csv if it does not exist
 #' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_syn(
+#' carriers_polypeptides_syn(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -666,23 +742,24 @@ carriers_polypeptide_ext_identity <-
 #' # save parsed tibble as csv if it does not exist in given location
 #' # and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_syn(save_csv = TRUE, csv_path = TRUE)
+#' carriers_polypeptides_syn(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
-#' carriers_polypeptidepeptides_syn(
+#' carriers_polypeptides_syn(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-carriers_polypeptidepeptides_syn <-
+carriers_polypeptides_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <- get_dataset_full_path(
       "carr_poly_syn",
       csv_path
@@ -702,7 +779,7 @@ carriers_polypeptidepeptides_syn <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = carr_poly_syn,
         table_name = "drug_carriers_polypeptides_syn",
         save_table_only = TRUE
@@ -714,14 +791,15 @@ carriers_polypeptidepeptides_syn <-
 #' Extracts the drug carriers polypeptides pfams element and return data as
 #' tibble.
 #'
-#' \code{carriers_polypeptidepeptides_pfams} returns tibble
+#' \code{carriers_polypeptides_pfams} returns tibble
 #'  of drug carriers polypeptides pfams elements.
 #'
 #' This functions extracts the carriers polypeptides pfams element of
 #'  drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -733,46 +811,57 @@ carriers_polypeptidepeptides_syn <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers polypeptides pfams node attributes date frame
 #' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed tibble
-#' carriers_polypeptidepeptides_pfams()
+#' carriers_polypeptides_pfams()
 #'
-#' # save in database and return parsed tibble
-#' carriers_polypeptidepeptides_pfams(save_table = TRUE)
+#' # will throw an error, as database_connection is NULL
+#' carriers_polypeptides_pfams(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_polypeptides_pfams(save_table = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_pfams(save_csv = TRUE)
+#' carriers_polypeptides_pfams(save_csv = TRUE)
 #'
 #' # save in database, save parsed tibble as csv if it does not exist in
 #' #  current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_pfams(save_table = TRUE, save_csv = TRUE)
+#' carriers_polypeptides_pfams(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_pfams(save_csv = TRUE, csv_path = TRUE)
+#' carriers_polypeptides_pfams(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
-#' carriers_polypeptidepeptides_pfams(
+#' carriers_polypeptides_pfams(
 #'   save_csv = TRUE, csv_path = TRUE,
 #'   override = TRUE
 #' )
 #' }
 #' @export
-carriers_polypeptidepeptides_pfams <-
+carriers_polypeptides_pfams <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <-
       get_dataset_full_path("carr_poly_pfams", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -791,7 +880,7 @@ carriers_polypeptidepeptides_pfams <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = carr_poly_pfams,
         table_name = "carr_poly_pfams",
         save_table_only = TRUE
@@ -803,14 +892,15 @@ carriers_polypeptidepeptides_pfams <-
 #' Extracts the drug carriers polypeptides go classifiers
 #'  element and return data as tibble.
 #'
-#' \code{carriers_polypeptidepeptides_go} returns
+#' \code{carriers_polypeptides_go} returns
 #' tibble of drug carriers polypeptides go classifiers elements.
 #'
 #' This functions extracts the carriers polypeptides go
 #' classifiers element of drug node in \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#' \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -822,26 +912,35 @@ carriers_polypeptidepeptides_pfams <-
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in
 #' the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers polypeptides go classifiers node attributes date frame
 #' @family carriers
 #' @examples
 #' \dontrun{
 #' # return only the parsed tibble
-#' carriers_polypeptidepeptides_go()
+#' carriers_polypeptides_go()
 #'
-#' # save in database and return parsed tibble
-#' carriers_polypeptidepeptides_go(save_table = TRUE)
+#' # will throw an error, as database_connection is NULL
+#' carriers_polypeptides_go(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers_polypeptides_go(save_table = TRUE,
+#' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_go(save_csv = TRUE)
+#' carriers_polypeptides_go(save_csv = TRUE)
 #'
 #' # save in database, save parsed tibble as csv if it does not exist in
 #' current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_go(
+#' carriers_polypeptides_go(
 #'   save_table = TRUE,
 #'   save_csv = TRUE
 #' )
@@ -849,7 +948,7 @@ carriers_polypeptidepeptides_pfams <-
 #' # save parsed tibble as csv if it does not exist in given
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers_polypeptidepeptides_go(
+#' carriers_polypeptides_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE
 #' )
@@ -857,18 +956,19 @@ carriers_polypeptidepeptides_pfams <-
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
-#' carriers_polypeptidepeptides_go(
+#' carriers_polypeptides_go(
 #'   save_csv = TRUE,
 #'   csv_path = TRUE, override = TRUE
 #' )
 #' }
 #' @export
-carriers_polypeptidepeptides_go <-
+carriers_polypeptides_go <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <-
       get_dataset_full_path(
         "carr_poly_go",
@@ -892,7 +992,7 @@ carriers_polypeptidepeptides_go <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = carr_poly_go,
         table_name = "carr_poly_go",
         save_table_only = TRUE
@@ -908,8 +1008,9 @@ carriers_polypeptidepeptides_go <-
 #' This functions extracts the carriers element of drug node in
 #'  \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#'  \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -921,6 +1022,10 @@ carriers_polypeptidepeptides_go <-
 #'  location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true
 #' in the new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug carriers node attributes date frame
 #' @family carriers
 #' @examples
@@ -928,8 +1033,12 @@ carriers_polypeptidepeptides_go <-
 #' # return only the parsed tibble
 #' carriers()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' carriers(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' carriers(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
@@ -939,7 +1048,8 @@ carriers_polypeptidepeptides_go <-
 #' # save in database, save parsed tibble as csv if it does not exist
 #' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' carriers(save_table = TRUE, save_csv = TRUE)
+#' carriers(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given
 #' # location and return parsed tibble.
@@ -956,8 +1066,9 @@ carriers <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE) {
-    check_data_and_connection(save_table)
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
     path <-
       get_dataset_full_path("drug_carriers", csv_path)
     if (!override_csv & file.exists(path)) {
@@ -972,7 +1083,7 @@ carriers <-
 
     if (save_table) {
       save_drug_sub(
-        con = pkg_env$con,
+        con = database_connection,
         df = drug_carriers,
         table_name = "drug_carriers",
         foreign_key = "parent_key"

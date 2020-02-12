@@ -19,7 +19,7 @@ save_drug_sub <-
       overwrite = TRUE
     )
 
-    if (!grepl("MariaDB", class(con))) {
+    if (grepl("SQLServer", class(con))) {
       for (key in primary_key) {
         dbExecute(
           conn = con,
@@ -32,22 +32,23 @@ save_drug_sub <-
           )
         )
       }
-    }
 
-    if (!save_table_only) {
-      # add primary key of drug table
-      if (!is.null(primary_key)) {
-        dbExecute(
-          conn = con,
-          statement = paste(
-            "Alter table",
-            table_name,
-            "add primary key(",
-            paste(primary_key, collapse = ","),
-            ");"
+      if (!save_table_only) {
+        # add primary key of drug table
+        if (!is.null(primary_key)) {
+          dbExecute(
+            conn = con,
+            statement = paste(
+              "Alter table",
+              table_name,
+              "add primary key(",
+              paste(primary_key, collapse = ","),
+              ");"
+            )
           )
-        )
+        }
       }
+
       # add foreign key of drug table
       if (!is.null(foreign_key)) {
         dbExecute(

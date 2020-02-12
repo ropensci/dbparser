@@ -1,6 +1,5 @@
 pkg_env <- new.env(parent = emptyenv())
 pkg_env$children <- NULL
-pkg_env$con <- NULL
 pkg_env$version <- NULL
 pkg_env$exported_date <- NULL
 
@@ -82,8 +81,7 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
   }
 
   if (ext == "zip") {
-    tryCatch(
-      {
+    tryCatch({
         unzip(drugbank_db_path, exdir = dir_name)
         db <- unzip(drugbank_db_path, list = TRUE)
         drugbank_db_path <- paste0(dir_name, "/", db[[1]])
@@ -116,115 +114,9 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
   }
 }
 
-#' Establish connection to given data base
-#'
-#' \code{open_db} opens connection to given database.
-#'
-#' This function establishes connection to given database
-#' to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
-#'
-#' @param driver odbc or SQLLite object to define database driver.
-#' @param server string, indicated the db server name.
-#' @param output_database string, the database name to be used,
-#' it has to be created before using it
-#' @param trusted_connection boolean, is the connection secure
-#' @return sets the open connection in memory to be used by other functions
-#'
-#' @family Database Communication
-#'
-#' @examples
-#' \dontrun{
-#' open_db(
-#'   driver = "SQL Server",
-#'   server = "SQL2016", output_database = "drugbank"
-#' )
-#' open_db(
-#'   driver = "SQLLite")
-#' }
-#' @export
-open_db <-
-  function(driver,
-           server,
-           output_database = ":memory:",
-           trusted_connection = TRUE) {
-    if (driver == "SQLite") {
-      pkg_env$con <-  dbConnect(RSQLite::SQLite(), output_database)
-    } else {
-      pkg_env$con <- dbConnect(
-        odbc(),
-        Driver = driver,
-        Server = server,
-        Database = output_database,
-        Trusted_Connection = trusted_connection
-      )
-    }
-  }
-
-#' Establish connection to given Maria database
-#'
-#' \code{open_mdb} opens connection to given Maria database.
-#'
-#' This function establishes connection to given Maria database
-#' to store, \emph{optionally}, the parsed \strong{DrugBank} elements.
-#'
-#' @param username database user name
-#' @param password database user password
-#' @param server string, indicated the db server name.
-#' @param output_database string, the database name to be used,
-#' it has to be created before using it
-#' @param host database host
-#' @param port database port
-#' @return sets the open connection in memory to be used by other functions
-#'
-#' @family Database Communication
-#'
-#' @examples
-#' \dontrun{
-#' open_mdb(
-#'   username = "root", password = "root",
-#'   host = "localhost", port = 3306, output_database = "drugs"
-#' )
-#' }
-#' @export
-open_mdb <-
-  function(username = "root",
-           password = "root",
-           server,
-           output_database,
-           host = "localhost",
-           port = 3306) {
-    # db connection
-    pkg_env$con <- RMariaDB::dbConnect(
-      drv = RMariaDB::MariaDB(),
-      dbname = output_database,
-      username = username,
-      password = password,
-      Server = server,
-      host = host,
-      port = port
-    )
-  }
-
-#' Close open \strong{DrugBank} sql database
-#'
-#' \code{close_db} closes connection to pre-given database.
-#'
-#' This function closes connection to pre-given database.
-#'
-#' @family Database Communication
-#'
-#' @examples
-#' \dontrun{
-#' close_db()
-#' }
-#' @export
-close_db <- function() {
-  dbDisconnect(conn = pkg_env$con)
-}
-
-check_data_and_connection <- function(save_table) {
-  if (save_table && is.null(pkg_env$con)) {
-    stop("Data cannot be saved to database while database connection is null")
+check_parameters_validation <- function(save_table, database_connection) {
+  if (save_table && is.null(database_connection)) {
+    stop("Please provide a valid database connection.")
   }
 
   if (is.null(pkg_env$children)) {

@@ -6,8 +6,9 @@
 #' This functions extracts the manufacturers element of drug node in
 #'  \strong{DrugBank}
 #' xml database with the option to save it in a predefined database via
-#' \code{\link{open_db}} method. It takes one single optional argument to
-#' save the returned tibble in the database.
+#' passed database connection. It takes two optional arguments to
+#' save the returned tibble in the database \code{save_table} and
+#'  \code{database_connection}.
 #' It must be called after \code{\link{read_drugbank_xml_db}} function like
 #' any other parser function.
 #' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
@@ -26,7 +27,7 @@
 #' # return only the parsed tibble
 #' drug_manufacturers()
 #'
-#' # save in database and return parsed tibble
+#' # will throw an error, as database_connection is NULL
 #' drug_manufacturers(save_table = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current
@@ -37,7 +38,8 @@
 #' # save in database, save parsed tibble as csv if it does not exist
 #' # in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' drug_manufacturers(save_table = TRUE, save_csv = TRUE)
+#' drug_manufacturers(save_table = TRUE, save_csv = TRUE,
+#' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location
 #' # and return parsed tibble.
@@ -51,8 +53,9 @@
 #' }
 #' @export
 drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
-                                     csv_path = ".", override_csv = FALSE) {
-  check_data_and_connection(save_table)
+                                     csv_path = ".", override_csv = FALSE,
+                               database_connection = NULL) {
+  check_parameters_validation(save_table, database_connection)
   path <-
     get_dataset_full_path("drug_manufacturers", csv_path)
   if (!override_csv & file.exists(path)) {
@@ -71,7 +74,7 @@ drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
 
   if (save_table) {
     save_drug_sub(
-      con = pkg_env$con,
+      con = database_connection,
       df = drug_manufacturers,
       table_name = "drug_manufacturers"
     )
