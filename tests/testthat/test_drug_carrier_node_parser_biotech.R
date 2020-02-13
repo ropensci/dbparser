@@ -132,3 +132,4 @@ test_that(
     expect_error(carriers_polypeptides_pfams(TRUE))
   }
 )
+dbDisconnect(database_connection)

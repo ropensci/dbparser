@@ -763,7 +763,6 @@ drug_element <-
       return(drug_all(save_table = save_table,
                       save_csv = save_csv,
                       csv_path = csv_path,
-                      csv_path = csv_path,
                       override_csv = override_csv,
                       database_connection = database_connection))
     }
