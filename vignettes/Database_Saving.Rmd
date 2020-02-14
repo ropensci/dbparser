@@ -19,13 +19,12 @@ knitr::opts_chunk$set(
 ```
 
 ## Introduction
-This tutorial aims to explain `dbparser` database functionalities to save parsed drug information to  SQLite or DBI supported databases. If you wish to save parsed data into a local *DBI* connection, you can do so using standard methods outside of `dbparser`.
-
+This tutorial aims to explain how `dbparser` can work along with R database functionalities to save parsed drug tibbles to the user desired databases.
 This tutorial addresses the following three options:
 
-- SQLite
-- RDBMS
-- Maria Knowledge Base
+- [SQLite](https://github.com/r-dbi/RSQLite)
+- [RDBMS](https://db.rstudio.com/dbi/)
+- [Maria Knowledge Base](https://github.com/r-dbi/RMariaDB)
 
 
 *Please note that this tutorial does not explain how to install these databases as it is out of scope.*
@@ -33,23 +32,27 @@ This tutorial addresses the following three options:
 ### SQLite
 SQLite is an inmemory database you can use locally easily. To save drug information using this database run the following
 ```{r eval = FALSE}
-open_db(driver = "SQLite", output_database)
+# Load dbparser package
+library(dbparser)
+# Create SQLite database connection
+database_connection <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+# DrugBank database sample name
+biotech <- "drugbank_record_biotech.xml"
+# Use DrugBank sample database in the library
+read_drugbank_xml_db(system.file("extdata", biotech, package = "dbparser"))
+# Parse all available drug tibbles
+drug_all(save_table = TRUE, database_connection = database_connection)
+# List saved tables
+DBI::dbListTables(database_connection)
+# Close SQLite connection
+DBI::dbDisconnect(database_connection)
 ```
-where `output_database` is the desired file location to save the generated database. If you do not provide this option the default is to save generated tibbles in memory.
+
 
 ### DBI Supported Databases
 
-`dbparser` package uses two database packages `DBI` and `RMariaDB`.
-
 `DBI` separates the connectivity to the DBMS into a *front-end* and a *back-end*. Applications use only the exposed front-end API. The back-end facilities that communicate with specific DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) are provided by drivers (other packages) that get invoked automatically through S4 methods.
 For more information about DBI package please refer to [this link](https://db.rstudio.com/dbi/)
-
-`RMariaDB` is much more simple and used to connect MariaDB.
-
-In both cases user needs to do the following:
-
-* provide a working database connection information to either `open_db` function that uses DBI package or `open_mdb` function that uses MariaDB package.
-* enable `save_table` option in parser functions.
 
 The following are two examples of how to make the connection with *SQL Server* and *Maria DB*
 
@@ -59,18 +62,57 @@ The following are two examples of how to make the connection with *SQL Server* a
 ![](sql_connection.png)
 * Create new empty database to store drug information
 ![](new_database.png)
-* Provide this information to `open_db` function
+* Execute the following commands
 ```{r eval=FALSE}
-open_db(
-  driver = "SQL Server",
-  server = "SQL2016", output_database = "drugbank"
-)
+# Load dneeded packages
+library(dbparser)
+library(odbc)
+# Create SQLServer database connection
+con <- DBI::dbConnect(odbc::odbc(), Driver = "SQL Server", Server = "MOHAMMED\\SQL2016", 
+    Database = "drugbank", Trusted_Connection = T)
+# Use DrugBank sample database in the library
+biotech <- "drugbank_record_biotech.xml"	
+# DrugBank database sample name
+read_drugbank_xml_db(system.file("extdata", biotech, package = "dbparser"))
+# Parse all available drug tibbles
+drug_all(save_table = TRUE, database_connection = con)
+# List saved tables
+DBI::dbListTables(con)
+# Close SQLServer connection
+DBI::dbDisconnect(con)
 ```
-* Enable `save_table` option in parser functions.
-* Call `close_db` method after finishing from parsing to close your database connection properly.
- 
+
+Then referesh your database to see new tables
+![](sql_tables.png)
+
 #### Maria Knowledge Base
 
 * Install MariaDB
 * Install MySQL client for MariaDB
-* Do the same steps as SQL Server above.
+* Create new empty database to store drug information
+
+![](new_database_2.png)
+
+* Execute the following commands
+```{r eval=FALSE}
+# Load dneeded packages
+library(dbparser)
+library(RMariaDB)
+# Create SQLServer database connection
+con <- RMariaDB::dbConnect(RMariaDB::MariaDB(), Server = "MariaDB",
+                           dbname = "drugbank", username="root",
+                           password="root")
+# Use DrugBank sample database in the library
+biotech <- "drugbank_record_biotech.xml"	
+# DrugBank database sample name
+read_drugbank_xml_db(system.file("extdata", biotech, package = "dbparser"))
+# Parse all available drug tibbles
+drug_all(save_table = TRUE, database_connection = con)
+# List saved tables
+RMariaDB::dbListTables(con)
+# Close SQLServer connection
+RMariaDB::dbDisconnect(con)
+```
+
+Then referesh your database to see new tables
+![](maria_tables.png)
