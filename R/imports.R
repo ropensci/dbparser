@@ -1,6 +1,6 @@
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect
 #' @importFrom odbc odbc
-#' @importFrom purrr '%>%' map_df map_chr
+#' @importFrom purrr '%>%' map_df map_chr is_empty
 #' @importFrom readr read_csv write_csv
 #' @importFrom RMariaDB MariaDB
 #' @importFrom tibble tibble as_tibble

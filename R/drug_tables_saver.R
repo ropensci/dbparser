@@ -7,9 +7,14 @@ save_drug_sub <-
            primary_key = NULL,
            foreign_key = NULL,
            ref_table = "drug(primary_key)") {
+    if (is_empty(df)) {
+      return()
+    }
+
     if (grepl("MariaDB", class(con))) {
       field_types <- unlist(field_types[1])
     }
+
     # store drug sub_Table in db
     dbWriteTable(
       conn = con,
