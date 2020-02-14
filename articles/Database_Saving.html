@@ -93,32 +93,36 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
-<p>This tutorial aims to explain <code>dbparser</code> database functionalities to save parsed drug information to SQLite or DBI supported databases. If you wish to save parsed data into a local <em>DBI</em> connection, you can do so using standard methods outside of <code>dbparser</code>.</p>
-<p>This tutorial addresses the following three options:</p>
+<p>This tutorial aims to explain how <code>dbparser</code> can work along with R database functionalities to save parsed drug tibbles to the user desired databases. This tutorial addresses the following three options:</p>
 <ul>
-<li>SQLite</li>
-<li>RDBMS</li>
-<li>Maria Knowledge Base</li>
+<li><a href="https://github.com/r-dbi/RSQLite">SQLite</a></li>
+<li><a href="https://db.rstudio.com/dbi/">RDBMS</a></li>
+<li><a href="https://github.com/r-dbi/RMariaDB">Maria Knowledge Base</a></li>
 </ul>
 <p><em>Please note that this tutorial does not explain how to install these databases as it is out of scope.</em></p>
 <div id="sqlite" class="section level3">
 <h3 class="hasAnchor">
 <a href="#sqlite" class="anchor"></a>SQLite</h3>
 <p>SQLite is an inmemory database you can use locally easily. To save drug information using this database run the following</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">open_db</span>(<span class="dt">driver =</span> <span class="st">"SQLite"</span>, output_database)</a></code></pre></div>
-<p>where <code>output_database</code> is the desired file location to save the generated database. If you do not provide this option the default is to save generated tibbles in memory.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Load dbparser package</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dbparser)</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="co"># Create SQLite database connection</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">database_connection &lt;-<span class="st"> </span>DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span>(RSQLite<span class="op">::</span><span class="kw"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html">SQLite</a></span>(), <span class="st">":memory:"</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># DrugBank database sample name</span></a>
+<a class="sourceLine" id="cb1-6" data-line-number="6">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># Use DrugBank sample database in the library</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># Parse all available drug tibbles</span></a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> database_connection)</a>
+<a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co"># List saved tables</span></a>
+<a class="sourceLine" id="cb1-12" data-line-number="12">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(database_connection)</a>
+<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># Close SQLite connection</span></a>
+<a class="sourceLine" id="cb1-14" data-line-number="14">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbDisconnect.html">dbDisconnect</a></span>(database_connection)</a></code></pre></div>
 </div>
 <div id="dbi-supported-databases" class="section level3">
 <h3 class="hasAnchor">
 <a href="#dbi-supported-databases" class="anchor"></a>DBI Supported Databases</h3>
-<p><code>dbparser</code> package uses two database packages <code>DBI</code> and <code>RMariaDB</code>.</p>
 <p><code>DBI</code> separates the connectivity to the DBMS into a <em>front-end</em> and a <em>back-end</em>. Applications use only the exposed front-end API. The back-end facilities that communicate with specific DBMSs (SQLite, MySQL, PostgreSQL, MonetDB, etc.) are provided by drivers (other packages) that get invoked automatically through S4 methods. For more information about DBI package please refer to <a href="https://db.rstudio.com/dbi/">this link</a></p>
-<p><code>RMariaDB</code> is much more simple and used to connect MariaDB.</p>
-<p>In both cases user needs to do the following:</p>
-<ul>
-<li>provide a working database connection information to either <code>open_db</code> function that uses DBI package or <code>open_mdb</code> function that uses MariaDB package.</li>
-<li>enable <code>save_table</code> option in parser functions.</li>
-</ul>
 <p>The following are two examples of how to make the connection with <em>SQL Server</em> and <em>Maria DB</em></p>
 <div id="sql-server" class="section level4">
 <h4 class="hasAnchor">
@@ -128,16 +132,25 @@
 </li>
 <li>Create new empty database to store drug information <img src="new_database.png">
 </li>
-<li>Provide this information to <code>open_db</code> function</li>
+<li>Execute the following commands</li>
 </ul>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="kw">open_db</span>(</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">  <span class="dt">driver =</span> <span class="st">"SQL Server"</span>,</a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">  <span class="dt">server =</span> <span class="st">"SQL2016"</span>, <span class="dt">output_database =</span> <span class="st">"drugbank"</span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">)</a></code></pre></div>
-<ul>
-<li>Enable <code>save_table</code> option in parser functions.</li>
-<li>Call <code>close_db</code> method after finishing from parsing to close your database connection properly.</li>
-</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1"><span class="co"># Load dneeded packages</span></a>
+<a class="sourceLine" id="cb2-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dbparser)</a>
+<a class="sourceLine" id="cb2-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(odbc)</a>
+<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="co"># Create SQLServer database connection</span></a>
+<a class="sourceLine" id="cb2-5" data-line-number="5">con &lt;-<span class="st"> </span>DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span>(odbc<span class="op">::</span><span class="kw"><a href="https://rdrr.io/pkg/odbc/man/odbc.html">odbc</a></span>(), <span class="dt">Driver =</span> <span class="st">"SQL Server"</span>, <span class="dt">Server =</span> <span class="st">"MOHAMMED</span><span class="ch">\\</span><span class="st">SQL2016"</span>, </a>
+<a class="sourceLine" id="cb2-6" data-line-number="6">    <span class="dt">Database =</span> <span class="st">"drugbank"</span>, <span class="dt">Trusted_Connection =</span> T)</a>
+<a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># Use DrugBank sample database in the library</span></a>
+<a class="sourceLine" id="cb2-8" data-line-number="8">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span>    </a>
+<a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co"># DrugBank database sample name</span></a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># Parse all available drug tibbles</span></a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
+<a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># List saved tables</span></a>
+<a class="sourceLine" id="cb2-14" data-line-number="14">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(con)</a>
+<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># Close SQLServer connection</span></a>
+<a class="sourceLine" id="cb2-16" data-line-number="16">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbDisconnect.html">dbDisconnect</a></span>(con)</a></code></pre></div>
+<p>Then referesh your database to see new tables <img src="sql_tables.png"></p>
 </div>
 <div id="maria-knowledge-base" class="section level4">
 <h4 class="hasAnchor">
@@ -145,8 +158,30 @@
 <ul>
 <li>Install MariaDB</li>
 <li>Install MySQL client for MariaDB</li>
-<li>Do the same steps as SQL Server above.</li>
+<li>Create new empty database to store drug information</li>
 </ul>
+<p><img src="new_database_2.png"></p>
+<ul>
+<li>Execute the following commands</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># Load dneeded packages</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(dbparser)</a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span>(RMariaDB)</a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co"># Create SQLServer database connection</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5">con &lt;-<span class="st"> </span>RMariaDB<span class="op">::</span><span class="kw">dbConnect</span>(RMariaDB<span class="op">::</span><span class="kw"><a href="https://rmariadb.r-dbi.org/reference/dbConnect-MariaDBDriver-method.html">MariaDB</a></span>(), <span class="dt">Server =</span> <span class="st">"MariaDB"</span>,</a>
+<a class="sourceLine" id="cb3-6" data-line-number="6">                           <span class="dt">dbname =</span> <span class="st">"drugbank"</span>, <span class="dt">username=</span><span class="st">"root"</span>,</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7">                           <span class="dt">password=</span><span class="st">"root"</span>)</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Use DrugBank sample database in the library</span></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span>    </a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># DrugBank database sample name</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># Parse all available drug tibbles</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># List saved tables</span></a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">RMariaDB<span class="op">::</span><span class="kw">dbListTables</span>(con)</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co"># Close SQLServer connection</span></a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">RMariaDB<span class="op">::</span><span class="kw">dbDisconnect</span>(con)</a></code></pre></div>
+<p>Then referesh your database to see new tables <img src="maria_tables.png"></p>
 </div>
 </div>
 </div>
