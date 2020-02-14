@@ -23,10 +23,6 @@ navbar:
       href: news/index.html
 
 reference:
-- title: "Database Communication"
-  desc: "How to connect/disconnect databases"
-  contents:
-    - has_concept("Database Communication")
 - title: "DrugBank Database Loading"
   desc: "Read DrugBank database and load it into memory for later processing"
   contents:
