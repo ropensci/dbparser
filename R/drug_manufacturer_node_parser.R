@@ -20,6 +20,10 @@
 #' location, save_csv must be true
 #' @param override_csv override existing csv, if any, in case it is true in the
 #'  new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#'
 #' @return drug manufacturers node attributes date frame
 #' @family drugs
 #' @examples

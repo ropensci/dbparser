@@ -17,6 +17,10 @@ location, save_csv must be true}
 
 \item{override_csv}{override existing csv, if any, in case it is true in the
 new parse operation}
+
+\item{database_connection}{DBI connection object that holds a connection to
+user defined database. If \code{save_table} is enabled without providing
+value for this function an error will be thrown.}
 }
 \value{
 drug manufacturers node attributes date frame
