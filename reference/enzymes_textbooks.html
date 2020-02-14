@@ -130,7 +130,7 @@ textbooks elements.</p>
     </div>
 
     <pre class="usage"><span class='fu'>enzymes_textbooks</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
-  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre>
+  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>, <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -153,6 +153,12 @@ location, save_csv must be true</p></td>
       <td><p>override existing csv, if any, in case it is true in
 the new parse operation</p></td>
     </tr>
+    <tr>
+      <th>database_connection</th>
+      <td><p>DBI connection object that holds a connection to
+user defined database. If <code>save_table</code> is enabled without providing
+value for this function an error will be thrown.</p></td>
+    </tr>
     </table>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
@@ -163,8 +169,9 @@ the new parse operation</p></td>
     <p>This functions extracts the enzymes textbooks element of drug node in
 drugbank
 xml database with the option to save it in a predefined database via
-<code>open_db</code> method. It takes one single optional argument to
-save the returned tibble in the database.
+passed database connection. It takes two optional arguments to
+save the returned tibble in the database <code>save_table</code> and
+<code>database_connection</code>.
 It must be called after <code>read_drugbank_xml_db</code> function like
 any other parser function.
 If <code>read_drugbank_xml_db</code> is called before for any reason, so
@@ -185,8 +192,12 @@ no need to call it again before calling this function.</p>
 <span class='co'># return only the parsed tibble</span>
 <span class='fu'>enzymes_textbooks</span>()
 
-<span class='co'># save in database and return parsed tibble</span>
+<span class='co'># will throw an error, as database_connection is NULL</span>
 <span class='fu'>enzymes_textbooks</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+
+<span class='co'># save in database in SQLite in memory database and return parsed tibble</span>
+<span class='no'>sqlite_con</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>())
+<span class='fu'>enzymes_textbooks</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
 <span class='co'># save parsed tibble as csv if it does not exist in current</span>
 <span class='co'># location and return parsed tibble.</span>
@@ -196,7 +207,8 @@ no need to call it again before calling this function.</p>
 <span class='co'># save in database, save parsed tibble as csv if it does not exist</span>
 <span class='co'># in current location and return parsed tibble.</span>
 <span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>enzymes_textbooks</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'>enzymes_textbooks</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+<span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
 <span class='co'># save parsed tibble as csv if it does not exist in given</span>
 <span class='co'># location and return parsed tibble.</span>
