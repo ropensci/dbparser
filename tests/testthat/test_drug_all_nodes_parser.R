@@ -65,3 +65,14 @@ test_that(
     )), 3)
   }
 )
+
+database_connection <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
+drug_all(save_table = TRUE, database_connection = database_connection)
+test_that(
+  desc = "Test saving database tables",
+  code = {
+    expect_equal(length(DBI::dbListTables(database_connection)), 32)
+  }
+)
+
+DBI::dbDisconnect(database_connection)
