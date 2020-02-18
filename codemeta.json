@@ -7,8 +7,8 @@
   "identifier": "dbparser",
   "description": "This tool is for parsing the 'DrugBank' XML database <http://drugbank.ca/>. The parsed \n    data are then returned in a proper 'R' dataframe with the ability to save \n    them in a given database.",
   "name": "dbparser: 'DrugBank' Database XML Parser",
-  "codeRepository": "https://dainanahan.github.io/dbparser/index.html",
-  "issueTracker": "https://github.com/Dainanahan/dbparser/issues",
+  "codeRepository": "https://github.com/ropensci/dbparser.git",
+  "issueTracker": "https://github.com/ropensci/dbparser/issues",
   "license": "https://spdx.org/licenses/MIT",
   "version": "1.0.5.9000",
   "programmingLanguage": {
@@ -53,59 +53,136 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
-      "name": "knitr"
+      "name": "knitr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=knitr"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "rmarkdown",
-      "name": "rmarkdown"
+      "name": "rmarkdown",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=rmarkdown"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "testthat",
-      "name": "testthat"
+      "name": "testthat",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
   "softwareRequirements": [
     {
       "@type": "SoftwareApplication",
       "identifier": "DBI",
-      "name": "DBI"
+      "name": "DBI",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=DBI"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
-      "name": "dplyr"
+      "name": "dplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "odbc",
-      "name": "odbc"
+      "name": "odbc",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=odbc"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
-      "name": "purrr"
+      "name": "purrr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "readr",
-      "name": "readr"
+      "name": "readr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=readr"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "RMariaDB",
-      "name": "RMariaDB"
+      "name": "RMariaDB",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RMariaDB"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "RSQLite",
-      "name": "RSQLite"
+      "name": "RSQLite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RSQLite"
     },
     {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
-      "name": "tibble"
+      "name": "tibble",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
     {
       "@type": "SoftwareApplication",
@@ -115,11 +192,18 @@
     {
       "@type": "SoftwareApplication",
       "identifier": "XML",
-      "name": "XML"
+      "name": "XML",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=XML"
     }
   ],
-  "releaseNotes": "https://github.com/Dainanahan/dbparser/blob/master/NEWS.md",
-  "fileSize": "248.358KB",
+  "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
+  "fileSize": "484.921KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",
@@ -144,5 +228,6 @@
       "name": "DrugBank Database XML Parser",
       "url": "https://CRAN.R-project.org/package=drugverse"
     }
-  ]
+  ],
+  "readme": "https://github.com/ropensci/dbparser/blob/master/README.md"
 }

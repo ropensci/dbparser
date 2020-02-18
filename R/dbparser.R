@@ -18,7 +18,7 @@
 #' - and database related methods.
 #'
 #' For more infomration kindly check the
-#' reference/index (https://dainanahan.github.io/dbparser/reference/index.html)
+#' reference/index (https://ropensci.github.io/dbparser/reference/index.html)
 #'
 #'
 #' @section xml db reader functions:
