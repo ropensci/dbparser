@@ -30,5 +30,5 @@ Suggests:
     rmarkdown,
     testthat
 VignetteBuilder: knitr
-URL: https://github.com/ropensci/dbparser.git
+URL: https://docs.ropensci.org/dbparser, https://github.com/ropensci/dbparser
 BugReports: https://github.com/ropensci/dbparser/issues
