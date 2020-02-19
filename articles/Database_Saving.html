@@ -67,7 +67,7 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https://github.com/ropensci/dbparser.git">
+  <a href="https://github.com/ropensci/dbparser">
     <span class="fab fa fab fa-github fa-lg"></span>
      
   </a>
@@ -88,9 +88,9 @@
       <h1>Saving data into Database</h1>
                         <h4 class="author">Mohammed Ali</h4>
             
-            <h4 class="date">2020-02-18</h4>
+            <h4 class="date">2020-02-19</h4>
       
-      <small class="dont-index">Source: <a href="https://github.com/ropensci/dbparser.git/blob/master/vignettes/Database_Saving.Rmd"><code>vignettes/Database_Saving.Rmd</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/ropensci/dbparser/blob/master/vignettes/Database_Saving.Rmd"><code>vignettes/Database_Saving.Rmd</code></a></small>
       <div class="hidden name"><code>Database_Saving.Rmd</code></div>
 
     </div>
@@ -118,9 +118,9 @@
 <a class="sourceLine" id="cb1-5" data-line-number="5"><span class="co"># DrugBank database sample name</span></a>
 <a class="sourceLine" id="cb1-6" data-line-number="6">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span></a>
 <a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># Use DrugBank sample database in the library</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb1-8" data-line-number="8"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
 <a class="sourceLine" id="cb1-9" data-line-number="9"><span class="co"># Parse all available drug tibbles</span></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> database_connection)</a>
+<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> database_connection)</a>
 <a class="sourceLine" id="cb1-11" data-line-number="11"><span class="co"># List saved tables</span></a>
 <a class="sourceLine" id="cb1-12" data-line-number="12">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(database_connection)</a>
 <a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># Close SQLite connection</span></a>
@@ -150,9 +150,9 @@
 <a class="sourceLine" id="cb2-7" data-line-number="7"><span class="co"># Use DrugBank sample database in the library</span></a>
 <a class="sourceLine" id="cb2-8" data-line-number="8">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span>    </a>
 <a class="sourceLine" id="cb2-9" data-line-number="9"><span class="co"># DrugBank database sample name</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb2-10" data-line-number="10"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
 <a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># Parse all available drug tibbles</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
+<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
 <a class="sourceLine" id="cb2-13" data-line-number="13"><span class="co"># List saved tables</span></a>
 <a class="sourceLine" id="cb2-14" data-line-number="14">DBI<span class="op">::</span><span class="kw"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(con)</a>
 <a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># Close SQLServer connection</span></a>
@@ -181,9 +181,9 @@
 <a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># Use DrugBank sample database in the library</span></a>
 <a class="sourceLine" id="cb3-9" data-line-number="9">biotech &lt;-<span class="st"> "drugbank_record_biotech.xml"</span>    </a>
 <a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># DrugBank database sample name</span></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="kw"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, biotech, <span class="dt">package =</span> <span class="st">"dbparser"</span>))</a>
 <a class="sourceLine" id="cb3-12" data-line-number="12"><span class="co"># Parse all available drug tibbles</span></a>
-<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="kw"><a href="https://rdrr.io/pkg/dbparser/man/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
+<a class="sourceLine" id="cb3-13" data-line-number="13"><span class="kw"><a href="https://docs.ropensci.org/dbparser/reference/drug_all.html">drug_all</a></span>(<span class="dt">save_table =</span> <span class="ot">TRUE</span>, <span class="dt">database_connection =</span> con)</a>
 <a class="sourceLine" id="cb3-14" data-line-number="14"><span class="co"># List saved tables</span></a>
 <a class="sourceLine" id="cb3-15" data-line-number="15">RMariaDB<span class="op">::</span><span class="kw">dbListTables</span>(con)</a>
 <a class="sourceLine" id="cb3-16" data-line-number="16"><span class="co"># Close SQLServer connection</span></a>
