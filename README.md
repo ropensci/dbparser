@@ -4,11 +4,11 @@
 # dbparser
 
 [![Build
-Status](https://travis-ci.org/Dainanahan/dbparser.svg?branch=master)](https://travis-ci.org/Dainanahan/dbparser)
+Status](https://travis-ci.org/ropensci/dbparser.svg?branch=master)](https://travis-ci.org/ropensci/dbparser)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/k18sqp55n39f3y5w?svg=true)](https://ci.appveyor.com/project/MohammedFCIS/dbparser)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
-[![codecov](https://codecov.io/gh/Dainanahan/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/Dainanahan/dbparser)
+[![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dbparser)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -39,18 +39,18 @@ that this may take a couple of days.
 
 The `dbparser` package parses the DrugBank XML database into `R` tibbles
 that can be explored and analyzed by the user, check [this
-tutorial](https://dainanahan.github.io/dbparser/articles/dbparser.html)
+tutorial](https://ropensci.github.io/dbparser/articles/dbparser.html)
 for more details.
 
 Also, the package offers the option to save these tibbles in databases
 including **SQL Server DDB** and **Maria DB** just by enabling
 `save_table` option, check [this
-tutorial](https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
+tutorial](https://ropensci.github.io/dbparser/articles/Database_Saving.html)
 for more details.
 
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
-[package](https://dainanahan.github.io/dbdataset/index.html), which
+[package](https://ropensci.github.io/dbdataset/index.html), which
 contains the DrugBank database already parsed into `R` tibbles. Note
 that this is a large package that exceeds the limit set by CRAN. It is
 only available on GitHub.
@@ -58,7 +58,7 @@ only available on GitHub.
 `dbparser` is tested against DrugBank versions *5.1.0* through *5.1.4*
 successfully. If you find errors with these versions or any other
 version please submit an issue
-[here](https://github.com/Dainanahan/dbparser/issues).
+[here](https://github.com/ropensci/dbparser/issues).
 
 ## Installation
 
@@ -73,7 +73,7 @@ or you can install the latest updates directly from the repo
 
 ``` r
 library(devtools)
-devtools::install_github("Dainanahan/dbparser")
+devtools::install_github("ropensci/dbparser")
 ```
 
 ## Code of Conduct
