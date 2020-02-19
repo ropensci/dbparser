@@ -11,6 +11,7 @@ r_packages:
 after_success:
   - Rscript -e 'library(covr); codecov()'
   - Rscript -e 'Sys.setenv(NOT_CRAN = "true"); goodpractice::gp()'
+  - Rscript -e 'library(pkgdown); build_site()'
 
 before_cache: Rscript -e 'remotes::install_cran("pkgdown")'
 

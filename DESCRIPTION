@@ -6,7 +6,8 @@ Authors@R:
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
     person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"),
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = "rev"),
-    person("Emma", "Mendelsohn", email = "", role = "rev"))
+    person("Emma", "Mendelsohn", email = "", role = "rev"),
+    person("Noam", "Ross", email = "noam.ross@gmail.com", role = "rev"))
 Description: This tool is for parsing the 'DrugBank' XML database <http://drugbank.ca/>. The parsed 
     data are then returned in a proper 'R' dataframe with the ability to save 
     them in a given database.
