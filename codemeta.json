@@ -10,14 +10,14 @@
   "codeRepository": "https://github.com/ropensci/dbparser",
   "issueTracker": "https://github.com/ropensci/dbparser/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.0.5.9000",
+  "version": "1.0.5.9001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
-    "version": "3.6.1",
+    "version": "3.6.2",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 3.6.1 (2019-07-05)",
+  "runtimePlatform": "R version 3.6.2 (2019-12-12)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -203,7 +203,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
-  "fileSize": "484.955KB",
+  "fileSize": "404.906KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",

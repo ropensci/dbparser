@@ -18,7 +18,8 @@ drug_element_options()
 }
 }
 \seealso{
-Other common: \code{\link{drug_all}},
-  \code{\link{drug_element}}
+Other common: 
+\code{\link{drug_all}()},
+\code{\link{drug_element}()}
 }
 \concept{common}

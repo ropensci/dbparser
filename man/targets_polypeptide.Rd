@@ -4,8 +4,13 @@
 \alias{targets_polypeptide}
 \title{Extracts the drug targ polypeptides element and return data as tibble.}
 \usage{
-targets_polypeptide(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+targets_polypeptide(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -79,13 +84,15 @@ targets_polypeptide(
 }
 }
 \seealso{
-Other targets: \code{\link{targets_actions}},
-  \code{\link{targets_articles}},
-  \code{\link{targets_links}},
-  \code{\link{targets_polypeptide_ext_ident}},
-  \code{\link{targets_polypeptide_go}},
-  \code{\link{targets_polypeptide_pfams}},
-  \code{\link{targets_polypeptide_syn}},
-  \code{\link{targets_textbooks}}, \code{\link{targets}}
+Other targets: 
+\code{\link{targets_actions}()},
+\code{\link{targets_articles}()},
+\code{\link{targets_links}()},
+\code{\link{targets_polypeptide_ext_ident}()},
+\code{\link{targets_polypeptide_go}()},
+\code{\link{targets_polypeptide_pfams}()},
+\code{\link{targets_polypeptide_syn}()},
+\code{\link{targets_textbooks}()},
+\code{\link{targets}()}
 }
 \concept{targets}

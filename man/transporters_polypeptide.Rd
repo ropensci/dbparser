@@ -5,8 +5,13 @@
 \title{Extracts the drug transporters polypeptides element and return data
  as tibble.}
 \usage{
-transporters_polypeptide(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+transporters_polypeptide(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -79,14 +84,15 @@ transporters_polypeptide(
 }
 }
 \seealso{
-Other transporters: \code{\link{transporters_actions}},
-  \code{\link{transporters_articles}},
-  \code{\link{transporters_links}},
-  \code{\link{transporters_polypep_ex_ident}},
-  \code{\link{transporters_polypeptide_go}},
-  \code{\link{transporters_polypeptide_pfams}},
-  \code{\link{transporters_polypeptide_syn}},
-  \code{\link{transporters_textbooks}},
-  \code{\link{transporters}}
+Other transporters: 
+\code{\link{transporters_actions}()},
+\code{\link{transporters_articles}()},
+\code{\link{transporters_links}()},
+\code{\link{transporters_polypep_ex_ident}()},
+\code{\link{transporters_polypeptide_go}()},
+\code{\link{transporters_polypeptide_pfams}()},
+\code{\link{transporters_polypeptide_syn}()},
+\code{\link{transporters_textbooks}()},
+\code{\link{transporters}()}
 }
 \concept{transporters}

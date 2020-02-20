@@ -3,16 +3,16 @@
 \docType{package}
 \name{dbparser}
 \alias{dbparser}
-\alias{dbparser-package}
 \title{dbparser: A package for reading and parsing \strong{DrugBank} xml database.}
 \description{
 The main purpose of the `dbparser` package is to parse
-[DrugBank](http://drugbank.ca/) database which is downloadable in XML format
-from [this link](https://www.drugbank.ca/releases/latest).
+[DrugBank](http://DrugBank.ca/) database which is downloadable in XML format
+from [this link](https://www.DrugBank.ca/releases/latest).
 }
 \details{
 The parsed data can then be explored and analyzed as desired by the user
  with the ability to save parsed data into desired database as well.
+
 
 To achieve this purpose, `dbparser`` package provides three main categories
  of functions:
@@ -23,7 +23,7 @@ To achieve this purpose, `dbparser`` package provides three main categories
 
 - and database related methods.
 
-For more infomration kindly check the
+For more information kindly check the
 reference/index (https://ropensci.github.io/dbparser/reference/index.html)
 }
 \section{xml db reader functions}{

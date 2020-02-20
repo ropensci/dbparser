@@ -33,7 +33,7 @@ be found [here](https://www.drugbank.ca/about/).
 
 In its raw form, the DrugBank database is a single XML file. Users must
 create an [account](https://www.drugbank.ca/public_users/sign_up) with
-Drugbank and request permission to
+DrugBank and request permission to
 [download](https://www.drugbank.ca/releases/latest) the database. Note
 that this may take a couple of days.
 
@@ -43,7 +43,7 @@ tutorial](https://ropensci.github.io/dbparser/articles/dbparser.html)
 for more details.
 
 Also, the package offers the option to save these tibbles in databases
-including **SQL Server DDB** and **Maria DB** just by enabling
+including **SQL Server DB** and **Maria DB** just by enabling
 `save_table` option, check [this
 tutorial](https://ropensci.github.io/dbparser/articles/Database_Saving.html)
 for more details.
@@ -99,8 +99,8 @@ citation("dbparser")
 #> 
 #> To cite dbparser in publications use:
 #> 
-#>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML
-#>   Parser. R package version 1.0.5.9000.
+#>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
+#>   package version 1.0.5.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 

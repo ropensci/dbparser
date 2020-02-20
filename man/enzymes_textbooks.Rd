@@ -4,8 +4,13 @@
 \alias{enzymes_textbooks}
 \title{Extracts the drug enzymes textbooks element and return data as tibble.}
 \usage{
-enzymes_textbooks(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+enzymes_textbooks(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -79,13 +84,15 @@ enzymes_textbooks(
 }
 }
 \seealso{
-Other enzymes: \code{\link{enzymes_actions}},
-  \code{\link{enzymes_articles}},
-  \code{\link{enzymes_links}},
-  \code{\link{enzymes_polypeptide_ext_ident}},
-  \code{\link{enzymes_polypeptide_go}},
-  \code{\link{enzymes_polypeptide_pfams}},
-  \code{\link{enzymes_polypeptide_syn}},
-  \code{\link{enzymes_polypeptide}}, \code{\link{enzymes}}
+Other enzymes: 
+\code{\link{enzymes_actions}()},
+\code{\link{enzymes_articles}()},
+\code{\link{enzymes_links}()},
+\code{\link{enzymes_polypeptide_ext_ident}()},
+\code{\link{enzymes_polypeptide_go}()},
+\code{\link{enzymes_polypeptide_pfams}()},
+\code{\link{enzymes_polypeptide_syn}()},
+\code{\link{enzymes_polypeptide}()},
+\code{\link{enzymes}()}
 }
 \concept{enzymes}

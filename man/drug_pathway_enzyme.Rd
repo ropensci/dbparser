@@ -4,8 +4,13 @@
 \alias{drug_pathway_enzyme}
 \title{Extracts the drug pathway enzyme element and return data as tibble.}
 \usage{
-drug_pathway_enzyme(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+drug_pathway_enzyme(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}

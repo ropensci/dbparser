@@ -24,7 +24,7 @@ The main purpose of the `dbparser` package is to parse the
 from [this link](https://www.drugbank.ca/releases/latest). The parsed data can 
 then be explored and analyzed as desired by the user. 
 In this tutorial, we will see how to use `dbparser` along with `dplyr` and 
-`ggplot2` along with other libraries to do simple drug analyasis.
+`ggplot2` along with other libraries to do simple drug analysis
 
 ## Loading and Parsing the Data
 

@@ -4,8 +4,13 @@
 \alias{drug_sequences}
 \title{Extracts the drug sequences element and return data as tibble.}
 \usage{
-drug_sequences(save_table = FALSE, save_csv = FALSE, csv_path = ".",
-  override_csv = FALSE, database_connection = NULL)
+drug_sequences(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}

@@ -4,8 +4,13 @@
 \alias{drug_all}
 \title{extracts the all drug elements and return data as list of tibbles.}
 \usage{
-drug_all(save_table = FALSE, save_csv = FALSE, csv_path = ".",
-  override_csv = FALSE, database_connection = NULL)
+drug_all(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -71,7 +76,8 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
-Other common: \code{\link{drug_element_options}},
-  \code{\link{drug_element}}
+Other common: 
+\code{\link{drug_element_options}()},
+\code{\link{drug_element}()}
 }
 \concept{common}

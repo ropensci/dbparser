@@ -82,7 +82,7 @@ DBI::dbListTables(con)
 DBI::dbDisconnect(con)
 ```
 
-Then referesh your database to see new tables
+Then refresh your database to see new tables
 ![](sql_tables.png)
 
 #### Maria Knowledge Base
@@ -114,5 +114,5 @@ RMariaDB::dbListTables(con)
 RMariaDB::dbDisconnect(con)
 ```
 
-Then referesh your database to see new tables
+Then refresh your database to see new tables
 ![](maria_tables.png)

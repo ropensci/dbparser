@@ -5,8 +5,13 @@
 \title{Extracts the drug snp adverse drug reactions element and return data as
 tibble.}
 \usage{
-drug_snp_adverse_reactions(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+drug_snp_adverse_reactions(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -80,28 +85,33 @@ drug_snp_adverse_reactions(
 }
 }
 \seealso{
-Other drugs: \code{\link{drug_affected_organisms}},
-  \code{\link{drug_ahfs_codes}},
-  \code{\link{drug_articles}},
-  \code{\link{drug_atc_codes}}, \code{\link{drug_books}},
-  \code{\link{drug_calc_prop}},
-  \code{\link{drug_categories}},
-  \code{\link{drug_classification}},
-  \code{\link{drug_dosages}},
-  \code{\link{drug_ex_identity}},
-  \code{\link{drug_exp_prop}},
-  \code{\link{drug_external_links}},
-  \code{\link{drug_food_interactions}},
-  \code{\link{drug_groups}},
-  \code{\link{drug_interactions}},
-  \code{\link{drug_intern_brand}},
-  \code{\link{drug_links}},
-  \code{\link{drug_manufacturers}},
-  \code{\link{drug_mixtures}},
-  \code{\link{drug_packagers}}, \code{\link{drug_patents}},
-  \code{\link{drug_pdb_entries}},
-  \code{\link{drug_products}}, \code{\link{drug_salts}},
-  \code{\link{drug_snp_effects}}, \code{\link{drug_syn}},
-  \code{\link{drug}}
+Other drugs: 
+\code{\link{drug_affected_organisms}()},
+\code{\link{drug_ahfs_codes}()},
+\code{\link{drug_articles}()},
+\code{\link{drug_atc_codes}()},
+\code{\link{drug_books}()},
+\code{\link{drug_calc_prop}()},
+\code{\link{drug_categories}()},
+\code{\link{drug_classification}()},
+\code{\link{drug_dosages}()},
+\code{\link{drug_ex_identity}()},
+\code{\link{drug_exp_prop}()},
+\code{\link{drug_external_links}()},
+\code{\link{drug_food_interactions}()},
+\code{\link{drug_groups}()},
+\code{\link{drug_interactions}()},
+\code{\link{drug_intern_brand}()},
+\code{\link{drug_links}()},
+\code{\link{drug_manufacturers}()},
+\code{\link{drug_mixtures}()},
+\code{\link{drug_packagers}()},
+\code{\link{drug_patents}()},
+\code{\link{drug_pdb_entries}()},
+\code{\link{drug_products}()},
+\code{\link{drug_salts}()},
+\code{\link{drug_snp_effects}()},
+\code{\link{drug_syn}()},
+\code{\link{drug}()}
 }
 \concept{drugs}

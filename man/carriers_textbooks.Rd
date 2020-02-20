@@ -4,8 +4,13 @@
 \alias{carriers_textbooks}
 \title{Extracts the drug carriers textbooks element and return data as tibble.}
 \usage{
-carriers_textbooks(save_table = FALSE, save_csv = FALSE,
-  csv_path = ".", override_csv = FALSE, database_connection = NULL)
+carriers_textbooks(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}
@@ -79,14 +84,15 @@ carriers_textbooks(
 }
 }
 \seealso{
-Other carriers: \code{\link{carriers_actions}},
-  \code{\link{carriers_articles}},
-  \code{\link{carriers_links}},
-  \code{\link{carriers_polypeptide_ext_id}},
-  \code{\link{carriers_polypeptides_go}},
-  \code{\link{carriers_polypeptides_pfams}},
-  \code{\link{carriers_polypeptides_syn}},
-  \code{\link{carriers_polypeptide}},
-  \code{\link{carriers}}
+Other carriers: 
+\code{\link{carriers_actions}()},
+\code{\link{carriers_articles}()},
+\code{\link{carriers_links}()},
+\code{\link{carriers_polypeptide_ext_id}()},
+\code{\link{carriers_polypeptides_go}()},
+\code{\link{carriers_polypeptides_pfams}()},
+\code{\link{carriers_polypeptides_syn}()},
+\code{\link{carriers_polypeptide}()},
+\code{\link{carriers}()}
 }
 \concept{carriers}

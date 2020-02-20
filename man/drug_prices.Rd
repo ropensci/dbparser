@@ -4,8 +4,13 @@
 \alias{drug_prices}
 \title{Extracts the drug prices element and return data as tibble.}
 \usage{
-drug_prices(save_table = FALSE, save_csv = FALSE, csv_path = ".",
-  override_csv = FALSE, database_connection = NULL)
+drug_prices(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{save_table}{boolean, save table in database if true.}

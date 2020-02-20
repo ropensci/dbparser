@@ -4,9 +4,14 @@
 \alias{drug_element}
 \title{extracts the given drug elements and return data as list of tibbles.}
 \usage{
-drug_element(elements_options = c("all"), save_table = FALSE,
-  save_csv = FALSE, csv_path = ".", override_csv = FALSE,
-  database_connection = NULL)
+drug_element(
+  elements_options = c("all"),
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
 }
 \arguments{
 \item{elements_options}{list,  options of elements to be parsed. default is
@@ -83,7 +88,8 @@ drug_element(c("drug_ahfs_codes", "drug_carriers"))
 }
 }
 \seealso{
-Other common: \code{\link{drug_all}},
-  \code{\link{drug_element_options}}
+Other common: 
+\code{\link{drug_all}()},
+\code{\link{drug_element_options}()}
 }
 \concept{common}
