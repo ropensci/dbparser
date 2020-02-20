@@ -1,11 +1,28 @@
-# dbparser 1.0.5.9001
+# dbparser 1.1.0
+### Major Changes
+* Functions have been splitted into 6 cateogries *DrugBank Database Loading,
+Carriers, Targets, Transporters, Drug and common parsers*. All function names
+are changed to reflect the function family. The related documentation is also
+updated (#66, #75).
+* `dbparser` now can cite the package by calling `citation("dbparser")` (#71).
+* Adding more user friendly error messages (#76, #81).
+* User can now pass `DBI` database connection to parser functions as an 
+aregument beside *SQLite* and *MariaDB* (#87).
 
-- Internal changes only.
+### DEFUNCT
+* `open_db`, `open_mdb` and `close_db` functions are no longer supported. 
+Creating and maintaining database is completely user responsability and the 
+database connection can be passed to parser functions (#87).
 
+### DOCUMENTATION FIXES
+* New tutorials for how to use `dbparser` have been created (#78, #79).
+* Contribution guide has been added.
+* Code of conduct has been added (#70).
+* Enhace function reference documentation to include section for each type (#68).
 
 # dbparser 1.0.4
-* Fix save drugs tibbles as csv several issues
-* Update sql database tibbles saver functions
+* Fix save drugs tibbles as csv several issues.
+* Update sql database tibbles saver functions.
 * Update sql database saver functions documentations.
 * Support MariaDB and introduce related functionalities.
 
