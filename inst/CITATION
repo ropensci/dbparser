@@ -11,7 +11,7 @@ citEntry(
   organization   = "Dainanahan",
   year     = year,
   note   = note,
-  url      = "https://CRAN.R-project.org/package=drugverse",
+  url      = "https://CRAN.R-project.org/package=dbparser",
   textVersion =  paste0("Mohammed Ali, Ali Ezzat (",
                 year,
                 "). dbparser: DrugBank Database XML Parser. ",
