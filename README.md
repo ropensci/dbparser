@@ -100,7 +100,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.0.5.9000.
+#>   package version 1.1.0.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -108,7 +108,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.0.5.9000},
-#>     url = {https://CRAN.R-project.org/package=drugverse},
+#>     note = {R package version 1.1.0},
+#>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
