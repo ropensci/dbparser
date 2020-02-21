@@ -1,10 +1,10 @@
-# Contributing to drugverse
+# Contributing to dbparser
 
 <!-- This CONTRIBUTING.md is adapted from https://gist.github.com/peterdesmet/e90a1b0dc17af6c12daf6e8b2f044e7c -->
 
-First of all, thanks for considering contributing to drugverse! 👍 It's people like you that make it rewarding for us - the project maintainers - to work on drugverse. 😊
+First of all, thanks for considering contributing to dbparser! 👍 It's people like you that make it rewarding for us - the project maintainers - to work on dbparser. 😊
 
-drugverse is an open source project, maintained by people who care. We are not directly funded to do so.
+dbparser is an open source project, maintained by people who care. We are not directly funded to do so.
 
 [repo]: https://github.com/ropensci/dbparser
 [issues]: https://github.com/ropensci/dbparser/issues
@@ -23,9 +23,9 @@ There are several ways you can contribute to this project. If you want to know m
 
 ### Share the love ❤️
 
-Think **drugverse** is useful? Let others discover it, by telling them in person, via Twitter or a blog post.
+Think **dbparser** is useful? Let others discover it, by telling them in person, via Twitter or a blog post.
 
-Using **drugverse** for a paper you are writing? Consider [citing it][citation].
+Using **dbparser** for a paper you are writing? Consider [citing it][citation].
 
 ### Ask a question ⁉️
 

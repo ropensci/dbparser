@@ -50,7 +50,7 @@ for more details.
 
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
-[package](https://ropensci.github.io/dbdataset/index.html), which
+[package](https://dainanahan.github.io/dbdataset/index.html), which
 contains the DrugBank database already parsed into `R` tibbles. Note
 that this is a large package that exceeds the limit set by CRAN. It is
 only available on GitHub.
@@ -79,13 +79,15 @@ devtools::install_github("ropensci/dbparser")
 ## Code of Conduct
 
 Please note that the ‘dbparser’ project is released with a [Contributor
-Code of Conduct](CODE_OF_CONDUCT.md). By contributing to this project,
-you agree to abide by its terms.
+Code of
+Conduct](https://docs.ropensci.org/dbparser/CODE_OF_CONDUCT.html). By
+contributing to this project, you agree to abide by its terms.
 
 ## Contributing Guide
 
 👍🎉 First off, thanks for taking the time to contribute\! 🎉👍 Please
-review our [Contributing Guide](CONTRIBUTING.md).
+review our [Contributing
+Guide](https://docs.ropensci.org/dbparser/CONTRIBUTING.html).
 
 ## Share the love ❤️
 
