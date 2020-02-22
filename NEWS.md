@@ -1,3 +1,8 @@
+# dbparser 1.1.0.9000
+
+- Same as previous version.
+
+
 # dbparser 1.1.0
 ### Major Changes
 * Functions have been splitted into 6 categories *DrugBank Database Loading,
