@@ -106,5 +106,5 @@ drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
       table_name = "drug_sequences"
     )
   }
-  return(drug_sequences)
+  return(as_tibble(drug_sequences))
 }
