@@ -20,7 +20,7 @@ save_drug_sub <-
       conn = con,
       value = df,
       name = table_name,
-      field_types = field_types,
+      field.types = field_types,
       overwrite = TRUE
     )
 

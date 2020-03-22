@@ -98,14 +98,8 @@ drug <-
           unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = TRUE), ")"),
           state = paste0("varchar(", max(nchar(drugs$state), na.rm = TRUE),
                          ")"),
-          mechanism_of_action = paste0("varchar(", max(
-            nchar(drugs$mechanism_of_action),
-            na.rm = TRUE
-          ) + 10, ")"),
-          pharmacodynamics = paste0("varchar(", max(
-            nchar(drugs$pharmacodynamics),
-            na.rm = TRUE
-          ) + 10, ")"),
+          mechanism_of_action = "varchar(MAX)",
+          pharmacodynamics = "varchar(MAX)",
           indication = paste0("varchar(", max(nchar(
             drugs$indication
           ), na.rm = TRUE) + 10, ")"),
@@ -145,7 +139,7 @@ drug <-
             nchar(drugs$volume_of_distribution),
             na.rm = TRUE
           ) + 10, ")"),
-          toxicity = "varchar(max)"
+          toxicity = "varchar(MAX)"
         )
       )
     }
