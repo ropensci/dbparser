@@ -11,8 +11,8 @@ save_drug_sub <-
       return()
     }
 
-    if (grepl("MariaDB", class(con))) {
-      field_types <- unlist(field_types[1])
+    if (!grepl("SQL Server", class(con))) {
+      field_types <- dbDataType(con, df)
     }
 
     # store drug sub_Table in db

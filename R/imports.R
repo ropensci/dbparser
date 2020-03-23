@@ -1,4 +1,4 @@
-#' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect
+#' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect dbDataType
 #' @importFrom odbc odbc
 #' @importFrom purrr '%>%' map_df map_chr is_empty
 #' @importFrom readr read_csv write_csv
