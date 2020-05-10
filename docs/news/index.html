@@ -10,23 +10,27 @@
 
 
 <!-- jquery -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <!-- Bootstrap -->
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha256-916EbMg70RQy9LHiGkXzG8hSg9EdNy97GazNG/aiY1w=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous" />
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha256-U5ZEeKfGNOja007MMD3YBI0A3OSZOQbeG6z2f2Y0hu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script>
+
+<!-- bootstrap-toc -->
+<link rel="stylesheet" href="../bootstrap-toc.css">
+<script src="../bootstrap-toc.js"></script>
 
 <!-- Font Awesome icons -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/all.min.css" integrity="sha256-nAmazAk6vS34Xqo0BSrTb+abbtFlgsFK7NKSi6o7Y78=" crossorigin="anonymous" />
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.7.1/css/v4-shims.min.css" integrity="sha256-6qHlizsOWFskGlwVOKuns+D1nB6ssZrHQrNj1wGplHc=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous" />
 
 <!-- clipboard.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js" integrity="sha256-FiZwavyI2V6+EXO1U+xzLG3IKldpiTFf3153ea9zikQ=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script>
 
 <!-- headroom.js -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/headroom.min.js" integrity="sha256-DJFC1kqIhelURkuza0AvYal5RxMtpzLjFhsnVIeuk+U=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.9.4/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
 <link href="../pkgdown.css" rel="stylesheet">
@@ -53,7 +57,7 @@
 
   </head>
 
-  <body>
+  <body data-spy="scroll" data-target="#toc">
     <div class="container template-news">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -67,7 +71,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.0.5.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
       </span>
     </div>
 
@@ -85,12 +89,29 @@
 <li>
   <a href="../reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/Database_Saving.html">Saving data into Database</a>
+    </li>
+  </ul>
+</li>
 <li>
   <a href="../news/index.html">Changelog</a>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/ropensci/dbparser/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -104,23 +125,67 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-      <h1>Changelog <small></small></h1>
-      
+      <h1 data-toc-skip>Changelog <small></small></h1>
+      <small>Source: <a href='https://github.com/ropensci/dbparser/blob/master/NEWS.md'><code>NEWS.md</code></a></small>
     </div>
 
+    <div id="dbparser-111" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.1">
+<a href="#dbparser-111" class="anchor"></a>dbparser 1.1.1<small> Unreleased </small>
+</h1>
+<ul>
+<li>Fix column size issue while importing into SQL Server (<a href='https://github.com/ropensci/dbparser/issues/91'>#91</a>)</li>
+<li>Fix dbparser and upcoming CRAN release of dplyr issues (<a href='https://github.com/ropensci/dbparser/issues/92'>#92</a>)</li>
+<li>Fix CRAN Notes (<a href='https://github.com/ropensci/dbparser/issues/93'>#93</a>)</li>
+</ul>
+</div>
+    <div id="dbparser-110" class="section level1">
+<h1 class="page-header" data-toc-text="1.1.0">
+<a href="#dbparser-110" class="anchor"></a>dbparser 1.1.0<small> 2020-02-21 </small>
+</h1>
+<div id="major-changes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#major-changes" class="anchor"></a>Major Changes</h3>
+<ul>
+<li>Functions have been splitted into 6 categories <em>DrugBank Database Loading, Carriers, Targets, Transporters, Drug and common parsers</em>. All function names are changed to reflect the function family. The related documentation is also updated (<a href='https://github.com/ropensci/dbparser/issues/66'>#66</a>, <a href='https://github.com/ropensci/dbparser/issues/75'>#75</a>).</li>
+<li>
+<code>dbparser</code> now can cite the package by calling <code><a href="https://rdrr.io/r/utils/citation.html">citation("dbparser")</a></code> (<a href='https://github.com/ropensci/dbparser/issues/71'>#71</a>).</li>
+<li>Adding more user friendly error messages (<a href='https://github.com/ropensci/dbparser/issues/76'>#76</a>, <a href='https://github.com/ropensci/dbparser/issues/81'>#81</a>).</li>
+<li>User can now pass <code>DBI</code> database connection to parser functions as an argument beside <em>SQLite</em> and <em>MariaDB</em> (<a href='https://github.com/ropensci/dbparser/issues/87'>#87</a>).</li>
+</ul>
+</div>
+<div id="defunct" class="section level3">
+<h3 class="hasAnchor">
+<a href="#defunct" class="anchor"></a>DEFUNCT</h3>
+<ul>
+<li>
+<code>open_db</code>, <code>open_mdb</code> and <code>close_db</code> functions are no longer supported. Creating and maintaining database is completely user responsibility and the database connection can be passed to parser functions (<a href='https://github.com/ropensci/dbparser/issues/87'>#87</a>).</li>
+</ul>
+</div>
+<div id="documentation-fixes" class="section level3">
+<h3 class="hasAnchor">
+<a href="#documentation-fixes" class="anchor"></a>DOCUMENTATION FIXES</h3>
+<ul>
+<li>New tutorials for how to use <code>dbparser</code> have been created (<a href='https://github.com/ropensci/dbparser/issues/78'>#78</a>, <a href='https://github.com/ropensci/dbparser/issues/79'>#79</a>).</li>
+<li>Contribution guide has been added.</li>
+<li>Code of conduct has been added (<a href='https://github.com/ropensci/dbparser/issues/70'>#70</a>).</li>
+<li>Enhance function reference documentation to include section for each type (<a href='https://github.com/ropensci/dbparser/issues/68'>#68</a>).</li>
+</ul>
+</div>
+</div>
     <div id="dbparser-104" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.4">
 <a href="#dbparser-104" class="anchor"></a>dbparser 1.0.4<small> 2019-08-28 </small>
 </h1>
 <ul>
-<li>Fix save drugs dataframes as csv several issues</li>
-<li>Update sql database dataframes saver functions</li>
+<li>Fix save drugs tibbles as csv several issues.</li>
+<li>Update sql database tibbles saver functions.</li>
 <li>Update sql database saver functions documentations.</li>
 <li>Support MariaDB and introduce related functionalities.</li>
 </ul>
 </div>
     <div id="dbparser-103" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.3">
 <a href="#dbparser-103" class="anchor"></a>dbparser 1.0.3<small> 2019-07-11 </small>
 </h1>
 <ul>
@@ -128,7 +193,7 @@
 </ul>
 </div>
     <div id="dbparser-102" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.2">
 <a href="#dbparser-102" class="anchor"></a>dbparser 1.0.2<small> 2019-07-08 </small>
 </h1>
 <ul>
@@ -139,7 +204,7 @@
 </ul>
 </div>
     <div id="dbparser-101" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.1">
 <a href="#dbparser-101" class="anchor"></a>dbparser 1.0.1<small> 2019-04-16 </small>
 </h1>
 <ul>
@@ -148,7 +213,7 @@
 <li>Refactor unused functions</li>
 <li>Remove <em>Count</em> features from drug data set</li>
 <li>Fix several typos in documentation and code</li>
-<li>Fix consistency issue of CLASS of Data Frames Returned by dbparser</li>
+<li>Fix consistency issue of CLASS of tibbles Returned by dbparser</li>
 <li>Check if drugbank database exist before parsing</li>
 <li>Add support for <em>international_brands</em> and <em>salts</em> elements</li>
 <li>Properly rename some features to have clear names</li>
@@ -157,7 +222,7 @@
 </ul>
 </div>
     <div id="dbparser-100" class="section level1">
-<h1 class="page-header">
+<h1 class="page-header" data-toc-text="1.0.0">
 <a href="#dbparser-100" class="anchor"></a>dbparser 1.0.0<small> 2018-12-17 </small>
 </h1>
 <ul>
@@ -166,17 +231,10 @@
 </div>
   </div>
 
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <div id="tocnav">
-      <h2>Contents</h2>
-      <ul class="nav nav-pills nav-stacked">
-        <li><a href="#dbparser-104">1.0.4</a></li>
-        <li><a href="#dbparser-103">1.0.3</a></li>
-        <li><a href="#dbparser-102">1.0.2</a></li>
-        <li><a href="#dbparser-101">1.0.1</a></li>
-        <li><a href="#dbparser-100">1.0.0</a></li>
-      </ul>
-    </div>
+  <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
+    <nav id="toc" data-toggle="toc" class="sticky-top">
+      <h2 data-toc-skip>Contents</h2>
+    </nav>
   </div>
 
 </div>
@@ -184,11 +242,11 @@
 
       <footer>
       <div class="copyright">
-  <p>Developed by Mohammed Ali, Ali Ezzat.</p>
+  <p>Developed by <a href='http://mohammedfcis.github.io'>Mohammed Ali</a>, <a href='https://www.linkedin.com/in/aliezzat1985/'>Ali Ezzat</a>.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.4.0.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
