@@ -39,13 +39,13 @@ that this may take a couple of days.
 
 The `dbparser` package parses the DrugBank XML database into `R` tibbles
 that can be explored and analyzed by the user, check [this
-tutorial](https://ropensci.github.io/dbparser/articles/dbparser.html)
-for more details.
+tutorial](https://docs.ropensci.org/dbparser/articles/dbparser.html) for
+more details.
 
 Also, the package offers the option to save these tibbles in databases
 including **SQL Server DB** and **Maria DB** just by enabling
 `save_table` option, check [this
-tutorial](https://ropensci.github.io/dbparser/articles/Database_Saving.html)
+tutorial](https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
 for more details.
 
 If you are waiting for access to the DrugBank database, or do not intend
@@ -102,7 +102,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.1.0.
+#>   package version 1.1.0.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -110,7 +110,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.1.0},
+#>     note = {R package version 1.1.0.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
