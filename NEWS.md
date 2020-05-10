@@ -3,6 +3,7 @@
 * Fix column size issue while importing into SQL Server (#91)
 * Fix dbparser and upcoming CRAN release of dplyr issues (#92)
 * Fix CRAN Notes (#93)
+* Fix package documentation and site references
 
 
 # dbparser 1.1.0
