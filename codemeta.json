@@ -102,6 +102,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "dplyr",
+      "name": "dplyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=dplyr"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "odbc",
       "name": "odbc",
       "provider": {
@@ -150,6 +162,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "RSQLite",
+      "name": "RSQLite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=RSQLite"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
       "provider": {
@@ -179,7 +203,7 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
-  "fileSize": "404.982KB",
+  "fileSize": "405.014KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",
