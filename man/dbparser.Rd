@@ -24,7 +24,7 @@ To achieve this purpose, `dbparser`` package provides three main categories
 - and database related methods.
 
 For more information kindly check the
-reference/index (https://ropensci.github.io/dbparser/reference/index.html)
+reference/index (https://docs.ropensci.org/dbparser/reference/index.html)
 }
 \section{xml db reader functions}{
 
@@ -38,7 +38,7 @@ reference/index (https://ropensci.github.io/dbparser/reference/index.html)
  returning its tibble with the ability to save it in a predefined database.
 
  Check this tutorial
- (https://dainanahan.github.io/dbparser/articles/dbparser.html)
+ (https://docs.ropensci.org/dbparser/articles/dbparser.html)
 }
 
 \section{database functions}{
@@ -47,6 +47,6 @@ reference/index (https://ropensci.github.io/dbparser/reference/index.html)
  \strong{DrugBank} elements database.
 
  Check this tutorial
- (https://dainanahan.github.io/dbparser/articles/Database_Saving.html)
+ (https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
 }
 
