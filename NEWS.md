@@ -1,6 +1,8 @@
-# dbparser 1.1.0.9000
+# dbparser 1.1.1
 
-- Same as previous version.
+* Fix column size issue while importing into SQL Server (#91)
+* Fix dbparser and upcoming CRAN release of dplyr issues (#92)
+* Fix CRAN Notes (#93)
 
 
 # dbparser 1.1.0
