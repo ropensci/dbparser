@@ -10,7 +10,7 @@
   "codeRepository": "https://github.com/ropensci/dbparser",
   "issueTracker": "https://github.com/ropensci/dbparser/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.1.1",
+  "version": "1.1.2.9000",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -203,7 +203,6 @@
     }
   ],
   "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
-  "fileSize": "405.066KB",
   "contIntegration": "https://travis-ci.org/Dainanahan/dbparser",
   "developmentStatus": [
     "https://www.repostatus.org/#active",

@@ -1,3 +1,5 @@
+# dbparser 1.1.2.9000
+
 # dbparser 1.1.1
 
 * Fix column size issue while importing into SQL Server (#91)
