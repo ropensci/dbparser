@@ -1,5 +1,6 @@
 #' @import dplyr
 #' @import RSQLite
+#' @import xml2
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect dbDataType
 #' @importFrom odbc odbc
 #' @importFrom purrr '%>%' map_df map_chr is_empty

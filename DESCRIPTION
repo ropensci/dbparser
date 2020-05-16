@@ -23,7 +23,8 @@ Imports:
     RSQLite,
     tibble,
     tools,
-    XML
+    XML,
+    xml2
 RoxygenNote: 7.1.0
 Suggests:
     knitr,
