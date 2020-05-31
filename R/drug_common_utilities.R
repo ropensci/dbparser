@@ -2,7 +2,7 @@ pkg_env <- new.env(parent = emptyenv())
 pkg_env$children <- NULL
 pkg_env$version <- NULL
 pkg_env$exported_date <- NULL
-pkg_env$drugs <- NULL
+pkg_env$root <- NULL
 
 get_dataset_full_path <- function(data, csv_path = ".") {
   return(ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),
@@ -97,13 +97,10 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
   if (file.exists(drugbank_db_path)) {
     # XML_Old
     drugbank_db <- xmlParse(drugbank_db_path)
-    top <- xmlRoot(drugbank_db)
-    pkg_env$children <- xmlChildren(top)
-    ##########################
-    drugbank_db <- read_xml(drugbank_db_path)
-    pkg_env$version <- xml_attr(drugbank_db, "version")
-    pkg_env$exported_date <- xml_attr(drugbank_db, "exported-on")
-    pkg_env$drugs <- xml_children(drugbank_db)
+    pkg_env$root <- xmlRoot(drugbank_db)
+    pkg_env$children <- xmlChildren(root)
+    pkg_env$version <- xmlGetAttr(root, name = "version")
+    pkg_env$exported_date <- xmlGetAttr(root, name = "exported-on")
     return(TRUE)
   } else {
     stop(
