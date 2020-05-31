@@ -1,4 +1,6 @@
 # dbparser 1.1.2.9000
+### Minor Changes
+* Change some drug tibbles features names
 ### DEFUNCT
 * Size columns in `drugs` main table is no longer exist, will do full 
 statistical analysis later using dvminer package.

@@ -220,6 +220,7 @@ drug_groups <-
     } else {
       drug_groups <-
         map_df(pkg_env$children, ~ drug_sub_df(.x, "groups")) %>% unique()
+      names(drug_groups) <- c("group", "drugbank-id")
       write_csv(drug_groups, save_csv, csv_path)
     }
 
