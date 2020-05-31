@@ -98,9 +98,9 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
     # XML_Old
     drugbank_db <- xmlParse(drugbank_db_path)
     pkg_env$root <- xmlRoot(drugbank_db)
-    pkg_env$children <- xmlChildren(root)
-    pkg_env$version <- xmlGetAttr(root, name = "version")
-    pkg_env$exported_date <- xmlGetAttr(root, name = "exported-on")
+    pkg_env$children <- xmlChildren(pkg_env$root)
+    pkg_env$version <- xmlGetAttr(pkg_env$root, name = "version")
+    pkg_env$exported_date <- xmlGetAttr(pkg_env$root, name = "exported-on")
     return(TRUE)
   } else {
     stop(

@@ -1,4 +1,7 @@
 # dbparser 1.1.2.9000
+### DEFUNCT
+* Size columns in `drugs` main table is no longer exist, will do full 
+statistical analysis later using dvminer package.
 
 # dbparser 1.1.1
 

@@ -31,7 +31,7 @@ test_that(
   code = {
     expect_match(
       drug()$other_keys,
-      "BTD00076,EXPT03302,BIOD00076,DB02351"
+      "BTD00076;EXPT03302;BIOD00076;DB02351"
     )
     expect_error(drug(TRUE))
   }
