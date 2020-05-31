@@ -1,19 +1,16 @@
-get_synonym_rec <- function(rec, parent_key) {
-  return(
-    tibble(
-      parent_key = parent_key,
-      synonym = xmlValue(rec),
-      language = xmlGetAttr(rec, name = "language"),
-      coder = xmlGetAttr(rec,
-        name = "coder"
-      )
-    )
-  )
+get_syn_df <- function(rec) {
+  if (xmlSize(rec[["synonyms"]]) < 1) return()
+  syn <- as_tibble(t(xmlSApply(rec[["synonyms"]], syn_rec)))
+  syn[["drugbank-id"]] <- xmlValue(rec[["drugbank-id"]])
+  return(syn)
+
 }
 
-get_syn_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["synonyms"]]),
-    ~ get_synonym_rec(.x, xmlValue(rec["drugbank-id"][[1]]))
-  ))
+syn_rec <- function(rec) {
+  c(
+    synonym = xmlValue(rec),
+    language = xmlGetAttr(rec, name = "language"),
+    coder = xmlGetAttr(rec,
+                       name = "coder")
+  )
 }

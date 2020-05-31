@@ -1,28 +1,27 @@
-get_atc_codes_rec <- function(r, drug_key) {
-  tibble(
-    atc_code = xmlGetAttr(r, name = "code"),
-    level_1 = xmlValue(r[[1]]),
-    code_1 = xmlGetAttr(r[[1]], name = "code"),
-    level_2 = xmlValue(r[[2]]),
-    code_2 = xmlGetAttr(r[[2]], name = "code"),
-    level_3 = xmlValue(r[[3]]),
-    code_3 = xmlGetAttr(r[[3]], name = "code"),
-    level_4 = xmlValue(r[[4]]),
-    code_4 = xmlGetAttr(r[[4]], name = "code"),
-    parent_key = drug_key
+
+atc_recs <- function(rec){
+  if (xmlSize(rec[["atc-codes"]]) < 1) {
+    return()
+  }
+  atcs <- xmlApply(rec[["atc-codes"]], atc_rec)
+  atcs_tibble <- as_tibble(do.call(rbind, atcs))
+  atcs_tibble[["drugbank-id"]] = xmlValue(rec[["drugbank-id"]])
+  return(atcs_tibble)
+}
+
+atc_rec <- function(atc){
+  c(
+    atc_code = xmlGetAttr(atc, name = "code"),
+    level_1 = xmlValue(atc[[1]]),
+    code_1 = xmlGetAttr(atc[[1]], name = "code"),
+    level_2 = xmlValue(atc[[2]]),
+    code_2 = xmlGetAttr(atc[[2]], name = "code"),
+    level_3 = xmlValue(atc[[3]]),
+    code_3 = xmlGetAttr(atc[[3]], name = "code"),
+    level_4 = xmlValue(atc[[4]]),
+    code_4 = xmlGetAttr(atc[[4]], name = "code")
   )
 }
-
-get_atc_codes_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["atc-codes"]]),
-    ~ get_atc_codes_rec(
-      .x,
-      xmlValue(rec["drugbank-id"][[1]])
-    )
-  ))
-}
-
 
 #' Extracts the drug atc codes element and return data as tibble.
 #'
@@ -94,11 +93,10 @@ drug_atc_codes <- function(save_table = FALSE, save_csv = FALSE,
   if (!override_csv & file.exists(path)) {
     drug_atc_codes <- readr::read_csv(path)
   } else {
-    drug_atc_codes <- map_df(pkg_env$children, ~
-    get_atc_codes_df(.x)) %>% unique()
+    drug_atc_codes <- as_tibble(do.call(rbind,
+                                        xmlApply(pkg_env$root, atc_recs)))
     write_csv(drug_atc_codes, save_csv, csv_path)
   }
-
 
   if (save_table) {
     save_drug_sub(
