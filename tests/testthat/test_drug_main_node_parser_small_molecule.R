@@ -90,7 +90,7 @@ test_that(
   desc = "Read drug classification attributes",
   code = {
     expect_match(
-      drug_classification()[1][["parent_key"]],
+      drug_classification()[["drugbank_id"]][[1]],
       "DB00006"
     )
     expect_true(is_tibble(drug_classification()))

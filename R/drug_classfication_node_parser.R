@@ -3,11 +3,23 @@ drug_classifications_df <- function(rec) {
   if (is.null(rec[["classification"]])) {
     return()
   }
-  a <- xmlToList(rec[["classification"]])
-  return(tibble(
-    parent_key = xmlValue(rec["drugbank-id"][[1]]),
-    classifications = paste(names(a), a, collapse = ";")
-  ))
+  class_elements <- names(rec[["classification"]])
+  c(
+    description = xmlValue(rec[["classification"]][["description"]]),
+    direct_parent = xmlValue(rec[["classification"]][["direct-parent"]]),
+    kingdom = xmlValue(rec[["classification"]][["kingdom"]]),
+    superclass = xmlValue(rec[["classification"]][["superclass"]]),
+    class = xmlValue(rec[["classification"]][["class"]]),
+    subclass = xmlValue(rec[["classification"]][["subclass"]]),
+    alternative_parents = paste(
+      map_chr(rec[["classification"]][class_elements == "alternative-parent"],
+                                        xmlValue), collapse = ";"),
+    substituents = paste(
+      map_chr(rec[["classification"]][class_elements == "substituent"],
+                                 xmlValue), collapse = ";"),
+    drugbank_id = xmlValue(rec[["drugbank-id"]])
+
+  )
 }
 
 #' Extracts the drug classifications element and return data as tibble.
@@ -72,29 +84,29 @@ drug_classifications_df <- function(rec) {
 #' drug_classification(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-drug_classification <- function(save_table = FALSE, save_csv = FALSE,
-                                      csv_path = ".", override_csv = FALSE,
-                                database_connection = NULL) {
-  check_parameters_validation(save_table, database_connection)
-  path <-
-    get_dataset_full_path("drug_classifications", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_classifications <- readr::read_csv(path)
-  } else {
-    drug_classifications <-
-      map_df(pkg_env$children, ~ drug_classifications_df(.x)) %>%
-      unique()
+drug_classification <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
+    path <-
+      get_dataset_full_path("drug_classifications", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drug_classifications <- readr::read_csv(path)
+    } else {
+      drug_classifications <-
+        map_df(pkg_env$children, ~ drug_classifications_df(.x))
 
-    write_csv(drug_classifications, save_csv, csv_path)
+      write_csv(drug_classifications, save_csv, csv_path)
+    }
+
+
+    if (save_table) {
+      save_drug_sub(con = database_connection,
+                    df = drug_classifications,
+                    table_name = "drug_classifications")
+    }
+    return(drug_classifications)
   }
-
-
-  if (save_table) {
-    save_drug_sub(
-      con = database_connection,
-      df = drug_classifications,
-      table_name = "drug_classifications"
-    )
-  }
-  return(drug_classifications)
-}
