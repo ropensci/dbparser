@@ -1,13 +1,12 @@
 #' @import dplyr
 #' @import RSQLite
-#' @import xml2
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect dbDataType
 #' @importFrom odbc odbc
 #' @importFrom purrr '%>%' map_df map_chr is_empty
 #' @importFrom readr read_csv write_csv
 #' @importFrom RMariaDB MariaDB
-#' @importFrom tibble tibble as_tibble
+#' @importFrom tibble tibble as_tibble as_tibble_row
 #' @importFrom utils unzip
 #' @importFrom XML xmlChildren xmlGetAttr xmlValue xmlToList xmlToDataFrame
-#'  xmlParse xmlRoot xmlSize xmlApply
+#'  xmlParse xmlRoot xmlSize xmlApply xmlSApply
 NULL
