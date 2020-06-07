@@ -106,7 +106,18 @@ drug_classification <-
     if (save_table) {
       save_drug_sub(con = database_connection,
                     df = drug_classifications,
-                    table_name = "drug_classifications")
+                    table_name = "drug_classifications",
+                    field_types = list(
+                      description = "varchar(MAX)",
+                      direct_parent = paste0("varchar(", max(nchar(drug_classifications$direct_parent), na.rm = TRUE), ")"),
+                      kingdom = paste0("varchar(", max(nchar(drug_classifications$kingdom), na.rm = TRUE), ")"),
+                      superclass = paste0("varchar(", max(nchar(drug_classifications$superclass), na.rm = TRUE), ")"),
+                      class = paste0("varchar(", max(nchar(drug_classifications$class), na.rm = TRUE), ")"),
+                      subclass = paste0("varchar(", max(nchar(drug_classifications$subclass), na.rm = TRUE), ")"),
+                      drugbank_id = paste0("varchar(", max(nchar(drug_classifications$drugbank_id), na.rm = TRUE), ")"),
+                      substituents = "varchar(MAX)",
+                      alternative_parents = "varchar(MAX)"
+                    ))
     }
     return(drug_classifications)
   }
