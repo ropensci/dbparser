@@ -55,7 +55,7 @@ contains the DrugBank database already parsed into `R` tibbles. Note
 that this is a large package that exceeds the limit set by CRAN. It is
 only available on GitHub.
 
-`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.4*
+`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.6*
 successfully. If you find errors with these versions or any other
 version please submit an issue
 [here](https://github.com/ropensci/dbparser/issues).
@@ -102,7 +102,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.1.0.9000.
+#>   package version 1.1.2.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -110,7 +110,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.1.0.9000},
+#>     note = {R package version 1.1.2.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
