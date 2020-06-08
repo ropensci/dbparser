@@ -1,4 +1,4 @@
-# dbparser 1.1.2.9000
+# dbparser 1.1.2
 ### Major Changes
 * Enhance many memory and performance issues for many parsers.
 * Change the drug classigication represenations to extract more useful
