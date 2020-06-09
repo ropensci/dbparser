@@ -1,8 +1,9 @@
 # dbparser 1.1.2
+
 ### Major Changes
 * Enhance many memory and performance issues for many parsers.
-* Change the drug classigication represenations to extract more useful
-infromation.
+* Change the drug classification representations to extract more useful
+information.
 ### Minor Changes
 * Change some drug tibbles features names
 ### DEFUNCT
