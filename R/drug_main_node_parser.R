@@ -1,4 +1,4 @@
-# Extract drug data
+# Extract drug general infromation
 drug_row <- function(drug) {
   d_elements <- names(drug)
   ids <- drug[d_elements == "drugbank-id"]
@@ -29,7 +29,6 @@ drug_row <- function(drug) {
     route_of_elimination = xmlValue(drug[["route-of-elimination"]]),
     volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
     clearance = xmlValue(drug[["clearance"]]),
-    international_brands = xmlValue(drug[["international-brands"]]),
     fda_label = xmlValue(drug[["fda-label"]]),
     msds = xmlValue(drug[["msds"]]),
     toxicity = xmlValue(drug[["toxicity"]])

@@ -383,3 +383,20 @@ test_that(
     expect_error(drug_snp_adverse_reactions(TRUE))
   }
 )
+
+test_that(
+  desc = "Read darug international brands attributes",
+  code = {
+    expect_equal(
+      nrow(drug_intern_brand()),
+      1
+    )
+    expect_match(
+      as.character(drug_intern_brand()[1][["brand"]]),
+      "Angiox"
+    )
+    expect_true(is_tibble(drug_intern_brand()))
+    expect_error(drug_intern_brand(TRUE))
+  }
+)
+

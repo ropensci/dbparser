@@ -845,7 +845,10 @@ drug_intern_brand <-
         map_df(pkg_env$children,
                ~ drug_sub_df(.x, "international-brands")) %>%
         unique()
-
+      if (nrow(drug_international_brands) > 0) {
+        colnames(drug_international_brands) <- c("brand", "company",
+                                                 "drugbank-id")
+      }
       write_csv(drug_international_brands, save_csv, csv_path)
     }
 
