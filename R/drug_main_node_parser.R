@@ -19,18 +19,7 @@ drug_row <- function(drug) {
     monoisotopic_mass = xmlValue(drug[["monoisotopic-mass"]]),
     state = xmlValue(drug[["state"]]),
     synthesis_reference = xmlValue(drug[["synthesis-reference"]]),
-    indication = xmlValue(drug[["indication"]]),
-    pharmacodynamics = xmlValue(drug[["pharmacodynamics"]]),
-    mechanism_of_action = xmlValue(drug[["mechanism-of-action"]]),
-    metabolism = xmlValue(drug[["metabolism"]]),
-    absorption = xmlValue(drug[["absorption"]]),
-    half_life = xmlValue(drug[["half-life"]]),
-    protein_binding = xmlValue(drug[["protein-binding"]]),
-    route_of_elimination = xmlValue(drug[["route-of-elimination"]]),
-    volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
-    clearance = xmlValue(drug[["clearance"]]),
     fda_label = xmlValue(drug[["fda-label"]]),
-    msds = xmlValue(drug[["msds"]]),
-    toxicity = xmlValue(drug[["toxicity"]])
+    msds = xmlValue(drug[["msds"]])
   )
 }

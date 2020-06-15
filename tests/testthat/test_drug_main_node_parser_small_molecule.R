@@ -400,3 +400,12 @@ test_that(
   }
 )
 
+test_that(
+  desc = "Read drug pharmacology indication attribute",
+  code = {
+    expect_match(drug_pharmacology()[["metabolism"]][1],
+                 "80% proteolytic cleavage")
+    expect_true(is_tibble(drug_pharmacology()))
+    expect_error(drug_pharmacology(TRUE))
+  }
+)

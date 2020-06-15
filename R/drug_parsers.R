@@ -99,48 +99,14 @@ drug <-
           unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = TRUE), ")"),
           state = paste0("varchar(", max(nchar(drugs$state), na.rm = TRUE),
                          ")"),
-          mechanism_of_action = "varchar(MAX)",
-          pharmacodynamics = "varchar(MAX)",
-          indication = paste0("varchar(", max(nchar(
-            drugs$indication
-          ), na.rm = TRUE) + 10, ")"),
-          absorption = paste0("varchar(", max(nchar(
-            drugs$absorption
-          ), na.rm = TRUE) + 10, ")"),
-          route_of_elimination = paste0("varchar(", max(
-            nchar(drugs$route_of_elimination),
-            na.rm = TRUE
-          ) + 10, ")"),
-          metabolism = paste0("varchar(", max(nchar(
-            drugs$metabolism
-          ), na.rm = TRUE) + 10, ")"),
-          international_brands = paste0("varchar(", max(
-            nchar(drugs$international_brands),
-            na.rm = TRUE
-          ) + 10, ")"),
           fda_label = paste0("varchar(", max(nchar(
             drugs$fda_label
           ), na.rm = TRUE), ")"),
           msds = paste0("varchar(", max(nchar(drugs$msds), na.rm = TRUE), ")"),
-          protein_binding = paste0("varchar(", max(
-            nchar(drugs$protein_binding),
-            na.rm = TRUE
-          ) + 10, ")"),
           synthesis_reference = paste0("varchar(", max(
             nchar(drugs$synthesis_reference),
             na.rm = TRUE
-          ) + 10, ")"),
-          clearance = paste0("varchar(", max(nchar(
-            drugs$clearance
-          ), na.rm = TRUE) + 10, ")"),
-          half_life = paste0("varchar(", max(nchar(
-            drugs$half_life
-          ), na.rm = TRUE) + 10, ")"),
-          volume_of_distribution = paste0("varchar(", max(
-            nchar(drugs$volume_of_distribution),
-            na.rm = TRUE
-          ) + 10, ")"),
-          toxicity = "varchar(MAX)"
+          ) + 10, ")")
         )
       )
     }
@@ -2265,4 +2231,88 @@ drug_snp_adverse_reactions <-
                     table_name = "snp_adverse_reactions")
     }
     return(snp_adverse_reactions %>% as_tibble())
+  }
+
+# Extract drug Pharmacology
+drug_pharmacology_rec <- function(drug) {
+  c(
+    drugbank_id = xmlValue(drug[["drugbank-id"]]),
+    indication = xmlValue(drug[["indication"]]),
+    pharmacodynamics = xmlValue(drug[["pharmacodynamics"]]),
+    mechanism_of_action = xmlValue(drug[["mechanism-of-action"]]),
+    toxicity = xmlValue(drug[["toxicity"]]),
+    metabolism = xmlValue(drug[["metabolism"]]),
+    absorption = xmlValue(drug[["absorption"]]),
+    half_life = xmlValue(drug[["half-life"]]),
+    protein_binding = xmlValue(drug[["protein-binding"]]),
+    route_of_elimination = xmlValue(drug[["route-of-elimination"]]),
+    volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
+    clearance = xmlValue(drug[["clearance"]])
+  )
+}
+
+#' @export
+drug_pharmacology <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
+    path <- get_dataset_full_path("drugs", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drugs_pharmacology <- readr::read_csv(path)
+    } else {
+      drugs_pharmacology <- xmlSApply(xmlRoot(pkg_env$root),
+                                      drug_pharmacology_rec)
+      drugs_pharmacology <- as_tibble(t(drugs_pharmacology))
+      write_csv(drugs_pharmacology, save_csv, csv_path)
+    }
+
+    if (save_table) {
+      save_drug_sub(
+        con = database_connection,
+        df = drugs_pharmacology,
+        table_name = "drug_pharmacology",
+        primary_key = "drugbank_id",
+        foreign_key = NULL,
+        field_types = list(
+          drugbank_id = paste0("varchar(", max(nchar(
+            drugs_pharmacology$drugbank_id
+          )), ")"),
+          mechanism_of_action = "varchar(MAX)",
+          pharmacodynamics = "varchar(MAX)",
+          indication = paste0("varchar(", max(nchar(
+            drugs_pharmacology$indication
+          ), na.rm = TRUE) + 10, ")"),
+          absorption = paste0("varchar(", max(nchar(
+            drugs_pharmacology$absorption
+          ), na.rm = TRUE) + 10, ")"),
+          route_of_elimination = paste0("varchar(", max(
+            nchar(drugs_pharmacology$route_of_elimination),
+            na.rm = TRUE
+          ) + 10, ")"),
+          metabolism = paste0("varchar(", max(nchar(
+            drugs_pharmacology$metabolism
+          ), na.rm = TRUE) + 10, ")"),
+          clearance = paste0("varchar(", max(nchar(
+            drugs$clearance
+          ), na.rm = TRUE) + 10, ")"),
+          half_life = paste0("varchar(", max(nchar(
+            drugs_pharmacology$half_life
+          ), na.rm = TRUE) + 10, ")"),
+          volume_of_distribution = paste0("varchar(", max(
+            nchar(drugs_pharmacology$volume_of_distribution),
+            na.rm = TRUE
+          ) + 10, ")"),
+          protein_binding = paste0("varchar(", max(
+            nchar(drugs_pharmacology$protein_binding),
+            na.rm = TRUE
+          ) + 10, ")"),
+          toxicity = "varchar(MAX)"
+        )
+      )
+    }
+
+    return(drugs_pharmacology %>% as_tibble())
   }

@@ -41,21 +41,21 @@ drugs_types <- classlist(drugs)
 test_that(
   desc = "Read all drug nodes",
   code = {
-    expect_equal(length(drugs), 75)
-    expect_equal(dim(drugs_types), c(3, 75))
+    expect_equal(length(drugs), 76)
+    expect_equal(dim(drugs_types), c(3, 76))
   }
 )
 
 test_that(
   desc = "Read selected drug nodes",
   code = {
-    expect_equal(length(drug_element()), 75)
-    expect_equal(length(drug_element(c("all"))), 75)
+    expect_equal(length(drug_element()), 76)
+    expect_equal(length(drug_element(c("all"))), 76)
     expect_error(drug_element(save_table = TRUE))
     expect_error(drug_element(c("all"), save_table = TRUE))
     expect_error(drug_element(c("notvalid")))
     expect_error(drug_element(c("drug_ahfs_codes", "notvalid")))
-    expect_equal(length(drug_element_options()), 76)
+    expect_equal(length(drug_element_options()), 77)
     expect_equal(length(drug_element(
       c(
         "ahfs_codes_drug",
@@ -71,7 +71,7 @@ drug_all(save_table = TRUE, database_connection = database_connection)
 test_that(
   desc = "Test saving database tables",
   code = {
-    expect_equal(length(DBI::dbListTables(database_connection)), 32)
+    expect_equal(length(DBI::dbListTables(database_connection)), 33)
   }
 )
 
