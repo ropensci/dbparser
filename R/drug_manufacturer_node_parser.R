@@ -1,3 +1,20 @@
+get_manufacturer_df <- function(rec) {
+  if (xmlSize(rec[["manufacturers"]]) < 1)
+    return()
+  manufacturers <- as_tibble(t(xmlSApply(rec[["manufacturers"]],
+                                         manufacturer_rec)))
+  manufacturers[["drugbank-id"]] <- xmlValue(rec[["drugbank-id"]])
+  return(manufacturers)
+
+}
+
+manufacturer_rec <- function(rec) {
+  c(
+    manufacturer = xmlValue(rec),
+    generic = xmlGetAttr(node = rec, name = "generic"),
+    url = xmlGetAttr(node = rec, name = "url")
+  )
+}
 #' Extracts the drug manufacturers element and return data as tibble.
 #'
 #' \code{drug_manufacturers} returns tibble of drug manufacturers
@@ -56,8 +73,10 @@
 #' drug_manufacturers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
-                                     csv_path = ".", override_csv = FALSE,
+drug_manufacturers <- function(save_table = FALSE,
+                               save_csv = FALSE,
+                               csv_path = ".",
+                               override_csv = FALSE,
                                database_connection = NULL) {
   check_parameters_validation(save_table, database_connection)
   path <-
@@ -66,22 +85,16 @@ drug_manufacturers <- function(save_table = FALSE, save_csv = FALSE,
     drug_manufacturers <- readr::read_csv(path)
   } else {
     drug_manufacturers <-
-      map_df(pkg_env$children, ~ drug_sub_df(.x, "manufacturers")) %>%
+      map_df(pkg_env$children, ~ get_manufacturer_df(.x)) %>%
       unique()
     write_csv(drug_manufacturers, save_csv, csv_path)
   }
 
-  if (nrow(drug_manufacturers) > 0) {
-    colnames(drug_manufacturers) <- c("manufacturer", "drugbank_id")
-  }
-
 
   if (save_table) {
-    save_drug_sub(
-      con = database_connection,
-      df = drug_manufacturers,
-      table_name = "drug_manufacturers"
-    )
+    save_drug_sub(con = database_connection,
+                  df = drug_manufacturers,
+                  table_name = "drug_manufacturers")
   }
   return(drug_manufacturers %>% as_tibble())
 }
