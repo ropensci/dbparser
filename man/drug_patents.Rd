@@ -101,6 +101,7 @@ Other drugs:
 \code{\link{drug_mixtures}()},
 \code{\link{drug_packagers}()},
 \code{\link{drug_pdb_entries}()},
+\code{\link{drug_pharmacology}()},
 \code{\link{drug_products}()},
 \code{\link{drug_salts}()},
 \code{\link{drug_snp_adverse_reactions}()},
