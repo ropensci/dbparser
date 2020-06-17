@@ -61,6 +61,41 @@ drug_all <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
+    # Drugs
+    ## General Information
+    ## Drug Classification
+    ## Synonyms
+    ## External Codes
+    ## Pharmacology
+    ## International Brands
+    ## Mixtures
+    ## Packagers
+    ## Manufacturers
+    ## Prices
+    ## Categories
+    ## Dosages
+    ## ATC Codes
+    ## Patents
+    ## Drug Interactions
+    ## Sequences
+    ## Calculated Properties
+    ## Experimental Properties
+    ## External Identifiers
+    ## External Links
+    ## Pathways
+    ## Reactions
+    ## SNP Effects
+    ## SNP Adverse Drug Reactions
+    # Products
+    # References
+    ## Articles
+    ## TextBooks
+    ## Links
+    ## Atachments
+    # Salts
+    # Carriers/ Enzymes/Targets/ Transporters
+    ## General Information
+    ## Polypeptides
     check_parameters_validation(save_table, database_connection)
     drugs <- drug(save_table,
                   save_csv,
