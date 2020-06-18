@@ -1,29 +1,34 @@
-get_carriers_textbooks_df <- function(rec) {
+textbooks <- function(rec = NULL, parent_node = NULL) {
+  ref_node <- if_else(is_null(parent_node), "general-references", "references")
+  id_node <- if_else(is_null(parent_node), "drugbank-id", "id")
+  children <- NULL
+  if (is.null(parent_node)) {
+    children <- xmlChildren(pkg_env$root)
+  } else {
+    children <- xmlChildren(rec[[parent_node]])
+  }
+
   return(map_df(
-    xmlChildren(rec[["carriers"]]),
-    ~ drug_sub_df(.x, "references", seconadary_node = "textbooks", id = "id")
-  ))
+    children, ~ drug_sub_df(.x,
+                            ref_node,
+                            seconadary_node = "textbooks",
+                            id = id_node)))
+}
+
+get_carriers_textbooks_df <- function(rec) {
+  return(textbooks(rec, "carriers"))
 }
 
 get_enzymes_textbooks_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["enzymes"]]),
-    ~ drug_sub_df(.x, "references", seconadary_node = "textbooks", id = "id")
-  ))
+  return(textbooks(rec, "enzymes"))
 }
 
 get_targ_textbooks_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["targets"]]),
-    ~ drug_sub_df(.x, "references", seconadary_node = "textbooks", id = "id")
-  ))
+  return(textbooks(rec, "targets"))
 }
 
 get_trans_textbooks_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["transporters"]]),
-    ~ drug_sub_df(.x, "references", seconadary_node = "textbooks", id = "id")
-  ))
+  return(textbooks(rec, "transporters"))
 }
 
 #' Extracts the drug books element and return data as tibble.
@@ -96,12 +101,7 @@ drug_books <-
     if (!override_csv & file.exists(path)) {
       drug_books <- readr::read_csv(path)
     } else {
-      drug_books <-
-        map_df(
-          pkg_env$children,
-          ~ drug_sub_df(.x, "general-references", seconadary_node = "textbooks")
-        ) %>% unique()
-
+      drug_books <- textbooks()
       write_csv(drug_books, save_csv, csv_path)
     }
 
