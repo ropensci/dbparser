@@ -1,37 +1,13 @@
-textbooks <- function(rec = NULL, parent_node = NULL) {
-  ref_node <-
-    if_else(is_null(parent_node), "general-references", "references")
-  id_node <- if_else(is_null(parent_node), "drugbank-id", "id")
-  children <- NULL
-  if (is.null(parent_node)) {
-    children <- xmlChildren(pkg_env$root)
-  } else {
-    children <- xmlChildren(rec[[parent_node]])
-  }
+textbooks <- function(rec, parent_node) {
   return(map_df(
-    children,
+    xmlChildren(rec[[parent_node]]),
     ~ drug_sub_df(.x,
-                  ref_node,
+                  "references",
                   seconadary_node = "textbooks",
-                  id = id_node)
+                  id = "id")
   ))
 }
 
-carrier_textbooks <- function(rec) {
-  return(textbooks(rec, "carriers"))
-}
-
-enzyme_textbooks <- function(rec) {
-  return(textbooks(rec, "enzymes"))
-}
-
-target_textbooks <- function(rec) {
-  return(textbooks(rec, "targets"))
-}
-
-transporter_textbooks <- function(rec) {
-  return(textbooks(rec, "transporters"))
-}
 
 #' Extracts the drug books element and return data as tibble.
 #'
@@ -103,7 +79,15 @@ drug_books <-
     if (!override_csv & file.exists(path)) {
       drug_books <- readr::read_csv(path)
     } else {
-      drug_books <- textbooks()
+      drug_books <- map_df(
+        xmlChildren(pkg_env$root),
+        ~ drug_sub_df(
+          .x,
+          "general-references",
+          seconadary_node = "textbooks",
+          id = "drugbank-id"
+        )
+      )
       write_csv(drug_books, save_csv, csv_path)
     }
 
@@ -195,7 +179,7 @@ carriers_textbooks <-
       drug_carriers_textbooks <- readr::read_csv(path)
     } else {
       drug_carriers_textbooks <-
-        map_df(pkg_env$children, ~ carrier_textbooks(.x)) %>% unique()
+        map_df(pkg_env$children, ~ textbooks(., "carriers")) %>% unique()
 
       write_csv(drug_carriers_textbooks, save_csv, csv_path)
     }
@@ -289,7 +273,7 @@ enzymes_textbooks <- function(save_table = FALSE,
     drug_enzymes_textbooks <- readr::read_csv(path)
   } else {
     drug_enzymes_textbooks <-
-      map_df(pkg_env$children, ~ enzyme_textbooks(.x)) %>%
+      map_df(pkg_env$children, ~ textbooks(., "enzymes")) %>%
       unique()
 
     write_csv(drug_enzymes_textbooks, save_csv, csv_path)
@@ -383,7 +367,7 @@ targets_textbooks <- function(save_table = FALSE,
     drug_targ_textbooks <- readr::read_csv(path)
   } else {
     drug_targ_textbooks <-
-      map_df(pkg_env$children, ~ target_textbooks(.x)) %>% unique()
+      map_df(pkg_env$children, ~ textbooks(., "targets")) %>% unique()
 
     write_csv(drug_targ_textbooks, save_csv, csv_path)
   }
@@ -479,7 +463,7 @@ transporters_textbooks <-
       drug_trans_textbooks <- readr::read_csv(path)
     } else {
       drug_trans_textbooks <-
-        map_df(pkg_env$children, ~ transporter_textbooks(.x)) %>%
+        map_df(pkg_env$children, ~ textbooks(., "targets")) %>%
         unique()
 
       write_csv(drug_trans_textbooks, save_csv, csv_path)
