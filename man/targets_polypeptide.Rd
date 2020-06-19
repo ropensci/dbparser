@@ -92,7 +92,6 @@ Other targets:
 \code{\link{targets_polypeptide_go}()},
 \code{\link{targets_polypeptide_pfams}()},
 \code{\link{targets_polypeptide_syn}()},
-\code{\link{targets_textbooks}()},
 \code{\link{targets}()}
 }
 \concept{targets}

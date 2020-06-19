@@ -106,7 +106,6 @@ Other drugs:
 \code{\link{drug_salts}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
-\code{\link{drugs_textbooks}()},
 \code{\link{drug}()}
 }
 \concept{drugs}

@@ -5,9 +5,12 @@
 #' passed database connection. it takes two optional arguments to
 #' save the returned tibble in the database \code{save_table} and
 #' \code{database_connection}.
-#' it must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' if \code{\link{read_drugbank_xml_db}} is called before for any reason, so
+#'
+#' @section read_drugbank_xml_db:
+#' \code{\link{read_drugbank_xml_db}} function must be called first before any
+#' parser.
+#'
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 #' no need to call it again before calling this function.
 #'
 #' @param save_table boolean, save table in database if true.
@@ -23,6 +26,7 @@
 #' @family common
 #' @examples
 #' \dontrun{
+#' # the same parameters and usage will be applied for any parser
 #' # return only the parsed tibble
 #' drug_all()
 #'
