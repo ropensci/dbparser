@@ -11,7 +11,7 @@ textbooks <- function(rec, parent_node) {
 
 #' Extracts the drug books element and return data as tibble.
 #'
-#' \code{drug_books} returns tibble of drug books elements.
+#' \code{drugs_textbooks} returns tibble of drug books elements.
 #'
 #' This functions extracts the books element of drug node in drugbank
 #' xml database with the option to save it in a predefined database via
@@ -37,49 +37,49 @@ textbooks <- function(rec, parent_node) {
 #' @examples
 #' \dontrun{
 #' # return only the parsed tibble
-#' drug_books()
+#' drugs_textbooks()
 #'
 #' # will throw an error, as database_connection is NULL
-#' drug_books(save_table = TRUE)
+#' drugs_textbooks(save_table = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' drug_books(save_csv = TRUE)
+#' drugs_textbooks(save_csv = TRUE)
 #'
 #' # save in database in SQLite in memory database and return parsed tibble
 #' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_books(save_table = TRUE, database_connection = sqlite_con)
+#' drugs_textbooks(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save in database, save parsed tibble as csv if it does not
 #' # exist in current location and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' drug_books(save_table = TRUE, save_csv = TRUE,
+#' drugs_textbooks(save_table = TRUE, save_csv = TRUE,
 #'  database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given l
 #' # ocation and return parsed tibble.
 #' # If the csv exist before read it and return its data.
-#' drug_books(save_csv = TRUE, csv_path = TRUE)
+#' drugs_textbooks(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current
 #' # location and return parsed tibble.
 #' # If the csv exist override it and return it.
-#' drug_books(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' drugs_textbooks(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-drug_books <-
+drugs_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
     check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_books", csv_path)
+    path <- get_dataset_full_path("drugs_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
-      drug_books <- readr::read_csv(path)
+      drugs_textbooks <- readr::read_csv(path)
     } else {
-      drug_books <- map_df(
+      drugs_textbooks <- map_df(
         xmlChildren(pkg_env$root),
         ~ drug_sub_df(
           .x,
@@ -88,15 +88,15 @@ drug_books <-
           id = "drugbank-id"
         )
       )
-      write_csv(drug_books, save_csv, csv_path)
+      write_csv(drugs_textbooks, save_csv, csv_path)
     }
 
     if (save_table) {
       save_drug_sub(con = database_connection,
-                    df = drug_books,
-                    table_name = "drug_books")
+                    df = drugs_textbooks,
+                    table_name = "drugs_textbooks")
     }
-    return(drug_books %>% as_tibble())
+    return(drugs_textbooks %>% as_tibble())
   }
 
 #' Extracts the drug carriers textbooks element and return data as tibble.

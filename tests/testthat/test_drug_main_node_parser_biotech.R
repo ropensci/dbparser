@@ -63,9 +63,9 @@ test_that(
 test_that(
   desc = "Read drug books attributes",
   code = {
-    expect_equal(nrow(drug_books()), 0)
-    expect_true(is_tibble(drug_books()))
-    expect_error(drug_books(TRUE))
+    expect_equal(nrow(drugs_textbooks()), 0)
+    expect_true(is_tibble(drugs_textbooks()))
+    expect_error(drugs_textbooks(TRUE))
   }
 )
 

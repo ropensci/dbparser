@@ -85,7 +85,6 @@ Other drugs:
 \code{\link{drug_affected_organisms}()},
 \code{\link{drug_ahfs_codes}()},
 \code{\link{drug_articles}()},
-\code{\link{drug_books}()},
 \code{\link{drug_calc_prop}()},
 \code{\link{drug_categories}()},
 \code{\link{drug_classification}()},
@@ -109,6 +108,7 @@ Other drugs:
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},
+\code{\link{drugs_textbooks}()},
 \code{\link{drug}()}
 }
 \concept{drugs}

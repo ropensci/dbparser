@@ -118,7 +118,7 @@ drug_all <-
                     database_connection)
     message("parsed articles_drug, 3/76")
     books_drug <-
-      drug_books(save_table,
+      drugs_textbooks(save_table,
                  save_csv,
                  csv_path,
                  override_csv,
@@ -831,7 +831,7 @@ drug_element <-
         "atc_codes_drug" = drug_atc_codes(save_table, save_csv, csv_path,
                                           override_csv,
                                           database_connection),
-        "books_drug" = drug_books(save_table, save_csv, csv_path,
+        "books_drug" = drugs_textbooks(save_table, save_csv, csv_path,
                                   override_csv,
                                   database_connection),
         "carriers_drug" = carriers(save_table, save_csv, csv_path,
