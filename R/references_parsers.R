@@ -1,5 +1,6 @@
 textbooks <- function(rec = NULL, parent_node = NULL) {
-  ref_node <- if_else(is_null(parent_node), "general-references", "references")
+  ref_node <-
+    if_else(is_null(parent_node), "general-references", "references")
   id_node <- if_else(is_null(parent_node), "drugbank-id", "id")
   children <- NULL
   if (is.null(parent_node)) {
@@ -7,27 +8,28 @@ textbooks <- function(rec = NULL, parent_node = NULL) {
   } else {
     children <- xmlChildren(rec[[parent_node]])
   }
-
   return(map_df(
-    children, ~ drug_sub_df(.x,
-                            ref_node,
-                            seconadary_node = "textbooks",
-                            id = id_node)))
+    children,
+    ~ drug_sub_df(.x,
+                  ref_node,
+                  seconadary_node = "textbooks",
+                  id = id_node)
+  ))
 }
 
-get_carriers_textbooks_df <- function(rec) {
+carrier_textbooks <- function(rec) {
   return(textbooks(rec, "carriers"))
 }
 
-get_enzymes_textbooks_df <- function(rec) {
+enzyme_textbooks <- function(rec) {
   return(textbooks(rec, "enzymes"))
 }
 
-get_targ_textbooks_df <- function(rec) {
+target_textbooks <- function(rec) {
   return(textbooks(rec, "targets"))
 }
 
-get_trans_textbooks_df <- function(rec) {
+transporter_textbooks <- function(rec) {
   return(textbooks(rec, "transporters"))
 }
 
@@ -187,12 +189,13 @@ carriers_textbooks <-
            override_csv = FALSE,
            database_connection = NULL) {
     check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_carriers_textbooks", csv_path)
+    path <-
+      get_dataset_full_path("drug_carriers_textbooks", csv_path)
     if (!override_csv & file.exists(path)) {
       drug_carriers_textbooks <- readr::read_csv(path)
     } else {
       drug_carriers_textbooks <-
-        map_df(pkg_env$children, ~ get_carriers_textbooks_df(.x)) %>% unique()
+        map_df(pkg_env$children, ~ carrier_textbooks(.x)) %>% unique()
 
       write_csv(drug_carriers_textbooks, save_csv, csv_path)
     }
@@ -286,7 +289,7 @@ enzymes_textbooks <- function(save_table = FALSE,
     drug_enzymes_textbooks <- readr::read_csv(path)
   } else {
     drug_enzymes_textbooks <-
-      map_df(pkg_env$children, ~ get_enzymes_textbooks_df(.x)) %>%
+      map_df(pkg_env$children, ~ enzyme_textbooks(.x)) %>%
       unique()
 
     write_csv(drug_enzymes_textbooks, save_csv, csv_path)
@@ -368,8 +371,10 @@ enzymes_textbooks <- function(save_table = FALSE,
 #' )
 #' }
 #' @export
-targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
-                              csv_path = ".", override_csv = FALSE,
+targets_textbooks <- function(save_table = FALSE,
+                              save_csv = FALSE,
+                              csv_path = ".",
+                              override_csv = FALSE,
                               database_connection = NULL) {
   check_parameters_validation(save_table, database_connection)
   path <-
@@ -378,7 +383,7 @@ targets_textbooks <- function(save_table = FALSE, save_csv = FALSE,
     drug_targ_textbooks <- readr::read_csv(path)
   } else {
     drug_targ_textbooks <-
-      map_df(pkg_env$children, ~ get_targ_textbooks_df(.x)) %>% unique()
+      map_df(pkg_env$children, ~ target_textbooks(.x)) %>% unique()
 
     write_csv(drug_targ_textbooks, save_csv, csv_path)
   }
@@ -474,7 +479,7 @@ transporters_textbooks <-
       drug_trans_textbooks <- readr::read_csv(path)
     } else {
       drug_trans_textbooks <-
-        map_df(pkg_env$children, ~ get_trans_textbooks_df(.x)) %>%
+        map_df(pkg_env$children, ~ transporter_textbooks(.x)) %>%
         unique()
 
       write_csv(drug_trans_textbooks, save_csv, csv_path)
