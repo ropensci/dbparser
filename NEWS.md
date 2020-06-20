@@ -1,6 +1,8 @@
 # dbparser 1.1.3.9000
 * Rename `drugs_books` function to `drugs_textbooks`
 * Major documentation update
+* Add `attachments` element parsers
+
 # dbparser 1.1.2
 
 ### Major Changes

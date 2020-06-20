@@ -33,11 +33,13 @@ drug_sub_df <-
     if (is.null(seconadary_node) &&
       !is.null(rec[[main_node]])) {
       df <- xmlToDataFrame(rec[[main_node]], stringsAsFactors = FALSE)
-    } else {
+    } else if (!is.null(rec[[main_node]][[seconadary_node]])) {
       df <-
         xmlToDataFrame(rec[[main_node]][[seconadary_node]],
           stringsAsFactors = FALSE
         )
+    } else {
+      return()
     }
 
 

@@ -8,6 +8,16 @@ library(purrr)
 
 
 biotech <- "drugbank_record_biotech.xml"
+test_that(
+  desc = "Read database",
+  code = {
+    expect_true(
+      read_drugbank_xml_db(
+        system.file("extdata", biotech, package = "dbparser")
+      )
+    )
+  }
+)
 
 test_that(
   desc = "Read drug articles attributes",
@@ -39,6 +49,15 @@ test_that(
     )
     expect_true(is_tibble(drugs_links()))
     expect_error(drugs_links(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read drug attachments attributes",
+  code = {
+    expect_equal(nrow(drugs_attachments()), 0)
+    expect_true(is_tibble(drugs_attachments()))
+    expect_error(drugs_attachments(TRUE))
   }
 )
 
@@ -79,6 +98,18 @@ test_that(
 )
 
 test_that(
+  desc = "Read drug carriers_attachments",
+  code = {
+    expect_equal(
+      nrow(carriers_attachments()),
+      0
+    )
+    expect_true(is_tibble(carriers_attachments()))
+    expect_error(carriers_attachments(TRUE))
+  }
+)
+
+test_that(
   desc = "Read drug enzymes articles attributes",
   code = {
     expect_equal(
@@ -112,6 +143,18 @@ test_that(
     )
     expect_true(is_tibble(enzymes_links()))
     expect_error(enzymes_links(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read drug enzymes attachments attributes",
+  code = {
+    expect_equal(
+      nrow(enzymes_attachments()),
+      0
+    )
+    expect_true(is_tibble(enzymes_attachments()))
+    expect_error(enzymes_attachments(TRUE))
   }
 )
 
@@ -155,6 +198,18 @@ test_that(
 )
 
 test_that(
+  desc = "Read drug targ attachments",
+  code = {
+    expect_equal(
+      nrow(targets_attachments()),
+      0
+    )
+    expect_true(is_tibble(targets_attachments()))
+    expect_error(targets_attachments(TRUE))
+  }
+)
+
+test_that(
   desc = "Read drug transporters_articles attributes",
   code = {
     expect_equal(
@@ -187,5 +242,17 @@ test_that(
     )
     expect_true(is_tibble(transporters_links()))
     expect_error(transporters_links(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read drug transporters attachments attributes",
+  code = {
+    expect_equal(
+      nrow(transporters_attachments()),
+      0
+    )
+    expect_true(is_tibble(transporters_attachments()))
+    expect_error(transporters_attachments(TRUE))
   }
 )

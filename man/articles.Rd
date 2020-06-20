@@ -68,7 +68,8 @@ value for this function an error will be thrown.}
 a tibble with 4 variables:
 \describe{
   \item{ref-id}{Identifier for the article being referenced.
-  This is unique across all reference types (books, links, article).}
+  This is unique across all reference types (books, links, article,
+  attachments).}
   \item{pubmed-id}{The PubMed identifier for the article.}
   \item{citation}{Article citation in a standard format.}
   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
@@ -123,6 +124,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 \seealso{
 Other references: 
+\code{\link{attachments}},
 \code{\link{books}},
 \code{\link{links}}
 }

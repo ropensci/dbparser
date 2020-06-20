@@ -63,7 +63,8 @@ reference_parser <- function(save_table = FALSE,
 #' @return  a tibble with 4 variables:
 #' \describe{
 #'   \item{ref-id}{Identifier for the article being referenced.
-#'   This is unique across all reference types (books, links, article).}
+#'   This is unique across all reference types (books, links, article,
+#'   attachments).}
 #'   \item{isbn}{ISBN identifying the textbook.}
 #'   \item{citation}{A Textbook citation in a standard format.}
 #'   \item{\emph{parent_id}}{drug/ carrier/ target/ enzyme/ transporter id}
@@ -105,7 +106,8 @@ NULL
 #' @return  a tibble with 4 variables:
 #' \describe{
 #'   \item{ref-id}{Identifier for the article being referenced.
-#'   This is unique across all reference types (books, links, article).}
+#'   This is unique across all reference types (books, links, article,
+#'   attachments).}
 #'   \item{pubmed-id}{The PubMed identifier for the article.}
 #'   \item{citation}{Article citation in a standard format.}
 #'   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
@@ -114,6 +116,28 @@ NULL
 #'
 #' @inherit drug_all examples
 #' @name articles
+NULL
+
+#' Drugs/ Carriers/ Enzymes/ Targets/ Transporters attachments element parser
+#'
+#' Return a list of attachment that were used as references for drugs carriers
+#'
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
+#'
+#' @return  a tibble with 4 variables:
+#' \describe{
+#'   \item{ref-id}{Identifier for the article being referenced.
+#'   This is unique across all reference types (books, links, article,
+#'   attachments).}
+#'   \item{title}{The title of the attachment.}
+#'   \item{url}{The url to download the attachment from.}
+#'   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
+#' }
+#' @family references
+#'
+#' @inherit drug_all examples
+#' @name attachments
 NULL
 
 #' @rdname books
@@ -410,5 +434,103 @@ transporters_articles <-
       tibble_name = "drug_trans_articles",
       child_node = "transporters",
       ref_type = "articles"
+    )
+  }
+#' @rdname attachments
+#' @export
+drugs_attachments <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drugs_attachments",
+      ref_title = "general-references",
+      ref_type = "attachments",
+      id = "drugbank-id"
+    )
+  }
+
+#' @rdname attachments
+#' @export
+carriers_attachments <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_carriers_attachments",
+      child_node = "carriers",
+      ref_type = "attachments"
+    )
+  }
+
+#' @rdname attachments
+#' @export
+enzymes_attachments <- function(save_table = FALSE,
+                             save_csv = FALSE,
+                             csv_path = ".",
+                             override_csv = FALSE,
+                             database_connection = NULL) {
+  reference_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_enzymes_attachments",
+    child_node = "enzymes",
+    ref_type = "attachments"
+  )
+}
+
+#' @rdname attachments
+#' @export
+targets_attachments <- function(save_table = FALSE,
+                             save_csv = FALSE,
+                             csv_path = ".",
+                             override_csv = FALSE,
+                             database_connection = NULL) {
+  reference_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_targ_attachments",
+    child_node = "targets",
+    ref_type = "attachments"
+  )
+}
+
+#' @rdname attachments
+#' @export
+transporters_attachments <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_trans_attachments",
+      child_node = "transporters",
+      ref_type = "attachments"
     )
   }
