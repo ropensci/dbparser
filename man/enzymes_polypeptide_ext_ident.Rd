@@ -88,7 +88,6 @@ enzymes_polypeptide_ext_ident(
 \seealso{
 Other enzymes: 
 \code{\link{enzymes_actions}()},
-\code{\link{enzymes_articles}()},
 \code{\link{enzymes_polypeptide_go}()},
 \code{\link{enzymes_polypeptide_pfams}()},
 \code{\link{enzymes_polypeptide_syn}()},

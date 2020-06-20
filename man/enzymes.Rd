@@ -80,7 +80,6 @@ enzymes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 \seealso{
 Other enzymes: 
 \code{\link{enzymes_actions}()},
-\code{\link{enzymes_articles}()},
 \code{\link{enzymes_polypeptide_ext_ident}()},
 \code{\link{enzymes_polypeptide_go}()},
 \code{\link{enzymes_polypeptide_pfams}()},

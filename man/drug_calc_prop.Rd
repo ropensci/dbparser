@@ -87,7 +87,6 @@ drug_calc_prop(
 Other drugs: 
 \code{\link{drug_affected_organisms}()},
 \code{\link{drug_ahfs_codes}()},
-\code{\link{drug_articles}()},
 \code{\link{drug_atc_codes}()},
 \code{\link{drug_categories}()},
 \code{\link{drug_classification}()},

@@ -115,7 +115,7 @@ drug_all <-
                   database_connection)
     message("parsed groups_drug, 2/76")
     articles_drug <-
-      drug_articles(save_table,
+      drugs_articles(save_table,
                     save_csv,
                     csv_path,
                     override_csv,
@@ -829,7 +829,7 @@ drug_element <-
         "ahfs_codes_drug" = drug_ahfs_codes(save_table, save_csv,
                                             csv_path, override_csv,
                                             database_connection),
-        "articles_drug" = drug_articles(save_table, save_csv, csv_path,
+        "articles_drug" = drugs_articles(save_table, save_csv, csv_path,
                                         override_csv,
                                         database_connection),
         "atc_codes_drug" = drug_atc_codes(save_table, save_csv, csv_path,

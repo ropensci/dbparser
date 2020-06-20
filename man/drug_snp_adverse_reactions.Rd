@@ -88,7 +88,6 @@ drug_snp_adverse_reactions(
 Other drugs: 
 \code{\link{drug_affected_organisms}()},
 \code{\link{drug_ahfs_codes}()},
-\code{\link{drug_articles}()},
 \code{\link{drug_atc_codes}()},
 \code{\link{drug_calc_prop}()},
 \code{\link{drug_categories}()},

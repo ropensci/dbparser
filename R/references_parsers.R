@@ -54,7 +54,7 @@ reference_parser <- function(save_table = FALSE,
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser
 #'
-#' A list of text books that were used as references for drugs, carriers,
+#' Return a list of text books that were used as references for drugs, carriers,
 #'  enzymes, targets or transporters
 #'
 #' @inheritSection drug_all read_drugbank_xml_db
@@ -76,7 +76,7 @@ NULL
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters links element parser
 #'
-#' A list of websites that were used as references for
+#' Return a list of websites that were used as references for
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 #'
 #' @inheritSection drug_all read_drugbank_xml_db
@@ -93,6 +93,27 @@ NULL
 #'
 #' @inherit drug_all examples
 #' @name links
+NULL
+
+#' Drugs/ Carriers/ Enzymes/ Targets/ Transporters articles element parser
+#'
+#' Return a list of articles that were used as references for drugs carriers
+#'
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
+#'
+#' @return  a tibble with 4 variables:
+#' \describe{
+#'   \item{ref-id}{Identifier for the article being referenced.
+#'   This is unique across all reference types (books, links, article).}
+#'   \item{pubmed-id}{The PubMed identifier for the article.}
+#'   \item{citation}{Article citation in a standard format.}
+#'   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
+#' }
+#' @family references
+#'
+#' @inherit drug_all examples
+#' @name articles
 NULL
 
 #' @rdname books
@@ -290,5 +311,104 @@ transporters_links <-
       tibble_name = "drug_trans_links",
       child_node = "transporters",
       ref_type = "links"
+    )
+  }
+
+#' @rdname articles
+#' @export
+drugs_articles <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drugs_articles",
+      ref_title = "general-references",
+      ref_type = "articles",
+      id = "drugbank-id"
+    )
+  }
+
+#' @rdname articles
+#' @export
+carriers_articles <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_carriers_articles",
+      child_node = "carriers",
+      ref_type = "articles"
+    )
+  }
+
+#' @rdname articles
+#' @export
+enzymes_articles <- function(save_table = FALSE,
+                          save_csv = FALSE,
+                          csv_path = ".",
+                          override_csv = FALSE,
+                          database_connection = NULL) {
+  reference_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_enzymes_articles",
+    child_node = "enzymes",
+    ref_type = "articles"
+  )
+}
+
+#' @rdname articles
+#' @export
+targets_articles <- function(save_table = FALSE,
+                          save_csv = FALSE,
+                          csv_path = ".",
+                          override_csv = FALSE,
+                          database_connection = NULL) {
+  reference_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_targ_articles",
+    child_node = "targets",
+    ref_type = "articles"
+  )
+}
+
+#' @rdname articles
+#' @export
+transporters_articles <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    reference_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_trans_articles",
+      child_node = "transporters",
+      ref_type = "articles"
     )
   }

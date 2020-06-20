@@ -61,10 +61,10 @@ test_that(
   desc = "Read drug articles attributes",
   code = {
     expect_match(as.character(
-      drug_articles()[["pubmed-id"]][1]
+      drugs_articles()[["pubmed-id"]][1]
     ), "16466327")
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
+    expect_true(is_tibble(drugs_articles()))
+    expect_error(drugs_articles(TRUE))
   }
 )
 
@@ -114,11 +114,11 @@ test_that(
   desc = "Read drug articles attributes",
   code = {
     expect_match(
-      as.character(drug_articles()[["pubmed-id"]][1]),
+      as.character(drugs_articles()[["pubmed-id"]][1]),
       "16466327"
     )
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
+    expect_true(is_tibble(drugs_articles()))
+    expect_error(drugs_articles(TRUE))
   }
 )
 

@@ -75,7 +75,7 @@ a tibble with 4 variables:
 }
 }
 \description{
-A list of text books that were used as references for drugs, carriers,
+Return a list of text books that were used as references for drugs, carriers,
  enzymes, targets or transporters
 }
 \section{read_drugbank_xml_db}{
@@ -124,6 +124,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 \seealso{
 Other references: 
+\code{\link{articles}},
 \code{\link{links}}
 }
 \concept{references}

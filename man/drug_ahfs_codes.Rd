@@ -81,7 +81,6 @@ drug_ahfs_codes(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},
-\code{\link{drug_articles}()},
 \code{\link{drug_atc_codes}()},
 \code{\link{drug_calc_prop}()},
 \code{\link{drug_categories}()},
