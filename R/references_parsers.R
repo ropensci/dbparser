@@ -1,13 +1,53 @@
-textbooks <- function(rec, parent_node) {
+textbooks <- function(children,
+                      ref_title = "references",
+                      ref_type = "textbooks",
+                      id = "id") {
   return(map_df(
-    xmlChildren(rec[[parent_node]]),
-    ~ drug_sub_df(.x,
-                  "references",
-                  seconadary_node = "textbooks",
-                  id = "id")
+    children,
+    ~ drug_sub_df(.,
+                  ref_title,
+                  seconadary_node = ref_type,
+                  id = id)
   ))
 }
 
+textbooks_parser <- function(save_table = FALSE,
+                             save_csv = FALSE,
+                             csv_path = ".",
+                             override_csv = FALSE,
+                             database_connection = NULL,
+                             tibble_name,
+                             child_node = NULL,
+                             ref_title = "references",
+                             ref_type = "textbooks",
+                             id = "id") {
+  check_parameters_validation(save_table, database_connection)
+  path <- get_dataset_full_path(tibble_name, csv_path)
+  drugs <-  xmlChildren(pkg_env$root)
+  textbooks_tbl <- NULL
+  if (!override_csv & file.exists(path)) {
+    textbooks_tbl <- readr::read_csv(path)
+  } else {
+    if (is.null(child_node)) {
+      textbooks_tbl <- map_df(drugs,
+                              ~ drug_sub_df(.,
+                                            ref_title,
+                                            seconadary_node = ref_type,
+                                            id = id))
+    } else {
+      textbooks_tbl <-  map_df(drugs, ~ textbooks(xmlChildren(.[[child_node]])))
+    }
+    textbooks_tbl <- textbooks_tbl %>% unique()
+    write_csv(textbooks_tbl, save_csv, csv_path)
+  }
+
+  if (save_table) {
+    save_drug_sub(con = database_connection,
+                  df = textbooks_tbl,
+                  table_name = tibble_name)
+  }
+  return(textbooks_tbl %>% as_tibble())
+}
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser
 #'
@@ -39,29 +79,17 @@ drugs_textbooks <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drugs_textbooks", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drugs_textbooks <- readr::read_csv(path)
-    } else {
-      drugs_textbooks <- map_df(
-        xmlChildren(pkg_env$root),
-        ~ drug_sub_df(
-          .x,
-          "general-references",
-          seconadary_node = "textbooks",
-          id = "drugbank-id"
-        )
-      )
-      write_csv(drugs_textbooks, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drugs_textbooks,
-                    table_name = "drugs_textbooks")
-    }
-    return(drugs_textbooks %>% as_tibble())
+    textbooks_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drugs_textbooks",
+      ref_title = "general-references",
+      ref_type = "textbooks",
+      id = "drugbank-id"
+    )
   }
 
 #' @rdname books
@@ -72,28 +100,16 @@ carriers_textbooks <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <-
-      get_dataset_full_path("drug_carriers_textbooks", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_carriers_textbooks <- readr::read_csv(path)
-    } else {
-      drug_carriers_textbooks <-
-        map_df(pkg_env$children, ~ textbooks(., "carriers")) %>% unique()
-
-      write_csv(drug_carriers_textbooks, save_csv, csv_path)
-    }
-
-
-    if (save_table) {
-      save_drug_sub(
-        con = database_connection,
-        df = drug_carriers_textbooks,
-        table_name = "drug_carriers_textbooks",
-        save_table_only = TRUE
-      )
-    }
-    return(drug_carriers_textbooks %>% as_tibble())
+    textbooks_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_carriers_textbooks",
+      child_node = "carriers",
+      ref_type = "textbooks"
+    )
   }
 
 #' @rdname books
@@ -103,28 +119,16 @@ enzymes_textbooks <- function(save_table = FALSE,
                               csv_path = ".",
                               override_csv = FALSE,
                               database_connection = NULL) {
-  check_parameters_validation(save_table, database_connection)
-  path <-
-    get_dataset_full_path("drug_enzymes_textbooks", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_enzymes_textbooks <- readr::read_csv(path)
-  } else {
-    drug_enzymes_textbooks <-
-      map_df(pkg_env$children, ~ textbooks(., "enzymes")) %>%
-      unique()
-
-    write_csv(drug_enzymes_textbooks, save_csv, csv_path)
-  }
-
-  if (save_table) {
-    save_drug_sub(
-      con = database_connection,
-      df = drug_enzymes_textbooks,
-      table_name = "drug_enzymes_textbooks",
-      save_table_only = TRUE
-    )
-  }
-  return(drug_enzymes_textbooks %>% as_tibble())
+  textbooks_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_enzymes_textbooks",
+    child_node = "enzymes",
+    ref_type = "textbooks"
+  )
 }
 
 #' @rdname books
@@ -134,28 +138,16 @@ targets_textbooks <- function(save_table = FALSE,
                               csv_path = ".",
                               override_csv = FALSE,
                               database_connection = NULL) {
-  check_parameters_validation(save_table, database_connection)
-  path <-
-    get_dataset_full_path("drug_targ_textbooks", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_targ_textbooks <- readr::read_csv(path)
-  } else {
-    drug_targ_textbooks <-
-      map_df(pkg_env$children, ~ textbooks(., "targets")) %>% unique()
-
-    write_csv(drug_targ_textbooks, save_csv, csv_path)
-  }
-
-
-  if (save_table) {
-    save_drug_sub(
-      con = database_connection,
-      df = drug_targ_textbooks,
-      table_name = "drug_targ_textbooks",
-      save_table_only = TRUE
-    )
-  }
-  return(drug_targ_textbooks %>% as_tibble())
+  textbooks_parser(
+    save_table = save_table,
+    save_csv = save_csv,
+    csv_path = csv_path,
+    override_csv = override_csv,
+    database_connection = database_connection,
+    tibble_name = "drug_targ_textbooks",
+    child_node = "targets",
+    ref_type = "textbooks"
+  )
 }
 
 #' @rdname books
@@ -166,26 +158,14 @@ transporters_textbooks <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <-
-      get_dataset_full_path("drug_trans_textbooks", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_trans_textbooks <- readr::read_csv(path)
-    } else {
-      drug_trans_textbooks <-
-        map_df(pkg_env$children, ~ textbooks(., "targets")) %>%
-        unique()
-
-      write_csv(drug_trans_textbooks, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(
-        con = database_connection,
-        df = drug_trans_textbooks,
-        table_name = "drug_trans_textbooks",
-        save_table_only = TRUE
-      )
-    }
-    return(drug_trans_textbooks %>% as_tibble())
+    textbooks_parser(
+      save_table = save_table,
+      save_csv = save_csv,
+      csv_path = csv_path,
+      override_csv = override_csv,
+      database_connection = database_connection,
+      tibble_name = "drug_trans_textbooks",
+      child_node = "transporters",
+      ref_type = "textbooks"
+    )
   }
