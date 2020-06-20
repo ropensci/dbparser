@@ -85,7 +85,6 @@ targets_articles(
 \seealso{
 Other targets: 
 \code{\link{targets_actions}()},
-\code{\link{targets_links}()},
 \code{\link{targets_polypeptide_ext_ident}()},
 \code{\link{targets_polypeptide_go}()},
 \code{\link{targets_polypeptide_pfams}()},

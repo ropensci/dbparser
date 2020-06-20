@@ -19,13 +19,6 @@ get_targ_articles_df <- function(rec) {
   ))
 }
 
-get_targ_links_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["targets"]]),
-    ~ drug_sub_df(.x, "references", seconadary_node = "links", id = "id")
-  ))
-}
-
 get_targ_poly_df <- function(rec) {
   return(map_df(xmlChildren(rec[["targets"]]), ~ get_polypeptide_rec(.x)))
 }
@@ -650,108 +643,6 @@ targets_articles <- function(save_table = FALSE, save_csv = FALSE,
     )
   }
   return(drug_targ_articles %>% as_tibble())
-}
-
-
-#' Extracts the drug targ links element and return data as tibble.
-#'
-#' \code{targets_links} returns tibble of drug targ links
-#'  elements.
-#'
-#' This functions extracts the targ links element of drug node in
-#' \strong{DrugBank}
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
-#'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in
-#' the new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#'
-#' @return drug targ_links node attributes date frame
-#' @family targets
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' targets_links()
-#'
-#' # will throw an error, as database_connection is NULL
-#' targets_links(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' targets_links(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' targets_links(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not
-#' # exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' targets_links(save_table = TRUE, save_csv = TRUE,
-#' database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' targets_links(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in
-#' #  current location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' targets_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-#' }
-#' @export
-targets_links <- function(save_table = FALSE, save_csv = FALSE,
-                                  csv_path = ".", override_csv = FALSE,
-                          database_connection = NULL) {
-  check_parameters_validation(save_table, database_connection)
-  path <-
-    get_dataset_full_path("drug_targ_links", csv_path)
-  if (!override_csv & file.exists(path)) {
-    drug_targ_links <- readr::read_csv(path)
-  } else {
-    drug_targ_links <- map_df(pkg_env$children, ~
-    get_targ_links_df(.x)) %>% unique()
-
-    write_csv(drug_targ_links, save_csv, csv_path)
-  }
-
-
-
-  if (save_table) {
-    save_drug_sub(
-      con = database_connection,
-      df = drug_targ_links,
-      table_name = "drug_targ_links",
-      save_table_only = TRUE,
-      field_types = list(
-        title = paste("varchar(",
-          max(nchar(
-            drug_targ_links$title
-          ), na.rm = TRUE) + 100, ")",
-          sep = ""
-        ),
-        url = paste("varchar(", max(nchar(
-          drug_targ_links$url
-        )) + 100, ")", sep = "")
-      )
-    )
-  }
-  return(drug_targ_links %>% as_tibble())
 }
 
 #' Extracts the drug targ polypeptides element and return data as tibble.

@@ -80,9 +80,9 @@ test_that(
 test_that(
   desc = "Read drug links attributes",
   code = {
-    expect_equal(nrow(drug_links()), 0)
-    expect_true(is_tibble(drug_links()))
-    expect_error(drug_links(TRUE))
+    expect_equal(nrow(drugs_links()), 0)
+    expect_true(is_tibble(drugs_links()))
+    expect_error(drugs_links(TRUE))
   }
 )
 
@@ -354,7 +354,7 @@ test_that(
       as.character(drug_external_links()[["resource"]][[1]]),
       "RxList"
     )
-    expect_true(is_tibble(drug_links()))
+    expect_true(is_tibble(drugs_links()))
     expect_error(drug_external_links(TRUE))
   }
 )

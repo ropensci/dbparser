@@ -129,7 +129,7 @@ drug_all <-
                  database_connection)
     message("parsed books_drug, 4/76")
     links_drug <-
-      drug_links(save_table,
+      drugs_links(save_table,
                  save_csv,
                  csv_path,
                  override_csv,

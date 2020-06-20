@@ -73,11 +73,11 @@ test_that(
   desc = "Read drug links attributes",
   code = {
     expect_match(
-      as.character(drug_links()[1][["title"]]),
+      as.character(drugs_links()[1][["title"]]),
       "Google books"
     )
-    expect_true(is_tibble(drug_links()))
-    expect_error(drug_links(TRUE))
+    expect_true(is_tibble(drugs_links()))
+    expect_error(drugs_links(TRUE))
   }
 )
 

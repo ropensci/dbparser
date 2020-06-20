@@ -94,7 +94,6 @@ Other drugs:
 \code{\link{drug_groups}()},
 \code{\link{drug_interactions}()},
 \code{\link{drug_intern_brand}()},
-\code{\link{drug_links}()},
 \code{\link{drug_manufacturers}()},
 \code{\link{drug_mixtures}()},
 \code{\link{drug_packagers}()},

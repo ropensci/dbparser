@@ -94,7 +94,6 @@ carriers_polypeptide_ext_id(
 Other carriers: 
 \code{\link{carriers_actions}()},
 \code{\link{carriers_articles}()},
-\code{\link{carriers_links}()},
 \code{\link{carriers_polypeptides_go}()},
 \code{\link{carriers_polypeptides_pfams}()},
 \code{\link{carriers_polypeptides_syn}()},

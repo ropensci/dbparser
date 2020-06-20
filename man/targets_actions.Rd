@@ -82,7 +82,6 @@ targets_actions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 \seealso{
 Other targets: 
 \code{\link{targets_articles}()},
-\code{\link{targets_links}()},
 \code{\link{targets_polypeptide_ext_ident}()},
 \code{\link{targets_polypeptide_go}()},
 \code{\link{targets_polypeptide_pfams}()},

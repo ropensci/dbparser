@@ -82,7 +82,6 @@ transporters_articles(
 \seealso{
 Other transporters: 
 \code{\link{transporters_actions}()},
-\code{\link{transporters_links}()},
 \code{\link{transporters_polypep_ex_ident}()},
 \code{\link{transporters_polypeptide_go}()},
 \code{\link{transporters_polypeptide_pfams}()},
