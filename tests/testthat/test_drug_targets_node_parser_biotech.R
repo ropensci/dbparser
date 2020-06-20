@@ -31,45 +31,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ_articles attributes",
-  code = {
-    expect_match(
-      as.character(targets_articles()[["citation"]][[1]]),
-      paste0(
-        "coronary syndromes\\. Am J Cardiol\\. 1999 ",
-        "Sep 2;84\\(5A\\):2M-6M\\."
-      )
-    )
-    expect_true(is_tibble(targets_articles()))
-    expect_error(targets_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(targets_textbooks()),
-      0
-    )
-    expect_true(is_tibble(targets_textbooks()))
-    expect_error(targets_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ links attributes",
-  code = {
-    expect_equal(
-      nrow(targets_links()),
-      0
-    )
-    expect_true(is_tibble(targets_links()))
-    expect_error(targets_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read darug targ polypeptides attributes",
   code = {
     expect_match(

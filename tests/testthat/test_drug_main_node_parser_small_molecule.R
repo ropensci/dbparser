@@ -58,35 +58,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug articles attributes",
-  code = {
-    expect_match(as.character(
-      drugs_articles()[["pubmed-id"]][1]
-    ), "16466327")
-    expect_true(is_tibble(drugs_articles()))
-    expect_error(drugs_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug books attributes",
-  code = {
-    expect_equal(nrow(drugs_textbooks()), 0)
-    expect_true(is_tibble(drugs_textbooks()))
-    expect_error(drugs_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug links attributes",
-  code = {
-    expect_equal(nrow(drugs_links()), 0)
-    expect_true(is_tibble(drugs_links()))
-    expect_error(drugs_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug classification attributes",
   code = {
     expect_match(
@@ -107,18 +78,6 @@ test_that(
     )
     expect_true(is_tibble(drug_syn()))
     expect_error(drug_syn(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug articles attributes",
-  code = {
-    expect_match(
-      as.character(drugs_articles()[["pubmed-id"]][1]),
-      "16466327"
-    )
-    expect_true(is_tibble(drugs_articles()))
-    expect_error(drugs_articles(TRUE))
   }
 )
 

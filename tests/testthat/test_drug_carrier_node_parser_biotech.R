@@ -33,29 +33,6 @@ test_that(
   }
 )
 
-test_that(
-  desc = "Read drug carriers articles that",
-  code = {
-    expect_equal(
-      nrow(carriers_articles()),
-      0
-    )
-    expect_true(is_tibble(carriers_articles()))
-    expect_error(carriers_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug carriers_textbooks that",
-  code = {
-    expect_equal(
-      nrow(carriers_textbooks()),
-      0
-    )
-    expect_true(is_tibble(carriers_textbooks()))
-    expect_error(carriers_textbooks(TRUE))
-  }
-)
 
 test_that(
   desc = "Read drug carriers polypeptides that",

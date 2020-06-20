@@ -19,7 +19,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters actions attributes",
+  desc = "Read drug transporters actions attributes",
   code = {
     expect_equal(
       nrow(transporters_actions()),
@@ -31,43 +31,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters_articles attributes",
-  code = {
-    expect_equal(
-      nrow(transporters_articles()),
-      0
-    )
-    expect_true(is_tibble(transporters_articles()))
-    expect_error(transporters_articlese(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug transporters textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(transporters_textbooks()),
-      0
-    )
-    expect_true(is_tibble(transporters_textbooks()))
-    expect_error(transporters_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug transporters links attributes",
-  code = {
-    expect_equal(
-      nrow(transporters_links()),
-      0
-    )
-    expect_true(is_tibble(transporters_links()))
-    expect_error(transporters_links(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug transporters polypeptides attributes",
+  desc = "Read drug transporters polypeptides attributes",
   code = {
     expect_equal(
       nrow(transporters_polypeptide()),
@@ -79,7 +43,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters polypeptides external identifiers attributes",
+  desc = "Read drug transporters polypeptides external identifiers attributes",
   code = {
     expect_equal(
       nrow(transporters_polypep_ex_ident()),
@@ -93,7 +57,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters polypeptides syn attributes",
+  desc = "Read drug transporters polypeptides syn attributes",
   code = {
     expect_equal(
       nrow(transporters_polypeptide_syn()),
@@ -105,7 +69,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters polypeptides pfams attributes",
+  desc = "Read drug transporters polypeptides pfams attributes",
   code = {
     expect_equal(
       nrow(transporters_polypeptide_pfams()),
@@ -117,7 +81,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters polypeptides go classifiers attributes",
+  desc = "Read drug transporters polypeptides go classifiers attributes",
   code = {
     expect_equal(
       nrow(transporters_polypeptide_go()),
@@ -129,7 +93,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug transporters attributes",
+  desc = "Read drug transporters attributes",
   code = {
     expect_equal(
       nrow(transporters()),

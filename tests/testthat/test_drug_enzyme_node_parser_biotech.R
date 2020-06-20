@@ -43,43 +43,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes articles attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_articles()),
-      0
-    )
-    expect_true(is_tibble(enzymes_articles()))
-    expect_error(enzymes_articles(TRUE))
-  }
-)
-
-
-test_that(
-  desc = "Read darug enzymes textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_textbooks()),
-      0
-    )
-    expect_true(is_tibble(enzymes_textbooks()))
-    expect_error(enzymes_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug enzymes links attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_links()),
-      0
-    )
-    expect_true(is_tibble(enzymes_links()))
-    expect_error(enzymes_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read darug enzymes polypeptides attributes",
   code = {
     expect_equal(

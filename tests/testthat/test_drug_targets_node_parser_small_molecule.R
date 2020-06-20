@@ -17,7 +17,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ actions attributes",
+  desc = "Read drug targ actions attributes",
   code = {
     expect_match(
       as.character(targets_actions()
@@ -30,47 +30,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ_articles attributes",
-  code = {
-    expect_match(
-      as.character(targets_articles()[["citation"]][[1]]),
-      paste0(
-        "Scatena R: Bivalirudin: a new generation ",
-        "antithrombotic drug\\. Expert Opin Investig Drugs\\. ",
-        "2000 May;9\\(5\\):1119-27\\."
-      )
-    )
-    expect_true(is_tibble(targets_articles()))
-    expect_error(targets_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(targets_textbooks()),
-      0
-    )
-    expect_true(is_tibble(targets_textbooks()))
-    expect_error(targets_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ links attributes",
-  code = {
-    expect_equal(
-      nrow(targets_links()),
-      0
-    )
-    expect_true(is_tibble(targets_links()))
-    expect_error(targets_links(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ polypeptides attributes",
+  desc = "Read drug targ polypeptides attributes",
   code = {
     expect_match(
       as.character(targets_polypeptide()
@@ -84,7 +44,7 @@ test_that(
 
 test_that(
   desc =
-    "Read darug targ polypeptides external identifiers attributes",
+    "Read drug targ polypeptides external identifiers attributes",
   code = {
     expect_match(
       as.character(
@@ -101,7 +61,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ polypeptides syn attributes",
+  desc = "Read drug targ polypeptides syn attributes",
   code = {
     expect_match(
       as.character(targets_polypeptide_syn()
@@ -114,7 +74,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ polypeptides pfams attributes",
+  desc = "Read drug targ polypeptides pfams attributes",
   code = {
     expect_match(
       as.character(targets_polypeptide_pfams()
@@ -127,7 +87,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ polypeptides go classifiers attributes",
+  desc = "Read drug targ polypeptides go classifiers attributes",
   code = {
     expect_match(
       as.character(targets_polypeptide_go()
@@ -140,7 +100,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ attributes",
+  desc = "Read drug targ attributes",
   code = {
     expect_match(
       as.character(targets()[["name"]][1]),
