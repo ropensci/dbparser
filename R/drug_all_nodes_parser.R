@@ -114,27 +114,6 @@ drug_all <-
                   override_csv,
                   database_connection)
     message("parsed groups_drug, 2/76")
-    articles_drug <-
-      drugs_articles(save_table,
-                    save_csv,
-                    csv_path,
-                    override_csv,
-                    database_connection)
-    message("parsed articles_drug, 3/76")
-    books_drug <-
-      drugs_textbooks(save_table,
-                 save_csv,
-                 csv_path,
-                 override_csv,
-                 database_connection)
-    message("parsed books_drug, 4/76")
-    links_drug <-
-      drugs_links(save_table,
-                 save_csv,
-                 csv_path,
-                 override_csv,
-                 database_connection)
-    message("parsed links_drug, 5/76")
     syn_drug <-
       drug_syn(save_table,
                save_csv,
@@ -268,27 +247,6 @@ drug_all <-
                        override_csv,
                        database_connection)
     message("parsed actions_carrier_drug, 24/76")
-    articles_carrier_drug <-
-      carriers_articles(save_table,
-                        save_csv,
-                        csv_path,
-                        override_csv,
-                        database_connection)
-    message("parsed articles_carrier_drug, 25/76")
-    textbooks_carrier_drug <-
-      carriers_textbooks(save_table,
-                         save_csv,
-                         csv_path,
-                         override_csv,
-                         database_connection)
-    message("parsed textbooks_carrier_drug, 26/76")
-    links_carrier_drug <-
-      carriers_links(save_table,
-                     save_csv,
-                     csv_path,
-                     override_csv,
-                     database_connection)
-    message("parsed links_carrier_drug, 27/76")
     polypeptides_carrier_drug <-
       carriers_polypeptide(save_table,
                            save_csv,
@@ -345,27 +303,6 @@ drug_all <-
                       override_csv,
                       database_connection)
     message("parsed actions_enzyme_drug, 35/76")
-    articles_enzyme_drug <-
-      enzymes_articles(save_table,
-                       save_csv,
-                       csv_path,
-                       override_csv,
-                       database_connection)
-    message("parsed articles_enzyme_drug, 36/76")
-    textbooks_enzyme_drug <-
-      enzymes_textbooks(save_table,
-                        save_csv,
-                        csv_path,
-                        override_csv,
-                        database_connection)
-    message("parsed textbooks_enzyme_drug, 37/76")
-    links_enzyme_drug <-
-      enzymes_links(save_table,
-                    save_csv,
-                    csv_path,
-                    override_csv,
-                    database_connection)
-    message("parsed links_enzyme_drug, 38/76")
     polypeptides_enzyme_drug <-
       enzymes_polypeptide(save_table,
                           save_csv,
@@ -499,27 +436,6 @@ drug_all <-
                       override_csv,
                       database_connection)
     message("parsed actions_target_drug, 57/76")
-    articles_target_drug <-
-      targets_articles(save_table,
-                       save_csv,
-                       csv_path,
-                       override_csv,
-                       database_connection)
-    message("parsed articles_target_drug, 58/76")
-    textbooks_target_drug <-
-      targets_textbooks(save_table,
-                        save_csv,
-                        csv_path,
-                        override_csv,
-                        database_connection)
-    message("parsed textbooks_target_drug, 59/76")
-    links_target_drug <-
-      targets_links(save_table,
-                    save_csv,
-                    csv_path,
-                    override_csv,
-                    database_connection)
-    message("parsed links_target_drug, 60/76")
     polypeptide_target_drug <-
       targets_polypeptide(save_table,
                           save_csv,
@@ -541,27 +457,6 @@ drug_all <-
                            override_csv,
                            database_connection)
     message("parsed actions_transporter_drug, 63/76")
-    articles_transporter_drug <-
-      transporters_articles(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
-    message("parsed articles_transporter_drug, 64/76")
-    textbooks_transporter_drug <-
-      transporters_textbooks(save_table,
-                             save_csv,
-                             csv_path,
-                             override_csv,
-                             database_connection)
-    message("parsed textbooks_transporter_drug, 65/76")
-    links_transporter_drug <-
-      transporters_links(save_table,
-                         save_csv,
-                         csv_path,
-                         override_csv,
-                         database_connection)
-    message("parsed links_transporter_drug, 66/76")
     polypeptides_transporter_drug <-
       transporters_polypeptide(save_table,
                                save_csv,
@@ -632,12 +527,9 @@ drug_all <-
                   database_connection)
     message("parsed drugs main attributes, 76/76")
     return(
-      list(
+      c(list(
         drugs = drugs,
         groups_drug = groups_drug,
-        articles_drug = articles_drug,
-        books_drug = books_drug,
-        links_drug = links_drug,
         syn_drug = syn_drug,
         products_drug = products_drug,
         mixtures_drug = mixtures_drug,
@@ -657,9 +549,6 @@ drug_all <-
         snp_adverse_reactions = snp_adverse_reactions,
         atc_codes_drug = atc_codes_drug,
         actions_carrier_drug = actions_carrier_drug,
-        articles_carrier_drug = articles_carrier_drug,
-        textbooks_carrier_drug = textbooks_carrier_drug,
-        links_carrier_drug = links_carrier_drug,
         polypeptides_carrier_drug = polypeptides_carrier_drug,
         carr_poly_ext_identity =
           carr_poly_ext_identity,
@@ -671,9 +560,6 @@ drug_all <-
         classifications_drug =
           classifications_drug,
         actions_enzyme_drug = actions_enzyme_drug,
-        articles_enzyme_drug = articles_enzyme_drug,
-        textbooks_enzyme_drug = textbooks_enzyme_drug,
-        links_enzyme_drug = links_enzyme_drug,
         polypeptides_enzyme_drug = polypeptides_enzyme_drug,
         enzy_poly_ext_identity =
           enzy_poly_ext_identity,
@@ -697,15 +583,9 @@ drug_all <-
         targ_poly_go =
           targ_poly_go,
         actions_target_drug = actions_target_drug,
-        articles_target_drug = articles_target_drug,
-        textbooks_target_drug = textbooks_target_drug,
-        links_target_drug = links_target_drug,
         polypeptide_target_drug = polypeptide_target_drug,
         targ_drug = targ_drug,
         actions_transporter_drug = actions_transporter_drug,
-        articles_transporter_drug = articles_transporter_drug,
-        textbooks_transporter_drug = textbooks_transporter_drug,
-        links_transporter_drug = links_transporter_drug,
         polypeptides_transporter_drug = polypeptides_transporter_drug,
         trans_poly_ex_identity =
           trans_poly_ex_identity,
@@ -719,7 +599,11 @@ drug_all <-
         salts_drug = salts_drug,
         culculated_properties_drug = calculated_properties_drug,
         drugs_pharmacology = drugs_pharmacology
-      )
+      ), references(save_table,
+                    save_csv,
+                    csv_path,
+                    override_csv,
+                    database_connection))
     )
   }
 
@@ -1221,4 +1105,214 @@ drug_element_options <- function() {
       "salts_drug"
     )
   return(elements_options)
+}
+
+#' Drugs/ Carriers/ Enzymes/ Targets/ Transporters references element parser
+#'
+#' Return a list of all references for drugs, carriers, enzymes, targets or
+#' transporters
+#'
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
+#'
+#' @family references
+#'
+#' @inherit drug_all examples
+#' @export
+references <- function(save_table = FALSE,
+                       save_csv = FALSE,
+                       csv_path = ".",
+                       override_csv = FALSE,
+                       database_connection = NULL) {
+  message("Start extracting references")
+  articles_drug <-
+    drugs_articles(save_table,
+                   save_csv,
+                   csv_path,
+                   override_csv,
+                   database_connection)
+  message("parsed drugs articles")
+
+  books_drug <-
+    drugs_textbooks(save_table,
+                    save_csv,
+                    csv_path,
+                    override_csv,
+                    database_connection)
+  message("parsed drugs textbooks")
+
+  links_drug <-
+    drugs_links(save_table,
+                save_csv,
+                csv_path,
+                override_csv,
+                database_connection)
+  message("parsed drugs links")
+
+  attachments_drug <-
+    drugs_attachments(save_table,
+                save_csv,
+                csv_path,
+                override_csv,
+                database_connection)
+  message("parsed drugs attachments")
+
+  articles_carrier <-
+    carriers_articles(save_table,
+                      save_csv,
+                      csv_path,
+                      override_csv,
+                      database_connection)
+  message("parsed carriers articles")
+
+  textbooks_carrier <-
+    carriers_textbooks(save_table,
+                       save_csv,
+                       csv_path,
+                       override_csv,
+                       database_connection)
+  message("parsed carriers textbooks")
+
+  links_carrier <-
+    carriers_links(save_table,
+                   save_csv,
+                   csv_path,
+                   override_csv,
+                   database_connection)
+  message("parsed carriers links")
+
+  attachments_carrier <-
+    carriers_attachments(save_table,
+                   save_csv,
+                   csv_path,
+                   override_csv,
+                   database_connection)
+  message("parsed carriers attachments")
+
+  articles_enzyme <-
+    enzymes_articles(save_table,
+                     save_csv,
+                     csv_path,
+                     override_csv,
+                     database_connection)
+  message("parsed enzymes articles")
+
+  textbooks_enzyme <-
+    enzymes_textbooks(save_table,
+                      save_csv,
+                      csv_path,
+                      override_csv,
+                      database_connection)
+  message("parsed enzymes textbooks")
+
+  links_enzyme <-
+    enzymes_links(save_table,
+                  save_csv,
+                  csv_path,
+                  override_csv,
+                  database_connection)
+  message("parsed enzymes links")
+
+  attachments_enzyme <-
+    enzymes_attachments(save_table,
+                  save_csv,
+                  csv_path,
+                  override_csv,
+                  database_connection)
+  message("parsed enzymes attachments")
+
+  articles_target <-
+    targets_articles(save_table,
+                     save_csv,
+                     csv_path,
+                     override_csv,
+                     database_connection)
+  message("parsed targets articles")
+
+  textbooks_target <-
+    targets_textbooks(save_table,
+                      save_csv,
+                      csv_path,
+                      override_csv,
+                      database_connection)
+  message("parsed targets textbooks")
+
+  links_target <-
+    targets_links(save_table,
+                  save_csv,
+                  csv_path,
+                  override_csv,
+                  database_connection)
+  message("parsed targets links")
+
+  attachments_target <-
+    targets_links(save_table,
+                  save_csv,
+                  csv_path,
+                  override_csv,
+                  database_connection)
+  message("parsed targets attachments")
+
+  articles_transporter <-
+    transporters_articles(save_table,
+                          save_csv,
+                          csv_path,
+                          override_csv,
+                          database_connection)
+
+  message("parsed transporters articles")
+
+  textbooks_transporter <-
+    transporters_textbooks(save_table,
+                           save_csv,
+                           csv_path,
+                           override_csv,
+                           database_connection)
+  message("parsed transporters textbooks")
+
+  links_transporter <-
+    transporters_links(save_table,
+                       save_csv,
+                       csv_path,
+                       override_csv,
+                       database_connection)
+  message("parsed transporters links")
+
+  attachments_transporter <-
+    transporters_attachments(save_table,
+                       save_csv,
+                       csv_path,
+                       override_csv,
+                       database_connection)
+  message("parsed transporters attachments")
+  message("Extracting references is over!")
+  return(
+    list(
+      # drugs
+      articles_drug = articles_drug,
+      books_drug = books_drug,
+      links_drug = links_drug,
+      attachments_drug = attachments_drug,
+      # carriers
+      articles_carrier = articles_carrier,
+      textbooks_carrier = textbooks_carrier,
+      links_carrier = links_carrier,
+      attachments_carrier = attachments_carrier,
+      # enzymes
+      articles_enzyme = articles_enzyme,
+      textbooks_enzyme = textbooks_enzyme,
+      links_enzyme = links_enzyme,
+      attachments_enzyme = attachments_enzyme,
+      # targets
+      articles_target = articles_target,
+      textbooks_target = textbooks_target,
+      links_target = links_target,
+      attachments_target = attachments_target,
+      # transporters
+      articles_transporter = articles_transporter,
+      textbooks_transporter = textbooks_transporter,
+      links_transporter = links_transporter,
+      attachments_transporter = attachments_transporter
+    )
+  )
 }

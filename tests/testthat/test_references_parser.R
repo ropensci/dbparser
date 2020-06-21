@@ -256,3 +256,17 @@ test_that(
     expect_error(transporters_attachments(TRUE))
   }
 )
+
+classlist <- function(x) {
+  map_df(x, class)
+}
+
+references <- references()
+references_types <- classlist(references)
+test_that(
+  desc = "Read all references nodes",
+  code = {
+    expect_equal(length(references), 20)
+    expect_equal(dim(references_types), c(3, 20))
+  }
+)

@@ -41,16 +41,16 @@ drugs_types <- classlist(drugs)
 test_that(
   desc = "Read all drug nodes",
   code = {
-    expect_equal(length(drugs), 76)
-    expect_equal(dim(drugs_types), c(3, 76))
+    expect_equal(length(drugs), 81)
+    expect_equal(dim(drugs_types), c(3, 81))
   }
 )
 
 test_that(
   desc = "Read selected drug nodes",
   code = {
-    expect_equal(length(drug_element()), 76)
-    expect_equal(length(drug_element(c("all"))), 76)
+    expect_equal(length(drug_element()), 81)
+    expect_equal(length(drug_element(c("all"))), 81)
     expect_error(drug_element(save_table = TRUE))
     expect_error(drug_element(c("all"), save_table = TRUE))
     expect_error(drug_element(c("notvalid")))

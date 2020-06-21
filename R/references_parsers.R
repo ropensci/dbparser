@@ -1,4 +1,4 @@
-references <- function(children,
+references_rec <- function(children,
                       ref_title = "references",
                       ref_type = "textbooks",
                       id = "id") {
@@ -35,7 +35,7 @@ reference_parser <- function(save_table = FALSE,
                                             seconadary_node = ref_type,
                                             id = id))
     } else {
-      references_tbl <-  map_df(drugs, ~ references(
+      references_tbl <-  map_df(drugs, ~ references_rec(
         xmlChildren(.[[child_node]]),
         ref_title = ref_title,
         ref_type = ref_type))

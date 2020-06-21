@@ -127,6 +127,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 Other references: 
 \code{\link{articles}},
 \code{\link{attachments}},
-\code{\link{links}}
+\code{\link{links}},
+\code{\link{references}()}
 }
 \concept{references}
