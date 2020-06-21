@@ -1006,7 +1006,24 @@ drug_element <-
         "culculated_properties_drug" =
           drug_calc_prop(save_table, save_csv,
                          csv_path, override_csv,
-                         database_connection)
+                         database_connection),
+        "attachments_drug" = drugs_attachments(save_table, save_csv,
+                                               csv_path, override_csv,
+                                               database_connection),
+        "attachments_carrier" = carriers_attachments(save_table, save_csv,
+                                                     csv_path, override_csv,
+                                                     database_connection),
+        "attachments_enzyme" = enzymes_attachments(save_table, save_csv,
+                                                   csv_path, override_csv,
+                                                   database_connection),
+        "attachments_target" = targets_attachments(save_table, save_csv,
+                                                   csv_path, override_csv,
+                                                   database_connection),
+        "attachments_transporter" = transporters_attachments(
+          save_table, save_csv, csv_path, override_csv, database_connection),
+        "references" = references(save_table, save_csv,
+                                  csv_path, override_csv,
+                                  database_connection)
       )
       parsed_list[[option]] <- parsed_element
       message(paste("parsed", option))
@@ -1102,7 +1119,13 @@ drug_element_options <- function() {
       "go_polypeptide_trans_drug",
       "transporters_drug",
       "international_brands_drug",
-      "salts_drug"
+      "salts_drug",
+      "attachments_drug",
+      "attachments_carrier",
+      "attachments_enzyme",
+      "attachments_target",
+      "attachments_transporter",
+      "references"
     )
   return(elements_options)
 }

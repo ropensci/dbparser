@@ -55,7 +55,7 @@ test_that(
     expect_error(drug_element(c("all"), save_table = TRUE))
     expect_error(drug_element(c("notvalid")))
     expect_error(drug_element(c("drug_ahfs_codes", "notvalid")))
-    expect_equal(length(drug_element_options()), 77)
+    expect_equal(length(drug_element_options()), 83)
     expect_equal(length(drug_element(
       c(
         "ahfs_codes_drug",
