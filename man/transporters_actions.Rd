@@ -85,7 +85,6 @@ Other transporters:
 \code{\link{transporters_polypeptide_go}()},
 \code{\link{transporters_polypeptide_pfams}()},
 \code{\link{transporters_polypeptide_syn}()},
-\code{\link{transporters_polypeptide}()},
-\code{\link{transporters}()}
+\code{\link{transporters_polypeptide}()}
 }
 \concept{transporters}

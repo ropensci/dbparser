@@ -85,7 +85,6 @@ Other enzymes:
 \code{\link{enzymes_polypeptide_ext_ident}()},
 \code{\link{enzymes_polypeptide_go}()},
 \code{\link{enzymes_polypeptide_pfams}()},
-\code{\link{enzymes_polypeptide_syn}()},
-\code{\link{enzymes}()}
+\code{\link{enzymes_polypeptide_syn}()}
 }
 \concept{enzymes}
