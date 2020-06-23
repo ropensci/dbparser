@@ -50,7 +50,7 @@ no need to call it again before calling this function.
 \examples{
 \dontrun{
 # return only the parsed tibble
-targets_polypeptide()
+targets_polypeptides()
 
 # will throw an error, as database_connection is NULL
 targets_polypeptide_syn(save_table = TRUE)
@@ -88,7 +88,6 @@ targets_polypeptide_syn(
 Other targets: 
 \code{\link{targets_polypeptide_ext_ident}()},
 \code{\link{targets_polypeptide_go}()},
-\code{\link{targets_polypeptide_pfams}()},
-\code{\link{targets_polypeptide}()}
+\code{\link{targets_polypeptide_pfams}()}
 }
 \concept{targets}

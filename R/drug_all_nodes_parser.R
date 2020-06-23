@@ -248,7 +248,7 @@ drug_all <-
                        database_connection)
     message("parsed actions_carrier_drug, 24/76")
     polypeptides_carrier_drug <-
-      carriers_polypeptide(save_table,
+      carriers_polypeptides(save_table,
                            save_csv,
                            csv_path,
                            override_csv,
@@ -304,7 +304,7 @@ drug_all <-
                       database_connection)
     message("parsed actions_enzyme_drug, 35/76")
     polypeptides_enzyme_drug <-
-      enzymes_polypeptide(save_table,
+      enzymes_polypeptides(save_table,
                           save_csv,
                           csv_path,
                           override_csv,
@@ -437,7 +437,7 @@ drug_all <-
                       database_connection)
     message("parsed actions_target_drug, 57/76")
     polypeptide_target_drug <-
-      targets_polypeptide(save_table,
+      targets_polypeptides(save_table,
                           save_csv,
                           csv_path,
                           override_csv,
@@ -458,7 +458,7 @@ drug_all <-
                            database_connection)
     message("parsed actions_transporter_drug, 63/76")
     polypeptides_transporter_drug <-
-      transporters_polypeptide(save_table,
+      transporters_polypeptides(save_table,
                                save_csv,
                                csv_path,
                                override_csv,
@@ -741,7 +741,7 @@ drug_element <-
                                               override_csv,
                                               database_connection),
         "polypeptides_carrier_drugs" =
-          carriers_polypeptide(save_table, save_csv,
+          carriers_polypeptides(save_table, save_csv,
                                csv_path, override_csv,
                                database_connection),
         "carr_poly_ext_identity" =
@@ -799,7 +799,7 @@ drug_element <-
                                             override_csv,
                                             database_connection),
         "polypeptides_enzyme_drug" =
-          enzymes_polypeptide(save_table, save_csv, csv_path,
+          enzymes_polypeptides(save_table, save_csv, csv_path,
                               override_csv,
                               database_connection),
         "enzy_poly_ext_identity" =
@@ -921,7 +921,7 @@ drug_element <-
                                             csv_path, override_csv,
                                             database_connection),
         "polypeptide_target_drug" =
-          targets_polypeptide(save_table, save_csv, csv_path,
+          targets_polypeptides(save_table, save_csv, csv_path,
                               override_csv,
                               database_connection),
         "targ_poly_ext_identity" =
@@ -942,7 +942,7 @@ drug_element <-
                                     override_csv,
                                     database_connection),
         "targ_poly_syn" =
-          targets_polypeptide(save_table,
+          targets_polypeptides(save_table,
                               save_csv, csv_path,
                               override_csv,
                               database_connection),
@@ -969,7 +969,7 @@ drug_element <-
                                                       override_csv,
                                                       database_connection),
         "polypeptides_transporter_drug" =
-          enzymes_polypeptide(save_table, save_csv, csv_path,
+          enzymes_polypeptides(save_table, save_csv, csv_path,
                               override_csv,
                               database_connection),
         "trans_poly_ex_identity" =

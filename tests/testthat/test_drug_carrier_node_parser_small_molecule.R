@@ -31,11 +31,11 @@ test_that(
   desc = "Read drug carriers polypeptides",
   code = {
     expect_equal(
-      nrow(carriers_polypeptide()),
+      nrow(carriers_polypeptides()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptide()))
-    expect_error(carriers_polypeptide(TRUE))
+    expect_true(is_tibble(carriers_polypeptides()))
+    expect_error(carriers_polypeptides(TRUE))
   }
 )
 

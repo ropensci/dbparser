@@ -14,7 +14,7 @@ actions_rec <- function(rec, cett_type) {
 #' @return a tibble with 2 variables:
 #' \describe{
 #'   \item{action}{describe related action}
-#'   \item{\emph{parent_id}}{drug/ carrier/ target/ enzyme/ transporter id}
+#'   \item{\emph{parent_id}}{carrier/ target/ enzyme/ transporter id}
 #' }
 #' @family cett
 #' @inherit drug_all examples

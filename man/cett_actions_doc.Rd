@@ -59,7 +59,7 @@ value for this function an error will be thrown.}
 a tibble with 2 variables:
 \describe{
   \item{action}{describe related action}
-  \item{\emph{parent_id}}{drug/ carrier/ target/ enzyme/ transporter id}
+  \item{\emph{parent_id}}{carrier/ target/ enzyme/ transporter id}
 }
 }
 \description{
@@ -111,6 +111,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 \seealso{
 Other cett: 
-\code{\link{cett_doc}}
+\code{\link{cett_doc}},
+\code{\link{cett_poly_doc}}
 }
 \concept{cett}

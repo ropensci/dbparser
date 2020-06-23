@@ -90,7 +90,6 @@ targets_polypeptide_pfams(
 Other targets: 
 \code{\link{targets_polypeptide_ext_ident}()},
 \code{\link{targets_polypeptide_go}()},
-\code{\link{targets_polypeptide_syn}()},
-\code{\link{targets_polypeptide}()}
+\code{\link{targets_polypeptide_syn}()}
 }
 \concept{targets}

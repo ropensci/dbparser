@@ -92,7 +92,6 @@ transporters_polypep_ex_ident(
 Other transporters: 
 \code{\link{transporters_polypeptide_go}()},
 \code{\link{transporters_polypeptide_pfams}()},
-\code{\link{transporters_polypeptide_syn}()},
-\code{\link{transporters_polypeptide}()}
+\code{\link{transporters_polypeptide_syn}()}
 }
 \concept{transporters}

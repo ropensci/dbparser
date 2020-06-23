@@ -89,7 +89,6 @@ carriers_polypeptides_pfams(
 Other carriers: 
 \code{\link{carriers_polypeptide_ext_id}()},
 \code{\link{carriers_polypeptides_go}()},
-\code{\link{carriers_polypeptides_syn}()},
-\code{\link{carriers_polypeptide}()}
+\code{\link{carriers_polypeptides_syn}()}
 }
 \concept{carriers}

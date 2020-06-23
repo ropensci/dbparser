@@ -33,12 +33,12 @@ test_that(
   desc = "Read drug targ polypeptides attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide()
+      as.character(targets_polypeptides()
       [["name"]][[1]]),
       "Prothrombin"
     )
-    expect_true(is_tibble(targets_polypeptide()))
-    expect_error(targets_polypeptide(TRUE))
+    expect_true(is_tibble(targets_polypeptides()))
+    expect_error(targets_polypeptides(TRUE))
   }
 )
 
