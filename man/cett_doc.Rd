@@ -120,4 +120,8 @@ drug_all(save_csv = TRUE, csv_path = TRUE)
 drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
+\seealso{
+Other cett: 
+\code{\link{cett_actions_doc}}
+}
 \concept{cett}

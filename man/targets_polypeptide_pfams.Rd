@@ -88,7 +88,6 @@ targets_polypeptide_pfams(
 }
 \seealso{
 Other targets: 
-\code{\link{targets_actions}()},
 \code{\link{targets_polypeptide_ext_ident}()},
 \code{\link{targets_polypeptide_go}()},
 \code{\link{targets_polypeptide_syn}()},

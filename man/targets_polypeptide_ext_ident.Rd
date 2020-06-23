@@ -94,7 +94,6 @@ targets_polypeptide_ext_ident(
 }
 \seealso{
 Other targets: 
-\code{\link{targets_actions}()},
 \code{\link{targets_polypeptide_go}()},
 \code{\link{targets_polypeptide_pfams}()},
 \code{\link{targets_polypeptide_syn}()},
