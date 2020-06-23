@@ -2,7 +2,59 @@
 % Please edit documentation in R/cett_actions_parser.R
 \name{cett_actions_doc}
 \alias{cett_actions_doc}
+\alias{carriers_actions}
+\alias{enzymes_actions}
+\alias{targets_actions}
+\alias{transporters_actions}
 \title{Carriers/ Enzymes/ Targets/ Transporters Actions parsers}
+\usage{
+carriers_actions(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
+
+enzymes_actions(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
+
+targets_actions(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
+
+transporters_actions(
+  save_table = FALSE,
+  save_csv = FALSE,
+  csv_path = ".",
+  override_csv = FALSE,
+  database_connection = NULL
+)
+}
+\arguments{
+\item{save_table}{boolean, save table in database if true.}
+
+\item{save_csv}{boolean, save csv version of parsed tibble if true}
+
+\item{csv_path}{location to save csv files into it, default is current
+location, save_csv must be true}
+
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
+
+\item{database_connection}{DBI connection object that holds a connection to
+user defined database. If \code{save_table} is enabled without providing
+value for this function an error will be thrown.}
+}
 \value{
 a tibble with 2 variables:
 \describe{

@@ -56,6 +56,7 @@ actions <-
     return(actions_tbl %>% as_tibble())
   }
 
+#' @rdname cett_actions_doc
 #' @export
 carriers_actions <- function(save_table = FALSE,
                              save_csv = FALSE,
@@ -72,6 +73,7 @@ carriers_actions <- function(save_table = FALSE,
   )
 }
 
+#' @rdname cett_actions_doc
 #' @export
 enzymes_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
@@ -88,6 +90,7 @@ enzymes_actions <- function(save_table = FALSE,
   )
 }
 
+#' @rdname cett_actions_doc
 #' @export
 targets_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
@@ -104,6 +107,7 @@ targets_actions <- function(save_table = FALSE,
   )
 }
 
+#' @rdname cett_actions_doc
 #' @export
 transporters_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
