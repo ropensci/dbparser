@@ -10,11 +10,11 @@ organizm_rec <- function(r, drug_key) {
     ),
     parent_key = drug_key
   )
-  if (is.null(r[["inhibition-strength"]])) {
+  if (!is.null(r[["inhibition-strength"]])) {
     org[["inhibition-strength"]] <- xmlValue(r[["inhibition-strength"]])
   }
 
-  if (is.null(r[["induction-strength"]])) {
+  if (!is.null(r[["induction-strength"]])) {
     org[["induction-strength"]] <- xmlValue(r[["induction-strength"]])
   }
 
