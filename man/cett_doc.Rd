@@ -56,7 +56,7 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-a tibble with 6 variables:
+a tibble with 6 variables (8 for enzymes):
 \describe{
   \item{id}{Universal Protein Resource (UniProt) Identifier for the record}
   \item{name}{related name}
@@ -64,9 +64,9 @@ a tibble with 6 variables:
   \item{known_action}{Whether the pharmacological action of the drug is due
    to this target interaction.}
   \item{inhibition-strength}{Whether the strength of enzyme inhibition is
-  strong, moderate, or unknown. Only applies to enzymes}
+  strong, moderate, or unknown. \strong{Only applies to enzymes}}
   \item{induction-strength}{Whether the strength of enzyme induction is
-  strong or unknown. Only applies to enzymes}
+  strong or unknown. \strong{Only applies to enzymes}}
   \item{position}{related position}
   \item{parent_id}{drugbank id}
 }

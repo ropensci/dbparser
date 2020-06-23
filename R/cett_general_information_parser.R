@@ -1,4 +1,3 @@
-# Extract drug carriers df
 organizm_rec <- function(r, drug_key) {
   org <- tibble_row(
     id = xmlValue(r[["id"]]),
@@ -37,7 +36,7 @@ cett_rec <- function(rec, tibble_name) {
 #' @inheritSection drug_all read_drugbank_xml_db
 #' @inheritParams drug_all
 #'
-#' @return a tibble with 6 variables:
+#' @return a tibble with 6 variables (8 for enzymes):
 #' \describe{
 #'   \item{id}{Universal Protein Resource (UniProt) Identifier for the record}
 #'   \item{name}{related name}
@@ -45,9 +44,9 @@ cett_rec <- function(rec, tibble_name) {
 #'   \item{known_action}{Whether the pharmacological action of the drug is due
 #'    to this target interaction.}
 #'   \item{inhibition-strength}{Whether the strength of enzyme inhibition is
-#'   strong, moderate, or unknown. Only applies to enzymes}
+#'   strong, moderate, or unknown. \strong{Only applies to enzymes}}
 #'   \item{induction-strength}{Whether the strength of enzyme induction is
-#'   strong or unknown. Only applies to enzymes}
+#'   strong or unknown. \strong{Only applies to enzymes}}
 #'   \item{position}{related position}
 #'   \item{parent_id}{drugbank id}
 #' }
