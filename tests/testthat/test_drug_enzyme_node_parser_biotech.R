@@ -59,12 +59,12 @@ test_that(
     "Read darug enzymes polypeptides external identifiers attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_ext_ident()),
+      nrow(enzymes_polypep_ex_ident()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_ext_ident()))
+    expect_true(is_tibble(enzymes_polypep_ex_ident()))
     expect_error(
-      enzymes_polypeptide_ext_ident(TRUE)
+      enzymes_polypep_ex_ident(TRUE)
     )
   }
 )

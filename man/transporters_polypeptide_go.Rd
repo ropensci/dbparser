@@ -92,7 +92,6 @@ transporters_polypeptide_go(
 }
 \seealso{
 Other transporters: 
-\code{\link{transporters_polypep_ex_ident}()},
 \code{\link{transporters_polypeptide_syn}()}
 }
 \concept{transporters}

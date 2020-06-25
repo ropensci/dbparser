@@ -43,12 +43,12 @@ test_that(
   desc = "Read drug carriers polypeptides external identifiers",
   code = {
     expect_equal(
-      nrow(carriers_polypeptide_ext_id()),
+      nrow(carriers_polypep_ex_ident()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptide_ext_id()))
+    expect_true(is_tibble(carriers_polypep_ex_ident()))
     expect_error(
-      carriers_polypeptide_ext_id(TRUE)
+      carriers_polypep_ex_ident(TRUE)
     )
   }
 )

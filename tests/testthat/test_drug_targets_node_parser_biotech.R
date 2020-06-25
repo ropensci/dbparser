@@ -50,14 +50,14 @@ test_that(
   code = {
     expect_match(
       as.character(
-        targets_polypeptide_ext_ident()
+        targets_polypep_ex_ident()
         [["identifier"]][1]
       ),
       "HGNC:3535"
     )
-    expect_true(is_tibble(targets_polypeptide_ext_ident()))
+    expect_true(is_tibble(targets_polypep_ex_ident()))
     expect_error(
-      targets_polypeptide_ext_ident(TRUE)
+      targets_polypep_ex_ident(TRUE)
     )
   }
 )

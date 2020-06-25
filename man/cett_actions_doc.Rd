@@ -112,6 +112,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 \seealso{
 Other cett: 
 \code{\link{cett_doc}},
+\code{\link{cett_ex_identity_doc}},
 \code{\link{cett_poly_doc}},
 \code{\link{cett_poly_pfms_doc}}
 }

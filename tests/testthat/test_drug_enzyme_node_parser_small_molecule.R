@@ -58,13 +58,13 @@ test_that(
   code = {
     expect_equal(
       nrow(
-        enzymes_polypeptide_ext_ident()
+        enzymes_polypep_ex_ident()
       ),
       7
     )
-    expect_true(is_tibble(enzymes_polypeptide_ext_ident()))
+    expect_true(is_tibble(enzymes_polypep_ex_ident()))
     expect_error(
-      enzymes_polypeptide_ext_ident(TRUE)
+      enzymes_polypep_ex_ident(TRUE)
     )
   }
 )

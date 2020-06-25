@@ -90,7 +90,6 @@ enzymes_polypeptide_go(
 }
 \seealso{
 Other enzymes: 
-\code{\link{enzymes_polypeptide_ext_ident}()},
 \code{\link{enzymes_polypeptide_syn}()}
 }
 \concept{enzymes}
