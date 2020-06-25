@@ -84,8 +84,4 @@ enzymes_polypeptide_syn(
 )
 }
 }
-\seealso{
-Other enzymes: 
-\code{\link{enzymes_polypeptide_go}()}
-}
 \concept{enzymes}

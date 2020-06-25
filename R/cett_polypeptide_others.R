@@ -20,8 +20,8 @@ NULL
 #' Carriers/ Enzymes/ Targets/ Transporters Polypeptide External Identifiers
 #' parsers
 #'
-#' Extract descriptions of identified polypeptide PFAMS targets, enzymes, carriers,
-#'  or transporters.
+#' Extract descriptions of identified polypeptide external identifiers for
+#' targets, enzymes, carriers, or transporters.
 #'
 #' @inheritSection drug_all read_drugbank_xml_db
 #' @inheritParams drug_all
@@ -35,6 +35,26 @@ NULL
 #' @family cett
 #' @inherit drug_all examples
 #' @name cett_ex_identity_doc
+NULL
+
+#' Carriers/ Enzymes/ Targets/ Transporters Polypeptide GO Classifier
+#' parsers
+#'
+#' Extract descriptions of identified polypeptide go classifier for targets,
+#'  enzymes, carriers, or transporters.
+#'
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
+#'
+#' @return a tibble with 3 variables:
+#' \describe{
+#'   \item{category}{}
+#'   \item{description}{}
+#'   \item{parent_key}{polypeptide id}
+#' }
+#' @family cett
+#' @inherit drug_all examples
+#' @name cett_go_doc
 NULL
 
 org_pfams <- function(rec, cett_type, child_type) {
@@ -228,5 +248,81 @@ transporters_polypep_ex_ident <-
       database_connection,
       "transporters_polypeptides_ext_id",
       "external-identifiers"
+    )
+  }
+
+#' @rdname cett_go_doc
+#' @export
+carriers_polypeptides_go <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "carriers_polypeptides_go",
+      "go-classifiers"
+    )
+  }
+
+#' @rdname cett_go_doc
+#' @export
+enzymes_polypeptides_go <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "enzymes_polypeptides_go",
+      "go-classifiers"
+    )
+  }
+
+#' @rdname cett_go_doc
+#' @export
+targets_polypeptides_go <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "targets_polypeptides_go",
+      "go-classifiers"
+    )
+  }
+
+#' @rdname cett_go_doc
+#' @export
+transporters_polypeptides_go <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "transporters_polypeptides_go",
+      "go-classifiers"
     )
   }

@@ -84,8 +84,4 @@ targets_polypeptide_syn(
 )
 }
 }
-\seealso{
-Other targets: 
-\code{\link{targets_polypeptide_go}()}
-}
 \concept{targets}

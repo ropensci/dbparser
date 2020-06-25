@@ -87,8 +87,4 @@ carriers_polypeptides_syn(
 )
 }
 }
-\seealso{
-Other carriers: 
-\code{\link{carriers_polypeptides_go}()}
-}
 \concept{carriers}

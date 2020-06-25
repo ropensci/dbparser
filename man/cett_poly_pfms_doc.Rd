@@ -116,6 +116,7 @@ Other cett:
 \code{\link{cett_actions_doc}},
 \code{\link{cett_doc}},
 \code{\link{cett_ex_identity_doc}},
+\code{\link{cett_go_doc}},
 \code{\link{cett_poly_doc}}
 }
 \concept{cett}

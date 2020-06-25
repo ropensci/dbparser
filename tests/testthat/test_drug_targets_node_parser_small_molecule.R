@@ -90,12 +90,12 @@ test_that(
   desc = "Read drug targ polypeptides go classifiers attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide_go()
+      as.character(targets_polypeptides_go()
       [["description"]][1]),
       "blood microparticle"
     )
-    expect_true(is_tibble(targets_polypeptide_go()))
-    expect_error(targets_polypeptide_go(TRUE))
+    expect_true(is_tibble(targets_polypeptides_go()))
+    expect_error(targets_polypeptides_go(TRUE))
   }
 )
 

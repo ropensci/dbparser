@@ -84,11 +84,11 @@ test_that(
   desc = "Read drug transporters polypeptides go classifiers attributes",
   code = {
     expect_equal(
-      nrow(transporters_polypeptide_go()),
+      nrow(transporters_polypeptides_go()),
       0
     )
-    expect_true(is_tibble(transporters_polypeptide_go()))
-    expect_error(transporters_polypeptide_go(TRUE))
+    expect_true(is_tibble(transporters_polypeptides_go()))
+    expect_error(transporters_polypeptides_go(TRUE))
   }
 )
 

@@ -98,10 +98,10 @@ test_that(
   desc = "Read darug enzymes polypeptides go classifiers attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_go()),
+      nrow(enzymes_polypeptides_go()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_go()))
-    expect_error(enzymes_polypeptide_go(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides_go()))
+    expect_error(enzymes_polypeptides_go(TRUE))
   }
 )

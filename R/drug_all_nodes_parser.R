@@ -332,7 +332,7 @@ drug_all <-
                                 database_connection)
     message("parsed pfams_polypeptides_enzyme_drug, 42/76")
     enzy_poly_go <-
-      enzymes_polypeptide_go(save_table,
+      enzymes_polypeptides_go(save_table,
                              save_csv,
                              csv_path,
                              override_csv,
@@ -423,7 +423,7 @@ drug_all <-
                                 database_connection)
     message("parsed pfams_polypeptide_target_drug, 55/76")
     targ_poly_go <-
-      targets_polypeptide_go(save_table,
+      targets_polypeptides_go(save_table,
                              save_csv,
                              csv_path,
                              override_csv,
@@ -486,7 +486,7 @@ drug_all <-
                                      database_connection)
     message("parsed pfams_polypeptides_transporter_drug, 70/76")
     trans_poly_go <-
-      transporters_polypeptide_go(save_table,
+      transporters_polypeptides_go(save_table,
                                   save_csv,
                                   csv_path,
                                   override_csv,
@@ -809,7 +809,7 @@ drug_element <-
                                         override_csv,
                                         database_connection),
         "enzy_poly_go" =
-          enzymes_polypeptide_go(save_table, save_csv,
+          enzymes_polypeptides_go(save_table, save_csv,
                                  csv_path,
                                  override_csv,
                                  database_connection),
@@ -931,7 +931,7 @@ drug_element <-
                                         override_csv,
                                         database_connection),
         "targ_poly_go" =
-          targets_polypeptide_go(save_table,
+          targets_polypeptides_go(save_table,
                                  save_csv,
                                  csv_path,
                                  override_csv,
@@ -977,7 +977,7 @@ drug_element <-
                                         csv_path, override_csv,
                                         database_connection),
         "go_polypeptide_trans_drug" =
-          transporters_polypeptide_go(save_table,
+          transporters_polypeptides_go(save_table,
                                       save_csv,
                                       csv_path,
                                       override_csv,

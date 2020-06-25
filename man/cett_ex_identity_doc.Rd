@@ -65,8 +65,8 @@ a tibble with 3 variables:
 }
 }
 \description{
-Extract descriptions of identified polypeptide PFAMS targets, enzymes, carriers,
- or transporters.
+Extract descriptions of identified polypeptide external identifiers for
+targets, enzymes, carriers, or transporters.
 }
 \section{read_drugbank_xml_db}{
 
@@ -116,6 +116,7 @@ drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 Other cett: 
 \code{\link{cett_actions_doc}},
 \code{\link{cett_doc}},
+\code{\link{cett_go_doc}},
 \code{\link{cett_poly_doc}},
 \code{\link{cett_poly_pfms_doc}}
 }
