@@ -105,6 +105,7 @@ Other drugs:
 \code{\link{drug_patents}()},
 \code{\link{drug_pdb_entries}()},
 \code{\link{drug_pharmacology}()},
+\code{\link{drug_prices}()},
 \code{\link{drug_products}()},
 \code{\link{drug_salts}()},
 \code{\link{drug_snp_adverse_reactions}()},

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_price_node_parser.R
 \name{drug_prices}
 \alias{drug_prices}
-\title{Extracts the drug prices element and return data as tibble.}
+\title{Drug Prices Parsers}
 \usage{
 drug_prices(
   save_table = FALSE,
@@ -28,53 +28,89 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug prices node attributes date frame
+a tibble with 5 variables:
+\describe{
+  \item{description}{}
+  \item{cost}{}
+  \item{currency}{}
+  \item{unit}{}
+  \item{parent_id}{drugbank id}
+}
 }
 \description{
-\code{drug_prices} returns tibble of drug prices elements.
+Collection of related actions
 }
-\details{
-This functions extracts the prices element of drug node in \strong{DrugBank}
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
-\code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_prices()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_prices(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_prices(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_prices(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv if it does not exist
-# in current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_prices(save_table = TRUE, save_csv = TRUE,
- database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location
+# save parsed tibble as csv if it does not exist in current location,
 # and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_prices(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist override it and return it.
-drug_prices(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
+database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in given location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
+\seealso{
+Other drugs: 
+\code{\link{drug_affected_organisms}()},
+\code{\link{drug_ahfs_codes}()},
+\code{\link{drug_atc_codes}()},
+\code{\link{drug_calc_prop}()},
+\code{\link{drug_categories}()},
+\code{\link{drug_classification}()},
+\code{\link{drug_dosages}()},
+\code{\link{drug_ex_identity}()},
+\code{\link{drug_exp_prop}()},
+\code{\link{drug_external_links}()},
+\code{\link{drug_food_interactions}()},
+\code{\link{drug_groups}()},
+\code{\link{drug_interactions}()},
+\code{\link{drug_intern_brand}()},
+\code{\link{drug_manufacturers}()},
+\code{\link{drug_mixtures}()},
+\code{\link{drug_packagers}()},
+\code{\link{drug_patents}()},
+\code{\link{drug_pdb_entries}()},
+\code{\link{drug_pharmacology}()},
+\code{\link{drug_products}()},
+\code{\link{drug_salts}()},
+\code{\link{drug_snp_adverse_reactions}()},
+\code{\link{drug_snp_effects}()},
+\code{\link{drug_syn}()},
+\code{\link{drug}()}
+}
+\concept{drugs}
