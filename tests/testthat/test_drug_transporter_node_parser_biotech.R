@@ -60,11 +60,11 @@ test_that(
   desc = "Read drug transporters polypeptides syn attributes",
   code = {
     expect_equal(
-      nrow(transporters_polypeptide_syn()),
+      nrow(transporters_polypeptides_syn()),
       0
     )
-    expect_true(is_tibble(transporters_polypeptide_syn()))
-    expect_error(transporters_polypeptide_syn(TRUE))
+    expect_true(is_tibble(transporters_polypeptides_syn()))
+    expect_error(transporters_polypeptides_syn(TRUE))
   }
 )
 

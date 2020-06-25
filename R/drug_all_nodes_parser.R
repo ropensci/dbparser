@@ -318,7 +318,7 @@ drug_all <-
                                     database_connection)
     message("parsed external_identifiers_polypeptides_enzyme_drug, 40/76")
     enzy_poly_syn <-
-      enzymes_polypeptide_syn(save_table,
+      enzymes_polypeptides_syn(save_table,
                               save_csv,
                               csv_path,
                               override_csv,
@@ -409,7 +409,7 @@ drug_all <-
                                     database_connection)
     message("parsed targ_poly_ext_identity, 53/76")
     targ_poly_syn <-
-      targets_polypeptide_syn(save_table,
+      targets_polypeptides_syn(save_table,
                               save_csv,
                               csv_path,
                               override_csv,
@@ -472,7 +472,7 @@ drug_all <-
                                     database_connection)
     message("parsed trans_poly_ex_identity, 68/76")
     trans_poly_syn <-
-      transporters_polypeptide_syn(save_table,
+      transporters_polypeptides_syn(save_table,
                                    save_csv,
                                    csv_path,
                                    override_csv,
@@ -818,7 +818,7 @@ drug_element <-
                                     override_csv,
                                     database_connection),
         "enzy_poly_syn" =
-          enzymes_polypeptide_syn(save_table,
+          enzymes_polypeptides_syn(save_table,
                                   save_csv, csv_path,
                                   override_csv,
                                   database_connection),
@@ -988,7 +988,7 @@ drug_element <-
                                          override_csv,
                                          database_connection),
         "trans_poly_syn" =
-          transporters_polypeptide_syn(save_table,
+          transporters_polypeptides_syn(save_table,
                                        save_csv, csv_path,
                                        override_csv,
                                        database_connection),

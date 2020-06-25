@@ -57,7 +57,25 @@ NULL
 #' @name cett_go_doc
 NULL
 
-org_pfams <- function(rec, cett_type, child_type) {
+#' Carriers/ Enzymes/ Targets/ Transporters Polypeptide Synonyms parsers
+#'
+#' Extract descriptions of identified polypeptide synonyms for targets,
+#'  enzymes, carriers, or transporters.
+#'
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
+#'
+#' @return a tibble with 2 variables:
+#' \describe{
+#'   \item{synonym}{}
+#'   \item{parent_key}{polypeptide id}
+#' }
+#' @family cett
+#' @inherit drug_all examples
+#' @name cett_poly_syn_doc
+NULL
+
+org <- function(rec, cett_type, child_type) {
   return(map_df(
     xmlChildren(rec[[cett_type]]),
     ~ drug_sub_df(., "polypeptide", child_type, "id")
@@ -81,7 +99,7 @@ children_parser <-
       cett_type <- strsplit(tibble_name, "_")[[1]][1]
       child_tbl <-
         map_df(xmlChildren(pkg_env$root),
-               ~ org_pfams(., cett_type, child_type)) %>%
+               ~ org(., cett_type, child_type)) %>%
         unique()
 
       write_csv(child_tbl, save_csv, csv_path)
@@ -325,4 +343,104 @@ transporters_polypeptides_go <-
       "transporters_polypeptides_go",
       "go-classifiers"
     )
+  }
+
+#' @rdname cett_poly_syn_doc
+#' @export
+carriers_polypeptides_syn <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    syn <- children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "carriers_polypeptides_syn",
+      "synonyms"
+    )
+
+    if (nrow(syn) > 0) {
+      colnames(syn) <- c("synonym", "parent_key")
+    }
+
+    return(syn)
+  }
+
+#' @rdname cett_poly_syn_doc
+#' @export
+enzymes_polypeptides_syn <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    syn <- children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "enzymes_polypeptides_syn",
+      "synonyms"
+    )
+
+    if (nrow(syn) > 0) {
+      colnames(syn) <- c("synonym", "parent_key")
+    }
+
+    return(syn)
+  }
+
+#' @rdname cett_poly_syn_doc
+#' @export
+targets_polypeptides_syn <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    syn <- children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "targets_polypeptides_syn",
+      "synonyms"
+    )
+
+    if (nrow(syn) > 0) {
+      colnames(syn) <- c("synonym", "parent_key")
+    }
+
+    return(syn)
+  }
+
+#' @rdname cett_poly_syn_doc
+#' @export
+transporters_polypeptides_syn <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    syn <- children_parser(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "transporters_polypeptides_syn",
+      "synonyms"
+    )
+
+    if (nrow(syn) > 0) {
+      colnames(syn) <- c("synonym", "parent_key")
+    }
+
+    return(syn)
   }
