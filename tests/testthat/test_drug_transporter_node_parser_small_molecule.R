@@ -70,11 +70,11 @@ test_that(
   desc = "Read drug transporters polypeptides pfams attributes",
   code = {
     expect_equal(
-      nrow(transporters_polypeptide_pfams()),
+      nrow(transporters_polypeptides_pfams()),
       0
     )
-    expect_true(is_tibble(transporters_polypeptide_pfams()))
-    expect_error(transporters_polypeptide_pfams(TRUE))
+    expect_true(is_tibble(transporters_polypeptides_pfams()))
+    expect_error(transporters_polypeptides_pfams(TRUE))
   }
 )
 

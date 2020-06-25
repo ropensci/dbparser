@@ -79,12 +79,12 @@ test_that(
   desc = "Read darug targ polypeptides pfams attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide_pfams()
+      as.character(targets_polypeptides_pfams()
       [["name"]][1]),
       "Gla"
     )
-    expect_true(is_tibble(targets_polypeptide_pfams()))
-    expect_error(targets_polypeptide_pfams(TRUE))
+    expect_true(is_tibble(targets_polypeptides_pfams()))
+    expect_error(targets_polypeptides_pfams(TRUE))
   }
 )
 

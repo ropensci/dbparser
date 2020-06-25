@@ -34,26 +34,6 @@ get_polypeptide_syn <- function(r) {
   }
 }
 
-# Extract drug polypeptide pfams df
-get_polypeptide_pfams <- function(r) {
-  p <- r[["polypeptide"]]
-  if (!is.null(p)) {
-    polypeptide_id <-
-      ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-        xmlGetAttr(p, name = "id")
-      )
-    if (length(xmlChildren(p[["pfams"]])) > 0) {
-      first_cell <- xmlValue(xmlChildren(p[["pfams"]])[[1]])
-      if (first_cell != "\n    ") {
-        polypeptide_pfams <-
-          xmlToDataFrame(xmlChildren(p[["pfams"]]), stringsAsFactors = FALSE)
-        polypeptide_pfams$polypeptide_id <- polypeptide_id
-        return(polypeptide_pfams)
-      }
-    }
-  }
-}
-
 # Extract drug polypeptide go-classifiers df
 get_polypeptide_go <- function(r) {
   p <- r[["polypeptide"]]

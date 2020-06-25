@@ -325,7 +325,7 @@ drug_all <-
                               database_connection)
     message("parsed enzy_poly_syn, 41/76")
     pfams_polypeptides_enzyme_drug <-
-      enzymes_polypeptide_pfams(save_table,
+      enzymes_polypeptides_pfams(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
@@ -416,7 +416,7 @@ drug_all <-
                               database_connection)
     message("parsed targ_poly_syn, 54/76")
     pfams_polypeptide_target_drug <-
-      targets_polypeptide_pfams(save_table,
+      targets_polypeptides_pfams(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
@@ -479,7 +479,7 @@ drug_all <-
                                    database_connection)
     message("parsed syn_polypeptides_transporter_drug, 69/76")
     trans_poly_pfams <-
-      transporters_polypeptide_pfams(save_table,
+      transporters_polypeptides_pfams(save_table,
                                      save_csv,
                                      csv_path,
                                      override_csv,
@@ -814,7 +814,7 @@ drug_element <-
                                  override_csv,
                                  database_connection),
         "pfams_polypeptides_enzyme_drug" =
-          enzymes_polypeptide_pfams(save_table, save_csv, csv_path,
+          enzymes_polypeptides_pfams(save_table, save_csv, csv_path,
                                     override_csv,
                                     database_connection),
         "enzy_poly_syn" =
@@ -937,7 +937,7 @@ drug_element <-
                                  override_csv,
                                  database_connection),
         "pfams_polypeptide_target_drug" =
-          targets_polypeptide_pfams(save_table,
+          targets_polypeptides_pfams(save_table,
                                     save_csv, csv_path,
                                     override_csv,
                                     database_connection),
@@ -983,7 +983,7 @@ drug_element <-
                                       override_csv,
                                       database_connection),
         "trans_poly_pfams" =
-          transporters_polypeptide_pfams(save_table,
+          transporters_polypeptides_pfams(save_table,
                                          save_csv, csv_path,
                                          override_csv,
                                          database_connection),

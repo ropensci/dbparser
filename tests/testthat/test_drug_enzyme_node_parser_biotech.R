@@ -86,11 +86,11 @@ test_that(
   desc = "Read darug enzymes polypeptides pfams attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_pfams()),
+      nrow(enzymes_polypeptides_pfams()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_pfams()))
-    expect_error(enzymes_polypeptide_pfams(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides_pfams()))
+    expect_error(enzymes_polypeptides_pfams(TRUE))
   }
 )
 
