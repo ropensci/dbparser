@@ -108,6 +108,7 @@ Other drugs:
 \code{\link{drug_pharmacology}()},
 \code{\link{drug_prices}()},
 \code{\link{drug_products}()},
+\code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},
