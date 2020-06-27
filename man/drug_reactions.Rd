@@ -31,9 +31,9 @@ value for this function an error will be thrown.}
 a tibble with 5 variables:
 \describe{
   \item{sequence}{	Reactions are displayed within a numerical sequence}
-  \item{left_drugbank_name}{The substrate of the reaction. May be a drug or a
+  \item{left_drugbank_name}{The substrate of the reaction. Maybe a drug or a
    metabolite.}
-  \item{rightt_drugbank_name}{	The product of the reaction. May be a drug or a
+  \item{rightt_drugbank_name}{	The product of the reaction. Maybe a drug or a
    metabolite.}
   \item{left_drugbank_id}{}
   \item{right_drugbank_id}{}
@@ -115,6 +115,7 @@ Other drugs:
 \code{\link{drug_pharmacology}()},
 \code{\link{drug_prices}()},
 \code{\link{drug_products}()},
+\code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_salts}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
