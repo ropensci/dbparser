@@ -1,3 +1,4 @@
+#' @import R6
 #' @import dplyr
 #' @import RSQLite
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect dbDataType
