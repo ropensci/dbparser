@@ -58,35 +58,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug articles attributes",
-  code = {
-    expect_match(as.character(
-      drug_articles()[["pubmed-id"]][1]
-    ), "16466327")
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug books attributes",
-  code = {
-    expect_equal(nrow(drug_books()), 0)
-    expect_true(is_tibble(drug_books()))
-    expect_error(drug_books(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug links attributes",
-  code = {
-    expect_equal(nrow(drug_links()), 0)
-    expect_true(is_tibble(drug_links()))
-    expect_error(drug_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug classification attributes",
   code = {
     expect_match(
@@ -107,18 +78,6 @@ test_that(
     )
     expect_true(is_tibble(drug_syn()))
     expect_error(drug_syn(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug articles attributes",
-  code = {
-    expect_match(
-      as.character(drug_articles()[["pubmed-id"]][1]),
-      "16466327"
-    )
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
   }
 )
 
@@ -354,7 +313,7 @@ test_that(
       as.character(drug_external_links()[["resource"]][[1]]),
       "RxList"
     )
-    expect_true(is_tibble(drug_links()))
+    expect_true(is_tibble(drugs_links()))
     expect_error(drug_external_links(TRUE))
   }
 )
@@ -381,5 +340,31 @@ test_that(
     )
     expect_true(is_tibble(drug_snp_adverse_reactions()))
     expect_error(drug_snp_adverse_reactions(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read darug international brands attributes",
+  code = {
+    expect_equal(
+      nrow(drug_intern_brand()),
+      1
+    )
+    expect_match(
+      as.character(drug_intern_brand()[1][["brand"]]),
+      "Angiox"
+    )
+    expect_true(is_tibble(drug_intern_brand()))
+    expect_error(drug_intern_brand(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read drug pharmacology indication attribute",
+  code = {
+    expect_match(drug_pharmacology()[["metabolism"]][1],
+                 "80% proteolytic cleavage")
+    expect_true(is_tibble(drug_pharmacology()))
+    expect_error(drug_pharmacology(TRUE))
   }
 )

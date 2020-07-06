@@ -17,7 +17,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers actions that",
+  desc = "Read drug carriers actions",
   code = {
     expect_equal(
       nrow(carriers_actions()),
@@ -28,56 +28,33 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers articles that",
+  desc = "Read drug carriers polypeptides",
   code = {
     expect_equal(
-      nrow(carriers_articles()),
+      nrow(carriers_polypeptides()),
       0
     )
-    expect_error(carriers_articles(TRUE))
+    expect_true(is_tibble(carriers_polypeptides()))
+    expect_error(carriers_polypeptides(TRUE))
   }
 )
 
 test_that(
-  desc = "Read drug carriers_textbooks that",
+  desc = "Read drug carriers polypeptides external identifiers",
   code = {
     expect_equal(
-      nrow(carriers_textbooks()),
+      nrow(carriers_polypep_ex_ident()),
       0
     )
-    expect_true(is_tibble(carriers_textbooks()))
-    expect_error(carriers_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug carriers polypeptides that",
-  code = {
-    expect_equal(
-      nrow(carriers_polypeptide()),
-      0
-    )
-    expect_true(is_tibble(carriers_polypeptide()))
-    expect_error(carriers_polypeptide(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug carriers polypeptides external identifiers that",
-  code = {
-    expect_equal(
-      nrow(carriers_polypeptide_ext_id()),
-      0
-    )
-    expect_true(is_tibble(carriers_polypeptide_ext_id()))
+    expect_true(is_tibble(carriers_polypep_ex_ident()))
     expect_error(
-      carriers_polypeptide_ext_id(TRUE)
+      carriers_polypep_ex_ident(TRUE)
     )
   }
 )
 
 test_that(
-  desc = "Read drug carriers polypeptides syn that",
+  desc = "Read drug carriers polypeptides syn",
   code = {
     expect_equal(
       nrow(carriers_polypeptides_syn()),
@@ -89,7 +66,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers polypeptides go classifiers that",
+  desc = "Read drug carriers polypeptides go classifiers",
   code = {
     expect_equal(
       nrow(carriers_polypeptides_go()),
@@ -101,7 +78,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers that",
+  desc = "Read drug carriers",
   code = {
     expect_equal(
       nrow(carriers()),
@@ -113,7 +90,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers polypeptides pfams that",
+  desc = "Read drug carriers polypeptides pfams",
   code = {
     expect_equal(
       nrow(carriers_polypeptides_pfams()),

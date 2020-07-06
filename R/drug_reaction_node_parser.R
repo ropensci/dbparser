@@ -12,7 +12,7 @@ get_reactions_rec <- function(r, drug_key) {
 get_reactions_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["reactions"]]),
-    ~ get_reactions_rec(., xmlValue(rec["drugbank-id"][[1]]))
+    ~ get_reactions_rec(., xmlValue(rec[["drugbank-id"]]))
   ))
 }
 
@@ -20,69 +20,34 @@ get_reactions_df <- function(rec) {
 get_reactions_enzymes_df <- function(rec) {
   return(map_df(
     xmlChildren(rec[["reactions"]]),
-    ~ drug_sub_df(.x, "enzymes", id = NULL)
+    ~ drug_sub_df(., "enzymes", id = NULL)
   ))
 }
 
-#' Extracts the drug reactions element and return data as tibble.
+#' Drug Reactions Parsers
 #'
-#' \code{drug_reactions} returns tibble of drug reactions elements.
+#' Extract the sequential representation of the metabolic reactions that this
+#'  drug molecule is involved in. Depending on available information, this may
+#'  include metabolizing enzymes, reaction type, substrates, products,
+#'  pharmacological activity of metabolites, and a structural representation of
+#'   the biochemical reactions.
 #'
-#' This functions extracts the groups element of drug node in \strong{DrugBank}
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#'
-#' @return drug reactions node attributes date frame
-#'
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_reactions()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_reactions(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_reactions(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current location
-#' # and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not exist
-#' # in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given location
-#' # and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_reactions(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' @return a tibble with 5 variables:
+#' \describe{
+#'   \item{sequence}{	Reactions are displayed within a numerical sequence}
+#'   \item{left_drugbank_name}{The substrate of the reaction. Maybe a drug or a
+#'    metabolite.}
+#'   \item{rightt_drugbank_name}{	The product of the reaction. Maybe a drug or a
+#'    metabolite.}
+#'   \item{left_drugbank_id}{}
+#'   \item{right_drugbank_id}{}
+#'   \item{parent_id}{drugbank id}
 #' }
+#' @family drugs
+#' @inherit drug_all examples
 #' @export
 drug_reactions <-
   function(save_table = FALSE,
@@ -114,70 +79,21 @@ drug_reactions <-
     return(drug_reactions %>% as_tibble())
   }
 
-#' Extracts the drug reactions enzymes element and return data as tibble.
+#' Drug Reactions Enzymes Parsers
 #'
-#' \code{drug_reactions_enzymes} returns tibble of drug reactions
-#' enzymes elements.
+#' EEnzymes involved in metabolizing this drug
 #'
-#' This functions extracts the reactions enzymes element of drug node in
-#'  drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#'
-#' @return drug reactions enzymes node attributes date frame
-#'
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_reactions_enzymes()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_reactions_enzymes(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_reactions_enzymes(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in
-#' # current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions_enzymes(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not
-#' # exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions_enzymes(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in
-#' #  given location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_reactions_enzymes(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist i
-#' # n current location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_reactions_enzymes(
-#'   save_csv = TRUE, csv_path = TRUE,
-#'   override = TRUE
-#' )
+#' @return a tibble with 3 variables:
+#' \describe{
+#'   \item{name}{}
+#'   \item{uniprot-id}{}
+#'   \item{parent_id}{drugbank id}
 #' }
+#' @family drugs
+#' @inherit drug_all examples
 #' @export
 drug_reactions_enzymes <-
   function(save_table = FALSE,
@@ -197,8 +113,6 @@ drug_reactions_enzymes <-
 
       write_csv(drug_reactions_enzymes, save_csv, csv_path)
     }
-
-
 
     if (save_table) {
       save_drug_sub(

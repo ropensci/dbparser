@@ -43,51 +43,14 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes articles attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_articles()),
-      0
-    )
-    expect_true(is_tibble(enzymes_articles()))
-    expect_error(enzymes_articles(TRUE))
-  }
-)
-
-
-test_that(
-  desc = "Read darug enzymes textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_textbooks()),
-      0
-    )
-    expect_true(is_tibble(enzymes_textbooks()))
-    expect_error(enzymes_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug enzymes links attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_links()),
-      0
-    )
-    expect_true(is_tibble(enzymes_links()))
-    expect_error(enzymes_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read darug enzymes polypeptides attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide()),
+      nrow(enzymes_polypeptides()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide()))
-    expect_error(enzymes_polypeptide(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides()))
+    expect_error(enzymes_polypeptides(TRUE))
   }
 )
 
@@ -96,12 +59,12 @@ test_that(
     "Read darug enzymes polypeptides external identifiers attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_ext_ident()),
+      nrow(enzymes_polypep_ex_ident()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_ext_ident()))
+    expect_true(is_tibble(enzymes_polypep_ex_ident()))
     expect_error(
-      enzymes_polypeptide_ext_ident(TRUE)
+      enzymes_polypep_ex_ident(TRUE)
     )
   }
 )
@@ -111,11 +74,11 @@ test_that(
   desc = "Read darug enzymes polypeptides syn attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_syn()),
+      nrow(enzymes_polypeptides_syn()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_syn()))
-    expect_error(enzymes_polypeptide_syn(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides_syn()))
+    expect_error(enzymes_polypeptides_syn(TRUE))
   }
 )
 
@@ -123,11 +86,11 @@ test_that(
   desc = "Read darug enzymes polypeptides pfams attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_pfams()),
+      nrow(enzymes_polypeptides_pfams()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_pfams()))
-    expect_error(enzymes_polypeptide_pfams(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides_pfams()))
+    expect_error(enzymes_polypeptides_pfams(TRUE))
   }
 )
 
@@ -135,10 +98,10 @@ test_that(
   desc = "Read darug enzymes polypeptides go classifiers attributes",
   code = {
     expect_equal(
-      nrow(enzymes_polypeptide_go()),
+      nrow(enzymes_polypeptides_go()),
       0
     )
-    expect_true(is_tibble(enzymes_polypeptide_go()))
-    expect_error(enzymes_polypeptide_go(TRUE))
+    expect_true(is_tibble(enzymes_polypeptides_go()))
+    expect_error(enzymes_polypeptides_go(TRUE))
   }
 )

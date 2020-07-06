@@ -99,48 +99,14 @@ drug <-
           unii = paste0("varchar(", max(nchar(drugs$unii), na.rm = TRUE), ")"),
           state = paste0("varchar(", max(nchar(drugs$state), na.rm = TRUE),
                          ")"),
-          mechanism_of_action = "varchar(MAX)",
-          pharmacodynamics = "varchar(MAX)",
-          indication = paste0("varchar(", max(nchar(
-            drugs$indication
-          ), na.rm = TRUE) + 10, ")"),
-          absorption = paste0("varchar(", max(nchar(
-            drugs$absorption
-          ), na.rm = TRUE) + 10, ")"),
-          route_of_elimination = paste0("varchar(", max(
-            nchar(drugs$route_of_elimination),
-            na.rm = TRUE
-          ) + 10, ")"),
-          metabolism = paste0("varchar(", max(nchar(
-            drugs$metabolism
-          ), na.rm = TRUE) + 10, ")"),
-          international_brands = paste0("varchar(", max(
-            nchar(drugs$international_brands),
-            na.rm = TRUE
-          ) + 10, ")"),
           fda_label = paste0("varchar(", max(nchar(
             drugs$fda_label
           ), na.rm = TRUE), ")"),
           msds = paste0("varchar(", max(nchar(drugs$msds), na.rm = TRUE), ")"),
-          protein_binding = paste0("varchar(", max(
-            nchar(drugs$protein_binding),
-            na.rm = TRUE
-          ) + 10, ")"),
           synthesis_reference = paste0("varchar(", max(
             nchar(drugs$synthesis_reference),
             na.rm = TRUE
-          ) + 10, ")"),
-          clearance = paste0("varchar(", max(nchar(
-            drugs$clearance
-          ), na.rm = TRUE) + 10, ")"),
-          half_life = paste0("varchar(", max(nchar(
-            drugs$half_life
-          ), na.rm = TRUE) + 10, ")"),
-          volume_of_distribution = paste0("varchar(", max(
-            nchar(drugs$volume_of_distribution),
-            na.rm = TRUE
-          ) + 10, ")"),
-          toxicity = "varchar(MAX)"
+          ) + 10, ")")
         )
       )
     }
@@ -236,272 +202,6 @@ drug_groups <-
     }
     return(drug_groups %>% as_tibble())
   }
-
-#' Extracts the drug articles element and return data as tibble.
-#'
-#' \code{drug_articles} returns tibble of drug articles elements.
-#'
-#' This functions extracts the articles element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#'  \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
-#'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug articles node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_articles()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_articles(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_articles(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_articles(save_csv = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_articles(save_table = TRUE, database_connection = sqlite_con)
-#' # save in database, save parsed tibble as csv if it
-#' # does not exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_articles(save_table = TRUE, save_csv = TRUE,
-#' database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_articles(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_articles(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-#' }
-#' @export
-drug_articles <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_articles", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_articles <- readr::read_csv(path)
-    } else {
-      drug_articles <-
-        map_df(
-          pkg_env$children,
-          ~ drug_sub_df(.x, "general-references",
-                        seconadary_node = "articles")
-        ) %>% unique()
-
-      write_csv(drug_articles, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_articles,
-                    table_name = "drug_articles")
-    }
-    return(drug_articles %>% as_tibble())
-  }
-
-#' Extracts the drug books element and return data as tibble.
-#'
-#' \code{drug_books} returns tibble of drug books elements.
-#'
-#' This functions extracts the books element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
-#'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug books node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_books()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_books(save_table = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_books(save_csv = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_books(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save in database, save parsed tibble as csv if it does not
-#' # exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_books(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given l
-#' # ocation and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_books(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_books(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-#' }
-#' @export
-drug_books <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_books", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_books <- readr::read_csv(path)
-    } else {
-      drug_books <-
-        map_df(
-          pkg_env$children,
-          ~ drug_sub_df(.x, "general-references", seconadary_node = "textbooks")
-        ) %>% unique()
-
-      write_csv(drug_books, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_books,
-                    table_name = "drug_books")
-    }
-    return(drug_books %>% as_tibble())
-  }
-
-#' Extracts the drug links element and return data as tibble.
-#'
-#' \code{drug_links} returns tibble of drug links elements.
-#'
-#' This functions extracts the links element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
-#'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug links node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_links()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_links(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_links(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_links(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not
-#' # exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_links(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_links(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-#' }
-#' @export
-drug_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_links", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_links <- readr::read_csv(path)
-    } else {
-      drug_links <-
-        map_df(
-          pkg_env$children,
-          ~ drug_sub_df(.x, "general-references", seconadary_node = "links")
-        ) %>% unique()
-
-      write_csv(drug_links, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_links,
-                    table_name = "drug_links")
-    }
-    return(drug_links %>% as_tibble())
-  }
-
 
 #' Extracts the drug syn element and return data as tibble.
 #'
@@ -845,7 +545,10 @@ drug_intern_brand <-
         map_df(pkg_env$children,
                ~ drug_sub_df(.x, "international-brands")) %>%
         unique()
-
+      if (nrow(drug_international_brands) > 0) {
+        colnames(drug_international_brands) <- c("brand", "company",
+                                                 "drugbank-id")
+      }
       write_csv(drug_international_brands, save_csv, csv_path)
     }
 
@@ -2262,4 +1965,147 @@ drug_snp_adverse_reactions <-
                     table_name = "snp_adverse_reactions")
     }
     return(snp_adverse_reactions %>% as_tibble())
+  }
+
+# Extract drug Pharmacology
+drug_pharmacology_rec <- function(drug) {
+  c(
+    drugbank_id = xmlValue(drug[["drugbank-id"]]),
+    indication = xmlValue(drug[["indication"]]),
+    pharmacodynamics = xmlValue(drug[["pharmacodynamics"]]),
+    mechanism_of_action = xmlValue(drug[["mechanism-of-action"]]),
+    toxicity = xmlValue(drug[["toxicity"]]),
+    metabolism = xmlValue(drug[["metabolism"]]),
+    absorption = xmlValue(drug[["absorption"]]),
+    half_life = xmlValue(drug[["half-life"]]),
+    protein_binding = xmlValue(drug[["protein-binding"]]),
+    route_of_elimination = xmlValue(drug[["route-of-elimination"]]),
+    volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
+    clearance = xmlValue(drug[["clearance"]])
+  )
+}
+
+
+#' Extracts the drug_pharmacology elements and return data as tibble.
+#'
+#' \code{drug_pharmacology} returns tibble of drug_pharmacologys main elements.
+#'
+#' This functions extracts the main element of drug_pharmacology node in
+#' drugbank
+#' xml database with the option to save it in a user defined database.
+#' It takes two optional arguments to save the returned tibble in the database
+#' \code{save_table} and \code{database_connection}.
+#' It must be called after \code{\link{read_drugbank_xml_db}} function like
+#' any other parser function.
+#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
+#' no need to call it again before calling this function.
+#'
+#' @param save_table boolean, save table in database if true.
+#' @param save_csv boolean, save csv version of parsed tibble if true
+#' @param csv_path location to save csv files into it, default is current
+#' location, save_csv must be true
+#' @param override_csv override existing csv, if any, in case it is true in the
+#'  new parse operation
+#' @param database_connection DBI connection object that holds a connection to
+#' user defined database. If \code{save_table} is enabled without providing
+#' value for this function an error will be thrown.
+#' @return drug_pharmacology attributes tibble
+#' @family drugs
+#' @examples
+#' \dontrun{
+#' # return only the parsed tibble
+#' drug_pharmacology()
+#'
+#' # will throw an error, as database_connection is NULL
+#' drug_pharmacology(save_table = TRUE)
+#'
+#' # save in database in SQLite in memory database and return parsed tibble
+#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
+#' drug_pharmacology(save_table = TRUE, database_connection = sqlite_con)
+#'
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
+#' # If the csv exist before read it and return its data.
+#' drug_pharmacology(save_csv = TRUE)
+#'
+#' # save in database, save parsed tibble as csv if it does not exist
+#' # in current location and return parsed tibble.
+#' # If the csv exist before read it and return its data.
+#' drug_pharmacology(save_table = TRUE, save_csv = TRUE,
+#'  database_connection = sqlite_con)
+#'
+#' # save parsed tibble as csv if it does not exist in given location
+#' #  and return parsed tibble.
+#' # If the csv exist before read it and return its data.
+#' drug_pharmacology(save_csv = TRUE, csv_path = TRUE)
+#'
+#' # save parsed tibble as csv if it does not exist in current
+#' # location and return parsed tibble.
+#' # If the csv exist override it and return it.
+#' drug_pharmacology(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' }
+#' @export
+drug_pharmacology <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    check_parameters_validation(save_table, database_connection)
+    path <- get_dataset_full_path("drugs_pharmacology", csv_path)
+    if (!override_csv & file.exists(path)) {
+      drugs_pharmacology <- readr::read_csv(path)
+    } else {
+      drugs_pharmacology <- xmlSApply(xmlRoot(pkg_env$root),
+                                      drug_pharmacology_rec)
+      drugs_pharmacology <- as_tibble(t(drugs_pharmacology))
+      write_csv(drugs_pharmacology, save_csv, csv_path)
+    }
+
+    if (save_table) {
+      save_drug_sub(
+        con = database_connection,
+        df = drugs_pharmacology,
+        table_name = "drug_pharmacology",
+        primary_key = "drugbank_id",
+        foreign_key = NULL,
+        field_types = list(
+          drugbank_id = paste0("varchar(", max(nchar(
+            drugs_pharmacology$drugbank_id
+          )), ")"),
+          mechanism_of_action = "varchar(MAX)",
+          pharmacodynamics = "varchar(MAX)",
+          indication = paste0("varchar(", max(nchar(
+            drugs_pharmacology$indication
+          ), na.rm = TRUE) + 10, ")"),
+          absorption = paste0("varchar(", max(nchar(
+            drugs_pharmacology$absorption
+          ), na.rm = TRUE) + 10, ")"),
+          route_of_elimination = paste0("varchar(", max(
+            nchar(drugs_pharmacology$route_of_elimination),
+            na.rm = TRUE
+          ) + 10, ")"),
+          metabolism = paste0("varchar(", max(nchar(
+            drugs_pharmacology$metabolism
+          ), na.rm = TRUE) + 10, ")"),
+          clearance = paste0("varchar(", max(nchar(
+            drugs_pharmacology$clearance
+          ), na.rm = TRUE) + 10, ")"),
+          half_life = paste0("varchar(", max(nchar(
+            drugs_pharmacology$half_life
+          ), na.rm = TRUE) + 10, ")"),
+          volume_of_distribution = paste0("varchar(", max(
+            nchar(drugs_pharmacology$volume_of_distribution),
+            na.rm = TRUE
+          ) + 10, ")"),
+          protein_binding = paste0("varchar(", max(
+            nchar(drugs_pharmacology$protein_binding),
+            na.rm = TRUE
+          ) + 10, ")"),
+          toxicity = "varchar(MAX)"
+        )
+      )
+    }
+
+    return(drugs_pharmacology %>% as_tibble())
   }

@@ -31,55 +31,16 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug targ_articles attributes",
-  code = {
-    expect_match(
-      as.character(targets_articles()[["citation"]][[1]]),
-      paste0(
-        "coronary syndromes\\. Am J Cardiol\\. 1999 ",
-        "Sep 2;84\\(5A\\):2M-6M\\."
-      )
-    )
-    expect_true(is_tibble(targets_articles()))
-    expect_error(targets_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ textbooks attributes",
-  code = {
-    expect_equal(
-      nrow(targets_textbooks()),
-      0
-    )
-    expect_true(is_tibble(targets_textbooks()))
-    expect_error(targets_textbooks(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug targ links attributes",
-  code = {
-    expect_equal(
-      nrow(targets_links()),
-      0
-    )
-    expect_true(is_tibble(targets_links()))
-    expect_error(targets_links(TRUE))
-  }
-)
-
-test_that(
   desc = "Read darug targ polypeptides attributes",
   code = {
     expect_match(
       as.character(
-        targets_polypeptide()[["name"]][[1]]
+        targets_polypeptides()[["name"]][[1]]
       ),
       "Prothrombin"
     )
-    expect_true(is_tibble(targets_polypeptide()))
-    expect_error(targets_polypeptide(TRUE))
+    expect_true(is_tibble(targets_polypeptides()))
+    expect_error(targets_polypeptides(TRUE))
   }
 )
 
@@ -89,14 +50,14 @@ test_that(
   code = {
     expect_match(
       as.character(
-        targets_polypeptide_ext_ident()
+        targets_polypep_ex_ident()
         [["identifier"]][1]
       ),
       "HGNC:3535"
     )
-    expect_true(is_tibble(targets_polypeptide_ext_ident()))
+    expect_true(is_tibble(targets_polypep_ex_ident()))
     expect_error(
-      targets_polypeptide_ext_ident(TRUE)
+      targets_polypep_ex_ident(TRUE)
     )
   }
 )
@@ -105,12 +66,12 @@ test_that(
   desc = "Read darug targ polypeptides syn attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide_syn()
-      [["syn"]][1]),
-      "3.4.21.5,Coagulation factor II"
+      as.character(targets_polypeptides_syn()
+      [["synonym"]][1]),
+      "3.4.21.5"
     )
-    expect_true(is_tibble(targets_polypeptide_syn()))
-    expect_error(targets_polypeptide_syn(TRUE))
+    expect_true(is_tibble(targets_polypeptides_syn()))
+    expect_error(targets_polypeptides_syn(TRUE))
   }
 )
 
@@ -118,12 +79,12 @@ test_that(
   desc = "Read darug targ polypeptides pfams attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide_pfams()
+      as.character(targets_polypeptides_pfams()
       [["name"]][1]),
       "Gla"
     )
-    expect_true(is_tibble(targets_polypeptide_pfams()))
-    expect_error(targets_polypeptide_pfams(TRUE))
+    expect_true(is_tibble(targets_polypeptides_pfams()))
+    expect_error(targets_polypeptides_pfams(TRUE))
   }
 )
 
@@ -131,12 +92,12 @@ test_that(
   desc = "Read darug targ polypeptides go classifiers attributes",
   code = {
     expect_match(
-      as.character(targets_polypeptide_go()
+      as.character(targets_polypeptides_go()
       [["description"]][1]),
       "blood microparticle"
     )
-    expect_true(is_tibble(targets_polypeptide_go()))
-    expect_error(targets_polypeptide_go(TRUE))
+    expect_true(is_tibble(targets_polypeptides_go()))
+    expect_error(targets_polypeptides_go(TRUE))
   }
 )
 

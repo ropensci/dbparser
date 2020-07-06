@@ -33,39 +33,16 @@ test_that(
   }
 )
 
-test_that(
-  desc = "Read drug carriers articles that",
-  code = {
-    expect_equal(
-      nrow(carriers_articles()),
-      0
-    )
-    expect_true(is_tibble(carriers_articles()))
-    expect_error(carriers_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read drug carriers_textbooks that",
-  code = {
-    expect_equal(
-      nrow(carriers_textbooks()),
-      0
-    )
-    expect_true(is_tibble(carriers_textbooks()))
-    expect_error(carriers_textbooks(TRUE))
-  }
-)
 
 test_that(
   desc = "Read drug carriers polypeptides that",
   code = {
     expect_equal(
-      nrow(carriers_polypeptide()),
+      nrow(carriers_polypeptides()),
       0
     )
-    expect_true(is_tibble(carriers_polypeptide()))
-    expect_error(carriers_polypeptide(TRUE))
+    expect_true(is_tibble(carriers_polypeptides()))
+    expect_error(carriers_polypeptides(TRUE))
   }
 )
 
@@ -74,13 +51,13 @@ test_that(
   code = {
     expect_equal(
       nrow(
-        carriers_polypeptide_ext_id()
+        carriers_polypep_ex_ident()
       ),
       0
     )
-    expect_true(is_tibble(carriers_polypeptide_ext_id()))
+    expect_true(is_tibble(carriers_polypep_ex_ident()))
     expect_error(
-      carriers_polypeptide_ext_id(TRUE)
+      carriers_polypep_ex_ident(TRUE)
     )
   }
 )

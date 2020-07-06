@@ -20,7 +20,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug primary key attribute",
+  desc = "Read drug primary key attribute",
   code = {
     expect_match(drug()[1][["primary_key"]], "DB00001")
     expect_true(is_tibble(drug()))
@@ -29,7 +29,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug other keys attribute",
+  desc = "Read drug other keys attribute",
   code = {
     expect_match(drug()$other_keys, "BIOD00024")
     expect_error(drug(TRUE))
@@ -37,7 +37,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug groups attributes",
+  desc = "Read drug groups attributes",
   code = {
     expect_match(
       as.character(drug_groups()[1][["group"]]),
@@ -48,41 +48,9 @@ test_that(
   }
 )
 
-test_that(
-  desc = "Read darug articles attributes",
-  code = {
-    expect_match(
-      as.character(drug_articles()[["pubmed-id"]][1]),
-      "16244762"
-    )
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
-  }
-)
 
 test_that(
-  desc = "Read darug books attributes",
-  code = {
-    expect_equal(nrow(drug_books()), 0)
-    expect_true(is_tibble(drug_books()))
-    expect_error(drug_books(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug links attributes",
-  code = {
-    expect_match(
-      as.character(drug_links()[1][["title"]]),
-      "Google books"
-    )
-    expect_true(is_tibble(drug_links()))
-    expect_error(drug_links(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug classification attributes",
+  desc = "Read drug classification attributes",
   code = {
     expect_match(
       drug_classification()[["drugbank_id"]][[1]],
@@ -94,7 +62,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug syn attributes",
+  desc = "Read drug syn attributes",
   code = {
     expect_match(
       drug_syn()[["synonym"]][[1]],
@@ -106,19 +74,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug articles attributes",
-  code = {
-    expect_match(
-      as.character(drug_articles()[["pubmed-id"]][1]),
-      "16244762"
-    )
-    expect_true(is_tibble(drug_articles()))
-    expect_error(drug_articles(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug products attributes",
+  desc = "Read drug products attributes",
   code = {
     expect_match(
       as.character(drug_products()[["name"]][1]),
@@ -130,7 +86,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug mixtures attributes",
+  desc = "Read drug mixtures attributes",
   code = {
     expect_match(
       as.character(drug_mixtures()[["name"]][1]),
@@ -142,7 +98,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug packagers attributes",
+  desc = "Read drug packagers attributes",
   code = {
     expect_match(
       as.character(drug_packagers()[["name"]][1]),
@@ -154,7 +110,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug manufacturers attributes",
+  desc = "Read drug manufacturers attributes",
   code = {
     expect_match(
       as.character(drug_manufacturers()[["manufacturer"]][[1]]),
@@ -166,7 +122,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug prices attributes",
+  desc = "Read drug prices attributes",
   code = {
     expect_match(
       as.character(drug_prices()[["currency"]][[1]]),
@@ -178,7 +134,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug categories attributes",
+  desc = "Read drug categories attributes",
   code = {
     expect_match(
       as.character(drug_categories()[["mesh-id"]][[1]]),
@@ -190,7 +146,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug affected organisms attributes",
+  desc = "Read drug affected organisms attributes",
   code = {
     expect_match(
       as.character(
@@ -204,7 +160,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug dosages attributes",
+  desc = "Read drug dosages attributes",
   code = {
     expect_match(
       as.character(drug_dosages()[["route"]][[1]]),
@@ -216,7 +172,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug atc codes attributes",
+  desc = "Read drug atc codes attributes",
   code = {
     expect_match(
       as.character(drug_atc_codes()[["atc_code"]][[1]]),
@@ -228,7 +184,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug ahfs codes attributes",
+  desc = "Read drug ahfs codes attributes",
   code = {
     expect_equal(
       nrow(drug_ahfs_codes()),
@@ -240,7 +196,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug pdb entries attributes",
+  desc = "Read drug pdb entries attributes",
   code = {
     expect_equal(
       nrow(drug_pdb_entries()),
@@ -252,7 +208,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug patents attributes",
+  desc = "Read drug patents attributes",
   code = {
     expect_match(
       as.character(drug_patents()[["country"]][[1]]),
@@ -264,7 +220,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug interactions attributes",
+  desc = "Read drug interactions attributes",
   code = {
     expect_match(
       as.character(drug_interactions()[["name"]][[1]]),
@@ -276,7 +232,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug food interactions attributes",
+  desc = "Read drug food interactions attributes",
   code = {
     expect_equal(
       nrow(drug_food_interactions()),
@@ -288,7 +244,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug sequences attributes",
+  desc = "Read drug sequences attributes",
   code = {
     expect_match(
       as.character(drug_sequences()[["format"]][[1]]),
@@ -300,7 +256,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug experimental properties attributes",
+  desc = "Read drug experimental properties attributes",
   code = {
     expect_match(
       as.character(drug_exp_prop()[["kind"]][[1]]),
@@ -312,7 +268,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug external identifiers attributes",
+  desc = "Read drug external identifiers attributes",
   code = {
     expect_match(
       as.character(
@@ -326,7 +282,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug external links attributes",
+  desc = "Read drug external links attributes",
   code = {
     expect_match(
       as.character(drug_external_links()[["resource"]][[1]]),
@@ -339,7 +295,7 @@ test_that(
 
 
 test_that(
-  desc = "Read darug snp effects attributes",
+  desc = "Read drug snp effects attributes",
   code = {
     expect_equal(
       nrow(drug_snp_effects()),
@@ -351,7 +307,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug snp adverse drug reactions attributes",
+  desc = "Read drug snp adverse drug reactions attributes",
   code = {
     expect_equal(
       nrow(drug_snp_adverse_reactions()),
@@ -359,5 +315,15 @@ test_that(
     )
     expect_true(is_tibble(drug_snp_adverse_reactions()))
     expect_error(drug_snp_adverse_reactions(TRUE))
+  }
+)
+
+test_that(
+  desc = "Read drug pharmacology indication attribute",
+  code = {
+    expect_match(drug_pharmacology()[["indication"]][1],
+                 "For the treatment of heparin-induced thrombocytopenia")
+    expect_true(is_tibble(drug_pharmacology()))
+    expect_error(drug_pharmacology(TRUE))
   }
 )
