@@ -28,63 +28,6 @@ ReferenceParser <-
       }
     )
   )
-references_rec <- function(children,
-                           main_node = "references",
-                           secondary_node = "textbooks",
-                           id = "id") {
-  return(map_df(
-    children,
-    ~ drug_sub_df(.,
-                  main_node,
-                  secondary_node = secondary_node,
-                  id = id)
-  ))
-}
-
-reference_parser <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL,
-                             tibble_name,
-                             object_node = NULL,
-                             main_node = "references",
-                             secondary_node = "textbooks",
-                             id = "id") {
-  check_parameters_validation(save_table, database_connection)
-  path <- get_dataset_full_path(tibble_name, csv_path)
-  drugs <-  xmlChildren(pkg_env$root)
-  references_tbl <- NULL
-  if (!override_csv & file.exists(path)) {
-    references_tbl <- readr::read_csv(path)
-  } else {
-    if (is.null(object_node)) {
-      references_tbl <- map_df(drugs,
-                               ~ drug_sub_df(.,
-                                             main_node,
-                                             secondary_node = secondary_node,
-                                             id = id))
-    } else {
-      references_tbl <-  map_df(
-        drugs,
-        ~ references_rec(
-          xmlChildren(.[[object_node]]),
-          main_node = main_node,
-          secondary_node = secondary_node
-        )
-      )
-    }
-    references_tbl <- references_tbl %>% unique()
-    write_csv(references_tbl, save_csv, csv_path)
-  }
-
-  if (save_table) {
-    save_drug_sub(con = database_connection,
-                  df = references_tbl,
-                  table_name = tibble_name)
-  }
-  return(references_tbl %>% as_tibble())
-}
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser
 #'
