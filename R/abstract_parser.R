@@ -1,5 +1,5 @@
 AbstractParser <-
-  R6Class(
+  R6::R6Class(
     "AbstractParser",
     public = list(
       initialize = function(save_table = FALSE,
@@ -8,14 +8,13 @@ AbstractParser <-
                             override_csv = FALSE,
                             database_connection = NULL,
                             tibble_name = NULL,
-                            ref_title = NULL,
-                            ref_type = NULL,
+                            object_node = NULL,
+                            main_node = NULL,
+                            second_node = NULL,
                             id = NULL) {
         stopifnot(
-          paste(
-            "Please provide a valid database connection",
-            "or disable save_table feature."
-          ) = !(save_table && is.null(database_connection))
+          "save_table feature is ON, Please provide a valid database connection"
+          = !(save_table && is.null(database_connection))
         )
         stopifnot("Please make sure to call read_drugbank_xml_db method first" =
                     !is.null(pkg_env$root))
@@ -26,14 +25,15 @@ AbstractParser <-
         private$override_csv <- override_csv
         private$database_connection <- database_connection
         private$tibble_name  <- tibble_name
-        private$ref_title <- ref_title
-        private$ref_type <- ref_type
+        private$object_node <- object_node
+        private$main_node <- main_node
+        private$second_node <- second_node
         private$id <- id
 
       },
       parse = function() {
-        path <- get_dataset_full_path(tibble_name, csv_path)
-        if (!override_csv & file.exists(path)) {
+        path <- get_dataset_full_path(private$tibble_name, private$csv_path)
+        if (!private$override_csv & file.exists(path)) {
           message(
             paste(
               "An existing csv is found and override_csv is not enabled.\n",
@@ -43,9 +43,9 @@ AbstractParser <-
           return(readr::read_csv(path))
         }
         parsed_tbl <- private$parse_record()
-        private$save_file(parsed_tbl)
-        private$save_table(parsed_tbl)
-        return(parsed_tbl)
+        private$save_csv_file(parsed_tbl)
+        private$save_db_table(parsed_tbl)
+        return(as_tibble(parsed_tbl))
       }
     ),
     private = list(
@@ -55,8 +55,9 @@ AbstractParser <-
       override_csv = FALSE,
       database_connection = NULL,
       tibble_name = NULL,
-      ref_title = NULL,
-      ref_type = NULL,
+      object_node = NULL,
+      main_node = NULL,
+      second_node = NULL,
       id = NULL,
       parse_record = function(rec = xmlChildren(pkg_env$root),
                               main_node = NULL,
@@ -65,15 +66,15 @@ AbstractParser <-
                               attr_nodes = NULL) {
         message("I am the abstract parser, please use proper parser")
       },
-      save_file = function(parsed_tbl) {
+      save_csv_file = function(parsed_tbl) {
         parsed_tbl <- parsed_tbl %>% unique()
-        write_csv(parsed_tbl, save_csv, csv_path)
+        write_csv(parsed_tbl, private$save_csv, private$csv_path)
       },
-      save_table = function(parsed_tbl) {
-        if (save_table) {
-          save_drug_sub(con = database_connection,
-                        df = references_tbl,
-                        table_name = tibble_name)
+      save_db_table = function(parsed_tbl) {
+        if (private$save_table) {
+          save_drug_sub(con = private$database_connection,
+                        df = parsed_tbl,
+                        table_name = private$tibble_name)
         }
       }
     )

@@ -1,7 +1,44 @@
+ReferenceParser <-
+  R6::R6Class(
+    "ReferenceParser",
+    inherit = AbstractParser,
+    private = list(
+      parse_record = function(drugs = xmlChildren(pkg_env$root),
+                              main_node = "references",
+                              seconadary_node = "textbooks",
+                              id = "drugbank-id") {
+        if (is.null(super$child_node)) {
+          return(map_df(drugs,
+                        ~ drug_sub_df(.,
+                                      main_node,
+                                      seconadary_node,
+                                      id = id)))
+        }
+        return(map_df(
+          drugs,
+          ~ self$parse_ref_elem(xmlChildren(.[[child_node]]),
+                                main_node,
+                                seconadary_node)
+        ))
+      },
+      parse_ref_elem = function(children,
+                                ref_title = "references",
+                                ref_type = "textbooks",
+                                id = "id") {
+        return(map_df(
+          children,
+          ~ drug_sub_df(.,
+                        ref_title,
+                        seconadary_node = ref_type,
+                        id = id)
+        ))
+      }
+    )
+  )
 references_rec <- function(children,
-                      ref_title = "references",
-                      ref_type = "textbooks",
-                      id = "id") {
+                           ref_title = "references",
+                           ref_type = "textbooks",
+                           id = "id") {
   return(map_df(
     children,
     ~ drug_sub_df(.,
@@ -30,15 +67,19 @@ reference_parser <- function(save_table = FALSE,
   } else {
     if (is.null(child_node)) {
       references_tbl <- map_df(drugs,
-                              ~ drug_sub_df(.,
-                                            ref_title,
-                                            seconadary_node = ref_type,
-                                            id = id))
+                               ~ drug_sub_df(.,
+                                             ref_title,
+                                             seconadary_node = ref_type,
+                                             id = id))
     } else {
-      references_tbl <-  map_df(drugs, ~ references_rec(
-        xmlChildren(.[[child_node]]),
-        ref_title = ref_title,
-        ref_type = ref_type))
+      references_tbl <-  map_df(
+        drugs,
+        ~ references_rec(
+          xmlChildren(.[[child_node]]),
+          ref_title = ref_title,
+          ref_type = ref_type
+        )
+      )
     }
     references_tbl <- references_tbl %>% unique()
     write_csv(references_tbl, save_csv, csv_path)
@@ -148,17 +189,17 @@ drugs_textbooks <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    reference_parser(
+    ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
       database_connection = database_connection,
       tibble_name = "drugs_textbooks",
-      ref_title = "general-references",
-      ref_type = "textbooks",
+      main_node = "general-references",
+      second_node = "textbooks",
       id = "drugbank-id"
-    )
+    )$parse()
   }
 
 #' @rdname books
@@ -283,10 +324,10 @@ carriers_links <-
 #' @rdname links
 #' @export
 enzymes_links <- function(save_table = FALSE,
-                              save_csv = FALSE,
-                              csv_path = ".",
-                              override_csv = FALSE,
-                              database_connection = NULL) {
+                          save_csv = FALSE,
+                          csv_path = ".",
+                          override_csv = FALSE,
+                          database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
@@ -302,10 +343,10 @@ enzymes_links <- function(save_table = FALSE,
 #' @rdname links
 #' @export
 targets_links <- function(save_table = FALSE,
-                              save_csv = FALSE,
-                              csv_path = ".",
-                              override_csv = FALSE,
-                              database_connection = NULL) {
+                          save_csv = FALSE,
+                          csv_path = ".",
+                          override_csv = FALSE,
+                          database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
@@ -382,10 +423,10 @@ carriers_articles <-
 #' @rdname articles
 #' @export
 enzymes_articles <- function(save_table = FALSE,
-                          save_csv = FALSE,
-                          csv_path = ".",
-                          override_csv = FALSE,
-                          database_connection = NULL) {
+                             save_csv = FALSE,
+                             csv_path = ".",
+                             override_csv = FALSE,
+                             database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
@@ -401,10 +442,10 @@ enzymes_articles <- function(save_table = FALSE,
 #' @rdname articles
 #' @export
 targets_articles <- function(save_table = FALSE,
-                          save_csv = FALSE,
-                          csv_path = ".",
-                          override_csv = FALSE,
-                          database_connection = NULL) {
+                             save_csv = FALSE,
+                             csv_path = ".",
+                             override_csv = FALSE,
+                             database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
@@ -480,10 +521,10 @@ carriers_attachments <-
 #' @rdname attachments
 #' @export
 enzymes_attachments <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL) {
+                                save_csv = FALSE,
+                                csv_path = ".",
+                                override_csv = FALSE,
+                                database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
@@ -499,10 +540,10 @@ enzymes_attachments <- function(save_table = FALSE,
 #' @rdname attachments
 #' @export
 targets_attachments <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL) {
+                                save_csv = FALSE,
+                                csv_path = ".",
+                                override_csv = FALSE,
+                                database_connection = NULL) {
   reference_parser(
     save_table = save_table,
     save_csv = save_csv,
