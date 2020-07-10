@@ -10,7 +10,7 @@ AbstractParser <-
                             tibble_name = NULL,
                             object_node = NULL,
                             main_node = NULL,
-                            second_node = NULL,
+                            secondary_node = NULL,
                             id = NULL) {
         stopifnot(
           "save_table feature is ON, Please provide a valid database connection"
@@ -27,7 +27,7 @@ AbstractParser <-
         private$tibble_name  <- tibble_name
         private$object_node <- object_node
         private$main_node <- main_node
-        private$second_node <- second_node
+        private$secondary_node <- secondary_node
         private$id <- id
 
       },
@@ -57,13 +57,9 @@ AbstractParser <-
       tibble_name = NULL,
       object_node = NULL,
       main_node = NULL,
-      second_node = NULL,
+      secondary_node = NULL,
       id = NULL,
-      parse_record = function(rec = xmlChildren(pkg_env$root),
-                              main_node = NULL,
-                              seconadary_node = NULL,
-                              id = "drugbank-id",
-                              attr_nodes = NULL) {
+      parse_record = function() {
         message("I am the abstract parser, please use proper parser")
       },
       save_csv_file = function(parsed_tbl) {
@@ -72,9 +68,11 @@ AbstractParser <-
       },
       save_db_table = function(parsed_tbl) {
         if (private$save_table) {
-          save_drug_sub(con = private$database_connection,
-                        df = parsed_tbl,
-                        table_name = private$tibble_name)
+          save_drug_sub(
+            con = private$database_connection,
+            df = parsed_tbl,
+            table_name = private$tibble_name
+          )
         }
       }
     )
