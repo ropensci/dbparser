@@ -21,8 +21,13 @@ drug_sub_df <-
   function(rec,
            main_node,
            seconadary_node = NULL,
-           id = "drugbank-id") {
+           id = "drugbank-id",
+           # remove assinging to NULL after it being applied everywhere
+           progress = NULL ) {
     if (is.null(rec[[main_node]])) {
+      if (!is.null(progress)) {
+        progress$tick()
+      }
       return()
     }
     parent_key <- NULL
@@ -39,11 +44,17 @@ drug_sub_df <-
           stringsAsFactors = FALSE
         )
     } else {
+      if (!is.null(progress)) {
+        progress$tick()
+      }
       return()
     }
 
     if (nrow(df) > 0 && !is.null(parent_key)) {
       df$parent_key <- parent_key
+    }
+    if (!is.null(progress)) {
+      progress$tick()
     }
     return(df)
   }

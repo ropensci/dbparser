@@ -5,19 +5,26 @@ ReferenceParser <-
     private = list(
       parse_record = function() {
         drugs <-  xmlChildren(pkg_env$root)
+        pb <- progress_bar$new(total = xmlSize(drugs))
         if (is.null(private$object_node)) {
           return(map_df(
             drugs,
-            ~ drug_sub_df(.,
-                          private$main_node,
-                          private$secondary_node,
-                          private$id)
+            ~ drug_sub_df(
+              .,
+              private$main_node,
+              private$secondary_node,
+              private$id,
+              pb
+            )
           ))
         }
         return(map_df(drugs,
-                      ~ private$parse_ref_elem(xmlChildren(.[[private$object_node]]))))
+                      ~ private$parse_ref_elem(
+                        xmlChildren(.[[private$object_node]]),
+                        pb)))
       },
-      parse_ref_elem = function(children) {
+      parse_ref_elem = function(children, pb) {
+        pb$tick()
         return(map_df(
           children,
           ~ drug_sub_df(.,
