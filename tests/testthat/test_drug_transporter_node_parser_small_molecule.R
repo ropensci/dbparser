@@ -17,18 +17,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug transporters polypeptides attributes",
-  code = {
-    expect_equal(
-      nrow(transporters_polypeptides()),
-      0
-    )
-    expect_true(is_tibble(transporters_polypeptides()))
-    expect_error(transporters_polypeptides(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug transporters polypeptides external identifiers attributes",
   code = {
     expect_equal(
