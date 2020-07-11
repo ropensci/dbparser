@@ -18,6 +18,7 @@ test_that(
   }
 )
 
+library(dbparser)
 test_that(
   desc = "Parse Empty Data Set",
   code = {
