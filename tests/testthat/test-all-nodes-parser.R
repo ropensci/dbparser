@@ -17,14 +17,14 @@ test_that(
     expect_error(read_drugbank_xml_db("drugbank_record"))
   }
 )
-
-library(dbparser)
-test_that(
-  desc = "Parse Empty Data Set",
-  code = {
-    expect_error(drug_all())
-  }
-)
+#
+# library(dbparser)
+# test_that(
+#   desc = "Parse Empty Data Set",
+#   code = {
+#     expect_error(drug_all())
+#   }
+# )
 
 biotech <- "drugbank_record_biotech.xml"
 test_that(
