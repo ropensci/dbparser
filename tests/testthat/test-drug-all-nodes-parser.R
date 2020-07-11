@@ -1,4 +1,4 @@
-context("test parse all drug nodes")
+context("test parse drug all nodes")
 
 library(dbparser)
 library(testthat)
