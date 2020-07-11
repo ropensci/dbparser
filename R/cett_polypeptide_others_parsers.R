@@ -7,10 +7,10 @@ CETTPolyOtherParser <-
         drugs <-  xmlChildren(pkg_env$root)
         pb <- progress_bar$new(total = xmlSize(drugs))
         cett_type <- strsplit(private$tibble_name, "_")[[1]][1]
-        child_tbl <-
+        return(
           map_df(drugs,
                  ~ private$org(., cett_type, pb)) %>%
-          unique()
+          unique())
       },
       org = function(rec, cett_type, pb) {
         pb$tick()
