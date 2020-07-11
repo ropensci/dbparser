@@ -19,18 +19,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug enzymes attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes()),
-      0
-    )
-    expect_true(is_tibble(enzymes()))
-    expect_error(enzymes(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug enzymes polypeptides attributes",
   code = {
     expect_equal(

@@ -85,15 +85,3 @@ test_that(
     expect_error(targets_polypeptides_go(TRUE))
   }
 )
-
-test_that(
-  desc = "Read drug targ attributes",
-  code = {
-    expect_match(
-      as.character(targets()[["name"]][1]),
-      "Prothrombin"
-    )
-    expect_true(is_tibble(targets()))
-    expect_error(targets(TRUE))
-  }
-)
