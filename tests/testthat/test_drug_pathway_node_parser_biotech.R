@@ -17,7 +17,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug pathway attributes",
+  desc = "Read drug pathway attributes",
   code = {
     expect_match(
       as.character(drug_pathway()[["name"]][[1]]),
@@ -29,7 +29,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug pathway drugs attributes",
+  desc = "Read drug pathway drugs attributes",
   code = {
     expect_match(
       as.character(
@@ -43,7 +43,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug pathway enzyme attributes",
+  desc = "Read drug pathway enzyme attributes",
   code = {
     expect_match(
       as.character(

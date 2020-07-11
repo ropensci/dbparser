@@ -17,17 +17,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug carriers actions",
-  code = {
-    expect_equal(
-      nrow(carriers_actions()),
-      0
-    )
-    expect_error(carriers_actions(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug carriers polypeptides",
   code = {
     expect_equal(

@@ -17,7 +17,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes attributes",
+  desc = "Read drug enzymes attributes",
   code = {
     expect_equal(
       nrow(enzymes()),
@@ -29,19 +29,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes actions attributes",
-  code = {
-    expect_equal(
-      nrow(enzymes_actions()),
-      1
-    )
-    expect_true(is_tibble(enzymes_actions()))
-    expect_error(enzymes_actions(TRUE))
-  }
-)
-
-test_that(
-  desc = "Read darug enzymes polypeptides attributes",
+  desc = "Read drug enzymes polypeptides attributes",
   code = {
     expect_equal(
       nrow(enzymes_polypeptides()),
@@ -54,7 +42,7 @@ test_that(
 
 test_that(
   desc =
-    "Read darug enzymes polypeptides external identifiers attributes",
+    "Read drug enzymes polypeptides external identifiers attributes",
   code = {
     expect_equal(
       nrow(
@@ -71,7 +59,7 @@ test_that(
 
 
 test_that(
-  desc = "Read darug enzymes polypeptides syn attributes",
+  desc = "Read drug enzymes polypeptides syn attributes",
   code = {
     expect_equal(
       nrow(enzymes_polypeptides_syn()),
@@ -83,7 +71,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes polypeptides pfams attributes",
+  desc = "Read drug enzymes polypeptides pfams attributes",
   code = {
     expect_equal(
       nrow(enzymes_polypeptides_pfams()),
@@ -95,7 +83,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug enzymes polypeptides go classifiers attributes",
+  desc = "Read drug enzymes polypeptides go classifiers attributes",
   code = {
     expect_equal(
       nrow(enzymes_polypeptides_go()),

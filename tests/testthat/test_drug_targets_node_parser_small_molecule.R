@@ -17,19 +17,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug targ actions attributes",
-  code = {
-    expect_match(
-      as.character(targets_actions()
-      [["action"]][[1]]),
-      "inhibitor"
-    )
-    expect_true(is_tibble(targets_actions()))
-    expect_error(targets_actions(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug targ polypeptides attributes",
   code = {
     expect_match(

@@ -17,18 +17,6 @@ test_that(
 )
 
 test_that(
-  desc = "Read drug transporters actions attributes",
-  code = {
-    expect_equal(
-      nrow(transporters_actions()),
-      0
-    )
-    expect_true(is_tibble(transporters_actions()))
-    expect_error(transporters_actions(TRUE))
-  }
-)
-
-test_that(
   desc = "Read drug transporters polypeptides attributes",
   code = {
     expect_equal(
