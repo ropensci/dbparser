@@ -518,64 +518,29 @@ drug_pdb_entries <-
     )$parse()
   }
 
-#' Extracts the drug patents element and return data as tibble.
+#' Drug Patents parser
+#' A property right issued by the United States Patent and Trademark
+#' Office (USPTO) to an inventor for a limited time, in exchange for public
+#' disclosure of the invention when the patent is granted. Drugs may be issued
+#' multiple patents.
 #'
-#' \code{drug_patents} returns tibble of drug patents elements.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' This functions extracts the patents element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#'  \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
-#'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug patents node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_patents()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_patents(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_patents(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_patents(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not exist
-#' # 'in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_patents(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_patents(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_patents(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' @return  a tibble with the following variables:
+#' \describe{
+#'  \item{number}{The patent number(s) associated with the drug.}
+#'  \item{country}{The country that issued the patent rights.}
+#'  \item{approved}{The date that the patent request was filed.}
+#'  \item{expires}{The date that the patent rights expire.}
+#'  \item{pediatric-extension}{Indicates whether or not a pediatric extension has been approved for
+#'   the patent. Granted pediatric extensions provide an additional 6 months of
+#'   market protection.}
+#'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
+#' @family drugs
+#'
+#' @inherit drug_all examples
 #' @export
 drug_patents <-
   function(save_table = FALSE,
@@ -583,23 +548,15 @@ drug_patents <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_patents", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_patents <- readr::read_csv(path)
-    } else {
-      drug_patents <-
-        map_df(pkg_env$children, ~ drug_sub_df(.x, "patents")) %>% unique()
-
-      write_csv(drug_patents, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_patents,
-                    table_name = "drug_patents")
-    }
-    return(drug_patents %>% as_tibble())
+    DrugElementsParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_patents",
+      main_node = "patents"
+    )$parse()
   }
 
 #' Extracts the drug food interactions element and return data as tibble.
