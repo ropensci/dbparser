@@ -120,7 +120,6 @@ DrugParser <- R6::R6Class(
 #'
 #' @inherit drug_all examples
 #' @export
-#' @export
 drug <-
   function(save_table = FALSE,
            save_csv = FALSE,
