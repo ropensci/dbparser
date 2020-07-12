@@ -267,64 +267,27 @@ drug_salts <-
     )$parse()
   }
 
-#' Extracts the drug mixtures element and return data as tibble.
+#' Drug Mixtures parser
 #'
-#' \code{drug_mixtures} returns tibble of drug mixtures elements.
+#' All commercially available products in which this drug is available in
+#' combination with other drug molecules
 #'
-#' This functions extracts the mixtures element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug mixtures node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_mixtures()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_mixtures(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_mixtures(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current location
-#' # and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_mixtures(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not exist in
-#' # current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_mixtures(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given location
-#' # and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_mixtures(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current location
-#' # and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_mixtures(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' @return  a tibble with 4 variables:
+#' \describe{
+#'  \item{name}{The proprietary name provided by the manufacturer for this
+#'  combination product.}
+#'  \item{ingredients}{A list of ingredients, separated by addition symbols}
+#'  \item{supplemental-ingredients}{List of additional active ingredients which
+#'   are not clinically relevant to the main indication of the product,
+#'   separated by addition symbols.}
+#'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
+#' @family drugs
+#'
+#' @inherit drug_all examples
 #' @export
 drug_mixtures <-
   function(save_table = FALSE,
@@ -332,84 +295,34 @@ drug_mixtures <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_mixtures", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_mixtures <- readr::read_csv(path)
-    } else {
-      drug_mixtures <-
-        map_df(pkg_env$children, ~ drug_sub_df(.x, "mixtures")) %>% unique()
-
-      write_csv(drug_mixtures, save_csv, csv_path)
-    }
-
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_mixtures,
-                    table_name = "drug_mixtures")
-    }
-    return(drug_mixtures %>% as_tibble())
+    DrugElementsParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_mixtures",
+      main_node = "mixtures"
+    )$parse()
   }
 
-#' Extracts the drug packagers element and return data as tibble.
+#' Drug Packagers parser
 #'
-#' \code{drug_packagers} returns tibble of drug packagers elements.
+#' A list of companies that are packaging the drug for re-distribution.
 #'
-#' This functions extracts the packagers element of drug node in drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug packagers node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_packagers()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_packagers(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_packagers(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_packagers(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not
-#' # exist in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_packagers(save_table = TRUE, save_csv = TRUE,
-#'  database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_packagers(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_packagers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' @return  a tibble with 2 variables:
+#' \describe{
+#'  \item{name}{}
+#'  \item{url}{A link to any companies that are packaging the drug for
+#'  re-distribution.}
+#'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
+#' @family drugs
+#'
+#' @inherit drug_all examples
 #' @export
 drug_packagers <-
   function(save_table = FALSE,
@@ -417,22 +330,15 @@ drug_packagers <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path("drug_packagers", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_packagers <- readr::read_csv(path)
-    } else {
-      drug_packagers <-
-        map_df(pkg_env$children, ~ drug_sub_df(.x, "packagers")) %>% unique()
-      write_csv(drug_packagers, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_packagers,
-                    table_name = "drug_packagers")
-    }
-    return(drug_packagers %>% as_tibble())
+    DrugElementsParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_packagers",
+      main_node = "packagers"
+    )$parse()
   }
 
 
