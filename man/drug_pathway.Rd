@@ -85,4 +85,9 @@ drug_all(save_csv = TRUE, csv_path = TRUE)
 drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
+\seealso{
+Other pathway: 
+\code{\link{drug_pathway_drugs}()},
+\code{\link{drug_pathway_enzyme}()}
+}
 \concept{pathway}
