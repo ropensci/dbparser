@@ -633,70 +633,54 @@ drug_interactions <-
     )$parse()
   }
 
-#' Extracts the drug experimental properties element and return data as tibble.
+#' Drug Experimental Properties parser
 #'
-#' \code{drug_exp_prop} returns tibble of drug
-#'  experimental
-#'  properties elements.
+#' Drug properties that have been experimentally proven
 #'
-#' This functions extracts the experimental properties element of drug node in
-#'  drugbank
-#' xml database with the option to save it in a predefined database via
-#' passed database connection. It takes two optional arguments to
-#' save the returned tibble in the database \code{save_table} and
-#' \code{database_connection}.
-#' It must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
+#' @inheritSection drug_all read_drugbank_xml_db
+#' @inheritParams drug_all
 #'
-#' @param save_table boolean, save table in database if true.
-#' @param save_csv boolean, save csv version of parsed tibble if true
-#' @param csv_path location to save csv files into it, default is current
-#' location, save_csv must be true
-#' @param override_csv override existing csv, if any, in case it is true in the
-#'  new parse operation
-#' @param database_connection DBI connection object that holds a connection to
-#' user defined database. If \code{save_table} is enabled without providing
-#' value for this function an error will be thrown.
-#' @return drug experimental properties node attributes tibble
-#' @family drugs
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_exp_prop()
-#'
-#' # will throw an error, as database_connection is NULL
-#' drug_exp_prop(save_table = TRUE)
-#'
-#' # save in database in SQLite in memory database and return parsed tibble
-#' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_exp_prop(save_table = TRUE, database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_exp_prop(save_csv = TRUE)
-#'
-#' # save in database, save parsed tibble as csv if it does not exist
-#' # in current location and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_exp_prop(save_table = TRUE, save_csv = TRUE,
-#' database_connection = sqlite_con)
-#'
-#' # save parsed tibble as csv if it does not exist in given location
-#' # and return parsed tibble.
-#' # If the csv exist before read it and return its data.
-#' drug_exp_prop(save_csv = TRUE, csv_path = TRUE)
-#'
-#' # save parsed tibble as csv if it does not exist in current
-#' # location and return parsed tibble.
-#' # If the csv exist override it and return it.
-#' drug_exp_prop(
-#'   save_csv = TRUE, csv_path = TRUE,
-#'   override = TRUE
-#' )
+#' @return  a tibble with the following variables:
+#' \describe{
+#'  \item{kind}{Name of the property.}
+#'  \item{value}{Drug properties that have been experimentally proven.}
+#'  \item{source}{Reference to the source of this experimental data.}
+#'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
+#'
+#' The following experimental properties are provided:
+#' \describe{
+#'  \item{Water Solubility}{The experimentally determined aqueous solubility
+#'  of the molecule.}
+#'  \item{Molecular Formula}{Protein formula of Biotech drugs}
+#'  \item{Molecular Weight}{Protein weight of Biotech drugs.}
+#'  \item{Melting Point}{The experimentally determined temperature at which the
+#'   drug molecule changes from solid to liquid at atmospheric temperature.}
+#'  \item{Boiling Point}{The experimentally determined temperature at which the
+#'   drug molecule changes from liquid to gas at atmospheric temperature.}
+#'  \item{Hydrophobicity}{The ability of a molecule to repel water rather than
+#'  absorb or dissolve water.}
+#'  \item{Isoelectric Point}{The pH value at which the net electric charge of a
+#'  molecule is zero.}
+#'  \item{caco2 Permeability}{A continuous line of heterogenous human epithelial
+#'   colorectal adenocarcinoma cells, CAC02 cells are employed as a model of
+#'   human intestinal absorption of various drugs and compounds. CAC02 cell
+#'   permeability is ultimately an assay to measure drug absorption.}
+#'  \item{pKa}{The experimentally determined pka value of the molecule}
+#'  \item{logP}{The experimentally determined partition coefficient (LogP)
+#'  based on the ratio of solubility of the molecule in 1-octanol compared to
+#'  water.}
+#'  \item{logS}{The intrinsic solubility of a given compound is the
+#'  concentration in equilibrium with its solid phase that dissolves into
+#'   solution, given as the natural logarithm (LogS) of the concentration.}
+#'  \item{Radioactivity}{The property to spontaneously emit particles
+#'  (alpha, beta, neutron) or radiation (gamma, K capture), or both at the same
+#'  time, from the decay of certain nuclides.}
+#' }
+#'
+#' @family drugs
+#'
+#' @inherit drug_all examples
 #' @export
 drug_exp_prop <-
   function(save_table = FALSE,
@@ -704,24 +688,15 @@ drug_exp_prop <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <-
-      get_dataset_full_path("drug_experimental_properties", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_experimental_properties <- readr::read_csv(path)
-    } else {
-      drug_experimental_properties <-
-        map_df(pkg_env$children,
-               ~ drug_sub_df(.x, "experimental-properties")) %>% unique()
-      write_csv(drug_experimental_properties, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(con = database_connection,
-                    df = drug_experimental_properties,
-                    table_name = "drug_experimental_properties")
-    }
-    return(drug_experimental_properties %>% as_tibble())
+    DrugElementsParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_experimental_properties",
+      main_node = "experimental-properties"
+    )$parse()
   }
 
 #' Extracts the drug external identifiers element and return data as tibble.
