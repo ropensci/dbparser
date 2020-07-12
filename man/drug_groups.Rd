@@ -35,7 +35,7 @@ a tibble with 2 variables:
 }
 }
 \description{
-groups that this drug belongs to. May include any of: approved, vet_approved,
+Groups that this drug belongs to. May include any of: approved, vet_approved,
  nutraceutical, illicit, withdrawn, investigational, and experimental.
 }
 \section{read_drugbank_xml_db}{
