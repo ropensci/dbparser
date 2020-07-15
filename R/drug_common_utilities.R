@@ -1,5 +1,4 @@
 pkg_env <- new.env(parent = emptyenv())
-pkg_env$children <- NULL
 pkg_env$version <- NULL
 pkg_env$exported_date <- NULL
 pkg_env$root <- NULL
@@ -106,10 +105,8 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
   }
 
   if (file.exists(drugbank_db_path)) {
-    # XML_Old
     drugbank_db <- xmlParse(drugbank_db_path)
     pkg_env$root <- xmlRoot(drugbank_db)
-    pkg_env$children <- xmlChildren(pkg_env$root)
     pkg_env$version <- xmlGetAttr(pkg_env$root, name = "version")
     pkg_env$exported_date <- xmlGetAttr(pkg_env$root, name = "exported-on")
     return(TRUE)
@@ -124,15 +121,5 @@ read_drugbank_xml_db <- function(drugbank_db_path) {
       )
     )
     return(FALSE)
-  }
-}
-
-check_parameters_validation <- function(save_table, database_connection) {
-  if (save_table && is.null(database_connection)) {
-    stop("Please provide a valid database connection.")
-  }
-
-  if (is.null(pkg_env$children)) {
-    stop("Please make sure to call read_drugbank_xml_db method first")
   }
 }
