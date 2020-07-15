@@ -5,7 +5,7 @@ ManufacturersParser <- R6::R6Class(
     parse_record = function() {
       drugs <-  xmlChildren(pkg_env$root)
       pb <- progress_bar$new(total = xmlSize(drugs))
-      return(map_df(drugs, ~ private$get_manufacturer_df(.x, pb)) %>%
+      return(map_df(drugs, ~ private$get_manufacturer_df(., pb)) %>%
                unique())
     },
     get_manufacturer_df = function(rec, pb) {
