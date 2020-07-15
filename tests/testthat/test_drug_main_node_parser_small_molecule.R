@@ -344,7 +344,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug international brands attributes",
+  desc = "Read drug international brands attributes",
   code = {
     expect_equal(
       nrow(drug_intern_brand()),

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{drug_external_links}
 \alias{drug_external_links}
-\title{Extracts the drug external links element and return data as tibble.}
+\title{Drug External Links parser}
 \usage{
 drug_external_links(
   save_table = FALSE,
@@ -28,55 +28,58 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug external links node attributes tibble
+a tibble with the following variables:
+\describe{
+ \item{resource}{Name of the source website.}
+ \item{identifier}{Identifier for this drug in the given resource}
+ \item{\emph{drugbank_id}}{drugbank id}
+}
 }
 \description{
-\code{drug_external_links} returns tibble of drug external links
-elements.
+Links to other websites or databases providing information about this drug.
 }
-\details{
-This functions extracts the external links element of drug node in drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
-\code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_external_links()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_external_links(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_external_links(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in current location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
+
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
+database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in given location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
 
 # save parsed tibble as csv if it does not exist in current location and
 # return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_external_links(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv if it does not exist in
-# current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_external_links(save_table = TRUE, save_csv = TRUE,
- database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location
-# and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_external_links(save_csv = TRUE, csv_path = TRUE)
-
-# save parsed tibble as csv if it does not exist in current location
-# and return parsed tibble.
-# If the csv exist override it and return it.
-drug_external_links(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
@@ -105,6 +108,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

@@ -1,8 +1,26 @@
-
-actions_rec <- function(rec, cett_type) {
-  return(map_df(xmlChildren(rec[[cett_type]]),
-                ~ drug_sub_df(., "actions", id = "id")))
-}
+CETTActionsParser <-
+  R6::R6Class(
+    "CETTActionsParser",
+    inherit = AbstractParser,
+    private = list(
+      parse_record = function() {
+        cett_type <- strsplit(private$tibble_name, "_")[[1]][1]
+        drugs <-  xmlChildren(pkg_env$root)
+        pb <- progress_bar$new(total = xmlSize(drugs))
+        actions_tbl <-
+          map_df(drugs, ~ private$actions_rec(., cett_type, pb)) %>% unique()
+        if (nrow(actions_tbl) > 0) {
+          colnames(actions_tbl) <- c("action", "parent_id")
+        }
+        return(actions_tbl)
+      },
+      actions_rec = function(rec, cett_type, pb) {
+        pb$tick()
+        return(map_df(xmlChildren(rec[[cett_type]]),
+                      ~ drug_sub_df(., "actions", id = "id")))
+      }
+    )
+  )
 
 #' Carriers/ Enzymes/ Targets/ Transporters Actions parsers
 #'
@@ -21,41 +39,6 @@ actions_rec <- function(rec, cett_type) {
 #' @name cett_actions_doc
 NULL
 
-actions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL,
-           tibble_name) {
-    check_parameters_validation(save_table, database_connection)
-    path <- get_dataset_full_path(tibble_name, csv_path)
-    if (!override_csv & file.exists(path)) {
-      actions_tbl <- readr::read_csv(path)
-    } else {
-      cett_type <- strsplit(tibble_name, "_")[[1]][1]
-      actions_tbl <-
-        map_df(pkg_env$children, ~ actions_rec(., cett_type)) %>% unique()
-
-      write_csv(actions_tbl, save_csv, csv_path)
-    }
-
-
-    if (nrow(actions_tbl) > 0) {
-      colnames(actions_tbl) <- c("action", "parent_id")
-    }
-
-    if (save_table) {
-      save_drug_sub(
-        con = database_connection,
-        df = actions_tbl,
-        table_name = tibble_name,
-        save_table_only = TRUE
-      )
-    }
-    return(actions_tbl %>% as_tibble())
-  }
-
 #' @rdname cett_actions_doc
 #' @export
 carriers_actions <- function(save_table = FALSE,
@@ -63,14 +46,14 @@ carriers_actions <- function(save_table = FALSE,
                              csv_path = ".",
                              override_csv = FALSE,
                              database_connection = NULL) {
-  actions(
+  CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
     database_connection,
     "carriers_actions"
-  )
+  )$parse()
 }
 
 #' @rdname cett_actions_doc
@@ -80,14 +63,14 @@ enzymes_actions <- function(save_table = FALSE,
                             csv_path = ".",
                             override_csv = FALSE,
                             database_connection = NULL) {
-  actions(
+  CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
     database_connection,
     "enzymes_actions"
-  )
+  )$parse()
 }
 
 #' @rdname cett_actions_doc
@@ -97,14 +80,14 @@ targets_actions <- function(save_table = FALSE,
                             csv_path = ".",
                             override_csv = FALSE,
                             database_connection = NULL) {
-  actions(
+  CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
     database_connection,
     "targets_actions"
-  )
+  )$parse()
 }
 
 #' @rdname cett_actions_doc
@@ -114,12 +97,12 @@ transporters_actions <- function(save_table = FALSE,
                             csv_path = ".",
                             override_csv = FALSE,
                             database_connection = NULL) {
-  actions(
+  CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
     database_connection,
     "transporters_actions"
-  )
+  )$parse()
 }

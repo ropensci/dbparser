@@ -17,6 +17,7 @@ Imports:
     DBI,
     dplyr,
     odbc,
+    progress,
     purrr,
     readr,
     RMariaDB,

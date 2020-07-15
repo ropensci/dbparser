@@ -31,14 +31,14 @@ value for this function an error will be thrown.}
 a tibble with 5 variables:
 \describe{
   \item{description}{}
-  \item{cost}{}
-  \item{currency}{}
+  \item{cost}{Drug price per unit}
+  \item{currency}{Currency of price, example: US.}
   \item{unit}{}
   \item{parent_id}{drugbank id}
 }
 }
 \description{
-Collection of related actions
+Unit drug prices
 }
 \section{read_drugbank_xml_db}{
 
@@ -110,6 +110,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

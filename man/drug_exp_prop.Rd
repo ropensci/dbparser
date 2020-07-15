@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{drug_exp_prop}
 \alias{drug_exp_prop}
-\title{Extracts the drug experimental properties element and return data as tibble.}
+\title{Drug Experimental Properties parser}
 \usage{
 drug_exp_prop(
   save_table = FALSE,
@@ -28,60 +28,89 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug experimental properties node attributes tibble
+a tibble with the following variables:
+\describe{
+ \item{kind}{Name of the property.}
+ \item{value}{Drug properties that have been experimentally proven.}
+ \item{source}{Reference to the source of this experimental data.}
+ \item{\emph{drugbank_id}}{drugbank id}
+}
+
+The following experimental properties are provided:
+\describe{
+ \item{Water Solubility}{The experimentally determined aqueous solubility
+ of the molecule.}
+ \item{Molecular Formula}{Protein formula of Biotech drugs}
+ \item{Molecular Weight}{Protein weight of Biotech drugs.}
+ \item{Melting Point}{The experimentally determined temperature at which the
+  drug molecule changes from solid to liquid at atmospheric temperature.}
+ \item{Boiling Point}{The experimentally determined temperature at which the
+  drug molecule changes from liquid to gas at atmospheric temperature.}
+ \item{Hydrophobicity}{The ability of a molecule to repel water rather than
+ absorb or dissolve water.}
+ \item{Isoelectric Point}{The pH value at which the net electric charge of a
+ molecule is zero.}
+ \item{caco2 Permeability}{A continuous line of heterogenous human epithelial
+  colorectal adenocarcinoma cells, CAC02 cells are employed as a model of
+  human intestinal absorption of various drugs and compounds. CAC02 cell
+  permeability is ultimately an assay to measure drug absorption.}
+ \item{pKa}{The experimentally determined pka value of the molecule}
+ \item{logP}{The experimentally determined partition coefficient (LogP)
+ based on the ratio of solubility of the molecule in 1-octanol compared to
+ water.}
+ \item{logS}{The intrinsic solubility of a given compound is the
+ concentration in equilibrium with its solid phase that dissolves into
+  solution, given as the natural logarithm (LogS) of the concentration.}
+ \item{Radioactivity}{The property to spontaneously emit particles
+ (alpha, beta, neutron) or radiation (gamma, K capture), or both at the same
+ time, from the decay of certain nuclides.}
+}
 }
 \description{
-\code{drug_exp_prop} returns tibble of drug
- experimental
- properties elements.
+Drug properties that have been experimentally proven
 }
-\details{
-This functions extracts the experimental properties element of drug node in
- drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
-\code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_exp_prop()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_exp_prop(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_exp_prop(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_exp_prop(save_csv = TRUE)
+# save parsed tibble as csv if it does not exist in current location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
 
-# save in database, save parsed tibble as csv if it does not exist
-# in current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_exp_prop(save_table = TRUE, save_csv = TRUE,
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
 database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in given location
+# save parsed tibble as csv if it does not exist in given location,
 # and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_exp_prop(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist override it and return it.
-drug_exp_prop(
-  save_csv = TRUE, csv_path = TRUE,
-  override = TRUE
-)
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
@@ -110,6 +139,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

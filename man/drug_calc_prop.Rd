@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{drug_calc_prop}
 \alias{drug_calc_prop}
-\title{Extracts the drug calculated properties element and return data as tibble.}
+\title{Drug Calculated Properties parser}
 \usage{
 drug_calc_prop(
   save_table = FALSE,
@@ -28,59 +28,63 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug calculated properties node attributes tibble
+a tibble with 4 variables:
+\describe{
+ \item{kind}{Name of the property.}
+ \item{value}{Predicted physicochemical properties; obtained by the use of
+ prediction software such as ALGOPS and ChemAxon.}
+ \item{source}{Name of the software used to calculate this property,
+ either ChemAxon or ALOGPS.}
+ \item{\emph{drugbank_id}}{drugbank id}
+}
 }
 \description{
-\code{drug_calc_prop} returns tibble of drug calculated
-properties elements.
+Drug properties that have been predicted by ChemAxon or ALOGPS based on the
+inputed chemical structure. Associated links below will redirect to
+descriptions of the specific term.
 }
-\details{
-This functions extracts the calculated properties element of drug node in
- drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
-\code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_calc_prop()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_calc_prop(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_calc_prop(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_calc_prop(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv if it does not exist
-# in current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_calc_prop(save_table = TRUE, save_csv = TRUE,
- database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location
+# save parsed tibble as csv if it does not exist in current location,
 # and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_calc_prop(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist override it and return it.
-drug_calc_prop(
-  save_csv = TRUE, csv_path = TRUE,
-  override = TRUE
-)
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
+database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in given location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
@@ -109,6 +113,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

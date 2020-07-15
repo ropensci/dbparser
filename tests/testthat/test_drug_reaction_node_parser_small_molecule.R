@@ -17,7 +17,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug reactions attributes",
+  desc = "Read drug reactions attributes",
   code = {
     expect_equal(
       nrow(drug_reactions()),
@@ -29,7 +29,7 @@ test_that(
 )
 
 test_that(
-  desc = "Read darug reactions enzymes attributes",
+  desc = "Read drug reactions enzymes attributes",
   code = {
     expect_equal(
       nrow(drug_reactions_enzymes()),

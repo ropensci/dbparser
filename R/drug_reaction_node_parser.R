@@ -1,28 +1,50 @@
-# Extract drug reactions df
-get_reactions_rec <- function(r, drug_key) {
-  tibble(
-    sequence = xmlValue(r[["sequence"]]),
-    left_drugbank_id = xmlValue(r[["left-element"]][["drugbank-id"]]),
-    left_drugbank_name = xmlValue(r[["left-element"]][["name"]]),
-    right_drugbank_id = xmlValue(r[["right-element"]][["drugbank-id"]]),
-    right_drugbank_name = xmlValue(r[["right-element"]][["name"]]),
-    parent_key = drug_key
+ReactionsParser <- R6::R6Class(
+  "ReactionsParser",
+  inherit = AbstractParser,
+  private = list(
+    parse_record = function() {
+      drugs <-  xmlChildren(pkg_env$root)
+      pb <- progress_bar$new(total = xmlSize(drugs))
+      return(map_df(drugs, ~ private$get_reactions_df(., pb)))
+    },
+    get_reactions_df = function(rec, pb) {
+      pb$tick()
+      return(map_df(
+        xmlChildren(rec[["reactions"]]),
+        ~ private$get_reactions_rec(., xmlValue(rec[["drugbank-id"]]))
+      ))
+    },
+    get_reactions_rec = function(r, drug_key) {
+      tibble(
+        sequence = xmlValue(r[["sequence"]]),
+        left_drugbank_id = xmlValue(r[["left-element"]][["drugbank-id"]]),
+        left_drugbank_name = xmlValue(r[["left-element"]][["name"]]),
+        right_drugbank_id = xmlValue(r[["right-element"]][["drugbank-id"]]),
+        right_drugbank_name = xmlValue(r[["right-element"]][["name"]]),
+        parent_key = drug_key
+      )
+    }
   )
-}
-get_reactions_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["reactions"]]),
-    ~ get_reactions_rec(., xmlValue(rec[["drugbank-id"]]))
-  ))
-}
+)
 
-# Extract drug reactions enzymes df
-get_reactions_enzymes_df <- function(rec) {
-  return(map_df(
-    xmlChildren(rec[["reactions"]]),
-    ~ drug_sub_df(., "enzymes", id = NULL)
-  ))
-}
+ReactionsEnzymesParser <- R6::R6Class(
+  "ReactionsEnzymesParser",
+  inherit = AbstractParser,
+  private = list(
+    parse_record = function() {
+      drugs <-  xmlChildren(pkg_env$root)
+      pb <- progress_bar$new(total = xmlSize(drugs))
+      return(map_df(drugs, ~ private$get_reactions_enzymes_df(., pb)))
+    },
+    get_reactions_enzymes_df = function(rec, pb) {
+      pb$tick()
+      return(map_df(
+        xmlChildren(rec[["reactions"]]),
+        ~ drug_sub_df(., "enzymes", id = NULL)
+      ))
+    }
+  )
+)
 
 #' Drug Reactions Parsers
 #'
@@ -55,28 +77,14 @@ drug_reactions <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <-
-      get_dataset_full_path("drug_reactions", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_reactions <- readr::read_csv(path)
-    } else {
-      drug_reactions <-
-        map_df(pkg_env$children, ~ get_reactions_df(.x)) %>%
-        unique()
-
-      write_csv(drug_reactions, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(
-        con = database_connection,
-        df = drug_reactions,
-        table_name = "drug_reactions",
-        foreign_key = "parent_key"
-      )
-    }
-    return(drug_reactions %>% as_tibble())
+    ReactionsParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_reactions"
+    )$parse()
   }
 
 #' Drug Reactions Enzymes Parsers
@@ -101,26 +109,12 @@ drug_reactions_enzymes <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
-    path <-
-      get_dataset_full_path("drug_reactions_enzymes", csv_path)
-    if (!override_csv & file.exists(path)) {
-      drug_reactions_enzymes <- readr::read_csv(path)
-    } else {
-      drug_reactions_enzymes <-
-        map_df(pkg_env$children, ~ get_reactions_enzymes_df(.x)) %>%
-        unique()
-
-      write_csv(drug_reactions_enzymes, save_csv, csv_path)
-    }
-
-    if (save_table) {
-      save_drug_sub(
-        con = database_connection,
-        df = drug_reactions_enzymes,
-        table_name = "drug_reactions_enzymes",
-        save_table_only = TRUE
-      )
-    }
-    return(drug_reactions_enzymes %>% as_tibble())
+    ReactionsEnzymesParser$new(
+      save_table,
+      save_csv,
+      csv_path,
+      override_csv,
+      database_connection,
+      "drug_reactions_enzymes"
+    )$parse()
   }

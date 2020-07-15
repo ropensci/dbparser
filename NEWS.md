@@ -1,7 +1,25 @@
 # dbparser 1.1.3.9000
+
+## UI Changes
+* Introduce progress bar in parser functions
+
+## New Parsers
+### Collective Parsers
+* `References` Parser
+
+### Elements Parsers
+* `attachments` parser
+* `drug_pharmacology` parser
 * Rename `drugs_books` function to `drugs_textbooks`
-* Major documentation update
-* Add `attachments` element parsers
+
+## Documentation Update:
+* Add returned parsed data structure 
+* Explain the returned data functionality as a whole and for each elements
+* Point out to related/similar parsers
+
+## Package design
+For those who thinking to contribute in `dbparser`, now parsers are implemented
+as R6 classes.
 
 # dbparser 1.1.2
 

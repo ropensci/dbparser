@@ -1,6 +1,7 @@
 #' @import dplyr
 #' @import RSQLite
 #' @importFrom DBI dbWriteTable dbExecute dbConnect dbDisconnect dbDataType
+#' @importFrom progress progress_bar
 #' @importFrom odbc odbc
 #' @importFrom purrr '%>%' map_df map_chr is_empty is_null
 #' @importFrom readr read_csv write_csv

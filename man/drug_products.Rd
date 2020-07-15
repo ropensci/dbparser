@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{drug_products}
 \alias{drug_products}
-\title{Extracts the drug products element and return data as tibble.}
+\title{Drug Products parser}
 \usage{
 drug_products(
   save_table = FALSE,
@@ -28,54 +28,109 @@ user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug products node attributes tibble
+a tibble with 32 variables:
+\describe{
+ \item{name}{The proprietary name(s) provided by the manufacturer for any
+ commercially available products containing this drug.}
+ \item{labeller}{The corporation responsible for labelling this product.}
+ \item{ndc-id}{The National Drug Code (NDC) identifier of the drug}
+ \item{ndc-product-code}{The National Drug Code (NDC) product code from the
+  FDA National Drug Code directory.}
+ \item{dpd-id}{Drug Product Database (DPD) identification number (a.k.a. DIN)
+  from the Canadian Drug Product Database. Only present for drugs that are
+  marketed in Canada}
+ \item{ema-product-code}{EMA product code from the European Medicines Agency
+ Database. Only present for products that are authorised by central procedure
+  for marketing in the European Union.}
+ \item{ema-ma-number}{EMA marketing authorisation number from the European
+ Medicines Agency Database. Only present for products that are authorised by
+  central procedure for marketing in the European Union.}
+ \item{started-marketing-on}{The starting date for market approval.}
+ \item{ended-marketing-on}{The ending date for market approval.}
+ \item{dosage-form	}{The pharmaceutical formulation by which the drug is
+ introduced into the body.}
+ \item{strength}{The amount of active drug ingredient provided in the dosage}
+ \item{route}{The path by which the drug or product is taken into the body}
+ \item{fda-application-number}{The New Drug Application [NDA] number
+ assigned to this drug by the FDA.}
+ \item{over-the-counter}{A list of Over The Counter (OTC) forms of the drug.}
+ \item{generic}{Whether this product is a generic drug.}
+ \item{approved}{Indicates whether this drug has been approved by the
+ regulating government.}
+ \item{country}{The country where this commercially available drug has been
+ approved.}
+ \item{source}{Source of this product information. For example, a value of
+ DPD indicates this information was retrieved from the Canadian Drug Product
+  Database.}
+ \item{standing}{One of good, discordant, or deprecated. Distinguishes
+ products with up to date ingredient information (good) from products with
+ conflicting information (discordant) or products that have been removed from
+  an active label (deprecated).}
+ \item{standing-updated-on}{The date on which the standing was last updated}
+ \item{standing-reason}{Explains the non-good standing of the product.
+ One of: ingredient_change, code_duplication, invalid, or removed.}
+ \item{jurisdiction-marketing-category	}{The marketing category of this
+ product in its jurisdiction}
+ \item{branded}{Whether this product has a named brand}
+ \item{prescription}{Whether this product is only available with
+ a prescription}
+ \item{unapproved}{Whether this product is not approved in its jurisdiction}
+ \item{vaccine}{Whether this product is a vaccine}
+ \item{allergenic}{Whether this product is used in allergenic testing}
+ \item{cosmetic}{Whether this product is a cosmetic, such as sunscreen}
+ \item{kit}{Whether this product is a kit composed of multiple distinct
+ parts}
+ \item{solo}{Whether this product has only a single active ingredient}
+ \item{available}{Whether this product can be sold in its jurisdiction}
+ \item{\emph{drugbank_id}}{drugbank id}
+}
 }
 \description{
-\code{drug_products} returns tibble of drug products elements.
+A list of commercially available products in Canada and the United States
+ that contain the drug.
 }
-\details{
-This functions extracts the products element of drug node in drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
- \code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_products()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_products(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_products(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_products(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv if it does not exist
-# in current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_products(save_table = TRUE, save_csv = TRUE,
- database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location
+# save parsed tibble as csv if it does not exist in current location,
 # and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_products(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist override it and return it.
-drug_products(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
+database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in given location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
@@ -104,6 +159,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

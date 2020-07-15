@@ -100,7 +100,6 @@ drug_all <-
     # Carriers/ Enzymes/Targets/ Transporters
     ## General Information
     ## Polypeptides
-    check_parameters_validation(save_table, database_connection)
     drugs <- drug(save_table,
                   save_csv,
                   csv_path,
@@ -683,7 +682,6 @@ drug_element <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    check_parameters_validation(save_table, database_connection)
     if (!all(elements_options %in% drug_element_options())) {
       stop("invalid options\nplease use drug_element_options() to
            know valid options")

@@ -2,7 +2,7 @@
 % Please edit documentation in R/drug_parsers.R
 \name{drug_intern_brand}
 \alias{drug_intern_brand}
-\title{Extracts the drug international brands and return data as tibble.}
+\title{Drug International Brands parser}
 \usage{
 drug_intern_brand(
   save_table = FALSE,
@@ -20,67 +20,69 @@ drug_intern_brand(
 \item{csv_path}{location to save csv files into it, default is current
 location, save_csv must be true}
 
-\item{override_csv}{override existing csv, if any, in case it is true in
-the new parse operation}
+\item{override_csv}{override existing csv, if any, in case it is true in the
+new parse operation}
 
 \item{database_connection}{DBI connection object that holds a connection to
 user defined database. If \code{save_table} is enabled without providing
 value for this function an error will be thrown.}
 }
 \value{
-drug international brands node attributes tibble
+a tibble with 4 variables:
+\describe{
+ \item{brand}{The proprietary, well-known name for given to this drug by a
+ manufacturer.}
+ \item{company}{The company or manufacturer that uses this name.}
+ \item{\emph{drugbank_id}}{drugbank id}
+}
 }
 \description{
-\code{drug_intern_brand} returns tibble of drug products
-elements.
+The proprietary names used by the manufacturers for commercially available
+forms of the drug, focusing on brand names for products that are available
+in countries other than Canada and the Unites States.
 }
-\details{
-This functions extracts the international brands element of drug node in
-drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database \code{save_table} and
-\code{database_connection}.
-It must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
+\section{read_drugbank_xml_db}{
+
+\code{\link{read_drugbank_xml_db}} function must be called first before any
+parser.
+
 If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
 no need to call it again before calling this function.
 }
+
 \examples{
 \dontrun{
+# the same parameters and usage will be applied for any parser
 # return only the parsed tibble
-drug_intern_brand()
+drug_all()
 
 # will throw an error, as database_connection is NULL
-drug_intern_brand(save_table = TRUE)
+drug_all(save_table = TRUE)
 
 # save in database in SQLite in memory database and return parsed tibble
 sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-drug_intern_brand(save_table = TRUE, database_connection = sqlite_con)
+drug_all(save_table = TRUE, database_connection = sqlite_con)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_intern_brand(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv if it does not exist in
-#  current location and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_intern_brand(save_table = TRUE, save_csv = TRUE,
- database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location
+# save parsed tibble as csv if it does not exist in current location,
 # and return parsed tibble.
-# If the csv exist before read it and return its data.
-drug_intern_brand(save_csv = TRUE, csv_path = TRUE)
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE)
 
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# If the csv exist override it and return it.
-drug_intern_brand(
-  save_csv = TRUE, csv_path = TRUE,
-  override = TRUE
-)
+# save in database, save parsed tibble as csv,
+# if it does not exist in current location and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_table = TRUE, save_csv = TRUE,
+database_connection = sqlite_con)
+
+# save parsed tibble as csv if it does not exist in given location,
+# and return parsed tibble.
+# if the csv exist before read it and return its data.
+drug_all(save_csv = TRUE, csv_path = TRUE)
+
+# save parsed tibble as csv if it does not exist in current location and
+# return parsed tibble.
+# if the csv exist override it and return it.
+drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
@@ -109,6 +111,7 @@ Other drugs:
 \code{\link{drug_reactions_enzymes}()},
 \code{\link{drug_reactions}()},
 \code{\link{drug_salts}()},
+\code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
 \code{\link{drug_syn}()},

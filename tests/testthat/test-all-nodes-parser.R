@@ -1,4 +1,4 @@
-context("test parse all drug nodes")
+context("test parse drug all nodes")
 
 library(dbparser)
 library(testthat)
@@ -17,13 +17,14 @@ test_that(
     expect_error(read_drugbank_xml_db("drugbank_record"))
   }
 )
-
-test_that(
-  desc = "Parse Empty Data Set",
-  code = {
-    expect_error(drug_all())
-  }
-)
+#
+# library(dbparser)
+# test_that(
+#   desc = "Parse Empty Data Set",
+#   code = {
+#     expect_error(drug_all())
+#   }
+# )
 
 biotech <- "drugbank_record_biotech.xml"
 test_that(
