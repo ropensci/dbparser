@@ -86,4 +86,5 @@ Other common:
 \code{\link{drug_element_options}()},
 \code{\link{drug_element}()}
 }
+\concept{collective_parsers}
 \concept{common}

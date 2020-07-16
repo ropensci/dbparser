@@ -58,6 +58,7 @@
 #' # if the csv exist override it and return it.
 #' run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
+#' @family collective_parsers
 #' @export
 run_all_parsers <-
   function(save_table = FALSE,
@@ -65,41 +66,6 @@ run_all_parsers <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    # Drugs
-    ## General Information
-    ## Drug Classification
-    ## Synonyms
-    ## External Codes
-    ## Pharmacology
-    ## International Brands
-    ## Mixtures
-    ## Packagers
-    ## Manufacturers
-    ## Prices
-    ## Categories
-    ## Dosages
-    ## ATC Codes
-    ## Patents
-    ## Drug Interactions
-    ## Sequences
-    ## Calculated Properties
-    ## Experimental Properties
-    ## External Identifiers
-    ## External Links
-    ## Pathways
-    ## Reactions
-    ## SNP Effects
-    ## SNP Adverse Drug Reactions
-    # Products
-    # References
-    ## Articles
-    ## TextBooks
-    ## Links
-    ## Atachments
-    # Salts
-    # Carriers/ Enzymes/Targets/ Transporters
-    ## General Information
-    ## Polypeptides
     drugs <- drug(save_table,
                   save_csv,
                   csv_path,
