@@ -26,8 +26,8 @@ CETTActionsParser <-
 #'
 #' Collection of related actions
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 2 variables:
 #' \describe{
@@ -35,7 +35,7 @@ CETTActionsParser <-
 #'   \item{\emph{parent_id}}{carrier/ target/ enzyme/ transporter id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_actions_doc
 NULL
 

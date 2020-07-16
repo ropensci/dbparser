@@ -32,8 +32,8 @@ DrugElementsParser <- R6::R6Class(
 #' Groups that this drug belongs to. May include any of: approved, vet_approved,
 #'  nutraceutical, illicit, withdrawn, investigational, and experimental.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -42,7 +42,7 @@ DrugElementsParser <- R6::R6Class(
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_groups <-
   function(save_table = FALSE,
@@ -66,8 +66,8 @@ drug_groups <-
 #' A list of commercially available products in Canada and the United States
 #'  that contain the drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 32 variables:
 #' \describe{
@@ -127,7 +127,7 @@ drug_groups <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_products <-
   function(save_table = FALSE,
@@ -152,8 +152,8 @@ drug_products <-
 #' inputed chemical structure. Associated links below will redirect to
 #' descriptions of the specific term.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -166,7 +166,7 @@ drug_products <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_calc_prop <- function(save_table = FALSE,
                            save_csv = FALSE,
@@ -190,8 +190,8 @@ drug_calc_prop <- function(save_table = FALSE,
 #' forms of the drug, focusing on brand names for products that are available
 #' in countries other than Canada and the Unites States.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -202,7 +202,7 @@ drug_calc_prop <- function(save_table = FALSE,
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_intern_brand <-
   function(save_table = FALSE,
@@ -227,8 +227,8 @@ drug_intern_brand <-
 #'  and sulfate are often added to the drug molecule to increase solubility,
 #'  dissolution, or absorption.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 1 variables:
 #' \describe{
@@ -254,7 +254,7 @@ drug_intern_brand <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_salts <-
   function(save_table = FALSE,
@@ -278,8 +278,8 @@ drug_salts <-
 #' All commercially available products in which this drug is available in
 #' combination with other drug molecules
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -293,7 +293,7 @@ drug_salts <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_mixtures <-
   function(save_table = FALSE,
@@ -316,8 +316,8 @@ drug_mixtures <-
 #'
 #' A list of companies that are packaging the drug for re-distribution.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -328,7 +328,7 @@ drug_mixtures <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_packagers <-
   function(save_table = FALSE,
@@ -352,8 +352,8 @@ drug_packagers <-
 #'
 #' General categorizations of the drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -364,7 +364,7 @@ drug_packagers <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_categories <-
   function(save_table = FALSE,
@@ -388,8 +388,8 @@ drug_categories <-
 #' Organisms in which the drug may display activity; activity may depend on
 #' local susceptibility patterns and resistance.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -398,7 +398,7 @@ drug_categories <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_affected_organisms <-
   function(save_table = FALSE,
@@ -421,8 +421,8 @@ drug_affected_organisms <-
 #'
 #' A list of the commercially available dosages of the drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -434,7 +434,7 @@ drug_affected_organisms <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_dosages <-
   function(save_table = FALSE,
@@ -458,8 +458,8 @@ drug_dosages <-
 #'
 #' The American Hospital Formulary Service (AHFS) identifier for this drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -468,7 +468,7 @@ drug_dosages <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_ahfs_codes <-
   function(save_table = FALSE,
@@ -491,8 +491,8 @@ drug_ahfs_codes <-
 #'
 #' Protein Data Bank (PDB) identifiers for this drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -501,7 +501,7 @@ drug_ahfs_codes <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_pdb_entries <-
   function(save_table = FALSE,
@@ -526,8 +526,8 @@ drug_pdb_entries <-
 #' disclosure of the invention when the patent is granted. Drugs may be issued
 #' multiple patents.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -542,7 +542,7 @@ drug_pdb_entries <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_patents <-
   function(save_table = FALSE,
@@ -565,8 +565,8 @@ drug_patents <-
 #'
 #' Food that may interact with this drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -575,7 +575,7 @@ drug_patents <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_food_interactions <-
   function(save_table = FALSE,
@@ -601,8 +601,8 @@ drug_food_interactions <-
 #' effects. These interactions may be synergistic or antagonistic depending on
 #' the physiological effects and mechanism of action of each drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with the following variables:
 #' \describe{
@@ -614,7 +614,7 @@ drug_food_interactions <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_interactions <-
   function(save_table = FALSE,
@@ -637,8 +637,8 @@ drug_interactions <-
 #'
 #' Drug properties that have been experimentally proven
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -680,7 +680,7 @@ drug_interactions <-
 #'
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_exp_prop <-
   function(save_table = FALSE,
@@ -704,8 +704,8 @@ drug_exp_prop <-
 #' Identifiers used in other websites or databases providing information about
 #' this drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -715,7 +715,7 @@ drug_exp_prop <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_ex_identity <-
   function(save_table = FALSE,
@@ -738,8 +738,8 @@ drug_ex_identity <-
 #'
 #' Links to other websites or databases providing information about this drug.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -749,7 +749,7 @@ drug_ex_identity <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_external_links <-
   function(save_table = FALSE,
@@ -775,8 +775,8 @@ drug_external_links <-
 #'  SNP effects in the patient may require close monitoring, an increase or
 #'  decrease in dose, or a change in therapy.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -794,7 +794,7 @@ drug_external_links <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_snp_effects <-
   function(save_table = FALSE,
@@ -818,8 +818,8 @@ drug_snp_effects <-
 #' The adverse drug reactions that may occur as a result of the listed single
 #' nucleotide polymorphisms (SNPs)
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -837,7 +837,7 @@ drug_snp_effects <-
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_snp_adverse_reactions <-
   function(save_table = FALSE,

@@ -73,8 +73,8 @@ ClassificationParser <- R6::R6Class(
 #' A description of the hierarchical chemical classification of the drug;
 #' imported from \url{ClassyFire}{http://classyfire.wishartlab.com/}.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 9 variables:
 #' \describe{
@@ -90,7 +90,7 @@ ClassificationParser <- R6::R6Class(
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_classification <-
   function(save_table = FALSE,

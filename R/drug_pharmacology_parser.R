@@ -80,8 +80,8 @@ PharmacologyParser <- R6::R6Class(
 #' Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
 #'  and physiological or biochemical effects in the body.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -132,7 +132,7 @@ PharmacologyParser <- R6::R6Class(
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 
 drug_pharmacology <-

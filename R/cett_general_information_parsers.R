@@ -46,8 +46,8 @@ CETTGeneralInformationParser <-
 #' involved in metabolism, and carrier or transporter proteins involved in
 #' movement of the drug across biological membranes.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 6 variables (8 for enzymes):
 #' \describe{
@@ -64,7 +64,7 @@ CETTGeneralInformationParser <-
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_doc
 NULL
 

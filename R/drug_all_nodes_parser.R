@@ -28,38 +28,38 @@
 #' \dontrun{
 #' # the same parameters and usage will be applied for any parser
 #' # return only the parsed tibble
-#' drug_all()
+#' run_all_parsers()
 #'
 #' # will throw an error, as database_connection is NULL
-#' drug_all(save_table = TRUE)
+#' run_all_parsers(save_table = TRUE)
 #'
 #' # save in database in SQLite in memory database and return parsed tibble
 #' sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-#' drug_all(save_table = TRUE, database_connection = sqlite_con)
+#' run_all_parsers(save_table = TRUE, database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in current location,
 #' # and return parsed tibble.
 #' # if the csv exist before read it and return its data.
-#' drug_all(save_csv = TRUE)
+#' run_all_parsers(save_csv = TRUE)
 #'
 #' # save in database, save parsed tibble as csv,
 #' # if it does not exist in current location and return parsed tibble.
 #' # if the csv exist before read it and return its data.
-#' drug_all(save_table = TRUE, save_csv = TRUE,
+#' run_all_parsers(save_table = TRUE, save_csv = TRUE,
 #' database_connection = sqlite_con)
 #'
 #' # save parsed tibble as csv if it does not exist in given location,
 #' # and return parsed tibble.
 #' # if the csv exist before read it and return its data.
-#' drug_all(save_csv = TRUE, csv_path = TRUE)
+#' run_all_parsers(save_csv = TRUE, csv_path = TRUE)
 #'
 #' # save parsed tibble as csv if it does not exist in current location and
 #' # return parsed tibble.
 #' # if the csv exist override it and return it.
-#' drug_all(save_csv = TRUE, csv_path = TRUE, override = TRUE)
+#' run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 #' }
 #' @export
-drug_all <-
+run_all_parsers <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
@@ -688,7 +688,7 @@ drug_element <-
     }
 
     if ("all" %in% elements_options) {
-      return(drug_all(save_table = save_table,
+      return(run_all_parsers(save_table = save_table,
                       save_csv = save_csv,
                       csv_path = csv_path,
                       override_csv = override_csv,
@@ -1133,12 +1133,12 @@ drug_element_options <- function() {
 #' Return a list of all references for drugs, carriers, enzymes, targets or
 #' transporters
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @family references
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 references <- function(save_table = FALSE,
                        save_csv = FALSE,

@@ -32,8 +32,8 @@ ManufacturersParser <- R6::R6Class(
 #' A list of companies that are manufacturing the commercially available forms
 #' of this drug that are available in Canada and the Unites States.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -44,7 +44,7 @@ ManufacturersParser <- R6::R6Class(
 #' }
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 
 drug_manufacturers <- function(save_table = FALSE,

@@ -59,13 +59,13 @@ PathwaySubNodesParser <- R6::R6Class(
 #'
 #' Enzymes involved in this pathway.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with pathway properties
 #' @family pathway
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_pathway_enzyme <-
   function(save_table = FALSE,
@@ -90,13 +90,13 @@ drug_pathway_enzyme <-
 #'
 #' Drugs involved in this pathway.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with pathway drugsproperties
 #' @family pathway
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_pathway_drugs <-
   function(save_table = FALSE,
@@ -122,8 +122,8 @@ drug_pathway_drugs <-
 #' Metabolic, disease, and biological pathways that the drug is involved in, as
 #' identified by the Small Molecule Protein Database (SMPDB).
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -135,7 +135,7 @@ drug_pathway_drugs <-
 #' }
 #' @family pathway
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_pathway <-
   function(save_table = FALSE,
