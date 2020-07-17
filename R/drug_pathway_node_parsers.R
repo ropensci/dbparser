@@ -63,7 +63,7 @@ PathwaySubNodesParser <- R6::R6Class(
 #' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with pathway properties
-#' @family pathway
+#' @family pathway, drugs
 #'
 #' @inherit run_all_parsers examples
 #' @export
@@ -94,7 +94,7 @@ drug_pathway_enzyme <-
 #' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with pathway drugsproperties
-#' @family pathway
+#' @family pathway, drugs
 #'
 #' @inherit run_all_parsers examples
 #' @export
@@ -133,7 +133,7 @@ drug_pathway_drugs <-
 #'  \item{category}{Pathway category}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family pathway
+#' @family pathway, drugs
 #'
 #' @inherit run_all_parsers examples
 #' @export

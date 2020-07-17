@@ -110,7 +110,6 @@ Other drugs:
 \code{\link{drug_sequences}()},
 \code{\link{drug_snp_adverse_reactions}()},
 \code{\link{drug_snp_effects}()},
-\code{\link{drug_syn}()},
-\code{\link{drug}()}
+\code{\link{drug_syn}()}
 }
 \concept{drugs}

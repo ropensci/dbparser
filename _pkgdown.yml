@@ -39,6 +39,10 @@ reference:
   desc: "Get Drug and its related direct information"
   contents:
     - has_concept("drugs")
+- title: "Pathway Parsers"
+  desc: "Pathway related parser"
+  contents:
+    - has_concept("pathway")
 - title: "References Parsers"
   desc: "Books, Links, Articles and Attachments parsres"
   contents:

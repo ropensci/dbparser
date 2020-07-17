@@ -85,6 +85,9 @@ run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 Other common: 
 \code{\link{drug_element_options}()},
 \code{\link{drug_element}()}
+
+Other collective_parsers: 
+\code{\link{drugs}()}
 }
 \concept{collective_parsers}
 \concept{common}

@@ -78,8 +78,8 @@ run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{
-Other pathway: 
+Other pathway, drugs: 
 \code{\link{drug_pathway_drugs}()},
 \code{\link{drug_pathway}()}
 }
-\concept{pathway}
+\concept{pathway, drugs}
