@@ -9,9 +9,9 @@ get_dataset_full_path <- function(data, csv_path = ".") {
   ))
 }
 
-write_csv <- function(data, save_csv = FALSE, csv_path = ".") {
+write_csv <- function(data, save_csv = FALSE, csv_path = ".", tibble_name) {
   if (save_csv) {
-    path <- get_dataset_full_path(deparse(substitute(data)), csv_path)
+    path <- get_dataset_full_path(tibble_name, csv_path)
     readr::write_csv(data, path)
   }
 }
