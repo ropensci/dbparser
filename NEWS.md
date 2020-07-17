@@ -5,7 +5,7 @@
 
 ## New Parsers
 ### Collective Parsers
-* `References` Parser
+* `drugs`, `cett` and `References` Parsers
 
 ### Elements Parsers
 * `attachments` parser

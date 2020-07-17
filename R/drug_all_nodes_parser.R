@@ -66,253 +66,7 @@ run_all_parsers <-
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    actions_carrier_drug <-
-      carriers_actions(save_table,
-                       save_csv,
-                       csv_path,
-                       override_csv,
-                       database_connection)
-    message("parsed actions_carrier_drug, 24/76")
-    polypeptides_carrier_drug <-
-      carriers_polypeptides(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
-    message("parsed polypeptides_carrier_drug, 28/76")
-    carr_poly_ext_identity <-
-      carriers_polypep_ex_ident(save_table,
-                                save_csv,
-                                csv_path,
-                                override_csv,
-                                database_connection)
-    message("parsed carr_poly_ext_identity, 29/76")
-    carr_polypeptides_syn <-
-      carriers_polypeptides_syn(save_table,
-                                save_csv,
-                                csv_path,
-                                override_csv,
-                                database_connection)
-    message("parsed carr_polypeptides_syn, 30/76")
-    carr_polypeptides_pfams <-
-      carriers_polypeptides_pfams(save_table,
-                                  save_csv,
-                                  csv_path,
-                                  override_csv,
-                                  database_connection)
-    message("parsed carr_polypeptides_pfams, 31/76")
-    carr_polypeptides_go <-
-      carriers_polypeptides_go(save_table,
-                               save_csv,
-                               csv_path,
-                               override_csv,
-                               database_connection)
-    message("parsed carr_polypeptides_go, 32/76")
-    carriers_drug <-
-      carriers(save_table,
-               save_csv,
-               csv_path,
-               override_csv,
-               database_connection)
-    message("parsed carriers_drug, 33/76")
-    classifications_drug <-
-      drug_classification(save_table,
-                          save_csv,
-                          csv_path,
-                          override_csv,
-                          database_connection)
-    message("parsed classifications_drug, 34/76")
-    actions_enzyme_drug <-
-      enzymes_actions(save_table,
-                      save_csv,
-                      csv_path,
-                      override_csv,
-                      database_connection)
-    message("parsed actions_enzyme_drug, 35/76")
-    polypeptides_enzyme_drug <-
-      enzymes_polypeptides(save_table,
-                           save_csv,
-                           csv_path,
-                           override_csv,
-                           database_connection)
-    message("parsed polypeptides_enzyme_drug, 39/76")
-    enzy_poly_ext_identity <-
-      enzymes_polypep_ex_ident(save_table,
-                               save_csv,
-                               csv_path,
-                               override_csv,
-                               database_connection)
-    message("parsed external_identifiers_polypeptides_enzyme_drug, 40/76")
-    enzy_poly_syn <-
-      enzymes_polypeptides_syn(save_table,
-                               save_csv,
-                               csv_path,
-                               override_csv,
-                               database_connection)
-    message("parsed enzy_poly_syn, 41/76")
-    pfams_polypeptides_enzyme_drug <-
-      enzymes_polypeptides_pfams(save_table,
-                                 save_csv,
-                                 csv_path,
-                                 override_csv,
-                                 database_connection)
-    message("parsed pfams_polypeptides_enzyme_drug, 42/76")
-    enzy_poly_go <-
-      enzymes_polypeptides_go(save_table,
-                              save_csv,
-                              csv_path,
-                              override_csv,
-                              database_connection)
-    message("parsed enzy_poly_go, 43/76")
-
-    targ_poly_ext_identity <-
-      targets_polypep_ex_ident(save_table,
-                               save_csv,
-                               csv_path,
-                               override_csv,
-                               database_connection)
-    message("parsed targ_poly_ext_identity, 53/76")
-    targ_poly_syn <-
-      targets_polypeptides_syn(save_table,
-                               save_csv,
-                               csv_path,
-                               override_csv,
-                               database_connection)
-    message("parsed targ_poly_syn, 54/76")
-    pfams_polypeptide_target_drug <-
-      targets_polypeptides_pfams(save_table,
-                                 save_csv,
-                                 csv_path,
-                                 override_csv,
-                                 database_connection)
-    message("parsed pfams_polypeptide_target_drug, 55/76")
-    targ_poly_go <-
-      targets_polypeptides_go(save_table,
-                              save_csv,
-                              csv_path,
-                              override_csv,
-                              database_connection)
-    message("parsed targ_poly_go attributes, 56/76")
-    actions_target_drug <-
-      targets_actions(save_table,
-                      save_csv,
-                      csv_path,
-                      override_csv,
-                      database_connection)
-    message("parsed actions_target_drug, 57/76")
-    polypeptide_target_drug <-
-      targets_polypeptides(save_table,
-                           save_csv,
-                           csv_path,
-                           override_csv,
-                           database_connection)
-    message("parsed polypeptide_target_drug, 61/76")
-    targ_drug <-
-      targets(save_table,
-              save_csv,
-              csv_path,
-              override_csv,
-              database_connection)
-    message("parsed targ_drug, 62/76")
-    actions_transporter_drug <-
-      transporters_actions(save_table,
-                           save_csv,
-                           csv_path,
-                           override_csv,
-                           database_connection)
-    message("parsed actions_transporter_drug, 63/76")
-    polypeptides_transporter_drug <-
-      transporters_polypeptides(save_table,
-                                save_csv,
-                                csv_path,
-                                override_csv,
-                                database_connection)
-    message("parsed polypeptides_transporter_drug, 67/76")
-    trans_poly_ex_identity <-
-      transporters_polypep_ex_ident(save_table,
-                                    save_csv,
-                                    csv_path,
-                                    override_csv,
-                                    database_connection)
-    message("parsed trans_poly_ex_identity, 68/76")
-    trans_poly_syn <-
-      transporters_polypeptides_syn(save_table,
-                                    save_csv,
-                                    csv_path,
-                                    override_csv,
-                                    database_connection)
-    message("parsed syn_polypeptides_transporter_drug, 69/76")
-    trans_poly_pfams <-
-      transporters_polypeptides_pfams(save_table,
-                                      save_csv,
-                                      csv_path,
-                                      override_csv,
-                                      database_connection)
-    message("parsed pfams_polypeptides_transporter_drug, 70/76")
-    trans_poly_go <-
-      transporters_polypeptides_go(save_table,
-                                   save_csv,
-                                   csv_path,
-                                   override_csv,
-                                   database_connection)
-    message("parsed go_polypeptides_transporter_drug, 71/76")
-    transporters_drug <-
-      transporters(save_table,
-                   save_csv,
-                   csv_path,
-                   override_csv,
-                   database_connection)
-    message("parsed transporters_drug, 72/76")
-
-    salts_drug <-
-      drug_salts(save_table,
-                 save_csv,
-                 csv_path,
-                 override_csv,
-                 database_connection)
-    message("parsed salts_drug, 74/76")
     return(c(
-      list(
-        actions_carrier_drug = actions_carrier_drug,
-        polypeptides_carrier_drug = polypeptides_carrier_drug,
-        carr_poly_ext_identity =
-          carr_poly_ext_identity,
-        carr_polypeptides_syn = carr_polypeptides_syn,
-        carr_polypeptides_pfams = carr_polypeptides_pfams,
-        carr_polypeptides_go =
-          carr_polypeptides_go,
-        carriers_drug = carriers_drug,
-        classifications_drug =
-          classifications_drug,
-        actions_enzyme_drug = actions_enzyme_drug,
-        polypeptides_enzyme_drug = polypeptides_enzyme_drug,
-        enzy_poly_ext_identity =
-          enzy_poly_ext_identity,
-        enzy_poly_syn = enzy_poly_syn,
-        pfams_polypeptides_enzyme_drug = pfams_polypeptides_enzyme_drug,
-        enzy_poly_go =
-          enzy_poly_go,
-        targ_poly_ext_identity =
-          targ_poly_ext_identity,
-        targ_poly_syn = targ_poly_syn,
-        pfams_polypeptide_target_drug = pfams_polypeptide_target_drug,
-        targ_poly_go =
-          targ_poly_go,
-        actions_target_drug = actions_target_drug,
-        polypeptide_target_drug = polypeptide_target_drug,
-        targ_drug = targ_drug,
-        actions_transporter_drug = actions_transporter_drug,
-        polypeptides_transporter_drug = polypeptides_transporter_drug,
-        trans_poly_ex_identity =
-          trans_poly_ex_identity,
-        trans_poly_syn =
-          trans_poly_syn,
-        trans_poly_pfams = trans_poly_pfams,
-        trans_poly_go =
-          trans_poly_go,
-        transporters_drug = transporters_drug,
-        salts_drug = salts_drug
-      ),
       drugs(
         save_table,
         save_csv,
@@ -321,6 +75,13 @@ run_all_parsers <-
         database_connection
       ),
       references(
+        save_table,
+        save_csv,
+        csv_path,
+        override_csv,
+        database_connection
+      ),
+      cett(
         save_table,
         save_csv,
         csv_path,
@@ -1155,10 +916,10 @@ drugs <-
            database_connection = NULL) {
     message("Drugs Information Parsing has Started")
     general_information <- drug_general_information(save_table,
-                                save_csv,
-                                csv_path,
-                                override_csv,
-                                database_connection)
+                                                    save_csv,
+                                                    csv_path,
+                                                    override_csv,
+                                                    database_connection)
     message("parsed drugs gneral information")
 
     drug_classification <- drug_classification(save_table,
@@ -1176,10 +937,10 @@ drugs <-
     message("parsed drugs synonyms")
 
     products <- drug_products(save_table,
-                         save_csv,
-                         csv_path,
-                         override_csv,
-                         database_connection)
+                              save_csv,
+                              csv_path,
+                              override_csv,
+                              database_connection)
     message("parsed drugs products")
 
     pharmacology <- drug_pharmacology(save_table,
@@ -1337,46 +1098,53 @@ drugs <-
     message("parsed drugs snp adverse reactions")
 
     food_interactions <- drug_food_interactions(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
+                                                save_csv,
+                                                csv_path,
+                                                override_csv,
+                                                database_connection)
     message("parsed drugs food interaction")
 
     pdb_entries <- drug_pdb_entries(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
+                                    save_csv,
+                                    csv_path,
+                                    override_csv,
+                                    database_connection)
     message("parsed drugs pdb entries")
 
     ahfs_codes <- drug_ahfs_codes(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
+                                  save_csv,
+                                  csv_path,
+                                  override_csv,
+                                  database_connection)
     message("parsed drugs ahfs codes")
 
     affected_organisms <- drug_affected_organisms(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
+                                                  save_csv,
+                                                  csv_path,
+                                                  override_csv,
+                                                  database_connection)
     message("parsed drugs affected organisms")
 
     groups <- drug_groups(save_table,
-                            save_csv,
-                            csv_path,
-                            override_csv,
-                            database_connection)
-    message("parsed drugs groups")
-
-    external_links <- drug_external_links(save_table,
                           save_csv,
                           csv_path,
                           override_csv,
                           database_connection)
+    message("parsed drugs groups")
+
+    external_links <- drug_external_links(save_table,
+                                          save_csv,
+                                          csv_path,
+                                          override_csv,
+                                          database_connection)
     message("parsed drugs external links")
+
+    salts <- drug_salts(save_table,
+                        save_csv,
+                        csv_path,
+                        override_csv,
+                        database_connection)
+    message("parsed drugs salts")
 
     message("Drugs Information Parsing has Completed")
     return(
@@ -1412,7 +1180,8 @@ drugs <-
         affected_organisms = affected_organisms,
         groups = groups,
         products = products,
-        external_links = external_links
+        external_links = external_links,
+        salts = salts
       )
     )
   }
@@ -1626,3 +1395,272 @@ references <- function(save_table = FALSE,
     )
   )
 }
+
+#' Run all CETT related parsers
+#'
+#' Run all parsers that retrieve carriers, enzymes, targets and transporters
+#'  related information
+#'
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
+#'
+#' @return  a list of all drugs parsed tibbles
+#'
+#' @family collective_parsers
+#'
+#' @inherit run_all_parsers examples
+#' @export
+cett <-
+  function(save_table = FALSE,
+           save_csv = FALSE,
+           csv_path = ".",
+           override_csv = FALSE,
+           database_connection = NULL) {
+    message("CETT Information Parsing has Started")
+
+    carriers <-
+      carriers(save_table,
+               save_csv,
+               csv_path,
+               override_csv,
+               database_connection)
+    message("parsed carriers")
+
+    carriers_actions <-
+      carriers_actions(save_table,
+                       save_csv,
+                       csv_path,
+                       override_csv,
+                       database_connection)
+    message("parsed carriers actions")
+
+    carriers_polypeptides <- carriers_polypeptides(save_table,
+                                                   save_csv,
+                                                   csv_path,
+                                                   override_csv,
+                                                   database_connection)
+    message("parsed carriers polypeptides")
+
+    carriers_polypep_ex_ident <- carriers_polypep_ex_ident(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed carriers polypepeptide external identy")
+
+    carriers_polypeptides_syn <- carriers_polypeptides_syn(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed carriers polypeptides syn")
+
+    carriers_polypeptides_pfams <-
+      carriers_polypeptides_pfams(save_table,
+                                 save_csv,
+                                 csv_path,
+                                 override_csv,
+                                 database_connection)
+    message("parsed carriers polypeptides pfams")
+
+    carriers_polypeptides_go <- carriers_polypeptides_go(save_table,
+                                                       save_csv,
+                                                       csv_path,
+                                                       override_csv,
+                                                       database_connection)
+    message("parsed carriers polypeptides go")
+
+    enzymes <-
+      enzymes(save_table,
+              save_csv,
+              csv_path,
+              override_csv,
+              database_connection)
+    message("parsed enzymes")
+
+    enzymes_actions <-
+      enzymes_actions(save_table,
+                      save_csv,
+                      csv_path,
+                      override_csv,
+                      database_connection)
+    message("parsed enzymes actions")
+
+    enzymes_polypeptides <- enzymes_polypeptides(save_table,
+                                                 save_csv,
+                                                 csv_path,
+                                                 override_csv,
+                                                 database_connection)
+    message("parsed enzymes polypeptides")
+
+    enzymes_polypep_ex_ident <- enzymes_polypep_ex_ident(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed enzymes polypepeptide external identy")
+
+    enzymes_polypeptides_syn <- enzymes_polypeptides_syn(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed enzymes polypeptides syn")
+
+    enzymes_polypeptides_pfams <-
+      enzymes_polypeptides_pfams(save_table,
+                                 save_csv,
+                                 csv_path,
+                                 override_csv,
+                                 database_connection)
+    message("parsed enzymes polypeptides pfams")
+
+    enzymes_polypeptides_go <- enzymes_polypeptides_go(save_table,
+                                                       save_csv,
+                                                       csv_path,
+                                                       override_csv,
+                                                       database_connection)
+    message("parsed enzymes polypeptides go")
+
+    transporters <-
+      transporters(save_table,
+                   save_csv,
+                   csv_path,
+                   override_csv,
+                   database_connection)
+    message("parsed transporters")
+
+    transporters_actions <-
+      transporters_actions(save_table,
+                           save_csv,
+                           csv_path,
+                           override_csv,
+                           database_connection)
+    message("parsed transporters actions")
+
+    transporters_polypeptides <-
+      transporters_polypeptides(save_table,
+                                save_csv,
+                                csv_path,
+                                override_csv,
+                                database_connection)
+    message("parsed transporters polypeptides")
+
+    transporters_polypep_ex_ident <-
+      transporters_polypep_ex_ident(save_table,
+                                    save_csv,
+                                    csv_path,
+                                    override_csv,
+                                    database_connection)
+    message("parsed transporters polypepeptide external identy")
+
+    transporters_polypeptides_syn <-
+      transporters_polypeptides_syn(save_table,
+                                    save_csv,
+                                    csv_path,
+                                    override_csv,
+                                    database_connection)
+    message("parsed transporters polypeptides syn")
+
+    transporters_polypeptides_pfams <-
+      transporters_polypeptides_pfams(save_table,
+                                      save_csv,
+                                      csv_path,
+                                      override_csv,
+                                      database_connection)
+    message("parsed transporters polypeptides pfams")
+
+    transporters_polypeptides_go <-
+      transporters_polypeptides_go(save_table,
+                                   save_csv,
+                                   csv_path,
+                                   override_csv,
+                                   database_connection)
+    message("parsed transporters polypeptides go")
+
+    targets <-
+      targets(save_table,
+              save_csv,
+              csv_path,
+              override_csv,
+              database_connection)
+    message("parsed targets")
+
+    targets_actions <-
+      targets_actions(save_table,
+                      save_csv,
+                      csv_path,
+                      override_csv,
+                      database_connection)
+    message("parsed targets actions")
+
+    targets_polypeptides <- targets_polypeptides(save_table,
+                                                 save_csv,
+                                                 csv_path,
+                                                 override_csv,
+                                                 database_connection)
+    message("parsed targets polypeptides")
+
+    targets_polypep_ex_ident <- targets_polypep_ex_ident(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed targets polypepeptide external identy")
+
+    targets_polypeptides_syn <- targets_polypeptides_syn(save_table,
+                                                         save_csv,
+                                                         csv_path,
+                                                         override_csv,
+                                                         database_connection)
+    message("parsed targets polypeptides syn")
+
+    targets_polypeptides_pfams <-
+      targets_polypeptides_pfams(save_table,
+                                 save_csv,
+                                 csv_path,
+                                 override_csv,
+                                 database_connection)
+    message("parsed targets polypeptides pfams")
+
+    targets_polypeptides_go <- targets_polypeptides_go(save_table,
+                                                       save_csv,
+                                                       csv_path,
+                                                       override_csv,
+                                                       database_connection)
+    message("parsed targets polypeptides go")
+
+    message("CETT Information Parsing has Completed")
+    return(
+      list(
+        carriers = carriers,
+        carriers_actions = carriers_actions,
+        carriers_polypeptides = carriers_polypeptides,
+        carriers_polypep_ex_ident = carriers_polypep_ex_ident,
+        carriers_polypeptides_syn = carriers_polypeptides_syn,
+        carriers_polypeptides_pfams = carriers_polypeptides_pfams,
+        carriers_polypeptides_go = carriers_polypeptides_go,
+        enzymes = enzymes,
+        enzymes_actions = enzymes_actions,
+        enzymes_polypeptides = enzymes_polypeptides,
+        enzymes_polypep_ex_ident = enzymes_polypep_ex_ident,
+        enzymes_polypeptides_syn = enzymes_polypeptides_syn,
+        enzymes_polypeptides_pfams = enzymes_polypeptides_pfams,
+        enzymes_polypeptides_go = enzymes_polypeptides_go,
+        transporters = transporters,
+        transporters_actions = transporters_actions,
+        transporters_polypeptides = transporters_polypeptides,
+        transporters_polypep_ex_ident = transporters_polypep_ex_ident,
+        transporters_polypeptides_syn = transporters_polypeptides_syn,
+        transporters_polypeptides_pfams = transporters_polypeptides_pfams,
+        transporters_polypeptides_go = transporters_polypeptides_go,
+        targets = targets,
+        targets_actions = targets_actions,
+        targets_polypeptides = targets_polypeptides,
+        targets_polypep_ex_ident = targets_polypep_ex_ident,
+        targets_polypeptides_syn = targets_polypeptides_syn,
+        targets_polypeptides_pfams = targets_polypeptides_pfams,
+        targets_polypeptides_go = targets_polypeptides_go
+      )
+    )
+  }

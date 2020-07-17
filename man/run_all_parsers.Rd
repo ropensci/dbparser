@@ -87,6 +87,7 @@ Other common:
 \code{\link{drug_element}()}
 
 Other collective_parsers: 
+\code{\link{cett}()},
 \code{\link{drugs}()}
 }
 \concept{collective_parsers}
