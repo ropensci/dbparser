@@ -1325,7 +1325,7 @@ references <- function(save_table = FALSE,
   message("parsed targets links")
 
   attachments_target <-
-    targets_links(save_table,
+    targets_attachments(save_table,
                   save_csv,
                   csv_path,
                   override_csv,
