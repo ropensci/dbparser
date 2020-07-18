@@ -46,13 +46,13 @@ ATCParser <- R6::R6Class(
 #' have a code  the code assigned by the World Health Organization Anatomical
 #' Therapeutic Chemical Classification system.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 10 variables
 #' @family drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_atc_codes <- function(save_table = FALSE,
                            save_csv = FALSE,

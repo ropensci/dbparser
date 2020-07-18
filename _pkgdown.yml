@@ -27,30 +27,22 @@ reference:
   desc: "Read DrugBank database and load it into memory for later processing"
   contents:
    - has_concept("DrugBank DB Loading")
-- title: "Drug Carriers Parsers"
-  desc: "Get Drug carriers and its related information"
+- title: "Collective Parsers"
+  desc: "Each function return related parsers together"
   contents:
-    - has_concept("carriers")
-- title: "Drug Enzymes Parsers"
-  desc: "Get Drug enzymes and its related information"
+   - has_concept("collective_parsers")
+- title: "Carriers, Enzymes, Targets, Transporters  Parsers"
+  desc: "Get Drug carriers, enzymes and transporters and related information"
   contents:
-    - has_concept("enzymes")
-- title: "Drug Targets Parsers"
-  desc: "Get Drug targets and its related information"
-  contents:
-    - has_concept("targets")
-- title: "Drug Transporters Parsers"
-  desc: "Get Drug transporters and its related information"
-  contents:
-    - has_concept("transporters")
-- title: "Drug Common Parsers"
-  desc: "Parse all/specific information in DrugBank database"
-  contents:
-    - has_concept("common")
+    - has_concept("cett")
 - title: "Drug Parsers"
   desc: "Get Drug and its related direct information"
   contents:
     - has_concept("drugs")
+- title: "Pathway Parsers"
+  desc: "Pathway related parser"
+  contents:
+    - has_concept("pathway")
 - title: "References Parsers"
   desc: "Books, Links, Articles and Attachments parsres"
   contents:

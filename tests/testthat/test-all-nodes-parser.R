@@ -22,7 +22,7 @@ test_that(
 # test_that(
 #   desc = "Parse Empty Data Set",
 #   code = {
-#     expect_error(drug_all())
+#     expect_error(run_all_parsers())
 #   }
 # )
 
@@ -37,7 +37,7 @@ test_that(
     )
   }
 )
-drugs <- drug_all()
+drugs <- run_all_parsers()
 drugs_types <- classlist(drugs)
 test_that(
   desc = "Read all drug nodes",
@@ -68,7 +68,7 @@ test_that(
 )
 
 database_connection <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
-drug_all(save_table = TRUE, database_connection = database_connection)
+run_all_parsers(save_table = TRUE, database_connection = database_connection)
 test_that(
   desc = "Test saving database tables",
   code = {

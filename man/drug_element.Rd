@@ -89,7 +89,7 @@ drug_element(c("drug_ahfs_codes", "drug_carriers"))
 }
 \seealso{
 Other common: 
-\code{\link{drug_all}()},
-\code{\link{drug_element_options}()}
+\code{\link{drug_element_options}()},
+\code{\link{run_all_parsers}()}
 }
 \concept{common}

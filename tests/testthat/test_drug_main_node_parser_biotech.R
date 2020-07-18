@@ -22,17 +22,17 @@ test_that(
 test_that(
   desc = "Read drug primary key attribute",
   code = {
-    expect_match(drug()[1][["primary_key"]], "DB00001")
-    expect_true(is_tibble(drug()))
-    expect_error(drug(TRUE))
+    expect_match(drug_general_information()[1][["primary_key"]], "DB00001")
+    expect_true(is_tibble(drug_general_information()))
+    expect_error(drug_general_information(TRUE))
   }
 )
 
 test_that(
   desc = "Read drug other keys attribute",
   code = {
-    expect_match(drug()$other_keys, "BIOD00024")
-    expect_error(drug(TRUE))
+    expect_match(drug_general_information()$other_keys, "BIOD00024")
+    expect_error(drug_general_information(TRUE))
   }
 )
 

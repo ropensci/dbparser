@@ -20,9 +20,9 @@ test_that(
 test_that(
   desc = "Read drug primary key attribute",
   code = {
-    expect_match(drug()[1][["primary_key"]], "DB00006")
-    expect_true(is_tibble(drug()))
-    expect_error(drug(TRUE))
+    expect_match(drug_general_information()[1][["primary_key"]], "DB00006")
+    expect_true(is_tibble(drug_general_information()))
+    expect_error(drug_general_information(TRUE))
   }
 )
 
@@ -30,18 +30,18 @@ test_that(
   desc = "Read drug other keys attribute",
   code = {
     expect_match(
-      drug()$other_keys,
+      drug_general_information()$other_keys,
       "BTD00076;EXPT03302;BIOD00076;DB02351"
     )
-    expect_error(drug(TRUE))
+    expect_error(drug_general_information(TRUE))
   }
 )
 
 test_that(
   desc = "Read drug some small attributes",
   code = {
-    expect_match(drug()$average_mass, "2180.2853")
-    expect_match(drug()$monoisotopic_mass, "2178.985813062")
+    expect_match(drug_general_information()$average_mass, "2180.2853")
+    expect_match(drug_general_information()$monoisotopic_mass, "2178.985813062")
   }
 )
 

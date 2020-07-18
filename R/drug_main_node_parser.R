@@ -4,7 +4,8 @@ DrugParser <- R6::R6Class(
   private = list(
     parse_record = function() {
       pb <-  progress_bar$new(total = xmlSize(pkg_env$root))
-      drugs <- xmlSApply(xmlRoot(pkg_env$root), private$drug_row, pb)
+      drugs <-
+        xmlSApply(xmlRoot(pkg_env$root), private$drug_row, pb)
       as_tibble(t(drugs))
     },
     drug_row = function(drug, pb) {
@@ -65,7 +66,7 @@ DrugParser <- R6::R6Class(
             unii = paste0("varchar(",
                           max(nchar(drugs$unii), na.rm = TRUE), ")"),
             state = paste0("varchar(",
-                           max(nchar(drugs$state), na.rm = TRUE),")"),
+                           max(nchar(drugs$state), na.rm = TRUE), ")"),
             fda_label = paste0("varchar(", max(nchar(
               drugs$fda_label
             ), na.rm = TRUE), ")"),
@@ -87,8 +88,8 @@ DrugParser <- R6::R6Class(
 #' A description of the hierarchical chemical classification of the drug;
 #' imported from \url{ClassyFire}{http://classyfire.wishartlab.com/}.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 15 variables:
 #' \describe{
@@ -116,22 +117,20 @@ DrugParser <- R6::R6Class(
 #'   \item{msds}{Contains a URL for accessing the Material Safety Data Sheet
 #'   (MSDS) for this drug.}
 #' }
-#' @family drugs
+#' @family collective_parsers, drugs
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
-drug <-
+drug_general_information <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
            override_csv = FALSE,
            database_connection = NULL) {
-    DrugParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
-      "drug"
-    )$parse()
+    DrugParser$new(save_table,
+                   save_csv,
+                   csv_path,
+                   override_csv,
+                   database_connection,
+                   "drug")$parse()
   }

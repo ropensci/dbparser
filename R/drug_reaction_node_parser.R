@@ -54,8 +54,8 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'  pharmacological activity of metabolites, and a structural representation of
 #'   the biochemical reactions.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 5 variables:
 #' \describe{
@@ -69,7 +69,7 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family drugs
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_reactions <-
   function(save_table = FALSE,
@@ -91,8 +91,8 @@ drug_reactions <-
 #'
 #' EEnzymes involved in metabolizing this drug
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -101,7 +101,7 @@ drug_reactions <-
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family drugs
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @export
 drug_reactions_enzymes <-
   function(save_table = FALSE,

@@ -27,8 +27,8 @@ CETTPolyOtherParser <-
 #' Extract descriptions of identified polypeptide PFAMS targets, enzymes,
 #'  carriers, or transporters.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -37,7 +37,7 @@ CETTPolyOtherParser <-
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_poly_pfms_doc
 NULL
 
@@ -47,8 +47,8 @@ NULL
 #' Extract descriptions of identified polypeptide external identifiers for
 #' targets, enzymes, carriers, or transporters.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -57,7 +57,7 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_ex_identity_doc
 NULL
 
@@ -67,8 +67,8 @@ NULL
 #' Extract descriptions of identified polypeptide go classifier for targets,
 #'  enzymes, carriers, or transporters.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -77,7 +77,7 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_go_doc
 NULL
 
@@ -86,8 +86,8 @@ NULL
 #' Extract descriptions of identified polypeptide synonyms for targets,
 #'  enzymes, carriers, or transporters.
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 2 variables:
 #' \describe{
@@ -95,7 +95,7 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name cett_poly_syn_doc
 NULL
 

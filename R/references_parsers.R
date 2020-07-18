@@ -41,8 +41,8 @@ ReferenceParser <-
 #' Return a list of text books that were used as references for drugs, carriers,
 #'  enzymes, targets or transporters
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -55,7 +55,7 @@ ReferenceParser <-
 #' }
 #' @family references
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name books
 NULL
 
@@ -64,8 +64,8 @@ NULL
 #' Return a list of websites that were used as references for
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -76,7 +76,7 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name links
 NULL
 
@@ -84,8 +84,8 @@ NULL
 #'
 #' Return a list of articles that were used as references for drugs carriers
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -98,7 +98,7 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name articles
 NULL
 
@@ -106,8 +106,8 @@ NULL
 #'
 #' Return a list of attachment that were used as references for drugs carriers
 #'
-#' @inheritSection drug_all read_drugbank_xml_db
-#' @inheritParams drug_all
+#' @inheritSection run_all_parsers read_drugbank_xml_db
+#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -120,7 +120,7 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit drug_all examples
+#' @inherit run_all_parsers examples
 #' @name attachments
 NULL
 

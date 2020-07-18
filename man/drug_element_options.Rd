@@ -19,7 +19,7 @@ drug_element_options()
 }
 \seealso{
 Other common: 
-\code{\link{drug_all}()},
-\code{\link{drug_element}()}
+\code{\link{drug_element}()},
+\code{\link{run_all_parsers}()}
 }
 \concept{common}

@@ -64,7 +64,9 @@ AbstractParser <-
       },
       save_csv_file = function(parsed_tbl) {
         parsed_tbl <- parsed_tbl %>% unique()
-        write_csv(parsed_tbl, private$save_csv, private$csv_path)
+        readr::locale(encoding = "ASCII")
+        write_csv(parsed_tbl, private$save_csv, private$csv_path,
+                  private$tibble_name)
       },
       save_db_table = function(parsed_tbl) {
         if (private$save_table) {
