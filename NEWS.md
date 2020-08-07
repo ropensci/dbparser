@@ -23,6 +23,9 @@
 For those who thinking to contribute in `dbparser`, now parsers are implemented
 as R6 classes.
 
+## Minor Fixes
+* Update database saver functions to accommodate new DrugBank data size.
+
 # dbparser 1.1.2
 
 ### Major Changes

@@ -32,6 +32,23 @@ ReferenceParser <-
                         private$secondary_node,
                         "id")
         ))
+      },
+      save_db_table = function(parsed_tbl) {
+        if (private$save_table) {
+          if ("title" %in% colnames(parsed_tbl)) {
+            field.type = list(title = paste0("varchar(",
+                                             max(nchar(parsed_tbl$title)) +
+                                               10, ")"))
+            save_drug_sub(
+              con = private$database_connection,
+              df = parsed_tbl,
+              table_name = private$tibble_name,
+              field_types = field.type)
+          } else {
+            super$save_db_table(parsed_tbl)
+          }
+
+        }
       }
     )
   )
