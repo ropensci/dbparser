@@ -1,4 +1,4 @@
-# dbparser 1.1.3.9000
+# dbparser 1.1.3
 
 ## UI Changes
 * Introduce progress bar in parser functions
@@ -10,7 +10,9 @@
 ### Elements Parsers
 * `attachments` parser
 * `drug_pharmacology` parser
-* Rename `drugs_books` function to `drugs_textbooks`
+* Rename `drugs_books` parser to `drugs_textbooks`
+* Rename `drug_all` parser to `run_all_parsers`
+* renam `drug` parser to `drug_general_information`
 
 ## Documentation Update:
 * Add returned parsed data structure 
