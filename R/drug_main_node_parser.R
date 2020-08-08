@@ -117,7 +117,7 @@ DrugParser <- R6::R6Class(
 #'   \item{msds}{Contains a URL for accessing the Material Safety Data Sheet
 #'   (MSDS) for this drug.}
 #' }
-#' @family collective_parsers, drugs
+#' @family drugs
 #'
 #' @inherit run_all_parsers examples
 #' @export

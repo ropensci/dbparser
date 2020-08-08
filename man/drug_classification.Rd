@@ -101,6 +101,7 @@ Other drugs:
 \code{\link{drug_exp_prop}()},
 \code{\link{drug_external_links}()},
 \code{\link{drug_food_interactions}()},
+\code{\link{drug_general_information}()},
 \code{\link{drug_groups}()},
 \code{\link{drug_interactions}()},
 \code{\link{drug_intern_brand}()},
