@@ -1,4 +1,4 @@
-# dbparser 1.1.3
+# dbparser 1.2.0
 
 ## UI Changes
 * Introduce progress bar in parser functions
