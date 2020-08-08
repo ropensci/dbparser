@@ -65,21 +65,9 @@ CETTPolyGeneralInfoParser <-
                         na.rm = TRUE
                       ), ")",
                       sep = ""),
-              specific_function =
-                paste("varchar(",
-                      max(
-                        nchar(parsed_tbl$specific_function),
-                        na.rm = TRUE
-                      ), ")",
-                      sep = ""),
-              amino_acid_sequence =
-                paste("varchar(",
-                      max(
-                        nchar(parsed_tbl$amino_acid_sequence),
-                        na.rm = TRUE
-                      ), ")",
-                      sep = ""),
-              gene_sequence = paste("varchar(max)", sep = "")
+              specific_function = "varchar(MAX)",
+              amino_acid_sequence = "varchar(MAX)",
+              gene_sequence = "varchar(MAX)"
             )
           )
         }

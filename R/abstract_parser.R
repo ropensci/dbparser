@@ -40,9 +40,10 @@ AbstractParser <-
               "No parsing is done."
             )
           )
-          return(readr::read_csv(path))
+          parsed_tbl <- readr::read_csv(path)
+        } else {
+          parsed_tbl <- private$parse_record()
         }
-        parsed_tbl <- private$parse_record()
         private$save_csv_file(parsed_tbl)
         private$save_db_table(parsed_tbl)
         return(as_tibble(parsed_tbl))

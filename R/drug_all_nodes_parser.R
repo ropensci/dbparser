@@ -915,237 +915,236 @@ drugs <-
            override_csv = FALSE,
            database_connection = NULL) {
     message("Drugs Information Parsing has Started")
+    message("parsing drugs gneral information")
     general_information <- drug_general_information(save_table,
                                                     save_csv,
                                                     csv_path,
                                                     override_csv,
                                                     database_connection)
-    message("parsed drugs gneral information")
 
+    message("parsing drugs classifications")
     drug_classification <- drug_classification(save_table,
                                                save_csv,
                                                csv_path,
                                                override_csv,
                                                database_connection)
-    message("parsed drugs classifications")
 
+    message("parsing drugs synonyms")
     synonyms <- drug_syn(save_table,
                          save_csv,
                          csv_path,
                          override_csv,
                          database_connection)
-    message("parsed drugs synonyms")
 
+    message("parsing drugs products")
     products <- drug_products(save_table,
                               save_csv,
                               csv_path,
                               override_csv,
                               database_connection)
-    message("parsed drugs products")
 
+    message("parsing drugs pharmacology")
     pharmacology <- drug_pharmacology(save_table,
                                       save_csv,
                                       csv_path,
                                       override_csv,
                                       database_connection)
-    message("parsed drugs pharmacology")
 
+    message("parsing drugs international brands")
     international_brands <- drug_intern_brand(save_table,
                                               save_csv,
                                               csv_path,
                                               override_csv,
                                               database_connection)
-    message("parsed drugs international brands")
 
+    message("parsing drugs mixtures")
     mixtures <- drug_mixtures(save_table,
                               save_csv,
                               csv_path,
                               override_csv,
                               database_connection)
-    message("parsed drugs mixtures")
 
+    message("parsing drugs packagers")
     packagers <- drug_packagers(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed drugs packagers")
 
+    message("parsing drugs manufacturers")
     manufacturers <- drug_manufacturers(save_table,
                                         save_csv,
                                         csv_path,
                                         override_csv,
                                         database_connection)
-    message("parsed drugs manufacturers")
 
+    message("parsing drugs prices")
     prices <- drug_prices(save_table,
                           save_csv,
                           csv_path,
                           override_csv,
                           database_connection)
-    message("parsed drugs prices")
 
+    message("parsing drugs categories")
     categories <- drug_categories(save_table,
                                   save_csv,
                                   csv_path,
                                   override_csv,
                                   database_connection)
-    message("parsed drugs categories")
 
+    message("parsing drugs dosages")
     dosages <- drug_dosages(save_table,
                             save_csv,
                             csv_path,
                             override_csv,
                             database_connection)
-    message("parsed drugs dosages")
 
+    message("parsing drugs atc_codes")
     atc_codes <- drug_atc_codes(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed drugs atc_codes")
 
+    message("parsing drugs patents")
     patents <- drug_patents(save_table,
                             save_csv,
                             csv_path,
                             override_csv,
                             database_connection)
-    message("parsed drugs patents")
 
+    message("parsing drugs interactions")
     interactions <- drug_interactions(save_table,
                                       save_csv,
                                       csv_path,
                                       override_csv,
                                       database_connection)
-    message("parsed drugs interactions")
 
+    message("parsing drugs sequences")
     sequences <- drug_sequences(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed drugs sequences")
 
+    message("parsing drugs calculated properties")
     calc_prop <- drug_calc_prop(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed drugs calculated properties")
 
+    message("parsing drugs external identity")
     ex_identity <- drug_ex_identity(save_table,
                                     save_csv,
                                     csv_path,
                                     override_csv,
                                     database_connection)
-    message("parsed drugs external identity")
 
+    message("parsing drugs experimental properties")
     exp_prop <- drug_exp_prop(save_table,
                               save_csv,
                               csv_path,
                               override_csv,
                               database_connection)
-    message("parsed drugs experimental properties")
 
+    message("parsing drugs pathway")
     pathway <- drug_pathway(save_table,
                             save_csv,
                             csv_path,
                             override_csv,
                             database_connection)
-    message("parsed drugs pathway")
 
+    message("parsing drugs pathway drugs")
     pathway_drugs <- drug_pathway_drugs(save_table,
                                         save_csv,
                                         csv_path,
                                         override_csv,
                                         database_connection)
-    message("parsed drugs pathway drugs")
 
+    message("parsing drugs pathway enzyme")
     pathway_enzyme <- drug_pathway_enzyme(save_table,
                                           save_csv,
                                           csv_path,
                                           override_csv,
                                           database_connection)
-    message("parsed drugs pathway enzyme")
 
+    message("parsing drugs reactions")
     reactions <- drug_reactions(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed drugs reactions")
 
+    message("parsing drugs reactions enzymes")
     reactions_enzymes <- drug_reactions_enzymes(save_table,
                                                 save_csv,
                                                 csv_path,
                                                 override_csv,
                                                 database_connection)
-    message("parsed drugs reactions enzymes")
 
+    message("parsing drugs snp effects")
     snp_effects <- drug_snp_effects(save_table,
                                     save_csv,
                                     csv_path,
                                     override_csv,
                                     database_connection)
-    message("parsed drugs snp effects")
 
+    message("parsing drugs snp adverse reactions")
     snp_adverse_reactions <- drug_snp_adverse_reactions(save_table,
                                                         save_csv,
                                                         csv_path,
                                                         override_csv,
                                                         database_connection)
-    message("parsed drugs snp adverse reactions")
 
+    message("parsing drugs food interaction")
     food_interactions <- drug_food_interactions(save_table,
                                                 save_csv,
                                                 csv_path,
                                                 override_csv,
                                                 database_connection)
-    message("parsed drugs food interaction")
 
+    message("parsing drugs pdb entries")
     pdb_entries <- drug_pdb_entries(save_table,
                                     save_csv,
                                     csv_path,
                                     override_csv,
                                     database_connection)
-    message("parsed drugs pdb entries")
 
+    message("parsing drugs ahfs codes")
     ahfs_codes <- drug_ahfs_codes(save_table,
                                   save_csv,
                                   csv_path,
                                   override_csv,
                                   database_connection)
-    message("parsed drugs ahfs codes")
 
+    message("parsing drugs affected organisms")
     affected_organisms <- drug_affected_organisms(save_table,
                                                   save_csv,
                                                   csv_path,
                                                   override_csv,
                                                   database_connection)
-    message("parsed drugs affected organisms")
 
+    message("parsing drugs groups")
     groups <- drug_groups(save_table,
                           save_csv,
                           csv_path,
                           override_csv,
                           database_connection)
-    message("parsed drugs groups")
 
+    message("parsing drugs external links")
     external_links <- drug_external_links(save_table,
                                           save_csv,
                                           csv_path,
                                           override_csv,
                                           database_connection)
-    message("parsed drugs external links")
 
+    message("parsing drugs salts")
     salts <- drug_salts(save_table,
                         save_csv,
                         csv_path,
                         override_csv,
                         database_connection)
-    message("parsed drugs salts")
-
     message("Drugs Information Parsing has Completed")
     return(
       list(
@@ -1204,134 +1203,135 @@ references <- function(save_table = FALSE,
                        override_csv = FALSE,
                        database_connection = NULL) {
   message("Start extracting references")
+  message("parsing drugs articles")
   articles_drug <-
     drugs_articles(save_table,
                    save_csv,
                    csv_path,
                    override_csv,
                    database_connection)
-  message("parsed drugs articles")
 
+  message("parsing drugs textbooks")
   books_drug <-
     drugs_textbooks(save_table,
                     save_csv,
                     csv_path,
                     override_csv,
                     database_connection)
-  message("parsed drugs textbooks")
 
+  message("parsing drugs links")
   links_drug <-
     drugs_links(save_table,
                 save_csv,
                 csv_path,
                 override_csv,
                 database_connection)
-  message("parsed drugs links")
 
+  message("parsing drugs attachments")
   attachments_drug <-
     drugs_attachments(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-  message("parsed drugs attachments")
 
+  message("parsing carriers articles")
   articles_carrier <-
     carriers_articles(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-  message("parsed carriers articles")
 
+  message("parsing carriers textbooks")
   textbooks_carrier <-
     carriers_textbooks(save_table,
                        save_csv,
                        csv_path,
                        override_csv,
                        database_connection)
-  message("parsed carriers textbooks")
 
+  message("parsing carriers links")
   links_carrier <-
     carriers_links(save_table,
                    save_csv,
                    csv_path,
                    override_csv,
                    database_connection)
-  message("parsed carriers links")
 
+  message("parsing carriers attachments")
   attachments_carrier <-
     carriers_attachments(save_table,
                          save_csv,
                          csv_path,
                          override_csv,
                          database_connection)
-  message("parsed carriers attachments")
 
+  message("parsing enzymes articles")
   articles_enzyme <-
     enzymes_articles(save_table,
                      save_csv,
                      csv_path,
                      override_csv,
                      database_connection)
-  message("parsed enzymes articles")
 
+  message("parsing enzymes textbooks")
   textbooks_enzyme <-
     enzymes_textbooks(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-  message("parsed enzymes textbooks")
 
+  message("parsing enzymes links")
   links_enzyme <-
     enzymes_links(save_table,
                   save_csv,
                   csv_path,
                   override_csv,
                   database_connection)
-  message("parsed enzymes links")
 
+  message("parsing enzymes attachments")
   attachments_enzyme <-
     enzymes_attachments(save_table,
                         save_csv,
                         csv_path,
                         override_csv,
                         database_connection)
-  message("parsed enzymes attachments")
 
+  message("parsing targets articles")
   articles_target <-
     targets_articles(save_table,
                      save_csv,
                      csv_path,
                      override_csv,
                      database_connection)
-  message("parsed targets articles")
 
+  message("parsing targets textbooks")
   textbooks_target <-
     targets_textbooks(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-  message("parsed targets textbooks")
 
+  message("parsing targets links")
   links_target <-
     targets_links(save_table,
                   save_csv,
                   csv_path,
                   override_csv,
                   database_connection)
-  message("parsed targets links")
 
+  message("parsing targets attachments")
   attachments_target <-
     targets_attachments(save_table,
                   save_csv,
                   csv_path,
                   override_csv,
                   database_connection)
-  message("parsed targets attachments")
 
+  message("parsing transporters articles")
   articles_transporter <-
     transporters_articles(save_table,
                           save_csv,
@@ -1339,31 +1339,30 @@ references <- function(save_table = FALSE,
                           override_csv,
                           database_connection)
 
-  message("parsed transporters articles")
 
+  message("parsing transporters textbooks")
   textbooks_transporter <-
     transporters_textbooks(save_table,
                            save_csv,
                            csv_path,
                            override_csv,
                            database_connection)
-  message("parsed transporters textbooks")
 
+  message("parsing transporters links")
   links_transporter <-
     transporters_links(save_table,
                        save_csv,
                        csv_path,
                        override_csv,
                        database_connection)
-  message("parsed transporters links")
 
+  message("parsing transporters attachments")
   attachments_transporter <-
     transporters_attachments(save_table,
                              save_csv,
                              csv_path,
                              override_csv,
                              database_connection)
-  message("parsed transporters attachments")
   message("Extracting references is over!")
   return(
     list(
@@ -1417,219 +1416,217 @@ cett <-
            override_csv = FALSE,
            database_connection = NULL) {
     message("CETT Information Parsing has Started")
-
+    message("parsing carriers")
     carriers <-
       carriers(save_table,
                save_csv,
                csv_path,
                override_csv,
                database_connection)
-    message("parsed carriers")
 
+    message("parsing carriers actions")
     carriers_actions <-
       carriers_actions(save_table,
                        save_csv,
                        csv_path,
                        override_csv,
                        database_connection)
-    message("parsed carriers actions")
 
+    message("parsing carriers polypeptides")
     carriers_polypeptides <- carriers_polypeptides(save_table,
                                                    save_csv,
                                                    csv_path,
                                                    override_csv,
                                                    database_connection)
-    message("parsed carriers polypeptides")
 
+    message("parsing carriers polypepeptide external identy")
     carriers_polypep_ex_ident <- carriers_polypep_ex_ident(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed carriers polypepeptide external identy")
 
+    message("parsing carriers polypeptides syn")
     carriers_polypeptides_syn <- carriers_polypeptides_syn(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed carriers polypeptides syn")
 
+    message("parsing carriers polypeptides pfams")
     carriers_polypeptides_pfams <-
       carriers_polypeptides_pfams(save_table,
                                  save_csv,
                                  csv_path,
                                  override_csv,
                                  database_connection)
-    message("parsed carriers polypeptides pfams")
 
+    message("parsing carriers polypeptides go")
     carriers_polypeptides_go <- carriers_polypeptides_go(save_table,
                                                        save_csv,
                                                        csv_path,
                                                        override_csv,
                                                        database_connection)
-    message("parsed carriers polypeptides go")
 
+    message("parsing enzymes")
     enzymes <-
       enzymes(save_table,
               save_csv,
               csv_path,
               override_csv,
               database_connection)
-    message("parsed enzymes")
 
+    message("parsing enzymes actions")
     enzymes_actions <-
       enzymes_actions(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-    message("parsed enzymes actions")
 
+    message("parsing enzymes polypeptides")
     enzymes_polypeptides <- enzymes_polypeptides(save_table,
                                                  save_csv,
                                                  csv_path,
                                                  override_csv,
                                                  database_connection)
-    message("parsed enzymes polypeptides")
 
+    message("parsing enzymes polypepeptide external identy")
     enzymes_polypep_ex_ident <- enzymes_polypep_ex_ident(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed enzymes polypepeptide external identy")
 
+    message("parsing enzymes polypeptides syn")
     enzymes_polypeptides_syn <- enzymes_polypeptides_syn(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed enzymes polypeptides syn")
 
+    message("parsing enzymes polypeptides pfams")
     enzymes_polypeptides_pfams <-
       enzymes_polypeptides_pfams(save_table,
                                  save_csv,
                                  csv_path,
                                  override_csv,
                                  database_connection)
-    message("parsed enzymes polypeptides pfams")
 
+    message("parsing enzymes polypeptides go")
     enzymes_polypeptides_go <- enzymes_polypeptides_go(save_table,
                                                        save_csv,
                                                        csv_path,
                                                        override_csv,
                                                        database_connection)
-    message("parsed enzymes polypeptides go")
 
+    message("parsing transporters")
     transporters <-
       transporters(save_table,
                    save_csv,
                    csv_path,
                    override_csv,
                    database_connection)
-    message("parsed transporters")
 
+    message("parsing transporters actions")
     transporters_actions <-
       transporters_actions(save_table,
                            save_csv,
                            csv_path,
                            override_csv,
                            database_connection)
-    message("parsed transporters actions")
 
+    message("parsing transporters polypeptides")
     transporters_polypeptides <-
       transporters_polypeptides(save_table,
                                 save_csv,
                                 csv_path,
                                 override_csv,
                                 database_connection)
-    message("parsed transporters polypeptides")
 
+    message("parsing transporters polypepeptide external identy")
     transporters_polypep_ex_ident <-
       transporters_polypep_ex_ident(save_table,
                                     save_csv,
                                     csv_path,
                                     override_csv,
                                     database_connection)
-    message("parsed transporters polypepeptide external identy")
 
+    message("parsing transporters polypeptides syn")
     transporters_polypeptides_syn <-
       transporters_polypeptides_syn(save_table,
                                     save_csv,
                                     csv_path,
                                     override_csv,
                                     database_connection)
-    message("parsed transporters polypeptides syn")
 
+    message("parsing transporters polypeptides pfams")
     transporters_polypeptides_pfams <-
       transporters_polypeptides_pfams(save_table,
                                       save_csv,
                                       csv_path,
                                       override_csv,
                                       database_connection)
-    message("parsed transporters polypeptides pfams")
 
+    message("parsing transporters polypeptides go")
     transporters_polypeptides_go <-
       transporters_polypeptides_go(save_table,
                                    save_csv,
                                    csv_path,
                                    override_csv,
                                    database_connection)
-    message("parsed transporters polypeptides go")
 
+    message("parsing targets")
     targets <-
       targets(save_table,
               save_csv,
               csv_path,
               override_csv,
               database_connection)
-    message("parsed targets")
 
+    message("parsing targets actions")
     targets_actions <-
       targets_actions(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
                       database_connection)
-    message("parsed targets actions")
 
+    message("parsing targets polypeptides")
     targets_polypeptides <- targets_polypeptides(save_table,
                                                  save_csv,
                                                  csv_path,
                                                  override_csv,
                                                  database_connection)
-    message("parsed targets polypeptides")
 
+    message("parsing targets polypepeptide external identy")
     targets_polypep_ex_ident <- targets_polypep_ex_ident(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed targets polypepeptide external identy")
 
+    message("parsing targets polypeptides syn")
     targets_polypeptides_syn <- targets_polypeptides_syn(save_table,
                                                          save_csv,
                                                          csv_path,
                                                          override_csv,
                                                          database_connection)
-    message("parsed targets polypeptides syn")
 
+    message("parsing targets polypeptides pfams")
     targets_polypeptides_pfams <-
       targets_polypeptides_pfams(save_table,
                                  save_csv,
                                  csv_path,
                                  override_csv,
                                  database_connection)
-    message("parsed targets polypeptides pfams")
 
+    message("parsing targets polypeptides go")
     targets_polypeptides_go <- targets_polypeptides_go(save_table,
                                                        save_csv,
                                                        csv_path,
                                                        override_csv,
                                                        database_connection)
-    message("parsed targets polypeptides go")
-
     message("CETT Information Parsing has Completed")
     return(
       list(
