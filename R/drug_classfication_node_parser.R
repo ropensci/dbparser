@@ -71,7 +71,7 @@ ClassificationParser <- R6::R6Class(
 #' Drug Classification parser
 #'
 #' A description of the hierarchical chemical classification of the drug;
-#' imported from \url{ClassyFire}{http://classyfire.wishartlab.com/}.
+#' imported from ClassyFire.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
 #' @inheritParams run_all_parsers

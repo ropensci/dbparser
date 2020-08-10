@@ -8,7 +8,7 @@
 * `drugs`, `cett` and `References` Parsers
 
 ### Elements Parsers
-* `attachments` parser
+* `attachments` parsers for drugs and CETT
 * `drug_pharmacology` parser
 * Rename `drugs_books` parser to `drugs_textbooks`
 * Rename `drug_all` parser to `run_all_parsers`

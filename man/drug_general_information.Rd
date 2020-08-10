@@ -57,7 +57,7 @@ a tibble with 15 variables:
 }
 \description{
 A description of the hierarchical chemical classification of the drug;
-imported from \url{ClassyFire}{http://classyfire.wishartlab.com/}.
+imported from ClassyFire.
 }
 \section{read_drugbank_xml_db}{
 
