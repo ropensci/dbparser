@@ -6,7 +6,7 @@
 \title{dbparser: A package for reading and parsing \strong{DrugBank} xml database.}
 \description{
 The main purpose of the `dbparser` package is to parse
-[DrugBank](http://DrugBank.ca/) database which is downloadable in XML format
+[DrugBank](https://www.drugbank.ca/)) database which is downloadable in XML format
 from [this link](https://www.DrugBank.ca/releases/latest).
 }
 \details{

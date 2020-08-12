@@ -228,7 +228,8 @@
   ],
   "relatedLink": [
     "https://CRAN.R-project.org/package=dbparser",
-    "https://docs.ropensci.org/dbparser"
+    "https://docs.ropensci.org/dbparser",
+    "https://docs.ropensci.org/dbparser/"
   ],
   "citation": [
     {
@@ -250,5 +251,5 @@
     }
   ],
   "readme": "https://github.com/ropensci/dbparser/blob/master/README.md",
-  "fileSize": "409.183KB"
+  "fileSize": "409.168KB"
 }

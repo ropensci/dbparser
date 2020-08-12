@@ -16,14 +16,14 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![Rdoc](http://www.rdocumentation.org/badges/version/dbparser)](http://www.rdocumentation.org/packages/dbparser)
+[![Rdoc](https://www.rdocumentation.org/badges/version/dbparser)](https://www.rdocumentation.org/packages/dbparser)
 [![CII Best
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
 ## Introduction
 
-[DrugBank](http://drugbank.ca/) database is a comprehensive, freely
+[DrugBank](https://www.drugbank.ca/) database is a comprehensive, freely
 accessible, online database containing information on drugs and drug
 targets. As both a bioinformatics and a cheminformatics resource,
 DrugBank combines detailed drug (i.e. chemical, pharmacological and
