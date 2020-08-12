@@ -35,7 +35,7 @@ targets. As both a bioinformatics and a cheminformatics resource,
 DrugBank combines detailed drug (i.e. chemical, pharmacological and
 pharmaceutical) data with comprehensive drug target (i.e. sequence,
 structure, and pathway) information. More information about DrugBank can
-be found [here](https://www.drugbank.ca/about/).
+be found [here](https://www.drugbank.ca/about).
 
 In its raw form, the DrugBank database is a single
 XML file. Users must create an [account](https://www.drugbank.ca/public_users/sign_up)

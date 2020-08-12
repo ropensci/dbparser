@@ -29,7 +29,7 @@ targets. As both a bioinformatics and a cheminformatics resource,
 DrugBank combines detailed drug (i.e. chemical, pharmacological and
 pharmaceutical) data with comprehensive drug target (i.e. sequence,
 structure, and pathway) information. More information about DrugBank can
-be found [here](https://www.drugbank.ca/about/).
+be found [here](https://www.drugbank.ca/about).
 
 In its raw form, the DrugBank database is a single XML file. Users must
 create an [account](https://www.drugbank.ca/public_users/sign_up) with
@@ -102,7 +102,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.1.2.9000.
+#>   package version 1.1.3.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -110,7 +110,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.1.2.9000},
+#>     note = {R package version 1.1.3.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
