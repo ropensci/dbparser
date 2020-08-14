@@ -31,7 +31,7 @@ In this tutorial, we will see how to use `dbparser` along with `dplyr` and
 Before starting the code we are assuming the following:
 
 - user already downloaded *DrugBank* xml database file based on the
-[Read Me](https://docs.ropensci.org/dbparser) instructions or the above note,
+[Read Me](https://docs.ropensci.org/dbparser/) instructions or the above note,
 - user saved the downloaded database in working directory as `C:\`.
 - user named the downloaded xml file **drugbank.xml**. 
 

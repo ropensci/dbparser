@@ -9,7 +9,7 @@ dbparser is an open source project, maintained by people who care. We are not di
 [repo]: https://github.com/ropensci/dbparser
 [issues]: https://github.com/ropensci/dbparser/issues
 [new_issue]: https://github.com/ropensci/dbparser/issues/new
-[website]: https://docs.ropensci.org/dbparser
+[website]: https://docs.ropensci.org/dbparser/
 [citation]: https://docs.ropensci.org/dbparser/authors.html
 [email]: mohammed.ali@edu.dsti.institute
 
