@@ -48,7 +48,7 @@ Also, the package offers the option to save these tibbles in databases including
 
 If you are waiting for access to the DrugBank database, or do not intend to do a deep dive with
 the data, you may wish to use the `dbdataset`
-[package](https://dainanahan.github.io/dbdataset/index.html), which contains
+[package](https://mohammedfcis.github.io/dbdataset/index.html), which contains
 the DrugBank database already parsed into `R` tibbles. Note that this is a large package that
 exceeds the limit set by CRAN. It is only available on GitHub.
 
