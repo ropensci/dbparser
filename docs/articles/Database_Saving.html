@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -88,7 +88,7 @@
       <h1 data-toc-skip>Saving data into Database</h1>
                         <h4 class="author">Mohammed Ali</h4>
             
-            <h4 class="date">2020-05-10</h4>
+            <h4 class="date">2020-08-25</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/dbparser/blob/master/vignettes/Database_Saving.Rmd"><code>vignettes/Database_Saving.Rmd</code></a></small>
       <div class="hidden name"><code>Database_Saving.Rmd</code></div>
@@ -114,17 +114,17 @@
 <div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="co"># Load dbparser package</span>
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dbparser</span>)
 <span class="co"># Create SQLite database connection</span>
-<span class="no">database_connection</span> <span class="kw">&lt;-</span> <span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span>(<span class="kw pkg">RSQLite</span><span class="kw ns">::</span><span class="fu"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html">SQLite</a></span>(), <span class="st">":memory:"</span>)
+<span class="no">database_connection</span> <span class="kw">&lt;-</span> <span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbConnect.html">dbConnect</a></span>(<span class="kw pkg">RSQLite</span><span class="kw ns">::</span><span class="fu"><a href="https://rsqlite.r-dbi.org/reference/SQLite.html">SQLite</a></span>(), <span class="st">":memory:"</span>)
 <span class="co"># DrugBank database sample name</span>
 <span class="no">biotech</span> <span class="kw">&lt;-</span> <span class="st">"drugbank_record_biotech.xml"</span>
 <span class="co"># Use DrugBank sample database in the library</span>
 <span class="fu"><a href="../reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="no">biotech</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"dbparser"</span>))
 <span class="co"># Parse all available drug tibbles</span>
-<span class="fu"><a href="../reference/drug_all.html">drug_all</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">database_connection</span>)
+<span class="fu"><a href="../reference/run_all_parsers.html">run_all_parsers</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">database_connection</span>)
 <span class="co"># List saved tables</span>
-<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(<span class="no">database_connection</span>)
+<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbListTables.html">dbListTables</a></span>(<span class="no">database_connection</span>)
 <span class="co"># Close SQLite connection</span>
-<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbDisconnect.html">dbDisconnect</a></span>(<span class="no">database_connection</span>)</pre></body></html></div>
+<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbDisconnect.html">dbDisconnect</a></span>(<span class="no">database_connection</span>)</pre></body></html></div>
 </div>
 <div id="dbi-supported-databases" class="section level3">
 <h3 class="hasAnchor">
@@ -145,18 +145,18 @@
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">dbparser</span>)
 <span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">odbc</span>)
 <span class="co"># Create SQLServer database connection</span>
-<span class="no">con</span> <span class="kw">&lt;-</span> <span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbConnect.html">dbConnect</a></span>(<span class="kw pkg">odbc</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/odbc/man/odbc.html">odbc</a></span>(), <span class="kw">Driver</span> <span class="kw">=</span> <span class="st">"SQL Server"</span>, <span class="kw">Server</span> <span class="kw">=</span> <span class="st">"MOHAMMED\\SQL2016"</span>,
+<span class="no">con</span> <span class="kw">&lt;-</span> <span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbConnect.html">dbConnect</a></span>(<span class="kw pkg">odbc</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/odbc/man/odbc.html">odbc</a></span>(), <span class="kw">Driver</span> <span class="kw">=</span> <span class="st">"SQL Server"</span>, <span class="kw">Server</span> <span class="kw">=</span> <span class="st">"MOHAMMED\\SQL2016"</span>,
     <span class="kw">Database</span> <span class="kw">=</span> <span class="st">"drugbank"</span>, <span class="kw">Trusted_Connection</span> <span class="kw">=</span> <span class="no">T</span>)
 <span class="co"># Use DrugBank sample database in the library</span>
 <span class="no">biotech</span> <span class="kw">&lt;-</span> <span class="st">"drugbank_record_biotech.xml"</span>
 <span class="co"># DrugBank database sample name</span>
 <span class="fu"><a href="../reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="no">biotech</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"dbparser"</span>))
 <span class="co"># Parse all available drug tibbles</span>
-<span class="fu"><a href="../reference/drug_all.html">drug_all</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">con</span>)
+<span class="fu"><a href="../reference/run_all_parsers.html">run_all_parsers</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">con</span>)
 <span class="co"># List saved tables</span>
-<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbListTables.html">dbListTables</a></span>(<span class="no">con</span>)
+<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbListTables.html">dbListTables</a></span>(<span class="no">con</span>)
 <span class="co"># Close SQLServer connection</span>
-<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://dbi.r-dbi.org/reference/dbDisconnect.html">dbDisconnect</a></span>(<span class="no">con</span>)</pre></body></html></div>
+<span class="kw pkg">DBI</span><span class="kw ns">::</span><span class="fu"><a href="https://rdrr.io/pkg/DBI/man/dbDisconnect.html">dbDisconnect</a></span>(<span class="no">con</span>)</pre></body></html></div>
 <p>Then refresh your database to see new tables <img src="../../../DS%20Projects/dbparser/vignettes/sql_tables.png"></p>
 </div>
 <div id="maria-knowledge-base" class="section level4">
@@ -183,7 +183,7 @@
 <span class="co"># DrugBank database sample name</span>
 <span class="fu"><a href="../reference/read_drugbank_xml_db.html">read_drugbank_xml_db</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/system.file.html">system.file</a></span>(<span class="st">"extdata"</span>, <span class="no">biotech</span>, <span class="kw">package</span> <span class="kw">=</span> <span class="st">"dbparser"</span>))
 <span class="co"># Parse all available drug tibbles</span>
-<span class="fu"><a href="../reference/drug_all.html">drug_all</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">con</span>)
+<span class="fu"><a href="../reference/run_all_parsers.html">run_all_parsers</a></span>(<span class="kw">save_table</span> <span class="kw">=</span> <span class="fl">TRUE</span>, <span class="kw">database_connection</span> <span class="kw">=</span> <span class="no">con</span>)
 <span class="co"># List saved tables</span>
 <span class="kw pkg">RMariaDB</span><span class="kw ns">::</span><span class="fu">dbListTables</span>(<span class="no">con</span>)
 <span class="co"># Close SQLServer connection</span>

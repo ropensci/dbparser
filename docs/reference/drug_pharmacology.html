@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Drug Synonyms parser — drug_syn • dbparser</title>
+<title>Drug Pharmacology parser — drug_pharmacology • dbparser</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Drug Synonyms parser — drug_syn" />
-<meta property="og:description" content="Other names or identifiers that are associated with this drug." />
+<meta property="og:title" content="Drug Pharmacology parser — drug_pharmacology" />
+<meta property="og:description" content="Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
+ and physiological or biochemical effects in the body." />
 
 
 
@@ -126,16 +127,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Drug Synonyms parser</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_synonym_node_parser.R'><code>R/drug_synonym_node_parser.R</code></a></small>
-    <div class="hidden name"><code>drug_syn.Rd</code></div>
+    <h1>Drug Pharmacology parser</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_pharmacology_parser.R'><code>R/drug_pharmacology_parser.R</code></a></small>
+    <div class="hidden name"><code>drug_pharmacology.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Other names or identifiers that are associated with this drug.</p>
+    <p>Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
+ and physiological or biochemical effects in the body.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>drug_syn</span>(
+    <pre class="usage"><span class='fu'>drug_pharmacology</span>(
   <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
@@ -174,12 +176,50 @@ value for this function an error will be thrown.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble with 3 variables:</p><dl'>
- <dt>language</dt><dd><p>Names of the drug in languages other than English.</p></dd>
- <dt>coder</dt><dd><p>Organisation or source providing the synonym. For example,
-  INN indicates the synonym is an International Nonproprietary Name,
-  while IUPAC indicates the synonym is the nomenclature designated by the
-  International Union of Pure and Applied Chemistry.</p></dd>
+    <p>a tibble with the following variables:</p><dl'>
+ <dt>indication</dt><dd><p>The approved conditions, diseases, or states for which a
+ drug can safely and effectively be used. An indication is considered to be
+ FDA-approved when it has any of the following designations: NDA, ANDA, BLA,
+  or OTC. May also include indications in other countries, such as Canada
+  (through Health Canada) or in Europe
+  (through the European Medicines Agency).</p></dd>
+ <dt>pharmacodynamics</dt><dd><p>A description of how the drug modifies or affects
+ the organism it is being used in. May include effects in the body that are
+  desired (enzyme or protein targets for example) and undesired
+  (also known as “side effects”). This is in contrast to pharmacokinetics,
+   which describes how the body modifies the drug being used.</p></dd>
+ <dt>mechanism_of_action</dt><dd><p>A component of pharmacodynamics that describes
+ the biochemical interaction through which a drug produces its intended
+ effect. May include the exact molecular protein or enzyme targets and/or
+ a description of the physiological effects produced.</p></dd>
+ <dt>toxicity</dt><dd><p>Any adverse reaction, or side effect, that may or may not
+ occur with use of the drug. May be attributed to a number of effects
+ including: an enhanced therapeutic effect, rare anaphylactic reactions,
+  interactions with other medications, or unanticipated binding of the
+  molecule at different sites within the body.</p></dd>
+ <dt>metabolism</dt><dd><p>A description of the chemical degradation of the drug
+ molecule within the body; most commonly by enzymes from the
+ Cytochrome P450 (CYP) system in the liver.</p></dd>
+ <dt>absorption</dt><dd><p>A description of the movement of the drug from the site
+  of administration into the bloodstream or target tissue. Common
+  pharmacokinetic metrics used to evaluate absorption include Area Under
+  the Curve (AUC), bioavailability (F), maximum concentration (Cmax), and
+  time to maximum concentration (Tmax).</p></dd>
+ <dt>half-life</dt><dd><p>The period of time it takes for the amount of drug in the
+ body to be reduced by one half. Provides a description of how quickly the
+ drug is being eliminated and how much is available in the bloodstream.</p></dd>
+ <dt>protein-binding	</dt><dd><p>A description of the drug’s affinity for plama
+ proteins and the proportion of the drug that is bound to them when in
+ circulation within the body.</p></dd>
+ <dt>route_of_elimination</dt><dd><p>A description of the pathway that is used to
+ excrete the drug from the body. Common pharmacokinetic parameters used to
+ evaluate excretion include elemination half life, renal clearance, and
+ tracking of radiolabelled compounds through the renal and GI system.</p></dd>
+ <dt>volume_of_distribution</dt><dd><p>The Vd of a drug represents the degree to
+ which it is distributed into body tissue compared to the plasma.</p></dd>
+ <dt>clearance</dt><dd><p>A pharmacokinetic measurement of the rate of removal of the
+  drug from plasma, expressed as mL/min; reflects the rate of elimination of
+   the drug.</p></dd>
  <dt><em>drugbank_id</em></dt><dd><p>drugbank id</p></dd>
 
 </dl>
@@ -215,7 +255,6 @@ no need to call it again before calling this function.</p>
 <code><a href='drug_packagers.html'>drug_packagers</a>()</code>,
 <code><a href='drug_patents.html'>drug_patents</a>()</code>,
 <code><a href='drug_pdb_entries.html'>drug_pdb_entries</a>()</code>,
-<code><a href='drug_pharmacology.html'>drug_pharmacology</a>()</code>,
 <code><a href='drug_prices.html'>drug_prices</a>()</code>,
 <code><a href='drug_products.html'>drug_products</a>()</code>,
 <code><a href='drug_reactions_enzymes.html'>drug_reactions_enzymes</a>()</code>,
@@ -223,7 +262,8 @@ no need to call it again before calling this function.</p>
 <code><a href='drug_salts.html'>drug_salts</a>()</code>,
 <code><a href='drug_sequences.html'>drug_sequences</a>()</code>,
 <code><a href='drug_snp_adverse_reactions.html'>drug_snp_adverse_reactions</a>()</code>,
-<code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code></p></div>
+<code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code>,
+<code><a href='drug_syn.html'>drug_syn</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {

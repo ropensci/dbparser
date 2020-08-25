@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Drug Synonyms parser — drug_syn • dbparser</title>
+<title>Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser — books • dbparser</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Drug Synonyms parser — drug_syn" />
-<meta property="og:description" content="Other names or identifiers that are associated with this drug." />
+<meta property="og:title" content="Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser — books" />
+<meta property="og:description" content="Return a list of text books that were used as references for drugs, carriers,
+ enzymes, targets or transporters" />
 
 
 
@@ -126,16 +127,49 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Drug Synonyms parser</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_synonym_node_parser.R'><code>R/drug_synonym_node_parser.R</code></a></small>
-    <div class="hidden name"><code>drug_syn.Rd</code></div>
+    <h1>Drugs/ Carriers/ Enzymes/ Targets/ Transporters books element parser</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/references_parsers.R'><code>R/references_parsers.R</code></a></small>
+    <div class="hidden name"><code>books.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Other names or identifiers that are associated with this drug.</p>
+    <p>Return a list of text books that were used as references for drugs, carriers,
+ enzymes, targets or transporters</p>
     </div>
 
-    <pre class="usage"><span class='fu'>drug_syn</span>(
+    <pre class="usage"><span class='fu'>drugs_textbooks</span>(
+  <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>carriers_textbooks</span>(
+  <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>enzymes_textbooks</span>(
+  <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>targets_textbooks</span>(
+  <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
+  <span class='kw'>override_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
+  <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='kw'>NULL</span>
+)
+
+<span class='fu'>transporters_textbooks</span>(
   <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
@@ -174,13 +208,13 @@ value for this function an error will be thrown.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble with 3 variables:</p><dl'>
- <dt>language</dt><dd><p>Names of the drug in languages other than English.</p></dd>
- <dt>coder</dt><dd><p>Organisation or source providing the synonym. For example,
-  INN indicates the synonym is an International Nonproprietary Name,
-  while IUPAC indicates the synonym is the nomenclature designated by the
-  International Union of Pure and Applied Chemistry.</p></dd>
- <dt><em>drugbank_id</em></dt><dd><p>drugbank id</p></dd>
+    <p>a tibble with 4 variables:</p><dl'>
+  <dt>ref-id</dt><dd><p>Identifier for the article being referenced.
+  This is unique across all reference types (books, links, article,
+  attachments).</p></dd>
+  <dt>isbn</dt><dd><p>ISBN identifying the textbook.</p></dd>
+  <dt>citation</dt><dd><p>A Textbook citation in a standard format.</p></dd>
+  <dt><em>parent_id</em></dt><dd><p>drug/ carrier/ target/ enzyme/ transporter id</p></dd>
 
 </dl>
 
@@ -194,36 +228,11 @@ parser.</p>
 no need to call it again before calling this function.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p>Other drugs: 
-<code><a href='drug_affected_organisms.html'>drug_affected_organisms</a>()</code>,
-<code><a href='drug_ahfs_codes.html'>drug_ahfs_codes</a>()</code>,
-<code><a href='drug_atc_codes.html'>drug_atc_codes</a>()</code>,
-<code><a href='drug_calc_prop.html'>drug_calc_prop</a>()</code>,
-<code><a href='drug_categories.html'>drug_categories</a>()</code>,
-<code><a href='drug_classification.html'>drug_classification</a>()</code>,
-<code><a href='drug_dosages.html'>drug_dosages</a>()</code>,
-<code><a href='drug_ex_identity.html'>drug_ex_identity</a>()</code>,
-<code><a href='drug_exp_prop.html'>drug_exp_prop</a>()</code>,
-<code><a href='drug_external_links.html'>drug_external_links</a>()</code>,
-<code><a href='drug_food_interactions.html'>drug_food_interactions</a>()</code>,
-<code><a href='drug_general_information.html'>drug_general_information</a>()</code>,
-<code><a href='drug_groups.html'>drug_groups</a>()</code>,
-<code><a href='drug_interactions.html'>drug_interactions</a>()</code>,
-<code><a href='drug_intern_brand.html'>drug_intern_brand</a>()</code>,
-<code><a href='drug_manufacturers.html'>drug_manufacturers</a>()</code>,
-<code><a href='drug_mixtures.html'>drug_mixtures</a>()</code>,
-<code><a href='drug_packagers.html'>drug_packagers</a>()</code>,
-<code><a href='drug_patents.html'>drug_patents</a>()</code>,
-<code><a href='drug_pdb_entries.html'>drug_pdb_entries</a>()</code>,
-<code><a href='drug_pharmacology.html'>drug_pharmacology</a>()</code>,
-<code><a href='drug_prices.html'>drug_prices</a>()</code>,
-<code><a href='drug_products.html'>drug_products</a>()</code>,
-<code><a href='drug_reactions_enzymes.html'>drug_reactions_enzymes</a>()</code>,
-<code><a href='drug_reactions.html'>drug_reactions</a>()</code>,
-<code><a href='drug_salts.html'>drug_salts</a>()</code>,
-<code><a href='drug_sequences.html'>drug_sequences</a>()</code>,
-<code><a href='drug_snp_adverse_reactions.html'>drug_snp_adverse_reactions</a>()</code>,
-<code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code></p></div>
+    <div class='dont-index'><p>Other references: 
+<code><a href='articles.html'>articles</a></code>,
+<code><a href='attachments.html'>attachments</a></code>,
+<code><a href='links.html'>links</a></code>,
+<code><a href='references.html'>references</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {

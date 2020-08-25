@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extracts the drug groups element and return data as tibble. — drug_groups • dbparser</title>
+<title>Drug Groups parser — drug_groups • dbparser</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Extracts the drug groups element and return data as tibble. — drug_groups" />
-<meta property="og:description" content="drug_groups returns tibble of drug groups elements." />
+<meta property="og:title" content="Drug Groups parser — drug_groups" />
+<meta property="og:description" content="Groups that this drug belongs to. May include any of: approved, vet_approved,
+ nutraceutical, illicit, withdrawn, investigational, and experimental." />
 
 
 
@@ -72,7 +73,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -126,13 +127,14 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extracts the drug groups element and return data as tibble.</h1>
+    <h1>Drug Groups parser</h1>
     <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_parsers.R'><code>R/drug_parsers.R</code></a></small>
     <div class="hidden name"><code>drug_groups.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>drug_groups</code> returns tibble of drug groups elements.</p>
+    <p>Groups that this drug belongs to. May include any of: approved, vet_approved,
+ nutraceutical, illicit, withdrawn, investigational, and experimental.</p>
     </div>
 
     <pre class="usage"><span class='fu'>drug_groups</span>(
@@ -174,26 +176,26 @@ value for this function an error will be thrown.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>drug groups node attributes tibble</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>a tibble with 2 variables:</p><dl'>
+ <dt>group</dt><dd><p></p></dd>
+ <dt><em>drugbank_id</em></dt><dd><p>drugbank id</p></dd>
 
-    <p>This functions extracts the groups element of drug node in drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database <code>save_table</code> and
-<code>database_connection</code>.
-It must be called after <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> function like
-any other parser function.
-If <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> is called before for any reason, so
+</dl>
+
+    <h2 class="hasAnchor" id="read-drugbank-xml-db"><a class="anchor" href="#read-drugbank-xml-db"></a>read_drugbank_xml_db</h2>
+
+    
+
+<p><code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> function must be called first before any
+parser.</p>
+<p>If <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> is called before for any reason, so
 no need to call it again before calling this function.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p>Other drugs: 
 <code><a href='drug_affected_organisms.html'>drug_affected_organisms</a>()</code>,
 <code><a href='drug_ahfs_codes.html'>drug_ahfs_codes</a>()</code>,
-<code><a href='drug_articles.html'>drug_articles</a>()</code>,
 <code><a href='drug_atc_codes.html'>drug_atc_codes</a>()</code>,
-<code><a href='drug_books.html'>drug_books</a>()</code>,
 <code><a href='drug_calc_prop.html'>drug_calc_prop</a>()</code>,
 <code><a href='drug_categories.html'>drug_categories</a>()</code>,
 <code><a href='drug_classification.html'>drug_classification</a>()</code>,
@@ -202,53 +204,58 @@ no need to call it again before calling this function.</p>
 <code><a href='drug_exp_prop.html'>drug_exp_prop</a>()</code>,
 <code><a href='drug_external_links.html'>drug_external_links</a>()</code>,
 <code><a href='drug_food_interactions.html'>drug_food_interactions</a>()</code>,
+<code><a href='drug_general_information.html'>drug_general_information</a>()</code>,
 <code><a href='drug_interactions.html'>drug_interactions</a>()</code>,
 <code><a href='drug_intern_brand.html'>drug_intern_brand</a>()</code>,
-<code><a href='drug_links.html'>drug_links</a>()</code>,
 <code><a href='drug_manufacturers.html'>drug_manufacturers</a>()</code>,
 <code><a href='drug_mixtures.html'>drug_mixtures</a>()</code>,
 <code><a href='drug_packagers.html'>drug_packagers</a>()</code>,
 <code><a href='drug_patents.html'>drug_patents</a>()</code>,
 <code><a href='drug_pdb_entries.html'>drug_pdb_entries</a>()</code>,
+<code><a href='drug_pharmacology.html'>drug_pharmacology</a>()</code>,
+<code><a href='drug_prices.html'>drug_prices</a>()</code>,
 <code><a href='drug_products.html'>drug_products</a>()</code>,
+<code><a href='drug_reactions_enzymes.html'>drug_reactions_enzymes</a>()</code>,
+<code><a href='drug_reactions.html'>drug_reactions</a>()</code>,
 <code><a href='drug_salts.html'>drug_salts</a>()</code>,
+<code><a href='drug_sequences.html'>drug_sequences</a>()</code>,
 <code><a href='drug_snp_adverse_reactions.html'>drug_snp_adverse_reactions</a>()</code>,
 <code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code>,
-<code><a href='drug_syn.html'>drug_syn</a>()</code>,
-<code><a href='drug.html'>drug</a>()</code></p></div>
+<code><a href='drug_syn.html'>drug_syn</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># the same parameters and usage will be applied for any parser</span>
 <span class='co'># return only the parsed tibble</span>
-<span class='fu'>drug_groups</span>()
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>()
 
 <span class='co'># will throw an error, as database_connection is NULL</span>
-<span class='fu'>drug_groups</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># save in database in SQLite in memory database and return parsed tibble</span>
-<span class='no'>sqlite_con</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>())
-<span class='fu'>drug_groups</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
+<span class='no'>sqlite_con</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/DBI/man/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>())
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in current</span>
-<span class='co'># location and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_groups</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># save parsed tibble as csv if it does not exist in current location,</span>
+<span class='co'># and return parsed tibble.</span>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save in database, save parsed tibble as csv if it does not exist</span>
-<span class='co'># in current location and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_groups</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
- <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
+<span class='co'># save in database, save parsed tibble as csv,</span>
+<span class='co'># if it does not exist in current location and return parsed tibble.</span>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+<span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in given</span>
-<span class='co'># location and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_groups</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># save parsed tibble as csv if it does not exist in given location,</span>
+<span class='co'># and return parsed tibble.</span>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in current</span>
-<span class='co'># location and return parsed tibble.</span>
-<span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>drug_groups</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># save parsed tibble as csv if it does not exist in current location and</span>
+<span class='co'># return parsed tibble.</span>
+<span class='co'># if the csv exist override it and return it.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

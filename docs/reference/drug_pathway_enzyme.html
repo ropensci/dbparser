@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Extracts the drug pathway enzyme element and return data as tibble. — drug_pathway_enzyme • dbparser</title>
+<title>Drug Pathway Enzymes parser — drug_pathway_enzyme • dbparser</title>
 
 
 <!-- jquery -->
@@ -39,9 +39,8 @@
 
 
 
-<meta property="og:title" content="Extracts the drug pathway enzyme element and return data as tibble. — drug_pathway_enzyme" />
-<meta property="og:description" content="drug_pathway_enzyme returns tibble of drug pathway enzyme
- elements." />
+<meta property="og:title" content="Drug Pathway Enzymes parser — drug_pathway_enzyme" />
+<meta property="og:description" content="Enzymes involved in this pathway." />
 
 
 
@@ -73,7 +72,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">1.2.0</span>
       </span>
     </div>
 
@@ -127,14 +126,13 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Extracts the drug pathway enzyme element and return data as tibble.</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_pathway_node_parser.R'><code>R/drug_pathway_node_parser.R</code></a></small>
+    <h1>Drug Pathway Enzymes parser</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_pathway_node_parsers.R'><code>R/drug_pathway_node_parsers.R</code></a></small>
     <div class="hidden name"><code>drug_pathway_enzyme.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p><code>drug_pathway_enzyme</code> returns tibble of drug pathway enzyme
- elements.</p>
+    <p>Enzymes involved in this pathway.</p>
     </div>
 
     <pre class="usage"><span class='fu'>drug_pathway_enzyme</span>(
@@ -163,8 +161,8 @@ location, save_csv must be true</p></td>
     </tr>
     <tr>
       <th>override_csv</th>
-      <td><p>override existing csv, if any, in case it is true in
-the new parse operation</p></td>
+      <td><p>override existing csv, if any, in case it is true in the
+new parse operation</p></td>
     </tr>
     <tr>
       <th>database_connection</th>
@@ -176,51 +174,54 @@ value for this function an error will be thrown.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>drug pathway enzyme node attributes date frame</p>
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <p>a tibble with pathway properties</p>
+    <h2 class="hasAnchor" id="read-drugbank-xml-db"><a class="anchor" href="#read-drugbank-xml-db"></a>read_drugbank_xml_db</h2>
 
-    <p>This functions extracts the pathway enzyme element of drug node in drugbank
-xml database with the option to save it in a predefined database via
-passed database connection. It takes two optional arguments to
-save the returned tibble in the database <code>save_table</code> and
-<code>database_connection</code>.
-It must be called after <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> function like
-any other parser function.
-If <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> is called before for any reason, so
+    
+
+<p><code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> function must be called first before any
+parser.</p>
+<p>If <code><a href='read_drugbank_xml_db.html'>read_drugbank_xml_db</a></code> is called before for any reason, so
 no need to call it again before calling this function.</p>
+    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
+
+    <div class='dont-index'><p>Other pathway: 
+<code><a href='drug_pathway_drugs.html'>drug_pathway_drugs</a>()</code>,
+<code><a href='drug_pathway.html'>drug_pathway</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
+<span class='co'># the same parameters and usage will be applied for any parser</span>
 <span class='co'># return only the parsed tibble</span>
-<span class='fu'>drug_pathway_enzyme</span>()
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>()
 
 <span class='co'># will throw an error, as database_connection is NULL</span>
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
 <span class='co'># save in database in SQLite in memory database and return parsed tibble</span>
-<span class='no'>sqlite_con</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://dbi.r-dbi.org/reference/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>())
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
+<span class='no'>sqlite_con</span> <span class='kw'>&lt;-</span> <span class='kw pkg'>DBI</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/DBI/man/dbConnect.html'>dbConnect</a></span>(<span class='kw pkg'>RSQLite</span><span class='kw ns'>::</span><span class='fu'><a href='https://rsqlite.r-dbi.org/reference/SQLite.html'>SQLite</a></span>())
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in current location</span>
+<span class='co'># save parsed tibble as csv if it does not exist in current location,</span>
 <span class='co'># and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save in database, save parsed tibble as csv if it does not exist in</span>
-<span class='co'># current location and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
- <span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
+<span class='co'># save in database, save parsed tibble as csv,</span>
+<span class='co'># if it does not exist in current location and return parsed tibble.</span>
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+<span class='kw'>database_connection</span> <span class='kw'>=</span> <span class='no'>sqlite_con</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in given location</span>
+<span class='co'># save parsed tibble as csv if it does not exist in given location,</span>
 <span class='co'># and return parsed tibble.</span>
-<span class='co'># If the csv exist before read it and return its data.</span>
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># if the csv exist before read it and return its data.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 
-<span class='co'># save parsed tibble as csv if it does not exist in current location</span>
-<span class='co'># and return parsed tibble.</span>
-<span class='co'># If the csv exist override it and return it.</span>
-<span class='fu'>drug_pathway_enzyme</span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
+<span class='co'># save parsed tibble as csv if it does not exist in current location and</span>
+<span class='co'># return parsed tibble.</span>
+<span class='co'># if the csv exist override it and return it.</span>
+<span class='fu'><a href='run_all_parsers.html'>run_all_parsers</a></span>(<span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>override</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)
 }</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

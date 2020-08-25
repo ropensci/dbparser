@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Drug Synonyms parser — drug_syn • dbparser</title>
+<title>Drugs General Information parser — drug_general_information • dbparser</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,9 @@
 
 
 
-<meta property="og:title" content="Drug Synonyms parser — drug_syn" />
-<meta property="og:description" content="Other names or identifiers that are associated with this drug." />
+<meta property="og:title" content="Drugs General Information parser — drug_general_information" />
+<meta property="og:description" content="A description of the hierarchical chemical classification of the drug;
+imported from ClassyFire." />
 
 
 
@@ -126,16 +127,17 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Drug Synonyms parser</h1>
-    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_synonym_node_parser.R'><code>R/drug_synonym_node_parser.R</code></a></small>
-    <div class="hidden name"><code>drug_syn.Rd</code></div>
+    <h1>Drugs General Information parser</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ropensci/dbparser/blob/master/R/drug_main_node_parser.R'><code>R/drug_main_node_parser.R</code></a></small>
+    <div class="hidden name"><code>drug_general_information.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Other names or identifiers that are associated with this drug.</p>
+    <p>A description of the hierarchical chemical classification of the drug;
+imported from ClassyFire.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>drug_syn</span>(
+    <pre class="usage"><span class='fu'>drug_general_information</span>(
   <span class='kw'>save_table</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>save_csv</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>,
   <span class='kw'>csv_path</span> <span class='kw'>=</span> <span class='st'>"."</span>,
@@ -174,13 +176,30 @@ value for this function an error will be thrown.</p></td>
 
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>a tibble with 3 variables:</p><dl'>
- <dt>language</dt><dd><p>Names of the drug in languages other than English.</p></dd>
- <dt>coder</dt><dd><p>Organisation or source providing the synonym. For example,
-  INN indicates the synonym is an International Nonproprietary Name,
-  while IUPAC indicates the synonym is the nomenclature designated by the
-  International Union of Pure and Applied Chemistry.</p></dd>
- <dt><em>drugbank_id</em></dt><dd><p>drugbank id</p></dd>
+    <p>a tibble with 15 variables:</p><dl'>
+  <dt>primary_key</dt><dd><p>Drugbank id</p></dd>
+  <dt>other_keys</dt><dd><p>Other identifiers that may be associated with the drug</p></dd>
+  <dt>type</dt><dd><p>Either small molecule, or biotech. Biotech is used for any
+  drug that is derived from living systems or organisms, usually composed of
+   high molecular weight mixtures of protein, while small molecule describes
+    a low molecular weight organic compound.</p></dd>
+  <dt>name</dt><dd><p></p></dd>
+  <dt>created</dt><dd><p>Date that this drug was first added to DrugBank.</p></dd>
+  <dt>updated</dt><dd><p>Denotes when this drug was last updated in DrugBank.</p></dd>
+  <dt>description</dt><dd><p>Descriptions of drug chemical properties,
+   history and regulatory status.</p></dd>
+  <dt>cas_number</dt><dd><p>The Chemical Abstracts Service (CAS) registry number
+   assigned to the drug.</p></dd>
+  <dt><em>unii</em></dt><dd><p>Unique Ingredient Identifier (UNII) of this drug.</p></dd>
+  <dt>average_mass</dt><dd><p>The weighted average of the isotopic masses of the
+  drug</p></dd>
+  <dt>state</dt><dd><p>One of solid, liquid, or gas</p></dd>
+  <dt>monoisotopic_mass</dt><dd><p>The mass of the most abundant isotope of the drug</p></dd>
+  <dt>synthesis_reference</dt><dd><p>Citation for synthesis of the drug molecule.</p></dd>
+  <dt>fda_label</dt><dd><p>Contains a URL for accessing the uploaded United States Food
+  and Drug Administration (FDA) Monograph for this drug.</p></dd>
+  <dt>msds</dt><dd><p>Contains a URL for accessing the Material Safety Data Sheet
+  (MSDS) for this drug.</p></dd>
 
 </dl>
 
@@ -206,7 +225,6 @@ no need to call it again before calling this function.</p>
 <code><a href='drug_exp_prop.html'>drug_exp_prop</a>()</code>,
 <code><a href='drug_external_links.html'>drug_external_links</a>()</code>,
 <code><a href='drug_food_interactions.html'>drug_food_interactions</a>()</code>,
-<code><a href='drug_general_information.html'>drug_general_information</a>()</code>,
 <code><a href='drug_groups.html'>drug_groups</a>()</code>,
 <code><a href='drug_interactions.html'>drug_interactions</a>()</code>,
 <code><a href='drug_intern_brand.html'>drug_intern_brand</a>()</code>,
@@ -223,7 +241,8 @@ no need to call it again before calling this function.</p>
 <code><a href='drug_salts.html'>drug_salts</a>()</code>,
 <code><a href='drug_sequences.html'>drug_sequences</a>()</code>,
 <code><a href='drug_snp_adverse_reactions.html'>drug_snp_adverse_reactions</a>()</code>,
-<code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code></p></div>
+<code><a href='drug_snp_effects.html'>drug_snp_effects</a>()</code>,
+<code><a href='drug_syn.html'>drug_syn</a>()</code></p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>if</span> (<span class='fl'>FALSE</span>) {
