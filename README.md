@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit attributes file -->
 
-# dbparser
+# dbparser <img src="man/figures/logo.png" align="right" />
 
 [![Build
 Status](https://travis-ci.org/ropensci/dbparser.svg?branch=master)](https://travis-ci.org/ropensci/dbparser)
