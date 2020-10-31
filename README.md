@@ -4,7 +4,7 @@
 # dbparser
 
 [![Build
-Status](https://travis-ci.com/ropensci/dbparser.svg?branch=master)](https://travis-ci.com/ropensci/dbparser)
+Status](https://travis-ci.org/ropensci/dbparser.svg?branch=master)](https://travis-ci.org/ropensci/dbparser)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/k18sqp55n39f3y5w?svg=true)](https://ci.appveyor.com/project/MohammedFCIS/dbparser)
 [![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
