@@ -20,7 +20,6 @@ Imports:
     progress,
     purrr,
     readr,
-    RMariaDB,
     RSQLite,
     tibble,
     tools,
