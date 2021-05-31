@@ -1,3 +1,8 @@
+# dbparser 1.3.0
+
+## Minor Fixes
+* Removed RMariaDB dependency (#129)
+
 # dbparser 1.2.0
 
 ## UI Changes
