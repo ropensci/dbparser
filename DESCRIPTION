@@ -1,6 +1,6 @@
 Package: dbparser
 Title: 'DrugBank' Database XML Parser
-Version: 1.2.0
+Version: 1.2.1
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
@@ -24,7 +24,7 @@ Imports:
     tibble,
     tools,
     XML
-RoxygenNote: 7.1.1
+RoxygenNote: 7.2.0
 Suggests:
     knitr,
     rmarkdown,

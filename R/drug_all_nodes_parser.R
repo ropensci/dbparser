@@ -159,6 +159,7 @@ run_all_parsers <-
 #' drug_element(save_table = FALSE)
 #' drug_element(c("drug_ahfs_codes", "drug_carriers"))
 #' }
+#' @keywords internal
 #' @export
 drug_element <-
   function(elements_options = c("all"),
@@ -804,6 +805,7 @@ drug_element <-
 #' \dontrun{
 #' drug_element_options()
 #' }
+#' @keywords internal
 #' @export
 drug_element_options <- function() {
   elements_options <-

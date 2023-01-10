@@ -17,3 +17,4 @@ drugbank version
 get_drugbank_version()
 }
 }
+\keyword{internal}

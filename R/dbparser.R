@@ -40,5 +40,6 @@
 #'  (https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
 #'
 #' @docType package
+#' @keywords internal
 #' @name dbparser
 NULL
