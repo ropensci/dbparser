@@ -8,6 +8,7 @@
 #' \dontrun{
 #' get_drugbank_version()
 #' }
+#' @keywords internal
 #' @export
 get_drugbank_version <- function() {
   return(pkg_env$version)
@@ -24,6 +25,7 @@ get_drugbank_version <- function() {
 #' \dontrun{
 #' get_drugbank_exported_date()
 #' }
+#' @keywords internal
 #' @export
 get_drugbank_exported_date <- function() {
   return(pkg_env$exported_date)
@@ -41,6 +43,7 @@ get_drugbank_exported_date <- function() {
 #' \dontrun{
 #' get_drugbank_metadata()
 #' }
+#' @keywords internal
 #' @export
 get_drugbank_metadata <- function() {
   return(list(pkg_env$version, pkg_env$exported_date))

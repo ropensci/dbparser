@@ -18,3 +18,4 @@ exported date.
 get_drugbank_exported_date()
 }
 }
+\keyword{internal}
