@@ -57,14 +57,12 @@ ATCParser <- R6::R6Class(
 drug_atc_codes <- function(save_table = FALSE,
                            save_csv = FALSE,
                            csv_path = ".",
-                           override_csv = FALSE,
-                           database_connection = NULL) {
+                           override_csv = FALSE) {
   ATCParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "drug_atc_codes"
   )$parse()
 }

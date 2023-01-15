@@ -47,14 +47,12 @@ PricesParser <- R6::R6Class(
 #' @inherit run_all_parsers examples
 #' @export
 drug_prices <- function(save_table = FALSE, save_csv = FALSE,
-                              csv_path = ".", override_csv = FALSE,
-                        database_connection = NULL) {
+                              csv_path = ".", override_csv = FALSE) {
   PricesParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "drug_prices"
   )$parse()
 }

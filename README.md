@@ -7,7 +7,7 @@
 Status](https://travis-ci.org/ropensci/dbparser.svg?branch=master)](https://travis-ci.org/ropensci/dbparser)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/k18sqp55n39f3y5w?svg=true)](https://ci.appveyor.com/project/MohammedFCIS/dbparser)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
 [![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dbparser)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -41,12 +41,6 @@ The `dbparser` package parses the DrugBank XML database into `R` tibbles
 that can be explored and analyzed by the user, check [this
 tutorial](https://docs.ropensci.org/dbparser/articles/dbparser.html) for
 more details.
-
-Also, the package offers the option to save these tibbles in databases
-including **SQL Server DB** and **Maria DB** just by enabling
-`save_table` option, check [this
-tutorial](https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
-for more details.
 
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
@@ -85,7 +79,7 @@ contributing to this project, you agree to abide by its terms.
 
 ## Contributing Guide
 
-👍🎉 First off, thanks for taking the time to contribute\! 🎉👍 Please
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍 Please
 review our [Contributing
 Guide](https://docs.ropensci.org/dbparser/CONTRIBUTING.html).
 

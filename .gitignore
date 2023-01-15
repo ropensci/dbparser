@@ -30,3 +30,5 @@ vignettes/*.pdf
 rsconnect/
 doc
 Meta
+/doc/
+/Meta/

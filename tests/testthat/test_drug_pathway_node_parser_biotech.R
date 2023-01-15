@@ -24,7 +24,6 @@ test_that(
       "Lepirudin Action Pathway"
     )
     expect_true(is_tibble(drug_pathway()))
-    expect_error(drug_pathway(TRUE))
   }
 )
 
@@ -38,7 +37,6 @@ test_that(
       "Lepirudin"
     )
     expect_true(is_tibble(drug_pathway_drugs()))
-    expect_error(drug_pathway_drugs(TRUE))
   }
 )
 
@@ -52,6 +50,5 @@ test_that(
       "P00734"
     )
     expect_true(is_tibble(drug_pathway_enzyme()))
-    expect_error(drug_pathway_enzyme(TRUE))
   }
 )

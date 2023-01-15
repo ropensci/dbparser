@@ -27,7 +27,6 @@ test_that(
       "16244762"
     )
     expect_true(is_tibble(drugs_articles()))
-    expect_error(drugs_articles(TRUE))
   }
 )
 
@@ -36,7 +35,6 @@ test_that(
   code = {
     expect_equal(nrow(drugs_textbooks()), 0)
     expect_true(is_tibble(drugs_textbooks()))
-    expect_error(drugs_textbooks(TRUE))
   }
 )
 
@@ -48,7 +46,6 @@ test_that(
       "Google books"
     )
     expect_true(is_tibble(drugs_links()))
-    expect_error(drugs_links(TRUE))
   }
 )
 
@@ -57,7 +54,6 @@ test_that(
   code = {
     expect_equal(nrow(drugs_attachments()), 0)
     expect_true(is_tibble(drugs_attachments()))
-    expect_error(drugs_attachments(TRUE))
   }
 )
 
@@ -69,7 +65,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_articles()))
-    expect_error(carriers_articles(TRUE))
   }
 )
 
@@ -81,7 +76,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_textbooks()))
-    expect_error(carriers_textbooks(TRUE))
   }
 )
 
@@ -93,7 +87,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_links()))
-    expect_error(carriers_links(TRUE))
   }
 )
 
@@ -105,7 +98,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_attachments()))
-    expect_error(carriers_attachments(TRUE))
   }
 )
 
@@ -117,7 +109,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_articles()))
-    expect_error(enzymes_articles(TRUE))
   }
 )
 
@@ -130,7 +121,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_textbooks()))
-    expect_error(enzymes_textbooks(TRUE))
   }
 )
 
@@ -142,7 +132,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_links()))
-    expect_error(enzymes_links(TRUE))
   }
 )
 
@@ -154,7 +143,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_attachments()))
-    expect_error(enzymes_attachments(TRUE))
   }
 )
 
@@ -169,7 +157,6 @@ test_that(
       )
     )
     expect_true(is_tibble(targets_articles()))
-    expect_error(targets_articles(TRUE))
   }
 )
 
@@ -181,7 +168,6 @@ test_that(
       0
     )
     expect_true(is_tibble(targets_textbooks()))
-    expect_error(targets_textbooks(TRUE))
   }
 )
 
@@ -193,7 +179,6 @@ test_that(
       0
     )
     expect_true(is_tibble(targets_links()))
-    expect_error(targets_links(TRUE))
   }
 )
 
@@ -205,7 +190,6 @@ test_that(
       0
     )
     expect_true(is_tibble(targets_attachments()))
-    expect_error(targets_attachments(TRUE))
   }
 )
 
@@ -217,7 +201,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_articles()))
-    expect_error(transporters_articlese(TRUE))
   }
 )
 
@@ -229,7 +212,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_textbooks()))
-    expect_error(transporters_textbooks(TRUE))
   }
 )
 
@@ -241,7 +223,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_links()))
-    expect_error(transporters_links(TRUE))
   }
 )
 
@@ -253,7 +234,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_attachments()))
-    expect_error(transporters_attachments(TRUE))
   }
 )
 

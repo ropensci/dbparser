@@ -6,7 +6,6 @@ library(tibble)
 library(purrr)
 
 small_molecule <- "drugbank_record_small_molecule.xml"
-database_connection <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 test_that(
   desc = "Read database",
@@ -24,7 +23,6 @@ test_that(
       nrow(carriers_actions()),
       0
     )
-    expect_error(carriers_actions(TRUE))
   }
 )
 
@@ -36,7 +34,6 @@ test_that(
       1
     )
     expect_true(is_tibble(enzymes_actions()))
-    expect_error(enzymes_actions(TRUE))
   }
 )
 
@@ -49,7 +46,6 @@ test_that(
       "inhibitor"
     )
     expect_true(is_tibble(targets_actions()))
-    expect_error(targets_actions(TRUE))
   }
 )
 
@@ -61,7 +57,5 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_actions()))
-    expect_error(transporters_actions(TRUE))
   }
 )
-dbDisconnect(database_connection)

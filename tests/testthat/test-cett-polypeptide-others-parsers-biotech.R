@@ -7,7 +7,6 @@ library(tibble)
 library(purrr)
 
 biotech <- "drugbank_record_biotech.xml"
-database_connection <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 test_that(
   desc = "Read database",
@@ -28,9 +27,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_polypep_ex_ident()))
-    expect_error(
-      carriers_polypep_ex_ident(TRUE)
-    )
   }
 )
 
@@ -42,7 +38,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_polypeptides_syn()))
-    expect_error(carriers_polypeptides_syn(TRUE))
   }
 )
 
@@ -54,7 +49,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_polypeptides_go()))
-    expect_error(carriers_polypeptides_go(TRUE))
   }
 )
 
@@ -66,7 +60,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers_polypeptides_pfams()))
-    expect_error(carriers_polypeptides_pfams(TRUE))
   }
 )
 
@@ -79,9 +72,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_polypep_ex_ident()))
-    expect_error(
-      enzymes_polypep_ex_ident(TRUE)
-    )
   }
 )
 
@@ -94,7 +84,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_polypeptides_syn()))
-    expect_error(enzymes_polypeptides_syn(TRUE))
   }
 )
 
@@ -106,7 +95,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_polypeptides_pfams()))
-    expect_error(enzymes_polypeptides_pfams(TRUE))
   }
 )
 
@@ -118,7 +106,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes_polypeptides_go()))
-    expect_error(enzymes_polypeptides_go(TRUE))
   }
 )
 
@@ -134,9 +121,6 @@ test_that(
       "HGNC:3535"
     )
     expect_true(is_tibble(targets_polypep_ex_ident()))
-    expect_error(
-      targets_polypep_ex_ident(TRUE)
-    )
   }
 )
 
@@ -149,7 +133,6 @@ test_that(
       "3.4.21.5"
     )
     expect_true(is_tibble(targets_polypeptides_syn()))
-    expect_error(targets_polypeptides_syn(TRUE))
   }
 )
 
@@ -162,7 +145,6 @@ test_that(
       "Gla"
     )
     expect_true(is_tibble(targets_polypeptides_pfams()))
-    expect_error(targets_polypeptides_pfams(TRUE))
   }
 )
 
@@ -175,7 +157,6 @@ test_that(
       "blood microparticle"
     )
     expect_true(is_tibble(targets_polypeptides_go()))
-    expect_error(targets_polypeptides_go(TRUE))
   }
 )
 
@@ -187,9 +168,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_polypep_ex_ident()))
-    expect_error(
-      transporters_polypep_ex_ident(TRUE)
-    )
   }
 )
 
@@ -201,7 +179,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_polypeptides_syn()))
-    expect_error(transporters_polypeptides_syn(TRUE))
   }
 )
 
@@ -213,7 +190,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_polypeptides_pfams()))
-    expect_error(transporters_polypeptides_pfams(TRUE))
   }
 )
 
@@ -225,8 +201,6 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters_polypeptides_go()))
-    expect_error(transporters_polypeptides_go(TRUE))
   }
 )
 
-dbDisconnect(database_connection)

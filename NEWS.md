@@ -1,4 +1,7 @@
-# dbparser 1.3.0
+# dbparser 2.0.0
+
+## Major Changes
+* Deprecated saving parsed data into given database.
 
 ## Minor Fixes
 * Removed RMariaDB dependency (#129)

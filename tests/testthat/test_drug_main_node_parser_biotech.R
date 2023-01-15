@@ -24,7 +24,6 @@ test_that(
   code = {
     expect_match(drug_general_information()[1][["primary_key"]], "DB00001")
     expect_true(is_tibble(drug_general_information()))
-    expect_error(drug_general_information(TRUE))
   }
 )
 
@@ -32,7 +31,6 @@ test_that(
   desc = "Read drug other keys attribute",
   code = {
     expect_match(drug_general_information()$other_keys, "BIOD00024")
-    expect_error(drug_general_information(TRUE))
   }
 )
 
@@ -44,7 +42,6 @@ test_that(
       "approved"
     )
     expect_true(is_tibble(drug_groups()))
-    expect_error(drug_groups(TRUE))
   }
 )
 
@@ -57,7 +54,6 @@ test_that(
       "DB00001"
     )
     expect_true(is_tibble(drug_classification()))
-    expect_error(drug_classification(TRUE))
   }
 )
 
@@ -69,7 +65,6 @@ test_that(
       "Hirudin variant-1"
     )
     expect_true(is_tibble(drug_syn()))
-    expect_error(drug_syn(TRUE))
   }
 )
 
@@ -81,7 +76,6 @@ test_that(
       "Refludan"
     )
     expect_true(is_tibble(drug_products()))
-    expect_error(drug_products(TRUE))
   }
 )
 
@@ -93,7 +87,6 @@ test_that(
       "Refludan"
     )
     expect_true(is_tibble(drug_mixtures()))
-    expect_error(drug_mixtures(TRUE))
   }
 )
 
@@ -105,7 +98,6 @@ test_that(
       "Bayer Healthcare"
     )
     expect_true(is_tibble(drug_packagers()))
-    expect_error(drug_packagers(TRUE))
   }
 )
 
@@ -117,7 +109,6 @@ test_that(
       "Bayer healthcare pharmaceuticals inc"
     )
     expect_true(is_tibble(drug_manufacturers()))
-    expect_error(drug_manufacturers(TRUE))
   }
 )
 
@@ -129,7 +120,6 @@ test_that(
       "USD"
     )
     expect_true(is_tibble(drug_prices()))
-    expect_error(drug_prices(TRUE))
   }
 )
 
@@ -141,7 +131,6 @@ test_that(
       "D000602"
     )
     expect_true(is_tibble(drug_categories()))
-    expect_error(drug_categories(TRUE))
   }
 )
 
@@ -155,7 +144,6 @@ test_that(
       "Humans and other mammals"
     )
     expect_true(is_tibble(drug_affected_organisms()))
-    expect_error(drug_affected_organisms(TRUE))
   }
 )
 
@@ -167,7 +155,6 @@ test_that(
       "Intravenous"
     )
     expect_true(is_tibble(drug_dosages()))
-    expect_error(drug_dosages(TRUE))
   }
 )
 
@@ -179,7 +166,6 @@ test_that(
       "B01AE02"
     )
     expect_true(is_tibble(drug_atc_codes()))
-    expect_error(drug_atc_codes(TRUE))
   }
 )
 
@@ -191,7 +177,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_ahfs_codes()))
-    expect_error(drug_ahfs_codes(TRUE))
   }
 )
 
@@ -203,7 +188,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_pdb_entries()))
-    expect_error(drug_pdb_entries(TRUE))
   }
 )
 
@@ -215,7 +199,6 @@ test_that(
       "United States"
     )
     expect_true(is_tibble(drug_patents()))
-    expect_error(drug_patents(TRUE))
   }
 )
 
@@ -227,7 +210,6 @@ test_that(
       "St. John's Wort"
     )
     expect_true(is_tibble(drug_interactions()))
-    expect_error(drug_interactions(TRUE))
   }
 )
 
@@ -239,7 +221,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_food_interactions()))
-    expect_error(drug_food_interactions(TRUE))
   }
 )
 
@@ -251,7 +232,6 @@ test_that(
       "FASTA"
     )
     expect_true(is_tibble(drug_sequences()))
-    expect_error(drug_sequences(TRUE))
   }
 )
 
@@ -263,7 +243,6 @@ test_that(
       "Melting Point"
     )
     expect_true(is_tibble(drug_exp_prop()))
-    expect_error(drug_exp_prop(TRUE))
   }
 )
 
@@ -277,7 +256,6 @@ test_that(
       "Drugs Product Database \\(DPD\\)"
     )
     expect_true(is_tibble(drug_ex_identity()))
-    expect_error(drug_ex_identity(TRUE))
   }
 )
 
@@ -289,7 +267,6 @@ test_that(
       "RxList"
     )
     expect_true(is_tibble(drug_external_links()))
-    expect_error(drug_external_links(TRUE))
   }
 )
 
@@ -302,7 +279,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_snp_effects()))
-    expect_error(drug_snp_effects(TRUE))
   }
 )
 
@@ -314,7 +290,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_snp_adverse_reactions()))
-    expect_error(drug_snp_adverse_reactions(TRUE))
   }
 )
 
@@ -324,6 +299,5 @@ test_that(
     expect_match(drug_pharmacology()[["indication"]][1],
                  "For the treatment of heparin-induced thrombocytopenia")
     expect_true(is_tibble(drug_pharmacology()))
-    expect_error(drug_pharmacology(TRUE))
   }
 )
