@@ -42,7 +42,7 @@ ReferenceParser <-
 #'  enzymes, targets or transporters
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -65,7 +65,7 @@ NULL
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -85,7 +85,7 @@ NULL
 #' Return a list of articles that were used as references for drugs carriers
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -107,7 +107,7 @@ NULL
 #' Return a list of attachment that were used as references for drugs carriers
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -124,18 +124,11 @@ NULL
 #' @name attachments
 NULL
 
+
 #' @rdname books
 #' @export
-drugs_textbooks <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drugs_textbooks <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drugs_textbooks",
       main_node = "general-references",
       secondary_node = "textbooks",
@@ -145,16 +138,8 @@ drugs_textbooks <-
 
 #' @rdname books
 #' @export
-carriers_textbooks <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_textbooks <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_carriers_textbooks",
       object_node = "carriers",
       main_node = "references",
@@ -165,15 +150,8 @@ carriers_textbooks <-
 
 #' @rdname books
 #' @export
-enzymes_textbooks <- function(save_table = FALSE,
-                              save_csv = FALSE,
-                              csv_path = ".",
-                              override_csv = FALSE) {
+enzymes_textbooks <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_enzymes_textbooks",
     object_node = "enzymes",
     main_node = "references",
@@ -184,15 +162,8 @@ enzymes_textbooks <- function(save_table = FALSE,
 
 #' @rdname books
 #' @export
-targets_textbooks <- function(save_table = FALSE,
-                              save_csv = FALSE,
-                              csv_path = ".",
-                              override_csv = FALSE) {
+targets_textbooks <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_targ_textbooks",
     object_node = "targets",
     main_node = "references",
@@ -203,16 +174,8 @@ targets_textbooks <- function(save_table = FALSE,
 
 #' @rdname books
 #' @export
-transporters_textbooks <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_textbooks <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_trans_textbooks",
       object_node = "transporters",
       main_node = "references",
@@ -223,16 +186,8 @@ transporters_textbooks <-
 
 #' @rdname links
 #' @export
-drugs_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drugs_links <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drugs_links",
       main_node = "general-references",
       secondary_node = "links",
@@ -240,18 +195,11 @@ drugs_links <-
     )$parse()
   }
 
+
 #' @rdname links
 #' @export
-carriers_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_links <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_carriers_links",
       object_node = "carriers",
       main_node = "references",
@@ -260,17 +208,11 @@ carriers_links <-
     )$parse()
   }
 
+
 #' @rdname links
 #' @export
-enzymes_links <- function(save_table = FALSE,
-                          save_csv = FALSE,
-                          csv_path = ".",
-                          override_csv = FALSE) {
+enzymes_links <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_enzymes_links",
     object_node = "enzymes",
     main_node = "references",
@@ -279,17 +221,11 @@ enzymes_links <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname links
 #' @export
-targets_links <- function(save_table = FALSE,
-                          save_csv = FALSE,
-                          csv_path = ".",
-                          override_csv = FALSE) {
+targets_links <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_targ_links",
     object_node = "targets",
     main_node = "references",
@@ -298,18 +234,11 @@ targets_links <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname links
 #' @export
-transporters_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_links <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_trans_links",
       object_node = "transporters",
       main_node = "references",
@@ -318,18 +247,11 @@ transporters_links <-
     )$parse()
   }
 
+
 #' @rdname articles
 #' @export
-drugs_articles <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drugs_articles <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drugs_articles",
       main_node = "general-references",
       secondary_node = "articles",
@@ -337,18 +259,11 @@ drugs_articles <-
     )$parse()
   }
 
+
 #' @rdname articles
 #' @export
-carriers_articles <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_articles <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_carriers_articles",
       object_node = "carriers",
       main_node = "references",
@@ -357,17 +272,11 @@ carriers_articles <-
     )$parse()
   }
 
+
 #' @rdname articles
 #' @export
-enzymes_articles <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE) {
+enzymes_articles <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_enzymes_articles",
     object_node = "enzymes",
     main_node = "references",
@@ -376,17 +285,11 @@ enzymes_articles <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname articles
 #' @export
-targets_articles <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE) {
+targets_articles <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_targ_articles",
     object_node = "targets",
     main_node = "references",
@@ -395,37 +298,24 @@ targets_articles <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname articles
 #' @export
-transporters_articles <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_articles <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_trans_articles",
       object_node = "transporters",
       main_node = "references",
       secondary_node = "articles",
       id = "id"
     )$parse()
-  }
+}
+
+
 #' @rdname attachments
 #' @export
-drugs_attachments <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drugs_attachments <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drugs_attachments",
       main_node = "general-references",
       secondary_node = "attachments",
@@ -433,18 +323,11 @@ drugs_attachments <-
     )$parse()
   }
 
+
 #' @rdname attachments
 #' @export
-carriers_attachments <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_attachments <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
       tibble_name = "drug_carriers_attachments",
       object_node = "carriers",
       main_node = "references",
@@ -453,17 +336,11 @@ carriers_attachments <-
     )$parse()
   }
 
+
 #' @rdname attachments
 #' @export
-enzymes_attachments <- function(save_table = FALSE,
-                                save_csv = FALSE,
-                                csv_path = ".",
-                                override_csv = FALSE) {
+enzymes_attachments <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_enzymes_attachments",
     object_node = "enzymes",
     main_node = "references",
@@ -472,17 +349,11 @@ enzymes_attachments <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname attachments
 #' @export
-targets_attachments <- function(save_table = FALSE,
-                                save_csv = FALSE,
-                                csv_path = ".",
-                                override_csv = FALSE) {
+targets_attachments <- function() {
   ReferenceParser$new(
-    save_table = save_table,
-    save_csv = save_csv,
-    csv_path = csv_path,
-    override_csv = override_csv,
     tibble_name = "drug_targ_attachments",
     object_node = "targets",
     main_node = "references",
@@ -491,22 +362,15 @@ targets_attachments <- function(save_table = FALSE,
   )$parse()
 }
 
+
 #' @rdname attachments
 #' @export
-transporters_attachments <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_attachments <- function() {
     ReferenceParser$new(
-      save_table = save_table,
-      save_csv = save_csv,
-      csv_path = csv_path,
-      override_csv = override_csv,
-      tibble_name = "drug_trans_attachments",
-      object_node = "transporters",
-      main_node = "references",
+      tibble_name    = "drug_trans_attachments",
+      object_node    = "transporters",
+      main_node      = "references",
       secondary_node = "attachments",
-      id = "id"
+      id             = "id"
     )$parse()
-  }
+}

@@ -8,7 +8,7 @@ DrugElementsParser <- R6::R6Class(
       parsed_tbl <- map_df(drugs, ~ drug_sub_df(.x, private$main_node,
                                                 progress = pb)) %>%
         unique()
-      if (nrow(parsed_tbl) > 0) {
+      if (NROW(parsed_tbl) > 0) {
         switch(
           private$main_node,
           "groups" = names(parsed_tbl) <- c("group", "drugbank-id"),
@@ -33,7 +33,7 @@ DrugElementsParser <- R6::R6Class(
 #'  nutraceutical, illicit, withdrawn, investigational, and experimental.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -44,16 +44,8 @@ DrugElementsParser <- R6::R6Class(
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_groups <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_groups <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_groups",
       main_node = "groups"
     )$parse()
@@ -65,7 +57,7 @@ drug_groups <-
 #'  that contain the drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 32 variables:
 #' \describe{
@@ -127,16 +119,8 @@ drug_groups <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_products <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_products <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_products",
       main_node = "products"
     )$parse()
@@ -149,7 +133,7 @@ drug_products <-
 #' descriptions of the specific term.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -164,15 +148,8 @@ drug_products <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_calc_prop <- function(save_table = FALSE,
-                           save_csv = FALSE,
-                           csv_path = ".",
-                           override_csv = FALSE) {
+drug_calc_prop <- function() {
   DrugElementsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "drug_calculated_properties",
     main_node = "calculated-properties"
   )$parse()
@@ -185,7 +162,7 @@ drug_calc_prop <- function(save_table = FALSE,
 #' in countries other than Canada and the Unites States.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -198,16 +175,8 @@ drug_calc_prop <- function(save_table = FALSE,
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_intern_brand <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_intern_brand <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_international_brands",
       main_node = "international-brands"
     )$parse()
@@ -220,7 +189,7 @@ drug_intern_brand <-
 #'  dissolution, or absorption.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 1 variables:
 #' \describe{
@@ -248,16 +217,8 @@ drug_intern_brand <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_salts <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_salts <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_salts",
       main_node = "salts"
     )$parse()
@@ -269,7 +230,7 @@ drug_salts <-
 #' combination with other drug molecules
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -285,16 +246,8 @@ drug_salts <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_mixtures <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_mixtures <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_mixtures",
       main_node = "mixtures"
     )$parse()
@@ -305,7 +258,7 @@ drug_mixtures <-
 #' A list of companies that are packaging the drug for re-distribution.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -318,16 +271,8 @@ drug_mixtures <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_packagers <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_packagers <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_packagers",
       main_node = "packagers"
     )$parse()
@@ -339,7 +284,7 @@ drug_packagers <-
 #' General categorizations of the drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -352,16 +297,8 @@ drug_packagers <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_categories <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_categories <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_categories",
       main_node = "categories"
     )$parse()
@@ -373,7 +310,7 @@ drug_categories <-
 #' local susceptibility patterns and resistance.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -384,16 +321,8 @@ drug_categories <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_affected_organisms <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_affected_organisms <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_affected_organisms",
       main_node = "affected-organisms"
     )$parse()
@@ -404,7 +333,7 @@ drug_affected_organisms <-
 #' A list of the commercially available dosages of the drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -418,16 +347,8 @@ drug_affected_organisms <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_dosages <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_dosages <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_dosages",
       main_node = "dosages"
     )$parse()
@@ -439,7 +360,7 @@ drug_dosages <-
 #' The American Hospital Formulary Service (AHFS) identifier for this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -450,16 +371,8 @@ drug_dosages <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_ahfs_codes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_ahfs_codes <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_ahfs_codes",
       main_node = "ahfs-codes"
     )$parse()
@@ -470,7 +383,7 @@ drug_ahfs_codes <-
 #' Protein Data Bank (PDB) identifiers for this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -481,16 +394,8 @@ drug_ahfs_codes <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_pdb_entries <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_pdb_entries <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_pdb_entries",
       main_node = "pdb-entries"
     )$parse()
@@ -503,7 +408,7 @@ drug_pdb_entries <-
 #' multiple patents.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -520,16 +425,8 @@ drug_pdb_entries <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_patents <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_patents <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_patents",
       main_node = "patents"
     )$parse()
@@ -540,7 +437,7 @@ drug_patents <-
 #' Food that may interact with this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -551,16 +448,8 @@ drug_patents <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_food_interactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_food_interactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_food_interactions",
       main_node = "food-interactions"
     )$parse()
@@ -574,7 +463,7 @@ drug_food_interactions <-
 #' the physiological effects and mechanism of action of each drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with the following variables:
 #' \describe{
@@ -588,16 +477,8 @@ drug_food_interactions <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_interactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_interactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_drug_interactions",
       main_node = "drug-interactions"
     )$parse()
@@ -608,7 +489,7 @@ drug_interactions <-
 #' Drug properties that have been experimentally proven
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -652,16 +533,8 @@ drug_interactions <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_exp_prop <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_exp_prop <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_experimental_properties",
       main_node = "experimental-properties"
     )$parse()
@@ -673,7 +546,7 @@ drug_exp_prop <-
 #' this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -685,16 +558,8 @@ drug_exp_prop <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_ex_identity <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_ex_identity <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_external_identifiers",
       main_node = "external-identifiers"
     )$parse()
@@ -705,7 +570,7 @@ drug_ex_identity <-
 #' Links to other websites or databases providing information about this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -717,16 +582,8 @@ drug_ex_identity <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_external_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_external_links <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_external_links",
       main_node = "external-links"
     )$parse()
@@ -740,7 +597,7 @@ drug_external_links <-
 #'  decrease in dose, or a change in therapy.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -760,16 +617,8 @@ drug_external_links <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_snp_effects <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_snp_effects <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "drug_snp_effects",
       main_node = "snp-effects"
     )$parse()
@@ -781,7 +630,7 @@ drug_snp_effects <-
 #' nucleotide polymorphisms (SNPs)
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -801,16 +650,8 @@ drug_snp_effects <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_snp_adverse_reactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_snp_adverse_reactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "snp_adverse_reactions",
       main_node = "snp-adverse-drug-reactions"
     )$parse()

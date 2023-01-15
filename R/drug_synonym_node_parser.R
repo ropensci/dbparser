@@ -31,7 +31,7 @@ DrugSynonymsParser <- R6::R6Class(
 #' Other names or identifiers that are associated with this drug.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 3 variables:
 #' \describe{
@@ -46,16 +46,6 @@ DrugSynonymsParser <- R6::R6Class(
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_syn <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    DrugSynonymsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      "drug_syn",
-    )$parse()
+drug_syn <- function() {
+    DrugSynonymsParser$new("drug_syn")$parse()
   }

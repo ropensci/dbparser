@@ -60,23 +60,15 @@ PathwaySubNodesParser <- R6::R6Class(
 #' Enzymes involved in this pathway.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with pathway properties
 #' @family pathway
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_pathway_enzyme <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_pathway_enzyme <- function() {
     PathwaySubNodesParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       tibble_name = "drug_pathway_enzymes",
       object_node = "pathways",
       main_node = "enzymes",
@@ -89,23 +81,15 @@ drug_pathway_enzyme <-
 #' Drugs involved in this pathway.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with pathway drugsproperties
 #' @family pathway
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_pathway_drugs <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+drug_pathway_drugs <- function() {
     PathwaySubNodesParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       tibble_name = "drug_pathway_drugs",
       object_node = "pathways",
       main_node = "drugs",
@@ -119,7 +103,7 @@ drug_pathway_drugs <-
 #' identified by the Small Molecule Protein Database (SMPDB).
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -133,14 +117,6 @@ drug_pathway_drugs <-
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_pathway <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    PathwayParser$new(save_table,
-                      save_csv,
-                      csv_path,
-                      override_csv,
-                      "drug_pathway")$parse()
+drug_pathway <- function() {
+    PathwayParser$new("drug_pathway")$parse()
   }

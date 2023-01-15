@@ -1,7 +1,8 @@
 # dbparser 2.0.0
 
 ## Major Changes
-* Deprecated saving parsed data into given database.
+* Deprecated saving parsed data into given database
+* Deprecated saving parsed data into a csv file
 
 ## Minor Fixes
 * Removed RMariaDB dependency (#129)

@@ -37,7 +37,7 @@ SequencesParser <- R6::R6Class(
 #' Describes peptide sequences of biotech drugs
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -49,13 +49,6 @@ SequencesParser <- R6::R6Class(
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
-                                 csv_path = ".", override_csv = FALSE) {
-  SequencesParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    "drug_sequences"
-  )$parse()
+drug_sequences <- function() {
+  SequencesParser$new("drug_sequences")$parse()
 }

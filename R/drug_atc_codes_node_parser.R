@@ -47,22 +47,13 @@ ATCParser <- R6::R6Class(
 #' Therapeutic Chemical Classification system.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 10 variables
 #' @family drugs
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_atc_codes <- function(save_table = FALSE,
-                           save_csv = FALSE,
-                           csv_path = ".",
-                           override_csv = FALSE) {
-  ATCParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    "drug_atc_codes"
-  )$parse()
+drug_atc_codes <- function() {
+  ATCParser$new("drug_atc_codes")$parse()
 }

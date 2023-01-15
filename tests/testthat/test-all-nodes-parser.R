@@ -29,6 +29,8 @@ test_that(
     )
   }
 )
+
+
 drugs <- run_all_parsers()
 drugs_types <- classlist(drugs)
 test_that(

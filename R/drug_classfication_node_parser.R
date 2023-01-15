@@ -42,7 +42,7 @@ ClassificationParser <- R6::R6Class(
 #' imported from ClassyFire.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 9 variables:
 #' \describe{
@@ -60,16 +60,6 @@ ClassificationParser <- R6::R6Class(
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_classification <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    ClassificationParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      "drug_classifications"
-    )$parse()
+drug_classification <- function() {
+    ClassificationParser$new("drug_classifications")$parse()
   }

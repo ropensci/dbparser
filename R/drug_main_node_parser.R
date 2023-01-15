@@ -43,7 +43,7 @@ DrugParser <- R6::R6Class(
 #' imported from ClassyFire.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with 15 variables:
 #' \describe{
@@ -75,14 +75,6 @@ DrugParser <- R6::R6Class(
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drug_general_information <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    DrugParser$new(save_table,
-                   save_csv,
-                   csv_path,
-                   override_csv,
-                   "drug")$parse()
+drug_general_information <- function() {
+    DrugParser$new("drug")$parse()
   }

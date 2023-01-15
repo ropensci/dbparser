@@ -8,23 +8,7 @@ Office (USPTO) to an inventor for a limited time, in exchange for public
 disclosure of the invention when the patent is granted. Drugs may be issued
 multiple patents.}
 \usage{
-drug_patents(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
-}
-\arguments{
-\item{save_table}{boolean, save table in database if true.}
-
-\item{save_csv}{boolean, save csv version of parsed tibble if true}
-
-\item{csv_path}{location to save csv files into it, default is current
-location, save_csv must be true}
-
-\item{override_csv}{override existing csv, if any, in case it is true in the
-new parse operation}
+drug_patents()
 }
 \value{
 a tibble with the following variables:
@@ -61,20 +45,6 @@ no need to call it again before calling this function.
 # return only the parsed tibble
 run_all_parsers()
 
-# save parsed tibble as csv if it does not exist in current location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE)
-
-# save parsed tibble as csv if it does not exist in given location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE)
-
-# save parsed tibble as csv if it does not exist in current location and
-# return parsed tibble.
-# if the csv exist override it and return it.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{

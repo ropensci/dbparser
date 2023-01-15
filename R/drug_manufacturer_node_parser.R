@@ -33,7 +33,7 @@ ManufacturersParser <- R6::R6Class(
 #' of this drug that are available in Canada and the Unites States.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -47,15 +47,8 @@ ManufacturersParser <- R6::R6Class(
 #' @inherit run_all_parsers examples
 #' @export
 
-drug_manufacturers <- function(save_table = FALSE,
-                               save_csv = FALSE,
-                               csv_path = ".",
-                               override_csv = FALSE) {
+drug_manufacturers <- function() {
   ManufacturersParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "drug_manufacturers"
   )$parse()
 }

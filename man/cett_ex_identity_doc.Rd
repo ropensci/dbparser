@@ -9,44 +9,13 @@
 \title{Carriers/ Enzymes/ Targets/ Transporters Polypeptide External Identifiers
 parsers}
 \usage{
-carriers_polypep_ex_ident(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
+carriers_polypep_ex_ident()
 
-enzymes_polypep_ex_ident(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
+enzymes_polypep_ex_ident()
 
-targets_polypep_ex_ident(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
+targets_polypep_ex_ident()
 
-transporters_polypep_ex_ident(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
-}
-\arguments{
-\item{save_table}{boolean, save table in database if true.}
-
-\item{save_csv}{boolean, save csv version of parsed tibble if true}
-
-\item{csv_path}{location to save csv files into it, default is current
-location, save_csv must be true}
-
-\item{override_csv}{override existing csv, if any, in case it is true in the
-new parse operation}
+transporters_polypep_ex_ident()
 }
 \value{
 a tibble with 3 variables:
@@ -75,20 +44,6 @@ no need to call it again before calling this function.
 # return only the parsed tibble
 run_all_parsers()
 
-# save parsed tibble as csv if it does not exist in current location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE)
-
-# save parsed tibble as csv if it does not exist in given location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE)
-
-# save parsed tibble as csv if it does not exist in current location and
-# return parsed tibble.
-# if the csv exist override it and return it.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
 }
 }
 \seealso{

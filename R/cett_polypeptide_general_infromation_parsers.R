@@ -59,7 +59,6 @@ CETTPolyGeneralInfoParser <-
 #'  or transporters.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 20 variables:
 #' \describe{
@@ -102,60 +101,32 @@ NULL
 
 #' @rdname cett_poly_doc
 #' @export
-carriers_polypeptides <- function(save_table = FALSE,
-                                  save_csv = FALSE,
-                                  csv_path = ".",
-                                  override_csv = FALSE) {
+carriers_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "carriers_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
 #' @export
-enzymes_polypeptides <- function(save_table = FALSE,
-                                 save_csv = FALSE,
-                                 csv_path = ".",
-                                 override_csv = FALSE) {
+enzymes_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "enzymes_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
 #' @export
-targets_polypeptides <- function(save_table = FALSE,
-                                 save_csv = FALSE,
-                                 csv_path = ".",
-                                 override_csv = FALSE) {
+targets_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "targets_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
 #' @export
-transporters_polypeptides <- function(save_table = FALSE,
-                                      save_csv = FALSE,
-                                      csv_path = ".",
-                                      override_csv = FALSE) {
+transporters_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "transporters_polypeptides"
   )$parse()
 }

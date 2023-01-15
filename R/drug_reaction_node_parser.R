@@ -55,7 +55,7 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'   the biochemical reactions.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 5 variables:
 #' \describe{
@@ -71,18 +71,8 @@ ReactionsEnzymesParser <- R6::R6Class(
 #' @family drugs
 #' @inherit run_all_parsers examples
 #' @export
-drug_reactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    ReactionsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      "drug_reactions"
-    )$parse()
+drug_reactions <- function() {
+    ReactionsParser$new("drug_reactions")$parse()
   }
 
 #' Drug Reactions Enzymes Parsers
@@ -90,7 +80,7 @@ drug_reactions <-
 #' EEnzymes involved in metabolizing this drug
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -101,16 +91,6 @@ drug_reactions <-
 #' @family drugs
 #' @inherit run_all_parsers examples
 #' @export
-drug_reactions_enzymes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    ReactionsEnzymesParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      "drug_reactions_enzymes"
-    )$parse()
+drug_reactions_enzymes <- function() {
+    ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
   }

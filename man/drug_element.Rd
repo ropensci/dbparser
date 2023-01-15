@@ -4,27 +4,11 @@
 \alias{drug_element}
 \title{extracts the given drug elements and return data as list of tibbles.}
 \usage{
-drug_element(
-  elements_options = c("all"),
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE
-)
+drug_element(elements_options = c("all"))
 }
 \arguments{
 \item{elements_options}{list,  options of elements to be parsed. default is
 "all"}
-
-\item{save_table}{boolean, save table in database if true.}
-
-\item{save_csv}{boolean, save csv version of parsed tibble if true}
-
-\item{csv_path}{location to save csv files into it, default is current
-location, save_csv must be true}
-
-\item{override_csv}{override existing csv, if any, in case it is true in the
-new parse operation}
 }
 \value{
 list of selected drug elements tibbles
@@ -46,24 +30,6 @@ this method
 \dontrun{
 # return only the parsed tibble
 drug_element()
-
-# save parsed tibble as csv if it does not exist in current location and
-# return parsed tibble.
-# if the csv exist before read it and return its data.
-drug_element(save_csv = TRUE)
-
-
-# save parsed tibble as csv if it does not exist in given location and
-# return parsed tibble.
-# if the csv exist before read it and return its data.
-drug_element(save_csv = TRUE, csv_path = TRUE)
-
-# save parsed tibble as csv if it does not exist in current
-# location and return parsed tibble.
-# if the csv exist override it and return it.
-drug_element(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-drug_element(c("drug_ahfs_codes", "drug_carriers"), save_table = TRUE)
-drug_element(save_table = FALSE)
 drug_element(c("drug_ahfs_codes", "drug_carriers"))
 }
 }

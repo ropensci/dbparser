@@ -47,7 +47,6 @@ CETTGeneralInformationParser <-
 #' movement of the drug across biological membranes.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 6 variables (8 for enzymes):
 #' \describe{
@@ -70,56 +69,28 @@ NULL
 
 #' @rdname cett_doc
 #' @export
-carriers <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     "carriers")$parse()
+carriers <- function() {
+    CETTGeneralInformationParser$new("carriers")$parse()
   }
+
 
 #' @rdname cett_doc
 #' @export
-enzymes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     "enzymes")$parse()
+enzymes <- function() {
+    CETTGeneralInformationParser$new("enzymes")$parse()
   }
+
 
 #' @rdname cett_doc
 #' @export
-targets <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     "targets")$parse()
-  }
+targets <- function() {
+    CETTGeneralInformationParser$new("targets")$parse()
+}
+
 
 #' @rdname cett_doc
 #' @export
-transporters <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
+transporters <- function() {
+    CETTGeneralInformationParser$new(
                                      "transporters")$parse()
-  }
+}

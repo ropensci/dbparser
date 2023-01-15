@@ -34,7 +34,7 @@ PharmacologyParser <- R6::R6Class(
 #'  and physiological or biochemical effects in the body.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -88,16 +88,6 @@ PharmacologyParser <- R6::R6Class(
 #' @inherit run_all_parsers examples
 #' @export
 
-drug_pharmacology <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
-    PharmacologyParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      "drugs_pharmacology"
-    )$parse()
+drug_pharmacology <- function() {
+    PharmacologyParser$new("drugs_pharmacology")$parse()
   }

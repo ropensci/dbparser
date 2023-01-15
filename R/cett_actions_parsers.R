@@ -27,7 +27,6 @@ CETTActionsParser <-
 #' Collection of related actions
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 2 variables:
 #' \describe{
@@ -41,60 +40,32 @@ NULL
 
 #' @rdname cett_actions_doc
 #' @export
-carriers_actions <- function(save_table = FALSE,
-                             save_csv = FALSE,
-                             csv_path = ".",
-                             override_csv = FALSE) {
+carriers_actions <- function() {
   CETTActionsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "carriers_actions"
   )$parse()
 }
 
 #' @rdname cett_actions_doc
 #' @export
-enzymes_actions <- function(save_table = FALSE,
-                            save_csv = FALSE,
-                            csv_path = ".",
-                            override_csv = FALSE) {
+enzymes_actions <- function() {
   CETTActionsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "enzymes_actions"
   )$parse()
 }
 
 #' @rdname cett_actions_doc
 #' @export
-targets_actions <- function(save_table = FALSE,
-                            save_csv = FALSE,
-                            csv_path = ".",
-                            override_csv = FALSE) {
+targets_actions <- function() {
   CETTActionsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "targets_actions"
   )$parse()
 }
 
 #' @rdname cett_actions_doc
 #' @export
-transporters_actions <- function(save_table = FALSE,
-                            save_csv = FALSE,
-                            csv_path = ".",
-                            override_csv = FALSE) {
+transporters_actions <- function() {
   CETTActionsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
     "transporters_actions"
   )$parse()
 }

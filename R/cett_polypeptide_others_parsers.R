@@ -28,7 +28,7 @@ CETTPolyOtherParser <-
 #'  carriers, or transporters.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -48,7 +48,7 @@ NULL
 #' targets, enzymes, carriers, or transporters.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -68,7 +68,7 @@ NULL
 #'  enzymes, carriers, or transporters.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -87,7 +87,7 @@ NULL
 #'  enzymes, carriers, or transporters.
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 2 variables:
 #' \describe{
@@ -101,16 +101,8 @@ NULL
 
 #' @rdname cett_poly_pfms_doc
 #' @export
-carriers_polypeptides_pfams <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "carriers_polypeptides_pfams",
       "pfams"
     )$parse()
@@ -118,16 +110,8 @@ carriers_polypeptides_pfams <-
 
 #' @rdname cett_poly_pfms_doc
 #' @export
-enzymes_polypeptides_pfams <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+enzymes_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "enzymes_polypeptides_pfams",
       "pfams"
     )$parse()
@@ -135,16 +119,8 @@ enzymes_polypeptides_pfams <-
 
 #' @rdname cett_poly_pfms_doc
 #' @export
-targets_polypeptides_pfams <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+targets_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "targets_polypeptides_pfams",
       "pfams"
     )$parse()
@@ -152,16 +128,8 @@ targets_polypeptides_pfams <-
 
 #' @rdname cett_poly_pfms_doc
 #' @export
-transporters_polypeptides_pfams <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "transporters_polypeptides_pfams",
       "pfams"
     )$parse()
@@ -170,15 +138,8 @@ transporters_polypeptides_pfams <-
 #' @rdname cett_ex_identity_doc
 #' @export
 carriers_polypep_ex_ident <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+  function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "carriers_polypeptides_ext_id",
       "external-identifiers"
     )$parse()
@@ -186,16 +147,8 @@ carriers_polypep_ex_ident <-
 
 #' @rdname cett_ex_identity_doc
 #' @export
-enzymes_polypep_ex_ident <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+enzymes_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "enzymes_polypeptides_ext_id",
       "external-identifiers"
     )$parse()
@@ -203,16 +156,8 @@ enzymes_polypep_ex_ident <-
 
 #' @rdname cett_ex_identity_doc
 #' @export
-targets_polypep_ex_ident <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+targets_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "targets_polypeptides_ext_id",
       "external-identifiers"
     )$parse()
@@ -220,16 +165,8 @@ targets_polypep_ex_ident <-
 
 #' @rdname cett_ex_identity_doc
 #' @export
-transporters_polypep_ex_ident <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "transporters_polypeptides_ext_id",
       "external-identifiers"
     )$parse()
@@ -237,16 +174,8 @@ transporters_polypep_ex_ident <-
 
 #' @rdname cett_go_doc
 #' @export
-carriers_polypeptides_go <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "carriers_polypeptides_go",
       "go-classifiers"
     )$parse()
@@ -254,16 +183,8 @@ carriers_polypeptides_go <-
 
 #' @rdname cett_go_doc
 #' @export
-enzymes_polypeptides_go <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+enzymes_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "enzymes_polypeptides_go",
       "go-classifiers"
     )$parse()
@@ -271,16 +192,8 @@ enzymes_polypeptides_go <-
 
 #' @rdname cett_go_doc
 #' @export
-targets_polypeptides_go <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+targets_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "targets_polypeptides_go",
       "go-classifiers"
     )$parse()
@@ -288,16 +201,8 @@ targets_polypeptides_go <-
 
 #' @rdname cett_go_doc
 #' @export
-transporters_polypeptides_go <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "transporters_polypeptides_go",
       "go-classifiers"
     )$parse()
@@ -305,16 +210,8 @@ transporters_polypeptides_go <-
 
 #' @rdname cett_poly_syn_doc
 #' @export
-carriers_polypeptides_syn <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+carriers_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "carriers_polypeptides_syn",
       "synonyms"
     )$parse()
@@ -328,16 +225,8 @@ carriers_polypeptides_syn <-
 
 #' @rdname cett_poly_syn_doc
 #' @export
-enzymes_polypeptides_syn <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+enzymes_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "enzymes_polypeptides_syn",
       "synonyms"
     )$parse()
@@ -351,16 +240,8 @@ enzymes_polypeptides_syn <-
 
 #' @rdname cett_poly_syn_doc
 #' @export
-targets_polypeptides_syn <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+targets_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "targets_polypeptides_syn",
       "synonyms"
     )$parse()
@@ -374,16 +255,8 @@ targets_polypeptides_syn <-
 
 #' @rdname cett_poly_syn_doc
 #' @export
-transporters_polypeptides_syn <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE) {
+transporters_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
       "transporters_polypeptides_syn",
       "synonyms"
     )$parse()

@@ -33,7 +33,7 @@ PricesParser <- R6::R6Class(
 #' Unit drug prices
 #'
 #' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' 
 #'
 #' @return a tibble with 5 variables:
 #' \describe{
@@ -46,13 +46,6 @@ PricesParser <- R6::R6Class(
 #' @family drugs
 #' @inherit run_all_parsers examples
 #' @export
-drug_prices <- function(save_table = FALSE, save_csv = FALSE,
-                              csv_path = ".", override_csv = FALSE) {
-  PricesParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    "drug_prices"
-  )$parse()
+drug_prices <- function() {
+  PricesParser$new("drug_prices")$parse()
 }

@@ -8,8 +8,7 @@ Authors@R:
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = "rev"),
     person("Emma", "Mendelsohn", email = "", role = "rev"))
 Description: This tool is for parsing the 'DrugBank' XML database <https://www.drugbank.ca/>. The parsed 
-    data are then returned in a proper 'R' dataframe with the ability to save 
-    them in a given database.
+    data are then returned in a proper 'R' dataframe.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
@@ -17,7 +16,6 @@ Imports:
     dplyr,
     progress,
     purrr,
-    readr,
     tibble,
     tools,
     XML

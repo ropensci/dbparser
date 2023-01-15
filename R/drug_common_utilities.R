@@ -3,18 +3,6 @@ pkg_env$version <- NULL
 pkg_env$exported_date <- NULL
 pkg_env$root <- NULL
 
-get_dataset_full_path <- function(data, csv_path = ".") {
-  return(ifelse(csv_path == ".", file.path(getwd(), paste0(data, ".csv")),
-    file.path(csv_path, paste0(data, ".csv"))
-  ))
-}
-
-write_csv <- function(data, save_csv = FALSE, csv_path = ".", tibble_name) {
-  if (save_csv) {
-    path <- get_dataset_full_path(tibble_name, csv_path)
-    readr::write_csv(data, path)
-  }
-}
 
 drug_sub_df <-
   function(rec,
