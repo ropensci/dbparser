@@ -37,7 +37,6 @@ AbstractParser <- R6::R6Class(
         } else {
           parsed_tbl <- private$parse_record()
         }
-        private$save_csv_file(parsed_tbl)
         as_tibble(parsed_tbl)
       }
     ),
@@ -53,12 +52,6 @@ AbstractParser <- R6::R6Class(
       id = NULL,
       parse_record = function() {
         message("I am the abstract parser, please use proper parser")
-      },
-      save_csv_file = function(parsed_tbl) {
-        parsed_tbl <- parsed_tbl %>% unique()
-        readr::locale(encoding = "ASCII")
-        write_csv(parsed_tbl, private$save_csv, private$csv_path,
-                  private$tibble_name)
       }
     )
   )
