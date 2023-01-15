@@ -44,14 +44,12 @@ NULL
 carriers_actions <- function(save_table = FALSE,
                              save_csv = FALSE,
                              csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL) {
+                             override_csv = FALSE) {
   CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "carriers_actions"
   )$parse()
 }
@@ -61,14 +59,12 @@ carriers_actions <- function(save_table = FALSE,
 enzymes_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
-                            override_csv = FALSE,
-                            database_connection = NULL) {
+                            override_csv = FALSE) {
   CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "enzymes_actions"
   )$parse()
 }
@@ -78,14 +74,12 @@ enzymes_actions <- function(save_table = FALSE,
 targets_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
-                            override_csv = FALSE,
-                            database_connection = NULL) {
+                            override_csv = FALSE) {
   CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "targets_actions"
   )$parse()
 }
@@ -95,14 +89,12 @@ targets_actions <- function(save_table = FALSE,
 transporters_actions <- function(save_table = FALSE,
                             save_csv = FALSE,
                             csv_path = ".",
-                            override_csv = FALSE,
-                            database_connection = NULL) {
+                            override_csv = FALSE) {
   CETTActionsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "transporters_actions"
   )$parse()
 }

@@ -50,14 +50,12 @@ SequencesParser <- R6::R6Class(
 #' @inherit run_all_parsers examples
 #' @export
 drug_sequences <- function(save_table = FALSE, save_csv = FALSE,
-                                 csv_path = ".", override_csv = FALSE,
-                           database_connection = NULL) {
+                                 csv_path = ".", override_csv = FALSE) {
   SequencesParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "drug_sequences"
   )$parse()
 }

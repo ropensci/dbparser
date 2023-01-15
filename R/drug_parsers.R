@@ -48,14 +48,12 @@ drug_groups <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_groups",
       main_node = "groups"
     )$parse()
@@ -133,14 +131,12 @@ drug_products <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_products",
       main_node = "products"
     )$parse()
@@ -171,14 +167,12 @@ drug_products <-
 drug_calc_prop <- function(save_table = FALSE,
                            save_csv = FALSE,
                            csv_path = ".",
-                           override_csv = FALSE,
-                           database_connection = NULL) {
+                           override_csv = FALSE) {
   DrugElementsParser$new(
     save_table,
     save_csv,
     csv_path,
     override_csv,
-    database_connection,
     "drug_calculated_properties",
     main_node = "calculated-properties"
   )$parse()
@@ -208,14 +202,12 @@ drug_intern_brand <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_international_brands",
       main_node = "international-brands"
     )$parse()
@@ -260,14 +252,12 @@ drug_salts <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_salts",
       main_node = "salts"
     )$parse()
@@ -299,14 +289,12 @@ drug_mixtures <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_mixtures",
       main_node = "mixtures"
     )$parse()
@@ -334,14 +322,12 @@ drug_packagers <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_packagers",
       main_node = "packagers"
     )$parse()
@@ -370,14 +356,12 @@ drug_categories <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_categories",
       main_node = "categories"
     )$parse()
@@ -404,14 +388,12 @@ drug_affected_organisms <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_affected_organisms",
       main_node = "affected-organisms"
     )$parse()
@@ -440,14 +422,12 @@ drug_dosages <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_dosages",
       main_node = "dosages"
     )$parse()
@@ -474,14 +454,12 @@ drug_ahfs_codes <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_ahfs_codes",
       main_node = "ahfs-codes"
     )$parse()
@@ -507,14 +485,12 @@ drug_pdb_entries <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_pdb_entries",
       main_node = "pdb-entries"
     )$parse()
@@ -548,14 +524,12 @@ drug_patents <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_patents",
       main_node = "patents"
     )$parse()
@@ -581,14 +555,12 @@ drug_food_interactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_food_interactions",
       main_node = "food-interactions"
     )$parse()
@@ -620,14 +592,12 @@ drug_interactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_drug_interactions",
       main_node = "drug-interactions"
     )$parse()
@@ -686,14 +656,12 @@ drug_exp_prop <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_experimental_properties",
       main_node = "experimental-properties"
     )$parse()
@@ -721,14 +689,12 @@ drug_ex_identity <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_external_identifiers",
       main_node = "external-identifiers"
     )$parse()
@@ -755,14 +721,12 @@ drug_external_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_external_links",
       main_node = "external-links"
     )$parse()
@@ -800,14 +764,12 @@ drug_snp_effects <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_snp_effects",
       main_node = "snp-effects"
     )$parse()
@@ -843,14 +805,12 @@ drug_snp_adverse_reactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugElementsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "snp_adverse_reactions",
       main_node = "snp-adverse-drug-reactions"
     )$parse()

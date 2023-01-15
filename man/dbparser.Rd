@@ -10,8 +10,7 @@ The main purpose of the `dbparser` package is to parse
 from [this link](https://www.DrugBank.ca/releases/latest).
 }
 \details{
-The parsed data can then be explored and analyzed as desired by the user
- with the ability to save parsed data into desired database as well.
+The parsed data can then be explored and analyzed.
 
 
 To achieve this purpose, `dbparser`` package provides three main categories
@@ -20,8 +19,6 @@ To achieve this purpose, `dbparser`` package provides three main categories
 - xml db reader,
 
 - \strong{DrugBank} elements parsers,
-
-- and database related methods.
 
 For more information kindly check the
 reference/index (https://docs.ropensci.org/dbparser/reference/index.html)
@@ -35,19 +32,10 @@ reference/index (https://docs.ropensci.org/dbparser/reference/index.html)
 \section{parsers functions}{
 
  Each parser function is responsible of parsing certain drug element and
- returning its tibble with the ability to save it in a predefined database.
+ returning its tibble.
 
  Check this tutorial
  (https://docs.ropensci.org/dbparser/articles/dbparser.html)
-}
-
-\section{database functions}{
-
- To open a connection to given database in order to store parsed
- \strong{DrugBank} elements database.
-
- Check this tutorial
- (https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
 }
 
 \keyword{internal}

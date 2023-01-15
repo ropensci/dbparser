@@ -22,16 +22,6 @@ DrugSynonymsParser <- R6::R6Class(
         coder = xmlGetAttr(rec,
                            name = "coder")
       )
-    },
-    save_db_table = function(parsed_tbl) {
-      if (private$save_table) {
-        save_drug_sub(
-          con = private$database_connection,
-          df = parsed_tbl,
-          table_name = "drug_syn",
-          field_types = list(synonym = "varchar(534)")
-        )
-      }
     }
   )
 )
@@ -60,14 +50,12 @@ drug_syn <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     DrugSynonymsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_syn",
     )$parse()
   }

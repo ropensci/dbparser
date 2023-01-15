@@ -32,23 +32,6 @@ ReferenceParser <-
                         private$secondary_node,
                         "id")
         ))
-      },
-      save_db_table = function(parsed_tbl) {
-        if (private$save_table) {
-          if ("title" %in% colnames(parsed_tbl)) {
-            field.type = list(title = paste0("varchar(",
-                                             max(nchar(parsed_tbl$title)) +
-                                               10, ")"))
-            save_drug_sub(
-              con = private$database_connection,
-              df = parsed_tbl,
-              table_name = private$tibble_name,
-              field_types = field.type)
-          } else {
-            super$save_db_table(parsed_tbl)
-          }
-
-        }
       }
     )
   )
@@ -147,14 +130,12 @@ drugs_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drugs_textbooks",
       main_node = "general-references",
       secondary_node = "textbooks",
@@ -168,14 +149,12 @@ carriers_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_carriers_textbooks",
       object_node = "carriers",
       main_node = "references",
@@ -189,14 +168,12 @@ carriers_textbooks <-
 enzymes_textbooks <- function(save_table = FALSE,
                               save_csv = FALSE,
                               csv_path = ".",
-                              override_csv = FALSE,
-                              database_connection = NULL) {
+                              override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_enzymes_textbooks",
     object_node = "enzymes",
     main_node = "references",
@@ -210,14 +187,12 @@ enzymes_textbooks <- function(save_table = FALSE,
 targets_textbooks <- function(save_table = FALSE,
                               save_csv = FALSE,
                               csv_path = ".",
-                              override_csv = FALSE,
-                              database_connection = NULL) {
+                              override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_targ_textbooks",
     object_node = "targets",
     main_node = "references",
@@ -232,14 +207,12 @@ transporters_textbooks <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_trans_textbooks",
       object_node = "transporters",
       main_node = "references",
@@ -254,14 +227,12 @@ drugs_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drugs_links",
       main_node = "general-references",
       secondary_node = "links",
@@ -275,14 +246,12 @@ carriers_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_carriers_links",
       object_node = "carriers",
       main_node = "references",
@@ -296,14 +265,12 @@ carriers_links <-
 enzymes_links <- function(save_table = FALSE,
                           save_csv = FALSE,
                           csv_path = ".",
-                          override_csv = FALSE,
-                          database_connection = NULL) {
+                          override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_enzymes_links",
     object_node = "enzymes",
     main_node = "references",
@@ -317,14 +284,12 @@ enzymes_links <- function(save_table = FALSE,
 targets_links <- function(save_table = FALSE,
                           save_csv = FALSE,
                           csv_path = ".",
-                          override_csv = FALSE,
-                          database_connection = NULL) {
+                          override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_targ_links",
     object_node = "targets",
     main_node = "references",
@@ -339,14 +304,12 @@ transporters_links <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_trans_links",
       object_node = "transporters",
       main_node = "references",
@@ -361,14 +324,12 @@ drugs_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drugs_articles",
       main_node = "general-references",
       secondary_node = "articles",
@@ -382,14 +343,12 @@ carriers_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_carriers_articles",
       object_node = "carriers",
       main_node = "references",
@@ -403,14 +362,12 @@ carriers_articles <-
 enzymes_articles <- function(save_table = FALSE,
                              save_csv = FALSE,
                              csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL) {
+                             override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_enzymes_articles",
     object_node = "enzymes",
     main_node = "references",
@@ -424,14 +381,12 @@ enzymes_articles <- function(save_table = FALSE,
 targets_articles <- function(save_table = FALSE,
                              save_csv = FALSE,
                              csv_path = ".",
-                             override_csv = FALSE,
-                             database_connection = NULL) {
+                             override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_targ_articles",
     object_node = "targets",
     main_node = "references",
@@ -446,14 +401,12 @@ transporters_articles <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_trans_articles",
       object_node = "transporters",
       main_node = "references",
@@ -467,14 +420,12 @@ drugs_attachments <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drugs_attachments",
       main_node = "general-references",
       secondary_node = "attachments",
@@ -488,14 +439,12 @@ carriers_attachments <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_carriers_attachments",
       object_node = "carriers",
       main_node = "references",
@@ -509,14 +458,12 @@ carriers_attachments <-
 enzymes_attachments <- function(save_table = FALSE,
                                 save_csv = FALSE,
                                 csv_path = ".",
-                                override_csv = FALSE,
-                                database_connection = NULL) {
+                                override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_enzymes_attachments",
     object_node = "enzymes",
     main_node = "references",
@@ -530,14 +477,12 @@ enzymes_attachments <- function(save_table = FALSE,
 targets_attachments <- function(save_table = FALSE,
                                 save_csv = FALSE,
                                 csv_path = ".",
-                                override_csv = FALSE,
-                                database_connection = NULL) {
+                                override_csv = FALSE) {
   ReferenceParser$new(
     save_table = save_table,
     save_csv = save_csv,
     csv_path = csv_path,
     override_csv = override_csv,
-    database_connection = database_connection,
     tibble_name = "drug_targ_attachments",
     object_node = "targets",
     main_node = "references",
@@ -552,14 +497,12 @@ transporters_attachments <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReferenceParser$new(
       save_table = save_table,
       save_csv = save_csv,
       csv_path = csv_path,
       override_csv = override_csv,
-      database_connection = database_connection,
       tibble_name = "drug_trans_attachments",
       object_node = "transporters",
       main_node = "references",

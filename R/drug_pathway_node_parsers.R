@@ -71,14 +71,12 @@ drug_pathway_enzyme <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     PathwaySubNodesParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       tibble_name = "drug_pathway_enzymes",
       object_node = "pathways",
       main_node = "enzymes",
@@ -102,14 +100,12 @@ drug_pathway_drugs <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     PathwaySubNodesParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       tibble_name = "drug_pathway_drugs",
       object_node = "pathways",
       main_node = "drugs",
@@ -141,12 +137,10 @@ drug_pathway <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     PathwayParser$new(save_table,
                       save_csv,
                       csv_path,
                       override_csv,
-                      database_connection,
                       "drug_pathway")$parse()
   }

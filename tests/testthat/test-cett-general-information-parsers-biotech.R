@@ -4,7 +4,6 @@ library(testthat)
 library(XML)
 library(tibble)
 library(purrr)
-database_connection <- dbConnect(RSQLite::SQLite(), ":memory:")
 
 biotech <- "drugbank_record_biotech.xml"
 test_that(
@@ -24,7 +23,6 @@ test_that(
       0
     )
     expect_true(is_tibble(carriers()))
-    expect_error(carriers(TRUE))
   }
 )
 
@@ -36,7 +34,6 @@ test_that(
       0
     )
     expect_true(is_tibble(enzymes()))
-    expect_error(enzymes(TRUE))
   }
 )
 
@@ -48,7 +45,6 @@ test_that(
       "Prothrombin"
     )
     expect_true(is_tibble(targets()))
-    expect_error(targets(TRUE))
   }
 )
 
@@ -62,8 +58,5 @@ test_that(
       0
     )
     expect_true(is_tibble(transporters()))
-    expect_error(transporters(TRUE))
   }
 )
-
-dbDisconnect(database_connection)

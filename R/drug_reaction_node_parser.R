@@ -75,14 +75,12 @@ drug_reactions <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReactionsParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_reactions"
     )$parse()
   }
@@ -107,14 +105,12 @@ drug_reactions_enzymes <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ReactionsEnzymesParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_reactions_enzymes"
     )$parse()
   }

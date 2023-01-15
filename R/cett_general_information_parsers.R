@@ -74,13 +74,11 @@ carriers <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     CETTGeneralInformationParser$new(save_table,
                                      save_csv,
                                      csv_path,
                                      override_csv,
-                                     database_connection,
                                      "carriers")$parse()
   }
 
@@ -90,13 +88,11 @@ enzymes <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     CETTGeneralInformationParser$new(save_table,
                                      save_csv,
                                      csv_path,
                                      override_csv,
-                                     database_connection,
                                      "enzymes")$parse()
   }
 
@@ -106,13 +102,11 @@ targets <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     CETTGeneralInformationParser$new(save_table,
                                      save_csv,
                                      csv_path,
                                      override_csv,
-                                     database_connection,
                                      "targets")$parse()
   }
 
@@ -122,12 +116,10 @@ transporters <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     CETTGeneralInformationParser$new(save_table,
                                      save_csv,
                                      csv_path,
                                      override_csv,
-                                     database_connection,
                                      "transporters")$parse()
   }

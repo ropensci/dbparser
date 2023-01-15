@@ -32,38 +32,6 @@ ClassificationParser <- R6::R6Class(
         drugbank_id = xmlValue(rec[["drugbank-id"]])
 
       )
-    },
-    save_db_table = function(parsed_tbl) {
-      if (private$save_table) {
-        save_drug_sub(
-          con = private$database_connection,
-          df = parsed_tbl,
-          table_name = "drug_classifications",
-          field_types = list(
-            description = "varchar(MAX)",
-            direct_parent = paste0("varchar(", max(
-              nchar(parsed_tbl$direct_parent), na.rm = TRUE
-            ), ")"),
-            kingdom = paste0("varchar(", max(
-              nchar(parsed_tbl$kingdom), na.rm = TRUE
-            ), ")"),
-            superclass = paste0("varchar(", max(
-              nchar(parsed_tbl$superclass), na.rm = TRUE
-            ), ")"),
-            class = paste0("varchar(", max(
-              nchar(parsed_tbl$class), na.rm = TRUE
-            ), ")"),
-            subclass = paste0("varchar(", max(
-              nchar(parsed_tbl$subclass), na.rm = TRUE
-            ), ")"),
-            drugbank_id = paste0("varchar(", max(
-              nchar(parsed_tbl$drugbank_id), na.rm = TRUE
-            ), ")"),
-            substituents = "varchar(MAX)",
-            alternative_parents = "varchar(MAX)"
-          )
-        )
-      }
     }
   )
 )
@@ -96,14 +64,12 @@ drug_classification <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     ClassificationParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drug_classifications"
     )$parse()
   }

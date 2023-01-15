@@ -17,14 +17,6 @@ test_that(
     expect_error(read_drugbank_xml_db("drugbank_record"))
   }
 )
-#
-# library(dbparser)
-# test_that(
-#   desc = "Parse Empty Data Set",
-#   code = {
-#     expect_error(run_all_parsers())
-#   }
-# )
 
 biotech <- "drugbank_record_biotech.xml"
 test_that(
@@ -52,8 +44,6 @@ test_that(
   code = {
     expect_equal(length(drug_element()), 81)
     expect_equal(length(drug_element(c("all"))), 81)
-    expect_error(drug_element(save_table = TRUE))
-    expect_error(drug_element(c("all"), save_table = TRUE))
     expect_error(drug_element(c("notvalid")))
     expect_error(drug_element(c("drug_ahfs_codes", "notvalid")))
     expect_equal(length(drug_element_options()), 83)
@@ -66,14 +56,3 @@ test_that(
     )), 3)
   }
 )
-
-database_connection <- DBI::dbConnect(RSQLite::SQLite(), ":memory:")
-run_all_parsers(save_table = TRUE, database_connection = database_connection)
-test_that(
-  desc = "Test saving database tables",
-  code = {
-    expect_equal(length(DBI::dbListTables(database_connection)), 33)
-  }
-)
-
-DBI::dbDisconnect(database_connection)

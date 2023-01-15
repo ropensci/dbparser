@@ -24,53 +24,6 @@ PharmacologyParser <- R6::R6Class(
         volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
         clearance = xmlValue(drug[["clearance"]])
       )
-    },
-    save_db_table = function(parsed_tbl) {
-      if (private$save_table) {
-        drugs_pharmacology <- parsed_tbl
-        save_drug_sub(
-          con = private$database_connection,
-          df = drugs_pharmacology,
-          table_name = "drug_pharmacology",
-          primary_key = "drugbank_id",
-          foreign_key = NULL,
-          field_types = list(
-            drugbank_id = paste0("varchar(", max(
-              nchar(drugs_pharmacology$drugbank_id)
-            ), ")"),
-            mechanism_of_action = "varchar(MAX)",
-            pharmacodynamics = "varchar(MAX)",
-            indication = paste0("varchar(", max(
-              nchar(drugs_pharmacology$indication), na.rm = TRUE
-            ) + 10, ")"),
-            absorption = paste0("varchar(", max(
-              nchar(drugs_pharmacology$absorption), na.rm = TRUE
-            ) + 10, ")"),
-            route_of_elimination = paste0("varchar(", max(
-              nchar(drugs_pharmacology$route_of_elimination),
-              na.rm = TRUE
-            ) + 10, ")"),
-            metabolism = paste0("varchar(", max(
-              nchar(drugs_pharmacology$metabolism), na.rm = TRUE
-            ) + 10, ")"),
-            clearance = paste0("varchar(", max(
-              nchar(drugs_pharmacology$clearance), na.rm = TRUE
-            ) + 10, ")"),
-            half_life = paste0("varchar(", max(
-              nchar(drugs_pharmacology$half_life), na.rm = TRUE
-            ) + 10, ")"),
-            volume_of_distribution = paste0("varchar(", max(
-              nchar(drugs_pharmacology$volume_of_distribution),
-              na.rm = TRUE
-            ) + 10, ")"),
-            protein_binding = paste0("varchar(", max(
-              nchar(drugs_pharmacology$protein_binding),
-              na.rm = TRUE
-            ) + 10, ")"),
-            toxicity = "varchar(MAX)"
-          )
-        )
-      }
     }
   )
 )
@@ -139,14 +92,12 @@ drug_pharmacology <-
   function(save_table = FALSE,
            save_csv = FALSE,
            csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+           override_csv = FALSE) {
     PharmacologyParser$new(
       save_table,
       save_csv,
       csv_path,
       override_csv,
-      database_connection,
       "drugs_pharmacology"
     )$parse()
   }

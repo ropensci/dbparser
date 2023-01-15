@@ -24,7 +24,6 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_reactions()))
-    expect_error(drug_reactions(TRUE))
   }
 )
 
@@ -36,6 +35,5 @@ test_that(
       0
     )
     expect_true(is_tibble(drug_reactions_enzymes()))
-    expect_error(drug_reactions_enzymes(TRUE))
   }
 )
