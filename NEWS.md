@@ -2,6 +2,7 @@
 
 ## Minor Fixes
 * Removed RMariaDB dependency (#129)
+* Fix pkgdown configuration for reference (#136)
 
 # dbparser 1.2.0
 
