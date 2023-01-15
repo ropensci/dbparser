@@ -55,7 +55,7 @@ contains the DrugBank database already parsed into `R` tibbles. Note
 that this is a large package that exceeds the limit set by CRAN. It is
 only available on GitHub.
 
-`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.6*
+`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.7*
 successfully. If you find errors with these versions or any other
 version please submit an issue
 [here](https://github.com/ropensci/dbparser/issues).
