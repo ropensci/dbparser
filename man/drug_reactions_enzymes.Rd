@@ -17,15 +17,6 @@ a tibble with 3 variables:
 \description{
 EEnzymes involved in metabolizing this drug
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

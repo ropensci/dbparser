@@ -18,15 +18,6 @@ Each `atc-code`` row has one or more level. The atc-code and level>
 have a code  the code assigned by the World Health Organization Anatomical
 Therapeutic Chemical Classification system.
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

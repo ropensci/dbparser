@@ -36,9 +36,6 @@ SequencesParser <- R6::R6Class(
 #'
 #' Describes peptide sequences of biotech drugs
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{sequence}{a textual representation of the sequence}

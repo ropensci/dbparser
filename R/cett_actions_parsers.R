@@ -26,8 +26,6 @@ CETTActionsParser <-
 #'
 #' Collection of related actions
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
 #' @return a tibble with 2 variables:
 #' \describe{
 #'   \item{action}{describe related action}

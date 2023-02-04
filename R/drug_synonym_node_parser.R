@@ -30,9 +30,6 @@ DrugSynonymsParser <- R6::R6Class(
 #'
 #' Other names or identifiers that are associated with this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with 3 variables:
 #' \describe{
 #'  \item{language}{Names of the drug in languages other than English.}

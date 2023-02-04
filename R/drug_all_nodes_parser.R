@@ -3,12 +3,6 @@
 #' this functions extracts all element of drug nodes in \strong{DrugBank}
 #' xml database.
 #'
-#' @section read_drugbank_xml_db:
-#' \code{\link{read_drugbank_xml_db}} function must be called first before any
-#' parser.
-#'
-#' If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
 #' @return all drug elements tibbles
 #' @family common
 #' @examples
@@ -30,11 +24,6 @@ run_all_parsers <- function() {
 #'
 #' \code{drug_element} returns list of tibbles of drugs selected
 #' elements.
-#'
-#' it must be called after \code{\link{read_drugbank_xml_db}} function like
-#' any other parser function.
-#' if \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-#' no need to call it again before calling this function.
 #'
 #' drug_element_options can be called to know the valid options for
 #' this method
@@ -260,8 +249,6 @@ drug_element_options <- function() {
 #'
 #' Run all parsers that retrieve drugs related information
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
 #'
 #' @return a list of all drugs parsed tibbles
 #'
@@ -414,9 +401,6 @@ drugs <- function() {
 #' Return a list of all references for drugs, carriers, enzymes, targets or
 #' transporters
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
-#'
 #' @family references
 #'
 #' @inherit run_all_parsers examples
@@ -519,9 +503,6 @@ references <- function() {
 #'
 #' Run all parsers that retrieve carriers, enzymes, targets and transporters
 #'  related information
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
 #'
 #' @return  a list of all drugs parsed tibbles
 #'

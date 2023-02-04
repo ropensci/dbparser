@@ -22,15 +22,6 @@ with the drug of interest, will affect its activity or result in adverse
 effects. These interactions may be synergistic or antagonistic depending on
 the physiological effects and mechanism of action of each drug.
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

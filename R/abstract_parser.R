@@ -6,8 +6,6 @@ AbstractParser <- R6::R6Class(
                             main_node = NULL,
                             secondary_node = NULL,
                             id = NULL) {
-        stopifnot("Please make sure to call read_drugbank_xml_db method first" =
-                    !is.null(pkg_env$root))
         private$tibble_name  <- tibble_name
         private$object_node <- object_node
         private$main_node <- main_node

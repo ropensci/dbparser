@@ -41,9 +41,6 @@ ReferenceParser <-
 #' Return a list of text books that were used as references for drugs, carriers,
 #'  enzymes, targets or transporters
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
-#'
 #' @return  a tibble with 4 variables:
 #' \describe{
 #'   \item{ref-id}{Identifier for the article being referenced.
@@ -64,9 +61,6 @@ NULL
 #' Return a list of websites that were used as references for
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
-#'
 #' @return  a tibble with 4 variables:
 #' \describe{
 #'   \item{ref-id}{Name of the source website}
@@ -83,9 +77,6 @@ NULL
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters articles element parser
 #'
 #' Return a list of articles that were used as references for drugs carriers
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -105,9 +96,6 @@ NULL
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters attachments element parser
 #'
 #' Return a list of attachment that were used as references for drugs carriers
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#'
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{

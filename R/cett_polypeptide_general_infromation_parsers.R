@@ -58,7 +58,6 @@ CETTPolyGeneralInfoParser <-
 #' Extract descriptions of identified polypeptide targets, enzymes, carriers,
 #'  or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
 #'
 #' @return a tibble with 20 variables:
 #' \describe{

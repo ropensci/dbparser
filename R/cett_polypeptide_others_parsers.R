@@ -27,8 +27,6 @@ CETTPolyOtherParser <-
 #' Extract descriptions of identified polypeptide PFAMS targets, enzymes,
 #'  carriers, or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -47,8 +45,6 @@ NULL
 #' Extract descriptions of identified polypeptide external identifiers for
 #' targets, enzymes, carriers, or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -67,8 +63,6 @@ NULL
 #' Extract descriptions of identified polypeptide go classifier for targets,
 #'  enzymes, carriers, or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -86,8 +80,6 @@ NULL
 #' Extract descriptions of identified polypeptide synonyms for targets,
 #'  enzymes, carriers, or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with 2 variables:
 #' \describe{

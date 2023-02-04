@@ -18,11 +18,6 @@ list of selected drug elements tibbles
 elements.
 }
 \details{
-it must be called after \code{\link{read_drugbank_xml_db}} function like
-any other parser function.
-if \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-
 drug_element_options can be called to know the valid options for
 this method
 }

@@ -26,17 +26,7 @@ a tibble with the following variables:
 A list of single nucleotide polymorphisms (SNPs) relevent to drug activity or
  metabolism, and the effects these may have on pharmacological activity.
  SNP effects in the patient may require close monitoring, an increase or
- decrease in dose, or a change in therapy.
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

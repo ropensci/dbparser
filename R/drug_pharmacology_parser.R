@@ -33,9 +33,6 @@ PharmacologyParser <- R6::R6Class(
 #' Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
 #'  and physiological or biochemical effects in the body.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{indication}{The approved conditions, diseases, or states for which a

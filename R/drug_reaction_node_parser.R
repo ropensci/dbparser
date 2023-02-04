@@ -54,9 +54,6 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'  pharmacological activity of metabolites, and a structural representation of
 #'   the biochemical reactions.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return a tibble with 5 variables:
 #' \describe{
 #'   \item{sequence}{	Reactions are displayed within a numerical sequence}
@@ -78,9 +75,6 @@ drug_reactions <- function() {
 #' Drug Reactions Enzymes Parsers
 #'
 #' EEnzymes involved in metabolizing this drug
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with 3 variables:
 #' \describe{

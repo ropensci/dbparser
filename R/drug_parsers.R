@@ -32,8 +32,6 @@ DrugElementsParser <- R6::R6Class(
 #' Groups that this drug belongs to. May include any of: approved, vet_approved,
 #'  nutraceutical, illicit, withdrawn, investigational, and experimental.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -56,8 +54,6 @@ drug_groups <- function() {
 #' A list of commercially available products in Canada and the United States
 #'  that contain the drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 32 variables:
 #' \describe{
@@ -132,8 +128,6 @@ drug_products <- function() {
 #' inputed chemical structure. Associated links below will redirect to
 #' descriptions of the specific term.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -161,8 +155,6 @@ drug_calc_prop <- function() {
 #' forms of the drug, focusing on brand names for products that are available
 #' in countries other than Canada and the Unites States.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -188,8 +180,6 @@ drug_intern_brand <- function() {
 #'  and sulfate are often added to the drug molecule to increase solubility,
 #'  dissolution, or absorption.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 1 variables:
 #' \describe{
@@ -229,8 +219,6 @@ drug_salts <- function() {
 #' All commercially available products in which this drug is available in
 #' combination with other drug molecules
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -257,9 +245,6 @@ drug_mixtures <- function() {
 #'
 #' A list of companies that are packaging the drug for re-distribution.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{name}{}
@@ -282,9 +267,6 @@ drug_packagers <- function() {
 #' Drug Categories parser
 #'
 #' General categorizations of the drug.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
@@ -309,9 +291,6 @@ drug_categories <- function() {
 #' Organisms in which the drug may display activity; activity may depend on
 #' local susceptibility patterns and resistance.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{affected-organism}{affected-organism name}
@@ -331,9 +310,6 @@ drug_affected_organisms <- function() {
 #' Drug Dosages parser
 #'
 #' A list of the commercially available dosages of the drug.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -359,9 +335,6 @@ drug_dosages <- function() {
 #'
 #' The American Hospital Formulary Service (AHFS) identifier for this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{ahfs-code}{}
@@ -382,8 +355,6 @@ drug_ahfs_codes <- function() {
 #'
 #' Protein Data Bank (PDB) identifiers for this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -407,8 +378,6 @@ drug_pdb_entries <- function() {
 #' disclosure of the invention when the patent is granted. Drugs may be issued
 #' multiple patents.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -436,9 +405,6 @@ drug_patents <- function() {
 #'
 #' Food that may interact with this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{food-interaction}{}
@@ -461,9 +427,6 @@ drug_food_interactions <- function() {
 #' with the drug of interest, will affect its activity or result in adverse
 #' effects. These interactions may be synergistic or antagonistic depending on
 #' the physiological effects and mechanism of action of each drug.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return a tibble with the following variables:
 #' \describe{
@@ -488,8 +451,6 @@ drug_interactions <- function() {
 #'
 #' Drug properties that have been experimentally proven
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -545,9 +506,6 @@ drug_exp_prop <- function() {
 #' Identifiers used in other websites or databases providing information about
 #' this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{resource}{Name of the source database.}
@@ -569,8 +527,6 @@ drug_ex_identity <- function() {
 #'
 #' Links to other websites or databases providing information about this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -594,10 +550,6 @@ drug_external_links <- function() {
 #' A list of single nucleotide polymorphisms (SNPs) relevent to drug activity or
 #'  metabolism, and the effects these may have on pharmacological activity.
 #'  SNP effects in the patient may require close monitoring, an increase or
-#'  decrease in dose, or a change in therapy.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -628,9 +580,6 @@ drug_snp_effects <- function() {
 #'
 #' The adverse drug reactions that may occur as a result of the listed single
 #' nucleotide polymorphisms (SNPs)
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with the following variables:
 #' \describe{

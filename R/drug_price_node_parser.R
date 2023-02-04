@@ -32,9 +32,6 @@ PricesParser <- R6::R6Class(
 #'
 #' Unit drug prices
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
-#'
 #' @return a tibble with 5 variables:
 #' \describe{
 #'   \item{description}{}

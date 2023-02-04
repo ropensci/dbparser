@@ -13,8 +13,8 @@ classlist <- function(x) {
 test_that(
   desc = "Read database incorrectly",
   code = {
-    expect_error(read_drugbank_xml_db("I_do_not_exist_file.xml"))
-    expect_error(read_drugbank_xml_db("drugbank_record"))
+    expect_null(read_drugbank_xml_db("I_do_not_exist_file.xml"))
+    expect_null(read_drugbank_xml_db("drugbank_record"))
   }
 )
 

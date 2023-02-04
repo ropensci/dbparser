@@ -33,15 +33,6 @@ a tibble with 4 variables:
 \description{
 Return a list of articles that were used as references for drugs carriers
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

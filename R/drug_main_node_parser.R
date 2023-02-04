@@ -42,8 +42,6 @@ DrugParser <- R6::R6Class(
 #' A description of the hierarchical chemical classification of the drug;
 #' imported from ClassyFire.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' 
 #'
 #' @return  a tibble with 15 variables:
 #' \describe{

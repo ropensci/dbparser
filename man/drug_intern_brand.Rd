@@ -20,15 +20,6 @@ The proprietary names used by the manufacturers for commercially available
 forms of the drug, focusing on brand names for products that are available
 in countries other than Canada and the Unites States.
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
 \examples{
 \dontrun{
 # the same parameters and usage will be applied for any parser

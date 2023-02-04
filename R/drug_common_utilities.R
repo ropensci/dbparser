@@ -47,7 +47,6 @@ drug_sub_df <-
   }
 
 
-
 #' Reads \strong{DrugBank} xml database and load it into memory.
 #'
 #' \code{read_drugbank_xml_db} loads \strong{DrugBank} xml database full tree
@@ -61,53 +60,38 @@ drug_sub_df <-
 #'
 #' @param drugbank_db_path \strong{string}, full path for the
 #'  \strong{DrugBank} xml or zip file.
-#' @return \strong{TRUE} when the loading process into memory to be used by
-#' parser methods is completed successfully and \strong{FALSE} otherwise.
-#'
-#'@family DrugBank DB Loading
-#'
-#' @examples
-#' \dontrun{
-#' read_drugbank_xml_db("db_full_path")
-#' read_drugbank_xml_db(drugbank_db_path = "db_full_path")
-#' }
-#' @export
+#' @return loaded DB or NULL
 read_drugbank_xml_db <- function(drugbank_db_path) {
-  ext <- tools::file_ext(drugbank_db_path)
-  dir_name <- dirname(drugbank_db_path)
-  if (!ext %in% c("zip", "xml")) {
-    stop("Unsupported file format, Kindly use an XML or zip file.")
-  }
+  message(paste("Loading DrugBank DB from path:", drugbank_db_path))
+  ext         <- tools::file_ext(drugbank_db_path)
+  dir_name    <- dirname(drugbank_db_path)
+  drugbank_db <- NULL
 
-  if (ext == "zip") {
-    tryCatch({
+  if (!ext %in% c("zip", "xml")) {
+    message("Unsupported file format, Kindly use an XML or zip file.")
+  } else {
+    if (ext == "zip") {
+      tryCatch({
         unzip(drugbank_db_path, exdir = dir_name)
-        db <- unzip(drugbank_db_path, list = TRUE)
+        db               <- unzip(drugbank_db_path, list = TRUE)
         drugbank_db_path <- paste0(dir_name, "/", db[[1]])
-        message(drugbank_db_path)
+        message(paste("Drugbank DB zip file extraxted at path:",
+                      drugbank_db_path))
       },
       error = function(e) {
-        stop(e)
-      }
-    )
-  }
+        message(paste("Loading DrugBank DB failed due to error:", e$message))
+      })
+    }
 
-  if (file.exists(drugbank_db_path)) {
-    drugbank_db <- xmlParse(drugbank_db_path)
-    pkg_env$root <- xmlRoot(drugbank_db)
-    pkg_env$version <- xmlGetAttr(pkg_env$root, name = "version")
-    pkg_env$exported_date <- xmlGetAttr(pkg_env$root, name = "exported-on")
-    return(TRUE)
-  } else {
-    stop(
-      paste(
-        "Could not find the file:",
-        drugbank_db_path,
-        ".Please ensure",
-        "that the file name is entered correctly",
-        "and that it exists at the specified location."
+    if (file.exists(drugbank_db_path)) {
+      drugbank_db <- xmlParse(drugbank_db_path)
+    } else {
+      message(paste("Could not find the file:", drugbank_db_path,
+                    ".Please ensure",
+                    "that the file name is entered correctly",
+                    "and that it exists at the specified location.")
       )
-    )
-    return(FALSE)
+    }
   }
+  drugbank_db
 }
