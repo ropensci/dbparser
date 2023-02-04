@@ -10,9 +10,14 @@
 #' @family parsers
 #' @export
 parseDrugBank <- function(db_path,
-                          drug_options   = drug_node_options(),
-                          parse_salts    = TRUE,
-                          parse_products = TRUE) {
+                          drug_options       = drug_node_options(),
+                          parse_salts        = TRUE,
+                          parse_products     = TRUE,
+                          references_options = references_node_options(),
+                          cett_options       = c("carriers",
+                                                 "enzymes",
+                                                 "targets",
+                                                 "transporters")) {
   dvobject  <- init_dvobject()
   parsed_db <- read_drugbank_xml_db(db_path = db_path)
 
@@ -36,6 +41,16 @@ parseDrugBank <- function(db_path,
       dvobject[["products"]] <- drug_products()
     }
 
+    if(length(references_options) > 0) {
+      message("...........................................")
+      message("parsing references")
+      dvobject[["references"]] <- parse_references_node(references_options)
+    }
+
+    if (length(cett_options) > 0) {
+      message("...........................................")
+      dvobject[["cett"]] <- parse_cett_node(cett_options)
+    }
   }
 
   dvobject
@@ -287,7 +302,7 @@ drug_element_options <- function() {
     )
 }
 
-#' returns node valid options.
+#' returns durg node valid options.
 #'
 #' @return list of \code{drug_element} valid options
 #' @family common
@@ -298,17 +313,34 @@ drug_element_options <- function() {
 #' @keywords internal
 #' @export
 drug_node_options <- function() {
-  elements_options <- c("drug_classification", "synonyms", "pharmacology",
-                        "international_brands", "mixtures", "packagers",
-                        "manufacturers", "prices", "categories", "dosages",
-                        "atc_codes", "patents", "interactions", "sequences",
-                        "calculated_properties", "experimental_properties",
-                        "external_identifiers", "external_links", "pathway",
-                        "drug_interactions", "snp_effects", "groups",
-                        "snp_adverse_reactions", "food_interactions",
-                        "pdb_entries", "ahfs_codes", "affected_organisms")
+  c("drug_classification", "synonyms", "pharmacology", "international_brands",
+    "mixtures", "packagers", "manufacturers", "prices", "categories", "dosages",
+    "atc_codes", "patents", "interactions", "sequences","calculated_properties",
+    "experimental_properties", "external_identifiers", "external_links",
+    "pathway", "drug_interactions", "snp_effects", "groups", "pdb_entries",
+    "ahfs_codes", "snp_adverse_reactions", "food_interactions",
+     "affected_organisms")
 }
 
+
+#' returns references node valid options.
+#'
+#' @return list of \code{drug_element} valid options
+#' @family common
+#' @examples
+#' \dontrun{
+#' references_node_options()
+#' }
+#' @keywords internal
+#' @export
+references_node_options <- function() {
+  c("drug_books", "drug_articles", "drug_links", "drug_attachments",
+    "carrier_books", "carrier_articles", "carrier_links", "carrier_attachments",
+    "enzyme_books", "enzyme_articles", "enzyme_links", "enzyme_attachments",
+    "target_books", "target_articles", "target_links", "target_attachments",
+    "transporter_books", "transporter_articles", "transporter_links",
+    "transporter_attachments")
+}
 
 #' Run all drug  related parsers
 #'
@@ -481,6 +513,7 @@ parse_drug_nodes <- function(drug_options) {
   drugs
 }
 
+
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters references element parser
 #'
 #' Return a list of all references for drugs, carriers, enzymes, targets or
@@ -490,98 +523,136 @@ parse_drug_nodes <- function(drug_options) {
 #'
 #' @inherit run_all_parsers examples
 #' @export
-references <- function() {
-  message("Start extracting references")
-  message("parsing drugs articles")
-  articles_drug <- drugs_articles()
+parse_references_node <- function(references_options) {
+  references   <- list()
+  drugs        <- list()
+  carriers     <- list()
+  enzymes      <- list()
+  targets      <- list()
+  transporters <- list()
 
-  message("parsing drugs textbooks")
-  books_drug <- drugs_textbooks()
+  if ("drug_books" %in% references_options) {
+    message("parsing drugs textbooks")
+    drugs[["books"]] <- drugs_textbooks()
+  }
 
-  message("parsing drugs links")
-  links_drug <- drugs_links()
+  if ("drug_articles" %in% references_options) {
+    message("parsing drugs articles")
+    drugs[["articles"]] <- drugs_articles()
+  }
 
-  message("parsing drugs attachments")
-  attachments_drug <- drugs_attachments()
+  if ("drug_links" %in% references_options) {
+    message("parsing drugs links")
+    drugs[["links"]] <- drugs_links()
+  }
 
-  message("parsing carriers articles")
-  articles_carrier <- carriers_articles()
+  if ("drug_attachments" %in% references_options) {
+    message("parsing drugs attachments")
+    drugs[["attachments"]] <- drugs_attachments()
+  }
 
-  message("parsing carriers textbooks")
-  textbooks_carrier <- carriers_textbooks()
+  if ("carrier_books" %in% references_options) {
+    message("parsing carriers textbooks")
+    carriers[["books"]] <- carriers_textbooks()
+  }
 
-  message("parsing carriers links")
-  links_carrier <- carriers_links()
+  if ("carrier_articles" %in% references_options) {
+    message("parsing carriers articles")
+    carriers[["articles"]] <- carriers_articles()
+  }
 
-  message("parsing carriers attachments")
-  attachments_carrier <- carriers_attachments()
+  if ("carrier_links" %in% references_options) {
+    message("parsing carriers links")
+    carriers[["links"]] <- carriers_links()
+  }
 
-  message("parsing enzymes articles")
-  articles_enzyme <-enzymes_articles()
+  if ("carrier_attachments" %in% references_options) {
+    message("parsing carriers attachments")
+    carriers[["attachments"]] <- carriers_attachments()
+  }
 
-  message("parsing enzymes textbooks")
-  textbooks_enzyme <- enzymes_textbooks()
+  if ("enzyme_books" %in% references_options) {
+    message("parsing enzymes textbooks")
+    enzymes[["books"]] <- enzymes_textbooks()
+  }
 
-  message("parsing enzymes links")
-  links_enzyme <- enzymes_links()
+  if ("enzyme_articles" %in% references_options) {
+    message("parsing enzymes articles")
+    enzymes[["articles"]] <- enzymes_articles()
+  }
 
-  message("parsing enzymes attachments")
-  attachments_enzyme <- enzymes_attachments()
+  if ("enzyme_links" %in% references_options) {
+    message("parsing enzymes links")
+    enzymes[["links"]] <- enzymes_links()
+  }
 
-  message("parsing targets articles")
-  articles_target <- targets_articles()
+  if ("enzyme_attachments" %in% references_options) {
+    message("parsing enzymes attachments")
+    enzymes[["attachments"]] <- enzymes_attachments()
+  }
 
-  message("parsing targets textbooks")
-  textbooks_target <- targets_textbooks()
+  if ("target_books" %in% references_options) {
+    message("parsing targets textbooks")
+    targets[["books"]] <- targets_textbooks()
+  }
 
-  message("parsing targets links")
-  links_target <- targets_links()
+  if ("target_articles" %in% references_options) {
+    message("parsing targets articles")
+    targets[["articles"]] <- targets_articles()
+  }
 
-  message("parsing targets attachments")
-  attachments_target <- targets_attachments()
+  if ("target_links" %in% references_options) {
+    message("parsing targets links")
+    targets[["links"]] <- targets_links()
+  }
 
-  message("parsing transporters articles")
-  articles_transporter <- transporters_articles()
+  if ("target_attachments" %in% references_options) {
+    message("parsing targets attachments")
+    targets[["attachments"]] <- targets_attachments()
+  }
 
+  if ("transporter_books" %in% references_options) {
+    message("parsing transporters textbooks")
+    transporters[["books"]] <- transporters_textbooks()
+  }
 
-  message("parsing transporters textbooks")
-  textbooks_transporter <- transporters_textbooks()
+  if ("transporter_articles" %in% references_options) {
+    message("parsing transporters articles")
+    transporters[["articles"]] <- transporters_articles()
+  }
 
-  message("parsing transporters links")
-  links_transporter <- transporters_links()
+  if ("transporter_links" %in% references_options) {
+    message("parsing transporters links")
+    transporters[["links"]] <- transporters_links()
+  }
 
-  message("parsing transporters attachments")
-  attachments_transporter <- transporters_attachments()
+  if ("transporter_attachments" %in% references_options) {
+    message("parsing transporters attachments")
+    transporters[["attachments"]] <- transporters_attachments()
+  }
+
+  if (length(drugs) > 0) {
+    references[["drugs"]] <- drugs
+  }
+
+  if (length(carriers) > 0) {
+    references[["carriers"]] <- carriers
+  }
+
+  if (length(enzymes) > 0) {
+    references[["enzymes"]] <- enzymes
+  }
+
+  if (length(targets) > 0) {
+    references[["targets"]] <- targets
+  }
+
+  if (length(transporters) > 0) {
+    references[["transporters"]] <- transporters
+  }
+
   message("Extracting references is over!")
-  return(
-    list(
-      # drugs
-      articles_drug = articles_drug,
-      books_drug = books_drug,
-      links_drug = links_drug,
-      attachments_drug = attachments_drug,
-      # carriers
-      articles_carrier = articles_carrier,
-      textbooks_carrier = textbooks_carrier,
-      links_carrier = links_carrier,
-      attachments_carrier = attachments_carrier,
-      # enzymes
-      articles_enzyme = articles_enzyme,
-      textbooks_enzyme = textbooks_enzyme,
-      links_enzyme = links_enzyme,
-      attachments_enzyme = attachments_enzyme,
-      # targets
-      articles_target = articles_target,
-      textbooks_target = textbooks_target,
-      links_target = links_target,
-      attachments_target = attachments_target,
-      # transporters
-      articles_transporter = articles_transporter,
-      textbooks_transporter = textbooks_transporter,
-      links_transporter = links_transporter,
-      attachments_transporter = attachments_transporter
-    )
-  )
+  references
 }
 
 #' Run all CETT related parsers
@@ -595,122 +666,126 @@ references <- function() {
 #'
 #' @inherit run_all_parsers examples
 #' @export
-cett <- function() {
-    message("CETT Information Parsing has Started")
-    message("parsing carriers")
-    carriers <- carriers()
+parse_cett_node <- function(cett_options) {
+  cett         <- list()
+  carriers     <- list()
+  enzymes      <- list()
+  targets      <- list()
+  transporters <- list()
+
+  message("CETT Information Parsing has Started")
+
+  if ("carriers" %in% cett_options) {
+    polypepeptide <- list()
+
+    message("parsing carriers general information")
+    carriers[["general_information"]] <- carriers()
 
     message("parsing carriers actions")
-    carriers_actions <- carriers_actions()
+    carriers[["actions"]] <- carriers_actions()
 
-    message("parsing carriers polypeptides")
-    carriers_polypeptides <- carriers_polypeptides()
+    message("parsing carriers polypeptides general information")
+    polypepeptide[["general_information"]] <- carriers_polypeptides()
 
     message("parsing carriers polypepeptide external identy")
-    carriers_polypep_ex_ident <- carriers_polypep_ex_ident()
+    polypepeptide[["external_identy"]] <- carriers_polypep_ex_ident()
 
-    message("parsing carriers polypeptides syn")
-    carriers_polypeptides_syn <- carriers_polypeptides_syn()
+    message("parsing carriers polypeptides synonyms")
+    polypepeptide[["synonyms"]] <- carriers_polypeptides_syn()
 
     message("parsing carriers polypeptides pfams")
-    carriers_polypeptides_pfams <- carriers_polypeptides_pfams()
+    polypepeptide[["pfams"]] <- carriers_polypeptides_pfams()
 
     message("parsing carriers polypeptides go")
-    carriers_polypeptides_go <- carriers_polypeptides_go()
+    polypepeptide[["go"]] <- carriers_polypeptides_go()
 
-    message("parsing enzymes")
-    enzymes <- enzymes()
+    carriers[["polypeptides"]] <- polypepeptide
+    cett[["carriers"]]         <- carriers
+  }
+
+  if ("enzymes" %in% cett_options) {
+    polypepeptide <- list()
+
+    message("parsing enzymes general information")
+    enzymes[["general_information"]] <- enzymes()
 
     message("parsing enzymes actions")
-    enzymes_actions <- enzymes_actions()
+    enzymes[["actions"]] <- enzymes_actions()
 
-    message("parsing enzymes polypeptides")
-    enzymes_polypeptides <- enzymes_polypeptides()
+    message("parsing enzymes polypeptides general information")
+    polypepeptide[["general_information"]] <- enzymes_polypeptides()
 
     message("parsing enzymes polypepeptide external identy")
-    enzymes_polypep_ex_ident <- enzymes_polypep_ex_ident()
+    polypepeptide[["external_identy"]] <- enzymes_polypep_ex_ident()
 
-    message("parsing enzymes polypeptides syn")
-    enzymes_polypeptides_syn <- enzymes_polypeptides_syn()
+    message("parsing enzymes polypeptides synonyms")
+    polypepeptide[["synonyms"]] <- enzymes_polypeptides_syn()
 
     message("parsing enzymes polypeptides pfams")
-    enzymes_polypeptides_pfams <- enzymes_polypeptides_pfams()
+    polypepeptide[["pfams"]] <- enzymes_polypeptides_pfams()
 
     message("parsing enzymes polypeptides go")
-    enzymes_polypeptides_go <- enzymes_polypeptides_go()
+    polypepeptide[["go"]] <- enzymes_polypeptides_go()
 
-    message("parsing transporters")
-    transporters <- transporters()
+    enzymes[["polypeptides"]] <- polypepeptide
+    cett[["enzymes"]]         <- enzymes
+  }
 
-    message("parsing transporters actions")
-    transporters_actions <- transporters_actions()
+  if ("targets" %in% cett_options) {
+    polypepeptide <- list()
 
-    message("parsing transporters polypeptides")
-    transporters_polypeptides <- transporters_polypeptides()
-
-    message("parsing transporters polypepeptide external identy")
-    transporters_polypep_ex_ident <- transporters_polypep_ex_ident()
-
-    message("parsing transporters polypeptides syn")
-    transporters_polypeptides_syn <- transporters_polypeptides_syn()
-
-    message("parsing transporters polypeptides pfams")
-    transporters_polypeptides_pfams <- transporters_polypeptides_pfams()
-
-    message("parsing transporters polypeptides go")
-    transporters_polypeptides_go <- transporters_polypeptides_go()
-
-    message("parsing targets")
-    targets <- targets()
+    message("parsing targets general information")
+    targets[["general_information"]] <- targets()
 
     message("parsing targets actions")
-    targets_actions <- targets_actions()
+    targets[["actions"]] <- targets_actions()
 
-    message("parsing targets polypeptides")
-    targets_polypeptides <- targets_polypeptides()
+    message("parsing targets polypeptides general information")
+    polypepeptide[["general_information"]] <- targets_polypeptides()
 
     message("parsing targets polypepeptide external identy")
-    targets_polypep_ex_ident <- targets_polypep_ex_ident()
+    polypepeptide[["external_identy"]] <- targets_polypep_ex_ident()
 
-    message("parsing targets polypeptides syn")
-    targets_polypeptides_syn <- targets_polypeptides_syn()
+    message("parsing targets polypeptides synonyms")
+    polypepeptide[["synonyms"]] <- targets_polypeptides_syn()
 
     message("parsing targets polypeptides pfams")
-    targets_polypeptides_pfams <- targets_polypeptides_pfams()
+    polypepeptide[["pfams"]] <- targets_polypeptides_pfams()
 
     message("parsing targets polypeptides go")
-    targets_polypeptides_go <- targets_polypeptides_go()
-    message("CETT Information Parsing has Completed")
-    return(
-      list(
-        carriers = carriers,
-        carriers_actions = carriers_actions,
-        carriers_polypeptides = carriers_polypeptides,
-        carriers_polypep_ex_ident = carriers_polypep_ex_ident,
-        carriers_polypeptides_syn = carriers_polypeptides_syn,
-        carriers_polypeptides_pfams = carriers_polypeptides_pfams,
-        carriers_polypeptides_go = carriers_polypeptides_go,
-        enzymes = enzymes,
-        enzymes_actions = enzymes_actions,
-        enzymes_polypeptides = enzymes_polypeptides,
-        enzymes_polypep_ex_ident = enzymes_polypep_ex_ident,
-        enzymes_polypeptides_syn = enzymes_polypeptides_syn,
-        enzymes_polypeptides_pfams = enzymes_polypeptides_pfams,
-        enzymes_polypeptides_go = enzymes_polypeptides_go,
-        transporters = transporters,
-        transporters_actions = transporters_actions,
-        transporters_polypeptides = transporters_polypeptides,
-        transporters_polypep_ex_ident = transporters_polypep_ex_ident,
-        transporters_polypeptides_syn = transporters_polypeptides_syn,
-        transporters_polypeptides_pfams = transporters_polypeptides_pfams,
-        transporters_polypeptides_go = transporters_polypeptides_go,
-        targets = targets,
-        targets_actions = targets_actions,
-        targets_polypeptides = targets_polypeptides,
-        targets_polypep_ex_ident = targets_polypep_ex_ident,
-        targets_polypeptides_syn = targets_polypeptides_syn,
-        targets_polypeptides_pfams = targets_polypeptides_pfams,
-        targets_polypeptides_go = targets_polypeptides_go
-      )
-    )
+    polypepeptide[["go"]] <- targets_polypeptides_go()
+
+    targets[["polypeptides"]] <- polypepeptide
+    cett[["targets"]]         <- targets
   }
+
+  if ("transporters" %in% cett_options) {
+    polypepeptide <- list()
+
+    message("parsing transporters general information")
+    transporters[["general_information"]] <- transporters()
+
+    message("parsing transporters actions")
+    transporters[["actions"]] <- transporters_actions()
+
+    message("parsing transporters polypeptides general information")
+    polypepeptide[["general_information"]] <- transporters_polypeptides()
+
+    message("parsing transporters polypepeptide external identy")
+    polypepeptide[["external_identy"]] <- transporters_polypep_ex_ident()
+
+    message("parsing transporters polypeptides synonyms")
+    polypepeptide[["synonyms"]] <- transporters_polypeptides_syn()
+
+    message("parsing transporters polypeptides pfams")
+    polypepeptide[["pfams"]] <- transporters_polypeptides_pfams()
+
+    message("parsing transporters polypeptides go")
+    polypepeptide[["go"]] <- transporters_polypeptides_go()
+
+    transporters[["polypeptides"]] <- polypepeptide
+    cett[["transporters"]]         <- transporters
+  }
+
+  cett
+}

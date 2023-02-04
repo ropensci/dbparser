@@ -32,6 +32,7 @@ drug_element(c("drug_ahfs_codes", "drug_carriers"))
 Other common: 
 \code{\link{drug_element_options}()},
 \code{\link{drug_node_options}()},
+\code{\link{references_node_options}()},
 \code{\link{run_all_parsers}()}
 }
 \concept{common}

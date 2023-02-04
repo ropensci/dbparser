@@ -21,6 +21,7 @@ drug_element_options()
 Other common: 
 \code{\link{drug_element}()},
 \code{\link{drug_node_options}()},
+\code{\link{references_node_options}()},
 \code{\link{run_all_parsers}()}
 }
 \concept{common}

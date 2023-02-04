@@ -25,10 +25,11 @@ run_all_parsers()
 Other common: 
 \code{\link{drug_element_options}()},
 \code{\link{drug_element}()},
-\code{\link{drug_node_options}()}
+\code{\link{drug_node_options}()},
+\code{\link{references_node_options}()}
 
 Other collective_parsers: 
-\code{\link{cett}()},
+\code{\link{parse_cett_node}()},
 \code{\link{parse_drug_nodes}()}
 }
 \concept{collective_parsers}

@@ -11,7 +11,9 @@ parseDrugBank(
   db_path,
   drug_options = drug_node_options(),
   parse_salts = TRUE,
-  parse_products = TRUE
+  parse_products = TRUE,
+  references_options = references_node_options(),
+  cett_options = c("carriers", "enzymes", "targets", "transporters")
 )
 }
 \arguments{

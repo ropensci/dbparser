@@ -45,6 +45,6 @@ Other references:
 \code{\link{articles}},
 \code{\link{attachments}},
 \code{\link{books}},
-\code{\link{references}()}
+\code{\link{parse_references_node}()}
 }
 \concept{references}
