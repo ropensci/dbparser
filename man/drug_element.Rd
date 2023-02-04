@@ -14,7 +14,7 @@ drug_element(elements_options = c("all"))
 list of selected drug elements tibbles
 }
 \description{
-\code{drug_element} returns list of tibbles of drugs selected
+\code{drug_element} returns list of tibbles of <- selected
 elements.
 }
 \details{
@@ -31,6 +31,7 @@ drug_element(c("drug_ahfs_codes", "drug_carriers"))
 \seealso{
 Other common: 
 \code{\link{drug_element_options}()},
+\code{\link{drug_node_options}()},
 \code{\link{run_all_parsers}()}
 }
 \concept{common}

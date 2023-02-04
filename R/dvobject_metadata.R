@@ -17,16 +17,16 @@ init_dvobject <- function() {
 #'
 #' @keywords internal
 #' @return dvobject
-add_drugbank_info <- function(dvobject, parsed_db) {
-  original_db_info <- attr(dvobject, "original_db_info")
+add_drugbank_info <- function(dvobject) {
+  db_info <- attr(dvobject, "original_db_info")
 
-  original_db_info[["db_type"]]          <- "DrugBank"
-  original_db_info[["db_version"]]       <- XML::xmlGetAttr(node = parsed_db,
-                                                            name = "version")
-  original_db_info[["db_exported_date"]] <- XML::xmlGetAttr(node = parsed_db,
-                                                            name = "exported-on")
+  db_info[["db_type"]]          <- "DrugBank"
+  db_info[["db_version"]]       <- XML::xmlGetAttr(node = pkg_env$root,
+                                                   name = "version")
+  db_info[["db_exported_date"]] <- XML::xmlGetAttr(node = pkg_env$root,
+                                                   name = "exported-on")
 
-  attr(dvobject, "original_db_info") <- original_db_info
+  attr(dvobject, "original_db_info") <- db_info
   dvobject
 }
 

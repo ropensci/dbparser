@@ -5,7 +5,7 @@
 \title{add_drugbank_info
   Add passed DrugBank db metadata to passed dvobject}
 \usage{
-add_drugbank_info(dvobject, parsed_db)
+add_drugbank_info(dvobject)
 }
 \value{
 dvobject

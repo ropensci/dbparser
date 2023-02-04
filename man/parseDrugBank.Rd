@@ -7,7 +7,12 @@
  data.frames in which each data.frame represents a part of parsed data (i.e
  drugs, prices, carriers, ...)}
 \usage{
-parseDrugBank(db_path)
+parseDrugBank(
+  db_path,
+  drug_options = drug_node_options(),
+  parse_salts = TRUE,
+  parse_products = TRUE
+)
 }
 \arguments{
 \item{db_path}{\strong{string}, full path for the

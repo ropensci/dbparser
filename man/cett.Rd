@@ -23,7 +23,7 @@ run_all_parsers()
 }
 \seealso{
 Other collective_parsers: 
-\code{\link{drugs}()},
+\code{\link{parse_drug_nodes}()},
 \code{\link{run_all_parsers}()}
 }
 \concept{collective_parsers}

@@ -9,15 +9,33 @@
 #' @return dvobject
 #' @family parsers
 #' @export
-parseDrugBank <- function(db_path) {
+parseDrugBank <- function(db_path,
+                          drug_options   = drug_node_options(),
+                          parse_salts    = TRUE,
+                          parse_products = TRUE) {
   dvobject  <- init_dvobject()
   parsed_db <- read_drugbank_xml_db(db_path = db_path)
 
   if (!is.null(parsed_db)) {
     message("Completed loading DrugBank DB into memory")
-    db_root <- XML::xmlRoot(parsed_db)
-    dvobject <- add_drugbank_info(dvobject  = dvobject,
-                                  parsed_db = db_root)
+    message("...........................................")
+    pkg_env$root <- XML::xmlRoot(parsed_db)
+    dvobject     <- add_drugbank_info(dvobject  = dvobject)
+    message("Parsing Drugs elements")
+    dvobject[["drugs"]] <- parse_drug_nodes(drug_options)
+
+    if(parse_salts) {
+      message("...........................................")
+      message("parsing drugs salts")
+      dvobject[["salts"]] <- drug_salts()
+    }
+
+    if(parse_products) {
+      message("...........................................")
+      message("parsing drugs products")
+      dvobject[["products"]] <- drug_products()
+    }
+
   }
 
   dvobject
@@ -47,7 +65,7 @@ run_all_parsers <- function() {
 
 #' extracts the given drug elements and return data as list of tibbles.
 #'
-#' \code{drug_element} returns list of tibbles of drugs selected
+#' \code{drug_element} returns list of tibbles of <- selected
 #' elements.
 #'
 #' drug_element_options can be called to know the valid options for
@@ -267,13 +285,36 @@ drug_element_options <- function() {
       "attachments_transporter",
       "references"
     )
-  return(elements_options)
 }
+
+#' returns node valid options.
+#'
+#' @return list of \code{drug_element} valid options
+#' @family common
+#' @examples
+#' \dontrun{
+#' drug_node_options()
+#' }
+#' @keywords internal
+#' @export
+drug_node_options <- function() {
+  elements_options <- c("drug_classification", "synonyms", "pharmacology",
+                        "international_brands", "mixtures", "packagers",
+                        "manufacturers", "prices", "categories", "dosages",
+                        "atc_codes", "patents", "interactions", "sequences",
+                        "calculated_properties", "experimental_properties",
+                        "external_identifiers", "external_links", "pathway",
+                        "drug_interactions", "snp_effects", "groups",
+                        "snp_adverse_reactions", "food_interactions",
+                        "pdb_entries", "ahfs_codes", "affected_organisms")
+}
+
 
 #' Run all drug  related parsers
 #'
 #' Run all parsers that retrieve drugs related information
 #'
+#' @param drug_options
 #'
 #' @return a list of all drugs parsed tibbles
 #'
@@ -281,145 +322,164 @@ drug_element_options <- function() {
 #'
 #' @inherit run_all_parsers examples
 #' @export
-drugs <- function() {
-    message("Drugs Information Parsing has Started")
-    message("parsing drugs gneral information")
-    general_information <- drug_general_information()
+parse_drug_nodes <- function(drug_options) {
+  drugs <- list()
+  message("Drugs Information Parsing has Started")
+  message("parsing drugs gneral information")
+  drugs[["general_information"]] <- drug_general_information()
 
+  if ("drug_classification" %in% drug_options) {
     message("parsing drugs classifications")
-    drug_classification <- drug_classification()
+    drugs[["drug_classification"]] <- drug_classification()
+  }
 
+  if ("synonyms" %in% drug_options) {
     message("parsing drugs synonyms")
-    synonyms <- drug_syn()
+    drugs[["synonyms"]] <- drug_syn()
+  }
 
-    message("parsing drugs products")
-    products <- drug_products()
-
+  if ("pharmacology" %in% drug_options) {
     message("parsing drugs pharmacology")
-    pharmacology <- drug_pharmacology()
+    drugs[["pharmacology"]] <- drug_pharmacology()
+  }
 
+  if ("international_brands" %in% drug_options) {
     message("parsing drugs international brands")
-    international_brands <- drug_intern_brand()
+    drugs[["international_brands"]] <- drug_intern_brand()
+  }
 
+  if ("mixtures" %in% drug_options) {
     message("parsing drugs mixtures")
-    mixtures <- drug_mixtures()
+    drugs[["mixtures"]] <- drug_mixtures()
+  }
 
+  if ("packagers" %in% drug_options) {
     message("parsing drugs packagers")
-    packagers <- drug_packagers()
+    drugs[["packagers"]] <- drug_packagers()
+  }
 
+  if ("manufacturers" %in% drug_options) {
     message("parsing drugs manufacturers")
-    manufacturers <- drug_manufacturers()
+    drugs[["manufacturers"]] <- drug_manufacturers()
+  }
 
+  if ("prices" %in% drug_options) {
     message("parsing drugs prices")
-    prices <- drug_prices()
+    drugs[["prices"]] <- drug_prices()
+  }
 
+  if ("categories" %in% drug_options) {
     message("parsing drugs categories")
-    categories <- drug_categories()
+    drugs[["categories"]] <- drug_categories()
+  }
 
+  if ("dosages" %in% drug_options) {
     message("parsing drugs dosages")
-    dosages <- drug_dosages()
+    drugs[["dosages"]] <- drug_dosages()
+  }
 
+  if ("atc_codes" %in% drug_options) {
     message("parsing drugs atc_codes")
-    atc_codes <- drug_atc_codes()
+    drugs[["atc_codes"]] <- drug_atc_codes()
+  }
 
+  if ("patents" %in% drug_options) {
     message("parsing drugs patents")
-    patents <- drug_patents()
+    drugs[["patents"]] <- drug_patents()
+  }
 
+  if ("drug_interactions" %in% drug_options) {
     message("parsing drugs interactions")
-    interactions <- drug_interactions()
+    drugs[["drug_interactions"]] <- drug_interactions()
+  }
 
+  if ("sequences" %in% drug_options) {
     message("parsing drugs sequences")
-    sequences <- drug_sequences()
+    drugs[["sequences"]] <- drug_sequences()
+  }
 
+  if ("calculated_properties" %in% drug_options) {
     message("parsing drugs calculated properties")
-    calc_prop <- drug_calc_prop()
+    drugs[["calculated_properties"]] <- drug_calc_prop()
+  }
 
+  if ("experimental_properties" %in% drug_options) {
     message("parsing drugs external identity")
-    ex_identity <- drug_ex_identity()
+    drugs[["experimental_properties"]] <- drug_ex_identity()
+  }
 
+  if ("external_identifiers" %in% drug_options) {
     message("parsing drugs experimental properties")
-    exp_prop <- drug_exp_prop()
+    drugs[["external_identifiers"]] <- drug_exp_prop()
+  }
 
-    message("parsing drugs pathway")
-    pathway <- drug_pathway()
+  if ("pathway" %in% drug_options) {
+    pathway <- list()
+    message("parsing drugs pathway general information")
+    pathway[["general_information"]] <- drug_pathway()
 
     message("parsing drugs pathway drugs")
-    pathway_drugs <- drug_pathway_drugs()
+    pathway[["pathway_drugs"]] <- drug_pathway_drugs()
 
     message("parsing drugs pathway enzyme")
-    pathway_enzyme <- drug_pathway_enzyme()
+    pathway[["pathway_enzyme"]] <- drug_pathway_enzyme()
 
-    message("parsing drugs reactions")
-    reactions <- drug_reactions()
+    drugs[["pathway"]] <- pathway
+  }
+
+  if ("reactions" %in% drug_options) {
+    reactions <- list()
+    message("parsing drugs reactions general information")
+    reactions[["general_information"]] <- drug_reactions()
 
     message("parsing drugs reactions enzymes")
-    reactions_enzymes <- drug_reactions_enzymes()
+    reactions[["reactions_enzymes"]] <- drug_reactions_enzymes()
 
-    message("parsing drugs snp effects")
-    snp_effects <- drug_snp_effects()
-
-    message("parsing drugs snp adverse reactions")
-    snp_adverse_reactions <- drug_snp_adverse_reactions()
-
-    message("parsing drugs food interaction")
-    food_interactions <- drug_food_interactions()
-
-    message("parsing drugs pdb entries")
-    pdb_entries <- drug_pdb_entries()
-
-    message("parsing drugs ahfs codes")
-    ahfs_codes <- drug_ahfs_codes()
-
-    message("parsing drugs affected organisms")
-    affected_organisms <- drug_affected_organisms()
-
-    message("parsing drugs groups")
-    groups <- drug_groups()
-
-    message("parsing drugs external links")
-    external_links <- drug_external_links()
-
-    message("parsing drugs salts")
-    salts <- drug_salts()
-    message("Drugs Information Parsing has Completed")
-    return(
-      list(
-        general_information = general_information,
-        drug_classification = drug_classification,
-        synonyms = synonyms,
-        pharmacology = pharmacology,
-        international_brands = international_brands,
-        mixtures = mixtures,
-        packagers = packagers,
-        manufacturers = manufacturers,
-        prices = prices,
-        categories = categories,
-        dosages = dosages,
-        atc_codes = atc_codes,
-        patents = patents,
-        interactions = interactions,
-        sequences = sequences,
-        calc_prop = calc_prop,
-        ex_identity = ex_identity,
-        exp_prop = exp_prop,
-        pathway = pathway,
-        pathway_drugs = pathway_drugs,
-        pathway_enzyme = pathway_enzyme,
-        reactions = reactions,
-        reactions_enzymes = reactions_enzymes,
-        snp_effects = snp_effects,
-        snp_adverse_reactions = snp_adverse_reactions,
-        food_interactions = food_interactions,
-        pdb_entries = pdb_entries,
-        ahfs_codes = ahfs_codes,
-        affected_organisms = affected_organisms,
-        groups = groups,
-        products = products,
-        external_links = external_links,
-        salts = salts
-      )
-    )
+    drugs[["reactions"]] <- reactions
   }
+
+  if ("snp_effects" %in% drug_options) {
+    message("parsing drugs snp effects")
+    drugs[["snp_effects"]] <- drug_snp_effects()
+  }
+
+  if ("snp_adverse_reactions" %in% drug_options) {
+    message("parsing drugs snp adverse reactions")
+    drugs[["snp_adverse_reactions"]] <- drug_snp_adverse_reactions()
+  }
+
+  if ("food_interactions" %in% drug_options) {
+    message("parsing drugs food interaction")
+    drugs[["food_interactions"]] <- drug_food_interactions()
+  }
+
+  if ("pdb_entries" %in% drug_options) {
+    message("parsing drugs pdb entries")
+    drugs[["pdb_entries"]] <- drug_pdb_entries()
+  }
+
+  if ("ahfs_codes" %in% drug_options) {
+    message("parsing drugs ahfs codes")
+    drugs[["ahfs_codes"]] <- drug_ahfs_codes()
+  }
+
+  if ("affected_organisms" %in% drug_options) {
+    message("parsing drugs affected organisms")
+    drugs[["affected_organisms"]] <- drug_affected_organisms()
+  }
+
+  if ("groups" %in% drug_options) {
+    message("parsing drugs groups")
+    drugs[["groups"]] <- drug_groups()
+  }
+
+  if ("external_links" %in% drug_options) {
+    message("parsing drugs external links")
+    drugs[["external_links"]] <- drug_external_links()
+  }
+
+  drugs
+}
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters references element parser
 #'

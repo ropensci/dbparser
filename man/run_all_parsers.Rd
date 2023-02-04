@@ -24,11 +24,12 @@ run_all_parsers()
 \seealso{
 Other common: 
 \code{\link{drug_element_options}()},
-\code{\link{drug_element}()}
+\code{\link{drug_element}()},
+\code{\link{drug_node_options}()}
 
 Other collective_parsers: 
 \code{\link{cett}()},
-\code{\link{drugs}()}
+\code{\link{parse_drug_nodes}()}
 }
 \concept{collective_parsers}
 \concept{common}
