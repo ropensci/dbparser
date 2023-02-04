@@ -4,10 +4,10 @@
 \alias{read_drugbank_xml_db}
 \title{Reads \strong{DrugBank} xml database and load it into memory.}
 \usage{
-read_drugbank_xml_db(drugbank_db_path)
+read_drugbank_xml_db(db_path)
 }
 \arguments{
-\item{drugbank_db_path}{\strong{string}, full path for the
+\item{db_path}{\strong{string}, full path for the
 \strong{DrugBank} xml or zip file.}
 }
 \value{
@@ -24,3 +24,4 @@ This functions reads \strong{DrugBank} xml database and load it into memory
 
 It takes one single mandatory argument which is the location of DrugBank db.
 }
+\keyword{internal}

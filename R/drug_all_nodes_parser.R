@@ -1,3 +1,28 @@
+#' parseDrugBank
+#'  parses given DrugBank XML database into a dvobject. dvobject is a list of
+#'  data.frames in which each data.frame represents a part of parsed data (i.e
+#'  drugs, prices, carriers, ...)
+#'
+#' @param db_path \strong{string}, full path for the
+#'  \strong{DrugBank} xml or zip file.
+#'
+#' @return dvobject
+#' @family parsers
+#' @export
+parseDrugBank <- function(db_path) {
+  dvobject  <- init_dvobject()
+  parsed_db <- read_drugbank_xml_db(db_path = db_path)
+
+  if (!is.null(parsed_db)) {
+    message("Completed loading DrugBank DB into memory")
+    db_root <- XML::xmlRoot(parsed_db)
+    dvobject <- add_drugbank_info(dvobject  = dvobject,
+                                  parsed_db = db_root)
+  }
+
+  dvobject
+}
+
 #' extracts the all drug elements and return data as list of tibbles.
 #'
 #' this functions extracts all element of drug nodes in \strong{DrugBank}

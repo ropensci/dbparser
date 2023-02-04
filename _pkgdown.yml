@@ -23,10 +23,10 @@ navbar:
       href: news/index.html
 
 reference:
-- title: "DrugBank Database Loading"
-  desc: "Read DrugBank database and load it into memory for later processing"
+- title: "Drugs Databases Parser"
+  desc: "Parse public drug databases and converted them into dvobject"
   contents:
-   - has_concept("DrugBank DB Loading")
+   - has_concept("parsers")
 - title: "Collective Parsers"
   desc: "Each function return related parsers together"
   contents:
@@ -47,10 +47,12 @@ reference:
   desc: "Books, Links, Articles and Attachments parsres"
   contents:
     - has_concept("references")
+- title: "Utility functions"
+  desc: "Different functions to handle dvobject"
+  contents:
+    - has_concept("utility")
 
 authors:
   Mohammed Ali:
     href: "http://mohammedfcis.github.io"
-  Ali Ezzat:
-    href: "https://www.linkedin.com/in/aliezzat1985/"
 

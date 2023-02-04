@@ -1,6 +1,4 @@
 pkg_env <- new.env(parent = emptyenv())
-pkg_env$version <- NULL
-pkg_env$exported_date <- NULL
 pkg_env$root <- NULL
 
 
@@ -58,40 +56,42 @@ drug_sub_df <-
 #'
 #' It takes one single mandatory argument which is the location of DrugBank db.
 #'
-#' @param drugbank_db_path \strong{string}, full path for the
+#' @param db_path \strong{string}, full path for the
 #'  \strong{DrugBank} xml or zip file.
+#'
+#' @keywords internal
 #' @return loaded DB or NULL
-read_drugbank_xml_db <- function(drugbank_db_path) {
-  message(paste("Loading DrugBank DB from path:", drugbank_db_path))
-  ext         <- tools::file_ext(drugbank_db_path)
-  dir_name    <- dirname(drugbank_db_path)
-  drugbank_db <- NULL
+read_drugbank_xml_db <- function(db_path) {
+  message(paste("Loading DrugBank DB from path:", db_path))
+
+  ext       <- tools::file_ext(db_path)
+  dir_name  <- dirname(db_path)
+  loaded_db <- NULL
 
   if (!ext %in% c("zip", "xml")) {
     message("Unsupported file format, Kindly use an XML or zip file.")
   } else {
     if (ext == "zip") {
       tryCatch({
-        unzip(drugbank_db_path, exdir = dir_name)
-        db               <- unzip(drugbank_db_path, list = TRUE)
-        drugbank_db_path <- paste0(dir_name, "/", db[[1]])
-        message(paste("Drugbank DB zip file extraxted at path:",
-                      drugbank_db_path))
+        unzip(db_path, exdir = dir_name)
+        db      <- unzip(db_path, list = TRUE)
+        db_path <- paste0(dir_name, "/", db[[1]])
+        message(paste("Drugbank DB zip file extraxted at path:", db_path))
       },
       error = function(e) {
         message(paste("Loading DrugBank DB failed due to error:", e$message))
       })
     }
 
-    if (file.exists(drugbank_db_path)) {
-      drugbank_db <- xmlParse(drugbank_db_path)
+    if (file.exists(db_path)) {
+      loaded_db <- xmlParse(db_path)
     } else {
-      message(paste("Could not find the file:", drugbank_db_path,
-                    ".Please ensure",
+      message(paste("Could not find the file:", db_path, ".Please ensure",
                     "that the file name is entered correctly",
                     "and that it exists at the specified location.")
       )
     }
   }
-  drugbank_db
+
+  loaded_db
 }
