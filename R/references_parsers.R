@@ -120,7 +120,6 @@ drugs_textbooks <- function() {
   }
 
 #' @rdname books
-#' @export
 carriers_textbooks <- function() {
     ReferenceParser$new(
       tibble_name = "drug_carriers_textbooks",
@@ -132,7 +131,6 @@ carriers_textbooks <- function() {
   }
 
 #' @rdname books
-#' @export
 enzymes_textbooks <- function() {
   ReferenceParser$new(
     tibble_name = "drug_enzymes_textbooks",
@@ -144,7 +142,6 @@ enzymes_textbooks <- function() {
 }
 
 #' @rdname books
-#' @export
 targets_textbooks <- function() {
   ReferenceParser$new(
     tibble_name = "drug_targ_textbooks",
@@ -156,7 +153,6 @@ targets_textbooks <- function() {
 }
 
 #' @rdname books
-#' @export
 transporters_textbooks <- function() {
     ReferenceParser$new(
       tibble_name = "drug_trans_textbooks",
@@ -168,7 +164,6 @@ transporters_textbooks <- function() {
   }
 
 #' @rdname links
-#' @export
 drugs_links <- function() {
     ReferenceParser$new(
       tibble_name = "drugs_links",
@@ -180,7 +175,6 @@ drugs_links <- function() {
 
 
 #' @rdname links
-#' @export
 carriers_links <- function() {
     ReferenceParser$new(
       tibble_name = "drug_carriers_links",
@@ -193,7 +187,6 @@ carriers_links <- function() {
 
 
 #' @rdname links
-#' @export
 enzymes_links <- function() {
   ReferenceParser$new(
     tibble_name = "drug_enzymes_links",
@@ -206,7 +199,6 @@ enzymes_links <- function() {
 
 
 #' @rdname links
-#' @export
 targets_links <- function() {
   ReferenceParser$new(
     tibble_name = "drug_targ_links",
@@ -219,7 +211,6 @@ targets_links <- function() {
 
 
 #' @rdname links
-#' @export
 transporters_links <- function() {
     ReferenceParser$new(
       tibble_name = "drug_trans_links",
@@ -232,7 +223,6 @@ transporters_links <- function() {
 
 
 #' @rdname articles
-#' @export
 drugs_articles <- function() {
     ReferenceParser$new(
       tibble_name = "drugs_articles",
@@ -244,7 +234,6 @@ drugs_articles <- function() {
 
 
 #' @rdname articles
-#' @export
 carriers_articles <- function() {
     ReferenceParser$new(
       tibble_name = "drug_carriers_articles",
@@ -257,7 +246,6 @@ carriers_articles <- function() {
 
 
 #' @rdname articles
-#' @export
 enzymes_articles <- function() {
   ReferenceParser$new(
     tibble_name = "drug_enzymes_articles",
@@ -270,7 +258,6 @@ enzymes_articles <- function() {
 
 
 #' @rdname articles
-#' @export
 targets_articles <- function() {
   ReferenceParser$new(
     tibble_name = "drug_targ_articles",
@@ -283,7 +270,6 @@ targets_articles <- function() {
 
 
 #' @rdname articles
-#' @export
 transporters_articles <- function() {
     ReferenceParser$new(
       tibble_name = "drug_trans_articles",
@@ -296,7 +282,6 @@ transporters_articles <- function() {
 
 
 #' @rdname attachments
-#' @export
 drugs_attachments <- function() {
     ReferenceParser$new(
       tibble_name = "drugs_attachments",
@@ -308,7 +293,6 @@ drugs_attachments <- function() {
 
 
 #' @rdname attachments
-#' @export
 carriers_attachments <- function() {
     ReferenceParser$new(
       tibble_name = "drug_carriers_attachments",
@@ -321,7 +305,6 @@ carriers_attachments <- function() {
 
 
 #' @rdname attachments
-#' @export
 enzymes_attachments <- function() {
   ReferenceParser$new(
     tibble_name = "drug_enzymes_attachments",
@@ -334,7 +317,6 @@ enzymes_attachments <- function() {
 
 
 #' @rdname attachments
-#' @export
 targets_attachments <- function() {
   ReferenceParser$new(
     tibble_name = "drug_targ_attachments",
@@ -347,7 +329,6 @@ targets_attachments <- function() {
 
 
 #' @rdname attachments
-#' @export
 transporters_attachments <- function() {
     ReferenceParser$new(
       tibble_name    = "drug_trans_attachments",

@@ -98,7 +98,6 @@ CETTPolyGeneralInfoParser <-
 NULL
 
 #' @rdname cett_poly_doc
-#' @export
 carriers_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
     "carriers_polypeptides"
@@ -106,7 +105,6 @@ carriers_polypeptides <- function() {
 }
 
 #' @rdname cett_poly_doc
-#' @export
 enzymes_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
     "enzymes_polypeptides"
@@ -114,7 +112,6 @@ enzymes_polypeptides <- function() {
 }
 
 #' @rdname cett_poly_doc
-#' @export
 targets_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
     "targets_polypeptides"
@@ -122,7 +119,6 @@ targets_polypeptides <- function() {
 }
 
 #' @rdname cett_poly_doc
-#' @export
 transporters_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
     "transporters_polypeptides"

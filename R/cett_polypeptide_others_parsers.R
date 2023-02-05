@@ -88,7 +88,6 @@ NULL
 NULL
 
 #' @rdname cett_poly_pfms_doc
-#' @export
 carriers_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
       "carriers_polypeptides_pfams",
@@ -97,7 +96,6 @@ carriers_polypeptides_pfams <- function() {
   }
 
 #' @rdname cett_poly_pfms_doc
-#' @export
 enzymes_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
       "enzymes_polypeptides_pfams",
@@ -106,7 +104,6 @@ enzymes_polypeptides_pfams <- function() {
   }
 
 #' @rdname cett_poly_pfms_doc
-#' @export
 targets_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
       "targets_polypeptides_pfams",
@@ -115,7 +112,6 @@ targets_polypeptides_pfams <- function() {
   }
 
 #' @rdname cett_poly_pfms_doc
-#' @export
 transporters_polypeptides_pfams <- function() {
     CETTPolyOtherParser$new(
       "transporters_polypeptides_pfams",
@@ -124,7 +120,6 @@ transporters_polypeptides_pfams <- function() {
   }
 
 #' @rdname cett_ex_identity_doc
-#' @export
 carriers_polypep_ex_ident <-
   function() {
     CETTPolyOtherParser$new(
@@ -134,7 +129,6 @@ carriers_polypep_ex_ident <-
   }
 
 #' @rdname cett_ex_identity_doc
-#' @export
 enzymes_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
       "enzymes_polypeptides_ext_id",
@@ -143,7 +137,6 @@ enzymes_polypep_ex_ident <- function() {
   }
 
 #' @rdname cett_ex_identity_doc
-#' @export
 targets_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
       "targets_polypeptides_ext_id",
@@ -152,7 +145,6 @@ targets_polypep_ex_ident <- function() {
   }
 
 #' @rdname cett_ex_identity_doc
-#' @export
 transporters_polypep_ex_ident <- function() {
     CETTPolyOtherParser$new(
       "transporters_polypeptides_ext_id",
@@ -161,7 +153,6 @@ transporters_polypep_ex_ident <- function() {
   }
 
 #' @rdname cett_go_doc
-#' @export
 carriers_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
       "carriers_polypeptides_go",
@@ -170,7 +161,6 @@ carriers_polypeptides_go <- function() {
   }
 
 #' @rdname cett_go_doc
-#' @export
 enzymes_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
       "enzymes_polypeptides_go",
@@ -179,7 +169,6 @@ enzymes_polypeptides_go <- function() {
   }
 
 #' @rdname cett_go_doc
-#' @export
 targets_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
       "targets_polypeptides_go",
@@ -188,7 +177,6 @@ targets_polypeptides_go <- function() {
   }
 
 #' @rdname cett_go_doc
-#' @export
 transporters_polypeptides_go <- function() {
     CETTPolyOtherParser$new(
       "transporters_polypeptides_go",
@@ -197,7 +185,6 @@ transporters_polypeptides_go <- function() {
   }
 
 #' @rdname cett_poly_syn_doc
-#' @export
 carriers_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
       "carriers_polypeptides_syn",
@@ -212,7 +199,6 @@ carriers_polypeptides_syn <- function() {
   }
 
 #' @rdname cett_poly_syn_doc
-#' @export
 enzymes_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
       "enzymes_polypeptides_syn",
@@ -227,7 +213,6 @@ enzymes_polypeptides_syn <- function() {
   }
 
 #' @rdname cett_poly_syn_doc
-#' @export
 targets_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
       "targets_polypeptides_syn",
@@ -242,7 +227,6 @@ targets_polypeptides_syn <- function() {
   }
 
 #' @rdname cett_poly_syn_doc
-#' @export
 transporters_polypeptides_syn <- function() {
     syn <- CETTPolyOtherParser$new(
       "transporters_polypeptides_syn",

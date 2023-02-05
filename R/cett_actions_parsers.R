@@ -36,7 +36,6 @@ CETTActionsParser <-
 NULL
 
 #' @rdname cett_actions_doc
-#' @export
 carriers_actions <- function() {
   CETTActionsParser$new(
     "carriers_actions"
@@ -44,7 +43,6 @@ carriers_actions <- function() {
 }
 
 #' @rdname cett_actions_doc
-#' @export
 enzymes_actions <- function() {
   CETTActionsParser$new(
     "enzymes_actions"
@@ -52,7 +50,6 @@ enzymes_actions <- function() {
 }
 
 #' @rdname cett_actions_doc
-#' @export
 targets_actions <- function() {
   CETTActionsParser$new(
     "targets_actions"
@@ -60,7 +57,6 @@ targets_actions <- function() {
 }
 
 #' @rdname cett_actions_doc
-#' @export
 transporters_actions <- function() {
   CETTActionsParser$new(
     "transporters_actions"

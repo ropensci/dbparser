@@ -67,7 +67,6 @@ parseDrugBank <- function(db_path,
 #' drug_node_options()
 #' }
 #' @keywords internal
-#' @export
 drug_node_options <- function() {
   c("drug_classification", "synonyms", "pharmacology", "international_brands",
     "mixtures", "packagers", "manufacturers", "prices", "categories", "dosages",
@@ -88,7 +87,6 @@ drug_node_options <- function() {
 #' references_node_options()
 #' }
 #' @keywords internal
-#' @export
 references_node_options <- function() {
   c("drug_books", "drug_articles", "drug_links", "drug_attachments",
     "carrier_books", "carrier_articles", "carrier_links", "carrier_attachments",

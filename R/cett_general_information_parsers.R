@@ -66,28 +66,24 @@ CETTGeneralInformationParser <-
 NULL
 
 #' @rdname cett_doc
-#' @export
 carriers <- function() {
     CETTGeneralInformationParser$new("carriers")$parse()
   }
 
 
 #' @rdname cett_doc
-#' @export
 enzymes <- function() {
     CETTGeneralInformationParser$new("enzymes")$parse()
   }
 
 
 #' @rdname cett_doc
-#' @export
 targets <- function() {
     CETTGeneralInformationParser$new("targets")$parse()
 }
 
 
 #' @rdname cett_doc
-#' @export
 transporters <- function() {
     CETTGeneralInformationParser$new(
                                      "transporters")$parse()
