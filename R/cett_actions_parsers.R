@@ -32,7 +32,6 @@ CETTActionsParser <-
 #'   \item{\emph{parent_id}}{carrier/ target/ enzyme/ transporter id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_actions_doc
 NULL
 

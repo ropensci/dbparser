@@ -32,14 +32,6 @@ a tibble with 4 variables:
 Return a list of websites that were used as references for
 Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other references: 
 \code{\link{articles}},

@@ -59,14 +59,6 @@ a tibble with the following variables:
 Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
  and physiological or biochemical effects in the body.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

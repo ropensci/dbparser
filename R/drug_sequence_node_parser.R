@@ -43,9 +43,6 @@ SequencesParser <- R6::R6Class(
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
 #' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_sequences <- function() {
   SequencesParser$new("drug_sequences")$parse()
 }

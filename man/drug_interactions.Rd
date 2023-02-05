@@ -22,14 +22,6 @@ with the drug of interest, will affect its activity or result in adverse
 effects. These interactions may be synergistic or antagonistic depending on
 the physiological effects and mechanism of action of each drug.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

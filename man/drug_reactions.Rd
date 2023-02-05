@@ -26,14 +26,6 @@ Extract the sequential representation of the metabolic reactions that this
  pharmacological activity of metabolites, and a structural representation of
   the biochemical reactions.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

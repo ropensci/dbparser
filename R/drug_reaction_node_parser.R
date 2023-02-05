@@ -66,11 +66,9 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family drugs
-#' @inherit run_all_parsers examples
-#' @export
 drug_reactions <- function() {
     ReactionsParser$new("drug_reactions")$parse()
-  }
+}
 
 #' Drug Reactions Enzymes Parsers
 #'
@@ -83,8 +81,6 @@ drug_reactions <- function() {
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family drugs
-#' @inherit run_all_parsers examples
-#' @export
 drug_reactions_enzymes <- function() {
     ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
   }

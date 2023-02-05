@@ -20,14 +20,6 @@ a tibble with the following variables:
 Metabolic, disease, and biological pathways that the drug is involved in, as
 identified by the Small Molecule Protein Database (SMPDB).
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other pathway: 
 \code{\link{drug_pathway_drugs}()},

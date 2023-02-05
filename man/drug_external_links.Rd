@@ -17,14 +17,6 @@ a tibble with the following variables:
 \description{
 Links to other websites or databases providing information about this drug.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

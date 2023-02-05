@@ -27,14 +27,6 @@ A list of single nucleotide polymorphisms (SNPs) relevent to drug activity or
  metabolism, and the effects these may have on pharmacological activity.
  SNP effects in the patient may require close monitoring, an increase or
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

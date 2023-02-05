@@ -56,251 +56,7 @@ parseDrugBank <- function(db_path,
   dvobject
 }
 
-#' extracts the all drug elements and return data as list of tibbles.
-#'
-#' this functions extracts all element of drug nodes in \strong{DrugBank}
-#' xml database.
-#'
-#' @return all drug elements tibbles
-#' @family common
-#' @examples
-#' \dontrun{
-#' # the same parameters and usage will be applied for any parser
-#' # return only the parsed tibble
-#' run_all_parsers()
-#'
-#' }
-#' @family collective_parsers
-#' @export
-run_all_parsers <- function() {
-    c(drugs(),
-      references(),
-      cett())
-  }
 
-#' extracts the given drug elements and return data as list of tibbles.
-#'
-#' \code{drug_element} returns list of tibbles of <- selected
-#' elements.
-#'
-#' drug_element_options can be called to know the valid options for
-#' this method
-#'
-#' @param elements_options list,  options of elements to be parsed. default is
-#'  "all"
-#'
-#' @return list of selected drug elements tibbles
-#' @family common
-#' @examples
-#' \dontrun{
-#' # return only the parsed tibble
-#' drug_element()
-#' drug_element(c("drug_ahfs_codes", "drug_carriers"))
-#' }
-#' @keywords internal
-#' @export
-drug_element <-
-  function(elements_options = c("all")) {
-    if (!all(elements_options %in% drug_element_options())) {
-      stop("invalid options\nplease use drug_element_options() to
-           know valid options")
-    }
-
-    if ("all" %in% elements_options) {
-      return(run_all_parsers())
-    }
-    parsed_list <- list()
-    for (option in elements_options) {
-      parsed_element <- switch(
-        option,
-        "drugs" = drug_general_information(),
-        "pharmacology_drug" = drug_pharmacology(),
-        "affected_organisms_drug" =
-          drug_affected_organisms(),
-        "ahfs_codes_drug" = drug_ahfs_codes(),
-        "articles_drug" = drugs_articles(),
-        "atc_codes_drug" = drug_atc_codes(),
-        "books_drug" = drugs_textbooks(),
-        "carriers_drug" = carriers(),
-        "actions_carrier_drug" = carriers_actions(),
-        "articles_carrier_drug" = carriers_articles(),
-        "links_carrier_drug" = carriers_links(),
-        "polypeptides_carrier_drugs" = carriers_polypeptides(),
-        "carr_poly_ext_identity" = carriers_polypep_ex_ident(),
-        "carr_polypeptides_go" = carriers_polypeptides_go(),
-        "carr_polypeptides_pfams" = carriers_polypeptides_pfams(),
-        "carr_polypeptides_syn" = carriers_polypeptides_syn(),
-        "textbooks_carrier_drug" = carriers_textbooks(),
-        "categories_drug" = carriers(),
-        "classifications_drug" = drug_classification(),
-        "dosages_drug" = drug_dosages(),
-        "enzymes_drug" = enzymes(),
-        "actions_enzyme_drug" = enzymes_actions(),
-        "articles_enzyme_drug" = enzymes_articles(),
-        "links_enzyme_drug" = enzymes_links(),
-        "polypeptides_enzyme_drug" = enzymes_polypeptides(),
-        "enzy_poly_ext_identity" = enzymes_polypep_ex_ident(),
-        "enzy_poly_go" = enzymes_polypeptides_go(),
-        "pfams_polypeptides_enzyme_drug" = enzymes_polypeptides_pfams(),
-        "enzy_poly_syn" = enzymes_polypeptides_syn(),
-        "textbooks_enzyme_drug" = enzymes_textbooks(),
-        "experimental_properties_drug" = drug_exp_prop(),
-        "external_identifiers_drug" = drug_ex_identity(),
-        "external_links_drug" = drug_external_links(),
-        "food_interactions_drug" = drug_food_interactions(),
-        "groups_drugs" = drug_groups(),
-        "interactions_drug" = drug_interactions(),
-        "links_drug" = drug_interactions(),
-        "manufacturers_drug" = drug_manufacturers(),
-        "mixtures_drug" = drug_mixtures(),
-        "packagers_drug" = drug_packagers(),
-        "patents_drugs" = drug_patents(),
-        "pathways_drug" = drug_pathway(),
-        "drugs_pathway_drug" = drug_pathway_drugs(),
-        "enzymes_pathway_drug" = drug_pathway_enzyme(),
-        "pdb_entries_drug" = drug_pdb_entries(),
-        "prices_drug" = drug_prices(),
-        "products_drug" = drug_products(),
-        "reactions_drugs" = drug_reactions(),
-        "enzymes_reactions_drug" = drug_reactions_enzymes(),
-        "sequences_drug" = drug_sequences(),
-        "snp_adverse_reactions" = drug_snp_adverse_reactions(),
-        "snp_effects_drug" = drug_snp_effects(),
-        "syn_drug" = drug_syn(),
-        "targ_drug" = targets(),
-        "actions_target_drug" = targets_actions(),
-        "articles_target_drug" = targets_articles(),
-        "links_target_drug" = targets_links(),
-        "polypeptide_target_drug" = targets_polypeptides(),
-        "targ_poly_ext_identity" = targets_polypep_ex_ident(),
-        "targ_poly_go" = targets_polypeptides_go(),
-        "pfams_polypeptide_target_drug" = targets_polypeptides_pfams(),
-        "targ_poly_syn" = targets_polypeptides(),
-        "textbooks_target_drug" = targets_textbooks(),
-        "transporters_drug" = transporters(),
-        "actions_transporter_drug" = transporters_actions(),
-        "articles_transporter_drug" = targets_articles(),
-        "links_transporter_drug" = transporters_links(),
-        "polypeptides_transporter_drug" = enzymes_polypeptides(),
-        "trans_poly_ex_identity" = transporters_polypep_ex_ident(),
-        "go_polypeptide_trans_drug" = transporters_polypeptides_go(),
-        "trans_poly_pfams" = transporters_polypeptides_pfams(),
-        "trans_poly_syn" = transporters_polypeptides_syn(),
-        "textbooks_transporter_drug" = transporters_textbooks(),
-        "international_brands_drug" = drug_intern_brand(),
-        "salts_drug" = drug_salts(),
-        "culculated_properties_drug" = drug_calc_prop(),
-        "attachments_drug" = drugs_attachments(),
-        "attachments_carrier" = carriers_attachments(),
-        "attachments_enzyme" = enzymes_attachments(),
-        "attachments_target" = targets_attachments(),
-        "attachments_transporter" = transporters_attachments(),
-        "references" = references()
-      )
-      parsed_list[[option]] <- parsed_element
-      message(paste("parsed", option))
-    }
-    return(parsed_list)
-  }
-
-#' returns \code{drug_element} valid options.
-#'
-#' @return list of \code{drug_element} valid options
-#' @family common
-#' @examples
-#' \dontrun{
-#' drug_element_options()
-#' }
-#' @keywords internal
-#' @export
-drug_element_options <- function() {
-  elements_options <-
-    c(
-      "all",
-      "drugs",
-      "pharmacology_drug",
-      "groups_drug",
-      "articles_drug",
-      "books_drug",
-      "links_drug",
-      "syn_drug",
-      "products_drug",
-      "culculated_properties_drug",
-      "mixtures_drug",
-      "packagers_drug",
-      "categories_drug",
-      "affected_organisms_drug",
-      "dosages_drug",
-      "ahfs_codes_drug",
-      "pdb_entries_drug",
-      "patents_drug",
-      "food_interactions_drug",
-      "interactions_drug",
-      "experimental_properties_drug",
-      "external_identifiers_drug",
-      "external_links_drug",
-      "snp_effects_drug",
-      "snp_adverse_reactions",
-      "atc_codes_drug",
-      "actions_carrier_drug",
-      "articles_carrier_drug",
-      "textbooks_carrier_drug",
-      "links_carrier_drug",
-      "polypeptides_carrier_drug",
-      "carr_poly_ext_identity",
-      "carr_polypeptides_syn",
-      "carr_polypeptides_pfams",
-      "carr_polypeptides_go",
-      "carriers_drug",
-      "classifications_drug",
-      "actions_enzyme_drug",
-      "articles_enzyme_drug",
-      "textbooks_enzyme_drug",
-      "links_enzyme_drug",
-      "polypeptides_enzyme_drug",
-      "enzy_poly_ext_identity",
-      "enzy_poly_syn",
-      "pfams_polypeptides_enzyme_drug",
-      "enzy_poly_go",
-      "enzymes_drug",
-      "manufacturers_drug",
-      "enzymes_pathway_drug",
-      "drugs_pathway_drug",
-      "pathways_drug",
-      "prices_drug",
-      "reactions_drug",
-      "enzymes_reactions_drug",
-      "sequences_drug",
-      "targ_poly_ext_identity",
-      "targ_poly_syn",
-      "pfams_polypeptide_target_drug",
-      "targ_poly_go",
-      "actions_target_drug",
-      "articles_target_drug",
-      "textbooks_target_drug",
-      "links_target_drug",
-      "polypeptide_target_drug",
-      "targ_drug",
-      "actions_transporter_drug",
-      "articles_transporter_drug",
-      "textbooks_transporter_drug",
-      "links_transporter_drug",
-      "polypeptides_transporter_drug",
-      "trans_poly_ex_identity",
-      "trans_poly_syn",
-      "trans_poly_pfams",
-      "go_polypeptide_trans_drug",
-      "transporters_drug",
-      "international_brands_drug",
-      "salts_drug",
-      "attachments_drug",
-      "attachments_carrier",
-      "attachments_enzyme",
-      "attachments_target",
-      "attachments_transporter",
-      "references"
-    )
-}
 
 #' returns durg node valid options.
 #'
@@ -342,6 +98,7 @@ references_node_options <- function() {
     "transporter_attachments")
 }
 
+
 #' Run all drug  related parsers
 #'
 #' Run all parsers that retrieve drugs related information
@@ -351,9 +108,6 @@ references_node_options <- function() {
 #' @return a list of all drugs parsed tibbles
 #'
 #' @family collective_parsers
-#'
-#' @inherit run_all_parsers examples
-#' @export
 parse_drug_nodes <- function(drug_options) {
   drugs <- list()
   message("Drugs Information Parsing has Started")
@@ -520,9 +274,6 @@ parse_drug_nodes <- function(drug_options) {
 #' transporters
 #'
 #' @family references
-#'
-#' @inherit run_all_parsers examples
-#' @export
 parse_references_node <- function(references_options) {
   references   <- list()
   drugs        <- list()
@@ -663,9 +414,6 @@ parse_references_node <- function(references_options) {
 #' @return  a list of all drugs parsed tibbles
 #'
 #' @family collective_parsers
-#'
-#' @inherit run_all_parsers examples
-#' @export
 parse_cett_node <- function(cett_options) {
   cett         <- list()
   carriers     <- list()

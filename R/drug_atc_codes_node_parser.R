@@ -49,9 +49,6 @@ ATCParser <- R6::R6Class(
 #'
 #' @return  a tibble with 10 variables
 #' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_atc_codes <- function() {
   ATCParser$new("drug_atc_codes")$parse()
 }

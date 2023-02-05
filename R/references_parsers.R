@@ -52,7 +52,6 @@ ReferenceParser <-
 #' }
 #' @family references
 #'
-#' @inherit run_all_parsers examples
 #' @name books
 NULL
 
@@ -70,7 +69,6 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit run_all_parsers examples
 #' @name links
 NULL
 
@@ -89,7 +87,6 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit run_all_parsers examples
 #' @name articles
 NULL
 
@@ -108,13 +105,11 @@ NULL
 #' }
 #' @family references
 #'
-#' @inherit run_all_parsers examples
 #' @name attachments
 NULL
 
 
 #' @rdname books
-#' @export
 drugs_textbooks <- function() {
     ReferenceParser$new(
       tibble_name = "drugs_textbooks",

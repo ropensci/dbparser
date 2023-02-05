@@ -17,14 +17,6 @@ a tibble with 2 variables:
 Organisms in which the drug may display activity; activity may depend on
 local susceptibility patterns and resistance.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_ahfs_codes}()},

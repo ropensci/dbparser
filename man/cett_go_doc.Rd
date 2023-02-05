@@ -29,14 +29,6 @@ a tibble with 3 variables:
 Extract descriptions of identified polypeptide go classifier for targets,
  enzymes, carriers, or transporters.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other cett: 
 \code{\link{cett_actions_doc}},

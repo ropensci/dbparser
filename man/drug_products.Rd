@@ -68,14 +68,6 @@ a tibble with 32 variables:
 A list of commercially available products in Canada and the United States
  that contain the drug.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

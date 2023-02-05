@@ -62,7 +62,6 @@ CETTGeneralInformationParser <-
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_doc
 NULL
 

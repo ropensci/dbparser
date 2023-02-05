@@ -61,9 +61,6 @@ PathwaySubNodesParser <- R6::R6Class(
 #'
 #' @return  a tibble with pathway properties
 #' @family pathway
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_pathway_enzyme <- function() {
     PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_enzymes",
@@ -79,9 +76,6 @@ drug_pathway_enzyme <- function() {
 #'
 #' @return  a tibble with pathway drugsproperties
 #' @family pathway
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_pathway_drugs <- function() {
     PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_drugs",
@@ -105,9 +99,6 @@ drug_pathway_drugs <- function() {
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
 #' @family pathway
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_pathway <- function() {
     PathwayParser$new("drug_pathway")$parse()
   }

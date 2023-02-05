@@ -40,9 +40,6 @@ DrugSynonymsParser <- R6::R6Class(
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
 #' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_syn <- function() {
     DrugSynonymsParser$new("drug_syn")$parse()
-  }
+}

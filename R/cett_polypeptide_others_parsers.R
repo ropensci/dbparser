@@ -35,7 +35,6 @@ CETTPolyOtherParser <-
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_poly_pfms_doc
 NULL
 
@@ -53,7 +52,6 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_ex_identity_doc
 NULL
 
@@ -71,7 +69,6 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_go_doc
 NULL
 
@@ -87,7 +84,6 @@ NULL
 #'   \item{parent_key}{polypeptide id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_poly_syn_doc
 NULL
 

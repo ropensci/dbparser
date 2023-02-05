@@ -70,9 +70,6 @@ DrugParser <- R6::R6Class(
 #'   (MSDS) for this drug.}
 #' }
 #' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
 drug_general_information <- function() {
     DrugParser$new("drug")$parse()
   }

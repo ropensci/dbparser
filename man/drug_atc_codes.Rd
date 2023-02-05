@@ -18,14 +18,6 @@ Each `atc-code`` row has one or more level. The atc-code and level>
 have a code  the code assigned by the World Health Organization Anatomical
 Therapeutic Chemical Classification system.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

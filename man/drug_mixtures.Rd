@@ -22,14 +22,6 @@ a tibble with 4 variables:
 All commercially available products in which this drug is available in
 combination with other drug molecules
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

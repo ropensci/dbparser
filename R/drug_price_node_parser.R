@@ -41,8 +41,6 @@ PricesParser <- R6::R6Class(
 #'   \item{parent_id}{drugbank id}
 #' }
 #' @family drugs
-#' @inherit run_all_parsers examples
-#' @export
 drug_prices <- function() {
   PricesParser$new("drug_prices")$parse()
 }

@@ -17,14 +17,6 @@ a tibble with 2 variables:
 Groups that this drug belongs to. May include any of: approved, vet_approved,
  nutraceutical, illicit, withdrawn, investigational, and experimental.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

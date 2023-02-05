@@ -34,14 +34,6 @@ a tibble with 4 variables:
 Return a list of text books that were used as references for drugs, carriers,
  enzymes, targets or transporters
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other references: 
 \code{\link{articles}},

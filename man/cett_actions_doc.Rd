@@ -26,14 +26,6 @@ a tibble with 2 variables:
 \description{
 Collection of related actions
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other cett: 
 \code{\link{cett_doc}},

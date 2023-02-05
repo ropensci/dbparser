@@ -37,14 +37,6 @@ Protein targets of drug action, enzymes that are inhibited/induced or
 involved in metabolism, and carrier or transporter proteins involved in
 movement of the drug across biological membranes.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other cett: 
 \code{\link{cett_actions_doc}},

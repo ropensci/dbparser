@@ -30,14 +30,6 @@ Office (USPTO) to an inventor for a limited time, in exchange for public
 disclosure of the invention when the patent is granted. Drugs may be issued
 multiple patents.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},

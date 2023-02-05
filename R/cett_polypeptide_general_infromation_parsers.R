@@ -94,7 +94,6 @@ CETTPolyGeneralInfoParser <-
 #'   \item{parent_key}{carrier/ target/ enzyme/ transporter id}
 #' }
 #' @family cett
-#' @inherit run_all_parsers examples
 #' @name cett_poly_doc
 NULL
 

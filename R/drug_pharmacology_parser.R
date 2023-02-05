@@ -81,10 +81,6 @@ PharmacologyParser <- R6::R6Class(
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
 #' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-
 drug_pharmacology <- function() {
     PharmacologyParser$new("drugs_pharmacology")$parse()
   }

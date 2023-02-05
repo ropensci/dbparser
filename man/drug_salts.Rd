@@ -35,14 +35,6 @@ Available salt forms of the drug. Ions such as hydrochloride, sodium,
  and sulfate are often added to the drug molecule to increase solubility,
  dissolution, or absorption.
 }
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-}
-}
 \seealso{
 Other drugs: 
 \code{\link{drug_affected_organisms}()},
