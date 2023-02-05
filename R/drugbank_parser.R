@@ -3,8 +3,16 @@
 #'  data.frames in which each data.frame represents a part of parsed data (i.e
 #'  drugs, prices, carriers, ...)
 #'
-#' @param db_path \strong{string}, full path for the
-#'  \strong{DrugBank} xml or zip file.
+#' @param db_path \strong{string}, full path for the \strong{DrugBank} xml or
+#'  zip file.
+#' @param drug_options \strong{character vector}, list of sub drug related nodes
+#' names options to parse (default = all available nodes)
+#' @param parse_salts \strong{boolean}, parse salts info (default = TRUE)
+#' @param parse_products  \strong{boolean}, parse products info (default = TRUE)
+#' @param references_options \strong{character vector}, list of sub references
+#' related nodes names options to parse (default = all available nodes)
+#' @param cett_options \strong{character vector}, list of sub cett related nodes
+#' names options to parse (default = all available nodes)
 #'
 #' @return dvobject
 #' @family parsers
@@ -61,11 +69,6 @@ parseDrugBank <- function(db_path,
 #' returns durg node valid options.
 #'
 #' @return list of \code{drug_element} valid options
-#' @family common
-#' @examples
-#' \dontrun{
-#' drug_node_options()
-#' }
 #' @keywords internal
 drug_node_options <- function() {
   c("drug_classification", "synonyms", "pharmacology", "international_brands",
@@ -81,11 +84,6 @@ drug_node_options <- function() {
 #' returns references node valid options.
 #'
 #' @return list of \code{drug_element} valid options
-#' @family common
-#' @examples
-#' \dontrun{
-#' references_node_options()
-#' }
 #' @keywords internal
 references_node_options <- function() {
   c("drug_books", "drug_articles", "drug_links", "drug_attachments",
@@ -101,11 +99,11 @@ references_node_options <- function() {
 #'
 #' Run all parsers that retrieve drugs related information
 #'
-#' @param drug_options
+#' @param drug_options - list of options to parse
 #'
 #' @return a list of all drugs parsed tibbles
 #'
-#' @family collective_parsers
+#' @keywords internal
 parse_drug_nodes <- function(drug_options) {
   drugs <- list()
   message("Drugs Information Parsing has Started")
@@ -268,10 +266,10 @@ parse_drug_nodes <- function(drug_options) {
 
 #' Drugs/ Carriers/ Enzymes/ Targets/ Transporters references element parser
 #'
-#' Return a list of all references for drugs, carriers, enzymes, targets or
+#' @return  a list of all references for drugs, carriers, enzymes, targets or
 #' transporters
 #'
-#' @family references
+#' @keywords internal
 parse_references_node <- function(references_options) {
   references   <- list()
   drugs        <- list()
@@ -404,6 +402,7 @@ parse_references_node <- function(references_options) {
   references
 }
 
+
 #' Run all CETT related parsers
 #'
 #' Run all parsers that retrieve carriers, enzymes, targets and transporters
@@ -411,7 +410,7 @@ parse_references_node <- function(references_options) {
 #'
 #' @return  a list of all drugs parsed tibbles
 #'
-#' @family collective_parsers
+#' @keywords internal
 parse_cett_node <- function(cett_options) {
   cett         <- list()
   carriers     <- list()

@@ -17,8 +17,21 @@ parseDrugBank(
 )
 }
 \arguments{
-\item{db_path}{\strong{string}, full path for the
-\strong{DrugBank} xml or zip file.}
+\item{db_path}{\strong{string}, full path for the \strong{DrugBank} xml or
+zip file.}
+
+\item{drug_options}{\strong{character vector}, list of sub drug related nodes
+names options to parse (default = all available nodes)}
+
+\item{parse_salts}{\strong{boolean}, parse salts info (default = TRUE)}
+
+\item{parse_products}{\strong{boolean}, parse products info (default = TRUE)}
+
+\item{references_options}{\strong{character vector}, list of sub references
+related nodes names options to parse (default = all available nodes)}
+
+\item{cett_options}{\strong{character vector}, list of sub cett related nodes
+names options to parse (default = all available nodes)}
 }
 \value{
 dvobject

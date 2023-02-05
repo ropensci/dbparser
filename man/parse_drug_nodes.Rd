@@ -7,7 +7,7 @@
 parse_drug_nodes(drug_options)
 }
 \arguments{
-\item{drug_options}{}
+\item{drug_options}{- list of options to parse}
 }
 \value{
 a list of all drugs parsed tibbles
@@ -15,8 +15,4 @@ a list of all drugs parsed tibbles
 \description{
 Run all parsers that retrieve drugs related information
 }
-\seealso{
-Other collective_parsers: 
-\code{\link{parse_cett_node}()}
-}
-\concept{collective_parsers}
+\keyword{internal}

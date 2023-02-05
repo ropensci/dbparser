@@ -61,7 +61,7 @@ CETTGeneralInformationParser <-
 #'   \item{position}{related position}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_doc
 NULL
 

@@ -40,7 +40,7 @@ PricesParser <- R6::R6Class(
 #'   \item{unit}{}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_prices <- function() {
   PricesParser$new("drug_prices")$parse()
 }

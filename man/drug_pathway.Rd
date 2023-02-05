@@ -20,9 +20,4 @@ a tibble with the following variables:
 Metabolic, disease, and biological pathways that the drug is involved in, as
 identified by the Small Molecule Protein Database (SMPDB).
 }
-\seealso{
-Other pathway: 
-\code{\link{drug_pathway_drugs}()},
-\code{\link{drug_pathway_enzyme}()}
-}
-\concept{pathway}
+\keyword{internal}

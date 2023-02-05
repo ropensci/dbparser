@@ -32,11 +32,4 @@ a tibble with 4 variables:
 Return a list of websites that were used as references for
 Drugs/ Carriers/ Enzymes/ Targets/ Transporters
 }
-\seealso{
-Other references: 
-\code{\link{articles}},
-\code{\link{attachments}},
-\code{\link{books}},
-\code{\link{parse_references_node}()}
-}
-\concept{references}
+\keyword{internal}

@@ -27,13 +27,4 @@ a tibble with 2 variables:
 Extract descriptions of identified polypeptide synonyms for targets,
  enzymes, carriers, or transporters.
 }
-\seealso{
-Other cett: 
-\code{\link{cett_actions_doc}},
-\code{\link{cett_doc}},
-\code{\link{cett_ex_identity_doc}},
-\code{\link{cett_go_doc}},
-\code{\link{cett_poly_doc}},
-\code{\link{cett_poly_pfms_doc}}
-}
-\concept{cett}
+\keyword{internal}

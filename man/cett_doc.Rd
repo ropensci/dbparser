@@ -37,13 +37,4 @@ Protein targets of drug action, enzymes that are inhibited/induced or
 involved in metabolism, and carrier or transporter proteins involved in
 movement of the drug across biological membranes.
 }
-\seealso{
-Other cett: 
-\code{\link{cett_actions_doc}},
-\code{\link{cett_ex_identity_doc}},
-\code{\link{cett_go_doc}},
-\code{\link{cett_poly_doc}},
-\code{\link{cett_poly_pfms_doc}},
-\code{\link{cett_poly_syn_doc}}
-}
-\concept{cett}
+\keyword{internal}

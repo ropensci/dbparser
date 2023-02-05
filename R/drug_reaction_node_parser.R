@@ -65,7 +65,7 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'   \item{right_drugbank_id}{}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_reactions <- function() {
     ReactionsParser$new("drug_reactions")$parse()
 }
@@ -80,7 +80,7 @@ drug_reactions <- function() {
 #'   \item{uniprot-id}{}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_reactions_enzymes <- function() {
     ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
   }

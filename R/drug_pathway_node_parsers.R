@@ -60,7 +60,7 @@ PathwaySubNodesParser <- R6::R6Class(
 #' Enzymes involved in this pathway.
 #'
 #' @return  a tibble with pathway properties
-#' @family pathway
+#' @keywords internal
 drug_pathway_enzyme <- function() {
     PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_enzymes",
@@ -75,7 +75,7 @@ drug_pathway_enzyme <- function() {
 #' Drugs involved in this pathway.
 #'
 #' @return  a tibble with pathway drugsproperties
-#' @family pathway
+#' @keywords internal
 drug_pathway_drugs <- function() {
     PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_drugs",
@@ -98,7 +98,7 @@ drug_pathway_drugs <- function() {
 #'  \item{category}{Pathway category}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family pathway
+#' @keywords internal
 drug_pathway <- function() {
     PathwayParser$new("drug_pathway")$parse()
   }

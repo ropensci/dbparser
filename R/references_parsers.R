@@ -50,7 +50,7 @@ ReferenceParser <-
 #'   \item{citation}{A Textbook citation in a standard format.}
 #'   \item{\emph{parent_id}}{drug/ carrier/ target/ enzyme/ transporter id}
 #' }
-#' @family references
+#' @keywords internal
 #'
 #' @name books
 NULL
@@ -67,7 +67,7 @@ NULL
 #'   \item{url}{The url of the website}
 #'   \item{\emph{parent_id}}{drug/ carrier/ target/ enzyme/ transporter id}
 #' }
-#' @family references
+#' @keywords internal
 #'
 #' @name links
 NULL
@@ -85,7 +85,7 @@ NULL
 #'   \item{citation}{Article citation in a standard format.}
 #'   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
 #' }
-#' @family references
+#' @keywords internal
 #'
 #' @name articles
 NULL
@@ -103,7 +103,7 @@ NULL
 #'   \item{url}{The url to download the attachment from.}
 #'   \item{\emph{parent_id}}{drug/carrier/target/enzyme/transporter id}
 #' }
-#' @family references
+#' @keywords internal
 #'
 #' @name attachments
 NULL

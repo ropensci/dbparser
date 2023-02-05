@@ -39,7 +39,7 @@ DrugSynonymsParser <- R6::R6Class(
 #'   International Union of Pure and Applied Chemistry.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_syn <- function() {
     DrugSynonymsParser$new("drug_syn")$parse()
 }

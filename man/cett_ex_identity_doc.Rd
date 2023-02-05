@@ -29,13 +29,4 @@ a tibble with 3 variables:
 Extract descriptions of identified polypeptide external identifiers for
 targets, enzymes, carriers, or transporters.
 }
-\seealso{
-Other cett: 
-\code{\link{cett_actions_doc}},
-\code{\link{cett_doc}},
-\code{\link{cett_go_doc}},
-\code{\link{cett_poly_doc}},
-\code{\link{cett_poly_pfms_doc}},
-\code{\link{cett_poly_syn_doc}}
-}
-\concept{cett}
+\keyword{internal}

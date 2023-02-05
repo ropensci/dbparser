@@ -42,7 +42,7 @@ SequencesParser <- R6::R6Class(
 #'  \item{format}{Currently, only the FASTA format is used}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_sequences <- function() {
   SequencesParser$new("drug_sequences")$parse()
 }

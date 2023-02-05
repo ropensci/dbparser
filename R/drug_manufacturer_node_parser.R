@@ -41,7 +41,7 @@ ManufacturersParser <- R6::R6Class(
 #'  \item{url}{A link to the companies that are manufacturing the drug.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_manufacturers <- function() {
   ManufacturersParser$new(
     "drug_manufacturers"

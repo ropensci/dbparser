@@ -12,14 +12,4 @@ list of \code{drug_element} valid options
 \description{
 returns references node valid options.
 }
-\examples{
-\dontrun{
-references_node_options()
-}
-}
-\seealso{
-Other common: 
-\code{\link{drug_node_options}()}
-}
-\concept{common}
 \keyword{internal}

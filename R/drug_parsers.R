@@ -38,7 +38,7 @@ DrugElementsParser <- R6::R6Class(
 #'  \item{group}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_groups <- function() {
     DrugElementsParser$new(
       "drug_groups",
@@ -108,7 +108,7 @@ drug_groups <- function() {
 #'  \item{available}{Whether this product can be sold in its jurisdiction}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_products <- function() {
     DrugElementsParser$new(
       "drug_products",
@@ -132,7 +132,7 @@ drug_products <- function() {
 #'  either ChemAxon or ALOGPS.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_calc_prop <- function() {
   DrugElementsParser$new(
     "drug_calculated_properties",
@@ -154,7 +154,7 @@ drug_calc_prop <- function() {
 #'  \item{company}{The company or manufacturer that uses this name.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_intern_brand <- function() {
     DrugElementsParser$new(
       "drug_international_brands",
@@ -191,7 +191,7 @@ drug_intern_brand <- function() {
 #'   molecule; calculated by ChemAxon.}
 #'  \item{\emph{drugbank_id}}{parent drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_salts <- function() {
     DrugElementsParser$new(
       "drug_salts",
@@ -215,7 +215,7 @@ drug_salts <- function() {
 #'   separated by addition symbols.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_mixtures <- function() {
     DrugElementsParser$new(
       "drug_mixtures",
@@ -234,7 +234,7 @@ drug_mixtures <- function() {
 #'  re-distribution.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_packagers <- function() {
     DrugElementsParser$new(
       "drug_packagers",
@@ -254,7 +254,7 @@ drug_packagers <- function() {
 #'  category.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_categories <- function() {
     DrugElementsParser$new(
       "drug_categories",
@@ -272,7 +272,7 @@ drug_categories <- function() {
 #'  \item{affected-organism}{affected-organism name}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_affected_organisms <- function() {
     DrugElementsParser$new(
       "drug_affected_organisms",
@@ -292,7 +292,7 @@ drug_affected_organisms <- function() {
 #'  \item{strength}{The amount of active drug ingredient provided in the dosage}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_dosages <- function() {
     DrugElementsParser$new(
       "drug_dosages",
@@ -310,7 +310,7 @@ drug_dosages <- function() {
 #'  \item{ahfs-code}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_ahfs_codes <- function() {
     DrugElementsParser$new(
       "drug_ahfs_codes",
@@ -328,7 +328,7 @@ drug_ahfs_codes <- function() {
 #'  \item{pdb-entry}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_pdb_entries <- function() {
     DrugElementsParser$new(
       "drug_pdb_entries",
@@ -354,7 +354,7 @@ drug_pdb_entries <- function() {
 #'   market protection.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_patents <- function() {
     DrugElementsParser$new(
       "drug_patents",
@@ -371,7 +371,7 @@ drug_patents <- function() {
 #'  \item{food-interaction}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_food_interactions <- function() {
     DrugElementsParser$new(
       "drug_food_interactions",
@@ -394,7 +394,7 @@ drug_food_interactions <- function() {
 #'  of the drug interaction}
 #'  \item{\emph{drugbank_id}}{parent drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_interactions <- function() {
     DrugElementsParser$new(
       "drug_drug_interactions",
@@ -445,7 +445,7 @@ drug_interactions <- function() {
 #'  time, from the decay of certain nuclides.}
 #' }
 #'
-#' @family drugs
+#' @keywords internal
 drug_exp_prop <- function() {
     DrugElementsParser$new(
       "drug_experimental_properties",
@@ -464,7 +464,7 @@ drug_exp_prop <- function() {
 #'  \item{identifier}{Identifier for this drug in the given resource.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_ex_identity <- function() {
     DrugElementsParser$new(
       "drug_external_identifiers",
@@ -483,7 +483,7 @@ drug_ex_identity <- function() {
 #'  \item{identifier}{Identifier for this drug in the given resource}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_external_links <- function() {
     DrugElementsParser$new(
       "drug_external_links",
@@ -511,7 +511,7 @@ drug_external_links <- function() {
 #'  \item{pubmed-id	}{Reference to PubMed article.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_snp_effects <- function() {
     DrugElementsParser$new(
       "drug_snp_effects",
@@ -538,7 +538,7 @@ drug_snp_effects <- function() {
 #'  \item{pubmed-id	}{Reference to PubMed article.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_snp_adverse_reactions <- function() {
     DrugElementsParser$new(
       "snp_adverse_reactions",

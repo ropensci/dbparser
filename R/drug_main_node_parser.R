@@ -69,7 +69,7 @@ DrugParser <- R6::R6Class(
 #'   \item{msds}{Contains a URL for accessing the Material Safety Data Sheet
 #'   (MSDS) for this drug.}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_general_information <- function() {
     DrugParser$new("drug")$parse()
   }

@@ -12,9 +12,4 @@ a tibble with pathway properties
 \description{
 Enzymes involved in this pathway.
 }
-\seealso{
-Other pathway: 
-\code{\link{drug_pathway_drugs}()},
-\code{\link{drug_pathway}()}
-}
-\concept{pathway}
+\keyword{internal}

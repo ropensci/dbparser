@@ -34,7 +34,7 @@ CETTPolyOtherParser <-
 #'   \item{identifier}{}
 #'   \item{parent_key}{polypeptide id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_poly_pfms_doc
 NULL
 
@@ -51,7 +51,7 @@ NULL
 #'   \item{identifier}{Identifier for this drug in the given resource.}
 #'   \item{parent_key}{polypeptide id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_ex_identity_doc
 NULL
 
@@ -68,7 +68,7 @@ NULL
 #'   \item{description}{}
 #'   \item{parent_key}{polypeptide id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_go_doc
 NULL
 
@@ -83,7 +83,7 @@ NULL
 #'   \item{synonym}{}
 #'   \item{parent_key}{polypeptide id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_poly_syn_doc
 NULL
 

@@ -34,11 +34,4 @@ a tibble with 4 variables:
 Return a list of text books that were used as references for drugs, carriers,
  enzymes, targets or transporters
 }
-\seealso{
-Other references: 
-\code{\link{articles}},
-\code{\link{attachments}},
-\code{\link{links}},
-\code{\link{parse_references_node}()}
-}
-\concept{references}
+\keyword{internal}

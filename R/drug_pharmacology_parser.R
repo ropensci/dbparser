@@ -80,7 +80,7 @@ PharmacologyParser <- R6::R6Class(
 #'    the drug.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#' @keywords internal
 drug_pharmacology <- function() {
     PharmacologyParser$new("drugs_pharmacology")$parse()
   }

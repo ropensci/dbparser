@@ -6,15 +6,11 @@
 \usage{
 parse_references_node(references_options)
 }
-\description{
-Return a list of all references for drugs, carriers, enzymes, targets or
+\value{
+a list of all references for drugs, carriers, enzymes, targets or
 transporters
 }
-\seealso{
-Other references: 
-\code{\link{articles}},
-\code{\link{attachments}},
-\code{\link{books}},
-\code{\link{links}}
+\description{
+Drugs/ Carriers/ Enzymes/ Targets/ Transporters references element parser
 }
-\concept{references}
+\keyword{internal}

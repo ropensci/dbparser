@@ -31,7 +31,7 @@ CETTActionsParser <-
 #'   \item{action}{describe related action}
 #'   \item{\emph{parent_id}}{carrier/ target/ enzyme/ transporter id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_actions_doc
 NULL
 

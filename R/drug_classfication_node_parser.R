@@ -53,7 +53,7 @@ ClassificationParser <- R6::R6Class(
 #'   \item{substituent}{One or more substituents}
 #'   \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
+#'@keywords internal
 drug_classification <- function() {
     ClassificationParser$new("drug_classifications")$parse()
   }

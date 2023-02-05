@@ -33,11 +33,4 @@ a tibble with 4 variables:
 \description{
 Return a list of attachment that were used as references for drugs carriers
 }
-\seealso{
-Other references: 
-\code{\link{articles}},
-\code{\link{books}},
-\code{\link{links}},
-\code{\link{parse_references_node}()}
-}
-\concept{references}
+\keyword{internal}

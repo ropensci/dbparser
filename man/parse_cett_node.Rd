@@ -13,8 +13,4 @@ a list of all drugs parsed tibbles
 Run all parsers that retrieve carriers, enzymes, targets and transporters
  related information
 }
-\seealso{
-Other collective_parsers: 
-\code{\link{parse_drug_nodes}()}
-}
-\concept{collective_parsers}
+\keyword{internal}

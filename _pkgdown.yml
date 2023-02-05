@@ -27,26 +27,6 @@ reference:
   desc: "Parse public drug databases and converted them into dvobject"
   contents:
    - has_concept("parsers")
-- title: "Collective Parsers"
-  desc: "Each function return related parsers together"
-  contents:
-   - has_concept("collective_parsers")
-- title: "Carriers, Enzymes, Targets, Transporters  Parsers"
-  desc: "Get Drug carriers, enzymes and transporters and related information"
-  contents:
-    - has_concept("cett")
-- title: "Drug Parsers"
-  desc: "Get Drug and its related direct information"
-  contents:
-    - has_concept("drugs")
-- title: "Pathway Parsers"
-  desc: "Pathway related parser"
-  contents:
-    - has_concept("pathway")
-- title: "References Parsers"
-  desc: "Books, Links, Articles and Attachments parsres"
-  contents:
-    - has_concept("references")
 - title: "Utility functions"
   desc: "Different functions to handle dvobject"
   contents:

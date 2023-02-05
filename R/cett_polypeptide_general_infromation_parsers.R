@@ -93,7 +93,7 @@ CETTPolyGeneralInfoParser <-
 #'   \item{gene_format}{}
 #'   \item{parent_key}{carrier/ target/ enzyme/ transporter id}
 #' }
-#' @family cett
+#' @keywords internal
 #' @name cett_poly_doc
 NULL
 
