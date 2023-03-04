@@ -113,7 +113,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = NULL)
-    expect_true(grepl("'parse_products' must have logical value", dvobj$messages[1]))
+    expect_true(grepl("'parse_products' must have single logical value", dvobj$messages[1]))
 
     expect_equal(length(dvobj$result), 5)
 
@@ -121,7 +121,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = NA)
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -131,7 +131,7 @@ test_that(
                       parse_products = c("a", "b"))
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -141,7 +141,7 @@ test_that(
                       parse_products = c(1, 3))
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -151,7 +151,7 @@ test_that(
                       parse_products = "c")
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -159,7 +159,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = 1)
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -168,7 +168,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = NULL)
-    expect_true(grepl("'parse_products' must have logical value", dvobj$messages[1]))
+    expect_true(grepl("'parse_products' must have single logical value", dvobj$messages[1]))
 
     expect_equal(length(dvobj$result), 5)
 
@@ -176,7 +176,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = NA)
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -186,7 +186,7 @@ test_that(
                       parse_products = c("a", "b"))
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -196,7 +196,7 @@ test_that(
                       parse_products = c(1, 3))
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -206,7 +206,7 @@ test_that(
                       parse_products = "c")
     expect_equal(length(dvobj$result), 5)
 
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -214,7 +214,7 @@ test_that(
                                   biotech,
                                   package = "dbparser"),
                       parse_products = 1)
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
@@ -233,9 +233,9 @@ test_that(
                       dvobj$messages[2]))
     expect_true(grepl("Options: ' a, b ' are invalid",
                       dvobj$messages[3]))
-    expect_true(grepl("'parse_salts' must have logical value",
+    expect_true(grepl("'parse_salts' must have single logical value",
                       dvobj$messages[4]))
-    expect_true(grepl("'parse_products' must have logical value",
+    expect_true(grepl("'parse_products' must have single logical value",
                       dvobj$messages[5]))
 
     expect_equal(length(dvobj$result), 5)

@@ -69,13 +69,13 @@ parseDrugBank <- function(db_path,
     cett_options <- cett_nodes_options()
   }
 
-  if (is.na(parse_salts) || !is.logical(parse_salts)) {
-    message("'parse_salts' must have logical value. Setting 'parse_salts' to default value")
+  if ((length(parse_salts) > 1) || is.na(parse_salts) || !is.logical(parse_salts)) {
+    message("'parse_salts' must have single logical value. Setting 'parse_salts' to default value")
     parse_salts <- TRUE
   }
 
-  if (is.na(parse_products) || !is.logical(parse_products)) {
-    message("'parse_products' must have logical value. Setting 'parse_products' to default value")
+  if ((length(parse_products) > 1) || is.na(parse_products) || !is.logical(parse_products)) {
+    message("'parse_products' must have single logical value. Setting 'parse_products' to default value")
     parse_products <- TRUE
   }
 
