@@ -1,4 +1,5 @@
 #' parseDrugBank
+#'
 #'  parses given DrugBank XML database into a dvobject. dvobject is a list of
 #'  data.frames in which each data.frame represents a part of parsed data (i.e
 #'  drugs, prices, carriers, ...)
@@ -6,13 +7,13 @@
 #' @param db_path \strong{string}, full path for the \strong{DrugBank} xml or
 #'  zip file.
 #' @param drug_options \strong{character vector}, list of sub drug related nodes
-#' names options to parse (default = all available nodes)
+#' names options to parse (default = \code{drug_node_options()})
 #' @param parse_salts \strong{boolean}, parse salts info (default = TRUE)
 #' @param parse_products  \strong{boolean}, parse products info (default = TRUE)
 #' @param references_options \strong{character vector}, list of sub references
-#' related nodes names options to parse (default = all available nodes)
+#' related nodes names options to parse (default = \code{references_node_options()})
 #' @param cett_options \strong{character vector}, list of sub cett related nodes
-#' names options to parse (default = all available nodes)
+#' names options to parse (default = \code{cett_nodes_options()})
 #'
 #' @return dvobject
 #' @family parsers

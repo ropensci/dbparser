@@ -2,10 +2,7 @@
 % Please edit documentation in R/drugbank_parser.R
 \name{parseDrugBank}
 \alias{parseDrugBank}
-\title{parseDrugBank
- parses given DrugBank XML database into a dvobject. dvobject is a list of
- data.frames in which each data.frame represents a part of parsed data (i.e
- drugs, prices, carriers, ...)}
+\title{parseDrugBank}
 \usage{
 parseDrugBank(
   db_path,
@@ -21,24 +18,23 @@ parseDrugBank(
 zip file.}
 
 \item{drug_options}{\strong{character vector}, list of sub drug related nodes
-names options to parse (default = all available nodes)}
+names options to parse (default = \code{drug_node_options()})}
 
 \item{parse_salts}{\strong{boolean}, parse salts info (default = TRUE)}
 
 \item{parse_products}{\strong{boolean}, parse products info (default = TRUE)}
 
 \item{references_options}{\strong{character vector}, list of sub references
-related nodes names options to parse (default = all available nodes)}
+related nodes names options to parse (default = \code{references_node_options()})}
 
 \item{cett_options}{\strong{character vector}, list of sub cett related nodes
-names options to parse (default = all available nodes)}
+names options to parse (default = \code{cett_nodes_options()})}
 }
 \value{
 dvobject
 }
 \description{
-parseDrugBank
- parses given DrugBank XML database into a dvobject. dvobject is a list of
+parses given DrugBank XML database into a dvobject. dvobject is a list of
  data.frames in which each data.frame represents a part of parsed data (i.e
  drugs, prices, carriers, ...)
 }

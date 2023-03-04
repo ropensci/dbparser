@@ -304,3 +304,29 @@ test_that(
                  c("drugs", "references", "cett" ))
   }
 )
+
+
+test_that(
+  desc = "parse DrugBank DB - small molecule",
+  code = {
+    local_edition(3)
+    small_molecule <- "drugbank_record_small_molecule.xml"
+    dvobj          <- q_parser(system.file("extdata",
+                                           small_molecule,
+                                           package = "dbparser"))
+    expect_snapshot(dvobj$result)
+  }
+)
+
+
+test_that(
+  desc = "parse DrugBank DB - zim file",
+  code = {
+    local_edition(3)
+    small_molecule <- "drugbank_record.zip"
+    dvobj          <- q_parser(system.file("extdata",
+                                           small_molecule,
+                                           package = "dbparser"))
+    expect_snapshot(dvobj$result)
+  }
+)

@@ -3,6 +3,7 @@
 ## Major Changes
 * Deprecated saving parsed data into given database (#140)
 * Deprecated saving parsed data into a csv file (#140)
+* Updated unit tests to work with new data structure (#141)
 
 ## Minor Fixes
 * Removed RMariaDB dependency (#129)
