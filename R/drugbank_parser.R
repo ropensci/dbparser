@@ -119,14 +119,15 @@ parseDrugBank <- function(db_path,
 
 
 
-#' returns durg node valid options.
+#' returns drug node valid options.
 #'
 #' @return list of drug valid options
-#' @keywords internal
+#' @keywords parsers
+#' @export
 drug_node_options <- function() {
   c("drug_classification", "synonyms", "pharmacology", "international_brands",
     "mixtures", "packagers", "manufacturers", "prices", "categories", "dosages",
-    "atc_codes", "patents", "interactions", "sequences","calculated_properties",
+    "atc_codes", "patents", "reactions", "sequences","calculated_properties",
     "experimental_properties", "external_identifiers", "external_links",
     "pathway", "drug_interactions", "snp_effects", "groups", "pdb_entries",
     "ahfs_codes", "snp_adverse_reactions", "food_interactions",
@@ -137,7 +138,8 @@ drug_node_options <- function() {
 #' returns references node valid options.
 #'
 #' @return list of references valid options
-#' @keywords internal
+#' @keywords parsers
+#' @export
 references_node_options <- function() {
   c("drug_books", "drug_articles", "drug_links", "drug_attachments",
     "carrier_books", "carrier_articles", "carrier_links", "carrier_attachments",
@@ -150,7 +152,8 @@ references_node_options <- function() {
 #' returns carriers, enzymes,targets and transporters node valid options.
 #'
 #' @return list of ceett valid options
-#' @keywords internal
+#' @keywords parsers
+#' @export
 cett_nodes_options <- function() {
   c("carriers",
     "enzymes",

@@ -2,14 +2,14 @@
 % Please edit documentation in R/drugbank_parser.R
 \name{drug_node_options}
 \alias{drug_node_options}
-\title{returns durg node valid options.}
+\title{returns drug node valid options.}
 \usage{
 drug_node_options()
 }
 \value{
-list of \code{drug_element} valid options
+list of drug valid options
 }
 \description{
-returns durg node valid options.
+returns drug node valid options.
 }
-\keyword{internal}
+\keyword{parsers}
