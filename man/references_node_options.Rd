@@ -7,9 +7,9 @@
 references_node_options()
 }
 \value{
-list of \code{drug_element} valid options
+list of references valid options
 }
 \description{
 returns references node valid options.
 }
-\keyword{internal}
+\keyword{parsers}

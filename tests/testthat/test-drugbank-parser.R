@@ -243,13 +243,64 @@ test_that(
 )
 
 
-# test_that(
-#   desc = "parse DrugBank DB - default params",
-#   code = {
-#     local_edition(3)
-#     dvobj <- q_parser(system.file("extdata",
-#                                   biotech,
-#                                   package = "dbparser"))
-#     expect_snapshot(dvobj$result)
-#   }
-# )
+test_that(
+  desc = "parse DrugBank DB - drug_node_options",
+  code = {
+    dvobj <- q_parser(system.file("extdata",
+                                  biotech,
+                                  package = "dbparser"),
+                      drug_options = c("atc_codes", "patents"))
+    expect_equal(length(dvobj$result$drugs), 3)
+    expect_equal(names(dvobj$result$drugs),
+                 c("general_information", "atc_codes", "patents"))
+    expect_equal(dim(dvobj$result$drugs$atc_codes), c(1, 10))
+    expect_equal(dim(dvobj$result$drugs$patents), c(1, 6))
+  }
+)
+
+
+test_that(
+  desc = "parse DrugBank DB - references_node_options",
+  code = {
+    dvobj <- q_parser(system.file("extdata",
+                                  biotech,
+                                  package = "dbparser"),
+                      references_options = c("carrier_books", "transporter_books"))
+    expect_equal(length(dvobj$result$references), 2)
+    expect_equal(names(dvobj$result$references),
+                 c("carriers", "transporters"))
+    expect_equal(dim(dvobj$result$references$carriers$books), c(0, 0))
+    expect_equal(dim(dvobj$result$references$transporters$books), c(0, 0))
+  }
+)
+
+
+test_that(
+  desc = "parse DrugBank DB - cett_nodes_options",
+  code = {
+    dvobj <- q_parser(system.file("extdata",
+                                  biotech,
+                                  package = "dbparser"),
+                      cett_options = c("targets"))
+    expect_equal(length(dvobj$result$cett), 1)
+    expect_equal(names(dvobj$result$cett),
+                 c("targets"))
+    expect_equal(dim(dvobj$result$cett$targets$general_information), c(1, 6))
+    expect_equal(dim(dvobj$result$cett$targets$actions), c(1, 2))
+  }
+)
+
+
+test_that(
+  desc = "parse DrugBank DB - boolean params",
+  code = {
+    dvobj <- q_parser(system.file("extdata",
+                                  biotech,
+                                  package = "dbparser"),
+                      parse_salts    = FALSE,
+                      parse_products = FALSE)
+    expect_equal(length(dvobj$result), 3)
+    expect_equal(names(dvobj$result),
+                 c("drugs", "references", "cett" ))
+  }
+)
