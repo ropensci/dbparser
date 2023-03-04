@@ -218,5 +218,38 @@ test_that(
                       dvobj$messages[1]))
     expect_equal(length(dvobj$result), 5)
 
+    #test all invalid
+    dvobj <- q_parser(system.file("extdata",
+                                  biotech,
+                                  package = "dbparser"),
+                      drug_options       = NULL,
+                      references_options = NULL,
+                      cett_options       = c("a", "b"),
+                      parse_salts        = 2,
+                      parse_products     = NULL)
+    expect_true(grepl("'drug_options' cannot be empty",
+                      dvobj$messages[1]))
+    expect_true(grepl("'references_options' cannot be empty",
+                      dvobj$messages[2]))
+    expect_true(grepl("Options: ' a, b ' are invalid",
+                      dvobj$messages[3]))
+    expect_true(grepl("'parse_salts' must have logical value",
+                      dvobj$messages[4]))
+    expect_true(grepl("'parse_products' must have logical value",
+                      dvobj$messages[5]))
+
+    expect_equal(length(dvobj$result), 5)
   }
 )
+
+
+# test_that(
+#   desc = "parse DrugBank DB - default params",
+#   code = {
+#     local_edition(3)
+#     dvobj <- q_parser(system.file("extdata",
+#                                   biotech,
+#                                   package = "dbparser"))
+#     expect_snapshot(dvobj$result)
+#   }
+# )
