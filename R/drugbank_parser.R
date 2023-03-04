@@ -22,10 +22,62 @@ parseDrugBank <- function(db_path,
                           parse_salts        = TRUE,
                           parse_products     = TRUE,
                           references_options = references_node_options(),
-                          cett_options       = c("carriers",
-                                                 "enzymes",
-                                                 "targets",
-                                                 "transporters")) {
+                          cett_options       = cett_nodes_options()) {
+  if ((length(drug_options) == 0) ||
+       any(is.na(drug_options))) {
+    message("'drug_options' cannot be empty,
+            setting 'drug_options' to default value")
+    drug_options <- drug_node_options()
+  }
+
+  if (!all(drug_options %in% drug_node_options())) {
+    message(paste("Options: '", paste(setdiff(drug_options,
+                                              drug_node_options()),
+                                      collapse = ", "),
+                  "' are invalid, setting 'drug_options' to default value"))
+    drug_options <- drug_node_options()
+  }
+
+  if ((length(references_options) == 0) ||
+      any(is.na(references_options))) {
+    message("'references_options' cannot be empty,
+            setting 'references_options' to default value")
+    references_options <- references_node_options()
+  }
+
+  if (!all(references_options %in% references_node_options())) {
+    message(paste("Options: '", paste(setdiff(references_options,
+                                              references_node_options()),
+                                      collapse = ", "),
+                  "' are invalid, setting 'references_options' to default value"))
+    references_options <- references_node_options()
+  }
+
+  if ((length(cett_options) == 0) ||
+      any(is.na(cett_options))) {
+    message("'cett_options' cannot be empty,
+            setting 'cett_options' to default value")
+    cett_options <- cett_nodes_options()
+  }
+
+  if (!all(cett_options %in% cett_nodes_options())) {
+    message(paste("Options: '", paste(setdiff(cett_options,
+                                              cett_nodes_options()),
+                                      collapse = ", "),
+                  "' are invalid, setting 'cett_options' to default value"))
+    cett_options <- cett_nodes_options()
+  }
+
+  if (is.na(parse_salts) || !is.logical(parse_salts)) {
+    message("'parse_salts' must have logical value. Setting 'parse_salts' to default value")
+    parse_salts <- TRUE
+  }
+
+  if (is.na(parse_products) || !is.logical(parse_products)) {
+    message("'parse_products' must have logical value. Setting 'parse_products' to default value")
+    parse_products <- TRUE
+  }
+
   dvobject  <- init_dvobject()
   parsed_db <- read_drugbank_xml_db(db_path = db_path)
 
@@ -35,6 +87,7 @@ parseDrugBank <- function(db_path,
     pkg_env$root <- XML::xmlRoot(parsed_db)
     dvobject     <- add_drugbank_info(dvobject  = dvobject)
     message("Parsing Drugs elements")
+
     dvobject[["drugs"]] <- parse_drug_nodes(drug_options)
 
     if(parse_salts) {
@@ -68,7 +121,7 @@ parseDrugBank <- function(db_path,
 
 #' returns durg node valid options.
 #'
-#' @return list of \code{drug_element} valid options
+#' @return list of drug valid options
 #' @keywords internal
 drug_node_options <- function() {
   c("drug_classification", "synonyms", "pharmacology", "international_brands",
@@ -83,7 +136,7 @@ drug_node_options <- function() {
 
 #' returns references node valid options.
 #'
-#' @return list of \code{drug_element} valid options
+#' @return list of references valid options
 #' @keywords internal
 references_node_options <- function() {
   c("drug_books", "drug_articles", "drug_links", "drug_attachments",
@@ -94,6 +147,16 @@ references_node_options <- function() {
     "transporter_attachments")
 }
 
+#' returns carriers, enzymes,targets and transporters node valid options.
+#'
+#' @return list of ceett valid options
+#' @keywords internal
+cett_nodes_options <- function() {
+  c("carriers",
+    "enzymes",
+    "targets",
+    "transporters")
+}
 
 #' Run all drug  related parsers
 #'
