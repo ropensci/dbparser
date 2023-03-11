@@ -16,7 +16,7 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![Rdoc](https://www.rdocumentation.org/badges/version/dbparser)](https://www.rdocumentation.org/packages/dbparser)
+[![](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
 [![CII Best
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
@@ -96,7 +96,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.2.0.
+#>   package version 2.0.0.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -104,7 +104,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.2.0},
+#>     note = {R package version 2.0.0.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```

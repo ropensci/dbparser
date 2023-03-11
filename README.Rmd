@@ -23,7 +23,7 @@ library(ggplot2)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![Rdoc](https://www.rdocumentation.org/badges/version/dbparser)](https://www.rdocumentation.org/packages/dbparser)
+[![](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
