@@ -27,7 +27,7 @@
 * `drug_pharmacology` parser
 * Rename `drugs_books` parser to `drugs_textbooks`
 * Rename `drug_all` parser to `run_all_parsers`
-* renam `drug` parser to `drug_general_information`
+* Rename `drug` parser to `drug_general_information`
 
 ## Documentation Update:
 * Add returned parsed data structure 
@@ -92,8 +92,8 @@ database connection can be passed to parser functions (#87).
 
 # dbparser 1.0.4
 * Fix save drugs tibbles as csv several issues.
-* Update sql database tibbles saver functions.
-* Update sql database saver functions documentations.
+* Update SQL database tibbles saver functions.
+* Update SQL database saver functions documentations.
 * Support MariaDB and introduce related functionalities.
 
 -----------
@@ -118,7 +118,7 @@ database connection can be passed to parser functions (#87).
 * Remove *Count* features from drug data set
 * Fix several typos in documentation and code
 * Fix consistency issue of CLASS of tibbles Returned by dbparser
-* Check if drugbank database exist before parsing
+* Check if DrugBank database exist before parsing
 * Add support for *international_brands* and *salts* elements
 * Properly rename some features to have clear names
 * Reduce datasets size by getting unique rows only

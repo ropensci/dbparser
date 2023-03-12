@@ -64,10 +64,10 @@ drug_groups <- function() {
 #'   from the Canadian Drug Product Database. Only present for drugs that are
 #'   marketed in Canada}
 #'  \item{ema-product-code}{EMA product code from the European Medicines Agency
-#'  Database. Only present for products that are authorised by central procedure
+#'  Database. Only present for products that are authorized by central procedure
 #'   for marketing in the European Union.}
-#'  \item{ema-ma-number}{EMA marketing authorisation number from the European
-#'  Medicines Agency Database. Only present for products that are authorised by
+#'  \item{ema-ma-number}{EMA marketing authorization number from the European
+#'  Medicines Agency Database. Only present for products that are authorized by
 #'   central procedure for marketing in the European Union.}
 #'  \item{started-marketing-on}{The starting date for market approval.}
 #'  \item{ended-marketing-on}{The ending date for market approval.}
@@ -119,7 +119,7 @@ drug_products <- function() {
 #' Drug Calculated Properties parser
 #'
 #' Drug properties that have been predicted by ChemAxon or ALOGPS based on the
-#' inputed chemical structure. Associated links below will redirect to
+#' imputed chemical structure. Associated links below will redirect to
 #' descriptions of the specific term.
 #'
 #'
@@ -171,14 +171,14 @@ drug_intern_brand <- function() {
 #'
 #' @return  a tibble with 1 variables:
 #' \describe{
-#'  \item{drugbank-id}{DrugBank identfiers of the available salt form(s).}
+#'  \item{drugbank-id}{DrugBank identifiers of the available salt form(s).}
 #'  \item{name}{Name of the available salt form(s)}
 #'  \item{unii}{Unique Ingredient Identifier (UNII) of the available salt
 #'  form(s).}
 #'  \item{cas-number}{Chemical Abstracts Service (CAS) registry number assigned
 #'   to the salt form(s) of the drug.}
 #'  \item{inchikey}{IUPAC International Chemical Identifier (InChi) key
-#'  identfier for the available salt form(s).}
+#'  identifier for the available salt form(s).}
 #'  \item{average-mass}{Average molecular mass: the weighted average of the
 #'   isotopic masses of the salt.}
 #'  \item{monoisotopic-mass}{The mass of the most abundant isotope of the salt}
@@ -388,7 +388,7 @@ drug_food_interactions <- function() {
 #'
 #' @return a tibble with the following variables:
 #' \describe{
-#'  \item{drugbank-id	}{Drugbank ID of the interacting drug.}
+#'  \item{drugbank-id	}{DrugBank ID of the interacting drug.}
 #'  \item{name}{Name of the interacting drug.}
 #'  \item{description}{Textual description of the physiological consequences
 #'  of the drug interaction}
@@ -493,7 +493,7 @@ drug_external_links <- function() {
 
 #' Drug SNP Effects parser
 #'
-#' A list of single nucleotide polymorphisms (SNPs) relevent to drug activity or
+#' A list of single nucleotide polymorphisms (SNPs) relevant to drug activity or
 #'  metabolism, and the effects these may have on pharmacological activity.
 #'  SNP effects in the patient may require close monitoring, an increase or
 #'

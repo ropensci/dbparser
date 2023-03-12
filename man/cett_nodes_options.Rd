@@ -7,7 +7,7 @@
 cett_nodes_options()
 }
 \value{
-list of ceett valid options
+list of CETT valid options
 }
 \description{
 returns carriers, enzymes,targets and transporters node valid options.

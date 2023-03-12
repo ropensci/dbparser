@@ -45,7 +45,7 @@ DrugParser <- R6::R6Class(
 #'
 #' @return  a tibble with 15 variables:
 #' \describe{
-#'   \item{primary_key}{Drugbank id}
+#'   \item{primary_key}{DrugBank id}
 #'   \item{other_keys}{Other identifiers that may be associated with the drug}
 #'   \item{type}{	Either small molecule, or biotech. Biotech is used for any
 #'   drug that is derived from living systems or organisms, usually composed of

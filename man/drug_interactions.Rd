@@ -9,7 +9,7 @@ drug_interactions()
 \value{
 a tibble with the following variables:
 \describe{
- \item{drugbank-id	}{Drugbank ID of the interacting drug.}
+ \item{drugbank-id	}{DrugBank ID of the interacting drug.}
  \item{name}{Name of the interacting drug.}
  \item{description}{Textual description of the physiological consequences
  of the drug interaction}

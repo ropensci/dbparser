@@ -9,14 +9,14 @@ drug_salts()
 \value{
 a tibble with 1 variables:
 \describe{
- \item{drugbank-id}{DrugBank identfiers of the available salt form(s).}
+ \item{drugbank-id}{DrugBank identifiers of the available salt form(s).}
  \item{name}{Name of the available salt form(s)}
  \item{unii}{Unique Ingredient Identifier (UNII) of the available salt
  form(s).}
  \item{cas-number}{Chemical Abstracts Service (CAS) registry number assigned
   to the salt form(s) of the drug.}
  \item{inchikey}{IUPAC International Chemical Identifier (InChi) key
- identfier for the available salt form(s).}
+ identifier for the available salt form(s).}
  \item{average-mass}{Average molecular mass: the weighted average of the
   isotopic masses of the salt.}
  \item{monoisotopic-mass}{The mass of the most abundant isotope of the salt}

@@ -74,7 +74,7 @@ drug_pathway_enzyme <- function() {
 #'
 #' Drugs involved in this pathway.
 #'
-#' @return  a tibble with pathway drugsproperties
+#' @return  a tibble with pathway drugs properties
 #' @keywords internal
 drug_pathway_drugs <- function() {
     PathwaySubNodesParser$new(

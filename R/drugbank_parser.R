@@ -152,7 +152,7 @@ references_node_options <- function() {
 
 #' returns carriers, enzymes,targets and transporters node valid options.
 #'
-#' @return list of ceett valid options
+#' @return list of CETT valid options
 #' @keywords parsers
 #' @export
 cett_nodes_options <- function() {

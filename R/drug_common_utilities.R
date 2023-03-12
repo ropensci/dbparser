@@ -76,7 +76,7 @@ read_drugbank_xml_db <- function(db_path) {
         unzip(db_path, exdir = dir_name)
         db      <- unzip(db_path, list = TRUE)
         db_path <- paste0(dir_name, "/", db[[1]])
-        message(paste("Drugbank DB zip file extraxted at path:", db_path))
+        message(paste("DrugBank DB zip file extraxted at path:", db_path))
       },
       error = function(e) {
         message(paste("Loading DrugBank DB failed due to error:", e$message))

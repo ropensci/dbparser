@@ -72,7 +72,7 @@ drug_reactions <- function() {
 
 #' Drug Reactions Enzymes Parsers
 #'
-#' EEnzymes involved in metabolizing this drug
+#' Enzymes involved in metabolizing this drug
 #'
 #' @return a tibble with 3 variables:
 #' \describe{

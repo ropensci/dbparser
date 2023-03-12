@@ -19,10 +19,10 @@ a tibble with 32 variables:
   from the Canadian Drug Product Database. Only present for drugs that are
   marketed in Canada}
  \item{ema-product-code}{EMA product code from the European Medicines Agency
- Database. Only present for products that are authorised by central procedure
+ Database. Only present for products that are authorized by central procedure
   for marketing in the European Union.}
- \item{ema-ma-number}{EMA marketing authorisation number from the European
- Medicines Agency Database. Only present for products that are authorised by
+ \item{ema-ma-number}{EMA marketing authorization number from the European
+ Medicines Agency Database. Only present for products that are authorized by
   central procedure for marketing in the European Union.}
  \item{started-marketing-on}{The starting date for market approval.}
  \item{ended-marketing-on}{The ending date for market approval.}

@@ -19,7 +19,7 @@ a tibble with 4 variables:
 }
 \description{
 Drug properties that have been predicted by ChemAxon or ALOGPS based on the
-inputed chemical structure. Associated links below will redirect to
+imputed chemical structure. Associated links below will redirect to
 descriptions of the specific term.
 }
 \keyword{internal}

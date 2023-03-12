@@ -7,7 +7,7 @@
 drug_pathway_drugs()
 }
 \value{
-a tibble with pathway drugsproperties
+a tibble with pathway drugs properties
 }
 \description{
 Drugs involved in this pathway.

@@ -15,6 +15,6 @@ a tibble with 3 variables:
 }
 }
 \description{
-EEnzymes involved in metabolizing this drug
+Enzymes involved in metabolizing this drug
 }
 \keyword{internal}
