@@ -11,7 +11,6 @@ Description: This tool is for parsing public drug databases such as 'DrugBank' X
     The parsed data are then returned in a proper 'R' object called 'dvobject'.
 License: MIT + file LICENSE
 Encoding: UTF-8
-LazyData: true
 Imports:
     dplyr,
     progress,
