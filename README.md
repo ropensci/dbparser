@@ -45,8 +45,9 @@ That should help in:
 
 ### dvobject Structure
 
-`dvobject` is an R list object that contains one or more of the
-following sub-lists:
+`dvobject` introduces a unified and compressed format of drugs data. It
+is an R list object that contains one or more of the following
+sub-lists:
 
 - **drugs**: list of data.frames that contain drugs information
   (i.e. synonyms, classifications, …) and it is the only mandatory list
