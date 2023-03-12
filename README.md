@@ -21,7 +21,49 @@ downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
-## Introduction
+## Overview
+
+Drugs databases vary too much in their formats and structures which
+making related data analysis not a very easy job and requires a lot of
+efforts to work on only two databases together such as
+[DrugBank](https://www.drugbank.ca/) and
+[KEGG](https://www.genome.jp/kegg/).
+
+Hence, `dbparser` package aims to parse different public drugs databases
+as [DrugBank](https://www.drugbank.ca/) or
+[KEGG](https://www.genome.jp/kegg/) into single and unified format R
+object called `dvobject` (stands for drugverse object).
+
+That should help in:
+
+- working with single data object and not multiple databases in
+  different formats,
+- using R analysis capabilities easily on drugs data,
+- ease of transferring data between researchers after performing
+  required data analysis or `dvobject` and storing results in the same
+  object in a very easy manner
+
+### dvobject Structure
+
+`dvobject` is an R list object that contains one or more of the
+following sub-lists:
+
+- **drugs**: list of data.frames that contain drugs information
+  (i.e. synonyms, classifications, …) and it is the only mandatory list
+- **salts**: data.frame contains drugs salts information
+- **products**: data.frame of commercially available drugs products in
+  the world
+- **references**: data.frame of articles, links and textbooks about
+  drugs or CETT data
+- **cett**: list of data.frames contain targets, enzymes, carriers and
+  transporters information
+
+## Drug Databases
+
+Parsers are available for the following databases (it is in progress
+list)
+
+### DrugBank
 
 [DrugBank](https://www.drugbank.ca/) database is a comprehensive, freely
 accessible, online database containing information on drugs and drug
@@ -45,11 +87,11 @@ more details.
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
 [package](https://mohammedfcis.github.io/dbdataset/index.html), which
-contains the DrugBank database already parsed into `R` tibbles. Note
-that this is a large package that exceeds the limit set by CRAN. It is
-only available on GitHub.
+contains the DrugBank database already parsed into `dvobject`. Note that
+this is a large package that exceeds the limit set by CRAN. It is only
+available on GitHub.
 
-`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.7*
+`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.10*
 successfully. If you find errors with these versions or any other
 version please submit an issue
 [here](https://github.com/ropensci/dbparser/issues).
