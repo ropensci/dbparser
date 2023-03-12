@@ -46,8 +46,6 @@ CETTGeneralInformationParser <-
 #' involved in metabolism, and carrier or transporter proteins involved in
 #' movement of the drug across biological membranes.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 6 variables (8 for enzymes):
 #' \describe{
@@ -63,71 +61,30 @@ CETTGeneralInformationParser <-
 #'   \item{position}{related position}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family cett
-#' @inherit run_all_parsers examples
+#' @keywords internal
 #' @name cett_doc
 NULL
 
 #' @rdname cett_doc
-#' @export
-carriers <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     database_connection,
-                                     "carriers")$parse()
+carriers <- function() {
+    CETTGeneralInformationParser$new("carriers")$parse()
   }
 
-#' @rdname cett_doc
-#' @export
-enzymes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     database_connection,
-                                     "enzymes")$parse()
-  }
 
 #' @rdname cett_doc
-#' @export
-targets <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     database_connection,
-                                     "targets")$parse()
+enzymes <- function() {
+    CETTGeneralInformationParser$new("enzymes")$parse()
   }
 
+
 #' @rdname cett_doc
-#' @export
-transporters <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    CETTGeneralInformationParser$new(save_table,
-                                     save_csv,
-                                     csv_path,
-                                     override_csv,
-                                     database_connection,
+targets <- function() {
+    CETTGeneralInformationParser$new("targets")$parse()
+}
+
+
+#' @rdname cett_doc
+transporters <- function() {
+    CETTGeneralInformationParser$new(
                                      "transporters")$parse()
-  }
+}

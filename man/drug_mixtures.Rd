@@ -4,28 +4,7 @@
 \alias{drug_mixtures}
 \title{Drug Mixtures parser}
 \usage{
-drug_mixtures(
-  save_table = FALSE,
-  save_csv = FALSE,
-  csv_path = ".",
-  override_csv = FALSE,
-  database_connection = NULL
-)
-}
-\arguments{
-\item{save_table}{boolean, save table in database if true.}
-
-\item{save_csv}{boolean, save csv version of parsed tibble if true}
-
-\item{csv_path}{location to save csv files into it, default is current
-location, save_csv must be true}
-
-\item{override_csv}{override existing csv, if any, in case it is true in the
-new parse operation}
-
-\item{database_connection}{DBI connection object that holds a connection to
-user defined database. If \code{save_table} is enabled without providing
-value for this function an error will be thrown.}
+drug_mixtures()
 }
 \value{
 a tibble with 4 variables:
@@ -43,80 +22,4 @@ a tibble with 4 variables:
 All commercially available products in which this drug is available in
 combination with other drug molecules
 }
-\section{read_drugbank_xml_db}{
-
-\code{\link{read_drugbank_xml_db}} function must be called first before any
-parser.
-
-If \code{\link{read_drugbank_xml_db}} is called before for any reason, so
-no need to call it again before calling this function.
-}
-
-\examples{
-\dontrun{
-# the same parameters and usage will be applied for any parser
-# return only the parsed tibble
-run_all_parsers()
-
-# will throw an error, as database_connection is NULL
-run_all_parsers(save_table = TRUE)
-
-# save in database in SQLite in memory database and return parsed tibble
-sqlite_con <- DBI::dbConnect(RSQLite::SQLite())
-run_all_parsers(save_table = TRUE, database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in current location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE)
-
-# save in database, save parsed tibble as csv,
-# if it does not exist in current location and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_table = TRUE, save_csv = TRUE,
-database_connection = sqlite_con)
-
-# save parsed tibble as csv if it does not exist in given location,
-# and return parsed tibble.
-# if the csv exist before read it and return its data.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE)
-
-# save parsed tibble as csv if it does not exist in current location and
-# return parsed tibble.
-# if the csv exist override it and return it.
-run_all_parsers(save_csv = TRUE, csv_path = TRUE, override = TRUE)
-}
-}
-\seealso{
-Other drugs: 
-\code{\link{drug_affected_organisms}()},
-\code{\link{drug_ahfs_codes}()},
-\code{\link{drug_atc_codes}()},
-\code{\link{drug_calc_prop}()},
-\code{\link{drug_categories}()},
-\code{\link{drug_classification}()},
-\code{\link{drug_dosages}()},
-\code{\link{drug_ex_identity}()},
-\code{\link{drug_exp_prop}()},
-\code{\link{drug_external_links}()},
-\code{\link{drug_food_interactions}()},
-\code{\link{drug_general_information}()},
-\code{\link{drug_groups}()},
-\code{\link{drug_interactions}()},
-\code{\link{drug_intern_brand}()},
-\code{\link{drug_manufacturers}()},
-\code{\link{drug_packagers}()},
-\code{\link{drug_patents}()},
-\code{\link{drug_pdb_entries}()},
-\code{\link{drug_pharmacology}()},
-\code{\link{drug_prices}()},
-\code{\link{drug_products}()},
-\code{\link{drug_reactions_enzymes}()},
-\code{\link{drug_reactions}()},
-\code{\link{drug_salts}()},
-\code{\link{drug_sequences}()},
-\code{\link{drug_snp_adverse_reactions}()},
-\code{\link{drug_snp_effects}()},
-\code{\link{drug_syn}()}
-}
-\concept{drugs}
+\keyword{internal}

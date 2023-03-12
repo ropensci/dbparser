@@ -4,15 +4,14 @@
 \alias{read_drugbank_xml_db}
 \title{Reads \strong{DrugBank} xml database and load it into memory.}
 \usage{
-read_drugbank_xml_db(drugbank_db_path)
+read_drugbank_xml_db(db_path)
 }
 \arguments{
-\item{drugbank_db_path}{\strong{string}, full path for the
+\item{db_path}{\strong{string}, full path for the
 \strong{DrugBank} xml or zip file.}
 }
 \value{
-\strong{TRUE} when the loading process into memory to be used by
-parser methods is completed successfully and \strong{FALSE} otherwise.
+loaded DB or NULL
 }
 \description{
 \code{read_drugbank_xml_db} loads \strong{DrugBank} xml database full tree
@@ -25,10 +24,4 @@ This functions reads \strong{DrugBank} xml database and load it into memory
 
 It takes one single mandatory argument which is the location of DrugBank db.
 }
-\examples{
-\dontrun{
-read_drugbank_xml_db("db_full_path")
-read_drugbank_xml_db(drugbank_db_path = "db_full_path")
-}
-}
-\concept{DrugBank DB Loading}
+\keyword{internal}

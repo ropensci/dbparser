@@ -7,7 +7,7 @@
 Status](https://travis-ci.org/ropensci/dbparser.svg?branch=master)](https://travis-ci.org/ropensci/dbparser)
 [![Build
 status](https://ci.appveyor.com/api/projects/status/k18sqp55n39f3y5w?svg=true)](https://ci.appveyor.com/project/MohammedFCIS/dbparser)
-[![CRAN\_Status\_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
+[![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
 [![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://codecov.io/gh/ropensci/dbparser)
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
@@ -16,12 +16,55 @@ developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.re
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![metacran
 downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![Rdoc](https://www.rdocumentation.org/badges/version/dbparser)](https://www.rdocumentation.org/packages/dbparser)
+[![](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
 [![CII Best
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
-## Introduction
+## Overview
+
+Drugs databases vary too much in their formats and structures which
+making related data analysis not a very easy job and requires a lot of
+efforts to work on only two databases together such as
+[DrugBank](https://www.drugbank.ca/) and
+[KEGG](https://www.genome.jp/kegg/).
+
+Hence, `dbparser` package aims to parse different public drugs databases
+as [DrugBank](https://www.drugbank.ca/) or
+[KEGG](https://www.genome.jp/kegg/) into single and unified format R
+object called `dvobject` (stands for drugverse object).
+
+That should help in:
+
+- working with single data object and not multiple databases in
+  different formats,
+- using R analysis capabilities easily on drugs data,
+- ease of transferring data between researchers after performing
+  required data analysis or `dvobject` and storing results in the same
+  object in a very easy manner
+
+### dvobject Structure
+
+`dvobject` introduces a unified and compressed format of drugs data. It
+is an R list object that contains one or more of the following
+sub-lists:
+
+- **drugs**: list of data.frames that contain drugs information
+  (i.e. synonyms, classifications, …) and it is the only mandatory list
+- **salts**: data.frame contains drugs salts information
+- **products**: data.frame of commercially available drugs products in
+  the world
+- **references**: data.frame of articles, links and textbooks about
+  drugs or CETT data
+- **cett**: list of data.frames contain targets, enzymes, carriers and
+  transporters information
+
+## Drug Databases
+
+Parsers are available for the following databases (it is in progress
+list)
+
+### DrugBank
 
 [DrugBank](https://www.drugbank.ca/) database is a comprehensive, freely
 accessible, online database containing information on drugs and drug
@@ -42,20 +85,14 @@ that can be explored and analyzed by the user, check [this
 tutorial](https://docs.ropensci.org/dbparser/articles/dbparser.html) for
 more details.
 
-Also, the package offers the option to save these tibbles in databases
-including **SQL Server DB** and **Maria DB** just by enabling
-`save_table` option, check [this
-tutorial](https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
-for more details.
-
 If you are waiting for access to the DrugBank database, or do not intend
 to do a deep dive with the data, you may wish to use the `dbdataset`
 [package](https://mohammedfcis.github.io/dbdataset/index.html), which
-contains the DrugBank database already parsed into `R` tibbles. Note
-that this is a large package that exceeds the limit set by CRAN. It is
-only available on GitHub.
+contains the DrugBank database already parsed into `dvobject`. Note that
+this is a large package that exceeds the limit set by CRAN. It is only
+available on GitHub.
 
-`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.6*
+`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.10*
 successfully. If you find errors with these versions or any other
 version please submit an issue
 [here](https://github.com/ropensci/dbparser/issues).
@@ -85,7 +122,7 @@ contributing to this project, you agree to abide by its terms.
 
 ## Contributing Guide
 
-👍🎉 First off, thanks for taking the time to contribute\! 🎉👍 Please
+👍🎉 First off, thanks for taking the time to contribute! 🎉👍 Please
 review our [Contributing
 Guide](https://docs.ropensci.org/dbparser/CONTRIBUTING.html).
 
@@ -102,7 +139,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat (). dbparser: DrugBank Database XML Parser. R
-#>   package version 1.2.0.
+#>   package version 2.0.0.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -110,7 +147,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Dainanahan},
-#>     note = {R package version 1.2.0},
+#>     note = {R package version 2.0.0.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```

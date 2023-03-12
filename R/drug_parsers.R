@@ -8,7 +8,7 @@ DrugElementsParser <- R6::R6Class(
       parsed_tbl <- map_df(drugs, ~ drug_sub_df(.x, private$main_node,
                                                 progress = pb)) %>%
         unique()
-      if (nrow(parsed_tbl) > 0) {
+      if (NROW(parsed_tbl) > 0) {
         switch(
           private$main_node,
           "groups" = names(parsed_tbl) <- c("group", "drugbank-id"),
@@ -32,30 +32,15 @@ DrugElementsParser <- R6::R6Class(
 #' Groups that this drug belongs to. May include any of: approved, vet_approved,
 #'  nutraceutical, illicit, withdrawn, investigational, and experimental.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{group}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_groups <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_groups <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_groups",
       main_node = "groups"
     )$parse()
@@ -66,8 +51,6 @@ drug_groups <-
 #' A list of commercially available products in Canada and the United States
 #'  that contain the drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 32 variables:
 #' \describe{
@@ -81,10 +64,10 @@ drug_groups <-
 #'   from the Canadian Drug Product Database. Only present for drugs that are
 #'   marketed in Canada}
 #'  \item{ema-product-code}{EMA product code from the European Medicines Agency
-#'  Database. Only present for products that are authorised by central procedure
+#'  Database. Only present for products that are authorized by central procedure
 #'   for marketing in the European Union.}
-#'  \item{ema-ma-number}{EMA marketing authorisation number from the European
-#'  Medicines Agency Database. Only present for products that are authorised by
+#'  \item{ema-ma-number}{EMA marketing authorization number from the European
+#'  Medicines Agency Database. Only present for products that are authorized by
 #'   central procedure for marketing in the European Union.}
 #'  \item{started-marketing-on}{The starting date for market approval.}
 #'  \item{ended-marketing-on}{The ending date for market approval.}
@@ -125,22 +108,9 @@ drug_groups <-
 #'  \item{available}{Whether this product can be sold in its jurisdiction}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_products <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_products <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_products",
       main_node = "products"
     )$parse()
@@ -149,11 +119,9 @@ drug_products <-
 #' Drug Calculated Properties parser
 #'
 #' Drug properties that have been predicted by ChemAxon or ALOGPS based on the
-#' inputed chemical structure. Associated links below will redirect to
+#' imputed chemical structure. Associated links below will redirect to
 #' descriptions of the specific term.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -164,21 +132,9 @@ drug_products <-
 #'  either ChemAxon or ALOGPS.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_calc_prop <- function(save_table = FALSE,
-                           save_csv = FALSE,
-                           csv_path = ".",
-                           override_csv = FALSE,
-                           database_connection = NULL) {
+#' @keywords internal
+drug_calc_prop <- function() {
   DrugElementsParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    database_connection,
     "drug_calculated_properties",
     main_node = "calculated-properties"
   )$parse()
@@ -190,8 +146,6 @@ drug_calc_prop <- function(save_table = FALSE,
 #' forms of the drug, focusing on brand names for products that are available
 #' in countries other than Canada and the Unites States.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -200,22 +154,9 @@ drug_calc_prop <- function(save_table = FALSE,
 #'  \item{company}{The company or manufacturer that uses this name.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_intern_brand <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_intern_brand <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_international_brands",
       main_node = "international-brands"
     )$parse()
@@ -227,19 +168,17 @@ drug_intern_brand <-
 #'  and sulfate are often added to the drug molecule to increase solubility,
 #'  dissolution, or absorption.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 1 variables:
 #' \describe{
-#'  \item{drugbank-id}{DrugBank identfiers of the available salt form(s).}
+#'  \item{drugbank-id}{DrugBank identifiers of the available salt form(s).}
 #'  \item{name}{Name of the available salt form(s)}
 #'  \item{unii}{Unique Ingredient Identifier (UNII) of the available salt
 #'  form(s).}
 #'  \item{cas-number}{Chemical Abstracts Service (CAS) registry number assigned
 #'   to the salt form(s) of the drug.}
 #'  \item{inchikey}{IUPAC International Chemical Identifier (InChi) key
-#'  identfier for the available salt form(s).}
+#'  identifier for the available salt form(s).}
 #'  \item{average-mass}{Average molecular mass: the weighted average of the
 #'   isotopic masses of the salt.}
 #'  \item{monoisotopic-mass}{The mass of the most abundant isotope of the salt}
@@ -252,22 +191,9 @@ drug_intern_brand <-
 #'   molecule; calculated by ChemAxon.}
 #'  \item{\emph{drugbank_id}}{parent drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_salts <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_salts <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_salts",
       main_node = "salts"
     )$parse()
@@ -278,8 +204,6 @@ drug_salts <-
 #' All commercially available products in which this drug is available in
 #' combination with other drug molecules
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 4 variables:
 #' \describe{
@@ -291,22 +215,9 @@ drug_salts <-
 #'   separated by addition symbols.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_mixtures <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_mixtures <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_mixtures",
       main_node = "mixtures"
     )$parse()
@@ -316,9 +227,6 @@ drug_mixtures <-
 #'
 #' A list of companies that are packaging the drug for re-distribution.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{name}{}
@@ -326,22 +234,9 @@ drug_mixtures <-
 #'  re-distribution.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_packagers <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_packagers <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_packagers",
       main_node = "packagers"
     )$parse()
@@ -352,9 +247,6 @@ drug_packagers <-
 #'
 #' General categorizations of the drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{category}{category name}
@@ -362,22 +254,9 @@ drug_packagers <-
 #'  category.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_categories <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_categories <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_categories",
       main_node = "categories"
     )$parse()
@@ -388,30 +267,14 @@ drug_categories <-
 #' Organisms in which the drug may display activity; activity may depend on
 #' local susceptibility patterns and resistance.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with 2 variables:
 #' \describe{
 #'  \item{affected-organism}{affected-organism name}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_affected_organisms <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_affected_organisms <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_affected_organisms",
       main_node = "affected-organisms"
     )$parse()
@@ -421,9 +284,6 @@ drug_affected_organisms <-
 #'
 #' A list of the commercially available dosages of the drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{form}{The pharmaceutical formulation by which the drug is introduced
@@ -432,22 +292,9 @@ drug_affected_organisms <-
 #'  \item{strength}{The amount of active drug ingredient provided in the dosage}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_dosages <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_dosages <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_dosages",
       main_node = "dosages"
     )$parse()
@@ -458,30 +305,14 @@ drug_dosages <-
 #'
 #' The American Hospital Formulary Service (AHFS) identifier for this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{ahfs-code}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_ahfs_codes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_ahfs_codes <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_ahfs_codes",
       main_node = "ahfs-codes"
     )$parse()
@@ -491,30 +322,15 @@ drug_ahfs_codes <-
 #'
 #' Protein Data Bank (PDB) identifiers for this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{pdb-entry}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_pdb_entries <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_pdb_entries <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_pdb_entries",
       main_node = "pdb-entries"
     )$parse()
@@ -526,8 +342,6 @@ drug_pdb_entries <-
 #' disclosure of the invention when the patent is granted. Drugs may be issued
 #' multiple patents.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -540,22 +354,9 @@ drug_pdb_entries <-
 #'   market protection.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_patents <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_patents <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_patents",
       main_node = "patents"
     )$parse()
@@ -565,30 +366,14 @@ drug_patents <-
 #'
 #' Food that may interact with this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{food-interaction}{}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_food_interactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_food_interactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_food_interactions",
       main_node = "food-interactions"
     )$parse()
@@ -601,33 +386,17 @@ drug_food_interactions <-
 #' effects. These interactions may be synergistic or antagonistic depending on
 #' the physiological effects and mechanism of action of each drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return a tibble with the following variables:
 #' \describe{
-#'  \item{drugbank-id	}{Drugbank ID of the interacting drug.}
+#'  \item{drugbank-id	}{DrugBank ID of the interacting drug.}
 #'  \item{name}{Name of the interacting drug.}
 #'  \item{description}{Textual description of the physiological consequences
 #'  of the drug interaction}
 #'  \item{\emph{drugbank_id}}{parent drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_interactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_interactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_drug_interactions",
       main_node = "drug-interactions"
     )$parse()
@@ -637,8 +406,6 @@ drug_interactions <-
 #'
 #' Drug properties that have been experimentally proven
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -678,22 +445,9 @@ drug_interactions <-
 #'  time, from the decay of certain nuclides.}
 #' }
 #'
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_exp_prop <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_exp_prop <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_experimental_properties",
       main_node = "experimental-properties"
     )$parse()
@@ -704,31 +458,15 @@ drug_exp_prop <-
 #' Identifiers used in other websites or databases providing information about
 #' this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return  a tibble with the following variables:
 #' \describe{
 #'  \item{resource}{Name of the source database.}
 #'  \item{identifier}{Identifier for this drug in the given resource.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_ex_identity <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_ex_identity <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_external_identifiers",
       main_node = "external-identifiers"
     )$parse()
@@ -738,8 +476,6 @@ drug_ex_identity <-
 #'
 #' Links to other websites or databases providing information about this drug.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -747,22 +483,9 @@ drug_ex_identity <-
 #'  \item{identifier}{Identifier for this drug in the given resource}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_external_links <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_external_links <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_external_links",
       main_node = "external-links"
     )$parse()
@@ -770,13 +493,9 @@ drug_external_links <-
 
 #' Drug SNP Effects parser
 #'
-#' A list of single nucleotide polymorphisms (SNPs) relevent to drug activity or
+#' A list of single nucleotide polymorphisms (SNPs) relevant to drug activity or
 #'  metabolism, and the effects these may have on pharmacological activity.
 #'  SNP effects in the patient may require close monitoring, an increase or
-#'  decrease in dose, or a change in therapy.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -792,22 +511,9 @@ drug_external_links <-
 #'  \item{pubmed-id	}{Reference to PubMed article.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_snp_effects <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_snp_effects <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "drug_snp_effects",
       main_node = "snp-effects"
     )$parse()
@@ -817,9 +523,6 @@ drug_snp_effects <-
 #'
 #' The adverse drug reactions that may occur as a result of the listed single
 #' nucleotide polymorphisms (SNPs)
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -835,22 +538,9 @@ drug_snp_effects <-
 #'  \item{pubmed-id	}{Reference to PubMed article.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_snp_adverse_reactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
+#' @keywords internal
+drug_snp_adverse_reactions <- function() {
     DrugElementsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
       "snp_adverse_reactions",
       main_node = "snp-adverse-drug-reactions"
     )$parse()

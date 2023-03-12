@@ -24,53 +24,6 @@ PharmacologyParser <- R6::R6Class(
         volume_of_distribution = xmlValue(drug[["volume-of-distribution"]]),
         clearance = xmlValue(drug[["clearance"]])
       )
-    },
-    save_db_table = function(parsed_tbl) {
-      if (private$save_table) {
-        drugs_pharmacology <- parsed_tbl
-        save_drug_sub(
-          con = private$database_connection,
-          df = drugs_pharmacology,
-          table_name = "drug_pharmacology",
-          primary_key = "drugbank_id",
-          foreign_key = NULL,
-          field_types = list(
-            drugbank_id = paste0("varchar(", max(
-              nchar(drugs_pharmacology$drugbank_id)
-            ), ")"),
-            mechanism_of_action = "varchar(MAX)",
-            pharmacodynamics = "varchar(MAX)",
-            indication = paste0("varchar(", max(
-              nchar(drugs_pharmacology$indication), na.rm = TRUE
-            ) + 10, ")"),
-            absorption = paste0("varchar(", max(
-              nchar(drugs_pharmacology$absorption), na.rm = TRUE
-            ) + 10, ")"),
-            route_of_elimination = paste0("varchar(", max(
-              nchar(drugs_pharmacology$route_of_elimination),
-              na.rm = TRUE
-            ) + 10, ")"),
-            metabolism = paste0("varchar(", max(
-              nchar(drugs_pharmacology$metabolism), na.rm = TRUE
-            ) + 10, ")"),
-            clearance = paste0("varchar(", max(
-              nchar(drugs_pharmacology$clearance), na.rm = TRUE
-            ) + 10, ")"),
-            half_life = paste0("varchar(", max(
-              nchar(drugs_pharmacology$half_life), na.rm = TRUE
-            ) + 10, ")"),
-            volume_of_distribution = paste0("varchar(", max(
-              nchar(drugs_pharmacology$volume_of_distribution),
-              na.rm = TRUE
-            ) + 10, ")"),
-            protein_binding = paste0("varchar(", max(
-              nchar(drugs_pharmacology$protein_binding),
-              na.rm = TRUE
-            ) + 10, ")"),
-            toxicity = "varchar(MAX)"
-          )
-        )
-      }
     }
   )
 )
@@ -79,9 +32,6 @@ PharmacologyParser <- R6::R6Class(
 #'
 #' Describes the use, mechanism of action, pharmacokinetics, pharmacodynamics,
 #'  and physiological or biochemical effects in the body.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with the following variables:
 #' \describe{
@@ -121,7 +71,7 @@ PharmacologyParser <- R6::R6Class(
 #'  circulation within the body.}
 #'  \item{route_of_elimination}{A description of the pathway that is used to
 #'  excrete the drug from the body. Common pharmacokinetic parameters used to
-#'  evaluate excretion include elemination half life, renal clearance, and
+#'  evaluate excretion include elimination half life, renal clearance, and
 #'  tracking of radiolabelled compounds through the renal and GI system.}
 #'  \item{volume_of_distribution}{The Vd of a drug represents the degree to
 #'  which it is distributed into body tissue compared to the plasma.}
@@ -130,23 +80,7 @@ PharmacologyParser <- R6::R6Class(
 #'    the drug.}
 #'  \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-
-drug_pharmacology <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    PharmacologyParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
-      "drugs_pharmacology"
-    )$parse()
+#' @keywords internal
+drug_pharmacology <- function() {
+    PharmacologyParser$new("drugs_pharmacology")$parse()
   }

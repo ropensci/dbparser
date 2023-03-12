@@ -49,28 +49,6 @@ CETTPolyGeneralInfoParser <-
             parent_id = parent_id
           )
         }
-      },
-      save_db_table = function(parsed_tbl) {
-        if (private$save_table) {
-          save_drug_sub(
-            con = private$database_connection,
-            df = parsed_tbl,
-            table_name = private$tibble_name,
-            save_table_only = TRUE,
-            field_types = list(
-              general_function =
-                paste("varchar(",
-                      max(
-                        nchar(parsed_tbl$general_function),
-                        na.rm = TRUE
-                      ), ")",
-                      sep = ""),
-              specific_function = "varchar(MAX)",
-              amino_acid_sequence = "varchar(MAX)",
-              gene_sequence = "varchar(MAX)"
-            )
-          )
-        }
       }
     )
   )
@@ -80,8 +58,6 @@ CETTPolyGeneralInfoParser <-
 #' Extract descriptions of identified polypeptide targets, enzymes, carriers,
 #'  or transporters.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return a tibble with 20 variables:
 #' \describe{
@@ -117,75 +93,34 @@ CETTPolyGeneralInfoParser <-
 #'   \item{gene_format}{}
 #'   \item{parent_key}{carrier/ target/ enzyme/ transporter id}
 #' }
-#' @family cett
-#' @inherit run_all_parsers examples
+#' @keywords internal
 #' @name cett_poly_doc
 NULL
 
 #' @rdname cett_poly_doc
-#' @export
-carriers_polypeptides <- function(save_table = FALSE,
-                                  save_csv = FALSE,
-                                  csv_path = ".",
-                                  override_csv = FALSE,
-                                  database_connection = NULL) {
+carriers_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    database_connection,
     "carriers_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
-#' @export
-enzymes_polypeptides <- function(save_table = FALSE,
-                                 save_csv = FALSE,
-                                 csv_path = ".",
-                                 override_csv = FALSE,
-                                 database_connection = NULL) {
+enzymes_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    database_connection,
     "enzymes_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
-#' @export
-targets_polypeptides <- function(save_table = FALSE,
-                                 save_csv = FALSE,
-                                 csv_path = ".",
-                                 override_csv = FALSE,
-                                 database_connection = NULL) {
+targets_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    database_connection,
     "targets_polypeptides"
   )$parse()
 }
 
 #' @rdname cett_poly_doc
-#' @export
-transporters_polypeptides <- function(save_table = FALSE,
-                                      save_csv = FALSE,
-                                      csv_path = ".",
-                                      override_csv = FALSE,
-                                      database_connection = NULL) {
+transporters_polypeptides <- function() {
   CETTPolyGeneralInfoParser$new(
-    save_table,
-    save_csv,
-    csv_path,
-    override_csv,
-    database_connection,
     "transporters_polypeptides"
   )$parse()
 }

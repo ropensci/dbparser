@@ -1,7 +1,17 @@
-# dbparser 1.3.0
+# dbparser 2.0.0
+
+## Major Changes
+* Deprecated saving parsed data into given database (#140)
+* Deprecated saving parsed data into a csv file (#140)
+* Deprecated old structure public methods (#141)
+* Introduced new methods for paring DrugBank DB and returning dvobject (#141)
+* Updated unit tests to work with new data structure (#141)
 
 ## Minor Fixes
 * Removed RMariaDB dependency (#129)
+* Fix pkgdown configuration for reference (#136)
+
+-----------
 
 # dbparser 1.2.0
 
@@ -17,7 +27,7 @@
 * `drug_pharmacology` parser
 * Rename `drugs_books` parser to `drugs_textbooks`
 * Rename `drug_all` parser to `run_all_parsers`
-* renam `drug` parser to `drug_general_information`
+* Rename `drug` parser to `drug_general_information`
 
 ## Documentation Update:
 * Add returned parsed data structure 
@@ -31,6 +41,8 @@ as R6 classes.
 ## Minor Fixes
 * Update database saver functions to accommodate new DrugBank data size.
 
+-----------
+
 # dbparser 1.1.2
 
 ### Major Changes
@@ -43,6 +55,8 @@ information.
 * Size columns in `drugs` main table is no longer exist, will do full 
 statistical analysis later using dvminer package.
 
+-----------
+
 # dbparser 1.1.1
 
 * Fix column size issue while importing into SQL Server (#91)
@@ -50,6 +64,7 @@ statistical analysis later using dvminer package.
 * Fix CRAN Notes (#93)
 * Fix package documentation and site references
 
+-----------
 
 # dbparser 1.1.0
 ### Major Changes
@@ -73,20 +88,28 @@ database connection can be passed to parser functions (#87).
 * Code of conduct has been added (#70).
 * Enhance function reference documentation to include section for each type (#68).
 
+-----------
+
 # dbparser 1.0.4
 * Fix save drugs tibbles as csv several issues.
-* Update sql database tibbles saver functions.
-* Update sql database saver functions documentations.
+* Update SQL database tibbles saver functions.
+* Update SQL database saver functions documentations.
 * Support MariaDB and introduce related functionalities.
+
+-----------
 
 # dbparser 1.0.3
 * Fix CRAN errors and notes
+
+-----------
 
 # dbparser 1.0.2
 * Fix zip file location issue
 * Replace Secondary and third keys columns from drug framework with *other_keys* column that contains any other keys that might exist in addition to the primary key
 * Add **average-mass**, **monoisotopic-mass** and **calculated-properties** parsers.
 * Support saving parsed drugs related parsed database as csv
+
+-----------
 
 # dbparser 1.0.1
 * Fix CRAN Note
@@ -95,11 +118,13 @@ database connection can be passed to parser functions (#87).
 * Remove *Count* features from drug data set
 * Fix several typos in documentation and code
 * Fix consistency issue of CLASS of tibbles Returned by dbparser
-* Check if drugbank database exist before parsing
+* Check if DrugBank database exist before parsing
 * Add support for *international_brands* and *salts* elements
 * Properly rename some features to have clear names
 * Reduce datasets size by getting unique rows only
 * Support reading zip file containing DrugBank xml database
+
+-----------
 
 # dbparser 1.0.0
 

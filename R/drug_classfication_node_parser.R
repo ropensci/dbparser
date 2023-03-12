@@ -32,38 +32,6 @@ ClassificationParser <- R6::R6Class(
         drugbank_id = xmlValue(rec[["drugbank-id"]])
 
       )
-    },
-    save_db_table = function(parsed_tbl) {
-      if (private$save_table) {
-        save_drug_sub(
-          con = private$database_connection,
-          df = parsed_tbl,
-          table_name = "drug_classifications",
-          field_types = list(
-            description = "varchar(MAX)",
-            direct_parent = paste0("varchar(", max(
-              nchar(parsed_tbl$direct_parent), na.rm = TRUE
-            ), ")"),
-            kingdom = paste0("varchar(", max(
-              nchar(parsed_tbl$kingdom), na.rm = TRUE
-            ), ")"),
-            superclass = paste0("varchar(", max(
-              nchar(parsed_tbl$superclass), na.rm = TRUE
-            ), ")"),
-            class = paste0("varchar(", max(
-              nchar(parsed_tbl$class), na.rm = TRUE
-            ), ")"),
-            subclass = paste0("varchar(", max(
-              nchar(parsed_tbl$subclass), na.rm = TRUE
-            ), ")"),
-            drugbank_id = paste0("varchar(", max(
-              nchar(parsed_tbl$drugbank_id), na.rm = TRUE
-            ), ")"),
-            substituents = "varchar(MAX)",
-            alternative_parents = "varchar(MAX)"
-          )
-        )
-      }
     }
   )
 )
@@ -72,9 +40,6 @@ ClassificationParser <- R6::R6Class(
 #'
 #' A description of the hierarchical chemical classification of the drug;
 #' imported from ClassyFire.
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
 #'
 #' @return  a tibble with 9 variables:
 #' \describe{
@@ -88,22 +53,7 @@ ClassificationParser <- R6::R6Class(
 #'   \item{substituent}{One or more substituents}
 #'   \item{\emph{drugbank_id}}{drugbank id}
 #' }
-#' @family drugs
-#'
-#' @inherit run_all_parsers examples
-#' @export
-drug_classification <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    ClassificationParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
-      "drug_classifications"
-    )$parse()
+#'@keywords internal
+drug_classification <- function() {
+    ClassificationParser$new("drug_classifications")$parse()
   }

@@ -54,9 +54,6 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'  pharmacological activity of metabolites, and a structural representation of
 #'   the biochemical reactions.
 #'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
-#'
 #' @return a tibble with 5 variables:
 #' \describe{
 #'   \item{sequence}{	Reactions are displayed within a numerical sequence}
@@ -68,31 +65,14 @@ ReactionsEnzymesParser <- R6::R6Class(
 #'   \item{right_drugbank_id}{}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family drugs
-#' @inherit run_all_parsers examples
-#' @export
-drug_reactions <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    ReactionsParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
-      "drug_reactions"
-    )$parse()
-  }
+#' @keywords internal
+drug_reactions <- function() {
+    ReactionsParser$new("drug_reactions")$parse()
+}
 
 #' Drug Reactions Enzymes Parsers
 #'
-#' EEnzymes involved in metabolizing this drug
-#'
-#' @inheritSection run_all_parsers read_drugbank_xml_db
-#' @inheritParams run_all_parsers
+#' Enzymes involved in metabolizing this drug
 #'
 #' @return a tibble with 3 variables:
 #' \describe{
@@ -100,21 +80,7 @@ drug_reactions <-
 #'   \item{uniprot-id}{}
 #'   \item{parent_id}{drugbank id}
 #' }
-#' @family drugs
-#' @inherit run_all_parsers examples
-#' @export
-drug_reactions_enzymes <-
-  function(save_table = FALSE,
-           save_csv = FALSE,
-           csv_path = ".",
-           override_csv = FALSE,
-           database_connection = NULL) {
-    ReactionsEnzymesParser$new(
-      save_table,
-      save_csv,
-      csv_path,
-      override_csv,
-      database_connection,
-      "drug_reactions_enzymes"
-    )$parse()
+#' @keywords internal
+drug_reactions_enzymes <- function() {
+    ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
   }
