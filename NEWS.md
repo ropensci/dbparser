@@ -1,10 +1,14 @@
 # dbparser 2.0.0
 
-## Major Changes
+## Breaking changes
 * Deprecated saving parsed data into given database (#140)
 * Deprecated saving parsed data into a csv file (#140)
 * Deprecated old structure public methods (#141)
+
+## New features
 * Introduced new methods for paring DrugBank DB and returning dvobject (#141)
+
+## Major Updates
 * Updated unit tests to work with new data structure (#141)
 
 ## Minor Fixes
