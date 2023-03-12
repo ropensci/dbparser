@@ -7,7 +7,7 @@ Authors@R:
     person("Ali", "Ezzat", email = "ali_ezzat85@yahoo.com", role = "aut"),
     person("Hao", "Zhu", email = "haozhu233@gmail.com", role = "rev"),
     person("Emma", "Mendelsohn", email = "", role = "rev"))
-Description: This tool is for parsing public drug databases such as 'DrugBank' XML database <https://www.drugbank.ca/>.
+Description: This tool is for parsing public drug databases such as 'DrugBank' XML database <https://go.drugbank.com/>.
     The parsed data are then returned in a proper 'R' object called 'dvobject'.
 License: MIT + file LICENSE
 Encoding: UTF-8

@@ -20,8 +20,8 @@ knitr::opts_chunk$set(
 
 ## Introduction
 The main purpose of the `dbparser` package is to parse the 
-[DrugBank](https://www.drugbank.ca/) database which is downloadable in XML format 
-from [this link](https://www.drugbank.ca/releases/latest). The parsed data can 
+[DrugBank](https://go.drugbank.com/) database which is downloadable in XML format 
+from [this link](https://go.drugbank.com/releases/latest). The parsed data can 
 then be explored and analyzed as desired by the user. 
 In this tutorial, we will see how to use `dbparser` along with `dplyr` and 
 `ggplot2` along with other libraries to do simple drug analysis
@@ -46,19 +46,18 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-read_drugbank_xml_db("C:\drugbank.xml")
+dvobj <- parseDrugBank("C:\drugbank.xml")
 
 ## load drugs data
-drugs <- drug()
+drugs <- dvobj$drugs$general_information
 
 ## load drug groups data
-drug_groups <- drug_groups()
+drug_groups <- dvobj$drugs$groups
 
 ## load drug targets actions data
-drug_targets_actions <- targets_actions()
+drug_targets_actions <- dvobj$cett$targets$actions
 ```
-### Saving into Database
-User can save parsed tibbles in database by enabling `save_table` option. More details about that can be found in [database tutorial](https://docs.ropensci.org/dbparser/articles/Database_Saving.html)
+
 
 ## Exploring the data
 

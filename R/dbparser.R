@@ -1,8 +1,8 @@
 #' dbparser: A package for reading and parsing \strong{DrugBank} xml database.
 #'
 #' The main purpose of the `dbparser` package is to parse
-#' [DrugBank](https://www.drugbank.ca/) database which is downloadable in XML format
-#' from [this link](https://www.DrugBank.ca/releases/latest).
+#' [DrugBank](https://go.drugbank.com/) database which is downloadable in XML format
+#' from [this link](https://go.drugbank.com/releases/latest).
 #'
 #' The parsed data can then be explored and analyzed.
 #'

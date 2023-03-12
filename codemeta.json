@@ -5,7 +5,7 @@
   ],
   "@type": "SoftwareSourceCode",
   "identifier": "dbparser",
-  "description": "This tool is for parsing the 'DrugBank' XML database <https://www.drugbank.ca/>. The parsed \n    data are then returned in a proper 'R' dataframe with the ability to save \n    them in a given database.",
+  "description": "This tool is for parsing the 'DrugBank' XML database <https://go.drugbank.com/>. The parsed \n    data are then returned in a proper 'R' dataframe with the ability to save \n    them in a given database.",
   "name": "dbparser: 'DrugBank' Database XML Parser",
   "codeRepository": "https://github.com/ropensci/dbparser/",
   "issueTracker": "https://github.com/ropensci/dbparser/issues",
