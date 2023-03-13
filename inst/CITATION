@@ -4,16 +4,14 @@ year <- sub("-.*", "", meta$Date)
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(
-  entry    = "Manual",
-  title    = "DrugBank Database XML Parser",
-  author   = c(person("Mohammed", "Ali"),
-                    person("Ali", "Ezzat")),
-  organization   = "Dainanahan",
-  year     = year,
-  note   = note,
-  url      = "https://CRAN.R-project.org/package=dbparser",
-  textVersion =  paste0("Mohammed Ali, Ali Ezzat (",
-                year,
-                "). dbparser: DrugBank Database XML Parser. ",
-                note, ".")
+  bibtype        = "manual",
+  title          = "DrugBank Database XML Parser",
+  author         = c(person("Mohammed", "Ali"),
+                     person("Ali", "Ezzat")),
+  organization   = "Interstellar for Consultinc inc.",
+  year           = year,
+  note           = note,
+  url            = "https://CRAN.R-project.org/package=dbparser",
+  textVersion    =  paste0("Mohammed Ali, Ali Ezzat (", year,").
+                           dbparser: DrugBank Database XML Parser. ", note, ".")
 )
