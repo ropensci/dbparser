@@ -4,7 +4,7 @@ author: "Mohammed Ali, Ali Ezzat"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{DrugBank Parser}
+  %\VignetteIndexEntry{DrugBank Database XML Parser}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

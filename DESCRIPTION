@@ -18,7 +18,7 @@ Imports:
     tibble,
     tools,
     XML
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.3
 Suggests:
     knitr,
     rmarkdown,
@@ -27,4 +27,4 @@ VignetteBuilder: knitr
 URL: https://docs.ropensci.org/dbparser/, https://github.com/ropensci/dbparser/
 BugReports: https://github.com/ropensci/dbparser/issues
 Depends: 
-    R (>= 2.10)
+    R (>= 3.5)
