@@ -1,22 +1,20 @@
 {
-  "@context": [
-    "https://doi.org/10.5063/schema/codemeta-2.0",
-    "http://schema.org"
-  ],
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "dbparser",
-  "description": "This tool is for parsing the 'DrugBank' XML database <https://go.drugbank.com/>. The parsed \n    data are then returned in a proper 'R' dataframe with the ability to save \n    them in a given database.",
-  "name": "dbparser: 'DrugBank' Database XML Parser",
+  "description": "This tool is for parsing public drug databases such as 'DrugBank' XML database <https://go.drugbank.com/>. The parsed data are then returned in a proper 'R' object called 'dvobject'.",
+  "name": "dbparser: Drugs Databases Parser",
+  "relatedLink": ["https://docs.ropensci.org/dbparser/", "https://CRAN.R-project.org/package=dbparser"],
   "codeRepository": "https://github.com/ropensci/dbparser/",
   "issueTracker": "https://github.com/ropensci/dbparser/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.0.2 (2020-06-22)",
+  "runtimePlatform": "R version 4.2.2 (2022-10-31 ucrt)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -37,9 +35,6 @@
       "email": "ali_ezzat85@yahoo.com"
     }
   ],
-  "contributor": {},
-  "copyrightHolder": {},
-  "funder": {},
   "maintainer": [
     {
       "@type": "Person",
@@ -86,20 +81,8 @@
       "sameAs": "https://CRAN.R-project.org/package=testthat"
     }
   ],
-  "softwareRequirements": [
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "DBI",
-      "name": "DBI",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=DBI"
-    },
-    {
+  "softwareRequirements": {
+    "1": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -111,19 +94,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "odbc",
-      "name": "odbc",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=odbc"
-    },
-    {
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "progress",
       "name": "progress",
@@ -135,7 +106,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=progress"
     },
-    {
+    "3": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -147,43 +118,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "readr",
-      "name": "readr",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=readr"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "RMariaDB",
-      "name": "RMariaDB",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=RMariaDB"
-    },
-    {
-      "@type": "SoftwareApplication",
-      "identifier": "RSQLite",
-      "name": "RSQLite",
-      "provider": {
-        "@id": "https://cran.r-project.org",
-        "@type": "Organization",
-        "name": "Comprehensive R Archive Network (CRAN)",
-        "url": "https://cran.r-project.org"
-      },
-      "sameAs": "https://CRAN.R-project.org/package=RSQLite"
-    },
-    {
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -195,12 +130,12 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
     },
-    {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "XML",
       "name": "XML",
@@ -212,21 +147,15 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=XML"
     },
-    {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
-      "version": ">= 2.10"
-    }
-  ],
-  "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
-  "contIntegration": ["https://travis-ci.com/ropensci/dbparser", "https://ci.appveyor.com/project/MohammedFCIS/dbparser", "https://codecov.io/gh/ropensci/dbparser"],
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://www.tidyverse.org/lifecycle/#stable"],
-  "relatedLink": [
-    "https://CRAN.R-project.org/package=dbparser",
-    "https://docs.ropensci.org/dbparser",
-    "https://docs.ropensci.org/dbparser/"
-  ],
+      "version": ">= 3.5"
+    },
+    "SystemRequirements": null
+  },
+  "fileSize": "793.433KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -243,11 +172,14 @@
         }
       ],
       "name": "DrugBank Database XML Parser",
-      "url": "https://CRAN.R-project.org/package=dbparser"
+      "url": "https://CRAN.R-project.org/package=dbparser",
+      "description": "R package version 2.0.0"
     }
   ],
+  "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/dbparser/blob/master/README.md",
-  "fileSize": "5250.49KB",
+  "contIntegration": ["https://travis-ci.org/ropensci/dbparser", "https://ci.appveyor.com/project/MohammedFCIS/dbparser", "https://app.codecov.io/gh/ropensci/dbparser"],
+  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html"],
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/347",
