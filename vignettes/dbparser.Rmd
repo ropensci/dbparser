@@ -46,7 +46,12 @@ library(ggplot2)
 library(XML)
 
 ## parse data from XML and save it to memory
-dvobj <- parseDrugBank("C:\drugbank.xml")
+dvobj <- parseDrugBank(db_path            = "C:\drugbank.xml",
+                       drug_options       = drug_node_options(),
+                       parse_salts        = TRUE,
+                       parse_products     = TRUE,
+                       references_options = references_node_options(),
+                       cett_options       = cett_nodes_options())
 
 ## load drugs data
 drugs <- dvobj$drugs$general_information

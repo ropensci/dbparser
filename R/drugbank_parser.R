@@ -7,76 +7,70 @@
 #' @param db_path \strong{string}, full path for the \strong{DrugBank} xml or
 #'  zip file.
 #' @param drug_options \strong{character vector}, list of sub drug related nodes
-#' names options to parse (default = \code{drug_node_options()})
-#' @param parse_salts \strong{boolean}, parse salts info (default = TRUE)
-#' @param parse_products  \strong{boolean}, parse products info (default = TRUE)
+#' names options to parse (default = NULL). Check \code{drug_node_options()}
+#' for all available options. If its value is `NULL` ONLY `drug_general_information`
+#' will be placed in the returned dvobject.
+#' @param parse_salts \strong{boolean}, parse salts info (default = FALSE)
+#' @param parse_products  \strong{boolean}, parse products info (default = FALSE)
 #' @param references_options \strong{character vector}, list of sub references
-#' related nodes names options to parse (default = \code{references_node_options()})
+#' related nodes names options to parse (default = NULL).
+#' Check \code{references_node_options()} for all available options.
 #' @param cett_options \strong{character vector}, list of sub cett related nodes
-#' names options to parse (default = \code{cett_nodes_options()})
+#' names options to parse (default = NULL). Check \code{cett_nodes_options()}
+#' for all available options.
 #'
 #' @return dvobject
 #' @family parsers
 #' @export
 parseDrugBank <- function(db_path,
-                          drug_options       = drug_node_options(),
-                          parse_salts        = TRUE,
-                          parse_products     = TRUE,
-                          references_options = references_node_options(),
-                          cett_options       = cett_nodes_options()) {
-  if ((length(drug_options) == 0) ||
-       any(is.na(drug_options))) {
-    message("'drug_options' cannot be empty,
-            setting 'drug_options' to default value")
-    drug_options <- drug_node_options()
-  }
-
-  if (!all(drug_options %in% drug_node_options())) {
+                          drug_options       = NULL,
+                          parse_salts        = FALSE,
+                          parse_products     = FALSE,
+                          references_options = NULL,
+                          cett_options       = NULL) {
+  if (!is.null(drug_options) &&
+      !is.na(drug_options) &&
+      (!all(drug_options %in% drug_node_options()))) {
     message(paste("Options: '", paste(setdiff(drug_options,
                                               drug_node_options()),
                                       collapse = ", "),
                   "' are invalid, setting 'drug_options' to default value"))
-    drug_options <- drug_node_options()
+    drug_options <- NULL
   }
 
-  if ((length(references_options) == 0) ||
-      any(is.na(references_options))) {
-    message("'references_options' cannot be empty,
-            setting 'references_options' to default value")
-    references_options <- references_node_options()
-  }
 
-  if (!all(references_options %in% references_node_options())) {
+  if (!is.null(references_options) &&
+      !is.na(references_options) &&
+      (!all(references_options %in% references_node_options()))) {
     message(paste("Options: '", paste(setdiff(references_options,
                                               references_node_options()),
                                       collapse = ", "),
                   "' are invalid, setting 'references_options' to default value"))
-    references_options <- references_node_options()
+    references_options <- NULL
   }
 
-  if ((length(cett_options) == 0) ||
-      any(is.na(cett_options))) {
-    message("'cett_options' cannot be empty,
-            setting 'cett_options' to default value")
-    cett_options <- cett_nodes_options()
-  }
-
-  if (!all(cett_options %in% cett_nodes_options())) {
+  if (!is.null(cett_options) &&
+      !is.na(cett_options) &&
+      (!all(cett_options %in% cett_nodes_options()))) {
     message(paste("Options: '", paste(setdiff(cett_options,
                                               cett_nodes_options()),
                                       collapse = ", "),
                   "' are invalid, setting 'cett_options' to default value"))
-    cett_options <- cett_nodes_options()
+    cett_options <- NULL
   }
 
-  if ((length(parse_salts) > 1) || is.na(parse_salts) || !is.logical(parse_salts)) {
+  if ((length(parse_salts) > 1) ||
+      is.na(parse_salts) ||
+      !is.logical(parse_salts)) {
     message("'parse_salts' must have single logical value. Setting 'parse_salts' to default value")
-    parse_salts <- TRUE
+    parse_salts <- FALSE
   }
 
-  if ((length(parse_products) > 1) || is.na(parse_products) || !is.logical(parse_products)) {
+  if ((length(parse_products) > 1) ||
+      is.na(parse_products) ||
+      !is.logical(parse_products)) {
     message("'parse_products' must have single logical value. Setting 'parse_products' to default value")
-    parse_products <- TRUE
+    parse_products <- FALSE
   }
 
   dvobject  <- init_dvobject()

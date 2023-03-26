@@ -6,11 +6,11 @@
 \usage{
 parseDrugBank(
   db_path,
-  drug_options = drug_node_options(),
-  parse_salts = TRUE,
-  parse_products = TRUE,
-  references_options = references_node_options(),
-  cett_options = cett_nodes_options()
+  drug_options = NULL,
+  parse_salts = FALSE,
+  parse_products = FALSE,
+  references_options = NULL,
+  cett_options = NULL
 )
 }
 \arguments{
@@ -18,17 +18,21 @@ parseDrugBank(
 zip file.}
 
 \item{drug_options}{\strong{character vector}, list of sub drug related nodes
-names options to parse (default = \code{drug_node_options()})}
+names options to parse (default = NULL). Check \code{drug_node_options()}
+for all available options. If its value is `NULL` ONLY `drug_general_information`
+will be placed in the returned dvobject.}
 
-\item{parse_salts}{\strong{boolean}, parse salts info (default = TRUE)}
+\item{parse_salts}{\strong{boolean}, parse salts info (default = FALSE)}
 
-\item{parse_products}{\strong{boolean}, parse products info (default = TRUE)}
+\item{parse_products}{\strong{boolean}, parse products info (default = FALSE)}
 
 \item{references_options}{\strong{character vector}, list of sub references
-related nodes names options to parse (default = \code{references_node_options()})}
+related nodes names options to parse (default = NULL).
+Check \code{references_node_options()} for all available options.}
 
 \item{cett_options}{\strong{character vector}, list of sub cett related nodes
-names options to parse (default = \code{cett_nodes_options()})}
+names options to parse (default = NULL). Check \code{cett_nodes_options()}
+for all available options.}
 }
 \value{
 dvobject
