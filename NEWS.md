@@ -1,3 +1,10 @@
+# dbparser 2.0.1
+
+## Bugs Fixes
+* Fixed output references (#146)
+
+-----------
+
 # dbparser 2.0.0
 
 ## Breaking changes

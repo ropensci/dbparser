@@ -254,12 +254,12 @@ parse_drug_nodes <- function(drug_options) {
 
   if ("experimental_properties" %in% drug_options) {
     message("parsing drugs external identity")
-    drugs[["experimental_properties"]] <- drug_ex_identity()
+    drugs[["experimental_properties"]] <- drug_exp_prop()
   }
 
   if ("external_identifiers" %in% drug_options) {
     message("parsing drugs experimental properties")
-    drugs[["external_identifiers"]] <- drug_exp_prop()
+    drugs[["external_identifiers"]] <- drug_ex_identity()
   }
 
   if ("pathway" %in% drug_options) {
