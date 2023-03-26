@@ -83,14 +83,22 @@ read_drugbank_xml_db <- function(db_path) {
       })
     }
 
-    if (file.exists(db_path)) {
-      loaded_db <- xmlParse(db_path)
-    } else {
-      message(paste("Could not find the file:", db_path, ".Please ensure",
-                    "that the file name is entered correctly",
-                    "and that it exists at the specified location.")
-      )
-    }
+    tryCatch({
+      if (file.exists(db_path) &&
+          (tolower(tools::file_ext(db_path)) == "xml") &&
+          !is.na(file.info(db_path)$size) &&
+          (file.info(db_path)$size > 0)){
+        loaded_db <- xmlParse(db_path)
+      } else {
+        message(paste("Could not find the file:", db_path, ".Please ensure",
+                      "that the file name is entered correctly",
+                      "and that it exists at the specified location.")
+        )
+      }
+    },
+    error = function(e) {
+      message(paste("Parsing db file failed due to error:", e$message))
+    })
   }
 
   loaded_db
