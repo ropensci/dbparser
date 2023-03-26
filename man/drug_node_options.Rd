@@ -12,4 +12,10 @@ list of drug valid options
 \description{
 returns drug node valid options.
 }
-\keyword{parsers}
+\seealso{
+Other parsers: 
+\code{\link{cett_nodes_options}()},
+\code{\link{parseDrugBank}()},
+\code{\link{references_node_options}()}
+}
+\concept{parsers}

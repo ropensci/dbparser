@@ -117,7 +117,7 @@ parseDrugBank <- function(db_path,
 #' returns drug node valid options.
 #'
 #' @return list of drug valid options
-#' @keywords parsers
+#' @family parsers
 #' @export
 drug_node_options <- function() {
   c("drug_classification", "synonyms", "pharmacology", "international_brands",
@@ -133,7 +133,7 @@ drug_node_options <- function() {
 #' returns references node valid options.
 #'
 #' @return list of references valid options
-#' @keywords parsers
+#' @family parsers
 #' @export
 references_node_options <- function() {
   c("drug_books", "drug_articles", "drug_links", "drug_attachments",
@@ -147,7 +147,7 @@ references_node_options <- function() {
 #' returns carriers, enzymes,targets and transporters node valid options.
 #'
 #' @return list of CETT valid options
-#' @keywords parsers
+#' @family parsers
 #' @export
 cett_nodes_options <- function() {
   c("carriers",
