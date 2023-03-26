@@ -42,4 +42,10 @@ parses given DrugBank XML database into a dvobject. dvobject is a list of
  data.frames in which each data.frame represents a part of parsed data (i.e
  drugs, prices, carriers, ...)
 }
+\seealso{
+Other parsers: 
+\code{\link{cett_nodes_options}()},
+\code{\link{drug_node_options}()},
+\code{\link{references_node_options}()}
+}
 \concept{parsers}

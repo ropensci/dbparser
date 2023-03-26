@@ -12,4 +12,10 @@ list of references valid options
 \description{
 returns references node valid options.
 }
-\keyword{parsers}
+\seealso{
+Other parsers: 
+\code{\link{cett_nodes_options}()},
+\code{\link{drug_node_options}()},
+\code{\link{parseDrugBank}()}
+}
+\concept{parsers}
