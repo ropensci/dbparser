@@ -1,3 +1,12 @@
+# dbparser 2.0.1
+
+## Bugs Fixes
+* Fixed output references (#147)
+* Updated `parseDrugBanK`parameters default values (#146)
+* Fixed package documentation references (#144) 
+
+-----------
+
 # dbparser 2.0.0
 
 ## Breaking changes

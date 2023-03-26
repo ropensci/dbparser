@@ -12,4 +12,10 @@ list of CETT valid options
 \description{
 returns carriers, enzymes,targets and transporters node valid options.
 }
-\keyword{parsers}
+\seealso{
+Other parsers: 
+\code{\link{drug_node_options}()},
+\code{\link{parseDrugBank}()},
+\code{\link{references_node_options}()}
+}
+\concept{parsers}
