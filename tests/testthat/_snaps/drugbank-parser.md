@@ -133,6 +133,17 @@
       # A tibble: 0 × 0
       
       $drugs$experimental_properties
+      # A tibble: 5 × 4
+        kind              value             source                             paren…¹
+        <chr>             <chr>             <chr>                              <chr>  
+      1 Melting Point     65 °C             "Otto, A. & Seckler, R. Eur. J. B… DB00001
+      2 Hydrophobicity    -0.777            ""                                 DB00001
+      3 Isoelectric Point 4.04              ""                                 DB00001
+      4 Molecular Weight  6963.425          ""                                 DB00001
+      5 Molecular Formula C287H440N80O110S6 ""                                 DB00001
+      # … with abbreviated variable name ¹​parent_key
+      
+      $drugs$external_identifiers
       # A tibble: 8 × 3
         resource                     identifier    parent_key
         <chr>                        <chr>         <chr>     
@@ -144,17 +155,6 @@
       6 Therapeutic Targets Database DAP000541     DB00001   
       7 Wikipedia                    Lepirudin     DB00001   
       8 ChEMBL                       CHEMBL1201666 DB00001   
-      
-      $drugs$external_identifiers
-      # A tibble: 5 × 4
-        kind              value             source                             paren…¹
-        <chr>             <chr>             <chr>                              <chr>  
-      1 Melting Point     65 °C             "Otto, A. & Seckler, R. Eur. J. B… DB00001
-      2 Hydrophobicity    -0.777            ""                                 DB00001
-      3 Isoelectric Point 4.04              ""                                 DB00001
-      4 Molecular Weight  6963.425          ""                                 DB00001
-      5 Molecular Formula C287H440N80O110S6 ""                                 DB00001
-      # … with abbreviated variable name ¹​parent_key
       
       $drugs$pathway
       $drugs$pathway$general_information
@@ -668,6 +668,9 @@
       # … with 16 more rows, and abbreviated variable name ¹​parent_key
       
       $drugs$experimental_properties
+      # A tibble: 0 × 0
+      
+      $drugs$external_identifiers
       # A tibble: 10 × 3
          resource                     identifier    parent_key
          <chr>                        <chr>         <chr>     
@@ -681,9 +684,6 @@
        8 Therapeutic Targets Database DAP000542     DB00006   
        9 Wikipedia                    Bivalirudin   DB00006   
       10 ChEMBL                       CHEMBL2103749 DB00006   
-      
-      $drugs$external_identifiers
-      # A tibble: 0 × 0
       
       $drugs$pathway
       $drugs$pathway$general_information
@@ -1245,6 +1245,17 @@
       # A tibble: 0 × 0
       
       $drugs$experimental_properties
+      # A tibble: 5 × 4
+        kind              value             source                             paren…¹
+        <chr>             <chr>             <chr>                              <chr>  
+      1 Melting Point     65 °C             "Otto, A. & Seckler, R. Eur. J. B… DB00001
+      2 Hydrophobicity    -0.777            ""                                 DB00001
+      3 Isoelectric Point 4.04              ""                                 DB00001
+      4 Molecular Weight  6963.425          ""                                 DB00001
+      5 Molecular Formula C287H440N80O110S6 ""                                 DB00001
+      # … with abbreviated variable name ¹​parent_key
+      
+      $drugs$external_identifiers
       # A tibble: 8 × 3
         resource                     identifier    parent_key
         <chr>                        <chr>         <chr>     
@@ -1256,17 +1267,6 @@
       6 Therapeutic Targets Database DAP000541     DB00001   
       7 Wikipedia                    Lepirudin     DB00001   
       8 ChEMBL                       CHEMBL1201666 DB00001   
-      
-      $drugs$external_identifiers
-      # A tibble: 5 × 4
-        kind              value             source                             paren…¹
-        <chr>             <chr>             <chr>                              <chr>  
-      1 Melting Point     65 °C             "Otto, A. & Seckler, R. Eur. J. B… DB00001
-      2 Hydrophobicity    -0.777            ""                                 DB00001
-      3 Isoelectric Point 4.04              ""                                 DB00001
-      4 Molecular Weight  6963.425          ""                                 DB00001
-      5 Molecular Formula C287H440N80O110S6 ""                                 DB00001
-      # … with abbreviated variable name ¹​parent_key
       
       $drugs$pathway
       $drugs$pathway$general_information
