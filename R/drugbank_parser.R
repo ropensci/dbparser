@@ -28,9 +28,9 @@ parseDrugBank <- function(db_path,
                           parse_products     = FALSE,
                           references_options = NULL,
                           cett_options       = NULL) {
-  if (!is.null(drug_options) &&
-      !is.na(drug_options) &&
-      (!all(drug_options %in% drug_node_options()))) {
+  if (all(!is.null(drug_options),
+          !is.na(drug_options),
+          (!all(drug_options %in% drug_node_options())))) {
     message(paste("Options: '", paste(setdiff(drug_options,
                                               drug_node_options()),
                                       collapse = ", "),
@@ -39,9 +39,9 @@ parseDrugBank <- function(db_path,
   }
 
 
-  if (!is.null(references_options) &&
-      !is.na(references_options) &&
-      (!all(references_options %in% references_node_options()))) {
+  if (all(!is.null(references_options),
+          !is.na(references_options),
+          (!all(references_options %in% references_node_options())))) {
     message(paste("Options: '", paste(setdiff(references_options,
                                               references_node_options()),
                                       collapse = ", "),
@@ -49,9 +49,9 @@ parseDrugBank <- function(db_path,
     references_options <- NULL
   }
 
-  if (!is.null(cett_options) &&
-      !is.na(cett_options) &&
-      (!all(cett_options %in% cett_nodes_options()))) {
+  if (all(!is.null(cett_options),
+          !is.na(cett_options),
+          (!all(cett_options %in% cett_nodes_options())))) {
     message(paste("Options: '", paste(setdiff(cett_options,
                                               cett_nodes_options()),
                                       collapse = ", "),

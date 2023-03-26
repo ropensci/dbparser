@@ -3,7 +3,8 @@
 ## Bugs Fixes
 * Fixed output references (#147)
 * Updated `parseDrugBanK`parameters default values (#146)
-* Fixed package documentation references (#144) 
+* Fixed package documentation references (#144)
+* Fixed CRAN error on some of linux info (#145)
 
 -----------
 
