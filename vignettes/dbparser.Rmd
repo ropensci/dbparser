@@ -42,8 +42,8 @@ actions info.
 ## load dbparser package
 library(dbparser)
 library(dplyr)
-library(ggplot2)
-library(XML)
+library(canvasXpress)
+library(tibble)
 
 ## parse data from XML and save it to memory
 dvobj <- parseDrugBank(db_path            = "C:\drugbank.xml",
@@ -72,11 +72,20 @@ in the data.
 
 ```{r eval=FALSE}
 ## view proportions of the different drug types (biotech vs. small molecule)
-drugs %>% 
-    select(type) %>% 
-    ggplot(aes(x = type, fill = type)) + 
-    geom_bar() + 
-    guides(fill = FALSE)     ## removes legend for the bar colors
+type_stat <- drugs %>% 
+  select(type) %>% 
+  group_by(type) %>% 
+  summarise(count = n()) %>% 
+  column_to_rownames("type")
+
+canvasXpress(
+  data             = type_stat,
+  graphOrientation = "vertical",
+  graphType        = "Bar",
+  showSampleNames  = FALSE,
+  title            ="Drugs Type Distribution",
+  xAxisTitle       = "Count"
+)
 ```
 
 
@@ -86,7 +95,7 @@ are.
 ```{r eval=FALSE}
 ## view proportions of the different drug types for each drug group
 drugs %>% 
-    full_join(drug_groups, by = c('primary_key' = 'drugbank_id')) %>% 
+    full_join(drug_groups, by = c('primary_key' = "drugbank-id")) %>% 
     select(type, group) %>% 
     ggplot(aes(x = group, fill = type)) + 
     geom_bar() + 
