@@ -94,17 +94,24 @@ are.
 
 ```{r eval=FALSE}
 ## view proportions of the different drug types for each drug group
-drugs %>% 
-    full_join(drug_groups, by = c('primary_key' = "drugbank-id")) %>% 
-    select(type, group) %>% 
-    ggplot(aes(x = group, fill = type)) + 
-    geom_bar() + 
-    theme(legend.position = 'bottom') + 
-    labs(x = 'Drug Group', 
-         y = 'Quantity', 
-         title = "Drug Type Distribution per Drug Group", 
-         caption = "created by ggplot") + 
-    coord_flip()
+type_stat <- drugs %>% 
+  full_join(drug_groups, by = c("primary_key" = "drugbank-id")) %>% 
+  select(type, group) %>% 
+  group_by(type, group) %>% 
+  summarise(count = n()) %>% 
+  pivot_wider(names_from = group, values_from = count) %>% 
+  column_to_rownames("type")
+
+canvasXpress(
+  data           = type_stat,
+  graphType      = "Stacked",
+  legendColumns  = 2,
+  legendPosition = "bottom",
+  title          ="Drug Type Distribution per Drug Group",
+  xAxisTitle     = "Quantity",
+  xAxis2Show     = TRUE,
+  xAxisShow      = FALSE,
+  smpTitle      = "Drug Group")
 ```
 
 Finally, we look at the `drug_targets_actions` to observe their proportions as 
