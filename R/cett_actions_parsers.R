@@ -4,20 +4,25 @@ CETTActionsParser <-
     inherit = AbstractParser,
     private = list(
       parse_record = function() {
-        cett_type <- strsplit(private$tibble_name, "_")[[1]][1]
-        drugs <-  xmlChildren(pkg_env$root)
-        pb <- progress_bar$new(total = xmlSize(drugs))
+        cett_type   <- strsplit(private$tibble_name, "_")[[1]][1]
+        drugs       <-  xmlChildren(pkg_env$root)
+        pb          <- progress_bar$new(total = xmlSize(drugs))
         actions_tbl <-
           map_df(drugs, ~ private$actions_rec(., cett_type, pb)) %>% unique()
         if (nrow(actions_tbl) > 0) {
-          colnames(actions_tbl) <- c("action", "parent_id")
+          colnames(actions_tbl) <- c("action",
+                                     paste0(substr(x     = cett_type,
+                                                   start = 1,
+                                                   stop  = nchar(cett_type)-1),
+                                            "_id"))
         }
-        return(actions_tbl)
+
+        actions_tbl
       },
       actions_rec = function(rec, cett_type, pb) {
         pb$tick()
-        return(map_df(xmlChildren(rec[[cett_type]]),
-                      ~ drug_sub_df(., "actions", id = "id")))
+        map_df(xmlChildren(rec[[cett_type]]),
+                      ~ drug_sub_df(., "actions", id = "id"))
       }
     )
   )

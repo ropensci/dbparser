@@ -444,7 +444,7 @@
       
       $cett$enzymes$actions
       # A tibble: 1 × 2
-        action    parent_id
+        action    enzyme_id
         <chr>     <chr>    
       1 inhibitor BE0001075
       
@@ -512,7 +512,7 @@
       
       $cett$targets$actions
       # A tibble: 1 × 2
-        action    parent_id
+        action    target_id
         <chr>     <chr>    
       1 inhibitor BE0000048
       

@@ -2,7 +2,8 @@
 
 ## Enhancements
 - Replaced "-" with "_" in tibbles column names (#111)
-- Renamed "primary_key" to "drugbank_id" in parsed drugs "general_information" tibble  (#111)
+- Renamed "primary_key" to "drugbank_id" in parsed drugs "general_information" tibble (#111)
+- Replaced "parent_key" keywords in different tibbles column names with original parent name (#111) 
 
 ----
 
