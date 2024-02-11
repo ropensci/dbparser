@@ -6,7 +6,7 @@
       $drugs
       $drugs$general_information
       # A tibble: 1 × 15
-        primary_key other_keys      type  created updated name  description cas_number
+        drugbank_id other_keys      type  created updated name  description cas_number
         <chr>       <chr>           <chr> <chr>   <chr>   <chr> <chr>       <chr>     
       1 DB00001     BTD00024;BIOD0… biot… 2005-0… 2018-0… Lepi… Lepirudin … 138068-37…
       # ℹ 7 more variables: unii <chr>, average_mass <chr>, monoisotopic_mass <chr>,
@@ -34,7 +34,7 @@
       $drugs
       $drugs$general_information
       # A tibble: 1 × 15
-        primary_key other_keys      type  created updated name  description cas_number
+        drugbank_id other_keys      type  created updated name  description cas_number
         <chr>       <chr>           <chr> <chr>   <chr>   <chr> <chr>       <chr>     
       1 DB00006     BTD00076;EXPT0… smal… 2005-0… 2018-0… Biva… Bivalirudi… 128270-60…
       # ℹ 7 more variables: unii <chr>, average_mass <chr>, monoisotopic_mass <chr>,
@@ -621,7 +621,7 @@
       $drugs
       $drugs$general_information
       # A tibble: 1 × 15
-        primary_key other_keys      type  created updated name  description cas_number
+        drugbank_id other_keys      type  created updated name  description cas_number
         <chr>       <chr>           <chr> <chr>   <chr>   <chr> <chr>       <chr>     
       1 DB00001     BTD00024;BIOD0… biot… 2005-0… 2018-0… Lepi… Lepirudin … 138068-37…
       # ℹ 7 more variables: unii <chr>, average_mass <chr>, monoisotopic_mass <chr>,

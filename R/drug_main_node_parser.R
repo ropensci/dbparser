@@ -15,7 +15,7 @@ DrugParser <- R6::R6Class(
       ids_length <- length(ids)
       ids <- map_chr(ids, xmlValue)
       c(
-        primary_key = ids[[1]],
+        drugbank_id = ids[[1]],
         other_keys = ifelse(ids_length > 1,
                             paste(unlist(ids[2:ids_length]), collapse = ";"),
                             NA),
