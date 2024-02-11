@@ -3,15 +3,15 @@ DrugElementsParser <- R6::R6Class(
   inherit = AbstractParser,
   private = list(
     parse_record = function() {
-      drugs <-  xmlChildren(pkg_env$root)
-      pb <- progress_bar$new(total = xmlSize(drugs))
+      drugs      <-  xmlChildren(pkg_env$root)
+      pb         <- progress_bar$new(total = xmlSize(drugs))
       parsed_tbl <- map_df(drugs, ~ drug_sub_df(.x, private$main_node,
                                                 progress = pb)) %>%
         unique()
       if (NROW(parsed_tbl) > 0) {
         switch(
           private$main_node,
-          "groups" = names(parsed_tbl) <- c("group", "drugbank-id"),
+          "groups" = names(parsed_tbl) <- c("group", "drugbank_id"),
           "international-brands" = names(parsed_tbl) <-
             c("brand", "company","drugbank-id"),
           "affected-organisms" = names(parsed_tbl) <-
@@ -21,8 +21,13 @@ DrugElementsParser <- R6::R6Class(
           "food-interactions" = names(parsed_tbl) <-
             c("food_interaction", "drugbank_id")
         )
+
+        if ("parent_key" %in% names(parsed_tbl)) {
+          parsed_tbl <- rename(parsed_tbl, drugbank_id = parent_key)
+        }
       }
-      return(parsed_tbl)
+
+      parsed_tbl
     }
   )
 )

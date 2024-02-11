@@ -4,20 +4,30 @@ CETTPolyOtherParser <-
     inherit = AbstractParser,
     private = list(
       parse_record = function() {
-        drugs <-  xmlChildren(pkg_env$root)
-        pb <- progress_bar$new(total = xmlSize(drugs))
+        drugs     <-  xmlChildren(pkg_env$root)
+        pb        <- progress_bar$new(total = xmlSize(drugs))
         cett_type <- strsplit(private$tibble_name, "_")[[1]][1]
-        return(
-          map_df(drugs,
-                 ~ private$org(., cett_type, pb)) %>%
-          unique())
+
+        parsed_table <- map_df(drugs,
+               ~ private$org(., cett_type, pb)) %>%
+          unique()
+
+        if (NROW(parsed_table) > 0) {
+          parent_id_name <- paste0(substr(x     = cett_type,
+                                          start = 1,
+                                          stop  = nchar(cett_type)-1),
+                                   "_id")
+          parsed_table <- parsed_table %>%
+            rename(!!parent_id_name := parent_key)
+        }
+
       },
       org = function(rec, cett_type, pb) {
         pb$tick()
-        return(map_df(
+        map_df(
           xmlChildren(rec[[cett_type]]),
           ~ drug_sub_df(., "polypeptide", private$object_node, "id")
-        ))
+        )
       }
     )
   )
@@ -191,11 +201,11 @@ carriers_polypeptides_syn <- function() {
       "synonyms"
     )$parse()
 
-    if (nrow(syn) > 0) {
-      colnames(syn) <- c("synonym", "parent_key")
+    if (NROW(syn) > 0) {
+      colnames(syn) <- c("synonym", "carrier_id")
     }
 
-    return(syn)
+    syn
   }
 
 #' @rdname cett_poly_syn_doc
@@ -205,11 +215,11 @@ enzymes_polypeptides_syn <- function() {
       "synonyms"
     )$parse()
 
-    if (nrow(syn) > 0) {
-      colnames(syn) <- c("synonym", "parent_key")
+    if (NROW(syn) > 0) {
+      colnames(syn) <- c("synonym", "enzyme_id")
     }
 
-    return(syn)
+    syn
   }
 
 #' @rdname cett_poly_syn_doc
@@ -219,11 +229,11 @@ targets_polypeptides_syn <- function() {
       "synonyms"
     )$parse()
 
-    if (nrow(syn) > 0) {
-      colnames(syn) <- c("synonym", "parent_key")
+    if (NROW(syn) > 0) {
+      colnames(syn) <- c("synonym", "target_id")
     }
 
-    return(syn)
+    syn
   }
 
 #' @rdname cett_poly_syn_doc
@@ -233,9 +243,9 @@ transporters_polypeptides_syn <- function() {
       "synonyms"
     )$parse()
 
-    if (nrow(syn) > 0) {
-      colnames(syn) <- c("synonym", "parent_key")
+    if (NROW(syn) > 0) {
+      colnames(syn) <- c("synonym", "transporter_id")
     }
 
-    return(syn)
+    syn
   }

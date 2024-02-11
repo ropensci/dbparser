@@ -9,7 +9,7 @@ CETTActionsParser <-
         pb          <- progress_bar$new(total = xmlSize(drugs))
         actions_tbl <-
           map_df(drugs, ~ private$actions_rec(., cett_type, pb)) %>% unique()
-        if (nrow(actions_tbl) > 0) {
+        if (NROW(actions_tbl) > 0) {
           colnames(actions_tbl) <- c("action",
                                      paste0(substr(x     = cett_type,
                                                    start = 1,
