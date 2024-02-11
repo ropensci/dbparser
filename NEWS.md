@@ -1,4 +1,9 @@
-# dbparser (development version)
+# dbparser 2.0.2
+
+## Enhancements
+- Replaced "-" with "_" in tibbles column names (#111)
+
+----
 
 # dbparser 2.0.1
 
