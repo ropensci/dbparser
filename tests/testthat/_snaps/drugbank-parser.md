@@ -437,9 +437,9 @@
       $cett$enzymes
       $cett$enzymes$general_information
       # A tibble: 1 × 8
-        id        name   organism known_action position parent_key inhibition_strength
-        <chr>     <chr>  <chr>    <chr>        <chr>    <chr>      <chr>              
-      1 BE0001075 Myelo… Human    unknown      1        DB00006    unknown            
+        id        name  organism known_action position drugbank_id inhibition_strength
+        <chr>     <chr> <chr>    <chr>        <chr>    <chr>       <chr>              
+      1 BE0001075 Myel… Human    unknown      1        DB00006     unknown            
       # ℹ 1 more variable: induction_strength <chr>
       
       $cett$enzymes$actions
@@ -458,7 +458,7 @@
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,
       #   amino_acid_sequence <chr>, amino_acid_format <chr>, gene_sequence <chr>,
-      #   gene_format <chr>, parent_id <chr>
+      #   gene_format <chr>, enzyme_id <chr>
       
       $cett$enzymes$polypeptides$external_identy
       # A tibble: 7 × 3
@@ -506,9 +506,9 @@
       $cett$targets
       $cett$targets$general_information
       # A tibble: 1 × 6
-        id        name        organism known_action position parent_key
-        <chr>     <chr>       <chr>    <chr>        <lgl>    <chr>     
-      1 BE0000048 Prothrombin Human    yes          NA       DB00006   
+        id        name        organism known_action position drugbank_id
+        <chr>     <chr>       <chr>    <chr>        <lgl>    <chr>      
+      1 BE0000048 Prothrombin Human    yes          NA       DB00006    
       
       $cett$targets$actions
       # A tibble: 1 × 2
@@ -526,7 +526,7 @@
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,
       #   amino_acid_sequence <chr>, amino_acid_format <chr>, gene_sequence <chr>,
-      #   gene_format <chr>, parent_id <chr>
+      #   gene_format <chr>, target_id <chr>
       
       $cett$targets$polypeptides$external_identy
       # A tibble: 7 × 3
