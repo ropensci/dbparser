@@ -4,24 +4,24 @@ ReactionsParser <- R6::R6Class(
   private = list(
     parse_record = function() {
       drugs <-  xmlChildren(pkg_env$root)
-      pb <- progress_bar$new(total = xmlSize(drugs))
-      return(map_df(drugs, ~ private$get_reactions_df(., pb)))
+      pb    <- progress_bar$new(total = xmlSize(drugs))
+      map_df(drugs, ~ private$get_reactions_df(., pb))
     },
     get_reactions_df = function(rec, pb) {
       pb$tick()
-      return(map_df(
+      map_df(
         xmlChildren(rec[["reactions"]]),
         ~ private$get_reactions_rec(., xmlValue(rec[["drugbank-id"]]))
-      ))
+      )
     },
     get_reactions_rec = function(r, drug_key) {
       tibble(
         sequence = xmlValue(r[["sequence"]]),
-        left_drugbank_id = xmlValue(r[["left-element"]][["drugbank-id"]]),
-        left_drugbank_name = xmlValue(r[["left-element"]][["name"]]),
-        right_drugbank_id = xmlValue(r[["right-element"]][["drugbank-id"]]),
+        left_drugbank_id    = xmlValue(r[["left-element"]][["drugbank-id"]]),
+        left_drugbank_name  = xmlValue(r[["left-element"]][["name"]]),
+        right_drugbank_id   = xmlValue(r[["right-element"]][["drugbank-id"]]),
         right_drugbank_name = xmlValue(r[["right-element"]][["name"]]),
-        parent_key = drug_key
+        drugbank_id         = drug_key
       )
     }
   )
@@ -33,15 +33,15 @@ ReactionsEnzymesParser <- R6::R6Class(
   private = list(
     parse_record = function() {
       drugs <-  xmlChildren(pkg_env$root)
-      pb <- progress_bar$new(total = xmlSize(drugs))
-      return(map_df(drugs, ~ private$get_reactions_enzymes_df(., pb)))
+      pb    <- progress_bar$new(total = xmlSize(drugs))
+      map_df(drugs, ~ private$get_reactions_enzymes_df(., pb))
     },
     get_reactions_enzymes_df = function(rec, pb) {
       pb$tick()
-      return(map_df(
+      map_df(
         xmlChildren(rec[["reactions"]]),
         ~ drug_sub_df(., "enzymes", id = NULL)
-      ))
+      )
     }
   )
 )
@@ -82,5 +82,11 @@ drug_reactions <- function() {
 #' }
 #' @keywords internal
 drug_reactions_enzymes <- function() {
-    ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
+  enzyme <- ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
+
+  if ("drugbank_id" %in% names(enzyme)) {
+    enzyme <- rename(enzyme, enzyme_id = "drugbank_id")
   }
+
+  enzyme
+}

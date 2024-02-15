@@ -35,13 +35,14 @@ drug_sub_df <-
       return()
     }
 
-    if (nrow(df) > 0 && !is.null(parent_key)) {
+    if (NROW(df) > 0 && !is.null(parent_key)) {
       df$parent_key <- parent_key
     }
     if (!is.null(progress)) {
       progress$tick()
     }
-    return(df)
+
+    df
   }
 
 

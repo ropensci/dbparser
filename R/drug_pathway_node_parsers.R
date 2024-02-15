@@ -4,23 +4,22 @@ PathwayParser <- R6::R6Class(
   private = list(
     parse_record = function() {
       drugs <-  xmlChildren(pkg_env$root)
-      pb <- progress_bar$new(total = xmlSize(drugs))
+      pb    <- progress_bar$new(total = xmlSize(drugs))
       map_df(drugs, ~ private$get_pathways_df(.x, pb)) %>%
         unique()
     },
     get_pathways_df = function(rec, pb) {
       pb$tick()
-      return(
-        map_df(
-          xmlChildren(rec[["pathways"]]),
-          ~ private$get_pathway_rec(.x, xmlValue(rec["drugbank-id"][[1]]))))
+      map_df(
+        xmlChildren(rec[["pathways"]]),
+        ~ private$get_pathway_rec(.x, xmlValue(rec["drugbank-id"][[1]])))
     },
     get_pathway_rec = function(r, drug_key) {
       tibble(
-        smpdb_id = xmlValue(r[["smpdb-id"]]),
-        name = xmlValue(r[["name"]]),
-        category = xmlValue(r[["category"]]),
-        parent_key = drug_key
+        smpdb_id    = xmlValue(r[["smpdb-id"]]),
+        name        = xmlValue(r[["name"]]),
+        category    = xmlValue(r[["category"]]),
+        drugbank_id = drug_key
       )
     }
   )
@@ -31,26 +30,27 @@ PathwaySubNodesParser <- R6::R6Class(
   inherit = AbstractParser,
   private = list(
     parse_record = function() {
-      drugs <-  xmlChildren(pkg_env$root)
-      pb <- progress_bar$new(total = xmlSize(drugs))
+      drugs      <-  xmlChildren(pkg_env$root)
+      pb         <- progress_bar$new(total = xmlSize(drugs))
       parsed_tbl <-
         map_df(drugs, ~ private$get_pathways_sub(., pb)) %>%
         unique()
-      if (nrow(parsed_tbl) > 0) {
+      if (NROW(parsed_tbl) > 0) {
         switch(
           private$main_node,
           "enzymes" = names(parsed_tbl) <-
-            c("enzyme", "pathway_id")
+            c("enzyme", "smpdb_id")
         )
       }
-      return(parsed_tbl)
+
+      parsed_tbl
     },
     get_pathways_sub = function(rec, pb) {
       pb$tick()
-      return(map_df(
+      map_df(
         xmlChildren(rec[[private$object_node]]),
         ~ drug_sub_df(., private$main_node, id = private$id)
-      ))
+      )
     }
   )
 )
@@ -62,13 +62,13 @@ PathwaySubNodesParser <- R6::R6Class(
 #' @return  a tibble with pathway properties
 #' @keywords internal
 drug_pathway_enzyme <- function() {
-    PathwaySubNodesParser$new(
+  PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_enzymes",
       object_node = "pathways",
-      main_node = "enzymes",
-      id = "smpdb-id"
+      main_node   = "enzymes",
+      id          = "smpdb-id"
     )$parse()
-  }
+}
 
 #' Drug Pathway Drugs parser
 #'
@@ -77,13 +77,20 @@ drug_pathway_enzyme <- function() {
 #' @return  a tibble with pathway drugs properties
 #' @keywords internal
 drug_pathway_drugs <- function() {
-    PathwaySubNodesParser$new(
+  enzyme <- PathwaySubNodesParser$new(
       tibble_name = "drug_pathway_drugs",
       object_node = "pathways",
       main_node = "drugs",
       id = "smpdb-id"
     )$parse()
+
+  if (NROW(enzyme) > 0) {
+    enzyme <- enzyme %>%
+      rename("smpdb_id" = "parent_key")
   }
+
+  enzyme
+}
 
 #' Drug Pathway parser
 #'
@@ -101,4 +108,4 @@ drug_pathway_drugs <- function() {
 #' @keywords internal
 drug_pathway <- function() {
     PathwayParser$new("drug_pathway")$parse()
-  }
+}
