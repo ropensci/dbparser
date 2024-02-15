@@ -43,7 +43,7 @@ reference/index (https://docs.ropensci.org/dbparser/reference/index.html)
 Useful links:
 \itemize{
   \item \url{https://docs.ropensci.org/dbparser/}
-  \item \url{https://github.com/ropensci/dbparser/}
+  \item \url{https://github.com/ropensci/dbparser}
   \item Report bugs at \url{https://github.com/ropensci/dbparser/issues}
 }
 
