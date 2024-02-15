@@ -85,7 +85,7 @@ drug_reactions_enzymes <- function() {
   enzyme <- ReactionsEnzymesParser$new("drug_reactions_enzymes")$parse()
 
   if ("drugbank_id" %in% names(enzyme)) {
-    enzyme <- rename(enzyme, enzyme_id = drugbank_id)
+    enzyme <- rename(enzyme, enzyme_id = "drugbank_id")
   }
 
   enzyme
