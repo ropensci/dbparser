@@ -22,6 +22,10 @@ DrugElementsParser <- R6::R6Class(
             c("food_interaction", "drugbank_id")
         )
 
+        if (private$main_node == "salts") {
+          parsed_tbl <- rename(parsed_tbl, db_salt_id = "drugbank-id")
+        }
+
         if ("parent_key" %in% names(parsed_tbl)) {
           parsed_tbl <- rename(parsed_tbl, drugbank_id = parent_key)
         }

@@ -437,7 +437,7 @@
       $cett$enzymes
       $cett$enzymes$general_information
       # A tibble: 1 × 8
-        id        name  organism known_action position drugbank_id inhibition_strength
+        enzyme_id name  organism known_action position drugbank_id inhibition_strength
         <chr>     <chr> <chr>    <chr>        <chr>    <chr>       <chr>              
       1 BE0001075 Myel… Human    unknown      1        DB00006     unknown            
       # ℹ 1 more variable: induction_strength <chr>
@@ -451,9 +451,9 @@
       $cett$enzymes$polypeptides
       $cett$enzymes$polypeptides$general_information
       # A tibble: 1 × 20
-        id     source     name      general_function specific_function gene_name locus
-        <chr>  <chr>      <chr>     <chr>            <chr>             <chr>     <chr>
-      1 P05164 Swiss-Prot Myeloper… Peroxidase acti… Part of the host… MPO       17q2…
+        polypeptide_id source name  general_function specific_function gene_name locus
+        <chr>          <chr>  <chr> <chr>            <chr>             <chr>     <chr>
+      1 P05164         Swiss… Myel… Peroxidase acti… Part of the host… MPO       17q2…
       # ℹ 13 more variables: cellular_location <chr>, transmembrane_regions <chr>,
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,
@@ -506,7 +506,7 @@
       $cett$targets
       $cett$targets$general_information
       # A tibble: 1 × 6
-        id        name        organism known_action position drugbank_id
+        target_id name        organism known_action position drugbank_id
         <chr>     <chr>       <chr>    <chr>        <lgl>    <chr>      
       1 BE0000048 Prothrombin Human    yes          NA       DB00006    
       
@@ -519,9 +519,9 @@
       $cett$targets$polypeptides
       $cett$targets$polypeptides$general_information
       # A tibble: 1 × 20
-        id     source     name      general_function specific_function gene_name locus
-        <chr>  <chr>      <chr>     <chr>            <chr>             <chr>     <chr>
-      1 P00734 Swiss-Prot Prothrom… Thrombospondin … Thrombin, which … F2        11p1…
+        polypeptide_id source name  general_function specific_function gene_name locus
+        <chr>          <chr>  <chr> <chr>            <chr>             <chr>     <chr>
+      1 P00734         Swiss… Prot… Thrombospondin … Thrombin, which … F2        11p1…
       # ℹ 13 more variables: cellular_location <chr>, transmembrane_regions <chr>,
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,

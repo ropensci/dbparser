@@ -20,9 +20,11 @@ Imports:
     XML
 RoxygenNote: 7.2.3
 Suggests:
+    canvasXpress,
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    tidyr
 VignetteBuilder: knitr
 URL: https://docs.ropensci.org/dbparser/, https://github.com/ropensci/dbparser/
 BugReports: https://github.com/ropensci/dbparser/issues

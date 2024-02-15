@@ -27,8 +27,8 @@ CETTPolyGeneralInfoParser <-
 
         if (!is.null(p)) {
           p_table <- tibble(
-            id = ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-                        xmlGetAttr(p, name = "id")),
+            polypeptide_id = ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
+                                    xmlGetAttr(p, name = "id")),
             source = ifelse(is.null(xmlGetAttr(p,
                                                name = "source")), NA,
                             xmlGetAttr(p, name = "source")),

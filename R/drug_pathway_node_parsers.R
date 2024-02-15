@@ -86,7 +86,7 @@ drug_pathway_drugs <- function() {
 
   if (NROW(enzyme) > 0) {
     enzyme <- enzyme %>%
-      rename("smpdb_id" = parent_key)
+      rename("smpdb_id" = "parent_key")
   }
 
   enzyme

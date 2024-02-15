@@ -6,8 +6,16 @@ CETTGeneralInformationParser <-
       parse_record = function() {
         drugs    <-  xmlChildren(pkg_env$root)
         pb       <- progress_bar$new(total = xmlSize(drugs))
-        map_df(drugs, ~ private$cett_rec(., private$tibble_name, pb)) %>%
+
+        cett_table <- map_df(drugs, ~ private$cett_rec(., private$tibble_name, pb)) %>%
           unique()
+
+        if (NROW(cett_table) > 0) {
+          cett_table <- rename(cett_table, !!(paste0(substr(x     = private$tibble_name,
+                                                            start = 1,
+                                                            stop  = nchar(private$tibble_name)-1),
+                                                     "_id")) := id)
+        }
       },
       cett_rec = function(rec, tibble_name, pb) {
         pb$tick()
