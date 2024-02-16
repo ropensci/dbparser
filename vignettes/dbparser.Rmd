@@ -1,6 +1,6 @@
 ---
 title: "DrugBank Database XML Parser"
-author: "Mohammed Ali, Ali Ezzat"
+author: "Mohammed Ali"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
@@ -44,15 +44,9 @@ library(tidyr)
 library(dplyr)
 library(canvasXpress)
 library(tibble)
+library(dbdataset)
 
-## parse data from XML and save it to memory
-# dvobj <- parseDrugBank(db_path            = "C:\drugbank.xml",
-#                        drug_options       = drug_node_options(),
-#                        parse_salts        = TRUE,
-#                        parse_products     = TRUE,
-#                        references_options = references_node_options(),
-#                        cett_options       = cett_nodes_options())
-dvobj <- readRDS("D:/drugverse/dbobject_v1.RDS")
+dvobj <- dbdataset::drugbank
 ## load drugs data
 drugs <- dvobj$drugs$general_information
 
