@@ -40,21 +40,23 @@ actions info.
 
 ```{r eval=T}
 ## load dbparser package
-library(tidyr)
-library(dplyr)
-library(canvasXpress)
-library(tibble)
-library(dbdataset)
+suppressPackageStartupMessages({
+  library(tidyr)
+  library(dplyr)
+  library(canvasXpress)
+  library(tibble)
+  library(dbparser)
+})
 
-dvobj <- dbdataset::drugbank
+
 ## load drugs data
-drugs <- dvobj$drugs$general_information
+drugs <- readRDS(system.file("drugs.RDS", package = "dbparser"))
 
 ## load drug groups data
-drug_groups <- dvobj$drugs$groups
+drug_groups <- readRDS(system.file("drug_groups.RDS", package = "dbparser"))
 
 ## load drug targets actions data
-drug_targets_actions <- dvobj$cett$targets$actions
+drug_targets_actions <- readRDS(system.file("targets_actions.RDS", package = "dbparser"))
 ```
 
 
@@ -89,7 +91,7 @@ are.
 ```{r eval=T}
 ## view proportions of the different drug types for each drug group
 type_stat <- drugs %>% 
-  full_join(drug_groups, by = c("primary_key" = "drugbank-id")) %>% 
+  full_join(drug_groups, by = c("drugbank_id")) %>% 
   select(type, group) %>% 
   group_by(type, group) %>% 
   summarise(count = n()) %>% 
