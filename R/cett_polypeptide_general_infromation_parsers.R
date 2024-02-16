@@ -13,16 +13,22 @@ CETTPolyGeneralInfoParser <-
       },
       polypeptides_parser = function(rec, cett_type, pb) {
         pb$tick()
-        return(map_df(xmlChildren(rec[[cett_type]]),
-                      ~ private$polypeptide_rec(.)))
+        parent_name <- paste0(substr(x     = cett_type,
+                                     start = 1,
+                                     stop  = nchar(cett_type)-1),
+                              "_id")
+        map_df(xmlChildren(rec[[cett_type]]),
+               ~ private$polypeptide_rec(., parent_name))
       },
-      polypeptide_rec = function(r) {
+      polypeptide_rec = function(r, parent_name) {
+        p_table   <- NULL
         parent_id <- xmlValue(r[["id"]])
-        p <- r[["polypeptide"]]
+        p         <- r[["polypeptide"]]
+
         if (!is.null(p)) {
-          tibble(
-            id = ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
-                        xmlGetAttr(p, name = "id")),
+          p_table <- tibble(
+            polypeptide_id = ifelse(is.null(xmlGetAttr(p, name = "id")), NA,
+                                    xmlGetAttr(p, name = "id")),
             source = ifelse(is.null(xmlGetAttr(p,
                                                name = "source")), NA,
                             xmlGetAttr(p, name = "source")),
@@ -45,10 +51,13 @@ CETTPolyGeneralInfoParser <-
                                            name = "format"),
             gene_sequence = xmlValue(p[["gene-sequence"]]),
             gene_format = xmlGetAttr(p[["gene-sequence"]],
-                                     name = "format"),
-            parent_id = parent_id
+                                     name = "format")
           )
+
+          p_table[[parent_name]] <- parent_id
         }
+
+        p_table
       }
     )
   )

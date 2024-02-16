@@ -81,7 +81,7 @@ parseDrugBank <- function(db_path,
     message("...........................................")
     pkg_env$root <- XML::xmlRoot(parsed_db)
     dvobject     <- add_drugbank_info(dvobject  = dvobject)
-    message("Parsing Drugs elements")
+    message("parsing drugs elements")
 
     dvobject[["drugs"]] <- parse_drug_nodes(drug_options)
 
@@ -167,8 +167,8 @@ cett_nodes_options <- function() {
 #' @keywords internal
 parse_drug_nodes <- function(drug_options) {
   drugs <- list()
-  message("Drugs Information Parsing has Started")
-  message("parsing drugs gneral information")
+  message("drugs information parsing has started")
+  message("parsing drugs general information")
   drugs[["general_information"]] <- drug_general_information()
 
   if ("drug_classification" %in% drug_options) {

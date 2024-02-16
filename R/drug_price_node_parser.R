@@ -10,18 +10,18 @@ PricesParser <- R6::R6Class(
     },
     get_prices_df = function(rec, pb) {
       pb$tick()
-      return(map_df(
+      map_df(
         xmlChildren(rec[["prices"]]),
         ~ private$get_price_rec(., xmlValue(rec[["drugbank-id"]]))
-      ))
+      )
     },
     get_price_rec = function(r, drug_key) {
       tibble_row(
         description = xmlValue(r[["description"]]),
-        currency = xmlGetAttr(r[["cost"]], name = "currency"),
-        cost = xmlValue(r[["cost"]]),
-        unit = xmlValue(r[["unit"]]),
-        parent_key = drug_key
+        currency    = xmlGetAttr(r[["cost"]], name = "currency"),
+        cost        = xmlValue(r[["cost"]]),
+        unit        = xmlValue(r[["unit"]]),
+        drugbank_id = drug_key
       )
     }
   )

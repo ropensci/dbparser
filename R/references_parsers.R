@@ -4,10 +4,14 @@ ReferenceParser <-
     inherit = AbstractParser,
     private = list(
       parse_record = function() {
-        drugs <-  xmlChildren(pkg_env$root)
-        pb <- progress_bar$new(total = xmlSize(drugs))
+        drugs     <-  xmlChildren(pkg_env$root)
+        pb        <- progress_bar$new(total = xmlSize(drugs))
+        ref_table <- NULL
+        id_name   <- NULL
+
         if (is.null(private$object_node)) {
-          return(map_df(
+          id_name   <- "drugbank_id"
+          ref_table <- map_df(
             drugs,
             ~ drug_sub_df(
               .,
@@ -16,22 +20,34 @@ ReferenceParser <-
               private$id,
               pb
             )
-          ))
+          )
+        } else {
+          id_name <- paste0(substr(x     = private$object_node,
+                                   start = 1,
+                                   stop  = nchar(private$object_node)-1),
+                            "_id")
+          ref_table <- map_df(drugs,
+                 ~ private$parse_ref_elem(
+                   xmlChildren(.[[private$object_node]]),
+                   pb))
         }
-        return(map_df(drugs,
-                      ~ private$parse_ref_elem(
-                        xmlChildren(.[[private$object_node]]),
-                        pb)))
+
+        if ("parent_key" %in% names(ref_table)) {
+          ref_table <- ref_table %>%
+            rename(!!id_name := parent_key)
+        }
+
+        ref_table
       },
       parse_ref_elem = function(children, pb) {
         pb$tick()
-        return(map_df(
+        map_df(
           children,
           ~ drug_sub_df(.,
                         private$main_node,
                         private$secondary_node,
                         "id")
-        ))
+        )
       }
     )
   )

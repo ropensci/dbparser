@@ -32,4 +32,8 @@
 #' @docType package
 #' @keywords internal
 #' @name dbparser
+"_PACKAGE"
+
+## usethis namespace: start
+## usethis namespace: end
 NULL

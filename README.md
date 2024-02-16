@@ -131,11 +131,10 @@ Using **dbparser** for a paper you are writing? Consider citing it
 
 ``` r
 citation("dbparser")
-#> 
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat ().  dbparser: DrugBank Database XML Parser.
-#>   R package version 2.0.0.
+#>   R package version 2.0.2.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -143,7 +142,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Interstellar for Consultinc inc.},
-#>     note = {R package version 2.0.0},
+#>     note = {R package version 2.0.2},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```

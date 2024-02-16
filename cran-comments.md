@@ -1,6 +1,6 @@
 ## Test environments
 
-### local Windows 10(x86_64-w64-mingw32), 4.2.2
+### local Windows 10(x86_64-w64-mingw32), 4.3.1
 0 errors | 0 warnings | 0 note
 
 ### Windows Server 2022, R-devel, 64 bit

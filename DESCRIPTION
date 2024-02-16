@@ -1,6 +1,6 @@
 Package: dbparser
 Title: Drugs Databases Parser
-Version: 2.0.1.9000
+Version: 2.0.2
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
@@ -20,11 +20,13 @@ Imports:
     XML
 RoxygenNote: 7.2.3
 Suggests:
+    canvasXpress,
     knitr,
     rmarkdown,
-    testthat
+    testthat,
+    tidyr
 VignetteBuilder: knitr
-URL: https://docs.ropensci.org/dbparser/, https://github.com/ropensci/dbparser/
+URL: https://docs.ropensci.org/dbparser/, https://github.com/ropensci/dbparser
 BugReports: https://github.com/ropensci/dbparser/issues
 Depends: 
     R (>= 3.5)

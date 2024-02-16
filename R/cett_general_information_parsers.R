@@ -4,29 +4,37 @@ CETTGeneralInformationParser <-
     inherit = AbstractParser,
     private = list(
       parse_record = function() {
-        drugs <-  xmlChildren(pkg_env$root)
-        pb <- progress_bar$new(total = xmlSize(drugs))
-        cett_tbl <-
-          map_df(drugs, ~ private$cett_rec(., private$tibble_name, pb)) %>%
+        drugs    <-  xmlChildren(pkg_env$root)
+        pb       <- progress_bar$new(total = xmlSize(drugs))
+
+        cett_table <- map_df(drugs, ~ private$cett_rec(., private$tibble_name, pb)) %>%
           unique()
-        return(cett_tbl)
+
+        if (NROW(cett_table) > 0) {
+          cett_table <- rename(cett_table, !!(paste0(substr(x     = private$tibble_name,
+                                                            start = 1,
+                                                            stop  = nchar(private$tibble_name)-1),
+                                                     "_id")) := id)
+        }
       },
       cett_rec = function(rec, tibble_name, pb) {
         pb$tick()
         drugbank_id <- xmlValue(rec[["drugbank-id"]])
-        return(map_df(xmlChildren(rec[[tibble_name]]),
-                      ~ private$organizm_rec(., drugbank_id)))
+        map_df(xmlChildren(rec[[tibble_name]]),
+               ~ private$organizm_rec(., drugbank_id))
       },
       organizm_rec = function(r, drug_key) {
         org <- tibble_row(
-          id = xmlValue(r[["id"]]),
-          name = xmlValue(r[["name"]]),
-          organism = xmlValue(r[["organism"]]),
+          id           = xmlValue(r[["id"]]),
+          name         = xmlValue(r[["name"]]),
+          organism     = xmlValue(r[["organism"]]),
           known_action = xmlValue(r[["known-action"]]),
-          position = ifelse(is.null(xmlGetAttr(r, name = "position")), NA,
-                            xmlGetAttr(r, name = "position")),
-          parent_key = drug_key
+          position     = ifelse(is.null(xmlGetAttr(r, name = "position")),
+                                NA,
+                                xmlGetAttr(r, name = "position")),
+          drugbank_id  = drug_key
         )
+
         if (!is.null(r[["inhibition-strength"]])) {
           org[["inhibition-strength"]] <- xmlValue(r[["inhibition-strength"]])
         }
@@ -35,7 +43,7 @@ CETTGeneralInformationParser <-
           org[["induction-strength"]] <- xmlValue(r[["induction-strength"]])
         }
 
-        return(org)
+        org
       }
     )
   )
