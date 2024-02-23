@@ -1,4 +1,11 @@
-# dbparser (development version)
+# dbparser 2.0.3
+
+## Bugs Fixes
+
+- Fixed "Drug Targets has two `drugbank_id` columns" bug (#163)
+
+
+----
 
 # dbparser 2.0.2
 
