@@ -146,18 +146,18 @@
       
       $drugs$drug_interactions
       # A tibble: 398 × 4
-         drugbank_id name                 description                      drugbank_id
-         <chr>       <chr>                <chr>                            <chr>      
-       1 DB01323     St. John's Wort      The metabolism of Bivalirudin c… DB00006    
-       2 DB00346     Alfuzosin            The serum concentration of Alfu… DB00006    
-       3 DB13783     Acemetacin           The risk or severity of bleedin… DB00006    
-       4 DB06605     Apixaban             Apixaban may increase the antic… DB00006    
-       5 DB06695     Dabigatran etexilate Dabigatran etexilate may increa… DB00006    
-       6 DB09075     Edoxaban             Edoxaban may increase the antic… DB00006    
-       7 DB06228     Rivaroxaban          Bivalirudin may increase the an… DB00006    
-       8 DB00227     Lovastatin           The serum concentration of Lova… DB00006    
-       9 DB00013     Urokinase            Urokinase may increase the anti… DB00006    
-      10 DB09030     Vorapaxar            The risk or severity of adverse… DB00006    
+         target_drugbank_id name                 description               drugbank_id
+         <chr>              <chr>                <chr>                     <chr>      
+       1 DB01323            St. John's Wort      The metabolism of Bivali… DB00006    
+       2 DB00346            Alfuzosin            The serum concentration … DB00006    
+       3 DB13783            Acemetacin           The risk or severity of … DB00006    
+       4 DB06605            Apixaban             Apixaban may increase th… DB00006    
+       5 DB06695            Dabigatran etexilate Dabigatran etexilate may… DB00006    
+       6 DB09075            Edoxaban             Edoxaban may increase th… DB00006    
+       7 DB06228            Rivaroxaban          Bivalirudin may increase… DB00006    
+       8 DB00227            Lovastatin           The serum concentration … DB00006    
+       9 DB00013            Urokinase            Urokinase may increase t… DB00006    
+      10 DB09030            Vorapaxar            The risk or severity of … DB00006    
       # ℹ 388 more rows
       
       $drugs$sequences
