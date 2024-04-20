@@ -1,3 +1,15 @@
+# dbparser 2.0.3
+
+## Enhancements
+- Updated unit tests with latest DrugBank DB info v 5.1.12
+
+## Bugs Fixes
+
+- Fixed "Drug Targets has two `drugbank_id` columns" bug (#163)
+
+
+----
+
 # dbparser 2.0.2
 
 ## Enhancements

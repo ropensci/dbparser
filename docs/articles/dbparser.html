@@ -40,7 +40,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">dbparser</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.2</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">2.0.3</span>
       </span>
     </div>
 
@@ -87,7 +87,7 @@
                         <h4 data-toc-skip class="author">Mohammed
 Ali</h4>
             
-            <h4 data-toc-skip class="date">2024-02-16</h4>
+            <h4 data-toc-skip class="date">2024-04-20</h4>
       
       <small class="dont-index">Source: <a href="https://github.com/ropensci/dbparser/blob/HEAD/vignettes/dbparser.Rmd" class="external-link"><code>vignettes/dbparser.Rmd</code></a></small>
       <div class="hidden name"><code>dbparser.Rmd</code></div>
@@ -132,7 +132,6 @@ info.</p>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/" class="external-link">tibble</a></span><span class="op">)</span></span>
 <span>  <span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/dbparser/" class="external-link">dbparser</a></span><span class="op">)</span></span>
 <span><span class="op">}</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Warning: package 'canvasXpress' was built under R version 4.3.2</span></span>
 <span></span>
 <span></span>
 <span><span class="co">## load drugs data</span></span>
@@ -167,8 +166,8 @@ data.</p>
 <span>  title            <span class="op">=</span><span class="st">"Drugs Type Distribution"</span>,</span>
 <span>  xAxisTitle       <span class="op">=</span> <span class="st">"Count"</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-8e6d96eceb1db4d99bcc" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
-<script type="application/json" data-for="htmlwidget-8e6d96eceb1db4d99bcc">{"x":{"data":{"y":{"vars":["biotech","small molecule"],"smps":["count"],"data":[[3880],[12695]]},"x":null,"z":null},"config":{"graphType":"Bar","isR":true,"graphOrientation":"vertical","showSampleNames":false,"title":"Drugs Type Distribution","xAxisTitle":"Count"},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script><p>Below, we view the different <code>drug_groups</code> in the data and
+<div id="htmlwidget-2a83f82201039f8ace88" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
+<script type="application/json" data-for="htmlwidget-2a83f82201039f8ace88">{"x":{"data":{"y":{"vars":["biotech","small molecule"],"smps":["count"],"data":[[3880],[12695]]},"x":null,"z":null},"config":{"graphType":"Bar","isR":true,"graphOrientation":"vertical","showSampleNames":false,"title":"Drugs Type Distribution","xAxisTitle":"Count"},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script><p>Below, we view the different <code>drug_groups</code> in the data and
 how prevalent they are.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## view proportions of the different drug types for each drug group</span></span>
@@ -192,8 +191,8 @@ how prevalent they are.</p>
 <span>  xAxis2Show     <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  xAxisShow      <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  smpTitle      <span class="op">=</span> <span class="st">"Drug Group"</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-8fff32cc1c1a23152467" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
-<script type="application/json" data-for="htmlwidget-8fff32cc1c1a23152467">{"x":{"data":{"y":{"vars":["biotech","small molecule"],"smps":["approved","experimental","investigational","nutraceutical","vet_approved","withdrawn","illicit"],"data":[[1613,375,2395,17,8,31,null],[2761,6348,4850,118,419,286,205]]},"x":null,"z":null},"config":{"graphType":"Stacked","isR":true,"legendColumns":2,"legendPosition":"bottom","title":"Drug Type Distribution per Drug Group","xAxisTitle":"Quantity","xAxis2Show":true,"xAxisShow":false,"smpTitle":"Drug Group"},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script><p>Finally, we look at the <code>drug_targets_actions</code> to observe
+<div id="htmlwidget-b36278e78acac5737930" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
+<script type="application/json" data-for="htmlwidget-b36278e78acac5737930">{"x":{"data":{"y":{"vars":["biotech","small molecule"],"smps":["approved","experimental","investigational","nutraceutical","vet_approved","withdrawn","illicit"],"data":[[1613,375,2395,17,8,31,null],[2761,6348,4850,118,419,286,205]]},"x":null,"z":null},"config":{"graphType":"Stacked","isR":true,"legendColumns":2,"legendPosition":"bottom","title":"Drug Type Distribution per Drug Group","xAxisTitle":"Quantity","xAxis2Show":true,"xAxisShow":false,"smpTitle":"Drug Group"},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script><p>Finally, we look at the <code>drug_targets_actions</code> to observe
 their proportions as well.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## get counts of the different target actions in the data</span></span>
@@ -216,8 +215,8 @@ their proportions as well.</p>
 <span>  showSampleNames <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  xAxis2Show      <span class="op">=</span> <span class="cn">TRUE</span>,</span>
 <span>  xAxisShow       <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
-<div id="htmlwidget-8c664470471fa74cd28e" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
-<script type="application/json" data-for="htmlwidget-8c664470471fa74cd28e">{"x":{"data":{"y":{"vars":["inhibitor","antagonist","ligand","binder","agonist","cofactor","activator","substrate","inducer","antibody"],"smps":["count"],"data":[[1229],[375],[353],[298],[296],[156],[122],[107],[105],[80]]},"x":null,"z":null},"config":{"graphType":"Bar","isR":true,"legendColumns":2,"legendPosition":"bottom","title":"Target Actions Distribution","showSampleNames":false,"xAxis2Show":true,"xAxisShow":false},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-2b1586a0298143082003" style="width:600px;height:400px;" class="canvasXpress html-widget "></div>
+<script type="application/json" data-for="htmlwidget-2b1586a0298143082003">{"x":{"data":{"y":{"vars":["inhibitor","antagonist","ligand","binder","agonist","cofactor","activator","substrate","inducer","antibody"],"smps":["count"],"data":[[1229],[375],[353],[298],[296],[156],[122],[107],[105],[80]]},"x":null,"z":null},"config":{"graphType":"Bar","isR":true,"legendColumns":2,"legendPosition":"bottom","title":"Target Actions Distribution","showSampleNames":false,"xAxis2Show":true,"xAxisShow":false},"events":null,"afterRender":null},"evals":[],"jsHooks":[]}</script>
 </div>
   </div>
 
