@@ -12,19 +12,24 @@ init_dvobject <- function() {
 }
 
 
-#' add_drugbank_info
-#'   Add passed DrugBank db metadata to passed dvobject
+#' add_database_info
+#'   Assign passed databases db metadata to passed dvobject
+#'
+#' @param db_type database type (defualt="DrugBank")
+#' @param db_version database version as string
+#' @param db_exported_date database official export date
 #'
 #' @keywords internal
 #' @return dvobject
-add_drugbank_info <- function(dvobject) {
-  db_info <- attr(dvobject, "original_db_info")
+add_database_info <- function(dvobject,
+                              db_type          = "DrugBank",
+                              db_version       = NULL,
+                              db_exported_date = NULL) {
+  db_info <- attr(dvobject, db_type)
 
-  db_info[["db_type"]]          <- "DrugBank"
-  db_info[["db_version"]]       <- XML::xmlGetAttr(node = pkg_env$root,
-                                                   name = "version")
-  db_info[["db_exported_date"]] <- XML::xmlGetAttr(node = pkg_env$root,
-                                                   name = "exported-on")
+  db_info[["db_type"]]          <- db_type
+  db_info[["db_version"]]       <- db_version
+  db_info[["db_exported_date"]] <- db_exported_date
 
   attr(dvobject, "original_db_info") <- db_info
   dvobject

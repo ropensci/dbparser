@@ -80,7 +80,13 @@ parseDrugBank <- function(db_path,
     message("Completed loading DrugBank DB into memory")
     message("...........................................")
     pkg_env$root <- XML::xmlRoot(parsed_db)
-    dvobject     <- add_drugbank_info(dvobject  = dvobject)
+    dvobject     <- add_database_info(dvobject         = dvobject,
+                                      db_version       = XML::xmlGetAttr(
+                                        node = pkg_env$root,
+                                        name = "version"),
+                                      db_exported_date = XML::xmlGetAttr(
+                                        node = pkg_env$root,
+                                        name = "exported-on"))
     message("parsing drugs elements")
 
     dvobject[["drugs"]] <- parse_drug_nodes(drug_options)
