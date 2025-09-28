@@ -4,7 +4,12 @@
 \alias{parseOnSIDES}
 \title{Parse the OnSIDES Core Relational Database}
 \usage{
-parseOnSIDES(dataDir, include_high_confidence = TRUE)
+parseOnSIDES(
+  dataDir,
+  include_high_confidence = TRUE,
+  db_version = NULL,
+  db_exported_date = NULL
+)
 }
 \arguments{
 \item{dataDir}{A string specifying the path to the directory containing the
@@ -14,10 +19,22 @@ OnSIDES CSV files.}
 will also parse the `high_confidence.csv` file, which is a pre-aggregated
 summary of ingredient-to-effect relationships. If the file is not found,
 a warning is issued.}
+
+\item{db_version}{used onside version (default = NULL)}
+
+\item{db_exported_date}{used onside release date (default = NULL)}
 }
 \value{
-A list of 7 or 8 data.frames.
+dvobject
 }
 \description{
 Parses the core relational tables from the OnSIDES database.
 }
+\seealso{
+Other parsers: 
+\code{\link{cett_nodes_options}()},
+\code{\link{drug_node_options}()},
+\code{\link{parseDrugBank}()},
+\code{\link{references_node_options}()}
+}
+\concept{parsers}
