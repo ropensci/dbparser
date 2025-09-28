@@ -30,7 +30,6 @@ add_database_info <- function(dvobject,
   db_info[["db_type"]]          <- db_type
   db_info[["db_version"]]       <- db_version
   db_info[["db_exported_date"]] <- db_exported_date
-
   attr(dvobject, "original_db_info") <- db_info
   dvobject
 }

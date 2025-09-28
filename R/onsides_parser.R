@@ -9,12 +9,18 @@
 #'   will also parse the `high_confidence.csv` file, which is a pre-aggregated
 #'   summary of ingredient-to-effect relationships. If the file is not found,
 #'   a warning is issued.
+#' @param db_version used onside version (default = NULL)
+#' @param db_exported_date used onside release date (default = NULL)
 #'
-#' @return A list of 7 or 8 data.frames.
+#' @return dvobject
+#' @family parsers
 #'
 #' @export
 #' @importFrom data.table fread
-parseOnSIDES <- function(dataDir, include_high_confidence = TRUE) {
+parseOnSIDES <- function(dataDir,
+                         include_high_confidence = TRUE,
+                         db_version              = NULL,
+                         db_exported_date        = NULL) {
   # The 7 canonical files
   core_files <- c(
     "product_label.csv",
@@ -33,6 +39,8 @@ parseOnSIDES <- function(dataDir, include_high_confidence = TRUE) {
     missing <- core_files[!file.exists(file_paths)]
     stop("Core files not found in '", dataDir, "':\n", paste(missing, collapse = "\n"))
   }
+
+  dvobject <- init_dvobject()
 
   message("Parsing the 7 core OnSIDES database tables...")
   db_tables <- lapply(names(file_paths), function(name) {
@@ -55,5 +63,8 @@ parseOnSIDES <- function(dataDir, include_high_confidence = TRUE) {
 
   message("Successfully parsed OnSIDES database.")
   class(db_tables) <- c("OnSIDESDb", "list")
-  db_tables
+  append(dvobject, db_tables) %>%
+    add_database_info(db_type          = "OnSIDES",
+                      db_version       = db_version,
+                      db_exported_date = db_exported_date)
 }
