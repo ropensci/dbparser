@@ -12,13 +12,14 @@ Description: This tool is for parsing public drug databases such as 'DrugBank' X
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
+    data.table,
     dplyr,
     progress,
     purrr,
     tibble,
     tools,
     XML
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Suggests:
     canvasXpress,
     knitr,
