@@ -40,8 +40,6 @@ parseOnSIDES <- function(dataDir,
     stop("Core files not found in '", dataDir, "':\n", paste(missing, collapse = "\n"))
   }
 
-  dvobject <- init_dvobject()
-
   message("Parsing the 7 core OnSIDES database tables...")
   db_tables <- lapply(names(file_paths), function(name) {
     message("Reading ", name, ".csv ...")
@@ -62,9 +60,8 @@ parseOnSIDES <- function(dataDir,
   }
 
   message("Successfully parsed OnSIDES database.")
-  class(db_tables) <- c("OnSIDESDb", "list")
-  append(dvobject, db_tables) %>%
-    add_database_info(db_type          = "OnSIDES",
-                      db_version       = db_version,
-                      db_exported_date = db_exported_date)
+  db_tables <- add_database_info(dvobject         = db_tables,
+                                 db_type          = "OnSIDES",
+                                 db_version       = db_version,
+                                 db_exported_date = db_exported_date)
 }

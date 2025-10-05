@@ -27,10 +27,11 @@ add_database_info <- function(dvobject,
                               db_exported_date = NULL) {
   db_info <- attr(dvobject, db_type)
 
-  db_info[["db_type"]]          <- db_type
-  db_info[["db_version"]]       <- db_version
-  db_info[["db_exported_date"]] <- db_exported_date
+  db_info[["db_type"]]               <- db_type
+  db_info[["db_version"]]            <- db_version
+  db_info[["db_exported_date"]]      <- db_exported_date
   attr(dvobject, "original_db_info") <- db_info
+  class(dvobject)                    <- "dvobject"
   dvobject
 }
 
@@ -45,6 +46,6 @@ add_database_info <- function(dvobject,
 #' @export
 show_dvobject_metadata <- function(dvobject) {
   dvobject_attributes            <- attr(dvobject, "original_db_info")
-  dvobject_attributes[["class"]] <- class(dvobject)
+  dvobject_attributes[["class"]] <- class(merged_db) %>% paste(collapse = ", ")
   data.frame(Atrribute = names(dvobject_attributes), Value =  stack(dvobject_attributes)[[1]])
 }
