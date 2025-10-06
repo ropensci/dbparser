@@ -7,9 +7,9 @@
 merge_drugbank_onsides(drugbank_db, onsides_db)
 }
 \arguments{
-\item{drugbank}{A dvobject produced by `dbparser::parseDrugBank()`.}
+\item{drugbank_db}{A dvobject produced by `dbparser::parseDrugBank()`.}
 
-\item{onsides}{A dvobject produced by `dbparser::parseOnSIDES()`.}
+\item{onsides_db}{A dvobject produced by `dbparser::parseOnSIDES()`.}
 }
 \value{
 A new dvobject containing the integrated data.

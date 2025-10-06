@@ -14,8 +14,8 @@
 #' The resulting object allows for powerful queries that span both mechanistic data from
 #' DrugBank and clinical side-effect data from OnSIDES.
 #'
-#' @param drugbank A dvobject produced by `dbparser::parseDrugBank()`.
-#' @param onsides A dvobject produced by `dbparser::parseOnSIDES()`.
+#' @param drugbank_db A dvobject produced by `dbparser::parseDrugBank()`.
+#' @param onsides_db A dvobject produced by `dbparser::parseOnSIDES()`.
 #'
 #' @return A new dvobject containing the integrated data.
 #'
