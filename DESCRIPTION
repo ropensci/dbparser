@@ -18,6 +18,7 @@ Imports:
     purrr,
     tibble,
     tools,
+    utils,
     XML
 RoxygenNote: 7.3.3
 Suggests:

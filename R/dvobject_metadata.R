@@ -54,6 +54,7 @@ add_database_info <- function(dvobject,
 #' }
 #'
 #' @export
+#' @importFrom utils object.size
 show_dvobject_metadata <- function(obj, return_df = FALSE) {
   # Initialize return variable
   metadata <- NULL
