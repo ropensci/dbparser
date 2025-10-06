@@ -20,7 +20,7 @@
 #' @return A new dvobject containing the integrated data.
 #'
 #' @export
-#' @importFrom dplyr filter select rename mutate left_join
+#' @importFrom dplyr .data filter select rename mutate left_join
 #'
 #' @examples
 #' \dontrun{
@@ -74,8 +74,8 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # --- Step 1: Create the Bridge (RxCUI Mapping Table) ---
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
-    dplyr::filter(resource == "RxCUI") %>%
-    dplyr::select(drugbank_id, rxcui = identifier)
+    dplyr::filter(.data$resource == "RxCUI") %>%
+    dplyr::select(.data$drugbank_id, rxcui = .data$identifier)
 
   # --- Step 2: Enrich OnSIDES Tables ---
   message("Enriching OnSIDES tables with DrugBank IDs...")
@@ -87,7 +87,7 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # Optionally enrich the high_confidence table if it exists
   if ("high_confidence" %in% names(onsides_db)) {
     onsides_hc_enriched <- onsides_db$high_confidence %>%
-      dplyr::mutate(ingredient_id = as.character(ingredient_id)) %>%
+      dplyr::mutate(ingredient_id = as.character(.data$ingredient_id)) %>%
       dplyr::left_join(rxcui_mapping_df, by = c("ingredient_id" = "rxcui"))
   }
 
