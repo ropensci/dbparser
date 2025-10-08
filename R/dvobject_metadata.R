@@ -109,12 +109,6 @@ show_dvobject_metadata <- function(obj, return_df = FALSE) {
 # Helper Functions for Display Attributes
 # These are internal functions not exported to users
 
-#' NULL Coalescing Operator
-#' @keywords internal
-`%||%` <- function(x, y) {
-  if (is.null(x)) y else x
-}
-
 #' Find All Data Frames Recursively
 #' @param x Object to search
 #' @param prefix Current path prefix
@@ -186,6 +180,7 @@ find_second_database <- function(attrs) {
 #' @param second_db_name Name of second database attribute
 #' @return Data.frame with database metadata
 #' @keywords internal
+#' @importFrom purrr %||%
 build_metadata <- function(attrs, has_second_db, second_db_name) {
   metadata <- NULL
 
