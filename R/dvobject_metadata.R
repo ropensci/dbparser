@@ -19,8 +19,9 @@ init_dvobject <- function() {
 #' @param db_version database version as string
 #' @param db_exported_date database official export date
 #'
-#' @keywords internal
 #' @return dvobject
+#' @export
+#' @importFrom dplyr .data filter select rename mutate left_join
 add_database_info <- function(dvobject,
                               db_type          = "DrugBank",
                               db_version       = NULL,

@@ -26,4 +26,3 @@ dvobject
 add_database_info
   Assign passed databases db metadata to passed dvobject
 }
-\keyword{internal}

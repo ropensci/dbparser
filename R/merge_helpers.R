@@ -54,7 +54,6 @@
 #' head(targets_of_interest)
 #' }
 merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
-
   # --- Step 0: Input Validation ---
   if (!inherits(drugbank_db, "dvobject") ||
       (!"drugs" %in% names(drugbank_db))) {
@@ -95,8 +94,10 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   message("Assembling final merged object...")
 
   # Start with all of DrugBank's data
-  merged_object <- drugbank_db
-  merged_object$onsides <- list()
+  merged_object                 <- list()
+  merged_object$drugbank        <- drugbank_db
+  merged_object$onsides         <- list()
+  merged_object$integrated_data <- list()
 
   # Add all of OnSIDES's data
   for (name in names(onsides_db)) {
@@ -106,11 +107,11 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # Overwrite the original OnSIDES tables with our new enriched versions
   merged_object$vocab_rxnorm_ingredient_enriched <- onsides_ingredient_enriched
   if (exists("onsides_hc_enriched")) {
-    merged_object$onsides$high_confidence_enriched <- onsides_hc_enriched
+    merged_object$integrated_data[["high_confidence_enriched"]] <- onsides_hc_enriched
   }
 
   # Add the mapping table itself for user reference
-  merged_object$drugbank_onsides_mapping <- rxcui_mapping_df
+  merged_object$integrated_data[["DrugBank_RxCUI_Mapping"]] <- rxcui_mapping_df
 
   # Update metadata
   attr(merged_object, "onSideDB") <- attr(onsides_db, "original_db_info")
