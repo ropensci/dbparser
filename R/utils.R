@@ -1,8 +1,15 @@
-# Create a reusable helper function to process one component (carrier, enzyme, etc.)
+#' Create a reusable helper function to process one component (carrier, enzyme, etc.)
+#' @param component the component to subset from CETT
+#' @param component_name componemt name
+#' @param drug_ids passed drugs ids to subset for
+#'
+#' @return A new, smaller dvobject with the same structure.
+#' @noRd
+#' @keywords internal
 subset_cett_component <- function(component, component_name, drug_ids) {
   new_component <- list()
 
-  if (!is.null(component)) {
+  if (!is.null(component) && (NROW(component$general_information) > 0)) {
     # The name of the intermediate ID, e.g., "carrier_id", "target_id"
     intermediate_id_col <- paste0(sub("s$", "", component_name), "_id")
 
@@ -62,13 +69,16 @@ subset_cett_component <- function(component, component_name, drug_ids) {
 #' one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
 #'                                      drug_ids = "DB00001")
 #' }
+#' @family utils
 subset_drugbank_dvobject <- function(dvobject, drug_ids) {
 
-  new_dvobject <- list()
+  new_dvobject <- NULL
 
-  if (length(drug_ids) == 0) {
-    warning("`drug_ids` is empty. Returning an empty structure.")
+  if ((length(drug_ids) == 0) || (sum(nchar(drug_ids)) == 0)) {
+    warning("`drug_ids` is empty. Returning NULL")
   } else {
+    new_dvobject <- list()
+
     # --- 1. Filter the `drugs` list (many sub-tables) ---
     if (!is.null(dvobject$drugs)) {
       message("Subsetting `drugs` list...")
@@ -88,12 +98,12 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
 
     # --- 2. Filter the `salts`, `products` data.frames ---
     for (name in c("salts", "products")) {
-      if (!is.null(dvobject[[name]])) {
+      if (NROW(dvobject[[name]]) > 0) {
         message(paste("Subsetting", name, "..."))
         filtered_subtable <- dvobject[[name]] %>%
           dplyr::filter(drugbank_id %in% drug_ids)
         if (NROW(filtered_subtable) > 0) {
-          new_dvobject$drugs[[name]] <- filtered_subtable
+          new_dvobject[[name]] <- filtered_subtable
         }
       }
     }
@@ -113,53 +123,54 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
         }
       }
     }
-  }
 
-  # --- 4. Filter the complex, multi-level `cett` List ---
-  if (!is.null(dvobject$cett)) {
-    message("Subsetting complex `cett` list...")
-    new_dvobject$cett <- list()
+    # --- 4. Filter the complex, multi-level `cett` List ---
+    if (!is.null(dvobject$cett)) {
+      message("Subsetting complex `cett` list...")
+      new_dvobject$cett <- list()
 
-    # Apply the helper to each component within cett
-    for (cett_name in c("carriers", "enzymes", "targets", "transporters")) {
-      component <- subset_cett_component(
-        component      = dvobject$cett[[cett_name]],
-        component_name = cett_name,
-        drug_ids       = drug_ids)
+      # Apply the helper to each component within cett
+      for (cett_name in c("carriers", "enzymes", "targets", "transporters")) {
+        component <- subset_cett_component(
+          component      = dvobject$cett[[cett_name]],
+          component_name = cett_name,
+          drug_ids       = drug_ids)
 
-      if (length(component) > 0) {
-        new_dvobject$cett[[cett_name]] <- component
+        if (length(component) > 0) {
+          new_dvobject$cett[[cett_name]] <- component
+        }
       }
     }
-  }
 
-  # --- 5. Filter the CETT`references` list ---
-  if (!is.null(dvobject$references)) {
-    for (cett_name in c("carriers", "enzymes", "targets", "transporters")) {
-      if ((length(dvobject$references[[cett_name]]) > 0) &&
-          (length(new_dvobject$cett[[cett_name]]) > 0)) {
-        message("Subsetting ", cett_name ," references list...")
-        cett_references <- list()
-        # The name of the intermediate ID, e.g., "carrier_id", "target_id"
-        intermediate_id_col <- paste0(sub("s$", "", cett_name), "_id")
+    # --- 5. Filter the CETT`references` list ---
+    if (!is.null(dvobject$references)) {
+      for (cett_name in c("carriers", "enzymes", "targets", "transporters")) {
+        if ((length(dvobject$references[[cett_name]]) > 0) &&
+            (length(new_dvobject$cett[[cett_name]]) > 0)) {
+          message("Subsetting ", cett_name ," references list...")
+          cett_references <- list()
+          # The name of the intermediate ID, e.g., "carrier_id", "target_id"
+          intermediate_id_col <- paste0(sub("s$", "", cett_name), "_id")
 
-        for (name in names(dvobject$references[[cett_name]])) {
-          sub_table <- dvobject$references[[cett_name]][[name]]
-          if (is.data.frame(sub_table) && (intermediate_id_col %in% names(sub_table))) {
-            filtered_subtable <- sub_table %>%
-              dplyr::filter(.data[[intermediate_id_col]] %in% new_dvobject$cett[[cett_name]][["general_information"]][[intermediate_id_col]])
-            if (NROW(filtered_subtable) > 0) {
-              new_dvobject$references[[cett_name]][[name]] <- filtered_subtable
+          for (name in names(dvobject$references[[cett_name]])) {
+            sub_table <- dvobject$references[[cett_name]][[name]]
+            if (is.data.frame(sub_table) && (intermediate_id_col %in% names(sub_table))) {
+              filtered_subtable <- sub_table %>%
+                dplyr::filter(.data[[intermediate_id_col]] %in% new_dvobject$cett[[cett_name]][["general_information"]][[intermediate_id_col]])
+              if (NROW(filtered_subtable) > 0) {
+                new_dvobject$references[[cett_name]][[name]] <- filtered_subtable
+              }
             }
           }
         }
       }
     }
+
+    # --- Final Step: Preserve original object's attributes ---
+    #attributes(new_dvobject) <- attributes(dvobject)
+    message("Subsetting complete.")
   }
 
-  # --- Final Step: Preserve original object's attributes ---
-  #attributes(new_dvobject) <- attributes(dvobject)
-  message("Subsetting complete.")
   new_dvobject
 }
 

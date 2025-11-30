@@ -25,7 +25,9 @@ relationships within the `cett` list.
 }
 \examples{
 \dontrun{
+library(dbparser)
 one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
                                      drug_ids = "DB00001")
 }
 }
+\concept{utils}
