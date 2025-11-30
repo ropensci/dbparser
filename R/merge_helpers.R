@@ -73,8 +73,8 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # --- Step 1: Create the Bridge (RxCUI Mapping Table) ---
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
-    dplyr::filter(.data$resource == "RxCUI") %>%
-    dplyr::select(all_of(drugbank_id), rxcui = .data$identifier)
+    dplyr::filter(resource == "RxCUI") %>%
+    dplyr::select(all_of("drugbank_id"), rxcui = identifier)
 
   # --- Step 2: Enrich OnSIDES Tables ---
   message("Enriching OnSIDES tables with DrugBank IDs...")
@@ -94,8 +94,9 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   message("Assembling final merged object...")
 
   # Start with all of DrugBank's data
-  merged_object                 <- list()
+  merged_object                 <- init_dvobject()
   merged_object$drugbank        <- drugbank_db
+  attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
   merged_object$onsides         <- list()
   merged_object$integrated_data <- list()
 

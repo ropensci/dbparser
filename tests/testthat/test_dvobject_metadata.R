@@ -19,8 +19,8 @@ test_that(
                                biotech,
                                package = "dbparser")
 
-    dvobj    <- parseDrugBank(db_location)
-    metadata <- dbparser::show_dvobject_metadata(dvobj)
+    dvobj <- parseDrugBank(db_location)
+    capture_output(metadata <- dbparser::show_dvobject_metadata(dvobj))
 
     expect_match(metadata$Database, "Original")
     expect_match(metadata$Type, "DrugBank")

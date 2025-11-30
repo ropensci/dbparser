@@ -189,9 +189,9 @@ build_metadata <- function(attrs, has_second_db, second_db_name) {
     metadata <- rbind(
       data.frame(
         Database = "First Database",
-        Type = attrs$original_db_info$db_type %||% "Unknown",
-        Version = attrs$original_db_info$db_version %||% "Unknown",
-        Export_Date = attrs$original_db_info$db_exported_date %||% "Unknown",
+        Type = attrs$DrugBankDB$db_type %||% "Unknown",
+        Version = attrs$DrugBankDB$db_version %||% "Unknown",
+        Export_Date = attrs$DrugBankDB$db_exported_date %||% "Unknown",
         stringsAsFactors = FALSE
       ),
       data.frame(
