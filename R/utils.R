@@ -71,7 +71,6 @@ subset_cett_component <- function(component, component_name, drug_ids) {
 #' }
 #' @family utils
 subset_drugbank_dvobject <- function(dvobject, drug_ids) {
-
   new_dvobject <- NULL
 
   if ((length(drug_ids) == 0) || (sum(nchar(drug_ids)) == 0)) {
@@ -167,7 +166,7 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
     }
 
     attr(new_dvobject, "original_db_info") <- attr(dvobject, "original_db_info")
-    class(dvobject) <- "dvobject"
+    class(new_dvobject) <- "dvobject"
 
     # --- Final Step: Preserve original object's attributes ---
     #attributes(new_dvobject) <- attributes(dvobject)
@@ -186,57 +185,102 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
 #' @param dvobject A dvobject from `parseOnSIDES()`.
 #' @param ingredient_ids A character vector of RxNorm CUIs (ingredients) to keep.
 #'
+#' @export
+#' @importFrom dplyr .data filter pull
+#'
 #' @return A new, smaller dvobject with the same structure.
-#' @noRd
+#' @family utils
 subset_onsides_dvobject <- function(dvobject, ingredient_ids) {
-  if (length(ingredient_ids) == 0) return(dvobject[0])
+  new_dvobject <- NULL
 
-  new_db <- list()
+  if ((length(ingredient_ids) == 0) || (sum(nchar(ingredient_ids)) == 0)) {
+    warning("`ingredient_ids` is empty. Returning NULL")
+  } else {
+    new_dvobject <- init_dvobject()
 
-  # --- 1. Get the cascading set of keys ---
-  message("Subsetting OnSIDES: Identifying all related keys...")
-  # Find all products containing our target ingredients
-  relevant_product_ids <- dvobject$vocab_rxnorm_ingredient_to_product %>%
-    dplyr::filter(ingredient_id %in% ingredient_ids) %>%
-    dplyr::pull(product_id) %>%
-    unique()
+    # --- 1. Get the cascading set of keys ---
+    message("Subsetting OnSIDES: Identifying all related keys...")
+    # Find all products containing our target ingredients
+    relevant_product_ids <- dvobject$vocab_rxnorm_ingredient_to_product %>%
+      dplyr::filter(ingredient_id %in% ingredient_ids) %>%
+      dplyr::pull(product_id) %>%
+      unique()
 
-  # Find all labels associated with those products
-  relevant_label_ids <- dvobject$product_to_rxnorm %>%
-    dplyr::filter(rxnorm_product_id %in% relevant_product_ids) %>%
-    dplyr::pull(label_id) %>%
-    unique()
+    # Find all labels associated with those products
+    relevant_label_ids <- dvobject$product_to_rxnorm %>%
+      dplyr::filter(rxnorm_product_id %in% relevant_product_ids) %>%
+      dplyr::pull(label_id) %>%
+      unique()
 
-  # --- 2. Filter the main data tables ---
-  message("Filtering main OnSIDES data tables...")
-  new_db$product_adverse_effect <- dvobject$product_adverse_effect %>%
-    dplyr::filter(product_label_id %in% relevant_label_ids)
+    # --- 2. Filter the main data tables ---
+    message("Filtering main OnSIDES data tables...")
+    product_adverse_effect <- dvobject$product_adverse_effect %>%
+      dplyr::filter(product_label_id %in% relevant_label_ids)
 
-  if ("high_confidence" %in% names(dvobject)) {
-    new_db$high_confidence <- dvobject$high_confidence %>%
+    if (NROW(product_adverse_effect) > 0) {
+      new_dvobject$product_adverse_effect <- product_adverse_effect
+    }
+
+    if ("high_confidence" %in% names(dvobject)) {
+      high_confidence <- dvobject$high_confidence %>%
+        dplyr::filter(ingredient_id %in% ingredient_ids)
+
+      if (NROW(high_confidence) > 0) {
+        new_dvobject$high_confidence <- high_confidence
+      }
+    }
+
+    # --- 3. Filter the "bridge" and vocabulary tables to keep the subset lean ---
+    message("Filtering vocabulary and mapping tables...")
+    product_label <- dvobject$product_label %>%
+      dplyr::filter(label_id %in% relevant_label_ids)
+
+    if (NROW(product_label) > 0) {
+      new_dvobject$product_label <- product_label
+    }
+
+    product_to_rxnorm <- dvobject$product_to_rxnorm %>%
+      dplyr::filter(label_id %in% relevant_label_ids)
+
+    if (NROW(product_to_rxnorm) > 0) {
+      new_dvobject$product_to_rxnorm <- product_to_rxnorm
+    }
+
+    vocab_rxnorm_ingredient_to_product <- dvobject$vocab_rxnorm_ingredient_to_product %>%
       dplyr::filter(ingredient_id %in% ingredient_ids)
+
+    if (NROW(vocab_rxnorm_ingredient_to_product) > 0) {
+      new_dvobject$vocab_rxnorm_ingredient_to_product <- vocab_rxnorm_ingredient_to_product
+    }
+
+    # Find all MedDRA effects that are actually present in our subset
+    relevant_meddra_ids <- new_dvobject$product_adverse_effect$effect_meddra_id %>% unique()
+
+    vocab_meddra_adverse_effect <- dvobject$vocab_meddra_adverse_effect %>%
+      dplyr::filter(meddra_id %in% relevant_meddra_ids)
+
+    if (NROW(vocab_meddra_adverse_effect) > 0) {
+      new_dvobject$vocab_meddra_adverse_effect <- vocab_meddra_adverse_effect
+    }
+
+    vocab_rxnorm_ingredient <- dvobject$vocab_rxnorm_ingredient %>%
+      dplyr::filter(rxnorm_id %in% ingredient_ids)
+
+    if (NROW(vocab_rxnorm_ingredient) > 0) {
+      new_dvobject$vocab_rxnorm_ingredient <- vocab_rxnorm_ingredient
+    }
+
+    vocab_rxnorm_product <- dvobject$vocab_rxnorm_product %>%
+      dplyr::filter(rxnorm_id %in% relevant_product_ids)
+
+    if (NROW(vocab_rxnorm_product) > 0) {
+      new_dvobject$vocab_rxnorm_product <- vocab_rxnorm_product
+    }
+
+    # Preserve attributes and return
+    attr(new_dvobject, "original_db_info") <- attr(dvobject, "original_db_info")
+    class(new_dvobject) <- "dvobject"
   }
 
-  # --- 3. Filter the "bridge" and vocabulary tables to keep the subset lean ---
-  message("Filtering vocabulary and mapping tables...")
-  new_db$product_label <- dvobject$product_label %>%
-    dplyr::filter(label_id %in% relevant_label_ids)
-  new_db$product_to_rxnorm <- dvobject$product_to_rxnorm %>%
-    dplyr::filter(label_id %in% relevant_label_ids)
-  new_db$vocab_rxnorm_ingredient_to_product <- dvobject$vocab_rxnorm_ingredient_to_product %>%
-    dplyr::filter(ingredient_id %in% ingredient_ids)
-
-  # Find all MedDRA effects that are actually present in our subset
-  relevant_meddra_ids <- new_db$product_adverse_effect$effect_meddra_id %>% unique()
-
-  new_db$vocab_meddra_adverse_effect <- dvobject$vocab_meddra_adverse_effect %>%
-    dplyr::filter(meddra_id %in% relevant_meddra_ids)
-  new_db$vocab_rxnorm_ingredient <- dvobject$vocab_rxnorm_ingredient %>%
-    dplyr::filter(rxnorm_id %in% ingredient_ids)
-  new_db$vocab_rxnorm_product <- dvobject$vocab_rxnorm_product %>%
-    dplyr::filter(rxnorm_id %in% relevant_product_ids)
-
-  # Preserve attributes and return
-  attributes(new_db) <- attributes(dvobject)
-  return(new_db)
+  new_dvobject
 }

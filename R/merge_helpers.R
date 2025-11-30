@@ -74,7 +74,7 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
-    dplyr::select(.data$drugbank_id, rxcui = .data$identifier)
+    dplyr::select(all_of(drugbank_id), rxcui = .data$identifier)
 
   # --- Step 2: Enrich OnSIDES Tables ---
   message("Enriching OnSIDES tables with DrugBank IDs...")

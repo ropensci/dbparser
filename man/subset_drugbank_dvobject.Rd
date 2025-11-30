@@ -30,4 +30,8 @@ one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
                                      drug_ids = "DB00001")
 }
 }
+\seealso{
+Other utils: 
+\code{\link{subset_onsides_dvobject}()}
+}
 \concept{utils}
