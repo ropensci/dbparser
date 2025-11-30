@@ -1,4 +1,4 @@
-# Read dvobject metadata
+# subset_drugbank_dvobject
 
     Code
       show_dvobject_metadata(new_dvobj)
@@ -45,4 +45,28 @@
                   cett$targets$polypeptides$synonyms    7    2   1.6 Kb
                      cett$targets$polypeptides$pfams    2    3   1.5 Kb
                         cett$targets$polypeptides$go    3    3   1.6 Kb
+
+# subset_onsides_dvobject
+
+    Code
+      show_dvobject_metadata(new_dvobj)
+    Output
+      === BASIC INFO ===
+           Class Total_DataFrames Top_Level_Lists Object_Size
+      1 dvobject                8               0    846.1 Kb
+      
+      === DATABASE METADATA ===
+       Database    Type Version Export_Date
+       Original OnSIDES   3.1.1  April 2025
+      
+      === DATA.FRAMES ===
+                                     Path  Rows Cols    Size
+                   product_adverse_effect 18742    7  808 Kb
+                          high_confidence     2    2  1.4 Kb
+                            product_label    29    5   13 Kb
+                        product_to_rxnorm    44    2  2.2 Kb
+       vocab_rxnorm_ingredient_to_product     3    2  1.6 Kb
+              vocab_meddra_adverse_effect   139    3 13.9 Kb
+                  vocab_rxnorm_ingredient     1    3  1.8 Kb
+                     vocab_rxnorm_product     3    3  2.2 Kb
 
