@@ -77,7 +77,7 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
   if ((length(drug_ids) == 0) || (sum(nchar(drug_ids)) == 0)) {
     warning("`drug_ids` is empty. Returning NULL")
   } else {
-    new_dvobject <- list()
+    new_dvobject <- init_dvobject()
 
     # --- 1. Filter the `drugs` list (many sub-tables) ---
     if (!is.null(dvobject$drugs)) {
@@ -165,6 +165,9 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
         }
       }
     }
+
+    attr(new_dvobject, "original_db_info") <- attr(dvobject, "original_db_info")
+    class(dvobject) <- "dvobject"
 
     # --- Final Step: Preserve original object's attributes ---
     #attributes(new_dvobject) <- attributes(dvobject)
