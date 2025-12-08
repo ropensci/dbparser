@@ -15,6 +15,7 @@ init_dvobject <- function() {
 #' add_database_info
 #'   Assign passed databases db metadata to passed dvobject
 #'
+#' @param dvobject dvobject to assign metadata to it
 #' @param db_type database type (defualt="DrugBank")
 #' @param db_version database version as string
 #' @param db_exported_date database official export date

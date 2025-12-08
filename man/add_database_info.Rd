@@ -13,6 +13,8 @@ add_database_info(
 )
 }
 \arguments{
+\item{dvobject}{dvobject to assign metadata to it}
+
 \item{db_type}{database type (defualt="DrugBank")}
 
 \item{db_version}{database version as string}
