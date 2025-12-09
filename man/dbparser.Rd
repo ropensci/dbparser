@@ -2,8 +2,8 @@
 % Please edit documentation in R/dbparser-package.R
 \docType{package}
 \name{dbparser}
-\alias{dbparser}
 \alias{dbparser-package}
+\alias{dbparser}
 \title{dbparser: A package for reading and parsing \strong{DrugBank} xml database.}
 \description{
 The main purpose of the `dbparser` package is to parse

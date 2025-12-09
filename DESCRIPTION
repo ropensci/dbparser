@@ -1,6 +1,6 @@
 Package: dbparser
 Title: Drugs Databases Parser
-Version: 2.0.3.9000
+Version: 2.1.0.9001
 Authors@R:
     c(
     person("Mohammed", "Ali", email = "moh_fcis@yahoo.com", role = c("aut", "cre")),
@@ -12,13 +12,15 @@ Description: This tool is for parsing public drug databases such as 'DrugBank' X
 License: MIT + file LICENSE
 Encoding: UTF-8
 Imports:
+    data.table,
     dplyr,
     progress,
     purrr,
     tibble,
     tools,
+    utils,
     XML
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.3
 Suggests:
     canvasXpress,
     knitr,
