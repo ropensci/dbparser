@@ -20,8 +20,7 @@
 #' @return A new dvobject containing the integrated data.
 #'
 #' @export
-#' @importFrom dplyr filter select rename mutate left_join
-#' @importFrom rlang .data
+#' @importFrom dplyr filter select rename mutate left_join .data
 #'
 #' @examples
 #' \dontrun{
