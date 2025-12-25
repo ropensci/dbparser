@@ -77,7 +77,7 @@
                            onsides$vocab_meddra_adverse_effect   347    3  31.6 Kb
                                onsides$vocab_rxnorm_ingredient     3    3   2.1 Kb
                                   onsides$vocab_rxnorm_product    17    3   4.9 Kb
+              integrated_data$vocab_rxnorm_ingredient_enriched     3    4   2.3 Kb
                       integrated_data$high_confidence_enriched     2    3   1.6 Kb
                         integrated_data$DrugBank_RxCUI_Mapping     2    2   1.2 Kb
-                              vocab_rxnorm_ingredient_enriched     3    4   2.3 Kb
 

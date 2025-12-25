@@ -9,19 +9,19 @@ test_that(
     onside <- readRDS(system.file("onside.RDS",
                                   package = "dbparser"))
     expect_error(merge_drugbank_onsides(
-      drugbank_db = list(),
+      db_object = list(),
       onsides_db  = onside),
-    "`drugbank_db` must be a valid dvobject from parseDrugBank().")
+    "`db_object` must contain a valid DrugBank dvobject.")
 
     invalid_drugbank <- drugbank
     invalid_drugbank$drugs$external_identifiers <- NULL
     expect_error(merge_drugbank_onsides(
-      drugbank_db = invalid_drugbank,
+      db_object = invalid_drugbank,
       onsides_db  = onside),
-      "`drugbank_db` dvobject must contain external_identifiers data.")
+      "`drugbank_db` must contain external_identifiers data.")
 
     expect_error(merge_drugbank_onsides(
-      drugbank_db = drugbank,
+      db_object = drugbank,
       onsides_db  = list()),
       "`onsides_db` must be a valid dvobject from parseOnSIDES().")
 
