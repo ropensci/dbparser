@@ -123,3 +123,124 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   message("Merge complete.")
   merged_object
 }
+
+
+#' Merge a DrugBank dvobject with a TWOSIDES dvobject
+#'
+#' Integrates drug-drug interaction data from TWOSIDES with the rich mechanistic
+#' information from DrugBank. This function is chainable and can accept a raw
+#' DrugBank object or an already-merged dvobject.
+#'
+#' @param db_object A dvobject from `parseDrugBank()` or an existing merged dvobject.
+#' @param twosides_db A dvobject from `parseTWOSIDES()`.
+#'
+#' @return A new, nested dvobject with the TWOSIDES data added.
+#'
+#' @importFrom dplyr filter select rename mutate left_join .data distinct
+#' @export
+#' Merge a DrugBank dvobject with a TWOSIDES dvobject
+#'
+#' Integrates drug-drug interaction data from TWOSIDES with DrugBank.
+#' Supports piping and chaining.
+#'
+#' @param db_object A dvobject from `parseDrugBank()` OR an existing merged
+#'   dvobject (containing `$drugbank`).
+#' @param twosides_db A dvobject from `parseTWOSIDES()`.
+#'
+#' @export
+merge_drugbank_twosides <- function(db_object, twosides_db) {
+
+  # --- Step 0: Input Validation and Hub Detection (Pipe Friendly) ---
+  if ("drugbank" %in% names(db_object)) {
+    # Case A: Input is an already-merged object
+    drugbank_db   <- db_object$drugbank
+    merged_object <- db_object
+  } else {
+    # Case B: Input is a raw DrugBank object
+    drugbank_db            <- db_object
+    merged_object          <- init_dvobject()
+    merged_object$drugbank <- db_object
+    attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+  }
+
+  # Validate inputs
+  if (!inherits(drugbank_db, "dvobject") || (!"drugs" %in% names(drugbank_db))) {
+    stop("`db_object` must contain a valid DrugBank dvobject.")
+  }
+  if (!inherits(drugbank_db, "dvobject") || (!"external_identifiers" %in% names(drugbank_db$drugs))) {
+    stop("`drugbank_db` must contain external_identifiers data.")
+  }
+  if (!is.list(twosides_db) || !("drug_drug_interactions" %in% names(twosides_db))) {
+    stop("`twosides_db` must be a valid dvobject from parseTWOSIDES().")
+  }
+
+  # --- Step 1: Create Bridge ---
+  message("Creating DrugBank ID <-> RxCUI mapping table...")
+  rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
+    dplyr::filter(.data$resource == "RxCUI") %>%
+    dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
+    dplyr::distinct()
+
+  # Drug name lookup
+  drug_name_lookup <- drugbank_db$drugs$general_information %>%
+    dplyr::select(all_of("drugbank_id"), drug_name = .data$name)
+
+  # --- Step 2: Enrich TWOSIDES Data ---
+  message("Enriching TWOSIDES data with DrugBank information...")
+
+  # Prepare lookup tables for double joining
+  rxcui_map_1 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_1 = .data$drugbank_id)
+  rxcui_map_2 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_2 = .data$drugbank_id)
+
+  drug_name_lookup_1 <- drug_name_lookup %>%
+    dplyr::rename(drug_name_1 = .data$drug_name, drugbank_id_1 = .data$drugbank_id)
+  drug_name_lookup_2 <- drug_name_lookup %>%
+    dplyr::rename(drug_name_2 = .data$drug_name, drugbank_id_2 = .data$drugbank_id)
+
+  enriched_ddis <- twosides_db$drug_drug_interactions %>%
+    # LOGIC CHANGE 1: Union (OR) Filter
+    # Note the spelling: rxnorn
+    dplyr::filter((.data$drug_1_rxnorn_id %in% rxcui_mapping_df$rxcui) |
+                    (.data$drug_2_rxnorm_id %in% rxcui_mapping_df$rxcui)) %>%
+
+    # Join for Drug 1 (using 'rxnorn' spelling)
+    dplyr::left_join(rxcui_map_1, by = c("drug_1_rxnorn_id" = "rxcui")) %>%
+    dplyr::left_join(drug_name_lookup_1, by = "drugbank_id_1") %>%
+
+    # Join for Drug 2 (Twosides seems to use 'rxnorm' for the second one? Or check if consistent)
+    # Based on your screenshot, assuming consistent spelling might be safer,
+    # but check your colnames. Usually data is consistent.
+    # If the second col is "drug_2_rxnorm_id" (with m), keep as is.
+    dplyr::left_join(rxcui_map_2, by = c("drug_2_rxnorm_id" = "rxcui")) %>%
+    dplyr::left_join(drug_name_lookup_2, by = "drugbank_id_2") %>%
+
+    # LOGIC CHANGE 2: Keep if at least one side matched
+    dplyr::filter(!is.na(.data$drugbank_id_1) | !is.na(.data$drugbank_id_2)) %>%
+
+    # LOGIC CHANGE 3: Fallback names to prevent NAs
+    dplyr::mutate(
+      drug_name_1 = dplyr::coalesce(.data$drug_name_1, .data$drug_1_concept_name),
+      drug_name_2 = dplyr::coalesce(.data$drug_name_2, .data$drug_2_concept_name)
+    )
+
+  # --- Step 3: Assemble Final Object ---
+  # Initialize integrated_data if it doesn't exist
+  if (is.null(merged_object$integrated_data)) {
+    merged_object$integrated_data <- list()
+  }
+
+  # Add the new enriched table
+  merged_object$integrated_data$drug_drug_interactions <- enriched_ddis
+
+  # Add raw Twosides data
+  merged_object$twosides <- twosides_db
+
+  # --- Step 4: Metadata ---
+  attr(merged_object, "TwoSidesDB") <- attr(twosides_db, "original_db_info")
+
+  # Prepend new class
+  class(merged_object) <- unique(c("DrugBankTWOSIDESDb", class(merged_object)))
+
+  message("Merge complete.")
+  merged_object
+}
