@@ -4,16 +4,12 @@
 \alias{merge_drugbank_twosides}
 \title{Merge a DrugBank dvobject with a TWOSIDES dvobject}
 \usage{
-merge_drugbank_twosides(db_object, twosides_db, meddra_vocab = NULL)
+merge_drugbank_twosides(db_object, twosides_db)
 }
 \arguments{
 \item{db_object}{A dvobject from `parseDrugBank()` or an existing merged dvobject.}
 
 \item{twosides_db}{A dvobject from `parseTWOSIDES()`.}
-
-\item{meddra_vocab}{Optional. A data frame from OnSIDES (`vocab_meddra_adverse_effect`)
-to add human-readable names for side effects. Should have columns `meddra_id`
-and `meddra_name`.}
 }
 \value{
 A new, nested dvobject with the TWOSIDES data added.

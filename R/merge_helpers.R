@@ -161,16 +161,6 @@ merge_drugbank_onsides <- function(db_object, onsides_db) {
 #'
 #' @importFrom dplyr filter select rename mutate left_join .data distinct
 #' @export
-#' Merge a DrugBank dvobject with a TWOSIDES dvobject
-#'
-#' Integrates drug-drug interaction data from TWOSIDES with DrugBank.
-#' Supports piping and chaining.
-#'
-#' @param db_object A dvobject from `parseDrugBank()` OR an existing merged
-#'   dvobject (containing `$drugbank`).
-#' @param twosides_db A dvobject from `parseTWOSIDES()`.
-#'
-#' @export
 merge_drugbank_twosides <- function(db_object, twosides_db) {
 
   # --- Step 0: Input Validation and Hub Detection (Pipe Friendly) ---
