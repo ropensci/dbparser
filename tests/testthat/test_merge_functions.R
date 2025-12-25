@@ -26,7 +26,7 @@ test_that(
       "`onsides_db` must be a valid dvobject from parseOnSIDES().")
 
     all_dbs <- merge_drugbank_onsides(
-      drugbank_db = drugbank,
+      db_object = drugbank,
       onsides_db  = onside)
     expect_snapshot(show_dvobject_metadata(all_dbs))
 

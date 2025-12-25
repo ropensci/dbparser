@@ -13,8 +13,10 @@
 #'
 #' The resulting object allows for powerful queries that span both mechanistic data from
 #' DrugBank and clinical side-effect data from OnSIDES.
+#' Supports piping and chaining with other merge functions.
 #'
-#' @param drugbank_db A dvobject produced by `dbparser::parseDrugBank()`.
+#' @param db_object A dvobject from `parseDrugBank()` OR an existing merged
+#'   dvobject (containing `$drugbank`).
 #' @param onsides_db A dvobject produced by `dbparser::parseOnSIDES()`.
 #'
 #' @return A new dvobject containing the integrated data.
@@ -53,18 +55,35 @@
 #'
 #' head(targets_of_interest)
 #' }
-merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
-  # --- Step 0: Input Validation ---
+merge_drugbank_onsides <- function(db_object, onsides_db) {
+
+  # --- Step 0: Input Validation and Hub Detection ---
+  # This logic enables the Pipe (%>%) and Chaining.
+
+  if ("drugbank" %in% names(db_object)) {
+    # CASE A: Input is an already-merged object (e.g., passed via pipe from another merge)
+    drugbank_db   <- db_object$drugbank
+    merged_object <- db_object # Start with existing data to preserve previous merges
+  } else {
+    # CASE B: Input is a raw DrugBank object
+    drugbank_db            <- db_object
+    merged_object          <- init_dvobject()
+    merged_object$drugbank <- db_object
+    attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+  }
+
+  # Validate the Hub
   if (!inherits(drugbank_db, "dvobject") ||
       (!"drugs" %in% names(drugbank_db))) {
-    stop("`drugbank_db` must be a valid dvobject from parseDrugBank().")
+    stop("`db_object` must contain a valid DrugBank dvobject.")
   }
 
   if (!inherits(drugbank_db, "dvobject") ||
       (!"external_identifiers" %in% names(drugbank_db$drugs))) {
-    stop("`drugbank_db` dvobject must contain external_identifiers data.")
+    stop("`drugbank_db` must contain external_identifiers data.")
   }
 
+  # Validate the Spoke
   if (!inherits(onsides_db, "dvobject") ||
       (!"vocab_rxnorm_ingredient" %in% names(onsides_db))) {
     stop("`onsides_db` must be a valid dvobject from parseOnSIDES().")
@@ -74,7 +93,8 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
-    dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier)
+    dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
+    dplyr::distinct()
 
   # --- Step 2: Enrich OnSIDES Tables ---
   message("Enriching OnSIDES tables with DrugBank IDs...")
@@ -93,20 +113,23 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # --- Step 3: Assemble the Final Merged Object ---
   message("Assembling final merged object...")
 
-  # Start with all of DrugBank's data
-  merged_object                 <- init_dvobject()
-  merged_object$drugbank        <- drugbank_db
-  attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
-  merged_object$onsides         <- list()
-  merged_object$integrated_data <- list()
+  # Add OnSIDES structure (Initialize if needed, but append to existing)
+  if (is.null(merged_object$onsides)) {
+    merged_object$onsides <- list()
+  }
 
-  # Add all of OnSIDES's data
+  # Copy all OnSIDES tables
   for (name in names(onsides_db)) {
     merged_object$onsides[[name]] <- onsides_db[[name]]
   }
 
-  # Overwrite the original OnSIDES tables with our new enriched versions
-  merged_object$vocab_rxnorm_ingredient_enriched <- onsides_ingredient_enriched
+  # Ensure integrated_data list exists
+  if (is.null(merged_object$integrated_data)) {
+    merged_object$integrated_data <- list()
+  }
+
+  merged_object$integrated_data[["vocab_rxnorm_ingredient_enriched"]] <- onsides_ingredient_enriched
+
   if (exists("onsides_hc_enriched")) {
     merged_object$integrated_data[["high_confidence_enriched"]] <- onsides_hc_enriched
   }
@@ -117,8 +140,8 @@ merge_drugbank_onsides <- function(drugbank_db, onsides_db) {
   # Update metadata
   attr(merged_object, "onSideDB") <- attr(onsides_db, "original_db_info")
 
-  # Assign a new class
-  class(merged_object) <- c("DrugBankOnSIDESDb", class(merged_object))
+  # Assign a new class (Prepend to keep existing classes like DrugBankTWOSIDESDb)
+  class(merged_object) <- unique(c("DrugBankOnSIDESDb", class(merged_object)))
 
   message("Merge complete.")
   merged_object
