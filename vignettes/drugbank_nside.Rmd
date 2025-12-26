@@ -109,7 +109,7 @@ Using the retrieved RxCUI, we query the onsides slot of our merged object to fin
 
 ```{r adverse_events}
 # 1. Get the ingredient name from vocab_rxnorm_ingredients
-ingredient_name <- merged_db$vocab_rxnorm_ingredient_enriched %>%
+ingredient_name <- merged_db$integrated_data$vocab_rxnorm_ingredient_enriched %>%
   filter(rxnorm_id == target_rxcui) %>%
   pull(rxnorm_name)
 
@@ -207,7 +207,7 @@ mapping_df_2 <- merged_db$integrated_data$DrugBank_RxCUI_Mapping %>%
 target_rxcui_2 <- mapping_df_2$rxcui[1]
 
 # Get ingredient name
-ingredient_name_2 <- merged_db$vocab_rxnorm_ingredient_enriched %>%
+ingredient_name_2 <- merged_db$integrated_data$vocab_rxnorm_ingredient_enriched %>%
   filter(rxnorm_id == target_rxcui_2) %>%
   pull(rxnorm_name)
 
