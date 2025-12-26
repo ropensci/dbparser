@@ -162,14 +162,13 @@ find_second_database <- function(attrs) {
   potential_second_db <- setdiff(names(attrs), standard_attrs)
 
   if (length(potential_second_db) > 0) {
-    for (db_name in potential_second_db) {
-      db_attr         <- attrs[[db_name]]
-      required_fields <- c("db_type", "db_version", "db_exported_date")
+    db_name         <- potential_second_db[length(potential_second_db)]
+    db_attr         <- attrs[[db_name]]
+    required_fields <- c("db_type")
 
-      if ((is.list(db_attr)) && (all(required_fields %in% names(db_attr)))) {
-        result$has_second_db  <- TRUE
-        result$second_db_name <- db_name
-      }
+    if ((is.list(db_attr)) && (any(required_fields %in% names(db_attr)))) {
+      result$has_second_db  <- TRUE
+      result$second_db_name <- db_name
     }
   }
 

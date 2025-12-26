@@ -64,4 +64,5 @@ parseOnSIDES <- function(dataDir,
                                  db_type          = "OnSIDES",
                                  db_version       = db_version,
                                  db_exported_date = db_exported_date)
+  db_tables
 }

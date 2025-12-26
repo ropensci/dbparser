@@ -3,7 +3,7 @@
 #' @param component_name componemt name
 #' @param drug_ids passed drugs ids to subset for
 #'
-#' @importFrom rlang .data
+#' @importFrom dplyr .data
 #'
 #' @return A new, smaller dvobject with the same structure.
 #' @noRd
@@ -63,8 +63,7 @@ subset_cett_component <- function(component, component_name, drug_ids) {
 #' @return A new, smaller dvobject with the same structure and attributes.
 #'
 #' @export
-#' @importFrom dplyr filter
-#' @importFrom rlang .data
+#' @importFrom dplyr filter .data
 #'
 #' @examples
 #' \dontrun{
@@ -189,8 +188,7 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
 #' @param ingredient_ids A character vector of RxNorm CUIs (ingredients) to keep.
 #'
 #' @export
-#' @importFrom dplyr filter pull
-#' @importFrom rlang .data
+#' @importFrom dplyr filter pull .data
 #'
 #' @return A new, smaller dvobject with the same structure.
 #' @family utils

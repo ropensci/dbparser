@@ -4,10 +4,11 @@
 \alias{merge_drugbank_onsides}
 \title{Merge DrugBank and OnSIDES Database Objects}
 \usage{
-merge_drugbank_onsides(drugbank_db, onsides_db)
+merge_drugbank_onsides(db_object, onsides_db)
 }
 \arguments{
-\item{drugbank_db}{A dvobject produced by `dbparser::parseDrugBank()`.}
+\item{db_object}{A dvobject from `parseDrugBank()` OR an existing merged
+dvobject (containing `$drugbank`).}
 
 \item{onsides_db}{A dvobject produced by `dbparser::parseOnSIDES()`.}
 }
@@ -28,6 +29,7 @@ This function performs the following key steps:
 
 The resulting object allows for powerful queries that span both mechanistic data from
 DrugBank and clinical side-effect data from OnSIDES.
+Supports piping and chaining with other merge functions.
 }
 \examples{
 \dontrun{
