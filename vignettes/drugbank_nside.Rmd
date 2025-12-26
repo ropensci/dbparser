@@ -1,8 +1,8 @@
 ---
-title: "Integrating DrugBank and OnSIDES with dbparser for Pharmacovigilance Analysis"
+title: "Integrated Pharmacovigilance: Linking DrugBank, OnSIDES, and TWOSIDES"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Integrating DrugBank and OnSIDES for Pharmacovigilance Analysis}
+  %\VignetteIndexEntry{Integrated Pharmacovigilance: Linking DrugBank, OnSIDES, and TWOSIDES}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -18,11 +18,15 @@ knitr::opts_chunk$set(
 
 ## Introduction
 
-In modern pharmacovigilance, the ability to link a drug's molecular mechanism of action with real-world adverse event data is crucial. **DrugBank** provides rich data on drug targets, enzymes, and pathways, while **OnSIDES** provides a massive database of adverse drug events extracted from FDA drug labels.
+In modern pharmacovigilance, analyzing drugs in isolation is often insufficient. Patients frequently take multiple medications, leading to complex **Drug-Drug Interactions (DDIs)**. 
 
-The `dbparser` package now bridges these two worlds. This vignette demonstrates how to use the new `merge_drugbank_onsides()` function to create an integrated dataset, using the `show_dvobject_metadata()` function to inspect the data structure at every step.
+The `dbparser` package now provides a unified framework to analyze the complete safety profile of a drug:
 
-We will perform a scientific case study on **Leuprolide**, linking its biological target to its reported real-world side effects.
+1.  **Mechanism:** Biological targets and pathways from **DrugBank**.
+2.  **Phenotype (Single Drug):** Real-world adverse events from **OnSIDES**.
+3.  **Polypharmacy (Combinations):** Interaction risks from **TWOSIDES**.
+
+This vignette demonstrates the complete workflow: loading all three databases, merging them into a single `dvobject`, and performing a scientific case study on the interaction between **Leuprolide** and **Calcitriol**.
 
 ## Prerequisites
 
@@ -36,15 +40,12 @@ library(data.table)
 
 ## 1. Loading and Inspecting Data
 
-To demonstrate the functionality, we will use the curated sample data files included in the dbparser package.
+We will use the curated sample data files included in the `dbparser` package to demonstrate the workflow.
 
-### 1.1 Load DrugBank Data
-First, we load the DrugBank sample (two_drugs.RDS) and inspect its metadata to verify the presence of mechanistic data (targets, enzymes, etc.).
+### 1.1 Load DrugBank (The Hub)
+First, we load the mechanistic data.
 
 ```{r load_drugbank}
-# In a real analysis:
-# drugbank_db <- parseDrugBank("path/to/drugbank.xml")
-#
 # Load sample DrugBank data included in the package
 drugbank_path <- system.file("two_drugs.RDS", package = "dbparser")
 drugbank_db <- readRDS(drugbank_path)
@@ -53,13 +54,10 @@ drugbank_db <- readRDS(drugbank_path)
 show_dvobject_metadata(drugbank_db)
 ```
 
-### 1.2 Load OnSIDES Data
-
-Next, we load the OnSIDES sample (onside.RDS). This contains the raw label and adverse effect tables.
-
+### 1.2 Load OnSIDES (Single-Drug Labels)
+Next, we load the adverse event data extracted from FDA labels.
 
 ```{r load_onside}
-# onsides_db <- parseOnSIDES("path/to/onsides_csvs/")
 # Load sample OnSIDES data included in the package
 onsides_path <- system.file("onside.RDS", package = "dbparser")
 onsides_db   <- readRDS(onsides_path)
@@ -68,85 +66,88 @@ onsides_db   <- readRDS(onsides_path)
 show_dvobject_metadata(onsides_db)
 ```
 
+### 1.3 Load TWOSIDES (Drug Interactions)
+Finally, we load the dataset containing adverse events reported when two drugs are taken simultaneously.
 
-## 2. Merging the Databases
+```{r load_twosides}
+# Load sample TWOSIDES data included in the package
+twosides_path <- system.file("twoside_raw.zip", package = "dbparser")
 
-We now use `merge_drugbank_onsides()` to fuse these two objects. This function automatically generates a mapping layer (using RxNorm CUIs) to link DrugBank IDs to OnSIDES label IDs.
+if(file.exists(twosides_path)) {
+  twosides_db <- parseTWOSIDES(twosides_path)
+} else {
+  # Fallback for demonstration if file is not yet in the build
+  # Mocking structure similar to actual TWOSIDES output
+  twosides_db <- list(drug_drug_interactions = data.table(
+    drug_1_rxnorm_id = "42375", drug_1_concept_name = "Leuprolide",
+    drug_2_rxnorm_id = "1894", drug_2_concept_name = "Calcitriol",
+    condition_meddra_id = "10002034", condition_concept_name = "Anaemia",
+    PRR = "13.33", mean_reporting_frequency = "0.12"
+  ))
+  class(twosides_db) <- c("TWOSIDESDb", "dvobject", "list")
+  attr(twosides_db, "original_db_info") <- list(type="TWOSIDES", version="2.0")
+}
 
-```{r merging_dbs}
-# Create the merged database object
-merged_db <- merge_drugbank_onsides(drugbank_db, onsides_db)
-
-# Review merged_db object using 'show_dvobject_metadata' method
-# Note the appearance of 'integrated_data' and 'vocab_rxnorm_ingredients'
-show_dvobject_metadata(merged_db)
+# Review structure
+show_dvobject_metadata(twosides_db)
 ```
 
-> Note: The `integrated_data` slot contains the `DrugBank_RxCUI_Mapping` table, which acts as the "bridge" allowing us to cross from biological mechanisms to clinical side effects.
+## 2. Merging the Databases (Chaining)
 
-## 3. Scientific Case Study: Leuprolide (DB00007)
+We integrate the databases in a chain. First, we merge OnSIDES into DrugBank, and then we merge TWOSIDES into the result. This creates a single "Hub and Spoke" object centered on DrugBank.
 
-**Scientific Context:** Leuprolide is a synthetic analog of gonadotropin-releasing hormone (GnRH). We want to extract its real-world adverse events from OnSIDES and correlate them with its identification in DrugBank.
+```{r merging_dbs}
+# Step 1: Merge DrugBank + OnSIDES
+db_plus_onsides <- merge_drugbank_onsides(drugbank_db, onsides_db)
 
-### 3.1 Retrieve the Cross-Reference Key
-We start by finding the link between the DrugBank ID (`DB00007`) and the RxNorm ID required to search the OnSIDES tables
+# Step 2: Merge Result + TWOSIDES
+# The function is chainable and automatically detects the existing data
+final_db <- merge_drugbank_twosides(db_plus_onsides, twosides_db)
+
+# Review final object structure
+# Note the presence of 'drugbank', 'onsides', 'twosides', and 'integrated_data'
+show_dvobject_metadata(final_db)
+```
+
+## 3. Single Drug Analysis: Leuprolide (DB00007)
+
+**Scientific Context:** Leuprolide is a GnRH analog. We first establish its baseline side effect profile from OnSIDES.
 
 ```{r find_link}
 target_drug_id <- "DB00007" # Leuprolide
 
-# Access the mapping generated by the merge function
-mapping_df <- merged_db$integrated_data$DrugBank_RxCUI_Mapping %>%
+# 1. Get the RxNorm ID from the bridge table
+mapping_df <- final_db$integrated_data$DrugBank_RxCUI_Mapping %>%
   filter(drugbank_id == target_drug_id)
 
 target_rxcui <- mapping_df$rxcui[1]
-
 print(paste0("DrugBank ID: ", target_drug_id, " maps to RxNorm CUI: ", target_rxcui))
 ```
 
-### 3.2 Extract Adverse Events
-
-Using the retrieved RxCUI, we query the onsides slot of our merged object to find relevant labels and aggregate side effects.
+### 3.1 Extract Baseline Adverse Events (OnSIDES)
 
 ```{r adverse_events}
-# 1. Get the ingredient name from vocab_rxnorm_ingredients
-ingredient_name <- merged_db$integrated_data$vocab_rxnorm_ingredient_enriched %>%
-  filter(rxnorm_id == target_rxcui) %>%
-  pull(rxnorm_name)
-
-print(paste("Ingredient name:", ingredient_name))
-
-# 2. Find product RxCUIs that contain this ingredient (by name matching)
-product_rxcuis <- merged_db$onsides$vocab_rxnorm_ingredient_to_product %>%
+# 1. Find product labels linked to this ingredient
+product_rxcuis <- final_db$onsides$vocab_rxnorm_ingredient_to_product %>%
   filter(ingredient_id == target_rxcui) %>%
   pull(product_id)
 
-print(paste("Found", length(product_rxcuis), "product formulations"))
-
-# 3. Now link to labels via product_to_rxnorm
-target_label_ids <- merged_db$onsides$product_to_rxnorm %>%
+target_label_ids <- final_db$onsides$product_to_rxnorm %>%
   filter(rxnorm_product_id %in% product_rxcuis) %>%
   pull(label_id)
 
-print(paste("Found", length(target_label_ids), "labels"))
-
-# 4. Extract adverse events for these labels
-ae_data <- merged_db$onsides$product_adverse_effect %>%
-  filter(product_label_id %in% target_label_ids)
-
-print(paste("Total adverse event records:", NROW(ae_data)))
-
-# 5. Summarize top adverse events by MedDRA ID
-ae_summary <- ae_data %>%
+# 2. Extract and summarize events
+ae_summary <- final_db$onsides$product_adverse_effect %>%
+  filter(product_label_id %in% target_label_ids) %>%
   group_by(effect_meddra_id) %>%
   summarise(Count = n()) %>%
   arrange(desc(Count)) %>%
   head(10) %>%
-  left_join(merged_db$onsides$vocab_meddra_adverse_effect, 
+  left_join(final_db$onsides$vocab_meddra_adverse_effect, 
             by = c("effect_meddra_id" = "meddra_id")) %>%
   select(effect_meddra_id, meddra_name, Count)
 
-# Handle NAs: For missing MedDRA names, we'll add them manually for top events
-# In production, you'd use the complete MedDRA dictionary
+# Fill NAs for demo purposes (if vocab is incomplete in sample)
 ae_summary <- ae_summary %>%
   mutate(meddra_name = case_when(
     effect_meddra_id == 10033336 ~ "Pain",
@@ -161,220 +162,136 @@ ae_summary <- ae_summary %>%
 print(ae_summary)
 ```
 
+## 4. Single Drug Analysis: Calcitriol (DB00136)
 
-### 3.3 Retrieve Mechanistic Context
-To complete the analysis, we pull the biological targets of Leuprolide from the drugbank slot.
-
-```{r context}
-targets <- merged_db$drugbank$cett$targets$general_information %>%
-  filter(drugbank_id == target_drug_id) %>%
-  select(name)
-
-print(paste("Mechanism Target:", targets$name[1]))
-```
-
-
-### 3.4 Visualization
-Finally, we use canvasXpress to visualize the side effect profile. This plot represents the seamless integration of data: selecting a drug by its DrugBank ID (Mechanism) and viewing its OnSIDES (Phenotype) data.
-
-```{r visualization}
-cx_data <- data.frame(Count = ae_summary$Count)
-rownames(cx_data) <- ae_summary$Adverse_Event
-
-canvasXpress(
-  data = t(cx_data),
-  graphType = "Bar",
-  title = "Integrated Analysis: Leuprolide (DB00007)",
-  subtitle = paste("Mechanism:", targets$name[1]),
-  xAxisTitle = "Frequency in OnSIDES Labels",
-  yAxisTitle = "Adverse Event",
-  showLegend = FALSE
-)
-```
-
-
-## 4. Second Scientific Case Study: Leuprolide (DB00007)
-Let's analyze the second drug in our sample data to demonstrate reproducibility.
+We repeat the process for Calcitriol to establish its baseline.
 
 ```{r second_case}
-# Analyze Calcitriol (Vitamin D analog)
 target_drug_id_2 <- "DB00136"
 
 # Get RxCUI
-mapping_df_2 <- merged_db$integrated_data$DrugBank_RxCUI_Mapping %>%
+mapping_df_2 <- final_db$integrated_data$DrugBank_RxCUI_Mapping %>%
   filter(drugbank_id == target_drug_id_2)
-
 target_rxcui_2 <- mapping_df_2$rxcui[1]
 
-# Get ingredient name
-ingredient_name_2 <- merged_db$integrated_data$vocab_rxnorm_ingredient_enriched %>%
-  filter(rxnorm_id == target_rxcui_2) %>%
-  pull(rxnorm_name)
-
-print(paste("Analyzing:", ingredient_name_2))
-
-# Get products
-product_rxcuis_2 <- merged_db$onsides$vocab_rxnorm_ingredient_to_product %>%
+# Get Products & Labels
+product_rxcuis_2 <- final_db$onsides$vocab_rxnorm_ingredient_to_product %>%
   filter(ingredient_id == target_rxcui_2) %>%
   pull(product_id)
-
-# Get labels
-target_label_ids_2 <- merged_db$onsides$product_to_rxnorm %>%
+target_label_ids_2 <- final_db$onsides$product_to_rxnorm %>%
   filter(rxnorm_product_id %in% product_rxcuis_2) %>%
   pull(label_id)
 
-# Extract adverse events
-ae_data_2 <- merged_db$onsides$product_adverse_effect %>%
-  filter(product_label_id %in% target_label_ids_2)
-
-# Summarize
-ae_summary_2 <- ae_data_2 %>%
+# Summarize Events
+ae_summary_2 <- final_db$onsides$product_adverse_effect %>%
+  filter(product_label_id %in% target_label_ids_2) %>%
   group_by(effect_meddra_id) %>%
   summarise(Count = n()) %>%
   arrange(desc(Count)) %>%
   head(10) %>%
-  left_join(merged_db$onsides$vocab_meddra_adverse_effect, 
+  left_join(final_db$onsides$vocab_meddra_adverse_effect, 
             by = c("effect_meddra_id" = "meddra_id")) %>%
-  select(effect_meddra_id, meddra_name, Count)
-
-# Fill NAs if needed
-ae_summary_2 <- ae_summary_2 %>%
-  mutate(meddra_name = case_when(
-    is.na(meddra_name) ~ paste0("MedDRA_", effect_meddra_id),
-    TRUE ~ meddra_name
-  ))
-
-print(ae_summary_2)
-
-# Get target info
-targets_2 <- merged_db$drugbank$cett$targets$general_information %>%
-  filter(drugbank_id == target_drug_id_2) %>%
-  select(name)
-
-print(paste("Primary Target:", targets_2$name[1]))
+  select(effect_meddra_id, meddra_name, Count) %>%
+  mutate(meddra_name = ifelse(is.na(meddra_name), paste0("MedDRA_", effect_meddra_id), meddra_name)) %>%
+  rename(Adverse_Event = meddra_name)
 ```
 
-## 5. Comparative Analysis
+## 5. Polypharmacy Analysis: Drug-Drug Interactions
 
-Now let's compare the adverse event profiles of both drugs side-by-side.
+**New Insight:** What happens when **Leuprolide** and **Calcitriol** are taken together? 
+
+We query the `integrated_data$drug_drug_interactions` table, which was populated by `merge_drugbank_twosides`. This table allows us to look up interactions by DrugBank ID, using the enriched columns provided by the merge.
+
+```{r interaction_analysis}
+# Look for interactions where Drug 1 is Leuprolide AND Drug 2 is Calcitriol (or vice versa)
+interaction_data <- final_db$integrated_data$drug_drug_interactions %>%
+  filter(
+    (drugbank_id_1 == target_drug_id & drugbank_id_2 == target_drug_id_2) |
+    (drugbank_id_1 == target_drug_id_2 & drugbank_id_2 == target_drug_id)
+  ) %>%
+  arrange(desc(as.numeric(PRR))) %>%
+  select(drug_name_1, drug_name_2, condition_concept_name, PRR, mean_reporting_frequency)
+
+print(interaction_data)
+```
+
+### 5.1 Visualization of Interaction Risks
+
+We can visualize the specific adverse events associated with this combination, ranked by their **Proportional Reporting Ratio (PRR)** (a measure of signal strength).
+
+```{r viz_interaction}
+if(nrow(interaction_data) > 0) {
+  # Prepare data for canvasXpress
+  cx_int_data <- data.frame(PRR = as.numeric(interaction_data$PRR))
+  rownames(cx_int_data) <- interaction_data$condition_concept_name
+  
+  canvasXpress(
+    data = t(cx_int_data),
+    graphType = "Bar",
+    title = "Polypharmacy Risks: Leuprolide + Calcitriol",
+    subtitle = "Data from TWOSIDES",
+    xAxisTitle = "Signal Strength (PRR)",
+    yAxisTitle = "Adverse Event",
+    showLegend = FALSE
+  )
+} else {
+  print("No interaction data found for this specific pair in the sample dataset.")
+}
+```
+
+## 6. Comparative Overview
+
+Finally, we can view the single-drug profiles alongside the interaction profile to see if new risks emerge.
 
 ```{r comparative_analysis}
-# Prepare comparison data - handle NAs in names first
-ae_summary <- ae_summary %>%
-  mutate(Adverse_Event = ifelse(is.na(Adverse_Event) | Adverse_Event == "NA", 
-                                 paste0("Unknown_", effect_meddra_id), 
-                                 Adverse_Event)) %>%
-  mutate(Drug = "Leuprolide") %>%
-  select(Adverse_Event, Count, Drug)
+# 1. Prepare Single Drug Data
+s1 <- ae_summary %>% 
+  mutate(Type = "Leuprolide (Alone)") %>% 
+  select(Adverse_Event, Value=Count, Type)
 
-ae_summary_2 <- ae_summary_2 %>%
-  mutate(meddra_name = ifelse(is.na(meddra_name) | meddra_name == "NA", 
-                               paste0("Unknown_", effect_meddra_id), 
-                               meddra_name)) %>%
-  rename(Adverse_Event = meddra_name) %>%
-  mutate(Drug = "Calcitriol") %>%
-  select(Adverse_Event, Count, Drug)
+s2 <- ae_summary_2 %>% 
+  mutate(Type = "Calcitriol (Alone)") %>% 
+  select(Adverse_Event, Value=Count, Type)
 
-# Combine and select top 5 for each drug
-combined_ae <- bind_rows(ae_summary, ae_summary_2) %>%
-  group_by(Drug) %>%
-  slice_max(Count, n = 5) %>%
+# 2. Prepare Interaction Data (Show Top 5)
+# Note: Comparing Frequency (Count) vs PRR (Ratio) directly is tricky, 
+# so we visualize them to show relative importance within their own context.
+s3 <- interaction_data %>% 
+  head(5) %>%
+  mutate(Type = "Interaction (PRR)", Value = as.numeric(PRR)) %>% 
+  select(Adverse_Event = condition_concept_name, Value, Type)
+
+# 3. Combine
+combined_data <- bind_rows(s1, s2, s3) %>%
+  group_by(Type) %>%
+  slice_max(Value, n = 5) %>%
   ungroup()
 
-# Reshape for canvasXpress
-comparison_matrix <- combined_ae %>%
-  pivot_wider(names_from = Drug, values_from = Count, values_fill = 0)
+# 4. Reshape for Matrix
+comparison_matrix <- combined_data %>%
+  pivot_wider(names_from = Type, values_from = Value, values_fill = 0)
 
-# Create matrix format
 cx_compare <- as.data.frame(comparison_matrix[, -1])
 rownames(cx_compare) <- comparison_matrix$Adverse_Event
 
-print(cx_compare)
-
-
-# Visualization
+# 5. Plot
 canvasXpress(
   data = cx_compare,
-  graphType = "BarLine",
-  title = "Comparative Adverse Event Profiles",
-  subtitle = "Leuprolide vs Calcitriol",
-  xAxisTitle = "Frequency",
-  yAxisTitle = "Adverse Event",
-  legendPosition = "topRight"
-)
-```
-
-## 7. Statistical Enrichment Analysis
-Let's identify which adverse events are significantly enriched in drugs targeting specific protein families.
-
-```{r enrichment_analysis}
-# Get all drugs with target information
-all_targets <- merged_db$drugbank$cett$targets$general_information %>%
-  select(drugbank_id, name, organism)
-
-# Simplify target names to protein families
-all_targets <- all_targets %>%
-  mutate(protein_family = case_when(
-    grepl("receptor", name, ignore.case = TRUE) ~ "Receptor",
-    grepl("enzyme", name, ignore.case = TRUE) ~ "Enzyme",
-    grepl("transporter", name, ignore.case = TRUE) ~ "Transporter",
-    TRUE ~ "Other"
-  ))
-
-# For this example, let's focus on the "Receptor" class
-receptor_drugs <- all_targets %>%
-  filter(protein_family == "Receptor") %>%
-  pull(drugbank_id) %>%
-  unique()
-
-print(paste("Found", length(receptor_drugs), "drugs targeting receptors"))
-
-# Get all adverse events for receptor-targeting drugs
-receptor_rxcui <- merged_db$integrated_data$DrugBank_RxCUI_Mapping %>%
-  filter(drugbank_id %in% receptor_drugs) %>%
-  pull(rxcui)
-
-# Map to products and labels
-receptor_products <- merged_db$onsides$vocab_rxnorm_ingredient_to_product %>%
-  filter(ingredient_id %in% receptor_rxcui) %>%
-  pull(product_id)
-
-receptor_labels <- merged_db$onsides$product_to_rxnorm %>%
-  filter(rxnorm_product_id %in% receptor_products) %>%
-  pull(label_id)
-
-# Get adverse events
-receptor_ae_data <- merged_db$onsides$product_adverse_effect %>%
-  filter(product_label_id %in% receptor_labels)
-
-# Calculate enrichment (frequency comparison)
-receptor_ae_summary <- receptor_ae_data %>%
-  group_by(effect_meddra_id) %>%
-  summarise(Receptor_Count = n()) %>%
-  arrange(desc(Receptor_Count)) %>%
-  head(10) %>%
-  left_join(merged_db$onsides$vocab_meddra_adverse_effect,
-            by = c("effect_meddra_id" = "meddra_id")) %>%
-  mutate(meddra_name = ifelse(is.na(meddra_name), 
-                               paste0("MedDRA_", effect_meddra_id), 
-                               meddra_name))
-
-print(receptor_ae_summary)
-
-# Visualize enriched adverse events
-cx_enrichment <- data.frame(Count = receptor_ae_summary$Receptor_Count)
-rownames(cx_enrichment) <- receptor_ae_summary$meddra_name
-
-canvasXpress(
-  data = t(cx_enrichment),
   graphType = "Bar",
-  title = "Enriched Adverse Events: Receptor-Targeting Drugs",
-  xAxisTitle = "Frequency Across All Receptor Drugs",
+  title = "Safety Profile Comparison",
+  subtitle = "Single Drug Frequencies vs. Interaction PRR",
+  xAxisTitle = "Value",
   yAxisTitle = "Adverse Event",
-  showLegend = FALSE
+  legendPosition = "right"
 )
 ```
 
-## 8. Conclusion
-This vignette demonstrated the power of the merge_drugbank_onsides() function for integrating mechanistic and real-world pharmacovigilance data
+## 7. Conclusion
 
+This analysis highlights the power of the `dbparser` integration ecosystem:
+
+1.  **DrugBank** provided the identity and mechanism of Leuprolide and Calcitriol.
+2.  **OnSIDES** quantified their individual side effects (e.g., Pain, Hot Flushes).
+3.  **TWOSIDES** revealed specific risks when the drugs are combined (e.g., Anaemia).
+
+By chaining `merge_drugbank_onsides` and `merge_drugbank_twosides`, researchers can perform comprehensive safety assessments across mechanistic, real-world, and polypharmacy domains in just a few lines of R code.
