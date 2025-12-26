@@ -192,6 +192,7 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
     dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
+    dplyr::mutate(rxcui = as.integer(rxcui)) %>%
     dplyr::distinct()
 
   # Drug name lookup
