@@ -14,7 +14,7 @@ authors:
     corresponding: true
     affiliation: 1
 affiliations:
- - name: Independent Researcher
+ - name: Data Analysis Engineer at Interstellar, Egypt
    index: 1
 date: 27 December 2025
 bibliography: paper.bib
