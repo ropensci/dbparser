@@ -5,7 +5,7 @@ articles:
   dbparser: dbparser.html
   dbparser_2_2: dbparser_2_2.html
   drugbank_nside: drugbank_nside.html
-last_built: 2025-12-27T13:08Z
+last_built: 2025-12-27T15:05Z
 urls:
   reference: https://docs.ropensci.org/dbparser/reference
   article: https://docs.ropensci.org/dbparser/articles
