@@ -6,7 +6,6 @@ tags:
   - pharmacology
   - pharmacovigilance
   - drug discovery
-  - pharma
   - DrugBank
   - reproducible research
 authors:
