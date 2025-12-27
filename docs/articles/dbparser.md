@@ -1,0 +1,146 @@
+# Unlocking DrugBank: Parsing and Visualizing Mechanistic Data
+
+## Introduction
+
+The **DrugBank** database is the global gold standard for drug
+information, containing rich data on chemical structures, pharmacology,
+and molecular targets. However, the raw data is provided as a massive,
+complex XML file that is difficult to use in statistical analysis.
+
+`dbparser` solves this problem. It transforms that complex XML into a
+**Drugverse Object (`dvobject`)**—a structured collection of R data
+frames ready for analysis.
+
+In this tutorial, we will demonstrate how to:
+
+1.  Parse the database.
+2.  Explore the data structure.
+3.  Visualize key insights using `dplyr` and `canvasXpress`.
+
+## 1. Loading Data
+
+### The Parsing Workflow
+
+In a real-world scenario, you would parse the full XML database
+(downloaded from [DrugBank](https://go.drugbank.com/releases/latest))
+using
+[`parseDrugBank()`](https://docs.ropensci.org/dbparser/reference/parseDrugBank.md).
+
+``` r
+library(dbparser)
+
+# Parse the full XML file (this creates a dvobject)
+# drugbank_db <- parseDrugBank("drugbank_full_database.xml")
+```
+
+### Loading Sample Data
+
+For this vignette, we will load curated sample datasets included in the
+package. These represent specific tables that would be found inside the
+full `dvobject`.
+
+``` r
+suppressPackageStartupMessages({
+  library(tidyr)
+  library(dplyr)
+  library(tibble)
+  library(canvasXpress)
+  library(dbparser)
+})
+
+# Load sample tables representing parts of the parsed dvobject
+drugs <- readRDS(system.file("drugs.RDS", package = "dbparser"))
+drug_groups <- readRDS(system.file("drug_groups.RDS", package = "dbparser"))
+drug_targets_actions <- readRDS(system.file("targets_actions.RDS", package = "dbparser"))
+```
+
+## 2. Analysis: The Drug Landscape
+
+What does the universe of approved drugs look like? Let’s analyze the
+composition of the database by drug type (Small Molecule vs. Biotech).
+
+``` r
+# Prepare data: Count drugs by type
+type_stat <- drugs %>% 
+  group_by(type) %>% 
+  summarise(Count = n()) %>% 
+  arrange(desc(Count)) %>% 
+  column_to_rownames("type")
+
+# Visualize
+canvasXpress(
+  data             = type_stat,
+  graphType        = "Bar",
+  title            = "Composition of DrugBank: Drug Types",
+  showSampleNames  = FALSE,
+  legendPosition   = "right"
+)
+```
+
+## 3. Analysis: Approval Status
+
+Drugs are categorized into groups such as “approved”, “investigational”,
+or “experimental”. How does the complexity (Biotech vs. Small Molecule)
+differ across these groups?
+
+``` r
+# Prepare data: Cross-tabulate Type vs Group
+group_stat <- drugs %>% 
+  full_join(drug_groups, by = "drugbank_id") %>% 
+  group_by(type, group) %>% 
+  summarise(count = n(), .groups = 'drop') %>% 
+  pivot_wider(names_from = group, values_from = count, values_fill = 0) %>% 
+  column_to_rownames("type")
+
+# Visualize with a Stacked Bar Chart
+canvasXpress(
+  data           = group_stat,
+  graphType      = "Stacked",
+  graphOrientation = "horizontal",
+  title          = "Drug Types by Approval Status",
+  xAxisTitle     = "Number of Drugs",
+  legendPosition = "bottom",
+  xAxis2Show     = FALSE
+)
+```
+
+## 4. Analysis: Molecular Mechanisms
+
+One of DrugBank’s most valuable features is the detailed information on
+how drugs interact with their targets (Proteins, Enzymes, etc.). Are
+drugs mostly inhibitors, agonists, or antagonists?
+
+``` r
+# Prepare data: Top 10 most common Mechanisms of Action
+targetActionCounts <- drug_targets_actions %>% 
+    group_by(action) %>% 
+    summarise(Count = n()) %>% 
+    arrange(desc(Count)) %>% 
+    slice_head(n = 10) %>% 
+    column_to_rownames("action")
+
+# Visualize
+canvasXpress(
+  data            = targetActionCounts,
+  graphType       = "Bar",
+  graphOrientation = "vertical",
+  colorBy         = "Count",
+  title           = "Top 10 Mechanisms of Action",
+  xAxisTitle      = "Number of Interactions",
+  showSampleNames = FALSE,
+  legendPosition  = "none"
+)
+```
+
+## 5. Next Steps: Integrated Pharmacovigilance
+
+Now that you have mastered the mechanistic data in DrugBank, you can
+combine it with real-world data!
+
+`dbparser` now supports **OnSIDES** (Adverse Events) and **TWOSIDES**
+(Drug-Drug Interactions).
+
+Check out the **[Integrated Pharmacovigilance
+Vignette](https://docs.ropensci.org/dbparser/articles/integrated_pharmacovigilance.md)**
+to learn how to merge these databases to perform polypharmacy risk
+analysis.
