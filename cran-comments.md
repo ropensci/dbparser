@@ -1,6 +1,6 @@
 ## Test environments
 
-### local Windows 10(x86_64-w64-mingw32), 4.3.2
+### local Windows 11, 4.5.1
 0 errors | 0 warnings | 0 note
 
 ### Windows Server 2022, R-devel, 64 bit
@@ -27,3 +27,12 @@ We checked 0 reverse dependencies, comparing R CMD check results across CRAN and
 
  * We saw 0 new problems
  * We failed to check 0 packages
+
+### RHub
+
+rhub::rc_submit() # multiple environments are used for testing
+
+### URL checks
+
+- rOpenSci tutorial URL (404): Will be available once pkgdown site is rebuilt
+- DrugBank URLs (403): Valid URLs, site blocks automated requests
