@@ -22,6 +22,7 @@
 #' @return A new dvobject containing the integrated data.
 #'
 #' @export
+#' @family mergers
 #' @importFrom dplyr filter select rename mutate left_join .data
 #'
 #' @examples
@@ -160,6 +161,7 @@ merge_drugbank_onsides <- function(db_object, onsides_db) {
 #' @return A new, nested dvobject with the TWOSIDES data added.
 #'
 #' @importFrom dplyr filter select rename mutate left_join .data distinct
+#' @family mergers
 #' @export
 merge_drugbank_twosides <- function(db_object, twosides_db) {
 

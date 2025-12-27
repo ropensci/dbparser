@@ -71,7 +71,7 @@ subset_cett_component <- function(component, component_name, drug_ids) {
 #' one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
 #'                                      drug_ids = "DB00001")
 #' }
-#' @family utils
+#' @family utility
 subset_drugbank_dvobject <- function(dvobject, drug_ids) {
   new_dvobject <- NULL
 
@@ -191,7 +191,7 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
 #' @importFrom dplyr filter pull .data
 #'
 #' @return A new, smaller dvobject with the same structure.
-#' @family utils
+#' @family utility
 subset_onsides_dvobject <- function(dvobject, ingredient_ids) {
   new_dvobject <- NULL
 

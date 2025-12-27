@@ -1,4 +1,57 @@
-# dbparser (development version)
+# dbparser
+
+# dbparser 2.2.0
+
+This is a major feature release focused on expanding `dbparser`'s capabilities into real-world pharmacovigilance and drug-drug interaction analysis. The integration engine has been formalized around a "Hub and Spoke" model, with DrugBank acting as the central hub.
+
+## NEW FEATURES
+
+*   **New Parser: `parseOnSIDES()`**
+    *   Parses the relational CSV files from the OnSIDES database, a modern resource for adverse drug events extracted from FDA labels.
+    *   Returns a `dvobject` containing the 7 core relational tables and an optional `high_confidence` summary table.
+
+*   **New Parser: `parseTWOSIDES()`**
+    *   Parses the TWOSIDES database, the leading resource for drug-drug interaction (DDI) adverse event signals from real-world data.
+    *   Returns a `dvobject` containing the `drug_drug_interactions` table.
+    *   The parser correctly handles known column name misspellings in the source data (e.g., `drug_1_rxnorn_id`).
+
+*   **New Integration Function: `merge_drugbank_onsides()`**
+    *   Merges a DrugBank `dvobject` with an OnSIDES `dvobject`.
+    *   Automatically creates an enriched `integrated_data` list, linking OnSIDES data to DrugBank IDs via RxNorm CUIs.
+    *   The function is **chainable**, meaning it can be used in a `%>%` pipeline after other merge functions.
+
+*   **New Integration Function: `merge_drugbank_twosides()`**
+    *   Merges a DrugBank `dvobject` with a TWOSIDES `dvobject`.
+    *   Performs a "double join" to enrich both drugs in an interaction pair with their DrugBank IDs and names.
+    *   Uses a robust "union" logic to keep interactions even if only one of the two drugs is present in the input DrugBank object.
+    *   The function is also **chainable**.
+*   **Subset a DrugBank dvobject function: `subset_drugbank_dvobject()`**
+    * Intelligently filters a DrugBank dvobject to retain only the data associated with a specified list of drugbank_ids. It correctly handles the deep,
+multi-level nested structure of the entire object, including the complex relationships within the `cett` list.
+*   **Subset an OnSIDES dvobject function: `subset_onsides_dvobject()`**
+    * Intelligently filters an OnSIDES dvobject by cascading filters through the
+relational tables, ensuring the final subset is self-consistent.
+*   **Adding metadata to existing `dvobject` objects using function: `add_database_info()`**
+*   **Major enhancements to function `show_dvobject_metadata()`**
+    * Displays information about passed dbobject object including basic info, 
+    database metadata, and all data.frames contained within nested lists.
+
+* Run `vignette("dbparser_2_2", package = "dbparser")` for more info
+
+## DOCUMENTATION
+
+*   **New Vignette: "Integrated Pharmacovigilance"**
+    *   A comprehensive new tutorial demonstrating a full, three-way integration of DrugBank, OnSIDES, and TWOSIDES.
+    *   Includes a complete scientific case study analyzing single-drug vs. polypharmacy risks.
+    *   Introduces a reproducible example workflow using a pre-computed RDS data object hosted externally to keep the package lightweight.
+    *   Run `vignette("drugbank_nside", package = "dbparser")` for more info
+*  Updated existing vignette and package Readme with enhanced examples
+
+## BUG FIXES & MINOR IMPROVEMENTS
+
+*   Several minor fixes are done
+
+---
 
 # dbparser 2.0.3
 

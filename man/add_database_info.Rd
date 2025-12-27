@@ -28,3 +28,10 @@ dvobject
 add_database_info
   Assign passed databases db metadata to passed dvobject
 }
+\seealso{
+Other utility: 
+\code{\link{show_dvobject_metadata}()},
+\code{\link{subset_drugbank_dvobject}()},
+\code{\link{subset_onsides_dvobject}()}
+}
+\concept{utility}

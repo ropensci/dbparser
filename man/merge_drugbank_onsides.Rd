@@ -63,3 +63,8 @@ targets_of_interest <- merged_db$targets \%>\%
 head(targets_of_interest)
 }
 }
+\seealso{
+Other mergers: 
+\code{\link{merge_drugbank_twosides}()}
+}
+\concept{mergers}
