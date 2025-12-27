@@ -21,6 +21,7 @@ init_dvobject <- function() {
 #' @param db_exported_date database official export date
 #'
 #' @return dvobject
+#' @family utility
 #' @export
 #' @importFrom dplyr .data filter select rename mutate left_join
 add_database_info <- function(dvobject,
@@ -56,6 +57,7 @@ add_database_info <- function(dvobject,
 #' }
 #'
 #' @export
+#' @family utility
 #' @importFrom utils object.size
 show_dvobject_metadata <- function(obj, return_df = FALSE) {
   # Initialize return variable

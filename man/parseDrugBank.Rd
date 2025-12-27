@@ -47,6 +47,7 @@ Other parsers:
 \code{\link{cett_nodes_options}()},
 \code{\link{drug_node_options}()},
 \code{\link{parseOnSIDES}()},
+\code{\link{parseTWOSIDES}()},
 \code{\link{references_node_options}()}
 }
 \concept{parsers}

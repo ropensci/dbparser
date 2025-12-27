@@ -16,6 +16,7 @@
 #' @family parsers
 #'
 #' @export
+#' @family parsers
 #' @importFrom data.table fread
 parseOnSIDES <- function(dataDir,
                          include_high_confidence = TRUE,

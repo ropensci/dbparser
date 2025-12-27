@@ -31,7 +31,9 @@ one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
 }
 }
 \seealso{
-Other utils: 
+Other utility: 
+\code{\link{add_database_info}()},
+\code{\link{show_dvobject_metadata}()},
 \code{\link{subset_onsides_dvobject}()}
 }
-\concept{utils}
+\concept{utility}

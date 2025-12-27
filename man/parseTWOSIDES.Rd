@@ -43,3 +43,12 @@ Database fields as follow:
 \item{mean_reporting_frequency}{Proportion of reports for the drug that report the side effect, A/(A+B)}
 }
 }
+\seealso{
+Other parsers: 
+\code{\link{cett_nodes_options}()},
+\code{\link{drug_node_options}()},
+\code{\link{parseDrugBank}()},
+\code{\link{parseOnSIDES}()},
+\code{\link{references_node_options}()}
+}
+\concept{parsers}

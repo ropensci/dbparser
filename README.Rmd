@@ -21,9 +21,9 @@ library(ggplot2)
 [![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 [![metacran downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
+[![Rdoc Documentation](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
 [![CII Best Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
-[![](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
+[![rOpenSci Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 
 ## Overview
 Drugs databases vary too much in their formats and structures which making related 
@@ -48,6 +48,7 @@ It is an R list object.
 
 **For a single database (e.g., DrugBank):**
 It contains one or more of the following sub-lists:
+
 - **drugs**: list of data.frames that contain drugs information (i.e. synonyms, classifications, ...) and it is the only mandatory list
 - **salts**: data.frame contains drugs salts information
 - **products**: data.frame of commercially available drugs products in the world
@@ -56,6 +57,7 @@ It contains one or more of the following sub-lists:
 
 **For a merged database (Integrated Pharmacovigilance):**
 When databases are merged using `merge_drugbank_onsides` or `merge_drugbank_twosides`, the `dvobject` becomes a nested structure containing:
+
 - **drugbank**: The mechanistic hub.
 - **onsides**: The side-effect data (from FDA labels).
 - **twosides**: The drug-drug interaction data.

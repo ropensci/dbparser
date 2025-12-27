@@ -26,3 +26,10 @@ metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
 }
 
 }
+\seealso{
+Other utility: 
+\code{\link{add_database_info}()},
+\code{\link{subset_drugbank_dvobject}()},
+\code{\link{subset_onsides_dvobject}()}
+}
+\concept{utility}

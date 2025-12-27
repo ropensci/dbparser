@@ -32,6 +32,7 @@
 #'   data frame and associated metadata.
 #'
 #' @export
+#' @family parsers
 #' @importFrom data.table fread
 parseTWOSIDES <- function(twosides_file_path,
                           db_version       = NULL,

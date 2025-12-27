@@ -19,7 +19,9 @@ Intelligently filters an OnSIDES dvobject by cascading filters through the
 relational tables, ensuring the final subset is self-consistent.
 }
 \seealso{
-Other utils: 
+Other utility: 
+\code{\link{add_database_info}()},
+\code{\link{show_dvobject_metadata}()},
 \code{\link{subset_drugbank_dvobject}()}
 }
-\concept{utils}
+\concept{utility}
