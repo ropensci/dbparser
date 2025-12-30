@@ -194,7 +194,7 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
     dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
-    dplyr::mutate(rxcui = as.integer(.data$rxcui)) %>%
+    dplyr::mutate(rxcui = .data$rxcui) %>%
     dplyr::distinct()
 
   # Drug name lookup
@@ -214,6 +214,8 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
     dplyr::rename(drug_name_2 = .data$drug_name, drugbank_id_2 = .data$drugbank_id)
 
   enriched_ddis <- twosides_db$drug_drug_interactions %>%
+    dplyr::mutate(drug_1_rxnorn_id = as.character(.data$drug_1_rxnorn_id),
+                  drug_2_rxnorm_id = as.character(.data$drug_2_rxnorm_id)) %>%
     # LOGIC CHANGE 1: Union (OR) Filter
     # Note the spelling: rxnorn
     dplyr::filter((.data$drug_1_rxnorn_id %in% rxcui_mapping_df$rxcui) |
@@ -223,10 +225,7 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
     dplyr::left_join(rxcui_map_1, by = c("drug_1_rxnorn_id" = "rxcui")) %>%
     dplyr::left_join(drug_name_lookup_1, by = "drugbank_id_1") %>%
 
-    # Join for Drug 2 (Twosides seems to use 'rxnorm' for the second one? Or check if consistent)
-    # Based on your screenshot, assuming consistent spelling might be safer,
-    # but check your colnames. Usually data is consistent.
-    # If the second col is "drug_2_rxnorm_id" (with m), keep as is.
+    # Join for Drug 2 (Twosides seems to use 'rxnorm')
     dplyr::left_join(rxcui_map_2, by = c("drug_2_rxnorm_id" = "rxcui")) %>%
     dplyr::left_join(drug_name_lookup_2, by = "drugbank_id_2") %>%
 
