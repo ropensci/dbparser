@@ -152,6 +152,6 @@
                    drugbank$cett$targets$polypeptides$synonyms   15    2   2.4 Kb
                       drugbank$cett$targets$polypeptides$pfams    5    3   2.1 Kb
                          drugbank$cett$targets$polypeptides$go   37    3   5.6 Kb
-                        integrated_data$drug_drug_interactions 1706   17 300.9 Kb
+                        integrated_data$drug_drug_interactions 1706   17 340.1 Kb
                                twosides$drug_drug_interactions 1706   13 216.6 Kb
 
