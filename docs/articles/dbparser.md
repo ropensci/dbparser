@@ -141,6 +141,6 @@ combine it with real-world data!
 (Drug-Drug Interactions).
 
 Check out the **[Integrated Pharmacovigilance
-Vignette](https://docs.ropensci.org/dbparser/articles/integrated_pharmacovigilance.md)**
+Vignette](https://docs.ropensci.org/dbparser/articles/drugbank_nside.md)**
 to learn how to merge these databases to perform polypharmacy risk
 analysis.

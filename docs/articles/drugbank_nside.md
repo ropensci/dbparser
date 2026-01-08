@@ -279,7 +279,7 @@ show_dvobject_metadata(final_db)
 #>         integrated_data$vocab_rxnorm_ingredient_enriched     3    4   2.3 Kb
 #>                 integrated_data$high_confidence_enriched     2    3   1.6 Kb
 #>                   integrated_data$DrugBank_RxCUI_Mapping     2    2   1.2 Kb
-#>                   integrated_data$drug_drug_interactions  1706   17 300.9 Kb
+#>                   integrated_data$drug_drug_interactions  1706   17 340.1 Kb
 #>                          twosides$drug_drug_interactions  1706   13 216.6 Kb
 ```
 

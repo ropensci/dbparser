@@ -1,6 +1,6 @@
 # dbparser
 
-# dbparser 2.2.0
+# dbparser 2.2.1
 
 This is a major feature release focused on expanding `dbparser`'s capabilities into real-world pharmacovigilance and drug-drug interaction analysis. The integration engine has been formalized around a "Hub and Spoke" model, with DrugBank acting as the central hub.
 

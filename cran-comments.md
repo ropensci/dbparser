@@ -4,12 +4,7 @@
 0 errors | 0 warnings | 0 note
 
 ### Windows Server 2022, R-devel, 64 bit
-0 errors | 0 warnings | 1 note
-Found the following (possibly) invalid URLs:
-  URL: https://docs.ropensci.org/dbparser/articles/integrated_pharmacovigilance.html
-    From: README.md
-    Status: 404
-    Message: Not Found
+0 errors | 0 warnings | 0 note
 
 ### Ubuntu Linux 20.04.1 LTS, R-release, GCC
 0 errors | 0 warnings | 0 note
@@ -32,6 +27,4 @@ We checked 0 reverse dependencies, comparing R CMD check results across CRAN and
 rhub::rc_submit() # multiple environments are used for testing
 
 ### URL checks
-
-- rOpenSci tutorial URL (404): Will be available once pkgdown site is rebuilt
 - DrugBank URLs (403): Valid URLs, site blocks automated requests

@@ -153,7 +153,7 @@ head(final_db$integrated_data$drug_drug_interactions)
 
 For a detailed case study, please refer to the [Integrated
 Pharmacovigilance
-Vignette](https://docs.ropensci.org/dbparser/articles/integrated_pharmacovigilance.html).
+Vignette](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html).
 
 ## Installation
 

@@ -141,4 +141,4 @@ Now that you have mastered the mechanistic data in DrugBank, you can combine it 
 
 `dbparser` now supports **OnSIDES** (Adverse Events) and **TWOSIDES** (Drug-Drug Interactions).
 
-Check out the **[Integrated Pharmacovigilance Vignette](integrated_pharmacovigilance.html)** to learn how to merge these databases to perform polypharmacy risk analysis.
+Check out the **[Integrated Pharmacovigilance Vignette](drugbank_nside.html)** to learn how to merge these databases to perform polypharmacy risk analysis.
