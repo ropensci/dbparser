@@ -19,12 +19,12 @@ test_that(
                                biotech,
                                package = "dbparser")
 
-    dvobj    <- parseDrugBank(db_location)
-    metadata <- dbparser::show_dvobject_metadata(dvobj)
+    dvobj <- parseDrugBank(db_location)
+    capture_output(metadata <- dbparser::show_dvobject_metadata(dvobj))
 
-    expect_match(metadata$Value[[1]], "DrugBank")
-    expect_match(metadata$Value[[2]], "5.1")
-    expect_match(metadata$Value[[3]], "2018-07-03")
-    expect_match(metadata$Value[[4]], "dvobject")
+    expect_match(metadata$Database, "Original")
+    expect_match(metadata$Type, "DrugBank")
+    expect_match(metadata$Export_Date, "2018-07-03")
+    expect_match(metadata$Version, "5.1")
   }
 )

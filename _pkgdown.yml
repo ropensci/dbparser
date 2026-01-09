@@ -1,14 +1,32 @@
-navbar:
-  structure:
-    left:
-    - home
-    - intro
-    - reference
-    - articles
-    - tutorials
-    - news
-    right: [search, github, lightswitch]
+template:
+  bootstrap: 5
+  bootswatch: flatly
 
+url: https://docs.ropensci.org/dbparser
+
+navbar:
+  bg: primary
+  structure:
+    left: [intro, reference, articles, news]
+    right: [search, github]
+  components:
+    home:
+      icon: fas fa-home fa-lg
+      href: index.html
+      aria-label: "Home"
+    reference:
+      text: Reference
+      href: reference/index.html
+    intro:
+      text: Get started
+      href: articles/dbparser.html
+    news:
+      text: Changelog
+      href: news/index.html
+    github:
+      icon: fab fa-github
+      href: https://github.com/ropensci/dbparser
+      aria-label: "GitHub"
 
 reference:
 - title: "Drugs Databases Parser"
@@ -19,6 +37,10 @@ reference:
   desc: "Different functions to handle dvobject"
   contents:
     - has_concept("utility")
+- title: "Merge functions"
+  desc: "Different functions to merge different types of dvobjects"
+  contents:
+    - has_concept("mergers")
 
 authors:
   Mohammed Ali:

@@ -1,720 +1,232 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/404.html</loc>
-  </url>
-  <url>
-    <loc>/articles/Database_Saving.html</loc>
-  </url>
-  <url>
-    <loc>/articles/dbparser.html</loc>
-  </url>
-  <url>
-    <loc>/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>/authors.html</loc>
-  </url>
-  <url>
-    <loc>/CODE_OF_CONDUCT.html</loc>
-  </url>
-  <url>
-    <loc>/CONTRIBUTING.html</loc>
-  </url>
-  <url>
-    <loc>/index.html</loc>
-  </url>
-  <url>
-    <loc>/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>/news/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/add_drugbank_info.html</loc>
-  </url>
-  <url>
-    <loc>/reference/articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/attachments.html</loc>
-  </url>
-  <url>
-    <loc>/reference/books.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_polypeptide.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_polypeptides_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_polypeptides_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_polypeptide_ext_id.html</loc>
-  </url>
-  <url>
-    <loc>/reference/carriers_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_actions_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_ex_identity_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_go_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_nodes_options.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_poly_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_poly_pfms_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/cett_poly_syn_doc.html</loc>
-  </url>
-  <url>
-    <loc>/reference/close_db.html</loc>
-  </url>
-  <url>
-    <loc>/reference/dbparser.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drugs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_affected_organisms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_ahfs_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_atc_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_books.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_calc_prop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_categories.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_classification.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_dosages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_element.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_element_options.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_exp_prop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_external_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_ex_identity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_food_interactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_general_information.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_groups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_interactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_intern_brand.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_manufacturers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_mixtures.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_node_options.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_packagers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_patents.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_pathway.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_pathway_drugs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_pathway_enzyme.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_pdb_entries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_pharmacology.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_prices.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_products.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_reactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_reactions_enzymes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_salts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_sequences.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_snp_adverse_reactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_snp_effects.html</loc>
-  </url>
-  <url>
-    <loc>/reference/drug_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_polypeptide.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_polypeptide_ext_ident.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_polypeptide_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_polypeptide_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_polypeptide_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/enzymes_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_drugbank_exported_date.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_drugbank_metadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_drugbank_version.html</loc>
-  </url>
-  <url>
-    <loc>/reference/get_xml_db_rows.html</loc>
-  </url>
-  <url>
-    <loc>/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>/reference/init_dvobject.html</loc>
-  </url>
-  <url>
-    <loc>/reference/links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/open_db.html</loc>
-  </url>
-  <url>
-    <loc>/reference/open_mdb.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parseDrugBank.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_carr_poly.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_carr_polypeptides_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_carr_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_carr_polypeptides_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_carr_poly_ext_identity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_cett_node.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_affected_organisms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_ahfs_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_all.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_atc_codes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_books.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_calculated_properties.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_calc_prop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_polypeptides.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_polypeptides_external_identifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_polypeptides_go_classifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_polypeptides_synonyms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_carriers_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_categories.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_classification.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_classifications.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_dosages.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_element.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_element_options.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_polypeptides.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_polypeptides_external_identifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_polypeptides_go_classifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_polypeptides_synonyms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_enzymes_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_experimental_properties.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_exp_prop.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_external_identifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_external_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_ex_identity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_food_interactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_groups.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_interactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_international_brands.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_intern_brand.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_manufacturers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_mixtures.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_nodes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_packagers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_patents.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_pathway.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_pathway_drugs.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_pathway_enzyme.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_pdb_entries.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_prices.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_products.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_reactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_reactions_enzymes.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_salts.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_sequences.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_snp_adverse_drug_reactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_snp_effects.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_synonyms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_polypeptides.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_polypeptides_external_identifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_polypeptides_go_classifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_polypeptides_synonyms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targets_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_polys.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_polys_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_targ_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_polypeptides.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_polypeptides_external_identifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_polypeptides_go_classifiers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_polypeptides_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_polypeptides_synonyms.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_transporters_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_trans_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_trans_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_trans_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_trans_polys.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_drug_trans_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_enzy_poly.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_enzy_poly_ext_identitys.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_enzy_poly_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_enzy_poly_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_enzy_poly_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_references_node.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_snp_adverse_reactions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_targ_poly_ext_identity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_targ_poly_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_targ_poly_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_trans_poly_ex_identity.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_trans_poly_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_trans_poly_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/parse_trans_poly_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/read_drugbank_xml_db.html</loc>
-  </url>
-  <url>
-    <loc>/reference/references.html</loc>
-  </url>
-  <url>
-    <loc>/reference/references_node_options.html</loc>
-  </url>
-  <url>
-    <loc>/reference/run_all_parsers.html</loc>
-  </url>
-  <url>
-    <loc>/reference/show_dvobject_metadata.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_polypeptide.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_polypeptide_ext_ident.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_polypeptide_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_polypeptide_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_polypeptide_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/targets_textbooks.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_actions.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_articles.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_links.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_polypeptide.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_polypeptide_go.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_polypeptide_pfams.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_polypeptide_syn.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_polypep_ex_ident.html</loc>
-  </url>
-  <url>
-    <loc>/reference/transporters_textbooks.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://docs.ropensci.org/dbparser/404.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/articles/Database_Saving.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/articles/dbparser.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/articles/dbparser_2_2.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/articles/drugbank_nside.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/articles/index.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/authors.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/CODE_OF_CONDUCT.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/CONTRIBUTING.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/index.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/LICENSE-text.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/news/index.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/paper.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/add_database_info.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/add_drugbank_info.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/attachments.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/books.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/build_metadata.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/carriers_polypeptide.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/carriers_polypeptide_ext_id.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_actions_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_ex_identity_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_go_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_nodes_options.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_poly_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_poly_pfms_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/cett_poly_syn_doc.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/close_db.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/count_top_level_lists.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/dbparser.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drugs.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_affected_organisms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_ahfs_codes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_all.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_atc_codes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_books.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_calc_prop.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_categories.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_classification.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_dosages.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_element.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_element_options.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_exp_prop.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_external_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_ex_identity.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_food_interactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_general_information.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_groups.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_interactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_intern_brand.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_manufacturers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_mixtures.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_node_options.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_packagers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_patents.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_pathway.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_pathway_drugs.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_pathway_enzyme.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_pdb_entries.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_pharmacology.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_prices.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_products.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_reactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_reactions_enzymes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_salts.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_sequences.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_snp_adverse_reactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_snp_effects.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/drug_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/enzymes_polypeptide.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/enzymes_polypeptide_ext_ident.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/enzymes_polypeptide_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/enzymes_polypeptide_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/enzymes_polypeptide_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/find_dataframes_recursive.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/find_second_database.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/get_drugbank_exported_date.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/get_drugbank_metadata.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/get_drugbank_version.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/get_xml_db_rows.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/index.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/init_dvobject.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/merge_drugbank_onsides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/merge_drugbank_twosides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/open_db.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/open_mdb.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parseDrugBank.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parseOnSIDES.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parseTWOSIDES.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_carr_poly.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_carr_polypeptides_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_carr_polypeptides_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_carr_polypeptides_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_carr_poly_ext_identity.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_cett_node.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_affected_organisms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_ahfs_codes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_all.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_atc_codes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_books.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_calculated_properties.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_calc_prop.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_polypeptides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_polypeptides_external_identifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_polypeptides_go_classifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_polypeptides_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_polypeptides_synonyms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_carriers_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_categories.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_classification.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_classifications.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_dosages.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_element.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_element_options.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_polypeptides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_polypeptides_external_identifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_polypeptides_go_classifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_polypeptides_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_polypeptides_synonyms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_enzymes_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_experimental_properties.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_exp_prop.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_external_identifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_external_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_ex_identity.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_food_interactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_groups.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_interactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_international_brands.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_intern_brand.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_manufacturers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_mixtures.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_nodes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_packagers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_patents.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_pathway.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_pathway_drugs.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_pathway_enzyme.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_pdb_entries.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_prices.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_products.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_reactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_reactions_enzymes.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_salts.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_sequences.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_snp_adverse_drug_reactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_snp_effects.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_synonyms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_polypeptides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_polypeptides_external_identifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_polypeptides_go_classifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_polypeptides_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_polypeptides_synonyms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targets_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_polys.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_polys_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_targ_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_polypeptides.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_polypeptides_external_identifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_polypeptides_go_classifiers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_polypeptides_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_polypeptides_synonyms.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_transporters_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_trans_actions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_trans_articles.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_trans_links.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_trans_polys.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_drug_trans_textbooks.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_enzy_poly.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_enzy_poly_ext_identitys.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_enzy_poly_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_enzy_poly_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_enzy_poly_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_references_node.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_snp_adverse_reactions.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_targ_poly_ext_identity.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_targ_poly_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_targ_poly_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_trans_poly_ex_identity.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_trans_poly_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_trans_poly_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/parse_trans_poly_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/read_drugbank_xml_db.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/references.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/references_node_options.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/run_all_parsers.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/show_dvobject_metadata.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/subset_drugbank_dvobject.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/subset_onsides_dvobject.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/targets_polypeptide.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/targets_polypeptide_ext_ident.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/targets_polypeptide_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/targets_polypeptide_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/targets_polypeptide_syn.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/transporters_polypeptide.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/transporters_polypeptide_go.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/transporters_polypeptide_pfams.html</loc></url>
+<url><loc>https://docs.ropensci.org/dbparser/reference/transporters_polypeptide_syn.html</loc></url>
 </urlset>
+

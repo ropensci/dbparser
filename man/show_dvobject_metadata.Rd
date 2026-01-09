@@ -2,19 +2,34 @@
 % Please edit documentation in R/dvobject_metadata.R
 \name{show_dvobject_metadata}
 \alias{show_dvobject_metadata}
-\title{init_dvobject
-  Returns data.frame with two columns (key, value) of dvobject attributes}
+\title{Display dvobject Metadata}
 \usage{
-show_dvobject_metadata(dvobject)
+show_dvobject_metadata(obj, return_df = FALSE)
 }
 \arguments{
-\item{dvobject}{- dvobject list to show related metadata}
+\item{obj}{A dvobject}
+
+\item{return_df}{Logical. If TRUE, returns metadata data.frame without printing.
+Default is FALSE.}
 }
 \value{
-data.frame
+Invisibly returns a data.frame containing dvobject metadata
 }
 \description{
-init_dvobject
-  Returns data.frame with two columns (key, value) of dvobject attributes
+Displays information about passed dbobject object including basic info,
+database metadata, and all data.frames contained within nested lists.
+}
+\examples{
+\dontrun{
+display_merged_db_attrs(drugbank)
+metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
+}
+
+}
+\seealso{
+Other utility: 
+\code{\link{add_database_info}()},
+\code{\link{subset_drugbank_dvobject}()},
+\code{\link{subset_onsides_dvobject}()}
 }
 \concept{utility}

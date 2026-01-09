@@ -1,0 +1,55 @@
+---
+title: "Introducing dbparser 2.2.0"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introducing dbparser 2.2.0}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+Data in computational pharmacology is often siloed. We have databases that tell us *what* a drug is (DrugBank), databases that tell us *what side effects* it causes (OnSIDES), and databases that tell us *how it interacts* with other drugs (TWOSIDES).
+
+Connecting these silos has historically been a painful process of manual mapping and ad-hoc scripting. Today, we are releasing `dbparser` 2.2.0 to solve this problem once and for all.
+
+#### The "Hub and Spoke" Architecture
+
+Version 2.2.0 moves beyond simple XML parsing. We have re-engineered the package around a "Hub and Spoke" integration model:
+
+*   **The Hub:** DrugBank serves as the anchor, providing the stable molecular definitions.
+*   **The Spokes:** OnSIDES and TWOSIDES provide the phenotypic and clinical layers.
+
+We introduced specific functions to bridge these worlds. The new `merge_drugbank_onsides()` and `merge_drugbank_twosides()` functions don't just combine lists; they perform intelligent "double joins" and ID mapping (using RxNorm CUIs) to ensure that your molecular data is correctly linked to clinical outcomes.
+
+#### Pipeline-Ready Pharmacovigilance
+
+One of our main design goals was usability. The new merge functions are "chainable," meaning they integrate seamlessly with the `tidyverse`. You can now build a massive, multi-domain pharmacovigilance dataset in three lines of R code:
+
+```r
+library(dbparser)
+library(dplyr)
+
+final_db <- parseDrugBank("data/drugbank.xml") %>%
+  merge_drugbank_onsides(parseOnSIDES("data/onsides/")) %>%
+  merge_drugbank_twosides(parseTWOSIDES("data/twosides.csv.gz"))
+```
+
+The result is a unified `dvobject` (DrugVerse Object) that contains mechanistic data, label data, and interaction data, all enriched with common identifiers.
+
+#### New Tools for Reproducibility
+
+To support developers and educators, we also exposed our internal subsetting engines (`subset_drugbank_dvobject` and `subset_onsides_dvobject`). These schema-aware functions allow you to slice massive databases into consistent, shareable micro-datasets—perfect for creating unit tests or teaching materials.
+
+#### A Scientific Case Study
+
+To demonstrate the power of this new workflow, we included a comprehensive new vignette: **[Integrated Pharmacovigilance](drugbank_nside.html)**
+
+In this tutorial, we perform a live analysis of **Leuprolide** (a hormone therapy) and **Calcitriol** (Vitamin D). We define their individual side effect profiles using OnSIDES, and then use the new TWOSIDES integration to quantify the specific risks—such as Anaemia—that arise when these two drugs are prescribed together.
+
+#### Availability
+
+`dbparser` 2.2.0 is available now. You can install it from GitHub to get the latest features immediately, in case it is not available on CRAN yet.
+
+```r
+devtools::install_github("ropensci/dbparser")
+```
+
+We look forward to seeing what the community builds with these new capabilities!

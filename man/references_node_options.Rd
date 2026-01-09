@@ -16,6 +16,8 @@ returns references node valid options.
 Other parsers: 
 \code{\link{cett_nodes_options}()},
 \code{\link{drug_node_options}()},
-\code{\link{parseDrugBank}()}
+\code{\link{parseDrugBank}()},
+\code{\link{parseOnSIDES}()},
+\code{\link{parseTWOSIDES}()}
 }
 \concept{parsers}
