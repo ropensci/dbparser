@@ -1,6 +1,10 @@
 # Changelog
 
+## dbparser (development version)
+
 ## dbparser 2.2.1
+
+CRAN release: 2026-01-08
 
 This is a major feature release focused on expanding `dbparser`’s
 capabilities into real-world pharmacovigilance and drug-drug interaction

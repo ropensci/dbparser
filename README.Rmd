@@ -42,7 +42,17 @@ That should help in:
 - ease of transferring data between researchers after performing required data
 analysis or `dvobject` and storing results in the same object in a very easy manner.
 
-### dvobject Structure
+## dbparser in Advanced Research
+
+dbparser serves as data infrastructure for cutting-edge research:
+
+- **Explainable AI for Drug Repurposing**: Featured in IEEE ICEBE 2025 presentation 
+  on knowledge graph-based drug discovery (University of Technology Sydney collaboration)
+- **Systems Pharmacology**: Integrated into Multipath package for pathway modeling
+- **Pandemic Response**: Enabled rapid COVID-19 therapeutic candidate identification
+- **Cancer Research**: Supporting SURFACER workflow for pan-cancer biomarker detection
+
+## dvobject Structure
 `dvobject` introduces a unified and compressed format of drugs data.
 It is an R list object. 
 

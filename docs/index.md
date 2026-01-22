@@ -42,7 +42,21 @@ That should help in:
   required data analysis or `dvobject` and storing results in the same
   object in a very easy manner.
 
-### dvobject Structure
+## dbparser in Advanced Research
+
+dbparser serves as data infrastructure for cutting-edge research:
+
+- **Explainable AI for Drug Repurposing**: Featured in IEEE ICEBE 2025
+  presentation on knowledge graph-based drug discovery (University of
+  Technology Sydney collaboration)
+- **Systems Pharmacology**: Integrated into Multipath package for
+  pathway modeling
+- **Pandemic Response**: Enabled rapid COVID-19 therapeutic candidate
+  identification
+- **Cancer Research**: Supporting SURFACER workflow for pan-cancer
+  biomarker detection
+
+## dvobject Structure
 
 `dvobject` introduces a unified and compressed format of drugs data. It
 is an R list object.
@@ -195,7 +209,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat ().  dbparser: DrugBank Database XML Parser.
-#>   R package version 2.2.0.
+#>   R package version 2.2.1.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -203,7 +217,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Interstellar for Consultinc inc.},
-#>     note = {R package version 2.2.0},
+#>     note = {R package version 2.2.1.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
