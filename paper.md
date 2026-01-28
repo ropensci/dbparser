@@ -34,6 +34,30 @@ Each database employs distinct file formats and structural conventions: DrugBank
 
 The R ecosystem, despite its strength in statistical analysis and visualization, lacks dedicated tools for pharmacological database integration. While Bioconductor [@gentleman2004bioconductor] provides excellent infrastructure for genomics data, no equivalent standardized framework exists for drug databases. `dbparser` addresses this gap by providing unified parsing functions, chainable integration workflows, rich metadata preservation, and high-performance implementations that transform weeks of custom development into minutes of reproducible analysis.
 
+# State of the Field
+
+The landscape of tools for accessing pharmacological databases is fragmented across languages and lacks comprehensive integration capabilities. We surveyed existing solutions before developing `dbparser` and found significant gaps that justified new development rather than contribution to existing projects.
+
+## R Ecosystem
+
+The R pharmacology ecosystem has limited database integration tools. The **`drugbankr` package** (archived on CRAN since 2019) provided basic DrugBank XML parsing but lacked maintenance, testing infrastructure, and integration capabilities. It supported only DrugBank and offered no framework for multi-database workflows. **Bioconductor packages** such as `AnnotationHub` and `biomaRt` excel at genomic data integration but are architecturally designed for gene-centric annotations rather than drug-centric pharmacological data. Their data models assume different entity relationships (genes → variants → phenotypes) than drug databases require (drugs → targets → pathways → diseases → adverse events). While technically possible to force pharmacological data into these frameworks, doing so creates architectural impedance mismatches that complicate downstream analyses.
+
+## Python and Other Languages
+
+Python tools exist for individual databases but lack cross-database integration. **`pydrugbank`** and **`drugbank-downloader`** parse DrugBank XML but provide no standardization layer for integrating with other resources. **`bioservices`** accesses web APIs for multiple databases but focuses on real-time queries rather than creating integrated, analysis-ready datasets. These tools serve different use cases (programmatic access) than `dbparser` (reproducible local analysis). Language barriers also matter: R dominates statistical pharmacology and clinical data analysis, making Python-only solutions less accessible to the target community.
+
+## Commercial and Manual Approaches
+
+Commercial platforms like **Clarivate Cortellis** and **Certara D360** offer integrated drug data but are proprietary, expensive (typically $10,000-$50,000+ annually), and provide limited reproducibility for academic research. Researchers often resort to manual approaches: writing custom parsing scripts for each database, manually reconciling identifiers, and creating ad-hoc integration pipelines. These solutions are non-reproducible, time-intensive, and lack quality assurance.
+
+## Unique Contribution of dbparser
+
+`dbparser` addresses three critical gaps: 
+
+- **(1) Multi-database integration**: No existing R package provides standardized parsing and integration across DrugBank, OnSIDES and TWOSIDES with unified output structures. 
+- **(2) Production-quality infrastructure**: Achieving 98% test coverage, rOpenSci peer review, and comprehensive documentation distinguishes `dbparser` from ad-hoc scripts or abandoned packages. 
+- **(3) Reproducible research focus**: Unlike API-based tools that retrieve current data, `dbparser` processes versioned database releases, enabling reproducible analyses that are critical for published research. The demonstrated impact—50,000+ downloads, 10+ peer-reviewed publications, and downstream package development—validates that `dbparser` fills a genuine gap rather than duplicating existing functionality.
+
 # Software Design
 
 ## Design Philosophy and Trade-offs
@@ -46,15 +70,9 @@ The R ecosystem, despite its strength in statistical analysis and visualization,
 
 **Chainable Merge Operations:** Integration functions are designed for pipeline composition using the magrittr pipe operator, enabling workflows like `drugbank_db %>% merge_drugbank_onsides(onsides_db) %>% merge_drugbank_twosides(twosides_db)`. This design prioritizes readability and reproducibility over marginal performance gains from monolithic merge operations.
 
-## Build vs. Contribute Justification
+## Architectural Foundation
 
-We evaluated contributing to existing projects before creating `dbparser`. The primary alternatives were:
-
-- **Bioconductor's AnnotationHub**: Focused on genomic annotations rather than drug databases; its infrastructure assumes different data models than pharmacological resources require.
-- **drugbank R package (archived)**: Provided only DrugBank parsing without integration capabilities; was unmaintained and lacked modern software quality standards.
-- **Python alternatives** (e.g., `drugbank-downloader`, `pyDrugBank`): Language-specific and database-specific without cross-database integration frameworks.
-
-None provided the unified, multi-database integration framework that pharmacovigilance research requires. Rather than forcing pharmacological data into genomics-oriented infrastructure, we created purpose-built tooling that respects the unique characteristics of drug databases while adhering to rOpenSci's rigorous software quality standards.
+As detailed in the State of the Field section, existing tools focus on single databases or different domains (genomics vs. pharmacology). `dbparser`'s architecture was specifically designed for multi-database pharmacological integration, building on lessons learned from evaluating alternatives. The `dvobject` structure emerged from the need to preserve complex relational hierarchies (drug → target → pathway → disease) while providing consistent access patterns across heterogeneous sources. This design enables the downstream package ecosystem (dbdataset, covid19dbcand) and published research applications that would be technically prohibitive with existing tools.
 
 ## Validation Through Ecosystem Development
 
@@ -193,6 +211,6 @@ Generative AI tools (Claude, Anthropic) were used to assist with drafting portio
 
 # Acknowledgements
 
-We gratefully acknowledge the creators and maintainers of DrugBank, OnSIDES, TWOSIDES, SIDER, and OFFSIDES for making their invaluable data resources publicly available to the research community. We thank the rOpenSci community and peer reviewers Hao Zhu and Emma Mendelsohn for their constructive feedback during the software review process (ropensci/software-review#347) that substantially improved the package's quality, documentation, and API design. Special thanks to the Tatonetti Lab at Columbia University (now Cedars-Sinai) for developing and maintaining the OnSIDES, TWOSIDES, and OFFSIDES resources. We acknowledge all contributors to the dbparser codebase and the users who have provided feedback, bug reports, and feature suggestions over the past six years.
+We gratefully acknowledge the creators and maintainers of DrugBank, OnSIDES and TWOSIDES for making their invaluable data resources publicly available to the research community. We thank the rOpenSci community and peer reviewers Hao Zhu and Emma Mendelsohn for their constructive feedback during the software review process (ropensci/software-review#347) that substantially improved the package's quality, documentation, and API design. Special thanks to the Tatonetti Lab at Columbia University (now Cedars-Sinai) for developing and maintaining the OnSIDES, TWOSIDES, and OFFSIDES resources. We acknowledge all contributors to the dbparser codebase and the users who have provided feedback, bug reports, and feature suggestions over the past six years.
 
 # References
