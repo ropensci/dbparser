@@ -34,7 +34,7 @@ Each database employs distinct file formats and structural conventions: DrugBank
 
 The R ecosystem, despite its strength in statistical analysis and visualization, lacks dedicated tools for pharmacological database integration. While Bioconductor [@gentleman2004bioconductor] provides excellent infrastructure for genomics data, no equivalent standardized framework exists for drug databases. `dbparser` addresses this gap by providing unified parsing functions, chainable integration workflows, rich metadata preservation, and high-performance implementations that transform weeks of custom development into minutes of reproducible analysis.
 
-# State of the Field
+# State of the field
 
 The landscape of tools for accessing pharmacological databases is fragmented across languages and lacks comprehensive integration capabilities. We surveyed existing solutions before developing `dbparser` and found significant gaps that justified new development rather than contribution to existing projects.
 
