@@ -1,5 +1,5 @@
 ---
-title: 'dbparser: An R Package for Parsing and Integrating Pharmacological Databases'
+title: "dbparser: An R Package for Parsing and Integrating Pharmacological Databases"
 tags:
   - R
   - bioinformatics
