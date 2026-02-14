@@ -18,6 +18,9 @@ Documentation](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdoc
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![rOpenSci
 Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
+[![JOSS
+Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg)](https://doi.org/10.5281/zenodo.18608628)
 
 ## Overview
 
