@@ -18,6 +18,9 @@ Documentation](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdoc
 Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
 [![rOpenSci
 Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
+[![JOSS
+Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg)](https://doi.org/10.5281/zenodo.18608628)
 
 ## Overview
 
@@ -45,7 +48,21 @@ That should help in:
   required data analysis or `dvobject` and storing results in the same
   object in a very easy manner.
 
-### dvobject Structure
+## dbparser in Advanced Research
+
+dbparser serves as data infrastructure for cutting-edge research:
+
+- **Explainable AI for Drug Repurposing**: Featured in IEEE ICEBE 2025
+  presentation on knowledge graph-based drug discovery (University of
+  Technology Sydney collaboration)
+- **Systems Pharmacology**: Integrated into Multipath package for
+  pathway modeling
+- **Pandemic Response**: Enabled rapid COVID-19 therapeutic candidate
+  identification
+- **Cancer Research**: Supporting SURFACER workflow for pan-cancer
+  biomarker detection
+
+## dvobject Structure
 
 `dvobject` introduces a unified and compressed format of drugs data. It
 is an R list object.
@@ -196,7 +213,7 @@ citation("dbparser")
 #> To cite dbparser in publications use:
 #> 
 #>   Mohammed Ali, Ali Ezzat ().  dbparser: DrugBank Database XML Parser.
-#>   R package version 2.2.0.
+#>   R package version 2.2.1.9000.
 #> 
 #> A BibTeX entry for LaTeX users is
 #> 
@@ -204,7 +221,7 @@ citation("dbparser")
 #>     title = {DrugBank Database XML Parser},
 #>     author = {Mohammed Ali and Ali Ezzat},
 #>     organization = {Interstellar for Consultinc inc.},
-#>     note = {R package version 2.2.0},
+#>     note = {R package version 2.2.1.9000},
 #>     url = {https://CRAN.R-project.org/package=dbparser},
 #>   }
 ```
