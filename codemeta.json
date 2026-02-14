@@ -173,7 +173,9 @@
       ],
       "name": "DrugBank Database XML Parser",
       "url": "https://CRAN.R-project.org/package=dbparser",
-      "description": "R package version 2.0.1"
+      "description": "An R Package for Parsing and Integrating
+Pharmacological Databases. Journal of Open Source Software, 11(118),
+9950, https://doi.org/10.21105/joss.09950"
     }
   ],
   "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
