@@ -1,148 +1,113 @@
 
-<!-- README.md is generated from README.Rmd. Please edit attributes file -->
+<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 # dbparser <img src="man/figures/logo.png" align="right" />
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
-[![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/dbparser)
-[![Project Status: Active – The project has reached a stable, usable
-state and is being actively
-developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
-[![Lifecycle:
-stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
-[![metacran
-downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
-[![Rdoc
-Documentation](https://img.shields.io/badge/Doc-Rdoc-blue.svg)](https://www.rdocumentation.org/packages/dbparser)
-[![CII Best
-Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
-[![rOpenSci
-Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 [![JOSS
 Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381)
+[![rOpenSci
+Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg)](https://doi.org/10.5281/zenodo.18608628)
+[![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/dbparser)
+[![metacran
+downloads](https://cranlogs.r-pkg.org/badges/grand-total/dbparser)](https://cran.r-project.org/package=dbparser)
+[![CII Best
+Practices](https://bestpractices.coreinfrastructure.org/projects/3311/badge)](https://bestpractices.coreinfrastructure.org/projects/3311)
+[![Lifecycle:
+stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html)
 
 ## Overview
 
-Drugs databases vary too much in their formats and structures which
-making related data analysis not a very easy job and requires a lot of
-efforts to work on only two databases together such as
-[DrugBank](https://go.drugbank.com/), [OnSIDES](https://onsidesdb.org/),
-and [TWOSIDES](https://tatonettilab.org/resources/nsides/).
+`dbparser` is an [rOpenSci](https://ropensci.org/) peer-reviewed R
+package that parses and integrates major pharmacological databases into
+standardized, analysis-ready R objects called `dvobject`s (drugverse
+objects).
 
-Hence, `dbparser` package aims to parse different public drugs databases
-into a single and unified format R object called `dvobject` (stands for
-drugverse object).
+Pharmacological databases use incompatible formats and structures,
+forcing researchers to write custom parsing scripts — a process that
+consumes 60–80% of analysis time. `dbparser` eliminates this bottleneck
+with unified parsing functions, chainable merge operations, and a
+consistent output structure that enables reproducible, cross-database
+analyses.
 
 With recent updates, `dbparser` has evolved into an **integration
 engine**, allowing you to merge mechanistic data (DrugBank) with
 real-world phenotypic data (OnSIDES) and drug-drug interaction risks
 (TWOSIDES).
 
-That should help in:
+## Installation
 
-- working with single data object and not multiple databases in
-  different formats,
-- using R analysis capabilities easily on drugs data,
-- ease of transferring data between researchers after performing
-  required data analysis or `dvobject` and storing results in the same
-  object in a very easy manner.
+``` r
+# From CRAN (stable)
+install.packages("dbparser")
 
-## dbparser in Advanced Research
+# From GitHub (development)
+# install.packages("pak")
+pak::pak("ropensci/dbparser")
+```
 
-dbparser serves as data infrastructure for cutting-edge research:
+## Supported Databases
 
-- **Explainable AI for Drug Repurposing**: Featured in IEEE ICEBE 2025
-  presentation on knowledge graph-based drug discovery (University of
-  Technology Sydney collaboration)
-- **Systems Pharmacology**: Integrated into Multipath package for
-  pathway modeling
-- **Pandemic Response**: Enabled rapid COVID-19 therapeutic candidate
-  identification
-- **Cancer Research**: Supporting SURFACER workflow for pan-cancer
-  biomarker detection
+### DrugBank (The Mechanistic Hub)
 
-## dvobject Structure
+[DrugBank](https://go.drugbank.com/) is a comprehensive database
+containing detailed drug, pharmacological, and target information. As
+both a bioinformatics and a cheminformatics resource, DrugBank combines
+detailed drug data (chemical, pharmacological, pharmaceutical) with
+comprehensive drug target information (sequence, structure, pathway).
+More information can be found [here](https://go.drugbank.com/about).
 
-`dvobject` introduces a unified and compressed format of drugs data. It
-is an R list object.
+- **Parser:** `parseDrugBank()`
+- **Input:** Full XML database
+  ([download](https://go.drugbank.com/releases/latest) — requires free
+  [account](https://go.drugbank.com/public_users/sign_up), may take a
+  couple of days)
+- **Tested versions:** 5.1.0 through 5.1.12
+- **Alternative:** Use
+  [dbdataset](https://interstellar-egypt.github.io/dbdataset/) for
+  pre-parsed data without downloading the XML (GitHub only, exceeds CRAN
+  size limit)
+- **Tutorial:** [DrugBank Parsing
+  Vignette](https://docs.ropensci.org/dbparser/articles/dbparser.html)
 
-**For a single database (e.g., DrugBank):** It contains one or more of
-the following sub-lists:
-
-- **drugs**: list of data.frames that contain drugs information
-  (i.e. synonyms, classifications, …) and it is the only mandatory list
-- **salts**: data.frame contains drugs salts information
-- **products**: data.frame of commercially available drugs products in
-  the world
-- **references**: data.frame of articles, links and textbooks about
-  drugs or CETT data
-- **cett**: list of data.frames contain targets, enzymes, carriers and
-  transporters information
-
-**For a merged database (Integrated Pharmacovigilance):** When databases
-are merged using `merge_drugbank_onsides` or `merge_drugbank_twosides`,
-the `dvobject` becomes a nested structure containing:
-
-- **drugbank**: The mechanistic hub.
-- **onsides**: The side-effect data (from FDA labels).
-- **twosides**: The drug-drug interaction data.
-- **integrated_data**: Enriched tables that bridge the databases (e.g.,
-  linking DrugBank IDs to OnSIDES adverse events).
-- **metadata**: Detailed provenance for all contained datasets.
-
-## Drug Databases
-
-Parsers are available for the following databases (it is in progress
-list)
-
-### 1. DrugBank
-
-[DrugBank](https://go.drugbank.com/) database is a comprehensive, freely
-accessible, online database containing information on drugs and drug
-targets. As both a bioinformatics and a cheminformatics resource,
-DrugBank combines detailed drug (i.e. chemical, pharmacological and
-pharmaceutical) data with comprehensive drug target (i.e. sequence,
-structure, and pathway) information. More information about DrugBank can
-be found [here](https://go.drugbank.com/about).
-
-In its raw form, the DrugBank database is a single XML file. Users must
-create an [account](https://go.drugbank.com/public_users/sign_up) with
-DrugBank and request permission to
-[download](https://go.drugbank.com/releases/latest) the database. Note
-that this may take a couple of days.
-
-The `dbparser` package parses the DrugBank XML database into `R` tibbles
-that can be explored and analyzed by the user, check [this
-tutorial](https://docs.ropensci.org/dbparser/articles/dbparser.html) for
-more details.
-
-If you are waiting for access to the DrugBank database, or do not intend
-to do a deep dive with the data, you may wish to use the `dbdataset`
-[package](https://interstellar-egypt.github.io/dbdataset/), which
-contains the DrugBank database already parsed into `dvobject`. Note that
-this is a large package that exceeds the limit set by CRAN. It is only
-available on GitHub.
-
-`dbparser` is tested against DrugBank versions *5.1.0* through *5.1.12*
-successfully. If you find errors with these versions or any other
-version please submit an issue
+If you find errors with any DrugBank version, please submit an issue
 [here](https://github.com/ropensci/dbparser/issues).
 
-### 2. OnSIDES (The Phenotype)
+### OnSIDES (Adverse Drug Events)
 
 [OnSIDES](https://onsidesdb.org/) provides adverse drug events extracted
-from thousands of FDA drug labels using machine learning. \* **Parser:**
-`parseOnSIDES()` \* **Input:** Directory containing OnSIDES CSV files.
+from thousands of FDA drug labels using machine learning.
 
-### 3. TWOSIDES (Polypharmacy)
+- **Parser:** `parseOnSIDES()`
+- **Input:** Directory containing OnSIDES CSV files
+
+### TWOSIDES (Drug-Drug Interactions)
 
 [TWOSIDES](https://tatonettilab.org/resources/nsides/) provides data on
-drug-drug interactions and the adverse events that arise when two drugs
-are taken together. \* **Parser:** `parseTWOSIDES()` \* **Input:** The
-`TWOSIDES.csv.gz` file.
+adverse events arising when two drugs are taken together.
 
-## Quick Start: Integration Pipeline
+- **Parser:** `parseTWOSIDES()`
+- **Input:** `TWOSIDES.csv.gz` file
+
+## Quick Start
+
+### Parse a Single Database
+
+``` r
+library(dbparser)
+
+# Parse DrugBank
+drugbank_db <- parseDrugBank("data/drugbank.xml")
+
+# Parse OnSIDES
+onsides_db <- parseOnSIDES("data/onsides/")
+
+# Parse TWOSIDES
+twosides_db <- parseTWOSIDES("data/TWOSIDES.csv.gz")
+```
+
+### Integration Pipeline
 
 The power of `dbparser` lies in its ability to chain parsers and mergers
 together. Here is how you can build a complete pharmacovigilance
@@ -158,70 +123,107 @@ onsides_db  <- parseOnSIDES("data/onsides/")
 twosides_db <- parseTWOSIDES("data/TWOSIDES.csv.gz")
 
 # 2. Build the Integrated Knowledge Graph
-#    DrugBank serves as the hub. We chain the merges.
-final_db <- drugbank_db %>% 
-  merge_drugbank_onsides(onsides_db) %>% 
+#    DrugBank serves as the hub. Chain the merges.
+final_db <- drugbank_db %>%
+  merge_drugbank_onsides(onsides_db) %>%
   merge_drugbank_twosides(twosides_db)
 
 # 3. Analyze Results
-#    Example: Accessing the enriched drug-drug interaction table
 head(final_db$integrated_data$drug_drug_interactions)
 ```
 
-For a detailed case study, please refer to the [Integrated
-Pharmacovigilance
+For a detailed case study, see the [Integrated Pharmacovigilance
 Vignette](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html).
 
-## Installation
+## The dvobject Structure
 
-You can install the released version of dbparser from
-[CRAN](https://CRAN.R-project.org) with:
+`dvobject` is a unified, compressed format for pharmacological data — an
+R list object that preserves complex relational hierarchies while
+enabling consistent access patterns.
+
+**For a single database (e.g., DrugBank):**
+
+- **drugs**: list of data frames containing drug information (synonyms,
+  classifications, etc.) — the only mandatory component
+- **salts**: data frame of drug salt information
+- **products**: data frame of commercially available drug products
+  worldwide
+- **references**: data frame of articles, links, and textbooks about
+  drugs or CETT data
+- **cett**: list of data frames containing targets, enzymes, carriers,
+  and transporters information
+
+**For a merged database (Integrated Pharmacovigilance):**
+
+When databases are merged using `merge_drugbank_onsides` or
+`merge_drugbank_twosides`, the `dvobject` becomes a nested structure:
+
+- **drugbank**: The mechanistic hub
+- **onsides**: Side-effect data (from FDA labels)
+- **twosides**: Drug-drug interaction data
+- **integrated_data**: Enriched tables bridging databases (e.g., linking
+  DrugBank IDs to OnSIDES adverse events)
+- **metadata**: Detailed provenance for all contained datasets
+
+## Research Impact
+
+`dbparser` has enabled **10+ peer-reviewed publications** in leading
+journals:
+
+| Domain | Journal | Reference |
+|----|----|----|
+| Alzheimer’s Drug Repurposing | *Nature Scientific Reports* | Parolo et al. (2023) |
+| COVID-19 Therapeutics | *Pharmaceutics* | Pérez-Moraga et al. (2021) |
+| Pan-Cancer Biomarkers | *Briefings in Bioinformatics* | Mercatelli et al. (2022) |
+| Pathway Modeling | *Computer Methods and Programs in Biomedicine* | Hammoud et al. (2025) |
+| Clinical Trial Analysis | *Frontiers in Pharmacology* | Namiot et al. (2023) |
+
+📊 **50,000+ CRAN downloads** \| Featured in the [CRAN Epidemiology Task
+View](https://cran.r-project.org/web/views/Epidemiology.html)
+
+For the full list, see our [JOSS
+paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381).
+
+## Ecosystem
+
+| Package | Description | Links |
+|----|----|----|
+| [dbdataset](https://interstellar-egypt.github.io/dbdataset/) | Pre-parsed DrugBank datasets ready for analysis | [GitHub](https://github.com/interstellar-egypt/dbdataset) |
+| [covid19dbcand](https://github.com/interstellar-egypt/covid19dbcand) | COVID-19 drug candidate datasets | [GitHub](https://github.com/interstellar-egypt/covid19dbcand) |
+| [periscope2](https://periscopeapps.org/) | Shiny framework for interactive dashboards | [CRAN](https://cran.r-project.org/package=periscope2) |
+
+## Citation
+
+If you use `dbparser` in published research, please cite our JOSS paper:
+
+    Ali et al., (2026). dbparser: An R Package for Parsing and Integrating
+    Pharmacological Databases. Journal of Open Source Software, 11(118),
+    9950, https://doi.org/10.21105/joss.09950
 
 ``` r
-install.packages("dbparser")
+citation("dbparser")
 ```
 
-or you can install the latest updates directly from the repo
+If you find `dbparser` useful, consider ⭐ starring the [GitHub
+repository](https://github.com/ropensci/dbparser) and sharing it with
+colleagues.
 
-``` r
-library(devtools)
-devtools::install_github("ropensci/dbparser")
-```
+## Enterprise Support
 
-## Code of Conduct
+For custom database integrations, enterprise support, training, or
+deployment assistance — `dbparser` is maintained by [Interstellar
+Consultation Services](https://interstellar-egypt.com).
 
-Please note that the ‘dbparser’ project is released with a [Contributor
+📧 <info@interstellar-egypt.com>
+
+## Contributing
+
+We welcome contributions! Please review our [Contributing
+Guide](https://docs.ropensci.org/dbparser/CONTRIBUTING.html).
+
+Please note that the `dbparser` project is released with a [Contributor
 Code of
 Conduct](https://docs.ropensci.org/dbparser/CODE_OF_CONDUCT.html). By
 contributing to this project, you agree to abide by its terms.
 
-## Contributing Guide
-
-👍🎉 First off, thanks for taking the time to contribute! 🎉👍 Please
-review our [Contributing
-Guide](https://docs.ropensci.org/dbparser/CONTRIBUTING.html).
-
-## Share the love ❤️
-
-Think **dbparser** is useful? Let others discover it, by telling them in
-person, via Twitter or a blog post.
-
-Using **dbparser** for a paper you are writing? Consider citing it
-
-``` r
-citation("dbparser")
-#> To cite dbparser in publications use:
-#> 
-#>   Mohammed Ali, Ali Ezzat ().  dbparser: DrugBank Database XML Parser.
-#>   R package version 2.2.1.9000.
-#> 
-#> A BibTeX entry for LaTeX users is
-#> 
-#>   @Manual{,
-#>     title = {DrugBank Database XML Parser},
-#>     author = {Mohammed Ali and Ali Ezzat},
-#>     organization = {Interstellar for Consultinc inc.},
-#>     note = {R package version 2.2.1.9000},
-#>     url = {https://CRAN.R-project.org/package=dbparser},
-#>   }
-```
+[![ropensci_footer](https://ropensci.org/public_images/github_footer.png)](https://ropensci.org)
