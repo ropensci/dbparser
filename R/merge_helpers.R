@@ -259,3 +259,435 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
   message("Merge complete.")
   merged_object
 }
+
+
+# =============================================================================
+# File: R/merge_drugbank_hpo.R
+# Purpose: Integrate DrugBank with HPO gene-phenotype associations using
+#          gene symbols as the bridge identifier.
+#
+# DrugBank structure navigated:
+#   $cett$targets$general_information       → target_id, drugbank_id
+#   $cett$targets$polypeptides$
+#     general_information                   → target_id, gene_name
+#
+# Join path:
+#   polypeptides.gene_name + polypeptides.target_id
+#     → targets.target_id + targets.drugbank_id
+#       → HPO.gene_symbol
+#
+# Author: Mohammed Ali — Interstellar Consultation Services
+# License: MIT
+# =============================================================================
+
+#' Merge DrugBank and HPO Gene-Phenotype Database Objects
+#'
+#' Creates an integrated dvobject by linking DrugBank target gene data with
+#' HPO gene-phenotype associations using gene symbols as the bridge.
+#'
+#' @details
+#' This function performs the following key steps:
+#' 1. Extracts gene names from DrugBank polypeptide data
+#'    (\code{$cett$targets$polypeptides$general_information}).
+#' 2. Links gene names to DrugBank IDs via the target_id bridge
+#'    (\code{$cett$targets$general_information}).
+#' 3. Optionally resolves DrugBank IDs to drug names.
+#' 4. Enriches the HPO gene-phenotype association table by adding
+#'    \code{drugbank_id} and \code{drug_name} columns.
+#' 5. Assembles a merged object containing all original data plus the
+#'    enriched table and the gene mapping bridge.
+#'
+#' Supports piping and chaining with other merge functions.
+#'
+#' @param db_object A dvobject from \code{parseDrugBank()} OR an existing
+#'   merged dvobject (containing \code{$drugbank}).
+#' @param hpo_db A dvobject produced by \code{dbparser::parseHPO()}.
+#'
+#' @return A new dvobject containing the integrated data.
+#'
+#' @export
+#' @family mergers
+#' @importFrom dplyr filter select mutate left_join inner_join distinct
+#'   n_distinct all_of .data %>%
+#' @importFrom tibble as_tibble
+#'
+#' @examples
+#' \dontrun{
+#' drugbank <- parseDrugBank("path/to/drugbank.xml")
+#' hpo      <- parseHPO("path/to/gene_attribute_edges.tsv")
+#'
+#' # Standalone merge
+#' merged_db <- merge_drugbank_hpo(drugbank, hpo)
+#'
+#' # Chained with other merges (any order)
+#' full_db <- drugbank %>%
+#'   merge_drugbank_hpo(hpo) %>%
+#'   merge_drugbank_onsides(onsides) %>%
+#'   merge_drugbank_twosides(twosides)
+#'
+#' # --- Example: Find drugs targeting genes associated with seizures ---
+#' seizure_drugs <- full_db$integrated_data$gene_phenotype_enriched %>%
+#'   filter(grepl("seizure", phenotype_name, ignore.case = TRUE)) %>%
+#'   filter(!is.na(drugbank_id)) %>%
+#'   select(drug_name, drugbank_id, gene_symbol, phenotype_name) %>%
+#'   distinct()
+#' }
+merge_drugbank_hpo <- function(db_object, hpo_db) {
+
+  # --- Step 0: Input Validation and Hub Detection ---
+  # Enables Pipe (%>%) and Chaining with other merge functions.
+
+  if ("drugbank" %in% names(db_object)) {
+    # CASE A: Input is an already-merged object (from another merge)
+    drugbank_db   <- db_object$drugbank
+    merged_object <- db_object
+  } else {
+    # CASE B: Input is a raw DrugBank object
+    drugbank_db            <- db_object
+    merged_object          <- init_dvobject()
+    merged_object$drugbank <- db_object
+    attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+  }
+
+  # Validate the Hub — need cett$targets structure
+  if (!inherits(drugbank_db, "dvobject") ||
+      (!"cett" %in% names(drugbank_db))) {
+    stop("`db_object` must contain a valid DrugBank dvobject with `cett` data.",
+         call. = FALSE)
+  }
+
+  if (!"targets" %in% names(drugbank_db$cett)) {
+    stop("`db_object$cett` must contain `targets` data.",
+         call. = FALSE)
+  }
+
+  # Validate the Spoke
+  if (!inherits(hpo_db, "dvobject") ||
+      (!"associations" %in% names(hpo_db))) {
+    stop("`hpo_db` must be a valid dvobject from parseHPO() ",
+         "containing `associations`.", call. = FALSE)
+  }
+
+  # --- Step 1: Build the Gene-to-DrugBankID Bridge ---
+  #
+  # Path: polypeptides$general_information (has gene_name + target_id)
+  #     → targets$general_information      (has target_id + drugbank_id)
+  #
+  message("Building gene_name <-> DrugBank ID bridge via target_id...")
+
+  # Extract polypeptides (where gene_name lives)
+  polypeptides_gi <- .resolve_polypeptides_gi(drugbank_db)
+
+  if (is.null(polypeptides_gi) || (NROW(polypeptides_gi) == 0L)) {
+    stop("Could not locate polypeptides general_information table. ",
+         "Expected at: $cett$targets$polypeptides$general_information",
+         call. = FALSE)
+  }
+
+  # Extract targets general_information (where drugbank_id lives)
+  targets_gi <- .resolve_targets_gi(drugbank_db)
+
+  if (is.null(targets_gi) || (NROW(targets_gi) == 0L)) {
+    stop("Could not locate targets general_information table. ",
+         "Expected at: $cett$targets$general_information",
+         call. = FALSE)
+  }
+
+  # Build the bridge: gene_name → target_id → drugbank_id
+  gene_bridge <- polypeptides_gi %>%
+    dplyr::filter(!is.na(.data$gene_name) &
+                    (trimws(.data$gene_name) != "")) %>%
+    dplyr::select(.data$gene_name, .data$target_id,
+                  polypeptide_name = .data$name,
+                  .data$polypeptide_id) %>%
+    dplyr::distinct() %>%
+    dplyr::inner_join(
+      targets_gi %>%
+        dplyr::select(.data$target_id, .data$drugbank_id) %>%
+        dplyr::distinct(),
+      by = "target_id"
+    ) %>%
+    dplyr::mutate(gene_name_upper = toupper(trimws(.data$gene_name)))
+
+  message(sprintf(
+    "  Bridge: %s gene-target-drug links\n    %d unique genes | %d unique targets | %d unique drugs",
+    format(NROW(gene_bridge), big.mark = ","),
+    dplyr::n_distinct(gene_bridge$gene_name),
+    dplyr::n_distinct(gene_bridge$target_id),
+    dplyr::n_distinct(gene_bridge$drugbank_id)
+  ))
+
+  # --- Step 2: Add Drug Names to Bridge ---
+  drug_name_lookup <- .resolve_drug_names(drugbank_db)
+
+  if (!is.null(drug_name_lookup) && (NROW(drug_name_lookup) > 0L)) {
+    gene_bridge <- gene_bridge %>%
+      dplyr::left_join(drug_name_lookup, by = "drugbank_id")
+    n_named <- sum(!is.na(gene_bridge$drug_name))
+    message(sprintf("  Drug names resolved for %d / %d bridge entries.",
+                    n_named, NROW(gene_bridge)))
+  }
+
+  # --- Step 3: Enrich HPO Gene-Phenotype Associations ---
+  message("Enriching HPO gene-phenotype associations with DrugBank IDs...")
+
+  associations <- hpo_db$associations
+
+  hpo_enriched <- associations %>%
+    dplyr::mutate(gene_symbol_upper = toupper(trimws(.data$gene_symbol))) %>%
+    dplyr::left_join(
+      gene_bridge %>%
+        dplyr::select(.data$gene_name_upper, .data$gene_name,
+                      .data$target_id, .data$drugbank_id,
+                      .data$drug_name, .data$polypeptide_name) %>%
+        dplyr::distinct(),
+      by = c("gene_symbol_upper" = "gene_name_upper"),
+      relationship = "many-to-many"
+    ) %>%
+    dplyr::select(-.data$gene_symbol_upper)
+
+  # Report match statistics
+  n_hpo_genes     <- dplyr::n_distinct(associations$gene_symbol)
+  n_matched_genes <- hpo_enriched %>%
+    dplyr::filter(!is.na(.data$drugbank_id)) %>%
+    dplyr::pull(.data$gene_symbol) %>%
+    unique() %>%
+    length()
+  n_enriched_rows <- hpo_enriched %>%
+    dplyr::filter(!is.na(.data$drugbank_id)) %>%
+    NROW()
+
+  message(sprintf(
+    paste0("  %d / %d HPO genes matched to DrugBank targets (%.1f%%)\n",
+           "  Total enriched rows: %s (%s with drug links)"),
+    n_matched_genes, n_hpo_genes,
+    100 * n_matched_genes / max(n_hpo_genes, 1L),
+    format(NROW(hpo_enriched), big.mark = ","),
+    format(n_enriched_rows, big.mark = ",")
+  ))
+
+  # --- Step 4: Assemble Final Merged Object ---
+  message("Assembling final merged object...")
+
+  # Store raw HPO spoke
+  merged_object$hpo <- hpo_db
+
+  # Initialize integrated_data if needed
+  if (is.null(merged_object$integrated_data)) {
+    merged_object$integrated_data <- list()
+  }
+
+  merged_object$integrated_data$gene_phenotype_enriched     <- hpo_enriched
+  merged_object$integrated_data$DrugBank_GeneSymbol_Mapping <- gene_bridge
+
+  # --- Step 5: Metadata ---
+  attr(merged_object, "HPODB") <- attr(hpo_db, "original_db_info")
+
+  class(merged_object) <- unique(c("DrugBankHPODb", class(merged_object)))
+
+  message("Merge complete.")
+  merged_object
+}
+
+
+# =============================================================================
+# Internal helpers for navigating the DrugBank dvobject structure
+# =============================================================================
+
+#' Resolve polypeptides general_information table
+#'
+#' Navigates: $cett$targets$polypeptides$general_information
+#' Contains: gene_name, target_id, polypeptide_id, name, ...
+#'
+#' @param drugbank_db A DrugBank dvobject.
+#' @return A tibble or NULL.
+#' @keywords internal
+.resolve_polypeptides_gi <- function(drugbank_db) {
+
+  # Primary path: $cett$targets$polypeptides$general_information
+  pp <- tryCatch(
+    drugbank_db$cett$targets$polypeptides$general_information,
+    error = function(e) NULL
+  )
+
+  if (is.data.frame(pp) && (NROW(pp) > 0L) &&
+      ("gene_name" %in% names(pp)) &&
+      ("target_id" %in% names(pp))) {
+    return(tibble::as_tibble(pp))
+  }
+
+  # Fallback: search for any table with both gene_name and target_id
+  .find_table_with_columns(drugbank_db,
+                           required_cols = c("gene_name", "target_id"))
+}
+
+
+#' Resolve targets general_information table
+#'
+#' Navigates: $cett$targets$general_information
+#' Contains: target_id, drugbank_id, name, organism, ...
+#'
+#' @param drugbank_db A DrugBank dvobject.
+#' @return A tibble or NULL.
+#' @keywords internal
+.resolve_targets_gi <- function(drugbank_db) {
+
+  # Primary path: $cett$targets$general_information
+  tgi <- tryCatch(
+    drugbank_db$cett$targets$general_information,
+    error = function(e) NULL
+  )
+
+  if (is.data.frame(tgi) && (NROW(tgi) > 0L) &&
+      ("target_id" %in% names(tgi)) &&
+      ("drugbank_id" %in% names(tgi))) {
+    return(tibble::as_tibble(tgi))
+  }
+
+  # Fallback
+  .find_table_with_columns(drugbank_db,
+                           required_cols = c("target_id", "drugbank_id"))
+}
+
+
+#' Resolve drug name lookup from a DrugBank dvobject
+#'
+#' Returns a two-column tibble: drugbank_id, drug_name.
+#' Navigates: $drugs$general_information
+#'
+#' @param drugbank_db A DrugBank dvobject.
+#' @return A tibble or NULL.
+#' @keywords internal
+.resolve_drug_names <- function(drugbank_db) {
+
+  # Primary path: $drugs$general_information
+  gi <- tryCatch(
+    drugbank_db$drugs$general_information,
+    error = function(e) NULL
+  )
+
+  if (is.data.frame(gi) && (NROW(gi) > 0L) &&
+      ("drugbank_id" %in% names(gi)) &&
+      ("name" %in% names(gi))) {
+    return(
+      gi %>%
+        dplyr::select(.data$drugbank_id, drug_name = .data$name) %>%
+        dplyr::distinct()
+    )
+  }
+
+  # Fallback: flat $drugs as data frame
+  if (is.data.frame(drugbank_db$drugs) &&
+      ("drugbank_id" %in% names(drugbank_db$drugs)) &&
+      ("name" %in% names(drugbank_db$drugs))) {
+    return(
+      drugbank_db$drugs %>%
+        dplyr::select(.data$drugbank_id, drug_name = .data$name) %>%
+        dplyr::distinct()
+    )
+  }
+
+  NULL
+}
+
+
+#' Resolve drug groups table
+#'
+#' @param drugbank_db A DrugBank dvobject.
+#' @return A tibble with drugbank_id and group columns, or NULL.
+#' @keywords internal
+.resolve_drug_groups <- function(drugbank_db) {
+
+  candidates <- list(
+    tryCatch(drugbank_db$drugs$drug_groups, error = function(e) NULL),
+    tryCatch(drugbank_db$drug_groups, error = function(e) NULL),
+    tryCatch(drugbank_db$drugs$groups, error = function(e) NULL)
+  )
+
+  for (tbl in candidates) {
+    if (is.data.frame(tbl) && (NROW(tbl) > 0L) &&
+        ("drugbank_id" %in% names(tbl)) &&
+        ("group" %in% names(tbl))) {
+      return(tibble::as_tibble(tbl))
+    }
+  }
+  NULL
+}
+
+
+#' Generic fallback: search an object tree for a data frame with required columns
+#'
+#' @param obj A list (possibly nested).
+#' @param required_cols Character vector of column names that must all be present.
+#' @param max_depth Integer. Maximum recursion depth.
+#' @return A tibble or NULL.
+#' @keywords internal
+.find_table_with_columns <- function(obj, required_cols, max_depth = 5L) {
+
+  if (max_depth <= 0L) return(NULL)
+
+  if (is.data.frame(obj) && (NROW(obj) > 0L)) {
+    if (all(required_cols %in% names(obj))) {
+      return(tibble::as_tibble(obj))
+    }
+  }
+
+  if (is.list(obj) && (!is.data.frame(obj))) {
+    for (nm in names(obj)) {
+      result <- .find_table_with_columns(obj[[nm]], required_cols,
+                                         max_depth = max_depth - 1L)
+      if (!is.null(result)) return(result)
+    }
+  }
+
+  NULL
+}
+
+
+# =============================================================================
+# Internal helpers (not exported)
+# =============================================================================
+
+#' Resolve the targets table from a DrugBank dvobject
+#'
+#' Handles multiple possible structures:
+#'
+#' \itemize{
+#'   \item Full parse: \code{$targets} as data.frame with \code{gene_name}
+#'   \item Nested parse: \code{$targets$<subtable>} containing \code{gene_name}
+#'   \item Sample data: \code{$targets_actions} with \code{gene_name}
+#' }
+#'
+#' @param drugbank_db A DrugBank dvobject.
+#' @return A data.frame with at minimum \code{gene_name} and an ID column,
+#'   or \code{NULL} if none found.
+#' @keywords internal
+.resolve_targets_table <- function(drugbank_db) {
+
+  # Priority 1: Direct $targets as a data frame
+  if ("targets" %in% names(drugbank_db)) {
+    tgt <- drugbank_db$targets
+    if (is.data.frame(tgt) && ("gene_name" %in% names(tgt))) {
+      return(tgt)
+    }
+    # Nested structure: check sub-tables
+    if (is.list(tgt) && (!is.data.frame(tgt))) {
+      for (sub_name in names(tgt)) {
+        sub_tbl <- tgt[[sub_name]]
+        if (is.data.frame(sub_tbl) && ("gene_name" %in% names(sub_tbl))) {
+          return(sub_tbl)
+        }
+      }
+    }
+  }
+
+  # Priority 2: $targets_actions (sample RDS format)
+  if ("targets_actions" %in% names(drugbank_db)) {
+    tgt_a <- drugbank_db$targets_actions
+    if (is.data.frame(tgt_a) && ("gene_name" %in% names(tgt_a))) {
+      return(tgt_a)
+    }
+  }
+
+  NULL
+}
