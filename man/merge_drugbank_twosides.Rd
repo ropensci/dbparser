@@ -21,6 +21,7 @@ DrugBank object or an already-merged dvobject.
 }
 \seealso{
 Other mergers: 
+\code{\link{merge_drugbank_hpo}()},
 \code{\link{merge_drugbank_onsides}()}
 }
 \concept{mergers}

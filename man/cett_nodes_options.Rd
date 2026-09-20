@@ -16,6 +16,7 @@ returns carriers, enzymes,targets and transporters node valid options.
 Other parsers: 
 \code{\link{drug_node_options}()},
 \code{\link{parseDrugBank}()},
+\code{\link{parseHPO}()},
 \code{\link{parseOnSIDES}()},
 \code{\link{parseTWOSIDES}()},
 \code{\link{references_node_options}()}
