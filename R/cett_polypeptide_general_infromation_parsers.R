@@ -13,12 +13,17 @@ CETTPolyGeneralInfoParser <-
       },
       polypeptides_parser = function(rec, cett_type, pb) {
         pb$tick()
+        drugbank_id <- xmlValue(rec['drugbank-id'][[1]])
         parent_name <- paste0(substr(x     = cett_type,
                                      start = 1,
                                      stop  = nchar(cett_type)-1),
                               "_id")
-        map_df(xmlChildren(rec[[cett_type]]),
+        polypeptides <- map_df(xmlChildren(rec[[cett_type]]),
                ~ private$polypeptide_rec(., parent_name))
+        if (NROW(polypeptides) > 0) {
+          polypeptides$drugbank_id <- drugbank_id
+        }
+        polypeptides
       },
       polypeptide_rec = function(r, parent_name) {
         p_table   <- NULL
