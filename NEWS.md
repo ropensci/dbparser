@@ -1,5 +1,39 @@
 # dbparser (development version)
 
+## BUG FIXES
+
+*   CETT `actions` and `polypeptides$general_information` tables now include
+    a `drugbank_id` column (#210).
+    *   Earlier versions keyed these tables only by the carrier, enzyme, target
+        or transporter id (e.g. `target_id`). Many drugs share a target, so an
+        action could not be traced back to its drug, and identical actions from
+        different drugs were collapsed into a single row.
+    *   Join CETT tables on both `drugbank_id` and the CETT id to get one row
+        per drug–protein–action.
+
+## DOCUMENTATION
+
+*   New vignette `vignette("cett_mechanisms")` shows how to use the drug link
+    in CETT actions to find drugs that share a mechanism. It uses lepirudin and
+    bivalirudin, both direct thrombin inhibitors, as the example.
+
+## BUG FIXES
+
+*   CETT `actions` and `polypeptides$general_information` tables now include
+    a `drugbank_id` column (#210).
+    *   Earlier versions keyed these tables only by the carrier, enzyme, target or
+        transporter id (e.g. `target_id`). Because many drugs share a target,
+        actions could not be traced back to the drug they belong to, and identical
+        actions from different drugs were collapsed into a single row.
+    *   Join CETT tables on both `drugbank_id` and the CETT id to get one row per
+        drug–protein–action.
+
+## DOCUMENTATION
+
+*   New vignette `vignette("cett_mechanisms")` shows how to use the drug link
+    in CETT actions to find drugs that share a mechanism, using lepirudin and
+    bivalirudin (both direct thrombin inhibitors) as an example.
+
 # dbparser
 
 # dbparser 2.2.1
