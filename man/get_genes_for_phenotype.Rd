@@ -2,20 +2,41 @@
 % Please edit documentation in R/hpo_parsers.R
 \name{get_genes_for_phenotype}
 \alias{get_genes_for_phenotype}
-\title{Get genes for a specific phenotype}
+\title{Get Genes Associated with a Phenotype}
 \usage{
-get_genes_for_phenotype(hpo_db, phenotype_name, exact = FALSE)
+get_genes_for_phenotype(hpo_db, phenotype, exact = FALSE)
 }
 \arguments{
-\item{hpo_db}{An HPO dvobject.}
+\item{hpo_db}{An HPO \code{dvobject} returned by \code{\link{parseHPO}}.}
 
-\item{phenotype_name}{Character. Exact or partial phenotype name.}
+\item{phenotype}{Character. An HPO identifier or a phenotype name.}
 
-\item{exact}{Logical. If TRUE, match exactly. If FALSE, partial match.}
+\item{exact}{Logical. Used when \code{phenotype} is a name. If \code{TRUE},
+the name must match exactly (ignoring case). If \code{FALSE} (default),
+any phenotype whose name contains \code{phenotype} matches.}
 }
 \value{
-Tibble of genes associated with the phenotype.
+A tibble with columns \code{gene_symbol}, \code{entrez_id},
+  \code{hpo_id}, \code{phenotype_name} and \code{association_weight},
+  ordered by gene symbol.
 }
 \description{
-Get genes for a specific phenotype
+Returns the genes associated with a phenotype, given either its HPO
+identifier (e.g. \code{"HP:0001250"}) or its name.
 }
+\examples{
+hpo_db <- parseHPO(system.file("extdata", "hpo_gene_attribute_edges.txt",
+                               package = "dbparser"))
+get_genes_for_phenotype(hpo_db, "HP:0001250")
+get_genes_for_phenotype(hpo_db, "thrombosis")
+
+}
+\seealso{
+Other utility:
+\code{\link[=add_database_info]{add_database_info()}},
+\code{\link[=search_phenotypes]{search_phenotypes()}},
+\code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
+\code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}},
+\code{\link[=subset_onsides_dvobject]{subset_onsides_dvobject()}}
+}
+\concept{utility}

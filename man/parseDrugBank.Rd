@@ -43,12 +43,12 @@ parses given DrugBank XML database into a dvobject. dvobject is a list of
  drugs, prices, carriers, ...)
 }
 \seealso{
-Other parsers: 
-\code{\link{cett_nodes_options}()},
-\code{\link{drug_node_options}()},
-\code{\link{parseHPO}()},
-\code{\link{parseOnSIDES}()},
-\code{\link{parseTWOSIDES}()},
-\code{\link{references_node_options}()}
+Other parsers:
+\code{\link[=cett_nodes_options]{cett_nodes_options()}},
+\code{\link[=drug_node_options]{drug_node_options()}},
+\code{\link[=parseHPO]{parseHPO()}},
+\code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
+\code{\link[=references_node_options]{references_node_options()}}
 }
 \concept{parsers}

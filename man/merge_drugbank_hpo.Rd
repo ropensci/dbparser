@@ -21,46 +21,43 @@ HPO gene-phenotype associations using gene symbols as the bridge.
 }
 \details{
 This function performs the following key steps:
-1. Creates a mapping table between DrugBank IDs and gene symbols from
-   the DrugBank targets table.
-2. Optionally resolves DrugBank IDs to drug names from the drugs table.
-3. Enriches the HPO gene-phenotype association table by adding
+1. Extracts gene names from DrugBank polypeptide data
+   (\code{$cett$targets$polypeptides$general_information}).
+2. Links gene names to DrugBank IDs via the target_id bridge
+   (\code{$cett$targets$general_information}).
+3. Optionally resolves DrugBank IDs to drug names.
+4. Enriches the HPO gene-phenotype association table by adding
    \code{drugbank_id} and \code{drug_name} columns.
-4. Assembles a merged object containing all original tables plus the
-   enriched data and the gene mapping table itself.
+5. Assembles a merged object containing all original data plus the
+   enriched table and the gene mapping bridge.
 
-The resulting object allows queries spanning mechanistic target data from
-DrugBank and phenotypic association data from HPO.
 Supports piping and chaining with other merge functions.
 }
 \examples{
 \dontrun{
-# Parse the individual databases
 drugbank <- parseDrugBank("path/to/drugbank.xml")
 hpo      <- parseHPO("path/to/gene_attribute_edges.tsv")
 
-# Merge into a single object
+# Standalone merge
 merged_db <- merge_drugbank_hpo(drugbank, hpo)
 
-# --- Example: Find drugs targeting genes associated with seizures ---
+# Chained with other merges (any order)
+full_db <- drugbank \%>\%
+  merge_drugbank_hpo(hpo) \%>\%
+  merge_drugbank_onsides(onsides) \%>\%
+  merge_drugbank_twosides(twosides)
 
-seizure_drugs <- merged_db$integrated_data$gene_phenotype_enriched \%>\%
+# --- Example: Find drugs targeting genes associated with seizures ---
+seizure_drugs <- full_db$integrated_data$gene_phenotype_enriched \%>\%
   filter(grepl("seizure", phenotype_name, ignore.case = TRUE)) \%>\%
   filter(!is.na(drugbank_id)) \%>\%
   select(drug_name, drugbank_id, gene_symbol, phenotype_name) \%>\%
   distinct()
-
-head(seizure_drugs)
-
-# Chain with OnSIDES for full pipeline
-full_db <- drugbank \%>\%
-  merge_drugbank_hpo(hpo) \%>\%
-  merge_drugbank_onsides(onsides)
 }
 }
 \seealso{
-Other mergers: 
-\code{\link{merge_drugbank_onsides}()},
-\code{\link{merge_drugbank_twosides}()}
+Other mergers:
+\code{\link[=merge_drugbank_onsides]{merge_drugbank_onsides()}},
+\code{\link[=merge_drugbank_twosides]{merge_drugbank_twosides()}}
 }
 \concept{mergers}

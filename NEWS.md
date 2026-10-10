@@ -1,5 +1,23 @@
 # dbparser (development version)
 
+## NEW FEATURES
+
+*   **New Parser: `parseHPO()`**
+    *   Parses the Human Phenotype Ontology (HPO) gene-phenotype associations
+        distributed by Harmonizome (`gene_attribute_edges.txt`, plain or
+        gzip-compressed).
+    *   Returns a `dvobject` with `associations`, `genes` and `phenotypes`
+        tables. Optional `minimum_weight`, `db_version` and `db_exported_date`
+        arguments filter associations and record dataset metadata.
+*   **New Integration Function: `merge_drugbank_hpo()`**
+    *   Links DrugBank target genes to HPO phenotypes through gene symbols and
+        adds `drugbank_id` and `drug_name` to each gene-phenotype association.
+    *   Chainable with `merge_drugbank_onsides()` and `merge_drugbank_twosides()`.
+*   **New HPO helpers: `search_phenotypes()` and `get_genes_for_phenotype()`**
+    *   `search_phenotypes()` finds phenotypes by keyword and lists their genes.
+    *   `get_genes_for_phenotype()` returns the genes for an HPO id
+        (e.g. `"HP:0001250"`) or a phenotype name.
+
 ## BUG FIXES
 
 *   CETT `actions` and `polypeptides$general_information` tables now include
@@ -16,23 +34,9 @@
 *   New vignette `vignette("cett_mechanisms")` shows how to use the drug link
     in CETT actions to find drugs that share a mechanism. It uses lepirudin and
     bivalirudin, both direct thrombin inhibitors, as the example.
-
-## BUG FIXES
-
-*   CETT `actions` and `polypeptides$general_information` tables now include
-    a `drugbank_id` column (#210).
-    *   Earlier versions keyed these tables only by the carrier, enzyme, target or
-        transporter id (e.g. `target_id`). Because many drugs share a target,
-        actions could not be traced back to the drug they belong to, and identical
-        actions from different drugs were collapsed into a single row.
-    *   Join CETT tables on both `drugbank_id` and the CETT id to get one row per
-        drug–protein–action.
-
-## DOCUMENTATION
-
-*   New vignette `vignette("cett_mechanisms")` shows how to use the drug link
-    in CETT actions to find drugs that share a mechanism, using lepirudin and
-    bivalirudin (both direct thrombin inhibitors) as an example.
+*   New vignette `vignette("hpo_target_phenotypes")` links DrugBank targets to
+    HPO Mendelian phenotypes to anticipate on-target drug effects for
+    bivalirudin, leuprolide and calcitriol, with `canvasXpress` plots.
 
 # dbparser
 

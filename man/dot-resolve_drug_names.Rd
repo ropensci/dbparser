@@ -10,11 +10,10 @@
 \item{drugbank_db}{A DrugBank dvobject.}
 }
 \value{
-A tibble or \code{NULL}.
+A tibble or NULL.
 }
 \description{
-Returns a two-column tibble: \code{drugbank_id}, \code{drug_name}.
-Handles both full parse (\code{$drugs$general_information}) and
-flat structures (\code{$drugs} as data frame).
+Returns a two-column tibble: drugbank_id, drug_name.
+Navigates: $drugs$general_information
 }
 \keyword{internal}

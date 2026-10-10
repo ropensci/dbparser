@@ -64,8 +64,8 @@ head(targets_of_interest)
 }
 }
 \seealso{
-Other mergers: 
-\code{\link{merge_drugbank_hpo}()},
-\code{\link{merge_drugbank_twosides}()}
+Other mergers:
+\code{\link[=merge_drugbank_hpo]{merge_drugbank_hpo()}},
+\code{\link[=merge_drugbank_twosides]{merge_drugbank_twosides()}}
 }
 \concept{mergers}

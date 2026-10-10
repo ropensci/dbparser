@@ -397,13 +397,13 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
   gene_bridge <- polypeptides_gi %>%
     dplyr::filter(!is.na(.data$gene_name) &
                     (trimws(.data$gene_name) != "")) %>%
-    dplyr::select(.data$gene_name, .data$target_id,
-                  polypeptide_name = .data$name,
-                  .data$polypeptide_id) %>%
+    dplyr::select("gene_name", "target_id",
+                  polypeptide_name = "name",
+                  "polypeptide_id") %>%
     dplyr::distinct() %>%
     dplyr::inner_join(
       targets_gi %>%
-        dplyr::select(.data$target_id, .data$drugbank_id) %>%
+        dplyr::select("target_id", "drugbank_id") %>%
         dplyr::distinct(),
       by = "target_id"
     ) %>%
@@ -437,20 +437,20 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
     dplyr::mutate(gene_symbol_upper = toupper(trimws(.data$gene_symbol))) %>%
     dplyr::left_join(
       gene_bridge %>%
-        dplyr::select(.data$gene_name_upper, .data$gene_name,
-                      .data$target_id, .data$drugbank_id,
-                      .data$drug_name, .data$polypeptide_name) %>%
+        dplyr::select("gene_name_upper", "gene_name",
+                      "target_id", "drugbank_id",
+                      "drug_name", "polypeptide_name") %>%
         dplyr::distinct(),
       by = c("gene_symbol_upper" = "gene_name_upper"),
       relationship = "many-to-many"
     ) %>%
-    dplyr::select(-.data$gene_symbol_upper)
+    dplyr::select(-dplyr::all_of("gene_symbol_upper"))
 
   # Report match statistics
   n_hpo_genes     <- dplyr::n_distinct(associations$gene_symbol)
   n_matched_genes <- hpo_enriched %>%
     dplyr::filter(!is.na(.data$drugbank_id)) %>%
-    dplyr::pull(.data$gene_symbol) %>%
+    dplyr::pull("gene_symbol") %>%
     unique() %>%
     length()
   n_enriched_rows <- hpo_enriched %>%
@@ -571,7 +571,7 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
       ("name" %in% names(gi))) {
     return(
       gi %>%
-        dplyr::select(.data$drugbank_id, drug_name = .data$name) %>%
+        dplyr::select("drugbank_id", drug_name = "name") %>%
         dplyr::distinct()
     )
   }
@@ -582,7 +582,7 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
       ("name" %in% names(drugbank_db$drugs))) {
     return(
       drugbank_db$drugs %>%
-        dplyr::select(.data$drugbank_id, drug_name = .data$name) %>%
+        dplyr::select("drugbank_id", drug_name = "name") %>%
         dplyr::distinct()
     )
   }

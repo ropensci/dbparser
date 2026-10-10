@@ -31,20 +31,12 @@ dvobject
 Parses the core relational tables from the OnSIDES database.
 }
 \seealso{
-Other parsers: 
-\code{\link{cett_nodes_options}()},
-\code{\link{drug_node_options}()},
-\code{\link{parseDrugBank}()},
-\code{\link{parseHPO}()},
-\code{\link{parseTWOSIDES}()},
-\code{\link{references_node_options}()}
-
-Other parsers: 
-\code{\link{cett_nodes_options}()},
-\code{\link{drug_node_options}()},
-\code{\link{parseDrugBank}()},
-\code{\link{parseHPO}()},
-\code{\link{parseTWOSIDES}()},
-\code{\link{references_node_options}()}
+Other parsers:
+\code{\link[=cett_nodes_options]{cett_nodes_options()}},
+\code{\link[=drug_node_options]{drug_node_options()}},
+\code{\link[=parseDrugBank]{parseDrugBank()}},
+\code{\link[=parseHPO]{parseHPO()}},
+\code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
+\code{\link[=references_node_options]{references_node_options()}}
 }
 \concept{parsers}

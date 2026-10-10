@@ -2,63 +2,76 @@
 % Please edit documentation in R/hpo_parsers.R
 \name{parseHPO}
 \alias{parseHPO}
-\title{#' Parse HPO Gene-Phenotype Association Data}
+\title{Parse HPO Gene-Phenotype Associations}
 \usage{
 parseHPO(
   filepath,
   minimum_weight = 0,
-  source_name = "Harmonizome HPO Gene-Phenotype",
-  version = NULL
+  db_version = NULL,
+  db_exported_date = NULL
 )
 }
 \arguments{
-\item{filepath}{Character. Path to the gene_attribute_edges.tsv file.}
+\item{filepath}{Character. Path to the Harmonizome HPO
+\code{gene_attribute_edges.txt} file, plain or gzip-compressed.}
 
-\item{minimum_weight}{Numeric. Minimum association weight to retain.
-Default \code{0} retains all associations.}
+\item{minimum_weight}{Numeric. Minimum association weight to keep.
+The default \code{0} keeps all associations.}
 
-\item{source_name}{Character. Data source label for metadata.
-Default \code{"Harmonizome HPO Gene-Phenotype"}.}
+\item{db_version}{Character or NULL. Dataset version, stored in the
+object metadata.}
 
-\item{version}{Character or NULL. Dataset version string. If NULL,
-extracted from file metadata or set to "unknown".}
+\item{db_exported_date}{Character or NULL. Dataset release date, stored in
+the object metadata.}
 }
 \value{
-A list of class \code{c("dvobject", "hpo_db", "list")} with
-  components:
+A \code{dvobject} with three tibbles:
   \describe{
-    \item{genes}{Tibble of unique genes with symbol, Entrez ID, and
-      description.}
-    \item{phenotypes}{Tibble of unique phenotypes with name, HPO ID,
-      and association count.}
-    \item{gene_phenotype_associations}{Tibble of all gene-phenotype
-      associations with weights.}
-    \item{metadata}{List of parse provenance: source, date, file path,
-      record counts.}
+    \item{associations}{One row per gene-phenotype pair: \code{gene_symbol},
+      \code{entrez_id}, \code{hpo_id}, \code{phenotype_name} and
+      \code{association_weight}.}
+    \item{genes}{Unique genes: \code{gene_symbol}, \code{entrez_id} and
+      \code{n_phenotypes}, the number of associated phenotypes.}
+    \item{phenotypes}{Unique phenotypes: \code{hpo_id},
+      \code{phenotype_name} and \code{n_genes}, the number of associated
+      genes.}
   }
 }
 \description{
-Reads an HPO gene-phenotype edge file (TSV format from Harmonizome) and
-returns a structured dvobject containing normalized gene, phenotype, and
-association tables. The output structure is consistent with
-\code{\link[dbparser]{parseDrugBank}} and \code{\link[dbparser]{parseOnSIDES}},
-enabling seamless cross-database integration.
+Reads the Human Phenotype Ontology (HPO) gene-phenotype associations as
+distributed by Harmonizome (\code{gene_attribute_edges.txt}) and returns a
+\code{dvobject} with gene, phenotype and association tables.
+}
+\details{
+The Harmonizome file is tab separated and has two header lines: the column
+names (\code{source}, \code{source_desc}, \code{source_id}, \code{target},
+\code{target_desc}, \code{target_id}, \code{weight}) followed by a
+descriptor row (\code{GeneSym}, \code{NA}, \code{GeneID}, \code{Phenotype},
+\code{HPOID}, \code{NA}, \code{weight}). The parser drops the descriptor row
+and renames the columns to domain-specific names. Columns that carry no
+information in this dataset (\code{source_desc} and the \code{-666}
+placeholder in \code{target_id}) are not kept.
+
+Gzip-compressed files (\code{.gz}) are read directly.
+
+The resulting object can be linked to DrugBank target genes with
+\code{\link{merge_drugbank_hpo}}.
 }
 \examples{
-\dontrun{
-  hpo_db <- parseHPO("data/gene_attribute_edges.tsv")
-  head(hpo_db$gene_phenotype_associations)
-  hpo_db$metadata$record_counts
-}
+hpo_path <- system.file("extdata", "hpo_gene_attribute_edges.txt",
+                        package = "dbparser")
+hpo_db <- parseHPO(hpo_path)
+hpo_db$phenotypes
+show_dvobject_metadata(hpo_db)
 
 }
 \seealso{
-Other parsers: 
-\code{\link{cett_nodes_options}()},
-\code{\link{drug_node_options}()},
-\code{\link{parseDrugBank}()},
-\code{\link{parseOnSIDES}()},
-\code{\link{parseTWOSIDES}()},
-\code{\link{references_node_options}()}
+Other parsers:
+\code{\link[=cett_nodes_options]{cett_nodes_options()}},
+\code{\link[=drug_node_options]{drug_node_options()}},
+\code{\link[=parseDrugBank]{parseDrugBank()}},
+\code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
+\code{\link[=references_node_options]{references_node_options()}}
 }
 \concept{parsers}
