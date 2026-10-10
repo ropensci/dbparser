@@ -20,7 +20,8 @@ information from DrugBank. This function is chainable and can accept a raw
 DrugBank object or an already-merged dvobject.
 }
 \seealso{
-Other mergers: 
-\code{\link{merge_drugbank_onsides}()}
+Other mergers:
+\code{\link[=merge_drugbank_hpo]{merge_drugbank_hpo()}},
+\code{\link[=merge_drugbank_onsides]{merge_drugbank_onsides()}}
 }
 \concept{mergers}
