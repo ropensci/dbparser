@@ -252,7 +252,7 @@ test_that(
     expect_equal(names(dvobj$result$cett),
                  c("targets"))
     expect_equal(dim(dvobj$result$cett$targets$general_information), c(1, 6))
-    expect_equal(dim(dvobj$result$cett$targets$actions), c(1, 2))
+    expect_equal(dim(dvobj$result$cett$targets$actions), c(1, 3))
   }
 )
 
