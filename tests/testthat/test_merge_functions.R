@@ -34,8 +34,10 @@ test_that("merge drugbank and onside", {
 test_that("merge drugbank and twoside", {
   drugbank <- readRDS(system.file("two_drugs.RDS",
                                   package = "dbparser"))
+  unzip_dir <- tempfile("twoside_")
   data_path <- unzip(system.file("twoside_raw.zip",
-                                 package = "dbparser"))
+                                 package = "dbparser"),
+                     exdir = unzip_dir)
   twoside <- parseTWOSIDES(twosides_file_path = data_path)
 
   expect_error(merge_drugbank_twosides(
@@ -59,7 +61,7 @@ test_that("merge drugbank and twoside", {
     db_object   = drugbank,
     twosides_db = twoside)
   expect_snapshot(show_dvobject_metadata(all_dbs))
-  unlink(data_path, recursive = TRUE)
+  unlink(unzip_dir, recursive = TRUE)
 
 })
 
@@ -67,12 +69,14 @@ test_that("merge drugbank and twoside", {
 test_that("merge chain", {
   drugbank <- readRDS(system.file("two_drugs.RDS",
                                   package = "dbparser"))
+  unzip_dir <- tempfile("twoside_")
   data_path <- unzip(system.file("twoside_raw.zip",
-                                 package = "dbparser"))
+                                 package = "dbparser"),
+                     exdir = unzip_dir)
   onside <- readRDS(system.file("onside.RDS",
                                 package = "dbparser"))
   twoside <- parseTWOSIDES(twosides_file_path = data_path)
-  unlink(data_path, recursive = TRUE)
+  unlink(unzip_dir, recursive = TRUE)
 
   final_db_1 <- drugbank %>%
     merge_drugbank_onsides(onsides_db = onside) %>%
