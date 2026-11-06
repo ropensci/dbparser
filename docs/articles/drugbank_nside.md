@@ -23,6 +23,7 @@ scientific case study on the interaction between **Leuprolide** and
 ## Prerequisites
 
 ``` r
+
 library(dbparser)
 library(dplyr)
 library(tidyr)
@@ -40,6 +41,7 @@ package to demonstrate the workflow.
 First, we load the mechanistic data.
 
 ``` r
+
 # Load sample DrugBank data included in the package
 drugbank_path <- system.file("two_drugs.RDS", package = "dbparser")
 drugbank_db <- readRDS(drugbank_path)
@@ -118,6 +120,7 @@ show_dvobject_metadata(drugbank_db)
 Next, we load the adverse event data extracted from FDA labels.
 
 ``` r
+
 # Load sample OnSIDES data included in the package
 onsides_path <- system.file("onside.RDS", package = "dbparser")
 onsides_db   <- readRDS(onsides_path)
@@ -150,6 +153,7 @@ Finally, we load the dataset containing adverse events reported when two
 drugs are taken simultaneously.
 
 ``` r
+
 # Load sample TWOSIDES data included in the package
 twosides_path <- system.file("twoside_raw.zip", package = "dbparser")
 
@@ -190,6 +194,7 @@ DrugBank, and then we merge TWOSIDES into the result. This creates a
 single “Hub and Spoke” object centered on DrugBank.
 
 ``` r
+
 # Step 1: Merge DrugBank + OnSIDES
 db_plus_onsides <- merge_drugbank_onsides(drugbank_db, onsides_db)
 
@@ -289,6 +294,7 @@ show_dvobject_metadata(final_db)
 its baseline side effect profile from OnSIDES.
 
 ``` r
+
 target_drug_id <- "DB00007" # Leuprolide
 
 # 1. Get the RxNorm ID from the bridge table
@@ -303,6 +309,7 @@ print(paste0("DrugBank ID: ", target_drug_id, " maps to RxNorm CUI: ", target_rx
 ### 3.1 Extract Baseline Adverse Events (OnSIDES)
 
 ``` r
+
 # 1. Find product labels linked to this ingredient
 product_rxcuis <- final_db$onsides$vocab_rxnorm_ingredient_to_product %>%
   filter(ingredient_id == target_rxcui) %>%
@@ -356,6 +363,7 @@ print(ae_summary)
 We repeat the process for Calcitriol to establish its baseline.
 
 ``` r
+
 target_drug_id_2 <- "DB00136"
 
 # Get RxCUI
@@ -396,6 +404,7 @@ interactions by DrugBank ID, using the enriched columns provided by the
 merge.
 
 ``` r
+
 # Look for interactions where Drug 1 is Leuprolide AND Drug 2 is Calcitriol (or vice versa)
 interaction_data <- final_db$integrated_data$drug_drug_interactions %>%
   filter(
@@ -425,6 +434,7 @@ combination, ranked by their **Proportional Reporting Ratio (PRR)** (a
 measure of signal strength).
 
 ``` r
+
 if(nrow(interaction_data) > 0) {
   # Prepare data for canvasXpress
   cx_int_data <- data.frame(PRR = as.numeric(interaction_data$PRR))
@@ -450,6 +460,7 @@ Finally, we can view the single-drug profiles alongside the interaction
 profile to see if new risks emerge.
 
 ``` r
+
 # 1. Prepare Single Drug Data
 s1 <- ae_summary %>% 
   mutate(Type = "Leuprolide (Alone)") %>% 

@@ -1,11 +1,11 @@
-pandoc: 3.6.3
-pkgdown: 2.2.0
+pandoc: '3.10'
+pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
-  dbparser: dbparser.html
   dbparser_2_2: dbparser_2_2.html
+  dbparser: dbparser.html
   drugbank_nside: drugbank_nside.html
-last_built: 2026-02-14T14:53Z
+last_built: 2026-10-16T05:54Z
 urls:
   reference: https://docs.ropensci.org/dbparser/reference
   article: https://docs.ropensci.org/dbparser/articles

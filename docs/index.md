@@ -36,6 +36,7 @@ real-world phenotypic data (OnSIDES) and drug-drug interaction risks
 ## Installation
 
 ``` r
+
 # From CRAN (stable)
 install.packages("dbparser")
 
@@ -95,6 +96,7 @@ adverse events arising when two drugs are taken together.
 ### Parse a Single Database
 
 ``` r
+
 library(dbparser)
 
 # Parse DrugBank
@@ -114,6 +116,7 @@ together. Here is how you can build a complete pharmacovigilance
 dataset:
 
 ``` r
+
 library(dbparser)
 library(dplyr)
 
@@ -203,6 +206,7 @@ Pharmacological Databases. Journal of Open Source Software, 11(118),
 ```
 
 ``` r
+
 citation("dbparser")
 ```
 

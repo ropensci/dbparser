@@ -27,6 +27,7 @@ using
 [`parseDrugBank()`](https://docs.ropensci.org/dbparser/reference/parseDrugBank.md).
 
 ``` r
+
 library(dbparser)
 
 # Parse the full XML file (this creates a dvobject)
@@ -40,6 +41,7 @@ package. These represent specific tables that would be found inside the
 full `dvobject`.
 
 ``` r
+
 suppressPackageStartupMessages({
   library(tidyr)
   library(dplyr)
@@ -60,6 +62,7 @@ What does the universe of approved drugs look like? Let’s analyze the
 composition of the database by drug type (Small Molecule vs. Biotech).
 
 ``` r
+
 # Prepare data: Count drugs by type
 type_stat <- drugs %>% 
   group_by(type) %>% 
@@ -84,6 +87,7 @@ or “experimental”. How does the complexity (Biotech vs. Small Molecule)
 differ across these groups?
 
 ``` r
+
 # Prepare data: Cross-tabulate Type vs Group
 group_stat <- drugs %>% 
   full_join(drug_groups, by = "drugbank_id") %>% 
@@ -111,6 +115,7 @@ how drugs interact with their targets (Proteins, Enzymes, etc.). Are
 drugs mostly inhibitors, agonists, or antagonists?
 
 ``` r
+
 # Prepare data: Top 10 most common Mechanisms of Action
 targetActionCounts <- drug_targets_actions %>% 
     group_by(action) %>% 

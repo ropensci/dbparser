@@ -35,6 +35,7 @@ can now build a massive, multi-domain pharmacovigilance dataset in three
 lines of R code:
 
 ``` r
+
 library(dbparser)
 library(dplyr)
 
@@ -74,6 +75,7 @@ the latest features immediately, in case it is not available on CRAN
 yet.
 
 ``` r
+
 devtools::install_github("ropensci/dbparser")
 ```
 
