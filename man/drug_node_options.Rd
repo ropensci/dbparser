@@ -13,11 +13,12 @@ list of drug valid options
 returns drug node valid options.
 }
 \seealso{
-Other parsers: 
-\code{\link{cett_nodes_options}()},
-\code{\link{parseDrugBank}()},
-\code{\link{parseOnSIDES}()},
-\code{\link{parseTWOSIDES}()},
-\code{\link{references_node_options}()}
+Other parsers:
+\code{\link[=cett_nodes_options]{cett_nodes_options()}},
+\code{\link[=parseDrugBank]{parseDrugBank()}},
+\code{\link[=parseHPO]{parseHPO()}},
+\code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
+\code{\link[=references_node_options]{references_node_options()}}
 }
 \concept{parsers}

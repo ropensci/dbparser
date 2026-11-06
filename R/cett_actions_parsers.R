@@ -14,15 +14,21 @@ CETTActionsParser <-
                                      paste0(substr(x     = cett_type,
                                                    start = 1,
                                                    stop  = nchar(cett_type)-1),
-                                            "_id"))
+                                            "_id"),
+                                     "drugbank_id")
         }
 
         actions_tbl
       },
       actions_rec = function(rec, cett_type, pb) {
         pb$tick()
-        map_df(xmlChildren(rec[[cett_type]]),
-                      ~ drug_sub_df(., "actions", id = "id"))
+        drugbank_id <- xmlValue(rec['drugbank-id'][[1]])
+        actions <- map_df(xmlChildren(rec[[cett_type]]),
+                          ~ drug_sub_df(., "actions", id = "id"))
+        if (NROW(actions > 0)) {
+          actions$drugbank_id <- drugbank_id
+        }
+        actions
       }
     )
   )

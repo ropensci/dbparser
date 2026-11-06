@@ -1,0 +1,377 @@
+---
+title: "Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  warning  = FALSE,
+  message  = FALSE
+)
+has_canvasxpress <- requireNamespace("canvasXpress", quietly = TRUE)
+```
+
+## Introduction
+
+People who carry rare loss-of-function variants in a gene are a natural
+experiment: they show what happens when the protein that gene encodes stops
+working for a lifetime. When that protein is also a drug target, their
+phenotypes are a preview of what the drug might do. Drug discovery teams use
+this idea to support targets and to anticipate on-target adverse effects
+before clinical data exist.
+
+The [Human Phenotype Ontology](https://hpo.jax.org/) (HPO) annotates genes with
+the clinical features of the Mendelian diseases they cause. `dbparser` reads
+the HPO gene-phenotype associations distributed by
+[Harmonizome](https://maayanlab.cloud/Harmonizome/dataset/HPO+Gene-Disease+Associations)
+with `parseHPO()`. It then links them to DrugBank targets by gene symbol with
+`merge_drugbank_hpo()`.
+
+This vignette asks one question for three drugs:
+
+> Do the Mendelian phenotypes of a drug's target genes agree with what we
+> already know about the drug's therapeutic and adverse effects?
+
+The three drugs act through different mechanisms:
+
+| Drug        | Main target                     | Use                                          |
+|-------------|---------------------------------|----------------------------------------------|
+| Bivalirudin | Thrombin (*F2*)                 | Anticoagulant during coronary interventions  |
+| Leuprolide  | GnRH receptor (*GNRHR*)         | Androgen deprivation, endometriosis          |
+| Calcitriol  | Vitamin D receptor (*VDR*)      | Hypocalcaemia, renal bone disease            |
+
+## Prerequisites
+
+```{r setup}
+library(dbparser)
+library(dplyr)
+```
+
+```{r load_canvasxpress, eval = has_canvasxpress}
+library(canvasXpress)
+```
+
+## 1. Load the data
+
+### 1.1 HPO gene-phenotype associations
+
+The package ships a subset of the Harmonizome HPO file with every association
+for seven genes. To analyse all genes, download `gene_attribute_edges.txt.gz`
+from Harmonizome and pass its path to `parseHPO()`; gzip-compressed files are
+read directly.
+
+```{r load_hpo}
+hpo_db <- parseHPO(
+  system.file("extdata", "hpo_gene_attribute_edges.txt", package = "dbparser"),
+  db_version = "Harmonizome 2015")
+
+hpo_db$genes
+```
+
+`search_phenotypes()` and `get_genes_for_phenotype()` help explore the
+phenotypes:
+
+```{r explore_hpo}
+search_phenotypes(hpo_db, "bleeding")
+get_genes_for_phenotype(hpo_db, "hypogonadotrophic hypogonadism", exact = TRUE)
+```
+
+### 1.2 DrugBank targets
+
+Leuprolide and calcitriol come from a saved DrugBank sample. Bivalirudin is
+parsed from a DrugBank XML record.
+
+```{r load_drugbank}
+two_drugs <- readRDS(system.file("two_drugs.RDS", package = "dbparser"))
+
+bivalirudin <- parseDrugBank(
+  db_path            = system.file("extdata",
+                                   "drugbank_record_small_molecule.xml",
+                                   package = "dbparser"),
+  drug_options       = NULL,
+  parse_salts        = FALSE,
+  parse_products     = FALSE,
+  references_options = NULL,
+  cett_options       = "targets")
+```
+
+## 2. Link drug targets to phenotypes
+
+`merge_drugbank_hpo()` maps each DrugBank target to its gene and adds
+`drugbank_id` and `drug_name` to the HPO associations. We merge each DrugBank
+object and stack the results.
+
+```{r merge}
+merged <- lapply(list(two_drugs, bivalirudin), merge_drugbank_hpo,
+                 hpo_db = hpo_db)
+
+# drug -> target -> gene bridge, including targets without HPO data
+gene_bridge <- bind_rows(lapply(merged, function(m) {
+  m$integrated_data$DrugBank_GeneSymbol_Mapping
+}))
+
+# HPO associations of the drug target genes
+target_phenotypes <- bind_rows(lapply(merged, function(m) {
+  m$integrated_data$gene_phenotype_enriched
+})) %>%
+  filter(!is.na(drugbank_id)) %>%
+  distinct(drug_name, gene_symbol, hpo_id, phenotype_name)
+
+gene_bridge %>%
+  select(drug_name, target_id, polypeptide_name, gene_name) %>%
+  left_join(count(target_phenotypes, gene_symbol, name = "hpo_terms"),
+            by = c("gene_name" = "gene_symbol"))
+```
+
+Four of the five targets have HPO annotations. *HOXA10*, a target that
+DrugBank lists for calcitriol with an unknown role (`known_action = "unknown"`),
+has none. Missing phenotypes are a coverage gap, not evidence that the target
+is safe to modulate.
+
+*GNRH1* encodes the GnRH precursor, the natural ligand of the GnRH receptor.
+Leuprolide is a GnRH analogue, so *GNRH1* and *GNRHR* describe the same
+signalling axis.
+
+## 3. Keep the informative phenotypes
+
+Harmonizome propagates every annotation up the ontology. A gene annotated with
+*epistaxis* is also annotated with *abnormality of the nose*,
+*phenotypic abnormality* and the root term *all*. These grouping terms, the
+inheritance and onset terms, and the clinical modifiers say nothing about the
+gene, so we drop them.
+
+```{r filter_terms}
+is_uninformative <- function(hpo_id, phenotype_name) {
+  hpo_id %in% c("HP:0000001", "HP:0000118") |
+    grepl("inheritance|onset|clinical modifier|variability|expressivity",
+          phenotype_name) |
+    grepl("^(functional )?abnormal(ity)? ", phenotype_name) |
+    grepl(" abnormality$|anomaly", phenotype_name)
+}
+
+specific_phenotypes <- target_phenotypes %>%
+  filter(!is_uninformative(hpo_id, phenotype_name))
+
+count(target_phenotypes, drug_name, gene_symbol, name = "all_terms") %>%
+  left_join(count(specific_phenotypes, drug_name, gene_symbol,
+                  name = "specific_terms"),
+            by = c("drug_name", "gene_symbol"))
+```
+
+This name-based filter is a quick heuristic. For a full analysis, filter on
+the ontology structure instead, e.g. by keeping only the most specific terms
+with the `ontologyIndex` package and the HPO `.obo` file.
+
+## 4. Group phenotypes into clinical domains
+
+To compare targets, we assign each phenotype to a clinical domain with
+keyword rules. The rules are applied in order, and the first match wins.
+
+```{r domains}
+domain_rules <- c(
+  "Bleeding & coagulation"   = "hemorrhag|bleed|epistaxis|menorrhagia|bruising|prothrombin|thromboplastin",
+  "Thrombosis"               = "thrombo(sis|phlebitis)|embolism",
+  "Reproductive & gonadal"   = "gonad|puberty|genital|test[ei]|amenorrh|menstrua|androgen",
+  "Calcium & mineral"        = "calc|phosphat|parathyroid|vitamin|alkaline|nephrolith",
+  "Skeletal & dental"        = "bone|skelet|rickets|bowing|bossing|fractur|osteo|epiphys|metaphys|fontanel|sutur|rib|costochondral|genu|scoliosis|teeth|dental|enamel|occiput|cephaly|wrist|ankle|trabecul|cortex|stature",
+  "Neuromuscular & growth"   = "seizure|hypotonia|motor|gait|muscle|walking|standing|irritab|neurodevelop|anosmia|growth|thrive|body weight"
+)
+
+assign_domain <- function(phenotype_name) {
+  domain <- rep("Other", length(phenotype_name))
+  for (rule in rev(names(domain_rules))) {
+    domain[grepl(domain_rules[[rule]], phenotype_name)] <- rule
+  }
+  domain
+}
+
+specific_phenotypes <- specific_phenotypes %>%
+  mutate(domain = assign_domain(phenotype_name),
+         drug_target = paste0(drug_name, " (", gene_symbol, ")"))
+
+domain_counts <- specific_phenotypes %>%
+  count(drug_target, domain)
+
+domain_counts
+```
+
+The plot below shows each target's phenotype profile.
+
+```{r plot_domains, eval = has_canvasxpress, fig.width = 7}
+domain_levels <- c(names(domain_rules), "Other")
+
+tidy_to_matrix <- function(counts) {
+  targets <- sort(unique(counts$drug_target))
+  m <- matrix(0, nrow = length(domain_levels), ncol = length(targets),
+              dimnames = list(domain_levels, targets))
+  m[cbind(counts$domain, counts$drug_target)] <- counts$n
+  as.data.frame(m)
+}
+
+canvasXpress(
+  data             = tidy_to_matrix(domain_counts),
+  graphType        = "Stacked",
+  graphOrientation = "horizontal",
+  title            = "Mendelian phenotypes of drug target genes",
+  subtitle         = "Specific HPO terms per target, by clinical domain",
+  xAxisTitle       = "Number of HPO terms",
+  colorScheme      = "Tableau",
+  legendPosition   = "right",
+  showSampleNames  = TRUE
+)
+```
+
+Each target has a distinct profile: *F2* is dominated by bleeding and
+thrombosis, the GnRH axis genes by reproductive phenotypes, and *VDR* by
+skeletal and mineral phenotypes.
+
+## 5. Interpret the phenotypes using the direction of drug action
+
+HPO tells us what happens when a gene is altered, mostly by loss of function.
+It does not tell us whether a drug mimics or opposes that change. That depends
+on the drug's action on the target.
+
+For bivalirudin, the action comes from the parsed DrugBank record. Each CETT
+action row carries its `drugbank_id`, so we can read the action for this drug
+alone:
+
+```{r bivalirudin_action}
+bivalirudin$cett$targets$actions %>%
+  left_join(select(bivalirudin$cett$targets$general_information,
+                   target_id, drugbank_id, target_name = name),
+            by = c("target_id", "drugbank_id"))
+```
+
+The `two_drugs` sample was saved before CETT actions carried a `drugbank_id`,
+so its actions table cannot be attributed to a single drug. For leuprolide and
+calcitriol we write down the mode of action from their DrugBank entries and
+their known pharmacology:
+
+```{r direction}
+drug_direction <- tibble::tribble(
+  ~drug_name,    ~gene_symbol, ~action,     ~net_effect_on_target,
+  "Bivalirudin", "F2",         "inhibitor", "loss of function",
+  "Leuprolide",  "GNRHR",      "agonist",   "loss of function (desensitisation)",
+  "Leuprolide",  "GNRH1",      "analogue",  "loss of function (desensitisation)",
+  "Calcitriol",  "VDR",        "agonist",   "gain of function"
+)
+drug_direction
+```
+
+Leuprolide is a receptor agonist, but continuous exposure desensitises the
+GnRH receptor and shuts down the pituitary–gonadal axis. Its net effect is
+therefore similar to losing the receptor.
+
+Now we look at the domains that best represent each target:
+
+```{r key_phenotypes}
+key_domains <- c("Bleeding & coagulation", "Thrombosis",
+                 "Reproductive & gonadal", "Calcium & mineral")
+
+specific_phenotypes %>%
+  filter(domain %in% key_domains) %>%
+  group_by(drug_target, domain) %>%
+  summarise(n_terms  = n(),
+            examples = paste(head(sort(phenotype_name), 5), collapse = "; "),
+            .groups  = "drop") %>%
+  arrange(drug_target, desc(n_terms)) %>%
+  knitr::kable()
+```
+
+The two reproductive terms for *F2* (*menstrual irregularities* and
+*puberty and gonadal disorders*) are most likely ancestors of *menorrhagia*
+that the propagation added. They reflect bleeding, not a separate
+reproductive effect.
+
+### Bivalirudin and *F2*: phenotypes predict the main adverse effect
+
+Bivalirudin inhibits thrombin, so it mimics loss of *F2* function. Prothrombin
+deficiency causes bleeding: epistaxis, gingival and gastrointestinal
+haemorrhage, and prolonged prothrombin and partial thromboplastin times.
+Bleeding is the main adverse effect of bivalirudin, and a prolonged clotting
+time is how its effect is monitored. The thrombosis terms come from the
+gain-of-function variant (prothrombin G20210A). They describe the state that
+the drug is given to oppose, not a predicted adverse effect.
+
+### Leuprolide and the GnRH axis: phenotypes predict the therapeutic effect
+
+Loss of *GNRHR* or *GNRH1* causes hypogonadotropic hypogonadism, androgen
+insufficiency, amenorrhoea and delayed puberty. Leuprolide causes the same
+state in patients on purpose. It is the basis of androgen deprivation therapy
+in prostate cancer and of its use in endometriosis and central precocious
+puberty. It also explains the drug's hypogonadal adverse effects. *GNRH1*
+alone also adds *anosmia*. Anosmia belongs to the Kallmann form of
+hypogonadotropic hypogonadism, where GnRH neurons and olfactory neurons fail
+to develop. The term is probably attached to *GNRH1* through a disease entry
+that covers hypogonadism "with or without anosmia". It reflects development,
+not GnRH signalling, so it is not expected from leuprolide. Checks like this
+are part of reading gene-level annotations.
+
+### Calcitriol and *VDR*: the direction is reversed
+
+Loss of *VDR* causes hereditary vitamin D–resistant rickets: rickets,
+hypocalcaemia, hypophosphataemia, secondary hyperparathyroidism and alopecia.
+Calcitriol activates the receptor, so these phenotypes do not predict its
+adverse effects. They describe the deficiency state that calcitriol treats.
+The main adverse effects of calcitriol, hypercalcaemia and hypercalciuria,
+come from too much receptor activity, and the loss-of-function annotations do
+not contain them.
+
+## 6. Compare the phenotype profiles
+
+The bar chart shows how many terms each target has; *VDR* dominates because
+vitamin D-resistant rickets is a multi-system disease that is described in
+detail. To compare the *composition* of the profiles, we convert the counts to
+the share of each target's specific terms that fall in each domain.
+
+```{r plot_heatmap, eval = has_canvasxpress, fig.width = 7}
+domain_share <- domain_counts %>%
+  group_by(drug_target) %>%
+  mutate(n = round(100 * n / sum(n))) %>%
+  ungroup()
+
+canvasXpress(
+  data                      = as.data.frame(t(tidy_to_matrix(domain_share))),
+  graphType                 = "Heatmap",
+  title                     = "Phenotype profile of each drug target",
+  subtitle                  = "Share of specific HPO terms (%)",
+  colorSpectrum             = c("white", "#08519c"),
+  showHeatmapIndicator      = TRUE,
+  heatmapIndicatorPosition  = "right",
+  heatmapIndicatorHistogram = FALSE,
+  samplesClustered          = FALSE,
+  variablesClustered        = FALSE,
+  showSampleNames           = TRUE,
+  showVariableNames         = TRUE
+)
+```
+
+The profiles hardly overlap. Each target points to one organ system, and that
+system matches the drug's known pharmacology: haemostasis for bivalirudin, the
+reproductive axis for leuprolide, and bone and mineral metabolism for
+calcitriol. The two GnRH axis genes have similar profiles, as expected for a
+ligand and its receptor.
+
+## Conclusion
+
+Linking DrugBank targets to HPO phenotypes takes three calls: `parseHPO()`,
+`parseDrugBank()` and `merge_drugbank_hpo()`. In this example the Mendelian
+phenotypes of the target genes agreed with known pharmacology once the
+direction of drug action was taken into account:
+
+1. For an **inhibitor** (bivalirudin), the loss-of-function phenotypes predict
+   the main **adverse effect**, bleeding.
+2. For a drug whose net effect is **suppression** (leuprolide), they predict
+   the **therapeutic effect**, hypogonadism.
+3. For an **agonist** (calcitriol), they describe the **disease being treated**,
+   and the adverse effects lie in the opposite direction.
+
+Before using these annotations to anticipate effects for a new compound,
+check the direction of action. Also treat genes without annotations
+(*HOXA10* here) as unknown, not as safe.

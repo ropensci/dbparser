@@ -1,0 +1,487 @@
+source	source_desc	source_id	target	target_desc	target_id	weight
+GeneSym	NA	GeneID	Phenotype	HPOID	NA	weight
+MPO	na	4353	abnormality of blood and blood-forming tissues	HP:0001871	-666	1.000000
+F2	na	2147	abnormality of blood and blood-forming tissues	HP:0001871	-666	1.000000
+F2	na	2147	abnormality of thrombocytes	HP:0001872	-666	1.000000
+F2	na	2147	abnormal thrombosis	HP:0001977	-666	1.000000
+F2	na	2147	venous thrombosis	HP:0004936	-666	1.000000
+F2	na	2147	thrombophlebitis	HP:0004418	-666	1.000000
+F2	na	2147	prolonged bleeding time	HP:0003010	-666	1.000000
+F2	na	2147	menorrhagia	HP:0000132	-666	1.000000
+F2	na	2147	gingival bleeding	HP:0000225	-666	1.000000
+F2	na	2147	epistaxis	HP:0000421	-666	1.000000
+F2	na	2147	vascular skin abnormality	HP:0011276	-666	1.000000
+F2	na	2147	subcutaneous hemorrhage	HP:0001933	-666	1.000000
+F2	na	2147	abnormal bleeding	HP:0001892	-666	1.000000
+F2	na	2147	bruising susceptibility	HP:0000978	-666	1.000000
+MPO	na	4353	abnormality of the immune system	HP:0002715	-666	1.000000
+F2	na	2147	abnormal respiratory system morphology	HP:0012252	-666	1.000000
+F2	na	2147	abnormality of the respiratory system	HP:0002086	-666	1.000000
+F2	na	2147	abnormality of the lung	HP:0002088	-666	1.000000
+KCNQ2	na	3785	abnormality of the abdomen	HP:0001438	-666	1.000000
+VDR	na	7421	abnormality of the abdomen	HP:0001438	-666	1.000000
+F2	na	2147	abnormality of the abdomen	HP:0001438	-666	1.000000
+F2	na	2147	abnormality of the abdominal organs	HP:0002012	-666	1.000000
+F2	na	2147	abnormality of the gastrointestinal tract	HP:0011024	-666	1.000000
+F2	na	2147	generalized abnormality of skin	HP:0011354	-666	1.000000
+VDR	na	7421	abnormality of the skin	HP:0000951	-666	1.000000
+F2	na	2147	abnormality of the skin	HP:0000951	-666	1.000000
+VDR	na	7421	abnormality of the integument	HP:0001574	-666	1.000000
+F2	na	2147	abnormality of the integument	HP:0001574	-666	1.000000
+F2	na	2147	abnormality of the cardiovascular system	HP:0001626	-666	1.000000
+KCNQ2	na	3785	abdominal symptom	HP:0011458	-666	1.000000
+VDR	na	7421	abdominal symptom	HP:0011458	-666	1.000000
+VDR	na	7421	abnormality of body weight	HP:0004323	-666	1.000000
+VDR	na	7421	decreased body weight	HP:0004325	-666	1.000000
+VDR	na	7421	failure to thrive	HP:0001508	-666	1.000000
+VDR	na	7421	abnormality of metabolism/homeostasis	HP:0001939	-666	1.000000
+MPO	na	4353	abnormality of metabolism/homeostasis	HP:0001939	-666	1.000000
+GNRHR	na	2798	abnormality of metabolism/homeostasis	HP:0001939	-666	1.000000
+SCN1A	na	6323	all	HP:0000001	-666	1.000000
+KCNQ2	na	3785	all	HP:0000001	-666	1.000000
+VDR	na	7421	all	HP:0000001	-666	1.000000
+MPO	na	4353	all	HP:0000001	-666	1.000000
+F2	na	2147	all	HP:0000001	-666	1.000000
+GNRHR	na	2798	all	HP:0000001	-666	1.000000
+GNRH1	na	2796	all	HP:0000001	-666	1.000000
+SCN1A	na	6323	phenotypic abnormality	HP:0000118	-666	1.000000
+KCNQ2	na	3785	phenotypic abnormality	HP:0000118	-666	1.000000
+VDR	na	7421	phenotypic abnormality	HP:0000118	-666	1.000000
+MPO	na	4353	phenotypic abnormality	HP:0000118	-666	1.000000
+F2	na	2147	phenotypic abnormality	HP:0000118	-666	1.000000
+GNRHR	na	2798	phenotypic abnormality	HP:0000118	-666	1.000000
+GNRH1	na	2796	phenotypic abnormality	HP:0000118	-666	1.000000
+SCN1A	na	6323	mode of inheritance	HP:0000005	-666	1.000000
+KCNQ2	na	3785	mode of inheritance	HP:0000005	-666	1.000000
+VDR	na	7421	mode of inheritance	HP:0000005	-666	1.000000
+MPO	na	4353	mode of inheritance	HP:0000005	-666	1.000000
+F2	na	2147	mode of inheritance	HP:0000005	-666	1.000000
+GNRHR	na	2798	mode of inheritance	HP:0000005	-666	1.000000
+GNRH1	na	2796	mode of inheritance	HP:0000005	-666	1.000000
+KCNQ2	na	3785	autosomal recessive inheritance	HP:0000007	-666	1.000000
+VDR	na	7421	autosomal recessive inheritance	HP:0000007	-666	1.000000
+MPO	na	4353	autosomal recessive inheritance	HP:0000007	-666	1.000000
+F2	na	2147	autosomal recessive inheritance	HP:0000007	-666	1.000000
+GNRHR	na	2798	autosomal recessive inheritance	HP:0000007	-666	1.000000
+SCN1A	na	6323	abnormality of higher mental function	HP:0011446	-666	1.000000
+KCNQ2	na	3785	abnormality of higher mental function	HP:0011446	-666	1.000000
+SCN1A	na	6323	cognitive impairment	HP:0100543	-666	1.000000
+KCNQ2	na	3785	cognitive impairment	HP:0100543	-666	1.000000
+SCN1A	na	6323	abnormality of brain morphology	HP:0012443	-666	1.000000
+KCNQ2	na	3785	abnormality of brain morphology	HP:0012443	-666	1.000000
+SCN1A	na	6323	morphological abnormality of the central nervous system	HP:0002011	-666	1.000000
+KCNQ2	na	3785	morphological abnormality of the central nervous system	HP:0002011	-666	1.000000
+SCN1A	na	6323	abnormality of nervous system morphology	HP:0012639	-666	1.000000
+KCNQ2	na	3785	abnormality of nervous system morphology	HP:0012639	-666	1.000000
+GNRH1	na	2796	abnormality of nervous system morphology	HP:0012639	-666	1.000000
+SCN1A	na	6323	abnormality of nervous system physiology	HP:0012638	-666	1.000000
+KCNQ2	na	3785	abnormality of nervous system physiology	HP:0012638	-666	1.000000
+VDR	na	7421	abnormality of nervous system physiology	HP:0012638	-666	1.000000
+GNRH1	na	2796	abnormality of nervous system physiology	HP:0012638	-666	1.000000
+SCN1A	na	6323	abnormality of the nervous system	HP:0000707	-666	1.000000
+KCNQ2	na	3785	abnormality of the nervous system	HP:0000707	-666	1.000000
+VDR	na	7421	abnormality of the nervous system	HP:0000707	-666	1.000000
+GNRH1	na	2796	abnormality of the nervous system	HP:0000707	-666	1.000000
+SCN1A	na	6323	abnormality of skeletal morphology	HP:0011842	-666	1.000000
+VDR	na	7421	abnormality of skeletal morphology	HP:0011842	-666	1.000000
+F2	na	2147	abnormality of skeletal morphology	HP:0011842	-666	1.000000
+SCN1A	na	6323	abnormality of the skeletal system	HP:0000924	-666	1.000000
+VDR	na	7421	abnormality of the skeletal system	HP:0000924	-666	1.000000
+F2	na	2147	abnormality of the skeletal system	HP:0000924	-666	1.000000
+SCN1A	na	6323	abnormal axial skeleton morphology	HP:0009121	-666	1.000000
+VDR	na	7421	abnormal axial skeleton morphology	HP:0009121	-666	1.000000
+SCN1A	na	6323	abnormality of the skull	HP:0000929	-666	1.000000
+VDR	na	7421	abnormality of the skull	HP:0000929	-666	1.000000
+SCN1A	na	6323	abnormality of head or neck	HP:0000152	-666	1.000000
+VDR	na	7421	abnormality of head or neck	HP:0000152	-666	1.000000
+F2	na	2147	abnormality of head or neck	HP:0000152	-666	1.000000
+GNRH1	na	2796	abnormality of head or neck	HP:0000152	-666	1.000000
+SCN1A	na	6323	abnormality of the head	HP:0000234	-666	1.000000
+VDR	na	7421	abnormality of the head	HP:0000234	-666	1.000000
+F2	na	2147	abnormality of the head	HP:0000234	-666	1.000000
+GNRH1	na	2796	abnormality of the head	HP:0000234	-666	1.000000
+VDR	na	7421	abnormality of the face	HP:0000271	-666	1.000000
+F2	na	2147	abnormality of the face	HP:0000271	-666	1.000000
+GNRH1	na	2796	abnormality of the face	HP:0000271	-666	1.000000
+VDR	na	7421	abnormality of the mouth	HP:0000153	-666	1.000000
+F2	na	2147	abnormality of the mouth	HP:0000153	-666	1.000000
+VDR	na	7421	abnormality of the oral cavity	HP:0000163	-666	1.000000
+F2	na	2147	abnormality of the oral cavity	HP:0000163	-666	1.000000
+SCN1A	na	6323	abnormality of forebrain morphology	HP:0100547	-666	1.000000
+KCNQ2	na	3785	abnormality of forebrain morphology	HP:0100547	-666	1.000000
+SCN1A	na	6323	abnormality of the cerebrum	HP:0002060	-666	1.000000
+KCNQ2	na	3785	abnormality of the cerebrum	HP:0002060	-666	1.000000
+SCN1A	na	6323	aplasia/hypoplasia involving the central nervous system	HP:0002977	-666	1.000000
+KCNQ2	na	3785	aplasia/hypoplasia involving the central nervous system	HP:0002977	-666	1.000000
+SCN1A	na	6323	aplasia/hypoplasia of the cerebrum	HP:0007364	-666	1.000000
+KCNQ2	na	3785	aplasia/hypoplasia of the cerebrum	HP:0007364	-666	1.000000
+SCN1A	na	6323	microcephaly	HP:0000252	-666	1.000000
+SCN1A	na	6323	abnormality of skull size	HP:0000240	-666	1.000000
+SCN1A	na	6323	seizures	HP:0001250	-666	1.000000
+KCNQ2	na	3785	seizures	HP:0001250	-666	1.000000
+VDR	na	7421	seizures	HP:0001250	-666	1.000000
+KCNQ2	na	3785	abnormality of muscle physiology	HP:0011804	-666	1.000000
+VDR	na	7421	abnormality of muscle physiology	HP:0011804	-666	1.000000
+KCNQ2	na	3785	abnormality of the musculature	HP:0003011	-666	1.000000
+VDR	na	7421	abnormality of the musculature	HP:0003011	-666	1.000000
+KCNQ2	na	3785	muscular hypotonia	HP:0001252	-666	1.000000
+VDR	na	7421	muscular hypotonia	HP:0001252	-666	1.000000
+KCNQ2	na	3785	abnormal muscle tone	HP:0003808	-666	1.000000
+VDR	na	7421	abnormal muscle tone	HP:0003808	-666	1.000000
+VDR	na	7421	abnormality of body height	HP:0000002	-666	1.000000
+VDR	na	7421	short stature	HP:0004322	-666	1.000000
+VDR	na	7421	growth delay	HP:0001510	-666	1.000000
+GNRH1	na	2796	growth delay	HP:0001510	-666	1.000000
+VDR	na	7421	growth abnormality	HP:0001507	-666	1.000000
+GNRH1	na	2796	growth abnormality	HP:0001507	-666	1.000000
+SCN1A	na	6323	neurodevelopmental abnormality	HP:0012759	-666	1.000000
+KCNQ2	na	3785	neurodevelopmental abnormality	HP:0012759	-666	1.000000
+VDR	na	7421	neurodevelopmental abnormality	HP:0012759	-666	1.000000
+KCNQ2	na	3785	intellectual disability	HP:0001249	-666	1.000000
+SCN1A	na	6323	neurodevelopmental delay	HP:0012758	-666	1.000000
+KCNQ2	na	3785	neurodevelopmental delay	HP:0012758	-666	1.000000
+VDR	na	7421	neurodevelopmental delay	HP:0012758	-666	1.000000
+SCN1A	na	6323	global developmental delay	HP:0001263	-666	1.000000
+KCNQ2	na	3785	global developmental delay	HP:0001263	-666	1.000000
+SCN1A	na	6323	abnormal eye morphology	HP:0012372	-666	1.000000
+SCN1A	na	6323	abnormality of the globe	HP:0012374	-666	1.000000
+SCN1A	na	6323	abnormality of the eye	HP:0000478	-666	1.000000
+KCNQ2	na	3785	abnormality of the eye	HP:0000478	-666	1.000000
+SCN1A	na	6323	abnormality of the fundus	HP:0001098	-666	1.000000
+SCN1A	na	6323	abnormality of the posterior segment of the eye	HP:0004329	-666	1.000000
+SCN1A	na	6323	abnormality of the retina	HP:0000479	-666	1.000000
+SCN1A	na	6323	abnormality of vision	HP:0000504	-666	1.000000
+SCN1A	na	6323	visual impairment	HP:0000505	-666	1.000000
+SCN1A	na	6323	abnormal eye physiology	HP:0012373	-666	1.000000
+SCN1A	na	6323	abnormality of eye movement	HP:0000496	-666	1.000000
+SCN1A	na	6323	abnormal involuntary eye movements	HP:0012547	-666	1.000000
+SCN1A	na	6323	nystagmus	HP:0000639	-666	1.000000
+SCN1A	na	6323	abnormality of the ear	HP:0000598	-666	1.000000
+SCN1A	na	6323	hearing abnormality	HP:0000364	-666	1.000000
+SCN1A	na	6323	hearing impairment	HP:0000365	-666	1.000000
+SCN1A	na	6323	abnormality of the middle ear	HP:0000370	-666	1.000000
+SCN1A	na	6323	functional abnormality of the inner ear	HP:0011389	-666	1.000000
+SCN1A	na	6323	abnormality of the inner ear	HP:0000359	-666	1.000000
+SCN1A	na	6323	sensorineural hearing impairment	HP:0000407	-666	1.000000
+GNRHR	na	2798	abnormal external genitalia	HP:0000811	-666	1.000000
+GNRHR	na	2798	abnormality of male external genitalia	HP:0000032	-666	1.000000
+GNRHR	na	2798	abnormality of the male genitalia	HP:0010461	-666	1.000000
+GNRHR	na	2798	abnormality of the testis	HP:0000035	-666	1.000000
+F2	na	2147	abnormal genital system morphology	HP:0012243	-666	1.000000
+GNRHR	na	2798	abnormal genital system morphology	HP:0012243	-666	1.000000
+F2	na	2147	abnormality of the genital system	HP:0000078	-666	1.000000
+GNRHR	na	2798	abnormality of the genital system	HP:0000078	-666	1.000000
+GNRH1	na	2796	abnormality of the genital system	HP:0000078	-666	1.000000
+GNRHR	na	2798	external genital hypoplasia	HP:0003241	-666	1.000000
+GNRHR	na	2798	hypoplastic male external genitalia	HP:0000050	-666	1.000000
+F2	na	2147	abnormality of the nose	HP:0000366	-666	1.000000
+GNRH1	na	2796	abnormality of the nose	HP:0000366	-666	1.000000
+VDR	na	7421	abnormality of lower limb bone	HP:0040069	-666	1.000000
+VDR	na	7421	abnormal appendicular skeleton morphology	HP:0011844	-666	1.000000
+VDR	na	7421	abnormality of limb bone morphology	HP:0002813	-666	1.000000
+VDR	na	7421	abnormality of limb bone	HP:0040068	-666	1.000000
+VDR	na	7421	abnormality of limbs	HP:0040064	-666	1.000000
+VDR	na	7421	abnormality of the lower limb	HP:0002814	-666	1.000000
+VDR	na	7421	abnormality of the upper limb	HP:0002817	-666	1.000000
+VDR	na	7421	abnormal shape of the frontal region	HP:0011218	-666	1.000000
+VDR	na	7421	frontal bossing	HP:0002007	-666	1.000000
+VDR	na	7421	abnormality of calvarial morphology	HP:0002648	-666	1.000000
+VDR	na	7421	abnormality of the calvaria	HP:0002683	-666	1.000000
+VDR	na	7421	abnormality of the forehead	HP:0000290	-666	1.000000
+VDR	na	7421	abnormality of the curvature of the vertebral column	HP:0010674	-666	1.000000
+VDR	na	7421	scoliosis	HP:0002650	-666	1.000000
+VDR	na	7421	abnormality of the vertebral column	HP:0000925	-666	1.000000
+VDR	na	7421	abnormality of the abdominal wall	HP:0004298	-666	1.000000
+VDR	na	7421	abnormality of upper limb joint	HP:0009810	-666	1.000000
+VDR	na	7421	abnormal joint morphology	HP:0001367	-666	1.000000
+F2	na	2147	abnormal joint morphology	HP:0001367	-666	1.000000
+VDR	na	7421	abnormality of connective tissue	HP:0003549	-666	1.000000
+VDR	na	7421	abnormality of lower limb joint	HP:0100491	-666	1.000000
+VDR	na	7421	abnormality of pelvic girdle bone morphology	HP:0002644	-666	1.000000
+VDR	na	7421	abnormality of the hip bone	HP:0003272	-666	1.000000
+VDR	na	7421	abnormal renal morphology	HP:0012210	-666	1.000000
+VDR	na	7421	abnormality of the kidney	HP:0000077	-666	1.000000
+VDR	na	7421	abnormality of the upper urinary tract	HP:0010935	-666	1.000000
+VDR	na	7421	abnormality of the genitourinary system	HP:0000119	-666	1.000000
+F2	na	2147	abnormality of the genitourinary system	HP:0000119	-666	1.000000
+GNRHR	na	2798	abnormality of the genitourinary system	HP:0000119	-666	1.000000
+GNRH1	na	2796	abnormality of the genitourinary system	HP:0000119	-666	1.000000
+VDR	na	7421	abnormality of the urinary system	HP:0000079	-666	1.000000
+VDR	na	7421	abnormal morphology of bones of the lower limbs	HP:0040066	-666	1.000000
+VDR	na	7421	abnormality of epiphysis morphology	HP:0005930	-666	1.000000
+VDR	na	7421	abnormality of long bone morphology	HP:0011314	-666	1.000000
+VDR	na	7421	abnormality of the knees	HP:0002815	-666	1.000000
+VDR	na	7421	abnormality of the calf	HP:0002981	-666	1.000000
+VDR	na	7421	bowing of the legs	HP:0002979	-666	1.000000
+VDR	na	7421	abnormal diaphysis morphology	HP:0000940	-666	1.000000
+VDR	na	7421	anomaly of the limb diaphyses	HP:0006504	-666	1.000000
+VDR	na	7421	bowing of the long bones	HP:0006487	-666	1.000000
+VDR	na	7421	genu valgum	HP:0002857	-666	1.000000
+VDR	na	7421	abnormality of the rib cage	HP:0001547	-666	1.000000
+VDR	na	7421	abnormality of the ribs	HP:0000772	-666	1.000000
+VDR	na	7421	abnormality of the thorax	HP:0000765	-666	1.000000
+VDR	na	7421	abnormal form of the vertebral bodies	HP:0003312	-666	1.000000
+VDR	na	7421	abnormality of the vertebrae	HP:0003468	-666	1.000000
+VDR	na	7421	abnormality of the metaphyses	HP:0000944	-666	1.000000
+VDR	na	7421	abnormality of dental eruption	HP:0006292	-666	1.000000
+VDR	na	7421	delayed eruption of teeth	HP:0000684	-666	1.000000
+VDR	na	7421	abnormality of the teeth	HP:0000164	-666	1.000000
+VDR	na	7421	abnormality of dental enamel	HP:0000682	-666	1.000000
+VDR	na	7421	abnormality of dental structure	HP:0011061	-666	1.000000
+VDR	na	7421	carious teeth	HP:0000670	-666	1.000000
+VDR	na	7421	hypoplasia of dental enamel	HP:0006297	-666	1.000000
+VDR	na	7421	hypoplasia of teeth	HP:0000685	-666	1.000000
+VDR	na	7421	abnormal hair quantity	HP:0011362	-666	1.000000
+VDR	na	7421	abnormality of skin adnexa	HP:0011138	-666	1.000000
+VDR	na	7421	abnormality of the hair	HP:0001595	-666	1.000000
+VDR	na	7421	alopecia	HP:0001596	-666	1.000000
+KCNQ2	na	3785	abnormality of the cerebral subcortex	HP:0010993	-666	1.000000
+KCNQ2	na	3785	abnormality of the cerebral white matter	HP:0002500	-666	1.000000
+KCNQ2	na	3785	abnormality of the corpus callosum	HP:0001273	-666	1.000000
+KCNQ2	na	3785	aplasia/hypoplasia of the corpus callosum	HP:0007370	-666	1.000000
+KCNQ2	na	3785	hypoplasia of the corpus callosum	HP:0002079	-666	1.000000
+VDR	na	7421	abnormality of cranial sutures	HP:0011329	-666	1.000000
+VDR	na	7421	abnormality of the fontanelles or cranial sutures	HP:0000235	-666	1.000000
+VDR	na	7421	abnormality of fontanelles	HP:0011328	-666	1.000000
+VDR	na	7421	large fontanelles	HP:0000239	-666	1.000000
+VDR	na	7421	abnormal bone ossification	HP:0011849	-666	1.000000
+VDR	na	7421	abnormal enchondral ossification	HP:0003336	-666	1.000000
+VDR	na	7421	abnormal epiphyseal ossification	HP:0010656	-666	1.000000
+SCN1A	na	6323	abnormality of movement	HP:0100022	-666	1.000000
+KCNQ2	na	3785	abnormality of movement	HP:0100022	-666	1.000000
+VDR	na	7421	abnormality of movement	HP:0100022	-666	1.000000
+VDR	na	7421	gait disturbance	HP:0001288	-666	1.000000
+SCN1A	na	6323	neurological speech impairment	HP:0002167	-666	1.000000
+KCNQ2	na	3785	neurological speech impairment	HP:0002167	-666	1.000000
+SCN1A	na	6323	abnormality of coordination	HP:0011443	-666	1.000000
+SCN1A	na	6323	ataxia	HP:0001251	-666	1.000000
+SCN1A	na	6323	abnormality of hindbrain morphology	HP:0011282	-666	1.000000
+SCN1A	na	6323	abnormality of the metencephalon	HP:0011283	-666	1.000000
+SCN1A	na	6323	abnormality of the cerebellum	HP:0001317	-666	1.000000
+SCN1A	na	6323	incoordination	HP:0002311	-666	1.000000
+KCNQ2	na	3785	hypertonia	HP:0001276	-666	1.000000
+KCNQ2	na	3785	spasticity	HP:0001257	-666	1.000000
+SCN1A	na	6323	abnormality of central motor function	HP:0011442	-666	1.000000
+KCNQ2	na	3785	abnormality of central motor function	HP:0011442	-666	1.000000
+SCN1A	na	6323	upper motor neuron dysfunction	HP:0002493	-666	1.000000
+KCNQ2	na	3785	upper motor neuron dysfunction	HP:0002493	-666	1.000000
+SCN1A	na	6323	abnormal pyramidal signs	HP:0007256	-666	1.000000
+KCNQ2	na	3785	abnormal pyramidal signs	HP:0007256	-666	1.000000
+SCN1A	na	6323	atrophy/degeneration affecting the central nervous system	HP:0007367	-666	1.000000
+SCN1A	na	6323	atrophy/degeneration affecting the cerebrum	HP:0007369	-666	1.000000
+SCN1A	na	6323	cerebral atrophy	HP:0002059	-666	1.000000
+SCN1A	na	6323	brain atrophy	HP:0012444	-666	1.000000
+SCN1A	na	6323	brain very small	HP:0001322	-666	1.000000
+SCN1A	na	6323	weakness due to upper motor neuron dysfunction	HP:0010549	-666	1.000000
+SCN1A	na	6323	hemiplegia/hemiparesis	HP:0004374	-666	1.000000
+KCNQ2	na	3785	involuntary movements	HP:0004305	-666	1.000000
+KCNQ2	na	3785	chorea	HP:0002072	-666	1.000000
+KCNQ2	na	3785	dystonia	HP:0001332	-666	1.000000
+SCN1A	na	6323	onset	HP:0003674	-666	1.000000
+KCNQ2	na	3785	onset	HP:0003674	-666	1.000000
+VDR	na	7421	onset	HP:0003674	-666	1.000000
+F2	na	2147	onset	HP:0003674	-666	1.000000
+SCN1A	na	6323	clinical modifier	HP:0012823	-666	1.000000
+KCNQ2	na	3785	clinical modifier	HP:0012823	-666	1.000000
+VDR	na	7421	clinical modifier	HP:0012823	-666	1.000000
+F2	na	2147	clinical modifier	HP:0012823	-666	1.000000
+SCN1A	na	6323	infantile onset	HP:0003593	-666	1.000000
+KCNQ2	na	3785	infantile onset	HP:0003593	-666	1.000000
+VDR	na	7421	infantile onset	HP:0003593	-666	1.000000
+SCN1A	na	6323	phenotypic variability	HP:0003812	-666	1.000000
+KCNQ2	na	3785	phenotypic variability	HP:0003812	-666	1.000000
+F2	na	2147	phenotypic variability	HP:0003812	-666	1.000000
+SCN1A	na	6323	variable expressivity	HP:0003828	-666	1.000000
+F2	na	2147	variable expressivity	HP:0003828	-666	1.000000
+SCN1A	na	6323	autosomal dominant inheritance	HP:0000006	-666	1.000000
+KCNQ2	na	3785	autosomal dominant inheritance	HP:0000006	-666	1.000000
+VDR	na	7421	autosomal dominant inheritance	HP:0000006	-666	1.000000
+F2	na	2147	autosomal dominant inheritance	HP:0000006	-666	1.000000
+GNRHR	na	2798	autosomal dominant inheritance	HP:0000006	-666	1.000000
+GNRH1	na	2796	autosomal dominant inheritance	HP:0000006	-666	1.000000
+VDR	na	7421	abnormal emotion/affect behavior	HP:0100851	-666	1.000000
+SCN1A	na	6323	behavioral abnormality	HP:0000708	-666	1.000000
+KCNQ2	na	3785	behavioral abnormality	HP:0000708	-666	1.000000
+VDR	na	7421	behavioral abnormality	HP:0000708	-666	1.000000
+VDR	na	7421	abnormality of the abdominal musculature	HP:0010991	-666	1.000000
+VDR	na	7421	osteoporosis	HP:0000939	-666	1.000000
+VDR	na	7421	reduced bone mineral density	HP:0004349	-666	1.000000
+VDR	na	7421	abnormality of bone mineral density	HP:0004348	-666	1.000000
+VDR	na	7421	abnormal bone structure	HP:0003330	-666	1.000000
+VDR	na	7421	increased susceptibility to fractures	HP:0002659	-666	1.000000
+VDR	na	7421	recurrent fractures	HP:0002757	-666	1.000000
+VDR	na	7421	bone pain	HP:0002653	-666	1.000000
+GNRHR	na	2798	abnormality of reproductive system physiology	HP:0000080	-666	1.000000
+GNRH1	na	2796	abnormality of reproductive system physiology	HP:0000080	-666	1.000000
+GNRHR	na	2798	hypogonadism	HP:0000135	-666	1.000000
+GNRH1	na	2796	hypogonadism	HP:0000135	-666	1.000000
+F2	na	2147	puberty and gonadal disorders	HP:0008373	-666	1.000000
+GNRHR	na	2798	puberty and gonadal disorders	HP:0008373	-666	1.000000
+GNRH1	na	2796	puberty and gonadal disorders	HP:0008373	-666	1.000000
+F2	na	2147	abnormal internal genitalia	HP:0000812	-666	1.000000
+GNRHR	na	2798	abnormal internal genitalia	HP:0000812	-666	1.000000
+F2	na	2147	abnormality of female internal genitalia	HP:0000008	-666	1.000000
+GNRHR	na	2798	abnormality of female internal genitalia	HP:0000008	-666	1.000000
+F2	na	2147	abnormality of the female genitalia	HP:0010460	-666	1.000000
+GNRHR	na	2798	abnormality of the female genitalia	HP:0010460	-666	1.000000
+F2	na	2147	abnormality of the menstrual cycle	HP:0000140	-666	1.000000
+GNRHR	na	2798	abnormality of the menstrual cycle	HP:0000140	-666	1.000000
+F2	na	2147	menstrual irregularities	HP:0000858	-666	1.000000
+GNRHR	na	2798	menstrual irregularities	HP:0000858	-666	1.000000
+GNRHR	na	2798	amenorrhea	HP:0000141	-666	1.000000
+GNRHR	na	2798	primary amenorrhea	HP:0000786	-666	1.000000
+GNRHR	na	2798	hypogonadotrophic hypogonadism	HP:0000044	-666	1.000000
+GNRH1	na	2796	hypogonadotrophic hypogonadism	HP:0000044	-666	1.000000
+GNRH1	na	2796	abnormality of the sense of smell	HP:0004408	-666	1.000000
+GNRH1	na	2796	anosmia	HP:0000458	-666	1.000000
+VDR	na	7421	abnormality of skeletal physiology	HP:0011843	-666	1.000000
+GNRHR	na	2798	aplasia/hypoplasia of the testes	HP:0010468	-666	1.000000
+GNRHR	na	2798	decreased testicular size	HP:0008734	-666	1.000000
+VDR	na	7421	dolichocephaly	HP:0000268	-666	1.000000
+F2	na	2147	abnormality of cardiovascular system physiology	HP:0011025	-666	1.000000
+F2	na	2147	pulmonary embolism	HP:0002204	-666	1.000000
+VDR	na	7421	abnormality of the parathyroid gland	HP:0000828	-666	1.000000
+VDR	na	7421	abnormality of the parathyroid physiology	HP:0011767	-666	1.000000
+KCNQ2	na	3785	memory impairment	HP:0002354	-666	1.000000
+KCNQ2	na	3785	hallucinations	HP:0000738	-666	1.000000
+KCNQ2	na	3785	paresthesia	HP:0003401	-666	1.000000
+KCNQ2	na	3785	sensory neuropathy	HP:0000763	-666	1.000000
+SCN1A	na	6323	headache	HP:0002315	-666	1.000000
+KCNQ2	na	3785	headache	HP:0002315	-666	1.000000
+SCN1A	na	6323	migraine	HP:0002076	-666	1.000000
+KCNQ2	na	3785	migraine	HP:0002076	-666	1.000000
+F2	na	2147	abnormality of oral mucosa	HP:0011830	-666	1.000000
+F2	na	2147	abnormality of the gingiva	HP:0000168	-666	1.000000
+VDR	na	7421	abnormal concentration of calcium in blood	HP:0040077	-666	1.000000
+VDR	na	7421	abnormality of calcium homeostasis	HP:0004363	-666	1.000000
+VDR	na	7421	abnormality of divalent inorganic cation homeostasis	HP:0010927	-666	1.000000
+VDR	na	7421	abnormality of cation homeostasis	HP:0010929	-666	1.000000
+VDR	na	7421	abnormality of ion homeostasis	HP:0003111	-666	1.000000
+VDR	na	7421	hypocalcemia	HP:0002901	-666	1.000000
+VDR	na	7421	nephrolithiasis	HP:0000787	-666	1.000000
+VDR	na	7421	abnormality of adipose tissue	HP:0009124	-666	1.000000
+GNRH1	na	2796	delayed puberty	HP:0000823	-666	1.000000
+VDR	na	7421	abnormal trabecular bone morphology	HP:0100671	-666	1.000000
+VDR	na	7421	rough bone trabeculation	HP:0100670	-666	1.000000
+VDR	na	7421	abnormality of the sternum	HP:0000766	-666	1.000000
+SCN1A	na	6323	motor delay	HP:0001270	-666	1.000000
+KCNQ2	na	3785	motor delay	HP:0001270	-666	1.000000
+VDR	na	7421	motor delay	HP:0001270	-666	1.000000
+VDR	na	7421	abnormality of the tibia	HP:0002992	-666	1.000000
+VDR	na	7421	tibial bowing	HP:0002982	-666	1.000000
+VDR	na	7421	femoral bowing	HP:0002980	-666	1.000000
+VDR	na	7421	abnormality of the fibula	HP:0002991	-666	1.000000
+VDR	na	7421	abnormality of the wrist	HP:0003019	-666	1.000000
+VDR	na	7421	abdominal distention	HP:0003270	-666	1.000000
+VDR	na	7421	protuberant abdomen	HP:0001538	-666	1.000000
+VDR	na	7421	abnormality of the femur	HP:0002823	-666	1.000000
+VDR	na	7421	genu varum	HP:0002970	-666	1.000000
+F2	na	2147	functional abnormality of the gastrointestinal tract	HP:0012719	-666	1.000000
+F2	na	2147	abnormality of blood circulation	HP:0011028	-666	1.000000
+F2	na	2147	internal hemorrhage	HP:0011029	-666	1.000000
+F2	na	2147	gastrointestinal hemorrhage	HP:0002239	-666	1.000000
+VDR	na	7421	bone cyst	HP:0012062	-666	1.000000
+VDR	na	7421	abnormal shape of the occiput	HP:0011217	-666	1.000000
+VDR	na	7421	abnormality of the endocrine system	HP:0000818	-666	1.000000
+F2	na	2147	abnormality of the endocrine system	HP:0000818	-666	1.000000
+GNRHR	na	2798	abnormality of the endocrine system	HP:0000818	-666	1.000000
+GNRH1	na	2796	abnormality of the endocrine system	HP:0000818	-666	1.000000
+VDR	na	7421	abnormality of circulating hormone level	HP:0003117	-666	1.000000
+SCN1A	na	6323	photophobia	HP:0000613	-666	1.000000
+SCN1A	na	6323	abnormal retinal pigmentation	HP:0007703	-666	1.000000
+SCN1A	na	6323	abnormality of the retinal pigment epithelium	HP:0008051	-666	1.000000
+VDR	na	7421	abnormality of the ankles	HP:0003028	-666	1.000000
+KCNQ2	na	3785	abnormal peripheral nervous system morphology	HP:0000759	-666	1.000000
+GNRH1	na	2796	abnormal peripheral nervous system morphology	HP:0000759	-666	1.000000
+KCNQ2	na	3785	peripheral neuropathy	HP:0009830	-666	1.000000
+VDR	na	7421	muscle weakness	HP:0001324	-666	1.000000
+KCNQ2	na	3785	myokymia	HP:0002411	-666	1.000000
+VDR	na	7421	symptomatic seizures	HP:0011145	-666	1.000000
+F2	na	2147	congenital onset	HP:0003577	-666	1.000000
+VDR	na	7421	abnormal enzyme/coenzyme activity	HP:0012379	-666	1.000000
+VDR	na	7421	abnormality of alkaline phosphatase activity	HP:0004379	-666	1.000000
+VDR	na	7421	elevated alkaline phosphatase	HP:0003155	-666	1.000000
+VDR	na	7421	abdominal wall muscle weakness	HP:0009023	-666	1.000000
+VDR	na	7421	hypocalcemic seizures	HP:0002199	-666	1.000000
+VDR	na	7421	secondary hyperparathyroidism	HP:0000867	-666	1.000000
+VDR	na	7421	subperiosteal erosions due to secondary hyperparathyroidism	HP:0003106	-666	1.000000
+VDR	na	7421	increased serum 1,25-dihydroxyvitamin d3	HP:0003152	-666	1.000000
+VDR	na	7421	enlargement of the wrists	HP:0003020	-666	1.000000
+VDR	na	7421	bulging epiphyses	HP:0003013	-666	1.000000
+VDR	na	7421	enlargement of the ankles	HP:0003029	-666	1.000000
+VDR	na	7421	sparse bone trabeculae	HP:0002752	-666	1.000000
+VDR	na	7421	fibular bowing	HP:0010502	-666	1.000000
+VDR	na	7421	difficulty standing	HP:0003698	-666	1.000000
+VDR	na	7421	bulging of the costochondral junction	HP:0000893	-666	1.000000
+VDR	na	7421	deformed rib cage	HP:0000886	-666	1.000000
+VDR	na	7421	thin bony cortex	HP:0002753	-666	1.000000
+VDR	na	7421	delayed epiphyseal ossification	HP:0002663	-666	1.000000
+VDR	na	7421	enlarged epiphyses	HP:0010580	-666	1.000000
+VDR	na	7421	abnormality of the costochondral junction	HP:0000919	-666	1.000000
+VDR	na	7421	metaphyseal irregularity	HP:0003025	-666	1.000000
+VDR	na	7421	flat occiput	HP:0005469	-666	1.000000
+VDR	na	7421	abnormality of phosphate homeostasis	HP:0100529	-666	1.000000
+VDR	na	7421	hypophosphatemia	HP:0002148	-666	1.000000
+VDR	na	7421	rickets	HP:0002748	-666	1.000000
+VDR	na	7421	difficulty walking	HP:0002355	-666	1.000000
+VDR	na	7421	abnormality of calcium-phosphate metabolism	HP:0100530	-666	1.000000
+VDR	na	7421	elevated circulating parathyroid hormone (pth) level	HP:0003165	-666	1.000000
+VDR	na	7421	wide cranial sutures	HP:0010537	-666	1.000000
+VDR	na	7421	widely patent fontanelles and sutures	HP:0004492	-666	1.000000
+VDR	na	7421	alopecia universalis	HP:0002289	-666	1.000000
+VDR	na	7421	osteolysis	HP:0002797	-666	1.000000
+VDR	na	7421	abnormality of primary teeth	HP:0006481	-666	1.000000
+VDR	na	7421	premature loss of primary teeth	HP:0006323	-666	1.000000
+VDR	na	7421	premature loss of teeth	HP:0006480	-666	1.000000
+VDR	na	7421	abnormal cortical bone morphology	HP:0003103	-666	1.000000
+KCNQ2	na	3785	neonatal onset	HP:0003623	-666	1.000000
+VDR	na	7421	hyperparathyroidism	HP:0000843	-666	1.000000
+SCN1A	na	6323	mental deterioration	HP:0001268	-666	1.000000
+SCN1A	na	6323	postnatal microcephaly	HP:0005484	-666	1.000000
+SCN1A	na	6323	hemiplegia	HP:0002301	-666	1.000000
+SCN1A	na	6323	hemiparesis	HP:0001269	-666	1.000000
+SCN1A	na	6323	migraine with aura	HP:0002077	-666	1.000000
+SCN1A	na	6323	focal motor seizures	HP:0011153	-666	1.000000
+KCNQ2	na	3785	focal motor seizures	HP:0011153	-666	1.000000
+SCN1A	na	6323	focal seizures with impairment of consciousness or awareness	HP:0002384	-666	1.000000
+SCN1A	na	6323	focal seizures	HP:0007359	-666	1.000000
+KCNQ2	na	3785	focal seizures	HP:0007359	-666	1.000000
+SCN1A	na	6323	absence seizures	HP:0002121	-666	1.000000
+SCN1A	na	6323	dialeptic seizures	HP:0011146	-666	1.000000
+SCN1A	na	6323	atonic seizures	HP:0010819	-666	1.000000
+SCN1A	na	6323	febrile seizures	HP:0002373	-666	1.000000
+KCNQ2	na	3785	febrile seizures	HP:0002373	-666	1.000000
+SCN1A	na	6323	generalized seizures	HP:0002197	-666	1.000000
+KCNQ2	na	3785	generalized seizures	HP:0002197	-666	1.000000
+SCN1A	na	6323	generalized tonic-clonic seizures	HP:0002069	-666	1.000000
+KCNQ2	na	3785	generalized tonic-clonic seizures	HP:0002069	-666	1.000000
+SCN1A	na	6323	generalized myoclonic seizures	HP:0002123	-666	1.000000
+SCN1A	na	6323	status epilepticus	HP:0002133	-666	1.000000
+SCN1A	na	6323	focal clonic seizures	HP:0002266	-666	1.000000
+KCNQ2	na	3785	focal clonic seizures	HP:0002266	-666	1.000000
+SCN1A	na	6323	hemiclonic seizures	HP:0006813	-666	1.000000
+SCN1A	na	6323	abnormal nervous system electrophysiology	HP:0001311	-666	1.000000
+SCN1A	na	6323	abnormality of central nervous system electrophysiology	HP:0030178	-666	1.000000
+SCN1A	na	6323	eeg abnormality	HP:0002353	-666	1.000000
+SCN1A	na	6323	generalized tonic seizures	HP:0010818	-666	1.000000
+SCN1A	na	6323	cortical visual impairment	HP:0100704	-666	1.000000
+SCN1A	na	6323	childhood onset	HP:0011463	-666	1.000000
+F2	na	2147	childhood onset	HP:0011463	-666	1.000000
+VDR	na	7421	irritability	HP:0000737	-666	1.000000
+VDR	na	7421	functional motor problems	HP:0004302	-666	1.000000
+SCN1A	na	6323	blindness	HP:0000618	-666	1.000000
+KCNQ2	na	3785	nausea and vomiting	HP:0002017	-666	1.000000
+KCNQ2	na	3785	reduced consciousness/confusion	HP:0004372	-666	1.000000
+KCNQ2	na	3785	heterogeneous	HP:0001425	-666	1.000000
+KCNQ2	na	3785	spastic tetraparesis	HP:0001285	-666	1.000000
+F2	na	2147	abnormality of coagulation	HP:0001928	-666	1.000000
+F2	na	2147	abnormality of the coagulation cascade	HP:0003256	-666	1.000000
+F2	na	2147	recurrent thrombophlebitis	HP:0004419	-666	1.000000
+F2	na	2147	abnormality of prothrombin	HP:0012200	-666	1.000000
+F2	na	2147	prolonged prothrombin time	HP:0008151	-666	1.000000
+F2	na	2147	prolonged partial thromboplastin time	HP:0003645	-666	1.000000
+F2	na	2147	joint hemorrhage	HP:0005261	-666	1.000000
+F2	na	2147	reduced prothrombin activity	HP:0012201	-666	1.000000
+F2	na	2147	cerebral venous thrombosis	HP:0005305	-666	1.000000
+F2	na	2147	deep venous thrombosis	HP:0002625	-666	1.000000
+GNRHR	na	2798	androgen insufficiency	HP:0008226	-666	1.000000

@@ -29,9 +29,11 @@ add_database_info
   Assign passed databases db metadata to passed dvobject
 }
 \seealso{
-Other utility: 
-\code{\link{show_dvobject_metadata}()},
-\code{\link{subset_drugbank_dvobject}()},
-\code{\link{subset_onsides_dvobject}()}
+Other utility:
+\code{\link[=get_genes_for_phenotype]{get_genes_for_phenotype()}},
+\code{\link[=search_phenotypes]{search_phenotypes()}},
+\code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
+\code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}},
+\code{\link[=subset_onsides_dvobject]{subset_onsides_dvobject()}}
 }
 \concept{utility}

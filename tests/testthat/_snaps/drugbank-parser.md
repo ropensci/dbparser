@@ -443,22 +443,22 @@
       # ℹ 1 more variable: induction_strength <chr>
       
       $cett$enzymes$actions
-      # A tibble: 1 × 2
-        action    enzyme_id
-        <chr>     <chr>    
-      1 inhibitor BE0001075
+      # A tibble: 1 × 3
+        action    enzyme_id drugbank_id
+        <chr>     <chr>     <chr>      
+      1 inhibitor BE0001075 DB00006    
       
       $cett$enzymes$polypeptides
       $cett$enzymes$polypeptides$general_information
-      # A tibble: 1 × 20
+      # A tibble: 1 × 21
         polypeptide_id source name  general_function specific_function gene_name locus
         <chr>          <chr>  <chr> <chr>            <chr>             <chr>     <chr>
       1 P05164         Swiss… Myel… Peroxidase acti… Part of the host… MPO       17q2…
-      # ℹ 13 more variables: cellular_location <chr>, transmembrane_regions <chr>,
+      # ℹ 14 more variables: cellular_location <chr>, transmembrane_regions <chr>,
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,
       #   amino_acid_sequence <chr>, amino_acid_format <chr>, gene_sequence <chr>,
-      #   gene_format <chr>, enzyme_id <chr>
+      #   gene_format <chr>, enzyme_id <chr>, drugbank_id <chr>
       
       $cett$enzymes$polypeptides$external_identy
       # A tibble: 7 × 3
@@ -511,22 +511,22 @@
       1 BE0000048 Prothrombin Humans   yes          1        DB00006    
       
       $cett$targets$actions
-      # A tibble: 1 × 2
-        action    target_id
-        <chr>     <chr>    
-      1 inhibitor BE0000048
+      # A tibble: 1 × 3
+        action    target_id drugbank_id
+        <chr>     <chr>     <chr>      
+      1 inhibitor BE0000048 DB00006    
       
       $cett$targets$polypeptides
       $cett$targets$polypeptides$general_information
-      # A tibble: 1 × 20
+      # A tibble: 1 × 21
         polypeptide_id source name  general_function specific_function gene_name locus
         <chr>          <chr>  <chr> <chr>            <chr>             <chr>     <chr>
       1 P00734         Swiss… Prot… Thrombospondin … Thrombin, which … F2        11p1…
-      # ℹ 13 more variables: cellular_location <chr>, transmembrane_regions <chr>,
+      # ℹ 14 more variables: cellular_location <chr>, transmembrane_regions <chr>,
       #   signal_regions <chr>, theoretical_pi <chr>, molecular_weight <chr>,
       #   chromosome_location <chr>, organism <chr>, organism_ncbi_taxonomy_id <chr>,
       #   amino_acid_sequence <chr>, amino_acid_format <chr>, gene_sequence <chr>,
-      #   gene_format <chr>, target_id <chr>
+      #   gene_format <chr>, target_id <chr>, drugbank_id <chr>
       
       $cett$targets$polypeptides$external_identy
       # A tibble: 7 × 3

@@ -53,6 +53,7 @@ Useful links:
 
 Authors:
 \itemize{
+  \item Mohammed Ali \email{moh_fcis@yahoo.com}
   \item Ali Ezzat \email{ali_ezzat85@yahoo.com}
 }
 

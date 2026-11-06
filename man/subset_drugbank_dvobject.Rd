@@ -31,9 +31,11 @@ one_drug <- subset_drugbank_dvobject(dvobject = dbdataset::drugbank,
 }
 }
 \seealso{
-Other utility: 
-\code{\link{add_database_info}()},
-\code{\link{show_dvobject_metadata}()},
-\code{\link{subset_onsides_dvobject}()}
+Other utility:
+\code{\link[=add_database_info]{add_database_info()}},
+\code{\link[=get_genes_for_phenotype]{get_genes_for_phenotype()}},
+\code{\link[=search_phenotypes]{search_phenotypes()}},
+\code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
+\code{\link[=subset_onsides_dvobject]{subset_onsides_dvobject()}}
 }
 \concept{utility}
