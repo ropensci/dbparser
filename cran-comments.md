@@ -1,3 +1,7 @@
+## Resubmission
+
+Fixed an invalid relative link (drugbank_nside.html) in a vignette; links to articles moved to the package website are now absolute URLs.
+
 ## Maintainer email
 
 The maintainer email changes from moh_fcis@yahoo.com to
