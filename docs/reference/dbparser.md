@@ -39,13 +39,17 @@ Useful links:
 
 - <https://github.com/ropensci/dbparser>
 
+- <https://interstellar-egypt.com>
+
 - Report bugs at <https://github.com/ropensci/dbparser/issues>
 
 ## Author
 
-**Maintainer**: Mohammed Ali <moh_fcis@yahoo.com>
+**Maintainer**: Mohammed Ali <mohammed.ali@interstellar-egypt.com>
 
 Authors:
+
+- Mohammed Ali <mohammed.ali@interstellar-egypt.com>
 
 - Ali Ezzat <ali_ezzat85@yahoo.com>
 
@@ -54,3 +58,6 @@ Other contributors:
 - Hao Zhu <haozhu233@gmail.com> \[reviewer\]
 
 - Emma Mendelsohn \[reviewer\]
+
+- Interstellar (Interstellar for Consultation Services, URL:
+  https://interstellar-egypt.com) \[copyright holder, funder\]

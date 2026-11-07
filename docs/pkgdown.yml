@@ -2,10 +2,13 @@ pandoc: '3.10'
 pkgdown: 2.2.1
 pkgdown_sha: ~
 articles:
+  cett_mechanisms: cett_mechanisms.html
   dbparser_2_2: dbparser_2_2.html
-  dbparser: dbparser.html
-  drugbank_nside: drugbank_nside.html
-last_built: 2026-10-16T05:54Z
+  articles/dbparser: dbparser.html
+  articles/drugbank_nside: drugbank_nside.html
+  getting_started: getting_started.html
+  articles/hpo_target_phenotypes: hpo_target_phenotypes.html
+last_built: 2026-11-07T09:12Z
 urls:
   reference: https://docs.ropensci.org/dbparser/reference
   article: https://docs.ropensci.org/dbparser/articles

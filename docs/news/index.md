@@ -1,6 +1,136 @@
 # Changelog
 
-## dbparser (development version)
+## dbparser 2.3.0
+
+### NEW FEATURES
+
+- **New Parser:
+  [`parseHGNC()`](https://docs.ropensci.org/dbparser/reference/parseHGNC.md)**
+  - Parses the HUGO Gene Nomenclature Committee (HGNC) complete set
+    (`hgnc_complete_set.txt`) and, optionally, its withdrawn entries
+    (`withdrawn.txt`).
+  - Returns a `dvobject` with `gene`, `gene_name` (every approved, alias
+    and previous symbol and name, one row each) and `withdrawn` (one row
+    per withdrawn ID and the ID it was merged into or split to) tables.
+- **New Parser:
+  [`parseHealthCanadaDPD()`](https://docs.ropensci.org/dbparser/reference/parseHealthCanadaDPD.md)**
+  - Parses Health Canada’s Drug Product Database (DPD) data extract: the
+    marketed, approved, cancelled and dormant product sets, from their
+    zips or unzipped folders.
+  - Returns a `dvobject` with all 13 tables of Health Canada’s read-me,
+    with the read-me’s column names, typed codes and dates, and an
+    `extract` column naming each row’s product set. Statuses are kept as
+    written; the parser does no status grouping.
+- **New Parser:
+  [`parseOpenFDA()`](https://docs.ropensci.org/dbparser/reference/parseOpenFDA.md)**
+  - Parses openFDA’s <Drugs@FDA> and NDC directory downloads, zipped or
+    unzipped, without extracting them to disk.
+  - Returns a `dvobject` with one table per record level (applications,
+    products, active ingredients, submissions, submission property
+    types, application documents and the `openfda` annotation for
+    <Drugs@FDA>; products, active ingredients, routes, pharmacologic
+    classes, packaging and the `openfda` annotation for the NDC
+    directory), field names as in the files. Every record is kept as
+    written, including tentative approvals; the parser does no status
+    grouping.
+  - Adds `jsonlite` to Imports.
+- **Source metadata on every `dvobject`**
+  - Every parser now records where its data came from in one attribute,
+    `source_metadata`: release, release date, download date, source URL,
+    licence (SPDX id), licence URL, the attribution or citation the
+    source asks for, the parsed files with their SHA-256 hashes, and the
+    `dbparser` version. Unknown values are `NA`, never guessed.
+  - Merge and subset functions keep the record of every source.
+  - File hashes need R 4.5.0 or later
+    ([`tools::sha256sum()`](https://rdrr.io/r/tools/sha256sum.html)); on
+    older R they are `NA`.
+- **New Utility Function:
+  [`get_source_metadata()`](https://docs.ropensci.org/dbparser/reference/get_source_metadata.md)**
+  - Returns a `dvobject`’s source metadata as a tibble, one row per
+    source, with the files as a list column.
+- New parsers name their version arguments `release` and `release_date`;
+  existing parsers keep `db_version` and `db_exported_date` for now.
+- **New Parser:
+  [`parseHPO()`](https://docs.ropensci.org/dbparser/reference/parseHPO.md)**
+  - Parses the Human Phenotype Ontology (HPO) gene-phenotype
+    associations distributed by Harmonizome (`gene_attribute_edges.txt`,
+    plain or gzip-compressed).
+  - Returns a `dvobject` with `associations`, `genes` and `phenotypes`
+    tables. Optional `minimum_weight`, `db_version` and
+    `db_exported_date` arguments filter associations and record dataset
+    metadata.
+- **New Integration Function:
+  [`merge_drugbank_hpo()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_hpo.md)**
+  - Links DrugBank target genes to HPO phenotypes through gene symbols
+    and adds `drugbank_id` and `drug_name` to each gene-phenotype
+    association.
+  - Chainable with
+    [`merge_drugbank_onsides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_onsides.md)
+    and
+    [`merge_drugbank_twosides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_twosides.md).
+- **New HPO helpers:
+  [`search_phenotypes()`](https://docs.ropensci.org/dbparser/reference/search_phenotypes.md)
+  and
+  [`get_genes_for_phenotype()`](https://docs.ropensci.org/dbparser/reference/get_genes_for_phenotype.md)**
+  - [`search_phenotypes()`](https://docs.ropensci.org/dbparser/reference/search_phenotypes.md)
+    finds phenotypes by keyword and lists their genes.
+  - [`get_genes_for_phenotype()`](https://docs.ropensci.org/dbparser/reference/get_genes_for_phenotype.md)
+    returns the genes for an HPO id (e.g. `"HP:0001250"`) or a phenotype
+    name.
+
+### BUG FIXES
+
+- [`parseDrugBank()`](https://docs.ropensci.org/dbparser/reference/parseDrugBank.md)
+  extracts a zip input into a temporary folder that is removed after
+  loading. Earlier versions extracted it next to the input file, which
+  for the bundled example is the installed package. The message now
+  reads “extracted”.
+- The merge functions no longer give tidyselect `.data` deprecation
+  warnings.
+- CETT `actions` and `polypeptides$general_information` tables now
+  include a `drugbank_id` column
+  ([\#210](https://github.com/ropensci/dbparser/issues/210)).
+  - Earlier versions keyed these tables only by the carrier, enzyme,
+    target or transporter id (e.g. `target_id`). Many drugs share a
+    target, so an action could not be traced back to its drug, and
+    identical actions from different drugs were collapsed into a single
+    row.
+  - Join CETT tables on both `drugbank_id` and the CETT id to get one
+    row per drug–protein–action.
+
+### DOCUMENTATION
+
+- New vignette
+  [`vignette("getting_started")`](https://docs.ropensci.org/dbparser/articles/getting_started.md)
+  parses the bundled DrugBank record and HGNC files and shows their
+  tables and source metadata. It replaces the DrugBank tutorial as the
+  package’s introduction on CRAN.
+- The three vignettes with `canvasXpress` charts (the DrugBank tutorial,
+  integrated pharmacovigilance and HPO target phenotypes) are now
+  articles on the package website only, unchanged, at
+  <https://docs.ropensci.org/dbparser/articles/>. This keeps the
+  installed package small.
+- New vignette
+  [`vignette("cett_mechanisms")`](https://docs.ropensci.org/dbparser/articles/cett_mechanisms.md)
+  shows how to use the drug link in CETT actions to find drugs that
+  share a mechanism. It uses lepirudin and bivalirudin, both direct
+  thrombin inhibitors, as the example.
+- New article [Anticipating On-Target Drug Effects with HPO
+  Gene-Phenotype
+  Data](https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html)
+  links DrugBank targets to HPO Mendelian phenotypes to anticipate
+  on-target drug effects for bivalirudin, leuprolide and calcitriol,
+  with `canvasXpress` plots.
+- [`show_dvobject_metadata()`](https://docs.ropensci.org/dbparser/reference/show_dvobject_metadata.md)
+  has a working example.
+- The README has two new sections: “Commercial support and extensions”
+  and “Used in published research”.
+
+### COMING NEXT
+
+- Parsers for France’s public medicines database (BDPM), openFDA drug
+  labels and FAERS summaries, and African pharmacogenomics (PGx) summary
+  tables.
 
 ## dbparser 2.2.1
 
@@ -73,7 +203,7 @@ Spoke” model, with DrugBank acting as the central hub.
   - Introduces a reproducible example workflow using a pre-computed RDS
     data object hosted externally to keep the package lightweight.
   - Run
-    [`vignette("drugbank_nside", package = "dbparser")`](https://docs.ropensci.org/dbparser/articles/drugbank_nside.md)
+    [`vignette("drugbank_nside", package = "dbparser")`](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)
     for more info
 - Updated existing vignette and package Readme with enhanced examples
 

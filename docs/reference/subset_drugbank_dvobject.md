@@ -33,6 +33,9 @@ the complex relationships within the \`cett\` list.
 
 Other utility:
 [`add_database_info()`](https://docs.ropensci.org/dbparser/reference/add_database_info.md),
+[`get_genes_for_phenotype()`](https://docs.ropensci.org/dbparser/reference/get_genes_for_phenotype.md),
+[`get_source_metadata()`](https://docs.ropensci.org/dbparser/reference/get_source_metadata.md),
+[`search_phenotypes()`](https://docs.ropensci.org/dbparser/reference/search_phenotypes.md),
 [`show_dvobject_metadata()`](https://docs.ropensci.org/dbparser/reference/show_dvobject_metadata.md),
 [`subset_onsides_dvobject()`](https://docs.ropensci.org/dbparser/reference/subset_onsides_dvobject.md)
 

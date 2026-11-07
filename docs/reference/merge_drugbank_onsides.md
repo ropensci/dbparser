@@ -40,6 +40,7 @@ OnSIDES. Supports piping and chaining with other merge functions.
 ## See also
 
 Other mergers:
+[`merge_drugbank_hpo()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_hpo.md),
 [`merge_drugbank_twosides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_twosides.md)
 
 ## Examples

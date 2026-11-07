@@ -1,0 +1,257 @@
+# Drug Mechanism Profiling with CETT Actions
+
+## Introduction
+
+DrugBank describes how a drug acts on the proteins it binds. These
+proteins are grouped into four CETT types: **C**arriers, **E**nzymes,
+**T**argets and **T**ransporters. For each drug–protein pair DrugBank
+records one or more *actions*, such as `inhibitor`, `agonist`,
+`antagonist` or `substrate`.
+
+Since this release, the `actions` and `polypeptides$general_information`
+tables of every CETT type include a `drugbank_id` column. Earlier
+versions keyed these tables only by the CETT identifier (for example
+`target_id`). Many drugs bind the same protein, so that key alone could
+not say *which drug* an action belonged to. Identical rows from
+different drugs were also collapsed into one.
+
+This vignette shows why the drug link matters with a short pharmacology
+question.
+
+## Scientific case: finding a mechanistic substitute for lepirudin
+
+**Lepirudin** is a recombinant hirudin and a direct thrombin inhibitor.
+It was used to anticoagulate patients with heparin-induced
+thrombocytopenia (HIT), a setting where heparins cannot be given. It was
+later withdrawn from the market. That leaves a common question for
+formulary and pharmacovigilance work:
+
+> Which other drugs act on the **same target** with the **same action**?
+> And what else do they act on, so we can spot differences in their
+> safety profile?
+
+We answer this using the two DrugBank records that ship with `dbparser`:
+
+- `DB00001`, Lepirudin
+- `DB00006`, Bivalirudin, a synthetic peptide derived from hirudin
+
+## Prerequisites
+
+``` r
+
+library(dbparser)
+library(dplyr)
+```
+
+## 1. Parse the DrugBank records
+
+We parse each record and keep only the drug general information and the
+CETT sections. In a real analysis you would parse the full DrugBank XML
+once.
+
+``` r
+
+parse_record <- function(file_name) {
+  parseDrugBank(
+    db_path            = system.file("extdata", file_name, package = "dbparser"),
+    drug_options       = NULL,
+    parse_salts        = FALSE,
+    parse_products     = FALSE,
+    references_options = NULL,
+    cett_options       = c("targets", "enzymes")
+  )
+}
+
+lepirudin   <- parse_record("drugbank_record_biotech.xml")
+bivalirudin <- parse_record("drugbank_record_small_molecule.xml")
+dbs         <- list(lepirudin, bivalirudin)
+
+# Stack the same table from every parsed record
+stack_table <- function(getter) {
+  bind_rows(lapply(dbs, function(db) getter(db)))
+}
+
+drugs <- stack_table(function(db) db$drugs$general_information) %>%
+  select(drugbank_id, drug_name = name, type)
+drugs
+#> # A tibble: 2 × 3
+#>   drugbank_id drug_name   type          
+#>   <chr>       <chr>       <chr>         
+#> 1 DB00001     Lepirudin   biotech       
+#> 2 DB00006     Bivalirudin small molecule
+```
+
+## 2. Target actions now carry the drug
+
+``` r
+
+target_actions <- stack_table(function(db) db$cett$targets$actions)
+target_actions
+#> # A tibble: 2 × 3
+#>   action    target_id drugbank_id
+#>   <chr>     <chr>     <chr>      
+#> 1 inhibitor BE0000048 DB00001    
+#> 2 inhibitor BE0000048 DB00006
+```
+
+Both drugs inhibit the same target, `BE0000048`. Each row now says which
+drug it comes from.
+
+### Why the drug link matters
+
+Suppose we only had `target_id`, which is what earlier versions of
+`dbparser` gave us. To attach actions to drugs we would have to join the
+actions to the target table on `target_id` alone:
+
+``` r
+
+targets <- stack_table(function(db) db$cett$targets$general_information)
+
+targets %>%
+  select(drugbank_id, target_id, target_name = name) %>%
+  inner_join(select(target_actions, -drugbank_id), by = "target_id")
+#> # A tibble: 4 × 4
+#>   drugbank_id target_id target_name action   
+#>   <chr>       <chr>     <chr>       <chr>    
+#> 1 DB00001     BE0000048 Prothrombin inhibitor
+#> 2 DB00001     BE0000048 Prothrombin inhibitor
+#> 3 DB00006     BE0000048 Prothrombin inhibitor
+#> 4 DB00006     BE0000048 Prothrombin inhibitor
+```
+
+That join gives four rows instead of two. Each drug gets the other
+drug’s action as well as its own. Here both actions happen to be
+`inhibitor`, so the mistake is easy to miss. With a promiscuous target
+that many drugs act on in different ways, this kind of join quietly
+mixes up agonists and antagonists. Joining on both keys gives the
+correct result:
+
+``` r
+
+drug_target_actions <- targets %>%
+  select(drugbank_id, target_id, target_name = name, known_action) %>%
+  inner_join(target_actions, by = c("drugbank_id", "target_id")) %>%
+  inner_join(drugs, by = "drugbank_id")
+
+drug_target_actions
+#> # A tibble: 2 × 7
+#>   drugbank_id target_id target_name known_action action    drug_name   type     
+#>   <chr>       <chr>     <chr>       <chr>        <chr>     <chr>       <chr>    
+#> 1 DB00001     BE0000048 Prothrombin yes          inhibitor Lepirudin   biotech  
+#> 2 DB00006     BE0000048 Prothrombin yes          inhibitor Bivalirudin small mo…
+```
+
+## 3. Map the targets to genes
+
+The polypeptide table gives each target’s UniProt accession and gene
+symbol. It now also carries `drugbank_id`, so we can join it on the same
+two keys. Gene symbols are the usual way into pathway, expression or
+genetic-association resources.
+
+``` r
+
+target_genes <- stack_table(
+  function(db) db$cett$targets$polypeptides$general_information) %>%
+  select(drugbank_id, target_id, uniprot_id = polypeptide_id, gene_name,
+         cellular_location)
+
+drug_target_genes <- drug_target_actions %>%
+  inner_join(target_genes, by = c("drugbank_id", "target_id")) %>%
+  select(drug_name, target_name, gene_name, uniprot_id, action, known_action,
+         cellular_location)
+
+drug_target_genes
+#> # A tibble: 2 × 7
+#>   drug_name   target_name gene_name uniprot_id action    known_action
+#>   <chr>       <chr>       <chr>     <chr>      <chr>     <chr>       
+#> 1 Lepirudin   Prothrombin F2        P00734     inhibitor yes         
+#> 2 Bivalirudin Prothrombin F2        P00734     inhibitor yes         
+#> # ℹ 1 more variable: cellular_location <chr>
+```
+
+## 4. Find drugs that share lepirudin’s mechanism
+
+A drug shares lepirudin’s mechanism if it has the same gene **and** the
+same action.
+
+``` r
+
+lepirudin_mechanism <- drug_target_genes %>%
+  filter(drug_name == "Lepirudin") %>%
+  distinct(gene_name, action)
+
+drug_target_genes %>%
+  semi_join(lepirudin_mechanism, by = c("gene_name", "action")) %>%
+  filter(drug_name != "Lepirudin") %>%
+  select(drug_name, gene_name, action, known_action)
+#> # A tibble: 1 × 4
+#>   drug_name   gene_name action    known_action
+#>   <chr>       <chr>     <chr>     <chr>       
+#> 1 Bivalirudin F2        inhibitor yes
+```
+
+Bivalirudin inhibits prothrombin (thrombin, gene *F2*), so it shares
+lepirudin’s primary mechanism. DrugBank marks this as a known
+therapeutic action (`known_action = "yes"`). This agrees with clinical
+practice, where bivalirudin is a parenteral direct thrombin inhibitor
+used in the same situations, for example percutaneous coronary
+intervention in patients with or at risk of HIT.
+
+## 5. Compare the wider interaction profiles
+
+Two drugs with the same primary target can still differ in what else
+they act on. We stack the target and enzyme actions into one profile per
+drug. Each action is kept with its own drug, so the comparison is
+straightforward.
+
+``` r
+
+cett_profile <- function(cett_type) {
+  id_col <- paste0(sub("s$", "", cett_type), "_id")
+
+  info <- stack_table(function(db) db$cett[[cett_type]]$general_information)
+  acts <- stack_table(function(db) db$cett[[cett_type]]$actions)
+  if (NROW(info) == 0 || NROW(acts) == 0) {
+    return(NULL)
+  }
+
+  info %>%
+    select(drugbank_id, cett_id = all_of(id_col), protein = name,
+           known_action) %>%
+    inner_join(rename(acts, cett_id = all_of(id_col)),
+               by = c("drugbank_id", "cett_id")) %>%
+    mutate(cett_type = cett_type)
+}
+
+profile <- bind_rows(cett_profile("targets"), cett_profile("enzymes")) %>%
+  inner_join(drugs, by = "drugbank_id") %>%
+  select(drug_name, cett_type, protein, action, known_action)
+
+profile
+#> # A tibble: 3 × 5
+#>   drug_name   cett_type protein         action    known_action
+#>   <chr>       <chr>     <chr>           <chr>     <chr>       
+#> 1 Lepirudin   targets   Prothrombin     inhibitor yes         
+#> 2 Bivalirudin targets   Prothrombin     inhibitor yes         
+#> 3 Bivalirudin enzymes   Myeloperoxidase inhibitor unknown
+```
+
+Bivalirudin also has an `inhibitor` action recorded on the enzyme
+**myeloperoxidase** (*MPO*), but with `known_action = "unknown"`. This
+means DrugBank lists the interaction without a confirmed role in how the
+drug works. Lepirudin has no such entry. A reviewer could follow up on
+this as a hypothesis, for example by checking the literature or
+adverse-event data (see the [Integrated Pharmacovigilance
+article](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)).
+It is not an established clinical difference.
+
+## Summary
+
+- The `actions` and `polypeptides$general_information` tables for
+  carriers, enzymes, targets and transporters now include `drugbank_id`.
+- Join CETT tables on **both** `drugbank_id` and the CETT id
+  (`target_id`, `enzyme_id`, …). Joining on the CETT id alone can attach
+  one drug’s actions to another drug.
+- With the drug link in place, short `dplyr` pipelines answer mechanism
+  questions such as “which drugs share this target and action?” across a
+  whole DrugBank release.

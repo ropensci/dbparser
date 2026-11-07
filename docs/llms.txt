@@ -2,7 +2,7 @@
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
 [![JOSS
-Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381)
+Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/10.21105/joss.09950)
 [![rOpenSci
 Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg)](https://doi.org/10.5281/zenodo.18608628)
@@ -168,24 +168,84 @@ When databases are merged using `merge_drugbank_onsides` or
   DrugBank IDs to OnSIDES adverse events)
 - **metadata**: Detailed provenance for all contained datasets
 
-## Research Impact
+## Commercial support and extensions
 
-`dbparser` has enabled **10+ peer-reviewed publications** in leading
-journals:
+dbparser is free and open source, and it stays that way: every parser
+for an open database is part of this package.
 
-| Domain | Journal | Reference |
-|----|----|----|
-| Alzheimer’s Drug Repurposing | *Nature Scientific Reports* | Parolo et al. (2023) |
-| COVID-19 Therapeutics | *Pharmaceutics* | Pérez-Moraga et al. (2021) |
-| Pan-Cancer Biomarkers | *Briefings in Bioinformatics* | Mercatelli et al. (2022) |
-| Pathway Modeling | *Computer Methods and Programs in Biomedicine* | Hammoud et al. (2025) |
-| Clinical Trial Analysis | *Frontiers in Pharmacology* | Namiot et al. (2023) |
+It is maintained by [Interstellar](https://interstellar-egypt.com),
+which also offers:
 
-📊 **50,000+ CRAN downloads** \| Featured in the [CRAN Epidemiology Task
-View](https://cran.r-project.org/web/views/Epidemiology.html)
+- **dbparser Pro:** loads licensed sources (for example DrugBank, under
+  your own licence) and your private data into PostgreSQL, matches
+  products and ingredients across sources, with scheduled refresh,
+  release-to-release comparison and validation reports.
+- **Services:** data integration, custom sources, analysis apps and
+  training for life-science teams.
+- **DrugVerse Scope:** one sourced evidence page for any drug or target,
+  built on dbparser.
 
-For the full list, see our [JOSS
-paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381).
+Questions or early access: <info@interstellar-egypt.com>
+
+|  | dbparser (free, open source) | dbparser Pro |
+|----|:--:|:--:|
+| Parsers: DrugBank XML (from your own download), OnSIDES, TWOSIDES, HPO, HGNC, Health Canada DPD, openFDA (<Drugs@FDA>, NDC) (more coming). Each source keeps its own licence. | ✓ | ✓ |
+| dvobject format with source, release, licence and checksum metadata | ✓ | ✓ |
+| Merge DrugBank with OnSIDES, TWOSIDES and HPO, and subset parsed DrugBank and OnSIDES datasets | ✓ | ✓ |
+| Documentation, vignettes and examples | ✓ | ✓ |
+| Community help on GitHub Discussions | ✓ | ✓ |
+| Cross-source matching: products, ingredients and salt forms joined across DrugBank, Health Canada, FDA and other registers |  | ✓ |
+| Licensed sources (for example DrugBank, under your own licence) and your private data loaded into PostgreSQL, with a licence gate per deployment |  | ✓ |
+| Your private data joined to public sources |  | ✓ |
+| Scheduled refresh when a source releases |  | ✓ |
+| Release-to-release comparison |  | ✓ |
+| Validation reports |  | ✓ |
+| DrugVerse Scope integration |  | ✓ |
+| Setup help and priority support |  | ✓ |
+
+## Used in published research
+
+- Hammoud Z, et al. (2025). Multipath2.0: extending multilayer
+  reproducible pathway models with omics data. *Computer Methods and
+  Programs in Biomedicine Update*.
+  [doi:10.1016/j.cmpbup.2025.100189](https://doi.org/10.1016/j.cmpbup.2025.100189)
+- Su Y, et al. (2024). Multi-ancestry proteome-phenome-wide Mendelian
+  randomization offers a comprehensive protein-disease atlas. *medRxiv*
+  (preprint).
+  [doi:10.1101/2024.10.17.24315553](https://doi.org/10.1101/2024.10.17.24315553)
+- Rischke S, et al. (2023). Machine learning identifies right index
+  finger tenderness as key signal of DAS28-CRP based psoriatic arthritis
+  activity. *Scientific Reports*.
+  [doi:10.1038/s41598-023-49574-4](https://doi.org/10.1038/s41598-023-49574-4)
+- Namiot ED, et al. (2023). The international clinical trials registry
+  platform (ICTRP): data integrity and the trends in clinical trials,
+  diseases, and drugs. *Frontiers in Pharmacology*.
+  [doi:10.3389/fphar.2023.1228148](https://doi.org/10.3389/fphar.2023.1228148)
+- Parolo S, et al. (2023). Single-cell-led drug repurposing for
+  Alzheimer’s disease. *Scientific Reports*.
+  [doi:10.1038/s41598-023-27420-x](https://doi.org/10.1038/s41598-023-27420-x)
+- Schubert NMA, et al. (2022). Transcriptome-guided identification of
+  drugs for repurposing to treat age-related hearing loss.
+  *Biomolecules*.
+  [doi:10.3390/biom12040498](https://doi.org/10.3390/biom12040498)
+- Mercatelli D, et al. (2022). Detection of pan-cancer surface protein
+  biomarkers via a network-based approach on transcriptomics data.
+  *Briefings in Bioinformatics*.
+  [doi:10.1093/bib/bbac400](https://doi.org/10.1093/bib/bbac400)
+- Yang C, et al. (2021). Mapping the landscape of synthetic lethal
+  interactions in liver cancer. *Theranostics*.
+  [doi:10.7150/thno.63416](https://doi.org/10.7150/thno.63416)
+- Pérez-Moraga R, et al. (2021). A COVID-19 drug repurposing strategy
+  through quantitative homological similarities using a topological data
+  analysis-based framework. *Pharmaceutics*.
+  [doi:10.3390/pharmaceutics13040488](https://doi.org/10.3390/pharmaceutics13040488)
+- Hammoud Z, Kramer F (2020). Mulath: an R package to generate
+  integrated reproducible pathway models. *Biology*.
+  [doi:10.3390/biology9120483](https://doi.org/10.3390/biology9120483)
+
+dbparser is listed in the [CRAN Epidemiology Task
+View](https://CRAN.R-project.org/view=Epidemiology) and described in our
+[JOSS paper](https://doi.org/10.21105/joss.09950).
 
 ## Ecosystem
 
@@ -214,14 +274,6 @@ If you find `dbparser` useful, consider ⭐ starring the [GitHub
 repository](https://github.com/ropensci/dbparser) and sharing it with
 colleagues.
 
-## Enterprise Support
-
-For custom database integrations, enterprise support, training, or
-deployment assistance — `dbparser` is maintained by [Interstellar
-Consultation Services](https://interstellar-egypt.com).
-
-📧 <info@interstellar-egypt.com>
-
 ## Contributing
 
 We welcome contributions! Please review our [Contributing
@@ -247,8 +299,16 @@ Parse public drug databases and converted them into dvobject
   : returns drug node valid options.
 - [`parseDrugBank()`](https://docs.ropensci.org/dbparser/reference/parseDrugBank.md)
   : parseDrugBank
+- [`parseHGNC()`](https://docs.ropensci.org/dbparser/reference/parseHGNC.md)
+  : Parse the HGNC Gene Nomenclature Files
+- [`parseHPO()`](https://docs.ropensci.org/dbparser/reference/parseHPO.md)
+  : Parse HPO Gene-Phenotype Associations
+- [`parseHealthCanadaDPD()`](https://docs.ropensci.org/dbparser/reference/parseHealthCanadaDPD.md)
+  : Parse the Health Canada Drug Product Database (DPD) Data Extract
 - [`parseOnSIDES()`](https://docs.ropensci.org/dbparser/reference/parseOnSIDES.md)
   : Parse the OnSIDES Core Relational Database
+- [`parseOpenFDA()`](https://docs.ropensci.org/dbparser/reference/parseOpenFDA.md)
+  : Parse the openFDA Drugs@FDA and NDC Directory Downloads
 - [`parseTWOSIDES()`](https://docs.ropensci.org/dbparser/reference/parseTWOSIDES.md)
   : Parse the TWOSIDES Drug-Drug Interaction Database
 - [`references_node_options()`](https://docs.ropensci.org/dbparser/reference/references_node_options.md)
@@ -261,6 +321,12 @@ Different functions to handle dvobject
 - [`add_database_info()`](https://docs.ropensci.org/dbparser/reference/add_database_info.md)
   : add_database_info Assign passed databases db metadata to passed
   dvobject
+- [`get_genes_for_phenotype()`](https://docs.ropensci.org/dbparser/reference/get_genes_for_phenotype.md)
+  : Get Genes Associated with a Phenotype
+- [`get_source_metadata()`](https://docs.ropensci.org/dbparser/reference/get_source_metadata.md)
+  : Get the source metadata of a dvobject
+- [`search_phenotypes()`](https://docs.ropensci.org/dbparser/reference/search_phenotypes.md)
+  : Search HPO Phenotypes by Keyword
 - [`show_dvobject_metadata()`](https://docs.ropensci.org/dbparser/reference/show_dvobject_metadata.md)
   : Display dvobject Metadata
 - [`subset_drugbank_dvobject()`](https://docs.ropensci.org/dbparser/reference/subset_drugbank_dvobject.md)
@@ -273,6 +339,8 @@ Different functions to handle dvobject
 
 Different functions to merge different types of dvobjects
 
+- [`merge_drugbank_hpo()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_hpo.md)
+  : Merge DrugBank and HPO Gene-Phenotype Database Objects
 - [`merge_drugbank_onsides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_onsides.md)
   : Merge DrugBank and OnSIDES Database Objects
 - [`merge_drugbank_twosides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_twosides.md)
@@ -280,11 +348,23 @@ Different functions to merge different types of dvobjects
 
 # Articles
 
-### All vignettes
+### Get started
 
-- [Introducing dbparser
-  2.2.0](https://docs.ropensci.org/dbparser/articles/dbparser_2_2.md):
+- [Getting started with
+  dbparser](https://docs.ropensci.org/dbparser/articles/getting_started.md):
+
+### Worked examples
+
 - [Unlocking DrugBank: Parsing and Visualizing Mechanistic
   Data](https://docs.ropensci.org/dbparser/articles/dbparser.md):
 - [Integrated Pharmacovigilance: Linking DrugBank, OnSIDES, and
   TWOSIDES](https://docs.ropensci.org/dbparser/articles/drugbank_nside.md):
+- [Anticipating On-Target Drug Effects with HPO Gene-Phenotype
+  Data](https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.md):
+- [Drug Mechanism Profiling with CETT
+  Actions](https://docs.ropensci.org/dbparser/articles/cett_mechanisms.md):
+
+### Release notes
+
+- [Introducing dbparser
+  2.2.0](https://docs.ropensci.org/dbparser/articles/dbparser_2_2.md):
