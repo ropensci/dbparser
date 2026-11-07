@@ -75,5 +75,16 @@ parseOnSIDES <- function(dataDir,
                     source_name  = "OnSIDES",
                     files        = unname(parsed_files),
                     release      = db_version,
-                    release_date = db_exported_date))
+                    release_date = db_exported_date,
+                    source_url   = "https://github.com/tatonetti-lab/onsides",
+                    licence      = "CC-BY-4.0",
+                    licence_url  = paste0("https://github.com/tatonetti-lab/",
+                                          "onsides/blob/main/LICENSE-DATA"),
+                    attribution  = paste(
+                      "Tanaka Y, Chen HY, Belloni P, Gisladottir U, Kefeli J,",
+                      "Patterson J, Srinivasan A, Zietz M, Sirdeshmukh G,",
+                      "Berkowitz J, LaRow Brown K, Tatonetti NP. OnSIDES",
+                      "database: Extracting adverse drug events from drug",
+                      "labels using natural language processing models. Med.",
+                      "2025 Mar 27:100642. doi: 10.1016/j.medj.2025.100642.")))
 }

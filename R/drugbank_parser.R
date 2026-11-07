@@ -92,7 +92,15 @@ parseDrugBank <- function(db_path,
                       files        = db_path,
                       release      = db_version,
                       release_date = db_exported,
-                      source_url   = "https://go.drugbank.com/"))
+                      source_url   = "https://go.drugbank.com/",
+                      licence_url  = paste0("https://trust.drugbank.com/",
+                                            "drugbank-trust-center/",
+                                            "drugbank-terms-of-service"),
+                      attribution  = paste(
+                        "Knox C, Wilson M, Klinger CM, et al. DrugBank 6.0:",
+                        "the DrugBank Knowledgebase for 2024. Nucleic Acids",
+                        "Res. 2024 Jan 5;52(D1):D1265-D1275.",
+                        "doi: 10.1093/nar/gkad976.")))
     message("parsing drugs elements")
 
     dvobject[["drugs"]] <- parse_drug_nodes(drug_options)

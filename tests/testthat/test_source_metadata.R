@@ -98,6 +98,8 @@ test_that("existing parsers attach the block", {
   expect_equal(block$release, "5.1")
   expect_equal(block$release_date, as.Date("2018-07-03"))
   expect_true(is.na(block$licence))
+  expect_match(block$licence_url, "drugbank-terms-of-service")
+  expect_match(block$attribution, "DrugBank 6.0")
   # the earlier metadata is kept
   expect_equal(attr(drugbank, "original_db_info")$db_type, "DrugBank")
 
@@ -153,4 +155,44 @@ test_that("merged dvobjects keep one block per source", {
     drugbank, drug_ids = drugbank$drugs$general_information$drugbank_id[1]))
   expect_equal(attr(subset, "source_metadata"),
                attr(drugbank, "source_metadata"))
+})
+
+test_that("get_source_metadata returns one row per source", {
+  drugbank <- suppressMessages(parseDrugBank(
+    system.file("extdata", "drugbank_record_small_molecule.xml",
+                package = "dbparser"),
+    drug_options = drug_node_options()))
+  unzip_dir <- tempfile("twoside_")
+  on.exit(unlink(unzip_dir, recursive = TRUE), add = TRUE)
+  twoside   <- suppressMessages(parseTWOSIDES(
+    unzip(system.file("twoside_raw.zip", package = "dbparser"),
+          exdir = unzip_dir)))
+  merged    <- suppressMessages(merge_drugbank_twosides(db_object   = drugbank,
+                                                        twosides_db = twoside))
+
+  metadata <- get_source_metadata(merged)
+  expect_s3_class(metadata, "tbl_df")
+  expect_equal(names(metadata), block_fields)
+  expect_equal(metadata$source, c("drugbank", "twosides"))
+  expect_s3_class(metadata$release_date, "Date")
+  expect_equal(metadata$release_date[1], as.Date("2018-07-03"))
+  expect_type(metadata$files, "list")
+  expect_equal(metadata$files[[2]]$name, "twoside_raw.csv")
+
+  # objects saved by older versions carry no block
+  old <- readRDS(system.file("two_drugs.RDS", package = "dbparser"))
+  empty <- get_source_metadata(old)
+  expect_equal(nrow(empty), 0L)
+  expect_equal(names(empty), block_fields)
+})
+
+test_that("licence fields are filled from the source's own pages", {
+  hpo <- suppressMessages(parseHPO(
+    system.file("extdata", "hpo_gene_attribute_edges.txt",
+                package = "dbparser")))
+  metadata <- get_source_metadata(hpo)
+  expect_equal(metadata$licence_url,
+               "https://maayanlab.cloud/Harmonizome/terms")
+  expect_equal(metadata$licence, "CC-BY-NC-SA-4.0")
+  expect_match(metadata$attribution, "Harmonizome 3.0")
 })

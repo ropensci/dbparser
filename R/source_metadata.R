@@ -82,6 +82,64 @@ set_source_metadata <- function(dvobject, metadata) {
 }
 
 
+#' Get the source metadata of a dvobject
+#'
+#' Returns where each source in a dvobject came from: release, dates, URLs,
+#' licence, attribution, the parsed files with their SHA-256 hashes, and the
+#' dbparser version that parsed them. A merged dvobject has one row per
+#' source. Unknown values are \code{NA}.
+#'
+#' @param dvobject a dvobject returned by a parser or a merge function
+#'
+#' @return a tibble with one row per source and columns
+#'   \code{metadata_version}, \code{source}, \code{source_name},
+#'   \code{release}, \code{release_date}, \code{retrieved_at},
+#'   \code{source_url}, \code{licence}, \code{licence_url},
+#'   \code{attribution}, \code{files} (a list column of data.frames with
+#'   \code{name} and \code{sha256}) and \code{parser}. It has no rows when
+#'   the dvobject carries no source metadata (e.g. one saved by an older
+#'   dbparser version).
+#'
+#' @examples
+#' drugbank <- parseDrugBank(
+#'   system.file("extdata", "drugbank_record_biotech.xml",
+#'               package = "dbparser"))
+#' get_source_metadata(drugbank)
+#'
+#' @family utility
+#' @export
+get_source_metadata <- function(dvobject) {
+  blocks <- attr(dvobject, "source_metadata", exact = TRUE)
+  if (is.null(blocks)) {
+    blocks <- list()
+  }
+
+  text_column <- function(field) {
+    vapply(blocks, function(block) metadata_text(block[[field]]),
+           character(1), USE.NAMES = FALSE)
+  }
+  date_column <- function(field) {
+    as.Date(vapply(blocks, function(block) as.character(block[[field]]),
+                   character(1), USE.NAMES = FALSE))
+  }
+
+  tibble::tibble(
+    metadata_version = text_column("metadata_version"),
+    source           = text_column("source"),
+    source_name      = text_column("source_name"),
+    release          = text_column("release"),
+    release_date     = date_column("release_date"),
+    retrieved_at     = date_column("retrieved_at"),
+    source_url       = text_column("source_url"),
+    licence          = text_column("licence"),
+    licence_url      = text_column("licence_url"),
+    attribution      = text_column("attribution"),
+    files            = unname(lapply(blocks, function(block) block$files)),
+    parser           = text_column("parser")
+  )
+}
+
+
 #' metadata_text
 #'   Single string or NA
 #' @param x value

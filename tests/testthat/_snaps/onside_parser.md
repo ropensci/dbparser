@@ -10,7 +10,7 @@
     Output
       === BASIC INFO ===
            Class Total_DataFrames Top_Level_Lists Object_Size
-      1 dvobject                8               0    851.4 Kb
+      1 dvobject                8               0      852 Kb
       
       === DATABASE METADATA ===
        Database    Type Version Export_Date

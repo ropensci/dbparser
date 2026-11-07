@@ -132,7 +132,20 @@ parseHPO <- function(filepath,
                     source_name  = "Human Phenotype Ontology (Harmonizome)",
                     files        = filepath,
                     release      = db_version,
-                    release_date = db_exported_date))
+                    release_date = db_exported_date,
+                    source_url   = "https://maayanlab.cloud/Harmonizome/",
+                    licence      = "CC-BY-NC-SA-4.0",
+                    licence_url  = "https://maayanlab.cloud/Harmonizome/terms",
+                    attribution  = paste(
+                      "Diamant I, Clarke DJB, Evangelista JE, Lingam N,",
+                      "Ma'ayan A. Harmonizome 3.0: integrated knowledge about",
+                      "genes and proteins from diverse multi-omics resources.",
+                      "Nucleic Acids Res. 2024 Nov 20. pii: 53(1):D1016-D1028.",
+                      "Rouillard AD, Gundersen GW, Fernandez NF, Wang Z,",
+                      "Monteiro CD, McDermott MG, Ma'ayan A. The harmonizome:",
+                      "a collection of processed datasets gathered to serve",
+                      "and mine knowledge about genes and proteins. Database",
+                      "(Oxford). 2016 Jul 3;2016. pii: baw100.")))
 }
 
 
