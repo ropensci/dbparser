@@ -202,9 +202,7 @@ Spoke” model, with DrugBank acting as the central hub.
     vs. polypharmacy risks.
   - Introduces a reproducible example workflow using a pre-computed RDS
     data object hosted externally to keep the package lightweight.
-  - Run
-    [`vignette("drugbank_nside", package = "dbparser")`](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)
-    for more info
+  - Run `vignette("drugbank_nside", package = "dbparser")` for more info
 - Updated existing vignette and package Readme with enhanced examples
 
 ### BUG FIXES & MINOR IMPROVEMENTS

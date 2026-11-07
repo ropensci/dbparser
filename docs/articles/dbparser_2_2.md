@@ -60,7 +60,7 @@ micro-datasets—perfect for creating unit tests or teaching materials.
 
 To demonstrate the power of this new workflow, we included a
 comprehensive new vignette: **[Integrated
-Pharmacovigilance](https://docs.ropensci.org/dbparser/articles/drugbank_nside.md)**
+Pharmacovigilance](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)**
 
 In this tutorial, we perform a live analysis of **Leuprolide** (a
 hormone therapy) and **Calcitriol** (Vitamin D). We define their
