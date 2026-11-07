@@ -16,6 +16,11 @@
 - [Drug Mechanism Profiling with CETT
   Actions](https://docs.ropensci.org/dbparser/articles/cett_mechanisms.md):
 
+### Data structures
+
+- [dvobject structures by
+  parser](https://docs.ropensci.org/dbparser/articles/dvobject_structures.md):
+
 ### Release notes
 
 - [Introducing dbparser

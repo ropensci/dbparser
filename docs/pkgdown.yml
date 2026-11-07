@@ -6,9 +6,10 @@ articles:
   dbparser_2_2: dbparser_2_2.html
   articles/dbparser: dbparser.html
   articles/drugbank_nside: drugbank_nside.html
+  articles/dvobject_structures: dvobject_structures.html
   getting_started: getting_started.html
   articles/hpo_target_phenotypes: hpo_target_phenotypes.html
-last_built: 2026-11-07T09:12Z
+last_built: 2026-11-07T10:13Z
 urls:
   reference: https://docs.ropensci.org/dbparser/reference
   article: https://docs.ropensci.org/dbparser/articles

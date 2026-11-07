@@ -50,6 +50,9 @@
     <li><a class="dropdown-item" href="articles/hpo_target_phenotypes.html">Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data</a></li>
     <li><a class="dropdown-item" href="articles/cett_mechanisms.html">Drug Mechanism Profiling with CETT Actions</a></li>
     <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data structures</h6></li>
+    <li><a class="dropdown-item" href="articles/dvobject_structures.html">dvobject structures by parser</a></li>
+    <li><hr class="dropdown-divider"></li>
     <li><h6 class="dropdown-header" data-toc-skip>Release notes</h6></li>
     <li><a class="dropdown-item" href="articles/dbparser_2_2.html">Introducing dbparser 2.2.0</a></li>
   </ul>
@@ -95,50 +98,105 @@
 <div class="section level2">
 <h2 id="supported-databases">Supported Databases<a class="anchor" aria-label="anchor" href="#supported-databases"></a>
 </h2>
-<div class="section level3">
-<h3 id="drugbank-the-mechanistic-hub">DrugBank (The Mechanistic Hub)<a class="anchor" aria-label="anchor" href="#drugbank-the-mechanistic-hub"></a>
-</h3>
-<p><a href="https://go.drugbank.com/" class="external-link">DrugBank</a> is a comprehensive database containing detailed drug, pharmacological, and target information. As both a bioinformatics and a cheminformatics resource, DrugBank combines detailed drug data (chemical, pharmacological, pharmaceutical) with comprehensive drug target information (sequence, structure, pathway). More information can be found <a href="https://go.drugbank.com/about" class="external-link">here</a>.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseDrugBank.html">parseDrugBank()</a></code>
-</li>
-<li>
-<strong>Input:</strong> Full XML database (<a href="https://go.drugbank.com/releases/latest" class="external-link">download</a> — requires free <a href="https://go.drugbank.com/public_users/sign_up" class="external-link">account</a>, may take a couple of days)</li>
-<li>
-<strong>Tested versions:</strong> 5.1.0 through 5.1.12</li>
-<li>
-<strong>Alternative:</strong> Use <a href="https://interstellar-egypt.github.io/dbdataset/" class="external-link">dbdataset</a> for pre-parsed data without downloading the XML (GitHub only, exceeds CRAN size limit)</li>
-<li>
-<strong>Tutorial:</strong> <a href="https://docs.ropensci.org/dbparser/articles/dbparser.html">DrugBank Parsing Vignette</a>
-</li>
-</ul>
-<p>If you find errors with any DrugBank version, please submit an issue <a href="https://github.com/ropensci/dbparser/issues" class="external-link">here</a>.</p>
-</div>
-<div class="section level3">
-<h3 id="onsides-adverse-drug-events">OnSIDES (Adverse Drug Events)<a class="anchor" aria-label="anchor" href="#onsides-adverse-drug-events"></a>
-</h3>
-<p><a href="https://onsidesdb.org/" class="external-link">OnSIDES</a> provides adverse drug events extracted from thousands of FDA drug labels using machine learning.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseOnSIDES.html">parseOnSIDES()</a></code>
-</li>
-<li>
-<strong>Input:</strong> Directory containing OnSIDES CSV files</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="twosides-drug-drug-interactions">TWOSIDES (Drug-Drug Interactions)<a class="anchor" aria-label="anchor" href="#twosides-drug-drug-interactions"></a>
-</h3>
-<p><a href="https://tatonettilab.org/resources/nsides/" class="external-link">TWOSIDES</a> provides data on adverse events arising when two drugs are taken together.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseTWOSIDES.html">parseTWOSIDES()</a></code>
-</li>
-<li>
-<strong>Input:</strong> <code>TWOSIDES.csv.gz</code> file</li>
-</ul>
-</div>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+</colgroup>
+<thead><tr>
+<th>Parser</th>
+<th>Source</th>
+<th>Reads</th>
+<th>Tables returned</th>
+<th>Licence of the source data</th>
+<th>Since</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code><a href="reference/parseDrugBank.html">parseDrugBank()</a></code></td>
+<td><a href="https://go.drugbank.com/" class="external-link">DrugBank</a></td>
+<td>The full database XML, or the zip it comes in</td>
+<td>
+<code>drugs</code>; with options also <code>salts</code>, <code>products</code>, <code>references</code>, <code>cett</code>
+</td>
+<td>not stated</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseOnSIDES.html">parseOnSIDES()</a></code></td>
+<td><a href="https://github.com/tatonetti-lab/onsides" class="external-link">OnSIDES</a></td>
+<td>A folder with <code>product_label.csv</code>, <code>product_adverse_effect.csv</code>, <code>product_to_rxnorm.csv</code>, <code>vocab_meddra_adverse_effect.csv</code>, <code>vocab_rxnorm_ingredient.csv</code>, <code>vocab_rxnorm_product.csv</code>, <code>vocab_rxnorm_ingredient_to_product.csv</code>, optionally <code>high_confidence.csv</code>
+</td>
+<td>One table per file: <code>product_label</code>, <code>product_adverse_effect</code>, <code>product_to_rxnorm</code>, <code>vocab_meddra_adverse_effect</code>, <code>vocab_rxnorm_ingredient</code>, <code>vocab_rxnorm_product</code>, <code>vocab_rxnorm_ingredient_to_product</code>, optionally <code>high_confidence</code>
+</td>
+<td>CC-BY-4.0</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseTWOSIDES.html">parseTWOSIDES()</a></code></td>
+<td><a href="https://nsides.io/" class="external-link">TWOSIDES</a></td>
+<td><code>TWOSIDES.csv.gz</code></td>
+<td><code>drug_drug_interactions</code></td>
+<td>not stated</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHPO.html">parseHPO()</a></code></td>
+<td>
+<a href="https://hpo.jax.org/" class="external-link">Human Phenotype Ontology</a>, as distributed by <a href="https://maayanlab.cloud/Harmonizome/" class="external-link">Harmonizome</a>
+</td>
+<td>
+<code>gene_attribute_edges.txt</code>, plain or gzip-compressed</td>
+<td>
+<code>associations</code>, <code>genes</code>, <code>phenotypes</code>
+</td>
+<td>CC-BY-NC-SA-4.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHGNC.html">parseHGNC()</a></code></td>
+<td><a href="https://www.genenames.org/" class="external-link">HGNC</a></td>
+<td>
+<code>hgnc_complete_set.txt</code>, optionally <code>withdrawn.txt</code>
+</td>
+<td>
+<code>gene</code>, <code>gene_name</code>, <code>withdrawn</code>
+</td>
+<td>CC0-1.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHealthCanadaDPD.html">parseHealthCanadaDPD()</a></code></td>
+<td><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html" class="external-link">Health Canada Drug Product Database</a></td>
+<td>
+<code>allfiles.zip</code>, <code>allfiles_ap.zip</code>, <code>allfiles_ia.zip</code>, <code>allfiles_dr.zip</code> (or their unzipped folders) and <code>inactive.zip</code>
+</td>
+<td>
+<code>drug_product</code>, <code>active_ingredients</code>, <code>companies</code>, <code>form</code>, <code>packaging</code>, <code>pharmaceutical_std</code>, <code>route</code>, <code>schedule</code>, <code>status</code>, <code>therapeutic_class</code>, <code>veterinary_species</code>, <code>biosimilars</code>, <code>inactive_products</code>
+</td>
+<td>OGL-Canada-2.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseOpenFDA.html">parseOpenFDA()</a></code></td>
+<td><a href="https://open.fda.gov/" class="external-link">openFDA</a></td>
+<td>
+<code>drug-drugsfda-0001-of-0001.json.zip</code>, <code>drug-ndc-0001-of-0001.json.zip</code> (or the unzipped JSON)</td>
+<td>
+<code>drugsfda_application</code>, <code>drugsfda_product</code>, <code>drugsfda_active_ingredient</code>, <code>drugsfda_submission</code>, <code>drugsfda_submission_property_type</code>, <code>drugsfda_application_doc</code>, <code>drugsfda_openfda</code>, <code>ndc_product</code>, <code>ndc_active_ingredient</code>, <code>ndc_route</code>, <code>ndc_pharm_class</code>, <code>ndc_packaging</code>, <code>ndc_openfda</code>
+</td>
+<td>CC0-1.0</td>
+<td>2.3.0</td>
+</tr>
+</tbody>
+</table>
+<p>Each source keeps its own licence; check its terms before use. “Not stated” means the source’s own pages give no licence for the data; every parsed object records the source’s licence, terms page and requested citation (see <code><a href="reference/get_source_metadata.html">get_source_metadata()</a></code>).</p>
+<p>The DrugBank XML is downloaded from <a href="https://go.drugbank.com/releases/latest" class="external-link">DrugBank</a> with a free <a href="https://go.drugbank.com/public_users/sign_up" class="external-link">account</a>; versions 5.1.0 through 5.1.12 have been tested. If you find errors with any DrugBank version, please submit an <a href="https://github.com/ropensci/dbparser/issues" class="external-link">issue</a>.</p>
+<p><strong>Tutorials:</strong> <a href="https://docs.ropensci.org/dbparser/articles/getting_started.html">Getting started</a>, and the worked examples on <a href="https://docs.ropensci.org/dbparser/articles/dbparser.html">DrugBank</a>, <a href="https://docs.ropensci.org/dbparser/articles/drugbank_nside.html">integrated pharmacovigilance</a> and <a href="https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html">HPO target phenotypes</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
@@ -185,34 +243,7 @@
 <div class="section level2">
 <h2 id="the-dvobject-structure">The dvobject Structure<a class="anchor" aria-label="anchor" href="#the-dvobject-structure"></a>
 </h2>
-<p><code>dvobject</code> is a unified, compressed format for pharmacological data — an R list object that preserves complex relational hierarchies while enabling consistent access patterns.</p>
-<p><strong>For a single database (e.g., DrugBank):</strong></p>
-<ul>
-<li>
-<strong>drugs</strong>: list of data frames containing drug information (synonyms, classifications, etc.) — the only mandatory component</li>
-<li>
-<strong>salts</strong>: data frame of drug salt information</li>
-<li>
-<strong>products</strong>: data frame of commercially available drug products worldwide</li>
-<li>
-<strong>references</strong>: data frame of articles, links, and textbooks about drugs or CETT data</li>
-<li>
-<strong>cett</strong>: list of data frames containing targets, enzymes, carriers, and transporters information</li>
-</ul>
-<p><strong>For a merged database (Integrated Pharmacovigilance):</strong></p>
-<p>When databases are merged using <code>merge_drugbank_onsides</code> or <code>merge_drugbank_twosides</code>, the <code>dvobject</code> becomes a nested structure:</p>
-<ul>
-<li>
-<strong>drugbank</strong>: The mechanistic hub</li>
-<li>
-<strong>onsides</strong>: Side-effect data (from FDA labels)</li>
-<li>
-<strong>twosides</strong>: Drug-drug interaction data</li>
-<li>
-<strong>integrated_data</strong>: Enriched tables bridging databases (e.g., linking DrugBank IDs to OnSIDES adverse events)</li>
-<li>
-<strong>metadata</strong>: Detailed provenance for all contained datasets</li>
-</ul>
+<p>Every parser returns a <code>dvobject</code>: a named list of tibbles (DrugBank’s are nested in lists by section), with a <code>source_metadata</code> record of the source’s release, licence and file hashes. The tables and columns each parser returns are listed in <a href="https://docs.ropensci.org/dbparser/articles/dvobject_structures.html">dvobject structures by parser</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="commercial-support-and-extensions">Commercial support and extensions<a class="anchor" aria-label="anchor" href="#commercial-support-and-extensions"></a>

@@ -40,7 +40,7 @@ Other utility:
 drugbank <- parseDrugBank(
   system.file("extdata", "drugbank_record_biotech.xml",
               package = "dbparser"))
-#> Loading DrugBank DB from path: /private/var/folders/dx/_x2tl39x3slc9hp9_07j57ym0000gn/T/RtmpmfFn0M/temp_libpath161e96ecc54d4/dbparser/extdata/drugbank_record_biotech.xml
+#> Loading DrugBank DB from path: /private/var/folders/dx/_x2tl39x3slc9hp9_07j57ym0000gn/T/RtmpISG2b8/temp_libpath8978285440e9/dbparser/extdata/drugbank_record_biotech.xml
 #> Completed loading DrugBank DB into memory
 #> ...........................................
 #> parsing drugs elements
