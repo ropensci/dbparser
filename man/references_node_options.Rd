@@ -19,6 +19,7 @@ Other parsers:
 \code{\link[=parseDrugBank]{parseDrugBank()}},
 \code{\link[=parseHGNC]{parseHGNC()}},
 \code{\link[=parseHPO]{parseHPO()}},
+\code{\link[=parseHealthCanadaDPD]{parseHealthCanadaDPD()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}}
 }

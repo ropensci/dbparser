@@ -1,0 +1,6 @@
+"2","9563","TOLBUTAMIDE","I","500","MG","","","N","TAB","Historic Freeform Text: TOLBUTAMIDE","Tolbutamide","MG","","Comprimé"
+"80771","7538","MEDROXYPROGESTERONE ACETATE","I","150","MG","","","N","ML","","Acétate de médroxyprogestérone","MG","","ML"
+"94947","755","AVOBENZONE","I","3","%","","","N","","","Avobenzone","%","",""
+"94947","2280","OCTOCRYLENE","I","10","%","","","N","","","Octocrilène","%","",""
+"94947","12048","OCTISALATE","I","5","%","","","N","","","Octisalate","%","",""
+"94947","1970","HOMOSALATE","I","15","%","","","N","","","Homosalate","%","",""

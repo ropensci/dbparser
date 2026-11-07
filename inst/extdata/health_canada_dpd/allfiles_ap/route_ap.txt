@@ -1,0 +1,3 @@
+"14535","56","ORAL","Orale"
+"99581","65","SUBCUTANEOUS","Sous-cutanée"
+"99581","49","INTRAVENOUS","Intraveineuse"

@@ -48,6 +48,7 @@ Other parsers:
 \code{\link[=drug_node_options]{drug_node_options()}},
 \code{\link[=parseHGNC]{parseHGNC()}},
 \code{\link[=parseHPO]{parseHPO()}},
+\code{\link[=parseHealthCanadaDPD]{parseHealthCanadaDPD()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
 \code{\link[=references_node_options]{references_node_options()}}

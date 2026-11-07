@@ -1,0 +1,3 @@
+"2","PRESCRIPTION","Médicaments sur ordonnance"
+"80771","PRESCRIPTION","Médicaments sur ordonnance"
+"94947","NON-PRESCRIPTION DRUGS","Médicaments sans ordonnance"

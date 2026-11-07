@@ -22,3 +22,26 @@ citing:
   Seal RL, Braschi B, Gray K, McClay J, Tweedie S, Bruford EA.
   Genenames.org: the HGNC and PGNC resources in 2026. Nucleic Acids Research
   (Database issue). HGNC (RRID:SCR_002827).
+
+health_canada_dpd/
+------------------
+Small extracts of Health Canada's Drug Product Database (DPD) data extract,
+downloaded on 2026-10-21 from
+https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html
+
+The unchanged lines (comma-separated, quoted, no header, CRLF, UTF-8) of 12
+products: marketed 15, 85, 129, 18349, 81048; approved 14535, 99581;
+cancelled 2, 80771, 94947; dormant 31, 126. Each set keeps its file names:
+allfiles/ (marketed), allfiles_ap/ (approved), allfiles_ia/ (cancelled, with
+its copy of inactive.txt), allfiles_dr.zip (dormant, kept zipped to exercise
+reading from a zip) and inactive/inactive.txt. Files with no row for these
+products are empty, as biosimilar_dr.txt is in the full extract.
+
+Contains information licensed under the Open Government Licence – Canada.
+Licence: Open Government Licence – Canada, version 2.0,
+https://open.canada.ca/en/open-government-licence-canada
+Dataset record: "Drug Product Database - All Files",
+https://open.canada.ca/data/en/dataset/bf55e42a-63cb-4556-bfd8-44f26e5a36fe
+The DPD extract page also links to Health Canada's website terms; the
+dataset record on open.canada.ca states the Open Government Licence –
+Canada.

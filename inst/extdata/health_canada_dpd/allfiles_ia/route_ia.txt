@@ -1,0 +1,3 @@
+"2","56","ORAL","Orale"
+"80771","22","INTRAMUSCULAR","Intramusculaire"
+"94947","70","TOPICAL","Topique"

@@ -1,0 +1,2 @@
+"14535","2442","CLOMIPRAMINE HYDROCHLORIDE","I","10","MG","","","N","","Historic Freeform Text: CLOMIPRAMINE HCL","Chlorhydrate de clomipramine","MG","",""
+"99581","763","ENOXAPARIN SODIUM","I","20","MG","","0.2","N","ML","","Énoxaparine sodique","MG","","ML"

@@ -1,0 +1,5 @@
+"15","5","CAPSULE","Capsule"
+"85","134","SOLUTION","Solution"
+"129","34","LIQUID","Liquide"
+"18349","151","TABLET (CHEWABLE)","Comprimé (à mâcher)"
+"81048","134","SOLUTION","Solution"

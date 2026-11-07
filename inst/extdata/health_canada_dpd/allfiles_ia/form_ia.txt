@@ -1,0 +1,3 @@
+"2","85","TABLET","Comprimé"
+"80771","79","SUSPENSION","Suspension"
+"94947","9","CREAM","Crème"
