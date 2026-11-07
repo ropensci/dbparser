@@ -122,10 +122,17 @@ parseHPO <- function(filepath,
   hpo_db$genes           <- genes
   hpo_db$phenotypes      <- phenotypes
 
-  add_database_info(dvobject         = hpo_db,
-                    db_type          = "HPO",
-                    db_version       = db_version,
-                    db_exported_date = db_exported_date)
+  hpo_db <- add_database_info(dvobject         = hpo_db,
+                              db_type          = "HPO",
+                              db_version       = db_version,
+                              db_exported_date = db_exported_date)
+  set_source_metadata(
+    hpo_db,
+    source_metadata(source       = "hpo",
+                    source_name  = "Human Phenotype Ontology (Harmonizome)",
+                    files        = filepath,
+                    release      = db_version,
+                    release_date = db_exported_date))
 }
 
 

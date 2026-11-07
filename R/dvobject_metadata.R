@@ -160,7 +160,8 @@ find_second_database <- function(attrs) {
     second_db_name = NULL
   )
 
-  standard_attrs <- c("names", "class", "original_db_info", "row.names")
+  standard_attrs <- c("names", "class", "original_db_info", "row.names",
+                      "source_metadata")
   potential_second_db <- setdiff(names(attrs), standard_attrs)
 
   if (length(potential_second_db) > 0) {

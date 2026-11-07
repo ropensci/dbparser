@@ -168,6 +168,7 @@ subset_drugbank_dvobject <- function(dvobject, drug_ids) {
     }
 
     attr(new_dvobject, "original_db_info") <- attr(dvobject, "original_db_info")
+    attr(new_dvobject, "source_metadata")  <- attr(dvobject, "source_metadata")
     class(new_dvobject) <- "dvobject"
 
     # --- Final Step: Preserve original object's attributes ---
@@ -281,6 +282,7 @@ subset_onsides_dvobject <- function(dvobject, ingredient_ids) {
 
     # Preserve attributes and return
     attr(new_dvobject, "original_db_info") <- attr(dvobject, "original_db_info")
+    attr(new_dvobject, "source_metadata")  <- attr(dvobject, "source_metadata")
     class(new_dvobject) <- "dvobject"
   }
 

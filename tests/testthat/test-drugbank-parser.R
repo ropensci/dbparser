@@ -28,6 +28,9 @@ test_that(
     dvobj <- q_parser(system.file("extdata",
                                   biotech,
                                   package = "dbparser"))
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
 
     dvobj <- q_parser(system.file("extdata",
@@ -284,6 +287,9 @@ test_that(
                                parse_products     = TRUE,
                                references_options = references_node_options(),
                                cett_options       = cett_nodes_options())
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
   }
 )
@@ -297,6 +303,9 @@ test_that(
     dvobj          <- q_parser(system.file("extdata",
                                            small_molecule,
                                            package = "dbparser"))
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
   }
 )

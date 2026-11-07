@@ -80,13 +80,19 @@ parseDrugBank <- function(db_path,
     message("Completed loading DrugBank DB into memory")
     message("...........................................")
     pkg_env$root <- XML::xmlRoot(parsed_db)
+    db_version   <- XML::xmlGetAttr(node = pkg_env$root, name = "version")
+    db_exported  <- XML::xmlGetAttr(node = pkg_env$root, name = "exported-on")
     dvobject     <- add_database_info(dvobject         = dvobject,
-                                      db_version       = XML::xmlGetAttr(
-                                        node = pkg_env$root,
-                                        name = "version"),
-                                      db_exported_date = XML::xmlGetAttr(
-                                        node = pkg_env$root,
-                                        name = "exported-on"))
+                                      db_version       = db_version,
+                                      db_exported_date = db_exported)
+    dvobject     <- set_source_metadata(
+      dvobject,
+      source_metadata(source       = "drugbank",
+                      source_name  = "DrugBank",
+                      files        = db_path,
+                      release      = db_version,
+                      release_date = db_exported,
+                      source_url   = "https://go.drugbank.com/"))
     message("parsing drugs elements")
 
     dvobject[["drugs"]] <- parse_drug_nodes(drug_options)

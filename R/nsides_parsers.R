@@ -54,5 +54,14 @@ parseTWOSIDES <- function(twosides_file_path,
     db_version       = db_version,
     db_exported_date = db_exported_date)
 
-  twosides_db
+  set_source_metadata(
+    twosides_db,
+    source_metadata(source       = "twosides",
+                    source_name  = "TWOSIDES",
+                    files        = twosides_file_path,
+                    release      = db_version,
+                    release_date = db_exported_date,
+                    source_url   = paste0("https://tatonettilab-resources.",
+                                          "s3.amazonaws.com/nsides/",
+                                          "TWOSIDES.csv.gz")))
 }

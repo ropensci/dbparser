@@ -65,5 +65,15 @@ parseOnSIDES <- function(dataDir,
                                  db_type          = "OnSIDES",
                                  db_version       = db_version,
                                  db_exported_date = db_exported_date)
-  db_tables
+  parsed_files <- file_paths
+  if (!is.null(db_tables$high_confidence)) {
+    parsed_files <- c(parsed_files, hc_path)
+  }
+  set_source_metadata(
+    db_tables,
+    source_metadata(source       = "onsides",
+                    source_name  = "OnSIDES",
+                    files        = unname(parsed_files),
+                    release      = db_version,
+                    release_date = db_exported_date))
 }

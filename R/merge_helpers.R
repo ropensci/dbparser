@@ -71,6 +71,8 @@ merge_drugbank_onsides <- function(db_object, onsides_db) {
     merged_object          <- init_dvobject()
     merged_object$drugbank <- db_object
     attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+    merged_object <- set_source_metadata(merged_object,
+                                         attr(drugbank_db, "source_metadata"))
   }
 
   # Validate the Hub
@@ -140,6 +142,8 @@ merge_drugbank_onsides <- function(db_object, onsides_db) {
 
   # Update metadata
   attr(merged_object, "onSideDB") <- attr(onsides_db, "original_db_info")
+  merged_object <- set_source_metadata(merged_object,
+                                       attr(onsides_db, "source_metadata"))
 
   # Assign a new class (Prepend to keep existing classes like DrugBankTWOSIDESDb)
   class(merged_object) <- unique(c("DrugBankOnSIDESDb", class(merged_object)))
@@ -176,6 +180,8 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
     merged_object          <- init_dvobject()
     merged_object$drugbank <- db_object
     attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+    merged_object <- set_source_metadata(merged_object,
+                                         attr(drugbank_db, "source_metadata"))
   }
 
   # Validate inputs
@@ -252,6 +258,8 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
 
   # --- Step 4: Metadata ---
   attr(merged_object, "TwoSidesDB") <- attr(twosides_db, "original_db_info")
+  merged_object <- set_source_metadata(merged_object,
+                                       attr(twosides_db, "source_metadata"))
 
   # Prepend new class
   class(merged_object) <- unique(c("DrugBankTWOSIDESDb", class(merged_object)))
@@ -347,6 +355,8 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
     merged_object          <- init_dvobject()
     merged_object$drugbank <- db_object
     attr(merged_object, "DrugBankDB") <- attr(drugbank_db, "original_db_info")
+    merged_object <- set_source_metadata(merged_object,
+                                         attr(drugbank_db, "source_metadata"))
   }
 
   # Validate the Hub — need cett$targets structure
@@ -482,6 +492,8 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
 
   # --- Step 5: Metadata ---
   attr(merged_object, "HPODB") <- attr(hpo_db, "original_db_info")
+  merged_object <- set_source_metadata(merged_object,
+                                       attr(hpo_db, "source_metadata"))
 
   class(merged_object) <- unique(c("DrugBankHPODb", class(merged_object)))
 
