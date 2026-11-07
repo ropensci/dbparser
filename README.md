@@ -240,24 +240,9 @@ Questions or early access: <info@interstellar-egypt.com>
   integrated reproducible pathway models. *Biology*.
   [doi:10.3390/biology9120483](https://doi.org/10.3390/biology9120483)
 
-## Research Impact
-
-`dbparser` has enabled **10+ peer-reviewed publications** in leading
-journals:
-
-| Domain | Journal | Reference |
-|----|----|----|
-| Alzheimer’s Drug Repurposing | *Nature Scientific Reports* | Parolo et al. (2023) |
-| COVID-19 Therapeutics | *Pharmaceutics* | Pérez-Moraga et al. (2021) |
-| Pan-Cancer Biomarkers | *Briefings in Bioinformatics* | Mercatelli et al. (2022) |
-| Pathway Modeling | *Computer Methods and Programs in Biomedicine* | Hammoud et al. (2025) |
-| Clinical Trial Analysis | *Frontiers in Pharmacology* | Namiot et al. (2023) |
-
-📊 **50,000+ CRAN downloads** \| Featured in the [CRAN Epidemiology Task
-View](https://CRAN.R-project.org/view=Epidemiology)
-
-For the full list, see our [JOSS
-paper](https://joss.theoj.org/papers/10.21105/joss.09950).
+dbparser is listed in the [CRAN Epidemiology Task
+View](https://CRAN.R-project.org/view=Epidemiology) and described in our
+[JOSS paper](https://doi.org/10.21105/joss.09950).
 
 ## Ecosystem
 
@@ -282,14 +267,6 @@ citation("dbparser")
 If you find `dbparser` useful, consider ⭐ starring the [GitHub
 repository](https://github.com/ropensci/dbparser) and sharing it with
 colleagues.
-
-## Enterprise Support
-
-For custom database integrations, enterprise support, training, or
-deployment assistance — `dbparser` is maintained by [Interstellar
-Consultation Services](https://interstellar-egypt.com).
-
-📧 <info@interstellar-egypt.com>
 
 ## Contributing
 
