@@ -117,10 +117,12 @@ test_that("parseHealthCanadaDPD reads values as written", {
 
   # DD-MON-YYYY dates, including the years 0030 and 0031 kept as written
   expiry <- dpd$status[!is.na(dpd$status$expiration_date), ]
-  expect_equal(format(expiry$expiration_date[expiry$drug_code == 80771], "%Y"),
-               "0030")
-  expect_equal(format(expiry$expiration_date[expiry$drug_code == 94947], "%Y"),
-               "0031")
+  # (compared as numbers: Linux prints year 30 as "30", not "0030")
+  expiry_year <- function(code) {
+    as.POSIXlt(expiry$expiration_date[expiry$drug_code == code])$year + 1900L
+  }
+  expect_equal(expiry_year(80771), 30)
+  expect_equal(expiry_year(94947), 31)
   expect_equal(dpd$drug_product$last_update_date[
     dpd$drug_product$drug_code == 15], as.Date("2025-03-22"))
 
