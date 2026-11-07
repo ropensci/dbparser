@@ -18,3 +18,4 @@
 ^paper\.md$
 ^paper\.bib$
 ^vignettes/articles$
+^announce$
