@@ -96,7 +96,7 @@ merge_drugbank_onsides <- function(db_object, onsides_db) {
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
-    dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
+    dplyr::select(all_of("drugbank_id"), rxcui = "identifier") %>%
     dplyr::distinct()
 
   # --- Step 2: Enrich OnSIDES Tables ---
@@ -199,25 +199,25 @@ merge_drugbank_twosides <- function(db_object, twosides_db) {
   message("Creating DrugBank ID <-> RxCUI mapping table...")
   rxcui_mapping_df <- drugbank_db$drugs$external_identifiers %>%
     dplyr::filter(.data$resource == "RxCUI") %>%
-    dplyr::select(all_of("drugbank_id"), rxcui = .data$identifier) %>%
+    dplyr::select(all_of("drugbank_id"), rxcui = "identifier") %>%
     dplyr::mutate(rxcui = .data$rxcui) %>%
     dplyr::distinct()
 
   # Drug name lookup
   drug_name_lookup <- drugbank_db$drugs$general_information %>%
-    dplyr::select(all_of("drugbank_id"), drug_name = .data$name)
+    dplyr::select(all_of("drugbank_id"), drug_name = "name")
 
   # --- Step 2: Enrich TWOSIDES Data ---
   message("Enriching TWOSIDES data with DrugBank information...")
 
   # Prepare lookup tables for double joining
-  rxcui_map_1 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_1 = .data$drugbank_id)
-  rxcui_map_2 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_2 = .data$drugbank_id)
+  rxcui_map_1 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_1 = "drugbank_id")
+  rxcui_map_2 <- rxcui_mapping_df %>% dplyr::rename(drugbank_id_2 = "drugbank_id")
 
   drug_name_lookup_1 <- drug_name_lookup %>%
-    dplyr::rename(drug_name_1 = .data$drug_name, drugbank_id_1 = .data$drugbank_id)
+    dplyr::rename(drug_name_1 = "drug_name", drugbank_id_1 = "drugbank_id")
   drug_name_lookup_2 <- drug_name_lookup %>%
-    dplyr::rename(drug_name_2 = .data$drug_name, drugbank_id_2 = .data$drugbank_id)
+    dplyr::rename(drug_name_2 = "drug_name", drugbank_id_2 = "drugbank_id")
 
   enriched_ddis <- twosides_db$drug_drug_interactions %>%
     dplyr::mutate(drug_1_rxnorn_id = as.character(.data$drug_1_rxnorn_id),
@@ -603,30 +603,6 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
 }
 
 
-#' Resolve drug groups table
-#'
-#' @param drugbank_db A DrugBank dvobject.
-#' @return A tibble with drugbank_id and group columns, or NULL.
-#' @keywords internal
-.resolve_drug_groups <- function(drugbank_db) {
-
-  candidates <- list(
-    tryCatch(drugbank_db$drugs$drug_groups, error = function(e) NULL),
-    tryCatch(drugbank_db$drug_groups, error = function(e) NULL),
-    tryCatch(drugbank_db$drugs$groups, error = function(e) NULL)
-  )
-
-  for (tbl in candidates) {
-    if (is.data.frame(tbl) && (NROW(tbl) > 0L) &&
-        ("drugbank_id" %in% names(tbl)) &&
-        ("group" %in% names(tbl))) {
-      return(tibble::as_tibble(tbl))
-    }
-  }
-  NULL
-}
-
-
 #' Generic fallback: search an object tree for a data frame with required columns
 #'
 #' @param obj A list (possibly nested).
@@ -649,55 +625,6 @@ merge_drugbank_hpo <- function(db_object, hpo_db) {
       result <- .find_table_with_columns(obj[[nm]], required_cols,
                                          max_depth = max_depth - 1L)
       if (!is.null(result)) return(result)
-    }
-  }
-
-  NULL
-}
-
-
-# =============================================================================
-# Internal helpers (not exported)
-# =============================================================================
-
-#' Resolve the targets table from a DrugBank dvobject
-#'
-#' Handles multiple possible structures:
-#'
-#' \itemize{
-#'   \item Full parse: \code{$targets} as data.frame with \code{gene_name}
-#'   \item Nested parse: \code{$targets$<subtable>} containing \code{gene_name}
-#'   \item Sample data: \code{$targets_actions} with \code{gene_name}
-#' }
-#'
-#' @param drugbank_db A DrugBank dvobject.
-#' @return A data.frame with at minimum \code{gene_name} and an ID column,
-#'   or \code{NULL} if none found.
-#' @keywords internal
-.resolve_targets_table <- function(drugbank_db) {
-
-  # Priority 1: Direct $targets as a data frame
-  if ("targets" %in% names(drugbank_db)) {
-    tgt <- drugbank_db$targets
-    if (is.data.frame(tgt) && ("gene_name" %in% names(tgt))) {
-      return(tgt)
-    }
-    # Nested structure: check sub-tables
-    if (is.list(tgt) && (!is.data.frame(tgt))) {
-      for (sub_name in names(tgt)) {
-        sub_tbl <- tgt[[sub_name]]
-        if (is.data.frame(sub_tbl) && ("gene_name" %in% names(sub_tbl))) {
-          return(sub_tbl)
-        }
-      }
-    }
-  }
-
-  # Priority 2: $targets_actions (sample RDS format)
-  if ("targets_actions" %in% names(drugbank_db)) {
-    tgt_a <- drugbank_db$targets_actions
-    if (is.data.frame(tgt_a) && ("gene_name" %in% names(tgt_a))) {
-      return(tgt_a)
     }
   }
 
