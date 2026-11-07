@@ -27,4 +27,5 @@ A new, nested dvobject with the TWOSIDES data added.
 ## See also
 
 Other mergers:
+[`merge_drugbank_hpo()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_hpo.md),
 [`merge_drugbank_onsides()`](https://docs.ropensci.org/dbparser/reference/merge_drugbank_onsides.md)

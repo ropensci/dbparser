@@ -28,6 +28,9 @@ test_that(
     dvobj <- q_parser(system.file("extdata",
                                   biotech,
                                   package = "dbparser"))
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
 
     dvobj <- q_parser(system.file("extdata",
@@ -284,6 +287,9 @@ test_that(
                                parse_products     = TRUE,
                                references_options = references_node_options(),
                                cett_options       = cett_nodes_options())
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
   }
 )
@@ -297,6 +303,39 @@ test_that(
     dvobj          <- q_parser(system.file("extdata",
                                            small_molecule,
                                            package = "dbparser"))
+    # metadata holds file hashes and the package version; tested in
+    # test_source_metadata.R, kept out of the snapshot
+    attr(dvobj$result, "source_metadata") <- NULL
     expect_snapshot(dvobj$result)
+  }
+)
+
+test_that(
+  desc = "parse DrugBank DB - zip file leaves package and input folders unchanged",
+  code = {
+    folder_state <- function(path) {
+      files <- list.files(path, recursive = TRUE, all.files = TRUE,
+                          no.. = TRUE, full.names = TRUE)
+      tools::md5sum(sort(files))
+    }
+
+    pkg_dir    <- system.file(package = "dbparser")
+    pkg_before <- folder_state(pkg_dir)
+    dvobj      <- q_parser(system.file("extdata",
+                                       "drugbank_record.zip",
+                                       package = "dbparser"))
+    expect_s3_class(dvobj$result, "dvobject")
+    expect_identical(folder_state(pkg_dir), pkg_before)
+
+    input_dir <- tempfile("dbparser_input_")
+    dir.create(input_dir)
+    on.exit(unlink(input_dir, recursive = TRUE), add = TRUE)
+    file.copy(system.file("extdata", "drugbank_record.zip",
+                          package = "dbparser"),
+              input_dir)
+    dvobj <- q_parser(file.path(input_dir, "drugbank_record.zip"))
+    expect_s3_class(dvobj$result, "dvobject")
+    expect_identical(list.files(input_dir, all.files = TRUE, no.. = TRUE),
+                     "drugbank_record.zip")
   }
 )

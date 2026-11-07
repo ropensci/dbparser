@@ -66,18 +66,20 @@ read_drugbank_xml_db <- function(db_path) {
   message(paste("Loading DrugBank DB from path:", db_path))
 
   ext       <- tools::file_ext(db_path)
-  dir_name  <- dirname(db_path)
   loaded_db <- NULL
 
   if (!ext %in% c("zip", "xml")) {
     message("Unsupported file format, Kindly use an XML or zip file.")
   } else {
     if (ext == "zip") {
+      # extract to a session temp folder, never next to the input file or
+      # into the installed package, and remove it once the xml is loaded
+      tmp_dir <- tempfile("dbparser_")
+      on.exit(unlink(tmp_dir, recursive = TRUE), add = TRUE)
       tryCatch({
-        unzip(db_path, exdir = dir_name)
-        db      <- unzip(db_path, list = TRUE)
-        db_path <- paste0(dir_name, "/", db[[1]])
-        message(paste("DrugBank DB zip file extraxted at path:", db_path))
+        extracted <- unzip(db_path, exdir = tmp_dir)
+        db_path   <- extracted[tolower(tools::file_ext(extracted)) == "xml"][1]
+        message(paste("DrugBank DB zip file extracted at path:", db_path))
       },
       error = function(e) {
         message(paste("Loading DrugBank DB failed due to error:", e$message))

@@ -33,6 +33,7 @@ search_phenotypes(hpo_db, "seizure")
 Other utility:
 \code{\link[=add_database_info]{add_database_info()}},
 \code{\link[=get_genes_for_phenotype]{get_genes_for_phenotype()}},
+\code{\link[=get_source_metadata]{get_source_metadata()}},
 \code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
 \code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}},
 \code{\link[=subset_onsides_dvobject]{subset_onsides_dvobject()}}

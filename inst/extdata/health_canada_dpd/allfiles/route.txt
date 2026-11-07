@@ -1,0 +1,7 @@
+"15","56","ORAL","Orale"
+"85","65","SUBCUTANEOUS","Sous-cutanée"
+"85","22","INTRAMUSCULAR","Intramusculaire"
+"85","49","INTRAVENOUS","Intraveineuse"
+"129","56","ORAL","Orale"
+"18349","56","ORAL","Orale"
+"81048","65","SUBCUTANEOUS","Sous-cutanée"

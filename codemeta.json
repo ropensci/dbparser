@@ -2,19 +2,19 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "dbparser",
-  "description": "This tool is for parsing public drug databases such as 'DrugBank' XML database <https://go.drugbank.com/>. The parsed data are then returned in a proper 'R' object called 'dvobject'.",
+  "description": "Parses drug and gene databases from their downloaded files: the 'DrugBank' XML database <https://go.drugbank.com/>, the 'OnSIDES' and 'TWOSIDES' adverse drug event databases, Human Phenotype Ontology ('HPO') gene-phenotype associations, the 'HGNC' gene nomenclature files, Health Canada's Drug Product Database ('DPD') data extract, and the 'openFDA' 'Drugs@FDA' and 'NDC' directory downloads. The parsed tables are returned in an 'R' object called 'dvobject', which records the source release, licence and file hashes.",
   "name": "dbparser: Drugs Databases Parser",
-  "relatedLink": ["https://docs.ropensci.org/dbparser/", "https://CRAN.R-project.org/package=dbparser"],
-  "codeRepository": "https://github.com/ropensci/dbparser/",
+  "relatedLink": ["https://docs.ropensci.org/dbparser/", "https://interstellar-egypt.com", "https://CRAN.R-project.org/package=dbparser"],
+  "codeRepository": "https://github.com/ropensci/dbparser",
   "issueTracker": "https://github.com/ropensci/dbparser/issues",
   "license": "https://spdx.org/licenses/MIT",
-  "version": "2.0.1",
+  "version": "2.3.0",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
-  "runtimePlatform": "R version 4.2.2 (2022-10-31 ucrt)",
+  "runtimePlatform": "R version 4.6.1 (2026-06-24)",
   "provider": {
     "@id": "https://cran.r-project.org",
     "@type": "Organization",
@@ -26,7 +26,7 @@
       "@type": "Person",
       "givenName": "Mohammed",
       "familyName": "Ali",
-      "email": "moh_fcis@yahoo.com"
+      "email": "mohammed.ali@interstellar-egypt.com"
     },
     {
       "@type": "Person",
@@ -35,15 +35,39 @@
       "email": "ali_ezzat85@yahoo.com"
     }
   ],
+  "copyrightHolder": [
+    {
+      "@type": "Organization",
+      "name": "Interstellar"
+    }
+  ],
+  "funder": [
+    {
+      "@type": "Organization",
+      "name": "Interstellar"
+    }
+  ],
   "maintainer": [
     {
       "@type": "Person",
       "givenName": "Mohammed",
       "familyName": "Ali",
-      "email": "moh_fcis@yahoo.com"
+      "email": "mohammed.ali@interstellar-egypt.com"
     }
   ],
   "softwareSuggestions": [
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "canvasXpress",
+      "name": "canvasXpress",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=canvasXpress"
+    },
     {
       "@type": "SoftwareApplication",
       "identifier": "knitr",
@@ -79,10 +103,34 @@
         "url": "https://cran.r-project.org"
       },
       "sameAs": "https://CRAN.R-project.org/package=testthat"
+    },
+    {
+      "@type": "SoftwareApplication",
+      "identifier": "tidyr",
+      "name": "tidyr",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=tidyr"
     }
   ],
   "softwareRequirements": {
     "1": {
+      "@type": "SoftwareApplication",
+      "identifier": "data.table",
+      "name": "data.table",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=data.table"
+    },
+    "2": {
       "@type": "SoftwareApplication",
       "identifier": "dplyr",
       "name": "dplyr",
@@ -94,7 +142,19 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=dplyr"
     },
-    "2": {
+    "3": {
+      "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    "4": {
       "@type": "SoftwareApplication",
       "identifier": "progress",
       "name": "progress",
@@ -106,7 +166,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=progress"
     },
-    "3": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -118,7 +178,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "4": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -130,12 +190,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "5": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
     },
-    "6": {
+    "8": {
+      "@type": "SoftwareApplication",
+      "identifier": "utils",
+      "name": "utils"
+    },
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "XML",
       "name": "XML",
@@ -147,7 +212,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=XML"
     },
-    "7": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
@@ -155,10 +220,11 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "754.17KB",
+  "fileSize": "1876.786KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
+      "datePublished": "2026",
       "author": [
         {
           "@type": "Person",
@@ -171,17 +237,46 @@
           "familyName": "Ezzat"
         }
       ],
-      "name": "DrugBank Database XML Parser",
+      "name": "dbparser: An R Package for Parsing and Integrating Pharmacological Databases",
+      "identifier": "10.21105/joss.09950",
+      "pagination": "9950",
+      "@id": "https://doi.org/10.21105/joss.09950",
+      "sameAs": "https://doi.org/10.21105/joss.09950",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "118",
+        "datePublished": "2026",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "11",
+          "name": "Journal of Open Source Software"
+        }
+      }
+    },
+    {
+      "@type": "SoftwareSourceCode",
+      "datePublished": "2026",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Mohammed",
+          "familyName": "Ali"
+        },
+        {
+          "@type": "Person",
+          "givenName": "Ali",
+          "familyName": "Ezzat"
+        }
+      ],
+      "name": "dbparser: Drugs Databases Parser",
       "url": "https://CRAN.R-project.org/package=dbparser",
-      "description": "An R Package for Parsing and Integrating
-Pharmacological Databases. Journal of Open Source Software, 11(118),
-9950, https://doi.org/10.21105/joss.09950"
+      "description": "R package version 2.3.0"
     }
   ],
-  "releaseNotes": "https://github.com/ropensci/dbparser/blob/master/NEWS.md",
-  "readme": "https://github.com/ropensci/dbparser/blob/master/README.md",
+  "releaseNotes": "https://github.com/ropensci/dbparser/blob/main/NEWS.md",
+  "readme": "https://github.com/ropensci/dbparser/blob/cran/README.md",
   "contIntegration": "https://app.codecov.io/gh/ropensci/dbparser",
-  "developmentStatus": ["https://www.repostatus.org/#active", "https://lifecycle.r-lib.org/articles/stages.html"],
+  "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html",
   "review": {
     "@type": "Review",
     "url": "https://github.com/ropensci/software-review/issues/347",

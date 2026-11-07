@@ -1,0 +1,6 @@
+"15","PRESCRIPTION","Médicaments sur ordonnance"
+"85","NON-PRESCRIPTION DRUGS","Médicaments sans ordonnance"
+"129","NON-PRESCRIPTION DRUGS","Médicaments sans ordonnance"
+"18349","NON-PRESCRIPTION DRUGS","Médicaments sans ordonnance"
+"81048","SCHEDULE D","Annexe D"
+"81048","PRESCRIPTION","Médicaments sur ordonnance"

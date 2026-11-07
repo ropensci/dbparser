@@ -1,0 +1,5662 @@
+@charset "UTF-8";
+/* @category: shared */
+
+/*
+ * Favorite Colors
+ * rgb(51,  122,  183) - #337ab7
+ * rgb(76,  159,  224) - #4c9fe0
+ * rgb(83,  105,  255) - #5369ff
+ */
+
+:root {
+  /* Colors */
+  --cx-color-red: rgb(255, 0, 0);
+  --cx-color-blue: rgb(0, 0, 255);
+  --cx-color-green: rgb(0, 255, 0);
+  --cx-color-yellow: rgb(255, 255, 0);
+  --cx-color-orange: rgb(255, 165, 0);
+  --cx-color-purple: rgb(128, 0, 128);
+  --cx-color-white: rgb(255, 255, 255);
+  --cx-color-gray: rgb(128, 128, 128);
+  --cx-color-black: rgb(0, 0, 0);
+  --cx-color-transparent: rgba(0, 0, 0, 0);
+  /* Greys */
+  --cx-color-extra-dark-gray: rgb(34, 34, 34);
+  --cx-color-dark-gray: rgb(64, 64, 64);
+  --cx-color-medium-gray: rgb(180, 180, 180);
+  --cx-color-light-gray: rgb(204, 204, 204);
+  --cx-color-extra-light-gray: rgb(238, 238, 238);
+  /* Icons - Not used but just to remember */
+  --cx-icon-class-a: #5369ff;
+  --cx-icon-class-b: #292929;
+  --cx-icon-class-c: #999999;
+  --cx-icon-class-r: #ff0000;
+  /* Coding colors */
+  --cx-code-key: rgb(215, 48, 39);
+  --cx-code-value: rgb(69, 117, 180);
+  --cx-code-string: rgb(168, 82, 2);
+  --cx-code-number: rgb(69, 117, 180);
+  --cx-code-boolean: rgb(102, 102, 0);
+  --cx-code-null: rgb(69, 117, 180);
+  --cx-code-comment: rgb(58, 115, 0);
+  /* Favorite UI colors */
+  --cx-color-ui-background: rgb(255, 255, 255);
+  --cx-color-ui-font: rgb(34, 34, 34);
+  --cx-color-widgets: rgb(83, 105, 255);
+  --cx-color-widgets-hover: rgba(83, 105, 255, 0.1);
+  /* Favorite UI Styles - Not used but just to remember */
+  --cx-color-modern: rgb(83, 105, 255);
+  --cx-color-modern-hover: rgba(83, 105, 255, 0.1) ;
+  --cx-color-stripped: rgb(230, 230, 230) ;
+  --cx-color-stripped-hover: rgba(180, 180, 180, 0.3);
+  --cx-color-old: linear-gradient(rgb(240, 240, 240), rgb(230, 230, 230));
+  --cx-color-old-hover: rgba(230,230,230,0.1);
+  --cx-color-bms: rgb(190, 43, 187);
+  --cx-color-bms-hover: rgba(190, 43, 187, 0.1);
+  --cx-color-bms2: rgb(89, 84, 84);
+  --cx-color-bms2-hover: rgba(89, 84, 84, 0.1);
+  --cx-color-colorful: rgb(106, 27, 154);
+  --cx-color-colorful-hover: rgba(106, 27, 154, 0.1);
+  /* Font */
+  --cx-x-small-font-size: 11px;
+  --cx-small-font-size: 12px;
+  --cx-medium-font-size: 13px;
+  --cx-font-size: 15px;
+  --cx-large-font-size: 16px;
+  --cx-x-large-font-size: 17px;
+  --cx-font-color: var(--cx-color-ui-font);
+  --cx-font: var(--cx-font-size) var(--cx-font-family);
+  --cx-large-font: var(--cx-large-font-size) var(--cx-font-family);
+  --cx-x-large-font: var(--cx-x-large-font-size) var(--cx-font-family);
+  --cx-font-bold: bold var(--cx-font-size) var(--cx-font-family);
+  --cx-large-font-bold: bold var(--cx-large-font-size) var(--cx-font-family);
+  --cx-x-large-font-bold: bold var(--cx-x-large-font-size) var(--cx-font-family);
+  --cx-font-italic: italic var(--cx-font-size) var(--cx-font-family);
+  --cx-large-font-italic: italic var(--cx-large-font-size) var(--cx-font-family);
+  --cx-x-large-font-italic: italic var(--cx-x-large-font-size) var(--cx-font-family);
+  --cx-small-font-italic: italic var(--cx-small-font-size) var(--cx-font-family);
+  /* Background */
+  --cx-background-widgets-color: var(--cx-color-ui-background);
+  --cx-background-color: var(--cx-color-widgets);
+  --cx-background-hover-color: var(--cx-color-widgets-hover);
+  --cx-background-border-hover-color: var(--cx-color-white);
+  --cx-background-accent-color: var(--cx-color-widgets-hover);
+  --cx-background-contrast-color: var(--cx-background-color);
+  /* Border */
+  --cx-border: var(--cx-border-width) var(--cx-border-style) var(--cx-color-widgets);
+  /* Callouts */
+  --cx-callout-size: 8px;
+  --cx-callout-radius: 10px;
+  --cx-callout-border-width: 1px;
+  --cx-callout-background-color: var(--cx-color-ui-background);
+  --cx-callout-border-color: var(--cx-color-widgets);
+  /* Transitions */
+  --cx-transition-speed: 0.5s;
+  /* UI: These are the exposed variables */
+  --cx-font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif !important;
+  --cx-border-radius: 5px;
+  --cx-border-width: 1px;
+  --cx-border-style: solid;
+  --cx-border-transparent: var(--cx-border-width) var(--cx-border-style) var(--cx-color-transparent);
+  /* Scrollbar */
+  --cx-scrollbar-background-color: rgb(255, 255, 255);
+  --cx-scrollbar-alt-background-color: rgb(245, 245, 245);
+  --cx-scrollbar-thumb-color: #aaaaaa;
+  --cx-scrollbar-thumb-hover-color: #888888;
+  /* Customizer */
+  --cx-customizer-close-background-color: rgb(8, 122, 209);
+  --cx-customizer-close-text-color: rgb(255, 255, 255);
+  --cx-customizer-background-color: rgb(255, 255, 255);
+  --cx-customizer-border-color: rgb(8, 122, 209);
+  --cx-customizer-text-color: #555b62;
+  --cx-customizer-font-size: 12px;
+  --cx-customizer-hover-color: rgba(124, 182, 226, 0.2);
+  /* Data Filter */
+  --cx-toggle-switch-background-color: rgb(8, 122, 209);
+  --cx-datafilter-background-color: #ffffff;
+  --cx-datafilter-border-color: #087ad1;
+  --cx-datafilter-toolbar-background-color: #cccccc;
+  --cx-datafilter-text-color: #555b62;
+  --cx-datafilter-font-size: 12px;
+  --cx-datafilter-hover-color: rgba(124, 182, 226, 0.2);
+  /* Context Menu */
+  --cx-context-menu-background-color: #ffffff;
+  --cx-context-menu-border-color: #087ad1;
+  --cx-context-menu-text-color: #555b62;
+  --cx-context-menu-font-size: 11px;
+  --cx-context-menu-hover-color: rgba(124, 182, 226, 0.2);
+  /* Data Table */
+  --cx-datatable-accent-color: rgb(8, 122, 209);
+  --cx-datatable-background-color: rgb(255, 255, 255);
+  --cx-datatable-border-color: rgb(8, 122, 209);
+  --cx-datatable-banner-background-color: rgb(255, 255, 255);
+  --cx-datatable-banner-border-color: rgb(215, 226, 230);
+  --cx-datatable-banner-text-color: rgb(85, 91, 98);
+  --cx-datatable-toolbar-border-color: rgb(215, 226, 230);
+  --cx-datatable-header-background-color: rgb(255, 255, 255);
+  --cx-datatable-header-text-color: rgb(85, 91, 98);
+  --cx-datatable-cell-background-color: rgb(255, 255, 255);
+  --cx-datatable-oddcell-background-color: rgb(247, 248, 249);
+  --cx-datatable-cell-border-color: rgb(215, 226, 230);
+  --cx-datatable-cell-text-color: rgb(85, 91, 98);
+  --cx-datatable-activecell-border-color: rgb(124, 182, 226);
+  --cx-datatable-status-background-color: rgb(255, 255, 255);
+  --cx-datatable-status-border-color: rgb(215, 226, 230);
+  --cx-datatable-status-text-color: rgb(85, 91, 98);
+  --cx-datatable-pagination-background-color: rgb(255, 255, 255);
+  --cx-datatable-pagination-border-color: rgb(215, 226, 230);
+  --cx-datatable-pagination-text-color: rgb(85, 91, 98);
+  --cx-datatable-cell-hover-background-color: rgba(124, 182, 226, 0.2);
+  --cx-datatable-row-hover-background-color: rgba(124, 182, 226, 0.2);
+  --cx-datatable-toolbar-font-size: 14px;
+  --cx-datatable-header-font-size: 15px;
+  --cx-datatable-body-font-size: 15px;
+  --cx-datatable-cell-font-size: 15px;
+  --cx-datatable-cell-font-family: var(--cx-font-family);
+  /* Workflow */
+  --cx-workflow-background-color: #ffffff;
+  --cx-workflow-border-color: rgb(215, 226, 230);
+  --cx-workflow-text-color: #555b62;
+  --cx-workflow-hover-color: rgba(124, 182, 226, 0.2);
+  --cx-workflow-active-color: rgba(124, 182, 226, 0.2);
+  --cx-workflow-slider-track-color: rgb(215, 226, 230);
+  --cx-workflow-slider-fill-color: rgb(8, 122, 209);
+  --cx-workflow-slider-thumb-color: rgb(8, 122, 209);
+  --cx-workflow-slider-thumb-border-color: #ffffff;
+  --cx-workflow-list-label-font-size: 10px;
+  --cx-workflow-list-tick-font-size: 6px;
+  --cx-workflow-list-text-color: #555b62;
+  --cx-workflow-list-tick-color: rgb(215, 226, 230);
+  --cx-workflow-button-background-color: #ffffff;
+  --cx-workflow-button-border-color: rgb(215, 226, 230);
+  --cx-workflow-timeline-border-color: rgb(215, 226, 230);
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+}
+
+.unselectable,
+img,
+svg,
+.cX-Toolbar-Font,
+.cX-Toolbar-Round,
+.cX-Toolbar-Stripe,
+img.cX-code,
+svg.cX-code,
+pre.cX-code-content code::before,
+div.cX-bin,
+div.cX-bin-container,
+div.cX-bin-name-container,
+table.cX-bin-table,
+span.cX-bin,
+div.cX-DataTable,
+.cX-DataTable-Container,
+.cX-DataTable-Tooltip,
+.cX-DataTable-Cell-Tooltip,
+.cX-DataTable-Root,
+.cX-DataTable-Vertical-Scrollbar,
+.cX-DataTable-Horizontal-Scrollbar,
+.cX-DataTable-Header-Viewport,
+img.cX-DataTable-Toolbar-Image,
+svg.cX-DataTable-Toolbar-Image,
+.cX-DataTable-Toolbar-Image-Logo,
+table.cX-DataTable,
+.cX-DataTable-Cell-Head,
+.cX-DataTable-Cell-Head-Active,
+td.cX-DataTable-Cell,
+td.cX-DataTable-Cell-Active,
+.cX-DataFilter,
+.cX-DataFilter-Toolbar,
+.cX-DataFilter-Head,
+.cX-DataFilter-Head-Active,
+.cX-DataFilter-Toolbar svg.cX-DataFilter-Toolbar-Image,
+.cX-Password-Container,
+.cX-Password-Icon,
+.cX-Menu-Item-Scroll-Top,
+.cX-Menu-Item-Scroll-Top-Active,
+.cX-Menu-Item-Scroll-Bottom,
+.cX-Menu-Item-Scroll-Bottom-Active,
+img.cX-Toolbar-Help,
+svg.cX-Toolbar-Help,
+div.cX-Toolbar-Help {
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Old versions of Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+}
+
+/* @category: shared */
+/*****************
+ * SVG No border *
+ *****************/
+
+svg.cX-bin,
+svg.cX-code,
+svg.cX-Chat,
+svg.cX-DataFilter-Toolbar-Image,
+svg.cX-DataFilter-Toolbar-ImageNB {
+  background: var(--cx-color-transparent) !important;
+  border: none !important;
+  box-shadow: 0 0 0px var(--cx-color-transparent) !important;
+  cursor: default;
+  float: right;
+  margin: 5px 8px 0px 0px !important;
+}
+
+svg > * {
+  pointer-events: none;
+}
+
+svg.cX-DataTable-Toolbar-Image > *,
+svg.cX-DataTable-Toolbar-Image-Logo > * {
+  pointer-events: auto;
+}
+
+svg.cX-DataTable-Toolbar-Image,
+svg.cX-DataTable-Toolbar-Image-Logo {
+  pointer-events: auto;
+}
+
+/*****************
+ *  SVG  Border  *
+ *****************/
+
+svg.cX-code {
+  border-radius: var(--cx-border-radius);
+  border: var(--cx-border) !important;
+  padding: 5px;
+}
+
+/***************
+ *  draggable  *
+ ***************/
+
+.draggable {
+  cursor: move;
+  cursor: grab;
+  cursor: -moz-grab;
+  cursor: -webkit-grab;
+}
+
+.draggable:active {
+  cursor: grabbing;
+  cursor: -moz-grabbing;
+  cursor: -webkit-grabbing;
+}
+
+/****************
+* Hover / Active *
+*****************/
+
+.simulate-hover {
+  border-color: var(--cx-background-border-hover-color) !important;
+  background: var(--cx-background-hover-color) !important;
+}
+
+/*****************
+ * Loading Timer *
+ *****************/
+
+.cX-Loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100000;
+  display: none;
+  text-align: center;
+  color: rgb(83, 105, 255);
+  background: rgba(0, 0, 0, 0);
+  padding: 15px;
+  border-radius: var(--cx-border-radius);
+}
+
+.cX-Loader-Spinner {
+  border: 15px solid rgba(255, 255, 255, 0.5);
+  border-top: 15px solid rgb(83, 105, 255);
+  border-radius: 50%;
+  width: 100px;
+  height: 100px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 5px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* @category: widget */
+/*****************
+ *     Code      *
+ *****************/
+
+.cX-Code-Key {
+  color: var(--cx-code-key);
+  font-weight: bold;
+}
+
+.cX-Code-Value,
+.cX-Code-Number,
+.cX-Code-Null {
+  color: var(--cx-code-value);
+}
+
+.cX-Code-String {
+  color: var(--cx-code-string);
+}
+
+.cX-Code-Boolean {
+  color: var(--cx-code-boolean);
+}
+
+.cX-Code-Comment {
+  color: var(--cx-code-comment);
+}
+
+.cX-Container-Code {
+  z-index: 100000;
+  background: transparent;
+}
+
+div.cX-Code {
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  background-color: var(--cx-color-extra-light-gray);
+  color: var(--cx-font-color);
+  font: var(--cx-font);
+  margin: 2px 3px;
+  padding: 10px 20px 20px 10px;
+  position: absolute;
+  white-space: nowrap;
+  overflow: hidden;
+  z-index: 10000;
+}
+
+.cX-Code-Container {
+  clear: both;
+  width: 600px;
+  overflow: auto;
+  background-color: var(--cx-color-white);
+  position: relative;
+  top: 10px;
+}
+
+.cX-Code-Toolbar {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: start;
+}
+
+.cX-Code-Icons {
+  display: flex;
+  position: relative;
+  margin-left: auto;
+  gap: 8px;
+  align-items: center;
+}
+
+.cX-Code-Icons img,
+.cX-Code-Icons svg {
+  width: 24px;
+  height: 24px;
+}
+
+.cX-Code-Error {
+  height: 36px;
+  width: 280px;
+  float: left;
+  clear: none;
+  resize: none;
+  top: 5px;
+  left: 20px;
+  background-color: var(--cx-color-extra-light-gray);
+  overflow: hidden;
+  white-space: nowrap;
+  color: var(--cx-color-red);
+  position: relative;
+  cursor: pointer;
+}
+
+.cX-Code-Content,
+.cX-Code-Content code {
+  padding: 0;
+  margin: 0;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: none;
+}
+
+.cX-Code-Content {
+  white-space: pre;
+  outline: none;
+  cursor: text;
+  font-size: small;
+  text-align: left;
+  word-break: inherit;
+  word-wrap: inherit;
+  background-color: inherit;
+  border-radius: inherit;
+  counter-reset: listing;
+}
+
+.cX-Code-Content code {
+  counter-increment: listing;
+  line-height: 1.5;
+}
+
+.cX-Code-Content code::before {
+  content: counter(listing) " ";
+  display: inline-block;
+  width: 3em;
+  border-right: 1px solid rgb(221, 221, 221);
+  text-align: right;
+  background-color: var(--cx-color-extra-light-gray);
+}
+
+/* @category: widget */
+/******************
+ * Chat Interface *
+ ******************/
+
+.cX-Container-Chat {
+  height: fit-content;
+  opacity: 0;
+  visibility: hidden;
+  background: #ffffff;
+  transition: all var(--cx-transition-speed) ease;
+  width: 100%;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  min-height: 70px;
+  top: var(--base-h);
+  left: 0;
+}
+
+.cX-Wrapper.show-Chat .cX-Container-Chat {
+  opacity: 1;
+  visibility: visible;
+  margin-top: 10px;
+}
+
+div.cX-Chat {
+  width: 100%;
+  max-width: 900px;
+  background: white;
+  border: 1px solid #cbd5e1;
+  border-radius: var(--cx-border-radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.cX-Chat-Toolbar-Container {
+  width: 100%;
+  height: 35px;
+  background: #f8fafc;
+  border-bottom: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 10px;
+  box-sizing: border-box;
+  color: #475569;
+}
+
+.cX-Chat-Toolbar-Container .cX-Chat-Left-Toolbar-Container,
+.cX-Chat-Toolbar-Container .cX-Chat-Right-Toolbar-Container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cX-Chat-Configurator-Container {
+  display: none;
+  width: 100%;
+  background: #f1f5f9;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 4px 20px;
+  box-sizing: border-box;
+  font-size: medium;
+  color: #475569;
+  align-items: center;
+  gap: 8px;
+}
+
+.cX-Chat-Configurator {
+  padding-left: 5px;
+  border-radius: var(--cx-border-radius);
+  border-width: 0.5px;
+  height: 24px;
+}
+
+.cX-Chat-Text-Container {
+  display: flex;
+  width: 100%;
+  min-height: 100px;
+  background: #ffffff;
+  pointer-events: none;
+}
+
+.cX-Chat-Text-Area-Container {
+  width: calc(100% - 46px);
+  padding: 8px;
+  box-sizing: border-box;
+  position: relative;
+  pointer-events: none;
+}
+
+.cX-Chat-Messages-Container {
+  width: 100%;
+  background: transparent;
+  border: none;
+  outline: none;
+  font-family: var(--cx-font-family);
+  overscroll-behavior: contain;
+}
+
+.cX-Chat-Messages-Container:has(.cX-Chat-Messages:not(:empty)) {
+  border-top: var(--cx-border);
+}
+
+.cX-Chat-Messages {
+  display: block;
+}
+
+/*
+ * Chat HTML Panel — floating, draggable, closable
+ */
+.cX-Chat-Html-Panel {
+  position: fixed;
+  width: 500px;
+  height: 400px;
+  background-color: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  z-index: 10005;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: move;
+  resize: both;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+.cX-Chat-Html-Panel-Header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  background: var(--cx-background-color);
+  border-bottom: var(--cx-border);
+  flex-shrink: 0;
+  user-select: none;
+}
+
+.cX-Chat-Html-Panel-Title {
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-medium-font-size);
+  font-weight: 600;
+  color: var(--cx-color-ui-background);
+}
+
+img.cX-Chat-Html-Panel-Close,
+svg.cX-Chat-Html-Panel-Close {
+  cursor: pointer;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  flex-shrink: 0;
+}
+
+.cX-Chat-Html-Panel-Content {
+  overflow-y: auto;
+  padding: 0;
+  flex: 1;
+  cursor: default;
+  overscroll-behavior: contain;
+}
+
+/*
+ * Chat HTML Panel — LLM response content
+ */
+.cX-Chat-LLM-Response {
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-large-font-size);
+  line-height: 1.6;
+  color: var(--cx-color-ui-font);
+  background: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  padding: 16px 20px;
+  margin: 10px;
+  width: calc(100% - 20px);
+  box-sizing: border-box;
+}
+
+.cX-Chat-LLM-Response h3 {
+  font-size: var(--cx-large-font-size);
+  font-weight: 600;
+  margin: 0 0 10px;
+  color: var(--cx-color-widgets);
+  border-bottom: var(--cx-border);
+  padding-bottom: 6px;
+}
+
+.cX-Chat-LLM-Response p {
+  margin: 6px 0;
+}
+
+.cX-Chat-LLM-Response code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: var(--cx-small-font-size);
+  background: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  padding: 1px 5px;
+  color: var(--cx-color-ui-font);
+}
+
+.cX-Chat-LLM-Response pre {
+  background: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  padding: 12px 14px;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+
+.cX-Chat-LLM-Response pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  color: var(--cx-color-ui-font);
+  font-size: var(--cx-small-font-size);
+}
+
+.cX-Chat-LLM-Response ul {
+  margin: 6px 0 6px 18px;
+  padding: 0;
+}
+
+.cX-Chat-LLM-Response li {
+  margin: 2px 0;
+}
+
+.cX-Chat-LLM-Response strong {
+  font-weight: 600;
+  color: var(--cx-color-ui-font);
+}
+
+.cX-Chat-LLM-Response em {
+  color: var(--cx-color-gray);
+}
+
+.cX-Chat-LLM-Response div {
+  margin: 3px 0;
+}
+
+.cX-Chat-LLM-Error {
+  color: var(--cx-color-red);
+  font-weight: 600;
+}
+
+.cX-Chat-LLM-Links {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: var(--cx-border);
+  font-size: var(--cx-medium-font-size);
+}
+
+.cX-Chat-LLM-Links a {
+  color: var(--cx-color-widgets);
+  text-decoration: none;
+}
+
+.cX-Chat-LLM-Links a:hover {
+  text-decoration: underline;
+}
+
+/*
+ * Chat HTML Panel — select_canvasxpress_chart cards
+ */
+.cX-Chat-Select-Top {
+  background: var(--cx-background-widgets-color);
+  border: 2px solid var(--cx-color-widgets);
+  border-radius: var(--cx-border-radius);
+  padding: 12px 14px;
+  margin-bottom: 10px;
+}
+
+.cX-Chat-Select-Alt {
+  background: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  padding: 10px 12px;
+}
+
+.cX-Chat-Select-Grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.cX-Chat-Select-Header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.cX-Chat-Select-GT {
+  font-weight: 700;
+  font-size: var(--cx-font-size);
+  color: var(--cx-color-widgets);
+}
+
+.cX-Chat-Select-Score {
+  font-size: var(--cx-x-small-font-size);
+  color: #ffffff;
+  background: var(--cx-background-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  padding: 1px 7px;
+}
+
+.cX-Chat-Select-Desc {
+  font-size: var(--cx-medium-font-size);
+  margin: 4px 0;
+  color: var(--cx-color-ui-font);
+}
+
+.cX-Chat-Select-Clinical {
+  font-size: var(--cx-small-font-size);
+  margin: 4px 0;
+  color: var(--cx-color-gray);
+}
+
+.cX-Chat-Select-Factors {
+  font-size: var(--cx-small-font-size);
+  margin: 4px 0 4px 16px;
+  padding: 0;
+}
+
+.cX-Chat-Select-Next {
+  font-size: var(--cx-x-small-font-size);
+  margin: 6px 0 4px;
+  color: var(--cx-color-gray);
+}
+
+.cX-Chat-LLM-Apply {
+  margin-top: 8px;
+  padding: 4px 12px;
+  font-size: var(--cx-small-font-size);
+  font-family: var(--cx-font-family);
+  background: var(--cx-color-widgets);
+  color: var(--cx-background-widgets-color);
+  border: none;
+  border-radius: var(--cx-border-radius);
+  cursor: pointer;
+}
+
+.cX-Chat-LLM-Apply:hover {
+  opacity: 0.85;
+}
+
+.cX-Chat-Question {
+  margin: 0;
+  outline: none;
+  font-size: medium;
+  line-height: 1.5;
+  color: #0f172a;
+  min-height: 50px;
+  height: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  pointer-events: auto;
+}
+
+.cX-Chat-Question[empty]:empty::before {
+  content: attr(data-placeholder);
+  color: #94a3b8;
+}
+
+.cX-Chat-Icon-Container {
+  width: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.cX-Chat-Suggestions-Container {
+  display: none;
+  padding: 12px 18px 18px 18px;
+  border-top: 1px solid #e2e8f0;
+  background: #fafafa;
+}
+
+.cX-Chat-Suggestions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  min-height: 30px;
+  max-height: 200px;
+  overflow-y: auto;
+  padding-bottom: 5px;
+}
+
+.cX-Chat-Thumbs-Container {
+  width: 100%;
+  height: 36px;
+  background: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  display: none;
+  align-items: center;
+  padding: 0 10px;
+  gap: 12px;
+  box-sizing: border-box;
+}
+
+.cX-Chat-Output {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 5px;
+  min-height: 100px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  font-family: monospace;
+  font-size: var(--cx-medium-font-size);
+  box-sizing: border-box;
+  resize: vertical;
+  display: none;
+}
+
+.cX-Chat-Output {
+  width: 100%;
+  max-width: 900px;
+  margin-top: 5px;
+  min-height: 100px;
+  padding: 5px;
+  outline: none;
+  border: none;
+  font-family: monospace;
+  font-size: var(--cx-medium-font-size);
+  box-sizing: border-box;
+  resize: vertical;
+  display: none;
+}
+
+/*
+ * Chat Output Container (Tabs & Content)
+ */
+div.cX-Chat-Output-Container {
+  position: absolute;
+  width: calc(var(--base-w) + 18px);
+  height: calc(var(--base-h) + 82px);
+  background-color: var(--cx-background-widgets-color);
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  z-index: 10005;
+  display: none; /* Toggled by JS */
+  box-sizing: border-box;
+  overflow: hidden;
+  cursor: move;
+}
+
+/* Close Button */
+img.cX-Chat-Output-Close,
+svg.cX-Chat-Output-Close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  z-index: 10;
+  background: var(--cx-color-transparent) !important;
+  border: none !important;
+  box-shadow: 0 0 0px var(--cx-color-transparent) !important;
+}
+
+/* Tabs */
+button.cX-Chat-Output-Tab {
+  display: inline-block;
+  vertical-align: bottom;
+  background-color: var(--cx-background-hover-color);
+  border: var(--cx-border);
+  border-bottom: none;
+  padding: 5px 10px;
+  margin: 10px 0 0 10px;
+  cursor: pointer;
+  font: var(--cx-large-font);
+  color: var(--cx-font-color);
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0 0;
+  outline: none;
+  position: relative;
+  top: 1px; /* Overlaps the content border to look like a real tab */
+  z-index: 1;
+  box-sizing: border-box;
+  line-height: 24px;
+}
+
+/* Adds a small gap between the first and second tab */
+button.cX-Chat-Output-Tab + button.cX-Chat-Output-Tab {
+  margin-left: 4px;
+}
+
+button.cX-Chat-Output-Tab:hover {
+  background-color: var(--cx-background-widgets-color);
+}
+
+button.cX-Chat-Output-Tab.Active {
+  background-color: var(--cx-background-widgets-color);
+  font: var(--cx-large-font-bold);
+  border-bottom: 1px solid var(--cx-background-widgets-color);
+  z-index: 3;
+}
+
+/* "colorful" style: each output tab carries its own accent (top bar + hover +
+ * active label), set inline as --cx-item-accent / --cx-item-accent-bg. */
+button.cX-Chat-Output-Tab-Accent {
+  border-top: 3px solid var(--cx-item-accent) !important;
+}
+button.cX-Chat-Output-Tab-Accent:hover {
+  background-color: var(--cx-item-accent-bg) !important;
+}
+button.cX-Chat-Output-Tab-Accent.Active {
+  color: var(--cx-item-accent) !important;
+}
+
+/* Tab Content Containers (Scrollable) */
+div.cX-Chat-Graphical-Output,
+textarea.cX-Chat-Code-Output {
+  display: block;
+  clear: both;
+  width: 100%;
+  height: calc(100% - 46px);
+  /* 500px total - 46px for the tabs area */
+  border: none;
+  border-top: var(--cx-border);
+  background-color: var(--cx-background-widgets-color);
+  color: var(--cx-font-color);
+  overflow: auto;
+  /* Enables scrolling for the tab content */
+  padding: 10px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 2;
+  margin: 0;
+}
+
+.cX-Chat-Graphical-Output {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding-top: 50px;
+  /* Pushes the graph div below the absolutely positioned buttons */
+  box-sizing: border-box;
+}
+
+.cX-Chat-Graphical-Output-Graph {
+  width: var(--base-w);
+  height: var(--base-h);
+  margin-top: 20px;
+}
+
+/* Specific styling for the code textarea */
+textarea.cX-Chat-Code-Output {
+  resize: none;
+  outline: none;
+  font-family: monospace;
+  font-size: var(--cx-large-font-size);
+  white-space: pre;
+}
+
+/* Color Coding Classes */
+.hint {
+  padding: 4px 10px;
+  border-radius: var(--cx-border-radius);
+  font-size: var(--cx-small-font-size);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s;
+  user-select: none;
+  border: 1px solid transparent;
+  background: #f1f5f9;
+  color: #475569;
+  border-color: #e2e8f0;
+}
+
+.hint.graph {
+  background: #f3e8ff;
+  color: #9333ea;
+  border-color: #e9d5ff;
+}
+
+.hint.graph:hover {
+  background: #9333ea;
+  color: white;
+}
+
+.hint.column {
+  background: #eff6ff;
+  color: #2563eb;
+  border-color: #dbeafe;
+}
+
+.hint.column:hover {
+  background: #2563eb;
+  color: white;
+}
+
+.hint.map_name {
+  background: #e0e7ff;
+  color: #3730a3;
+  border-color: #c7d2fe;
+}
+
+.hint.data,
+.hint.data_multi {
+  background: #ccfbf1;
+  color: #0d9488;
+  border-color: #99f6e4;
+}
+
+.hint.data:hover,
+.hint.data_multi:hover {
+  background: #0d9488;
+  color: white;
+}
+
+.hint.text {
+  background: #fce7f3;
+  color: #db2777;
+  border-color: #fbcfe8;
+}
+
+.hint.text:hover {
+  background: #db2777;
+  color: white;
+}
+
+.hint.number {
+  background: #fef08a;
+  color: #b45309;
+  border-color: #fde047;
+}
+
+.hint.enum {
+  background: #ffedd5;
+  color: #ea580c;
+  border-color: #fed7aa;
+}
+
+.hint.enum:hover {
+  background: #ea580c;
+  color: white;
+}
+
+.hint.toggle {
+  background: #dcfce7;
+  color: #16a34a;
+  border-color: #bbf7d0;
+}
+
+.hint.toggle:hover {
+  background: #16a34a;
+  color: white;
+}
+
+.hint.filter,
+.hint.sort {
+  background: #fee2e2;
+  color: #dc2626;
+  border-color: #fecaca;
+}
+
+.hint.filter:hover,
+.hint.sort:hover {
+  background: #dc2626;
+  color: white;
+}
+
+.hint.connector {
+  background: #f1f5f9;
+  color: #64748b;
+  border-color: #cbd5e1;
+}
+
+.hint.connector:hover {
+  background: #64748b;
+  color: white;
+}
+
+.hint.finish {
+  background: #fef3c7;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.hint.finish:hover {
+  background: #d97706;
+  color: white;
+}
+
+.hint.disabled {
+  background: #f8fafc;
+  color: #94a3b8;
+  border-color: #e2e8f0;
+  cursor: default;
+}
+
+/* @category: widget */
+/* BEGIN OF CUSTOMIZER CSS */
+/* https://cssgrid-generator.netlify.app/ */
+
+/*
+ * CanvasXpress Customizer
+ */
+
+.cX-Customizer-PanelLeft {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  position: fixed;
+  z-index: 10001;
+  line-height: 100%;
+  background-color: var(--cx-customizer-background-color, var(--cx-background-hover-color));
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-customizer-font-size, var(--cx-font-size)) !important;
+  font-weight: normal;
+  color: var(--cx-customizer-text-color, var(--cx-font-color));
+  margin-left: 0px;
+  margin-top: 0px;
+  /* --cx-view-h: set when the page is not the viewport (a VS Code notebook webview) */
+  max-height: var(--cx-view-h, 100vh);
+  min-height: var(--cx-view-h, 100vh);
+}
+
+.cX-Customizer-LeftPanelItems {
+  grid-area: 1 / 1 / 2 / 2;
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+  /* border-left: 1px solid var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important; */
+}
+
+.cX-Customizer-LeftPanelItems > div:first-child {
+  background: var(--cx-color-widgets);
+  color: var(--cx-customizer-close-text-color, #fff);
+}
+
+.cX-Customizer-RightPanel {
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+  border: 1px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-radius: 0 6px 6px 0;
+  position: absolute;
+  z-index: 10000;
+  line-height: 100%;
+  top: 0px;
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-customizer-font-size, var(--cx-font-size)) !important;
+  font-weight: normal;
+  color: var(--cx-customizer-text-color, var(--cx-font-color));
+  /* --cx-view-h: set when the page is not the viewport (a VS Code notebook webview) */
+  max-height: var(--cx-view-h, 100vh);
+  min-height: var(--cx-view-h, 100vh);
+  overflow-y: auto;
+}
+
+/*
+ * CanvasXpress Customizer Left Items
+ */
+
+.cX-Customizer-LeftItem,
+.cX-Customizer-LeftItemActive,
+.cX-Customizer-LeftItemNB {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 4fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 5px;
+  border-radius: var(--cx-border-radius);
+  align-items: center;
+}
+
+.cX-Customizer-LeftItem,
+.cX-Customizer-LeftItemActive {
+  border: 1px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+  border-bottom: 1px solid var(--cx-customizer-border-color, var(--cx-datatable-banner-border-color)) !important;
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+}
+
+.cX-Customizer-LeftItem:hover,
+.cX-Customizer-LeftItemActive {
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color));
+}
+
+.cX-Customizer-LeftItem:hover svg,
+.cX-Customizer-LeftItemActive svg {
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+}
+
+/* First div in the left Panel */
+.cX-Customizer-LeftItem:first-child:hover svg,
+.cX-Customizer-LeftItemActive:first-child svg {
+  background: transparent !important;
+  border: 1px solid var(--cx-customizer-close-text-color, #fff) !important;
+  border-radius: var(--cx-border-radius);
+}
+
+.cX-Customizer-LeftItemActive {
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color));
+  color: var(--cx-customizer-text-color, var(--cx-font-color));
+  border-bottom: 4px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+}
+
+.cX-Customizer-LeftItem:hover > *,
+.cX-Customizer-LeftItemActive > *,
+.cX-Customizer-LeftItemNB > * {
+  pointer-events: none;
+}
+
+.cX-Customizer-LeftItemNB:hover svg {
+  border-color: var(--cx-customizer-border-color, var(--cx-background-border-hover-color)) !important;
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color)) !important;
+}
+
+.cX-Customizer-LeftItemTop {
+  grid-area: 1 / 1 / 2 / 2;
+  margin: auto;
+  margin-top: 5px;
+  font-size: var(--cx-small-font-size);
+}
+
+.cX-Customizer-LeftItemBottom {
+  grid-area: 2 / 1 / 3 / 2;
+  margin: auto;
+}
+
+.cX-Customizer-LeftIcon,
+.cX-Customizer-LeftIconNB {
+  padding: 5px;
+  border-radius: var(--cx-border-radius);
+}
+
+.cX-Customizer-LeftIconNB {
+  border-width: 1px;
+  border-style: solid;
+  border-color: var(--cx-color-transparent) !important;
+}
+
+.cX-Customizer-LeftIcon {
+  border: 1px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+}
+
+/*
+ * CanvasXpress Customizer Left Items - Compact (Tableau-like) layout.
+ * Scoped to the .cX-Customizer-Compact panel so the classic layout above is
+ * left untouched. Each nav item becomes a horizontal row: small icon on the
+ * left, text label to its right, with a left accent bar marking the active
+ * item (matching the density of the DataTable / DataFilter widgets).
+ */
+
+.cX-Customizer-Compact .cX-Customizer-LeftItem,
+.cX-Customizer-Compact .cX-Customizer-LeftItemActive,
+.cX-Customizer-Compact .cX-Customizer-LeftItemNB {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  height: auto !important;
+  margin: 6px 10px;
+  padding: 4px 6px;
+  gap: 6px;
+  border: 1px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+  border-radius: var(--cx-border-radius);
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftItemBottom {
+  order: 0;
+  margin: 0;
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftItemTop {
+  order: 1;
+  margin: 0 !important;
+  text-align: left;
+  font-size: var(--cx-customizer-font-size, var(--cx-font-size));
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftIcon,
+.cX-Customizer-Compact .cX-Customizer-LeftIconNB {
+  padding: 2px;
+  border: none !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftItem:hover,
+.cX-Customizer-Compact .cX-Customizer-LeftItemNB:hover {
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color));
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftItemActive {
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color));
+  border-left: 3px var(--cx-border-style) var(--cx-color-widgets, var(--cx-customizer-border-color)) !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-LeftItem:hover svg,
+.cX-Customizer-Compact .cX-Customizer-LeftItemActive svg {
+  background: transparent !important;
+}
+
+/*
+ * "colorful" style — per-item accent. Each nav item carries its own colour
+ * (set inline as --cx-item-accent / --cx-item-accent-bg): a left accent bar
+ * plus a tinted icon "chip", echoing the multi-colour MOA cards.
+ */
+.cX-Customizer-Compact .cX-Customizer-LeftItemAccent {
+  border-left: 3px var(--cx-border-style) var(--cx-item-accent) !important;
+}
+.cX-Customizer-Compact .cX-Customizer-LeftItemAccent:hover,
+.cX-Customizer-Compact .cX-Customizer-LeftItemAccent.cX-Customizer-LeftItemActive {
+  background: var(--cx-item-accent-bg) !important;
+}
+.cX-Customizer-Compact .cX-Customizer-LeftItemAccent .cX-Customizer-LeftIcon {
+  border: 1px var(--cx-border-style) var(--cx-item-accent) !important;
+  border-radius: var(--cx-border-radius);
+  background: var(--cx-item-accent-bg) !important;
+  box-sizing: content-box;
+}
+
+/* Collapse the compact rail to an icon-only strip when it is narrower than
+   100px: hide the text label and centre the icon. Driven by the panel's own
+   width via a container query (the panel width is set inline in JS). */
+.cX-Customizer-PanelLeft.cX-Customizer-Compact {
+  container-type: inline-size;
+}
+
+@container (max-width: 129px) {
+  .cX-Customizer-Compact .cX-Customizer-LeftItemTop {
+    display: none !important;
+  }
+
+  .cX-Customizer-Compact .cX-Customizer-LeftItem,
+  .cX-Customizer-Compact .cX-Customizer-LeftItemActive,
+  .cX-Customizer-Compact .cX-Customizer-LeftItemNB {
+    justify-content: center !important;
+  }
+
+  .cX-Customizer-Compact .cX-Customizer-LeftItemBottom {
+    margin: auto !important;
+  }
+}
+
+/*
+ * CanvasXpress Customizer Right Items
+ */
+
+.cX-Customizer-RightItem {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 3fr 2fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  border-radius: var(--cx-border-radius);
+  border: 1px var(--cx-border-style) var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+  width: 100%;
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+  margin: 4px;
+}
+
+.cX-Customizer-RightItem:hover {
+  background: var(--cx-customizer-hover-color, var(--cx-background-hover-color));
+}
+
+/* Add top border to non-header items that follow another item (for separation) */
+.cX-Customizer-RightItem + .cX-Customizer-RightItem {
+  border-top: 1px solid var(--cx-customizer-border-color, var(--cx-datatable-border-color)) !important;
+}
+
+.cX-Customizer-RightItem * {
+  pointer-events: none;
+}
+
+.cX-Customizer-RightItem :first-child input:first-child {
+  pointer-events: auto;
+}
+
+.cX-Customizer-RightItemTop {
+  grid-area: 1 / 1 / 2 / 2;
+  padding-top: 3px;
+  margin: auto;
+}
+
+.cX-Customizer-RightItemBottom {
+  display: grid;
+  grid-area: 2 / 1 / 3 / 2;
+  margin: auto;
+  padding: 0 6px 3px;
+  font-size: var(--cx-small-font-size);
+  color: var(--cx-customizer-text-color, var(--cx-font-color));
+}
+
+/*
+ * CanvasXpress Customizer Right Items Comb
+ */
+
+.cX-Customizer-RightItemCombo {
+  display: grid;
+  grid-template-columns: 1fr 4.5fr;
+  grid-template-rows: 2fr 1fr;
+  grid-column-gap: 2px;
+  grid-row-gap: 0px;
+  border-top: 1px solid var(--cx-customizer-border-color, var(--cx-datatable-border-color));
+  min-height: 28px;
+  background: var(--cx-customizer-background-color, var(--cx-background-widgets-color));
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cX-Customizer-ContainerComboGroup {
+  box-sizing: border-box;
+  border-bottom-left-radius: var(--cx-border-radius);
+  border-bottom-right-radius: var(--cx-border-radius);
+  overflow: hidden;
+}
+
+.cX-Customizer-ContainerComboGroup > .cX-Customizer-RightItemCombo:last-child {
+  border-bottom-left-radius: var(--cx-border-radius);
+  border-bottom-right-radius: var(--cx-border-radius);
+}
+
+
+.cX-Customizer-RightItemComboLeft {
+  grid-area: 1 / 1 / -1 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cX-Customizer-RightItemComboTopRight {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cX-Customizer-RightItemComboBottomRight {
+  grid-area: 2 / 2 / 3 / 3;
+  display: flex;
+  align-items: center;
+  padding-left: 6px;
+  padding-bottom: 2px;
+  font-size: var(--cx-small-font-size);
+}
+
+/*
+ * CanvasXpress Customizer Right Item Header
+ */
+
+.cX-Customizer-RightItemHeader,
+.cX-Customizer-RightItemHeaderNB {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  background: var(--cx-background-hover-color);
+  color: var(--cx-font-color);
+  padding: 2px 3px;
+  font-size: var(--cx-medium-font-size);
+}
+
+.cX-Customizer-RightItemHeader {
+  border-bottom: 1px solid var(--cx-datatable-border-color) !important;
+}
+
+.cX-Customizer-RightItemHeaderNB {
+  border-bottom: none !important;
+}
+
+.cX-Customizer-RightItemHeaderTop {
+  display: flex;
+  align-items: center;
+  min-height: 18px;
+}
+
+.cX-Customizer-RightItemHeaderBottom {
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  overflow: auto;
+  font-size: var(--cx-x-small-font-size);
+  color: var(--cx-font-color);
+}
+
+/*
+ * "colorful" style — per-card accent in the right panel. Each card carries its
+ * own colour (set inline as --cx-item-accent / --cx-item-accent-bg): a left
+ * accent bar plus a tinted, accent-titled header, echoing the MOA cards. The
+ * class is only added when dataUIStyle === 'colorful'.
+ */
+.cX-Customizer-CardAccent {
+  border-left: 3px var(--cx-border-style) var(--cx-item-accent) !important;
+  border-radius: var(--cx-border-radius);
+  overflow: hidden;
+}
+.cX-Customizer-CardAccent .cX-Customizer-RightItemHeader,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemHeaderNB {
+  background: var(--cx-item-accent-bg) !important;
+  border-bottom-color: var(--cx-item-accent) !important;
+}
+.cX-Customizer-CardAccent .cX-Customizer-RightItemHeaderTop {
+  color: var(--cx-item-accent) !important;
+}
+/* Standard (non-link) card header title also takes the card's colour. */
+.cX-Customizer-CardAccent .cX-Customizer-RightItemHeaderMain > :first-child {
+  color: var(--cx-item-accent) !important;
+}
+/* Hover inside an accented card follows the card's colour, not the global purple. */
+.cX-Customizer-CardAccent .cX-Customizer-RightItem:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemLauncher:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemLauncherNB:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemSelect > select:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemTextArea > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemTextArea > textarea:hover,
+.cX-Customizer-CardAccent .cX-Customizer-ContainerRaw > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol1 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol2 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol3 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol4 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol5 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemCol6 > svg:hover,
+.cX-Customizer-CardAccent .cX-Customizer-ListNumeric:hover,
+.cX-Customizer-CardAccent .cX-Customizer-ListString:hover,
+.cX-Customizer-CardAccent .cX-Customizer-ListUnique:hover {
+  background: var(--cx-item-accent-bg) !important;
+  background-color: var(--cx-item-accent-bg) !important;
+}
+/* Range sliders inside an accented card follow the card's colour (thumb + fill),
+ * not the global purple. -webkit- and -moz- pseudo-elements must stay in separate
+ * rules or the whole rule is dropped. */
+.cX-Customizer-CardAccent input[type=range]::-webkit-slider-thumb {
+  background: var(--cx-item-accent) !important;
+}
+.cX-Customizer-CardAccent input[type=range]::-moz-range-thumb {
+  background: var(--cx-item-accent) !important;
+}
+.cX-Customizer-CardAccent div.cX-RangeSlider > div.cX-RangeSlider-Range,
+.cX-Customizer-CardAccent div.cX-RangeSlider > div.cX-RangeSlider-Thumb-Left,
+.cX-Customizer-CardAccent div.cX-RangeSlider > div.cX-RangeSlider-Thumb-Right {
+  background-color: var(--cx-item-accent) !important;
+}
+/* Match the filter treatment: the card's field labels take the card's colour.
+ * (Search panel titles included; its inputs/description content stay neutral.) */
+.cX-Customizer-CardAccent .cX-Customizer-RightItemComboBottomRight,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemLauncherRight,
+.cX-Customizer-CardAccent .cX-Customizer-RightItemBottom,
+.cX-Customizer-CardAccent .cX-Customizer-SearchSelect,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCategory,
+.cX-Customizer-CardAccent .cX-Customizer-SearchDescription,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCurrent {
+  color: var(--cx-item-accent) !important;
+}
+/* The Search panel's field labels are drawn via ::before/::after pseudo-elements
+ * (each with its own colour) — colour those to the card accent too. */
+.cX-Customizer-CardAccent .cX-Customizer-SearchSelect:before,
+.cX-Customizer-CardAccent .cX-Customizer-SearchSelect:after,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCategory:before,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCategory:after,
+.cX-Customizer-CardAccent .cX-Customizer-SearchDescription:before,
+.cX-Customizer-CardAccent .cX-Customizer-SearchDescription:after,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCurrent:before,
+.cX-Customizer-CardAccent .cX-Customizer-SearchCurrent:after {
+  color: var(--cx-item-accent) !important;
+}
+
+.cX-Customizer-RightItemHeaderMain {
+  grid-area: 1 / 1 / 3 / 2;
+  display: flex;
+  align-items: center;
+}
+
+/*
+ * CanvasXpress Customizer Right Item Sub Header
+ */
+
+.cX-Customizer-RightItemSubHeaderRow {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  align-items: center;
+}
+
+.cX-Customizer-RightItemSubHeaderRaw {
+  display: flex;
+  align-items: center;
+  border-radius: var(--cx-border-radius);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color) !important;
+  background-color: var(--cx-background-hover-color);
+}
+
+/*
+ * CanvasXpress Customizer Right Item Launcher
+ */
+
+.cX-Customizer-RightItemLauncher {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important;
+  min-height: 34px;
+  background: var(--cx-background-widgets-color);
+  overflow: hidden;
+}
+
+.cX-Customizer-RightItemLauncher *,
+.cX-Customizer-RightItemLauncherNB * {
+  pointer-events: none;
+}
+
+.cX-Customizer-RightItemLauncherNB > :last-child input:first-child {
+  pointer-events: auto;
+}
+
+.cX-Customizer-RightItemLauncherNB {
+  display: grid;
+  grid-template-columns: 1fr 6fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  border: none !important;
+  box-shadow: none !important;
+  overflow: hidden;
+}
+
+/* Launcher groups use the wrapper border; rows only get internal separators */
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncher + .cX-Customizer-RightItemLauncher,
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncherNB + .cX-Customizer-RightItemLauncher,
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncher + .cX-Customizer-RightItemLauncherNB,
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncherNB + .cX-Customizer-RightItemLauncherNB {
+  border-top: 1px solid var(--cx-datatable-banner-border-color) !important;
+}
+
+/* Override inline launcher width so rows do not cover the wrapper right border */
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncher,
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncherNB {
+  width: calc(100% - 2px) !important;
+  margin-left: 1px;
+  margin-right: 1px;
+}
+
+/* Preserve bottom corner rounding on the last launcher row in each section */
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncher:last-child,
+.cX-Customizer-Container > .cX-Customizer-RightItemLauncherNB:last-child {
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+.cX-Customizer-RightItemLauncher:hover,
+.cX-Customizer-RightItemLauncherNB:hover {
+  background-color: var(--cx-customizer-hover-color);
+}
+
+.cX-Customizer-RightItemLauncherLeft {
+  grid-area: 1 / 1 / 2 / 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--cx-customizer-hover-color);
+}
+
+.cX-Customizer-RightItemLauncherRight {
+  grid-area: 1 / 2 / 2 / 3;
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  min-width: 0;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/*
+ * CanvasXpress Customizer Right Item Cols
+ */
+
+.cX-Customizer-RightItemFullCol {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemHalfCol {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemThirdCol {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemFourthCol {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemFifthCol {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemSixthCol {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  margin: 3px;
+  height: fit-content;
+}
+
+.cX-Customizer-RightItemCol1,
+.cX-Customizer-RightItemCol2,
+.cX-Customizer-RightItemCol3,
+.cX-Customizer-RightItemCol4,
+.cX-Customizer-RightItemCol5,
+.cX-Customizer-RightItemCol6 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 0%;
+  min-width: 0;
+}
+
+.cX-Customizer-RightItemCol1 {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.cX-Customizer-RightItemCol2 {
+  grid-area: 1 / 2 / 2 / 3;
+}
+
+.cX-Customizer-RightItemCol3 {
+  grid-area: 1 / 3 / 2 / 4;
+}
+
+.cX-Customizer-RightItemCol4 {
+  grid-area: 1 / 4 / 2 / 5;
+}
+
+.cX-Customizer-RightItemCol5 {
+  grid-area: 1 / 5 / 2 / 6;
+}
+
+.cX-Customizer-RightItemCol6 {
+  grid-area: 1 / 6 / 2 / 7;
+}
+
+.cX-Customizer-RightItemGrid .cX-Customizer-RightItemColor {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.cX-Customizer-RightItemGrid .cX-Customizer-RightItemColor > .cX-Customizer-RightItemCol1 {
+  width: 100%;
+}
+
+.cX-Customizer-RightItemGrid .cX-Customizer-RightItemColor input[type="color"] {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.cX-Customizer-ContainerRaw.cX-Customizer-RightItemText .cX-Customizer-RightItemColor input[type="color"] {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.cX-Customizer-RightItemColMid {
+  grid-area: 1 / 3 / 2 / 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--cx-border-radius);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color) !important;
+}
+
+.cX-Customizer-RightItemSelect>select,
+.cX-Customizer-RightItemTextArea > textarea {
+  overflow: hidden;
+  resize: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  vertical-align: middle;
+  padding-top: 0;
+  padding-bottom: 0;
+  line-height: normal;
+}
+
+.cX-Customizer-RightItemTextArea>svg:hover,
+.cX-Customizer-RightItemTextArea>textarea:hover,
+.cX-Customizer-ContainerRaw>svg:hover,
+.cX-Customizer-RightItemCol1>svg:hover,
+.cX-Customizer-RightItemCol2>svg:hover,
+.cX-Customizer-RightItemCol3>svg:hover,
+.cX-Customizer-RightItemCol4>svg:hover,
+.cX-Customizer-RightItemCol5>svg:hover,
+.cX-Customizer-RightItemCol6>svg:hover,
+.cX-Customizer-RightItem:hover {
+  background-color: var(--cx-customizer-hover-color);
+}
+
+/*
+ * Other Customizer classes
+ */
+
+.cX-Customizer-Container {
+  height: fit-content;
+  border-radius: var(--cx-border-radius);
+  margin: 6px;
+  float: left;
+}
+
+.cX-Customizer-Wrangling {
+  height: 204px;
+  margin: 0px 0px 10px 10px;
+  border-radius: var(--cx-border-radius);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.cX-Customizer-Numeric,
+.cX-Customizer-String,
+.cX-Customizer-Unique,
+.cX-Customizer-Wrangling,
+.cX-Customizer-Container {
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color) !important;
+}
+
+.cX-Customizer-Wrangling:hover {
+  border: 1px dashed var(--cx-color-red) !important;
+}
+
+/***************************************************
+/* target items specifically within the customizer *
+ * containers for moving in the wrangling          *
+ ***************************************************/
+
+.cX-Customizer-Numeric,
+.cX-Customizer-String,
+.cX-Customizer-Unique,
+.cX-Customizer-ListNumeric,
+.cX-Customizer-ListString,
+.cX-Customizer-ListUnique {
+  margin-top: 3px !important;
+  display: block;
+}
+
+/***************************************************/
+
+.cX-Customizer-ContainerRaw {
+  border: none !important;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Keep text+icon group labels compact so long labels don't make items look uneven */
+.cX-Customizer-ContainerRaw.cX-Customizer-RightItemTextImagesGroup .cX-Customizer-RightItemBottom {
+  font-size: var(--cx-x-small-font-size);
+  line-height: 1.05;
+}
+
+.cX-Customizer-ContainerRaw.cX-Customizer-RightItemTextImagesGroup .cX-Customizer-RightItemBottom > span:first-child {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* Shelves Filters card: the filter list must drop BELOW the floated funnel
+ * slot group (ContainerRaw floats left), not sit top-aligned beside it; its
+ * width/margins mirror the RightItemTextImagesGroup clamp so both align. */
+.cX-Customizer-ShelfFiltersList {
+  clear: both;
+  width: calc(100% - 2px);
+  margin: 0 1px;
+  box-sizing: border-box;
+}
+
+/* Inside a Filters-shelf field box the box itself draws the frame — flatten the
+   embedded DataFilter widget (border + hover tint + inset search) so the entry
+   reads as ONE card instead of nested boxes. */
+.cX-Customizer-ShelfFilterField .cX-DataFilter-Container-Hoverable {
+  border: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.cX-Customizer-ShelfFilterField .cX-DataFilter-Container-Hoverable:hover {
+  background-color: var(--cx-color-transparent);
+}
+
+.cX-Customizer-ShelfFilterField input.cX-DataFilter-Search {
+  width: 100%;
+  margin-left: 0;
+  height: 28px;
+}
+
+.cX-Customizer-ShelfFilterField .cX-DataFilter-Container-Mask,
+.cX-Customizer-ShelfFilterField .cX-DataFilter-Container-Mask-NoOverflow {
+  margin: 5px 0 2px;
+}
+
+/* The checklist labels ship at a fixed 220px (wider than the shelf card) and
+   are RECREATED on every filter click (refreshDataFilters -> loadStringFilter),
+   so the relaxation must live here in CSS, not as build-time inline style —
+   inline-only relaxation broke the rows after the first (de)select. */
+.cX-Customizer-ShelfFilterField label.cX-Checkbox-Label {
+  width: calc(100% - 60px);
+}
+
+/* Numeric filter's Log/Lin toggle: the range slider gives the toggle a
+   50%-wide top-row cell, too narrow inside the shelf card — 'Lin' wrapped
+   onto a clipped second line. Keep the toggle on one line and shrink its
+   labels (cf. .cX-Workflow-Settings span.cX-Toggle). */
+.cX-Customizer-ShelfFilterField label.cX-Toggle {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.cX-Customizer-ShelfFilterField span.cX-Toggle {
+  font-size: var(--cx-x-small-font-size);
+  margin-left: 3px;
+  margin-right: 3px;
+}
+
+.cX-Customizer-Mask {
+  background: var(--cx-color-transparent) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px var(--cx-color-transparent) !important;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  margin: 0px !important;
+  width: 100%;
+  height: 20px;
+}
+
+.cX-Customizer-Numeric,
+.cX-Customizer-String,
+.cX-Customizer-Unique {
+  border-radius: var(--cx-border-radius);
+  cursor: move;
+  margin: 3px;
+  padding: 3px;
+  word-wrap: normal;
+  display: inline-block;
+  text-align: start;
+  max-width: 150px;
+  overflow: hidden;
+  position: relative;
+}
+
+.cX-Customizer-Numeric {
+  color: var(--cx-font-color);
+  background-color: var(--cx-color-transparent);
+}
+
+.cX-Customizer-String {
+  color: var(--cx-color-green);
+  background-color: var(--cx-color-transparent);
+}
+
+.cX-Customizer-Unique {
+  color: var(--cx-color-blue);
+  background-color: var(--cx-color-transparent);
+}
+.cX-Customizer-ListNumeric,
+.cX-Customizer-ListString,
+.cX-Customizer-ListUnique {
+  border: none;
+  cursor: move;
+  margin: 0;
+  padding: 0 0 0 3px;
+  width: 350px;
+  white-space: nowrap;
+  display: inline-block;
+  text-align: start;
+  overflow: hidden;
+  position: relative;
+  background-color: var(--cx-color-transparent);
+}
+
+.cX-Customizer-ListNumeric {
+  color: var(--cx-font-color);
+}
+
+.cX-Customizer-ListString {
+  color: var(--cx-color-green);
+}
+
+.cX-Customizer-ListUnique {
+  color: var(--cx-color-blue);
+}
+
+.cX-Customizer-ListNumeric:hover,
+.cX-Customizer-ListString:hover,
+.cX-Customizer-ListUnique:hover {
+  background: var(--cx-customizer-hover-color);
+}
+
+.cX-Customizer-ListNumeric:before,
+.cX-Customizer-ListString:before,
+.cX-Customizer-ListUnique:before {
+  font: normal 10px courier;
+  color: var(--cx-background-color);
+}
+
+.cX-Customizer-ListNumeric:before {
+  content: "\00a0#\00a0\00a0";
+}
+
+.cX-Customizer-ListString:before {
+  content: "Abc\00a0";
+}
+
+.cX-Customizer-ListUnique:before {
+  content: "Unq\00a0";
+}
+
+.cX-Customizer-Mask::selection,
+.cX-Customizer-Numeric::selection,
+.cX-Customizer-String::selection,
+.cX-Customizer-Unique::selection,
+.cX-Customizer-ListNumeric::selection,
+.cX-Customizer-ListString::selection,
+.cX-Customizer-ListUnique::selection {
+  background: var(--cx-color-transparent);
+  color: var(--cx-color-black);
+  padding: 0;
+}
+
+/*
+ * Search Customizer
+ */
+
+select.cX-Customizer-Search,
+input.cX-Customizer-Search {
+  margin: 6px;
+  background-color: var(--cx-background-widgets-color);
+  color: var(--cx-font-color);
+  cursor: default;
+  font: inherit;
+  height: 32px;
+  border-radius: var(--cx-border-radius);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  float: left;
+  clear: left;
+}
+
+select.cX-Customizer-Search {
+  padding-left: 3px;
+}
+
+select.cX-Customizer-Search[size]:not([size="1"]) {
+  height: auto;
+}
+
+input.cX-Customizer-Search[type="color"] {
+  padding: 0;
+  overflow: hidden;
+}
+
+input.cX-Customizer-Search:not([type="color"]) {
+  padding: 4px 6px;
+}
+
+input[type="search"].cX-Customizer-SearchInput::-webkit-search-cancel-button {
+  -webkit-appearance: auto;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+/* Compact, sidebar-like right-widget overrides */
+.cX-Customizer-RightPanel .cX-Customizer-RightItem,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeader,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeaderNB,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemSubHeaderRaw,
+.cX-Customizer-RightPanel .cX-Customizer-Container,
+.cX-Customizer-RightPanel .cX-Customizer-Numeric,
+.cX-Customizer-RightPanel .cX-Customizer-String,
+.cX-Customizer-RightPanel .cX-Customizer-Unique,
+.cX-Customizer-RightPanel .cX-Customizer-Wrangling {
+  border-color: var(--cx-datatable-banner-border-color) !important;
+  border-radius: var(--cx-border-radius) !important;
+}
+
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeader,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeaderS {
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0 0 !important;
+}
+
+/* Headers that control sibling content keep square bottom corners */
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeader.cX-Customizer-RightItemHeaderLink,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemHeaderS.cX-Customizer-RightItemHeaderLink {
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0 0 !important;
+}
+
+/* Apply the same sibling-header shape everywhere these header-link widgets appear */
+.cX-Customizer-RightItemHeader.cX-Customizer-RightItemHeaderLink,
+.cX-Customizer-RightItemHeaderS.cX-Customizer-RightItemHeaderLink {
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.cX-Customizer-RightPanel .cX-Customizer-RightItemTextArea > textarea,
+.cX-Customizer-RightPanel .cX-Customizer-RightItemSelect > select,
+.cX-Customizer-RightPanel input.cX-Customizer-Search,
+.cX-Customizer-RightPanel select.cX-Customizer-Search {
+  font-size: var(--cx-small-font-size) !important;
+}
+
+span.cX-Customizer-Search {
+  color: var(--cx-font-color);
+  font: inherit;
+  font-size: var(--cx-small-font-size);
+  line-height: 20px;
+  list-style: none;
+  position: relative;
+  margin: 5px 5px 0 15px;
+  float: left;
+  clear: left;
+}
+
+span.cX-Customizer-SearchSelect,
+span.cX-Customizer-SearchDescription,
+span.cX-Customizer-SearchCategory,
+span.cX-Customizer-SearchCurrent {
+  font: inherit;
+  font-size: var(--cx-customizer-font-size, var(--cx-font-size));
+  line-height: 28px;
+  list-style: none;
+  position: relative;
+  height: 28px;
+  margin-top: 5px;
+  float: left;
+  clear: left;
+  left: 15px;
+}
+
+span.cX-Customizer-SearchSelect {
+  color: var(--cx-font-color);
+}
+
+span.cX-Customizer-SearchDescription,
+span.cX-Customizer-SearchCategory {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+span.cX-Customizer-SearchDescription,
+span.cX-Customizer-SearchCategory,
+span.cX-Customizer-SearchCurrent {
+  color: var(--cx-background-color);
+}
+
+span.cX-Customizer-SearchSelect:before {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: "Select property (";
+}
+
+span.cX-Customizer-SearchSelect:after {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: ")";
+}
+
+span.cX-Customizer-SearchDescription:before {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: "Description [ ";
+}
+
+span.cX-Customizer-SearchCategory:before {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: "Category [ ";
+}
+
+span.cX-Customizer-SearchDescription:after,
+span.cX-Customizer-SearchCategory:after {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: " ]";
+}
+
+span.cX-Customizer-SearchCurrent:before {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: "Current Value [ ";
+}
+
+span.cX-Customizer-SearchCurrent:after {
+  color: var(--cx-font-color);
+  font-weight: bold;
+  content: " ]";
+}
+
+/*
+ * Password
+ */
+
+.cX-Password-Dialog {
+  border-radius: var(--cx-border-radius);
+  background-color: var(--cx-background-widgets-color);
+  box-sizing: border-box;
+  cursor: move;
+  color: var(--cx-font-color);
+  font: normal 16px arial, tahoma, sans-serif;
+  margin: 2px 3px;
+  overflow: hidden;
+  padding: 1px 12px;
+  width: 200px;
+  height: 185px;
+  white-space: nowrap;
+  position: relative;
+  text-align: left;
+}
+
+.cX-Password-Icon {
+  background: var(--cx-color-transparent) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px rgb(0 0 0 / 0%) !important;
+  box-sizing: border-box;
+  cursor: default;
+  float: right;
+  margin: 5px 0px 0px 0px !important;
+}
+
+.cX-Password-Container {
+  box-sizing: border-box;
+  background-color: var(--cx-background-widgets-color);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  border-radius: 0px 0px 5px 5px;
+  color: var(--cx-font-color);
+  display: block;
+  left: 0px;
+  line-height: 100%;
+  position: relative;
+  top: 15px;
+  margin-top: 5px;
+}
+
+.cX-Password-Label {
+  margin-bottom: 5px;
+  margin-left: 5px;
+  float: left;
+}
+
+.cX-Password-Input {
+  float: left;
+  margin-bottom: 5px;
+  padding: 5px;
+  border-radius: var(--cx-border-radius);
+  border: 1px solid var(--cx-datatable-border-color);
+  background-color: var(--cx-background-widgets-color);
+  color: var(--cx-font-color);
+  width: 170px;
+}
+
+/*
+ * CanvasXpressDrag
+ */
+
+div.CanvasXpressDrag {
+  opacity: 0.75;
+  box-sizing: border-box;
+  filter: alpha(opacity=75);
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+}
+
+div.CanvasXpressDragLayout {
+  opacity: 0.65;
+  box-sizing: border-box;
+  filter: alpha(opacity=65);
+  background-color: rgba(51, 122, 183, 0.65);
+  position: absolute;
+}
+
+/* ==========================================================================
+ * Compact right-panel redesign (Tableau-like).
+ *
+ * Systematic redesign of the right-panel widgets, applied one widget family at
+ * a time and scoped to .cX-Customizer-Compact so the classic panel (dataUIStyle
+ * 'cx' / 'old') stays untouched. The DOM built by customizerWidgets.js is left
+ * as-is; only presentation changes here.
+ *
+ * Family 1 - IO panel (section header + launcher rows). Header becomes a flat
+ * section label with a muted caption; launcher rows become flat menu items
+ * (small icon + label, subtle hover) instead of tinted icon-box tiles.
+ * ========================================================================== */
+
+/* --- Section header (getCustomizerRightItemHeader) --- */
+/* Keep the tinted header background from the classic look, just tighter. */
+.cX-Customizer-Compact .cX-Customizer-RightItemHeader,
+.cX-Customizer-Compact .cX-Customizer-RightItemHeaderNB {
+  background: var(--cx-background-hover-color);
+  padding: 6px 10px !important;
+  border-bottom: 1px solid var(--cx-datatable-border-color) !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemHeaderMain {
+  gap: 6px;
+}
+
+/* Title: compact, bold, slight tracking */
+.cX-Customizer-Compact .cX-Customizer-RightItemHeaderMain > :first-child {
+  height: auto !important;
+  padding: 0 !important;
+  font-size: var(--cx-medium-font-size) !important;
+  letter-spacing: 0.02em;
+}
+
+/* Header icon: small */
+.cX-Customizer-Compact .cX-Customizer-RightItemHeaderMain svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+/* Help text: muted caption */
+.cX-Customizer-Compact .cX-Customizer-RightItemHeaderMain > :last-child {
+  color: var(--cx-font-color);
+  opacity: 0.55;
+  font-size: var(--cx-x-small-font-size) !important;
+  line-height: 1rem !important;
+}
+
+/* Equalise the section gutters: content is (customizerRightWidth - 20) wide, so
+   a 10px side margin balances the left/right whitespace inside the panel. */
+.cX-Customizer-Compact .cX-Customizer-Container {
+  margin: 6px 10px !important;
+}
+
+/* The full-width section widgets are (customizerRightWidth - 20) wide, the same
+   as the container's content box; with border-box that overflows the container's
+   right border and hides it (the IO launchers already clamp to calc(100% - 2px),
+   but the header / text / combo / images-group widgets did not). Clamp just
+   those so the container border shows on every side, WITHOUT touching narrower
+   widgets that set their own margins (the text-area input, the wrangling list). */
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemHeader,
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemHeaderNB,
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemText,
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-ContainerComboGroup,
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemImagesGroup,
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemTextImagesGroup {
+  width: calc(100% - 2px) !important;
+  margin-left: 1px !important;
+  margin-right: 1px !important;
+  box-sizing: border-box !important;
+}
+
+/* Give the drag-and-drop list even margins inside its section (it ships with
+   margin: 0 0 10px 10px, so its top/right edges crowd the container border). */
+.cX-Customizer-Compact .cX-Customizer-Wrangling {
+  margin: 2px 10px 8px !important;
+  box-sizing: border-box !important;
+  height: 136px !important;
+}
+
+/* Collapse the tall sorter header row (title + A-Z icon) to its content so the
+   list sits close beneath it. */
+.cX-Customizer-Compact .cX-Customizer-RightItemSubHeaderRow,
+.cX-Customizer-Compact .cX-Customizer-RightItemSubHeaderRow > * {
+  height: auto !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemSubHeaderRow {
+  align-items: center;
+  margin: 6px 0 0 10px !important;
+}
+
+/* Smaller A-Z sort icon in the wrangling sorter header rows */
+.cX-Customizer-Compact .cX-Customizer-RightItemSubHeaderRow svg {
+  width: 20px !important;
+  height: 20px !important;
+}
+
+/* The X-Axis text input aligns to the section's left padding instead of sitting
+   flush against the border. */
+.cX-Customizer-Compact .cX-Customizer-Container > .cX-Customizer-RightItemTextArea {
+  margin-left: 12px !important;
+}
+
+/* --- Launcher rows (getCustomizerRightItemLauncher) --- */
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncher,
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherNB {
+  grid-template-columns: 28px 1fr !important;
+  min-height: 36px !important;
+  height: auto !important;
+  background: transparent !important;
+}
+
+/* Flatten the tinted icon box into a plain icon cell */
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherLeft {
+  background: transparent !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherLeft > * {
+  padding: 2px !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherLeft svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherRight {
+  padding-left: 2px;
+  font-size: var(--cx-customizer-font-size, var(--cx-font-size));
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncher:hover,
+.cX-Customizer-Compact .cX-Customizer-RightItemLauncherNB:hover {
+  background-color: var(--cx-customizer-hover-color) !important;
+}
+
+/* Accented-card launchers hover in the card's colour (beats the compact rule above). */
+.cX-Customizer-Compact .cX-Customizer-CardAccent .cX-Customizer-RightItemLauncher:hover,
+.cX-Customizer-Compact .cX-Customizer-CardAccent .cX-Customizer-RightItemLauncherNB:hover {
+  background-color: var(--cx-item-accent-bg) !important;
+}
+
+/* --------------------------------------------------------------------------
+ * Family 2 - Data panel: icon-button grids (Transform / Summary) and the
+ * icon-over-label tiles (Sort). Shrink the oversized grid buttons and make the
+ * Sort tile labels readable instead of truncating.
+ * -------------------------------------------------------------------------- */
+
+/* Icon-button grids (getCustomizerRightImagesGroup): smaller flat buttons */
+.cX-Customizer-Compact .cX-Customizer-RightItemImagesGroup svg {
+  width: 30px !important;
+  height: 30px !important;
+  padding: 3px !important;
+  margin: 4px auto !important;
+}
+
+/* Icon-over-label tiles (Sort - getCustomizerRightItem) */
+.cX-Customizer-Compact .cX-Customizer-RightItem {
+  grid-template-rows: auto auto;
+  margin: 3px !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemTop {
+  padding-top: 4px;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemTop svg {
+  width: 26px !important;
+  height: 26px !important;
+}
+
+.cX-Customizer-Compact .cX-Customizer-RightItemBottom {
+  padding: 1px 2px 4px;
+  font-size: var(--cx-x-small-font-size);
+}
+
+/* Show the full tile label (wrap) instead of clipping to an ellipsis */
+.cX-Customizer-Compact .cX-Customizer-RightItemBottom span {
+  white-space: normal !important;
+  overflow: visible !important;
+  text-overflow: clip !important;
+  text-align: center;
+  line-height: 1.05;
+  word-break: break-word;
+}
+
+/* @category: widget */
+/***********
+ * Tooltip *
+ ***********/
+
+.cX-Tooltip {
+  position: absolute;
+}
+
+div.cX-Tooltip-Container,
+.cX-Tooltip-Info {
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  background-color: var(--cx-color-white);
+  cursor: move;
+  color: var(--cx-font-color);
+  font: var(--cx-large-font);
+  margin: 2px 3px;
+  overflow: hidden;
+  padding: 5px 6px;
+  position: absolute;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.cX-Tooltip-Info {
+  max-height: 800px;
+  max-width: 350px;
+  z-index: 1;
+}
+
+div.cX-Tooltip-Container {
+  box-sizing: border-box;
+}
+
+.cX-Tooltip-Toolbar {
+  align-items: center;
+  border-bottom: 1px var(--cx-border-style) var(--cx-datatable-banner-border-color);
+  cursor: move;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 4px;
+  margin: -5px -6px 4px -6px;
+  padding: 4px 6px;
+}
+
+/* @category: widget */
+/*****************************************************/
+/* Generators                                        */
+/* A collection of Tooltips/Speech Bubbles           */
+/* https://css-generators.com/tooltip-speech-bubble/ */
+/*****************************************************/
+
+.cX-Tooltip-Info-None,
+.cX-Tooltip-Info-Bottom,
+.cX-Tooltip-Info-Top,
+.cX-Tooltip-Info-Left,
+.cX-Tooltip-Info-Right {
+  color: var(--cx-font-color);
+  font: var(--cx-font);
+  max-height: 800px;
+  padding: 10px;
+  position: absolute;
+  white-space: nowrap;
+  text-align: left;
+  z-index: 1;
+}
+
+.cX-Tooltip-Info-Bottom {
+  border-radius: var(--cx-callout-radius) var(--cx-callout-radius)
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg))
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg)) /
+    var(--cx-callout-radius);
+  clip-path: polygon(
+    0 100%,
+    0 0,
+    100% 0,
+    100% 100%,
+    min(100%, 50% + var(--cx-callout-size) * tan(45deg)) 100%,
+    50% calc(100% + var(--cx-callout-size)),
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) 100%
+  );
+  background: var(--cx-callout-border-color);
+  border-image: conic-gradient(var(--cx-callout-border-color) 0 0) fill 0 /
+    var(--cx-callout-radius) max(0%, 50% - var(--cx-callout-size) * tan(45deg))
+    0 max(0%, 50% - var(--cx-callout-size) * tan(45deg)) / 0 0
+    var(--cx-callout-size) 0;
+}
+
+.cX-Tooltip-Info-Bottom:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  padding: var(--cx-callout-border-width);
+  border-radius: inherit;
+  clip-path: polygon(
+    0 100%,
+    0 0,
+    100% 0,
+    100% 100%,
+    min(
+        100% - var(--cx-callout-border-width),
+        50% + var(--cx-callout-size) * tan(45deg) -
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+      calc(100% - var(--cx-callout-border-width)),
+    50%
+      calc(
+        100% + var(--cx-callout-size) - var(--cx-callout-border-width) /
+          sin(45deg)
+      ),
+    max(
+        var(--cx-callout-border-width),
+        50% - var(--cx-callout-size) * tan(45deg) +
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+      calc(100% - var(--cx-callout-border-width))
+  );
+  background: var(--cx-callout-background-color) content-box;
+  border-image: conic-gradient(var(--cx-callout-background-color) 0 0) fill 0 /
+    var(--cx-callout-radius)
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    0
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    ) / 0 0 var(--cx-callout-size) 0;
+}
+
+.cX-Tooltip-Info-Top {
+  border-radius: min(
+      var(--cx-callout-radius),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg))
+    var(--cx-callout-radius) var(--cx-callout-radius) / var(--cx-callout-radius);
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    100% 100%,
+    100% 0,
+    min(100%, 50% + var(--cx-callout-size) * tan(45deg)) 0,
+    50% calc(-1 * var(--cx-callout-size)),
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) 0
+  );
+  background: var(--cx-callout-border-color);
+  border-image: conic-gradient(var(--cx-callout-border-color) 0 0) fill 0 / 0
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) var(--cx-callout-radius)
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) / var(--cx-callout-size)
+    0 0 0;
+}
+
+.cX-Tooltip-Info-Top:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  padding: var(--cx-callout-border-width);
+  border-radius: inherit;
+  clip-path: polygon(
+    0 0,
+    0 100%,
+    100% 100%,
+    100% 0,
+    min(
+        100% - var(--cx-callout-border-width),
+        50% + var(--cx-callout-size) * tan(45deg) -
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+      var(--cx-callout-border-width),
+    50%
+      calc(var(--cx-callout-border-width) / sin(45deg) - var(--cx-callout-size)),
+    max(
+        var(--cx-callout-border-width),
+        50% - var(--cx-callout-size) * tan(45deg) +
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+      var(--cx-callout-border-width)
+  );
+  background: var(--cx-callout-background-color) content-box;
+  border-image: conic-gradient(var(--cx-callout-background-color) 0 0) fill 0/ 0
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    ) var(--cx-callout-radius) max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    ) / var(--cx-callout-size) 0 0 0;
+}
+
+
+.cX-Tooltip-Info-Left {
+  border-radius: var(--cx-callout-radius) /
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg))
+    var(--cx-callout-radius) var(--cx-callout-radius)
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg));
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    0 min(100%, 50% + var(--cx-callout-size) * tan(45deg)),
+    calc(-1 * var(--cx-callout-size)) 50%,
+    0 max(0%, 50% - var(--cx-callout-size) * tan(45deg))
+  );
+  background: var(--cx-callout-border-color);
+  border-image: conic-gradient(var(--cx-callout-border-color) 0 0) fill 0 /
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) var(--cx-callout-radius)
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) 0/0 0 0
+    var(--cx-callout-size);
+}
+
+.cX-Tooltip-Info-Left::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: var(--cx-callout-border-width);
+  border-radius: inherit;
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% 100%,
+    0 100%,
+    var(--cx-callout-border-width)
+      min(
+        100% - var(--cx-callout-border-width),
+        50% + var(--cx-callout-size) * tan(45deg) -
+          var(--cx-callout-border-width) * tan(22.5deg)
+      ),
+    calc(var(--cx-callout-border-width) / sin(45deg) - var(--cx-callout-size))
+      50%,
+    var(--cx-callout-border-width)
+      max(
+        var(--cx-callout-border-width),
+        50% - var(--cx-callout-size) * tan(45deg) +
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+  );
+  background: var(--cx-callout-background-color) content-box;
+  border-image: conic-gradient(var(--cx-callout-background-color) 0 0) fill 0 /
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    var(--cx-callout-radius)
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    0/0 0 0 var(--cx-callout-size);
+}
+
+.cX-Tooltip-Info-Right {
+  border-radius: var(--cx-callout-radius) / var(--cx-callout-radius)
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg))
+    min(var(--cx-callout-radius), 50% - var(--cx-callout-size) * tan(45deg))
+    var(--cx-callout-radius);
+  clip-path: polygon(
+    100% 0,
+    0 0,
+    0 100%,
+    100% 100%,
+    100% min(100%, 50% + var(--cx-callout-size) * tan(45deg)),
+    calc(100% + var(--cx-callout-size)) 50%,
+    100% max(0%, 50% - var(--cx-callout-size) * tan(45deg))
+  );
+  background: var(--cx-callout-border-color);
+  border-image: conic-gradient(var(--cx-callout-border-color) 0 0) fill 0 /
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) 0
+    max(0%, 50% - var(--cx-callout-size) * tan(45deg)) var(--cx-callout-radius) /
+    0 var(--cx-callout-size) 0 0;
+}
+
+.cX-Tooltip-Info-Right::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: var(--cx-callout-border-width);
+  border-radius: inherit;
+  clip-path: polygon(
+    100% 0,
+    0 0,
+    0 100%,
+    100% 100%,
+    calc(100% - var(--cx-callout-border-width))
+      min(
+        100% - var(--cx-callout-border-width),
+        50% + var(--cx-callout-size) * tan(45deg) -
+          var(--cx-callout-border-width) * tan(22.5deg)
+      ),
+    calc(
+        100% + var(--cx-callout-size) - var(--cx-callout-border-width) /
+          sin(45deg)
+      )
+      50%,
+    calc(100% - var(--cx-callout-border-width))
+      max(
+        var(--cx-callout-border-width),
+        50% - var(--cx-callout-size) * tan(45deg) +
+          var(--cx-callout-border-width) * tan(22.5deg)
+      )
+  );
+  background: var(--cx-callout-background-color) content-box;
+  border-image: conic-gradient(var(--cx-callout-background-color) 0 0) fill 0 /
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    0
+    max(
+      var(--cx-callout-border-width),
+      50% - var(--cx-callout-size) * tan(45deg)
+    )
+    var(--cx-callout-radius) / 0 var(--cx-callout-size) 0 0;
+}
+
+div.CanvasXpressMousePosition {
+  background: rgba(0, 0, 0, 0) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+  cursor: move;
+  color: var(--cx-font-color);
+  font: var(--cx-font);
+  position: absolute;
+  white-space: nowrap;
+  text-align: left;
+  z-index: 1;
+}
+
+img.CanvasXpressMousePosition,
+svg.CanvasXpressMousePosition {
+  background: rgba(0, 0, 0, 0) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+  cursor: default;
+  margin: 0px !important;
+  padding: 0px !important;
+  position: relative;
+  left: -13px;
+  top: -13px;
+  cursor: default;
+}
+
+span.CanvasXpressMousePosition {
+  background: rgba(0, 0, 0, 0) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+  cursor: move;
+  color: var(--cx-font-color);
+  font: var(--cx-font);
+  position: absolute;
+  left: 4px;
+  top: -20px;
+  white-space: nowrap;
+  text-align: left;
+  z-index: 1;
+}
+
+/* @category: widget */
+/**********
+ * Motion *
+ **********/
+
+.cX-Container-Motion {
+  transition: all var(--cx-transition-speed) ease-in-out;
+}
+
+.cX-Workflow-Wrapper {
+  position: relative;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Repro {
+  flex-direction: row !important;
+  align-items: flex-start;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Repro .cX-Workflow-Widget {
+  background: var(--cx-workflow-background-color);
+  border: 1px var(--cx-border-style) var(--cx-workflow-border-color);
+  border-radius: var(--cx-border-radius);
+  padding: 12px;
+  box-shadow: none;
+  backdrop-filter: none;
+  box-sizing: border-box;
+  order: -1;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Repro .cX-Workflow-Timeline-Container {
+  display: block;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Repro .cX-Workflow-Close-Btn {
+  display: flex;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Filter {
+  flex-direction: column !important;
+  align-items: center;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Filter .cX-Workflow-Widget {
+  position: relative;
+  border: 1px var(--cx-border-style) var(--cx-workflow-border-color) !important;
+  border-radius: var(--cx-border-radius);
+  background: var(--cx-workflow-background-color);
+  padding: 12px;
+  width: 90% !important;
+  left: 5% !important;
+  order: 1;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Filter .cX-Workflow-Timeline-Container {
+  display: none;
+}
+
+.cX-Workflow-Wrapper.cX-Workflow-Mode-Filter .cX-Workflow-Close-Btn {
+  display: none;
+}
+
+/* Animation State: Hidden */
+.cX-Workflow-Wrapper.cX-Workflow-Hidden {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+.cX-Workflow-Widget {
+  font-family: var(--cx-font-family);
+  color: var(--cx-workflow-text-color);
+  background: var(--cx-workflow-background-color);
+}
+
+.cX-Workflow-Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  color: var(--cx-workflow-text-color);
+}
+
+.cX-Workflow-Close-Btn {
+  cursor: pointer;
+  border-radius: var(--cx-border-radius);
+  background: var(--cx-workflow-button-background-color);
+}
+
+.cX-Workflow-Controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 5px;
+}
+
+.cX-Workflow-Play-Btn {
+  cursor: pointer;
+  border-radius: var(--cx-border-radius);
+  background: var(--cx-workflow-button-background-color);
+}
+
+.cX-Workflow-Slider-Area {
+  flex-grow: 1;
+  position: relative;
+  margin-right: 15px;
+  margin-left: 5px;
+}
+
+.cX-Workflow-Slider-Track {
+  position: relative;
+  height: 6px;
+  background: var(--cx-workflow-slider-track-color);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cX-Workflow-Slider-Fill {
+  position: absolute;
+  height: 100%;
+  background: var(--cx-workflow-slider-fill-color);
+  border-radius: 10px;
+  width: 0%;
+}
+
+.cX-Workflow-Slider-Thumb {
+  position: absolute;
+  top: 50%;
+  width: 22px;
+  height: 22px;
+  background: var(--cx-workflow-slider-thumb-color);
+  border: 2px solid var(--cx-workflow-slider-thumb-border-color);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: none;
+  z-index: 10;
+}
+
+.cX-Workflow-Settings {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-top: 5px;
+  font-size: var(--cx-workflow-list-label-font-size);
+  color: var(--cx-workflow-text-color);
+}
+
+.cX-Workflow-Settings span.cX-Toggle {
+  font-size: var(--cx-workflow-list-label-font-size);
+  color: var(--cx-workflow-text-color);
+}
+
+.cX-Workflow-Duration-Area {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-grow: 1;
+}
+
+/* Override the generic input[type=range] rules (15-range-slider.css) that
+   render range inputs absolute/invisible with a red square thumb for the
+   dual-thumb slider widget. */
+input[type=range].cX-Workflow-Duration-Slider {
+  position: static;
+  opacity: 1;
+  pointer-events: auto;
+  z-index: auto;
+  -webkit-appearance: none;
+  appearance: none;
+  flex-grow: 1;
+  min-width: 40px;
+  width: auto;
+  height: 6px;
+  cursor: pointer;
+  background: var(--cx-workflow-slider-track-color);
+  border-radius: 10px;
+}
+
+input[type=range].cX-Workflow-Duration-Slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--cx-workflow-slider-thumb-color);
+  border: 2px solid var(--cx-workflow-slider-thumb-border-color);
+}
+
+input[type=range].cX-Workflow-Duration-Slider::-moz-range-thumb {
+  pointer-events: all;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--cx-workflow-slider-thumb-color);
+  border: 2px solid var(--cx-workflow-slider-thumb-border-color);
+}
+
+.cX-Workflow-Duration-Value {
+  min-width: 48px;
+  text-align: right;
+  white-space: nowrap;
+  color: var(--cx-workflow-list-text-color);
+}
+
+.cX-Workflow-Timeline-Container {
+  border: 1px var(--cx-border-style) var(--cx-workflow-timeline-border-color);
+  border-radius: var(--cx-border-radius);
+  margin-top: 10px;
+  /* padding-top: 10px; */
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cX-Workflow-Timeline-Item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  border-radius: var(--cx-border-radius);
+}
+
+.cX-Workflow-Timeline-Item:hover {
+  background: var(--cx-workflow-hover-color);
+}
+
+.cX-Workflow-List-Label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: var(--cx-workflow-list-label-font-size);
+  color: var(--cx-workflow-list-text-color);
+  white-space: nowrap;
+}
+
+.cX-Workflow-List-Tick {
+  position: absolute;
+  transform: translateX(-50%);
+  font-size: var(--cx-workflow-list-tick-font-size);
+  color: var(--cx-workflow-list-tick-color);
+}
+
+.cX-Workflow-Timeline-Item.cX-Workflow-Active {
+  background-color: var(--cx-workflow-active-color);
+  color: var(--cx-workflow-text-color);
+  border-radius: var(--cx-border-radius);
+  font-weight: bold;
+}
+
+/*
+ * "colorful" style — per-step accent along the timeline. Each step carries its own
+ * colour (set inline as --cx-item-accent / --cx-item-accent-bg): a left accent bar,
+ * a tinted icon chip, and a matching hover/active state. Added only for colorful.
+ */
+.cX-Workflow-Item-Accent {
+  border-left: 3px solid var(--cx-item-accent) !important;
+}
+.cX-Workflow-Item-Accent:hover,
+.cX-Workflow-Item-Accent.cX-Workflow-Active {
+  background: var(--cx-item-accent-bg) !important;
+}
+.cX-Workflow-Item-Accent .cX-Menu-List-Icon {
+  background: var(--cx-item-accent-bg) !important;
+  border-radius: var(--cx-border-radius, 5px);
+}
+
+/* @category: widget */
+/*************
+ *  Toolbar  *
+ *************/
+
+.cX-Toolbar-Image {
+  background: var(--cx-color-transparent) !important;
+  border: 0px none !important;
+  box-shadow: 0 0 0px var(--cx-color-transparent) !important;
+  cursor: pointer;
+}
+
+.cX-Toolbar-Round {
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.cX-Toolbar-Round,
+.cX-Toolbar-Stripe {
+  cursor: pointer;
+  float: left;
+}
+
+.cX-Toolbar-Font {
+  padding: 5px;
+  cursor: pointer;
+  color: #000;
+  padding-right: 2px;
+}
+
+.cX-Toolbar-Trigger {
+  position: absolute;
+  z-index: 1000;
+  background: transparent;
+  pointer-events: auto;
+}
+
+.cX-Toolbar-Trigger-t {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+}
+
+.cX-Toolbar-Trigger-b {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 32px;
+}
+
+.cX-Toolbar-Trigger-l {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 32px;
+}
+
+.cX-Toolbar-Trigger-r {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 32px;
+}
+
+.cX-Toolbar-Edge {
+  position: absolute;
+  border: var(--cx-border);
+  padding: 1px;
+  background: var(--cx-background-widgets-color);
+  display: grid;
+  opacity: 0;
+  z-index: 1001;
+  transition: all var(--cx-transition-speed) ease;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.cX-Toolbar-Edge-Top {
+  border-radius: 0 0 var(--cx-border-radius) var(--cx-border-radius);
+  border-top: none;
+}
+
+.cX-Toolbar-Edge-Bottom {
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0 0;
+  border-bottom: none;
+}
+
+.cX-Toolbar-Edge-Left {
+  border-radius: 0 var(--cx-border-radius) var(--cx-border-radius) 0;
+  border-left: none;
+}
+
+.cX-Toolbar-Edge-Right {
+  border-radius: var(--cx-border-radius) 0 0 var(--cx-border-radius);
+  border-right: none;
+}
+
+.cX-Toolbar-t {
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -10px);
+}
+
+.cX-Toolbar-b {
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 10px);
+}
+
+.cX-Toolbar-l {
+  left: 0;
+  top: 50%;
+  transform: translate(-10px, -50%);
+}
+
+.cX-Toolbar-r {
+  right: 0;
+  top: 50%;
+  transform: translate(10px, -50%);
+}
+
+.cX-Toolbar-Trigger-t:hover+.cX-Toolbar-t,
+.cX-Toolbar-t:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.cX-Toolbar-Trigger-b:hover+.cX-Toolbar-b,
+.cX-Toolbar-b:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, 0);
+}
+
+.cX-Toolbar-Trigger-l:hover+.cX-Toolbar-l,
+.cX-Toolbar-l:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%);
+}
+
+.cX-Toolbar-Trigger-r:hover+.cX-Toolbar-r,
+.cX-Toolbar-r:hover {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(0, -50%);
+}
+
+/*************
+ *  Tooltip  *
+ *************/
+
+.cX-Alt-Tooltip {
+  position: fixed;
+  display: none;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.8);
+  color: white;
+  padding: 5px 10px;
+  border-radius: var(--cx-border-radius);
+  font-size: var(--cx-small-font-size);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/*
+ * Parent Node
+ */
+
+.CanvasXpress-ParentNode {
+  display: flex;
+  flex-direction: column;
+  max-width: -webkit-fill-available;
+  width: fit-content;
+  -moz-transform: none;
+  -webkit-transform: none;
+  -o-transform: none;
+  -ms-transform: none;
+  transform: none;
+}
+
+/*
+ * CanvasXpress
+ */
+
+canvas.CanvasXpress {
+  width: 100%;
+  height: 100%;
+  display: block;
+  flex-grow: 1;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+  -ms-user-select: none;
+}
+
+canvas.CanvasXpress:hover {
+  border: 1px solid rgba(35, 82, 124, 0.2);
+  border-radius: var(--cx-border-radius);
+  margin: -1px;
+}
+
+canvas.CanvasXpressUpload {
+  border: 1px solid rgba(35, 82, 124, 0.2);
+  border-radius: var(--cx-border-radius);
+  margin: -1px;
+  background-image: url('data:image/png;base64,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');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+canvas.CanvasXpress::selection {
+  background: rgba(0, 0, 0, 0);
+  color: rgb(0, 0, 0);
+}
+
+/* Hide Efect */
+
+.appear {
+  transition: all var(--cx-transition-speed) linear;
+  opacity: 1;
+}
+
+.dissapear {
+  display: none;
+}
+
+.dissapearHidden {
+  transition: all var(--cx-transition-speed) linear;
+  opacity: 0;
+}
+
+/* @category: widget */
+/*********
+* Marker *
+**********/
+
+div.cX-Marker {
+  box-sizing: border-box;
+  border: var(--cx-border);
+  border-radius: var(--cx-border-radius);
+  background-color: var(--cx-background-widgets-color);
+  cursor: move;
+  font: var(--cx-font);
+  width: 308px;
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  padding: 2px;
+}
+
+.cX-Marker-Table-Container {
+  position: relative;
+  width: 286px;
+  left: 8px;
+  top: 8px;
+  overflow: hidden;
+}
+
+div.cX-Marker-Table-Container > table > tbody > tr > th.cX-DataTable-Cell-Head {
+  background-color: rgb(255, 255, 255);
+}
+
+textarea.cX-Marker{
+  width: 100%;
+  height: 96px;
+  outline: none;
+  resize: none;
+  padding-left: 5px;
+  border-radius: var(--cx-border-radius);
+  border: var(--cx-border);
+}
+
+input.cX-Marker {
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+  outline: none;
+  padding-left: 5px;
+  border-radius: var(--cx-border-radius);
+  border: var(--cx-border);
+}
+
+select.cX-Marker {
+  width: 100%;
+  height: 32px;
+  cursor: pointer;
+  background-color: white;
+  outline: none;
+  padding-left: 5px;
+  border-radius: var(--cx-border-radius);
+  border: var(--cx-border);
+}
+
+.cX-Marker-Button-Container {
+  float: left;
+  position: relative;
+  top: 8px;
+  left: 8px;
+  width: 280px;
+  height: 36px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.cX-Marker-Remove,
+.cX-Marker-Add-Update {
+  float: left;
+  border-radius: var(--cx-border-radius);
+  border: var(--cx-border);
+  position: relative;
+  width: 125px;
+  height: 36px;
+  font-size: medium;
+  cursor: pointer;
+}
+
+.cX-Marker-Remove {
+  left: 0px;
+}
+
+.cX-Marker-Add-Update {
+  left: 12px;
+}
+
+/* @category: widget */
+/******************
+ * Data Table DOE *
+ ******************/
+
+.cX-Container-DOE {
+  position: relative;
+}
+
+table.cX-DataTable-DOE {
+  border-spacing: 0 !important;
+  font-size: var(--cx-font-size) !important;
+  padding: 0 !important;
+  border: none !important;
+}
+
+th.cX-DataTable-DOE {
+  padding: 0 !important;
+  font-size: var(--cx-font-size) !important;
+  font-weight: bold !important;
+  padding-left: 5px !important;
+  padding-right: 5px !important;
+  height: 18px !important;
+  line-height: 18px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  max-height: 18px !important;
+  border: none !important;
+}
+
+td.cX-DataTable-DOE {
+  padding: 0 !important;
+  font-size: var(--cx-font-size) !important;
+  padding-left: 5px !important;
+  padding-right: 18px !important;
+  height: 18px !important;
+  line-height: 18px !important;
+  white-space: nowrap !important;
+  overflow: hidden !important;
+  max-height: 18px !important;
+  border: none !important;
+}
+
+tr.cX-DataTable-DOE {
+  font-size: var(--cx-font-size) !important;
+}
+
+/***********************************/
+/* Data Table / Tooltips / Markers */
+/***********************************/
+
+.cX-DataTable-Container {
+  max-height: 400px;
+  max-width: 600px;
+  overflow: auto;
+  overscroll-behavior: contain;
+  pointer-events: auto;
+  position: relative;
+}
+
+.cX-DataTable-Container > table > tbody > tr > th {
+  background-color: rgb(255, 255, 255);
+  margin: 1px;
+}
+
+.cX-DataTable-Container > table > tbody > tr > td {
+  margin: 1px;
+}
+
+.cX-DataTable-Container > table > tbody > tr > td > div {
+  padding-right: 10px;
+}
+
+.cX-DataTable {
+  box-sizing: border-box;
+  position: relative;
+}
+
+.cX-DataTable-Root,
+.cX-DataTable-Vertical-Scrollbar,
+.cX-DataTable-Horizontal-Scrollbar,
+.cX-DataTable-Header-Viewport {
+  box-sizing: border-box;
+  position: absolute;
+}
+
+.cX-DataTable-Vertical-Scrollbar,
+.cX-DataTable-Horizontal-Scrollbar {
+  background-color: var(--cx-background-widgets-color);
+}
+
+.cX-DataTable {
+  background-color: transparent;
+  border: 1px var(--cx-border-style) var(--cx-datatable-banner-border-color);
+  border-radius: var(--cx-border-radius);
+  clear: both;
+  color: var(--cx-font-color);
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-font-size);
+  overflow: hidden;
+  z-index: 10001;
+}
+
+/* Data Table Banner */
+
+.cX-DataTable-Banner {
+  background-color: var(--cx-datatable-banner-background-color);
+  border-bottom: 1px var(--cx-border-style) var(--cx-datatable-banner-border-color);
+  color: var(--cx-datatable-banner-text-color);
+  display: flex;
+  align-items: center;
+}
+
+.cX-DataTable-Search {
+  margin-left: auto;
+}
+
+input.cX-DataTable-Search {
+  background-color: var(--cx-datatable-background-color);
+  border: 1px var(--cx-border-style) var(--cx-datatable-banner-border-color);
+  border-radius: var(--cx-border-radius);
+  color: var(--cx-datatable-banner-text-color);
+  margin-right: 10px;
+  padding: 10px;
+  outline: none;
+  font-size: var(--cx-small-font-size);
+  display: flex;
+}
+
+input[type="search"].cX-DataTable-Search::-webkit-search-cancel-button {
+  -webkit-appearance: auto;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+/* Data Table Toolbar */
+
+.cX-DataTable-Toolbar {
+  background-color: var(--cx-datatable-toolbar-background-color);
+  border-bottom: 1px var(--cx-border-style) var(--cx-datatable-banner-border-color);
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 4px;
+  padding-right: 4px;
+  font-size: var(--cx-datatable-toolbar-font-size);
+  position: relative;
+  top: 0px;
+  left: 0px;
+  -moz-transition: height var(--cx-transition-speed) ease;
+  -webkit-transition: height var(--cx-transition-speed) ease;
+  -o-transition: height var(--cx-transition-speed) ease;
+  transition: height var(--cx-transition-speed) ease;
+}
+
+.cX-DataTable-Toolbar-Zero {
+  background-color: transparent;
+  border: none;
+  font-size: var(--cx-datatable-toolbar-font-size);
+  -moz-transition: height var(--cx-transition-speed) ease;
+  -webkit-transition: height var(--cx-transition-speed) ease;
+  -o-transition: height var(--cx-transition-speed) ease;
+  transition: height var(--cx-transition-speed) ease;
+}
+
+.cX-DataTable-Toolbar,
+.cX-DataTable-Toolbar-Zero,
+.cX-DataTable-Banner,
+.cX-DataTable-Status,
+.cX-DataTable-Container {
+  font-family: var(--cx-font-family);
+  color: var(--cx-font-color);
+}
+
+svg.cX-DataTable-Toolbar-Image {
+  background: var(--cx-color-transparent) !important;
+  border-radius: var(--cx-border-radius);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color) !important;
+  padding: 2px;
+  box-shadow: 0 0 0px var(--cx-color-transparent) !important;
+  cursor: pointer;
+  float: right;
+  margin: 0px 4px 0px 0px !important;
+}
+
+svg.cX-DataTable-Toolbar-Image-Logo {
+  border: none !important;
+  float: left;
+  margin: 5px 0px 0px 10px !important;
+}
+
+.cX-DataTable-Toolbar-Spacer {
+  float: right;
+  margin-top: 5px;
+  margin-left: 8px;
+  width: 16px;
+  border-left: 1px var(--cx-border-style) var(--cx-datatable-toolbar-border-color);
+}
+
+/* Data Table Body */
+
+.cX-DataTable-Root {
+  border: none;
+}
+
+.cX-DataTable-Header-Viewport {
+  border-bottom: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  border-left: none;
+  border-right: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  border-top: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.cX-DataTable-Vertical-Scrollbar {
+  overflow-x: hidden;
+  overflow-y: auto;
+  right: 5px;
+  top: 2px;
+  width: 16px;
+}
+
+.cX-DataTable-Vertical-Scrollbar-Image {
+  max-height: unset !important;
+  width: 1px !important;
+}
+
+.cX-DataTable-Horizontal-Scrollbar {
+  bottom: 5px;
+  height: 16px;
+  left: 2px;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.cX-DataTable-Horizontal-Scrollbar-Image {
+  max-width: unset !important;
+  height: 1px !important;
+}
+
+/* Data Table Status */
+
+.cX-DataTable-Status {
+  background-color: var(--cx-datatable-status-background-color);
+  border-top: 1px var(--cx-border-style) var(--cx-datatable-status-border-color);
+  position: relative;
+  align-items: center;
+  display: flex;
+  font-family: var(--cx-font-family);
+  font-weight: normal;
+  font-variant-numeric: tabular-nums;
+  color: var(--cx-datatable-status-text-color);
+}
+
+.cX-DataTable-Status-Left {
+  display:flex;
+}
+
+.cX-DataTable-Dimensions {
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  font-size: var(--cx-font-size);
+  color: var(--cx-datatable-status-text-color);
+}
+
+/* Data Table Pagination */
+
+.cX-DataTable-Pagination {
+  background-color: var(--cx-datatable-pagination-background-color);
+  border-top: 1px var(--cx-border-style) var(--cx-datatable-pagination-border-color);
+  position: relative;
+  align-items: center;
+  display: flex;
+  font-family: var(--cx-font-family);
+  font-weight: normal;
+  font-variant-numeric: tabular-nums;
+  color: var(--cx-datatable-pagination-text-color);
+}
+
+.cX-DataTable-Pagination-Size {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+}
+
+.cX-DataTable-Pagination-Size-Select {
+  background-color: var(--cx-datatable-background-color);
+  border: 1px var(--cx-border-style) var(--cx-datatable-pagination-border-color);
+  border-radius: var(--cx-border-radius);
+  color: var(--cx-datatable-pagination-select-text-color);
+  height: 20px;
+  padding: 2px;
+  outline: none;
+  font-size: var(--cx-medium-font-size);
+  cursor: pointer;
+}
+
+.cX-DataTable-Pagination-Rows {
+  display: flex;
+  align-items: center;
+  margin: auto;
+  gap: 10px;
+}
+
+.cX-DataTable-Pagination-Label-Bold {
+  font-weight: bold;
+}
+
+.cX-DataTable-Pagination-Controls {
+  cursor: pointer;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 5px;
+}
+
+.cX-DataTable-Pagination-Control-Disabled {
+  opacity: 0.2;
+  cursor: none;
+}
+
+/* Data Table Table */
+
+table.cX-DataTable,
+.cX-DataTable-Tooltip {
+  border: none !important;
+  color: var(--cx-font-color);
+  position: absolute;
+  table-layout: fixed;
+}
+
+.cX-DataTable-Tooltip {
+  position: inherit;
+}
+
+.cX-DataTable-Container table.cX-DataTable-Tooltip {
+  border-collapse: collapse;
+}
+
+.cX-DataTable-Container .cX-DataTable-Row th,
+.cX-DataTable-Container .cX-DataTable-Row td {
+  border: 1px solid var(--cx-datatable-cell-border-color);
+}
+
+.cX-DataTable-Container .cX-DataTable-Row {
+  display: table-row !important;
+}
+
+.cX-DataTable-Container th.cX-DataTable-Cell-Head {
+  background: none;
+  display: table-cell !important;
+  font-weight: bold;
+  padding: 0 !important;
+  position: static;
+}
+
+.cX-DataTable-Container td.cX-DataTable-Cell {
+  display: table-cell !important;
+  position: static;
+}
+
+.cX-DataTable-Row,
+.cX-DataTable-Row-Active {
+  display: flex;
+  align-content: center;
+  position: relative;
+}
+
+.cX-DataTable-Row-Active td,
+.cX-DataTable-Row-Active th {
+  background-color: var(--cx-datatable-row-hover-background-color)!important;
+}
+
+/* "colorful" style: the selected row is highlighted in amber so it stands out
+ * from the purple header/hover and the light-purple striping. */
+.cX-DataTable-Colorful .cX-DataTable-Row-Active {
+  background-color: rgba(242, 169, 0, 0.22) !important;
+}
+.cX-DataTable-Colorful .cX-DataTable-Row-Active td,
+.cX-DataTable-Colorful .cX-DataTable-Row-Active th {
+  background-color: rgba(242, 169, 0, 0.22) !important;
+}
+
+.cX-DataTable-Row:not(:first-child):hover {
+  background-color: var(--cx-datatable-row-hover-background-color) !important;
+}
+
+.cX-DataTable-Row:not(:first-child):hover td,
+.cX-DataTable-Row:not(:first-child):hover th {
+  background-color: transparent !important;
+}
+
+/* Data Table Header th */
+
+.cX-DataTable-Cell-Head,
+.cX-DataTable-Cell-Head-Active {
+  background: var(--cx-datatable-accent-color);
+  border-top: none;
+  border-bottom: var(--cx-datatable-cell-border-color);
+  border-left: none;
+  border-right: var(--cx-datatable-cell-border-color);
+  color: var(--cx-datatable-header-text-color);
+  cursor: pointer;
+  font-size: var(--cx-datatable-header-font-size);
+  font-family: var(--cx-datatable-cell-font-family);
+  font-weight: bold;
+  font-variant-numeric: tabular-nums;
+  padding: 0 3px 0 0 !important;
+  vertical-align: middle !important;
+  display: flex;
+  width: unset !important;
+  height: unset !important;
+  position: relative;
+}
+
+.cX-DataTable-Cell-Head > .cX-DataTable-Cell,
+.cX-DataTable-Cell-Head-Active > .cX-DataTable-Cell,
+.cX-DataTable-Cell-Head > .cX-DataTable-Cell-Number,
+.cX-DataTable-Cell-Head-Active > .cX-DataTable-Cell-Number {
+  align-content: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.cX-DataTable-Cell-Header-Menu {
+  cursor: pointer;
+  font-style: normal !important;
+  position: absolute;
+  text-decoration: none;
+  width: 8px;
+  margin: auto;
+  display: flex;
+  padding-left: 1px;
+  top: 0;
+  right: 8px;
+}
+
+.cX-DataTable-Cell .cX-DataTable-Cell-Header-Menu {
+  right: 10px;
+  left: auto;
+}
+
+.cX-DataTable-Cell-Number .cX-DataTable-Cell-Header-Menu {
+  right: auto;
+  left: 3px;
+}
+
+.cX-DataTable-Cell-Header-Menu:hover {
+  transform: scale(1.8);
+}
+
+.cX-DataTable-Cell-Header-Filter {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 18px;
+}
+
+.cX-DataTable-Cell .cX-DataTable-Cell-Header-Filter {
+  right: 22px;
+  left: auto;
+}
+
+.cX-DataTable-Cell-Number .cX-DataTable-Cell-Header-Filter {
+  left: 19px;
+  right: auto;
+}
+
+.cX-DataTable-Cell-Header-Sort {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cX-DataTable-Cell-Header-Filter-Image:hover {
+  transform: scale(1.4);
+}
+
+.cX-DataTable-Cell .cX-DataTable-Cell-Header-Sort {
+  right: 34px;
+  left: auto;
+}
+
+.cX-DataTable-Cell-Number .cX-DataTable-Cell-Header-Sort {
+  left: 31px;
+  right: auto;
+}
+
+.cX-DataTable-Cell-Header-Resize {
+  background: var(--cx-datatable-cell-border-color);
+  cursor: col-resize;
+  position: absolute;
+  right: 0;
+  top: 35%;
+  width: 3px;
+  height: 30%;
+}
+
+.cX-DataTable-Cell-Head-Text {
+  color: var(--cx-datatable-header-text-color)
+}
+
+/* Data Table Cells td */
+
+.cX-DataTable-Cell-Hierarchy-Icon {
+  float: left;
+  margin-left: -10px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+td.cX-DataTable-Cell,
+td.cX-DataTable-Cell-Active {
+  border-top: none !important;
+  border-bottom: var(--cx-datatable-cell-border-color);
+  border-left: none !important;
+  border-right: var(--cx-datatable-cell-border-color);
+  font-size: var(--cx-datatable-body-font-size);
+  font-family: var(--cx-datatable-cell-font-family);
+  font-variant-numeric: tabular-nums;
+  color: var(--cx-datatable-cell-text-color);
+  padding: 0 3px 0 0 !important;
+  vertical-align: middle;
+  width: unset !important;
+  height: unset !important;
+  position: relative;
+}
+
+.cX-DataTable-Cell,
+.cX-DataTable-Cell-Number,
+.cX-DataTable-Cell-Link,
+.cX-DataTable-Cell-Active,
+.cX-DataTable-Cell-Number-Active,
+.cX-DataTable-Cell-Link-Active,
+.cX-DataTable-Cell-Tooltip {
+  box-sizing: border-box;
+  font-size: var(--cx-datatable-cell-font-size);
+  font-family: var(--cx-datatable-cell-font-family);
+  color: var(--cx-datatable-cell-text-color);
+  margin: 0px !important;
+  overflow: hidden;
+  position: relative;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.cX-DataTable-Cell,
+.cX-DataTable-Cell-Link,
+.cX-DataTable-Cell-Active,
+.cX-DataTable-Cell-Link-Active {
+  padding-left: 15px;
+  text-align: left;
+}
+
+.cX-DataTable-Cell-Number,
+.cX-DataTable-Cell-Number-Active {
+  padding-right: 15px;
+  text-align: right;
+}
+
+.cX-DataTable-Cell-Link,
+.cX-DataTable-Cell-Link-Active {
+  text-decoration: underline var(--cx-border);
+  text-underline-offset: 2px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.cX-DataTable-Cell-Active,
+.cX-DataTable-Cell-Number-Active,
+.cX-DataTable-Cell-Link-Active {
+  background-color: var(--cx-datatable-cell-hover-background-color) !important;
+  border: 1px var(--cx-border-style) var(--cx-datatable-activecell-border-color) !important;
+}
+
+.cX-DataTable-Cell-Text {
+  color: var(--cx-datatable-cell-text-color)
+}
+
+td.cX-DataTable-Cell > .cX-DataTable-Cell:hover,
+td.cX-DataTable-Cell > .cX-DataTable-Cell-Number:hover {
+  background-color: var(--cx-datatable-cell-hover-background-color);
+}
+
+.cX-DataTable-Cell-Tooltip {
+  width: 100px;
+  line-height: 32px;
+  /*
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  */
+  padding: 0px;
+  margin: 0px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cX-DataTable-Upload {
+  background-image: url('data:image/png;base64,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');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.cX-DataTable-Upload .cX-DataTable-Root {
+  opacity: 0.1;
+}
+
+/************************************/
+/* Tooltip DataTable                */
+/************************************/
+
+.cX-DataTable-Container .cX-DataTable-Row:not(:first-child):hover {
+  background-color: var(--cx-datatable-row-hover-background-color) !important;
+}
+
+.cX-DataTable-Container .cX-DataTable-Cell-Tooltip {
+  font-size: var(--cx-small-font-size);
+  line-height: 1.4;
+  overflow: hidden;
+  padding: 5px 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 120px;
+}
+
+/* @category: widget */
+/***************/
+/* Data Filter */
+/***************/
+
+.cX-DataFilter,
+.cX-DataFilter-Toolbar,
+.cX-DataFilter-Toolbar-Text,
+.cX-DataFilter-Text,
+.cX-DataFilter-Text-Active {
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-x-large-font-size);
+  color: var(--cx-font-color);
+}
+
+.cX-DataFilter,
+.cX-DataFilter-Toolbar {
+  box-sizing: border-box;
+  line-height: 100%;
+  margin: 0px;
+  position: absolute;
+}
+
+.cX-DataFilter {
+  top: 0px;
+  left: 0px;
+  display: none;
+  z-index: 10000;
+  height: 100%;
+}
+
+.cX-DataFilter-Toolbar {
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color)) !important;
+  border-radius: var(--cx-border-radius);
+  width: 100%;
+  left: 0px;
+  top: 0px;
+}
+
+.cX-DataFilter-Toolbar-Top-Container {
+  float: left;
+  position: relative;
+  width: 100%;
+  z-index: 10001;
+  background-color: var(--cx-datafilter-toolbar-background-color, var(--cx-datatable-banner-background-color));
+  border-bottom: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0px 0px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0px 4px;
+  top: 0px;
+  left: 0px;
+}
+
+.cX-DataFilter-Toolbar-Bottom-Container {
+  position: relative;
+  background-color: transparent;
+  border: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  padding: 0px 4px;
+  top: 0px;
+  left: 0px;
+}
+
+.cX-DataFilter-Toolbar-Text,
+.cX-DataFilter-Text,
+.cX-DataFilter-Text-Active {
+  left: 8px;
+  line-height: 100%;
+  position: relative;
+  top: 6px;
+  background-repeat: no-repeat;
+  background-position: -0px;
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  font-size: var(--cx-datafilter-font-size, var(--cx-font-size));
+}
+
+.cX-DataFilter-Toolbar-Text {
+  flex: 1;
+  top: 0px;
+  left: 0px;
+  padding-left: 8px;
+  font-size: var(--cx-font-size);
+}
+
+svg.cX-DataFilter-Toolbar-Image,
+svg.cX-DataFilter-Toolbar-ImageNB {
+  margin: 0px !important;
+  cursor: pointer;
+}
+
+.cX-DataFilter-Summary {
+  width: 100%;
+  padding: 2px 8px 4px 8px;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  opacity: 0.7;
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  font-size: var(--cx-datafilter-font-size, var(--cx-font-size));
+}
+
+
+.cX-DataFilter-Content {
+  box-sizing: border-box;
+  background-color: var(--cx-datafilter-background-color, var(--cx-background-widgets-color));
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: 0px 0px var(--cx-border-radius) var(--cx-border-radius);
+  border-top: 0px;
+  font-family: var(--cx-font-family);
+  font-size: var(--cx-datafilter-font-size, var(--cx-font-size));
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px;
+  width: 100%;
+  height: 0px;
+  display: none;
+}
+
+input[type=checkbox].cX-Checkbox {
+  accent-color: var(--cx-background-accent-color);
+  border-radius: var(--cx-border-radius);
+  height: 14px;
+  width: 14px;
+  margin: 2px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+label.cX-Checkbox-Label {
+  width: 220px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow-x: hidden;
+  margin: 0 0 0 3px !important;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+input.cX-DataFilter-Search {
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  cursor: default;
+  width: calc(100% - 10px);
+  margin-left: 5px;
+  padding-left: 5px;
+  height: 32px;
+  outline: none;
+  font-size: var(--cx-datafilter-font-size, var(--cx-font-size));
+  display: flex;
+}
+
+input[type="search"].cX-DataFilter-Search::-webkit-search-cancel-button {
+  -webkit-appearance: auto;
+  height: 16px;
+  width: 16px;
+  cursor: pointer;
+}
+
+.cX-DataFilter-Container,
+.cX-DataFilter-Container-Mask,
+.cX-DataFilter-Container-Hoverable {
+  box-sizing: border-box;
+}
+
+.cX-DataFilter-Container {
+  border: 0px;
+  left: 0px;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  width: 100%;
+}
+
+.cX-DataFilter-Container-Mask {
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  margin: 5px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.cX-DataFilter-Container-Hoverable:hover {
+  background-color: var(--cx-datafilter-hover-color, var(--cx-background-hover-color));
+}
+
+.cX-DataFilter-Container-Hoverable {
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  margin: 2px;
+  margin-bottom: 4px;
+}
+
+/*
+ * "colorful" style — per-filter accent. Each filter carries its own colour
+ * (set inline as --cx-item-accent / --cx-item-accent-bg, hashed from the filter
+ * name so it stays stable across updates): a left accent bar plus a matching
+ * hover. The class is only added when dataUIStyle === 'colorful'.
+ */
+.cX-DataFilter-ItemAccent {
+  border-left: 3px var(--cx-border-style) var(--cx-item-accent) !important;
+}
+.cX-DataFilter-ItemAccent:hover {
+  background-color: var(--cx-item-accent-bg) !important;
+}
+.cX-DataFilter-ItemAccent > :first-child {
+  color: var(--cx-item-accent) !important;
+  font-weight: bold;
+}
+/* The filter's controls (range fill/thumbs, toggle, select, checkbox) follow the
+ * card's colour instead of the global purple. */
+.cX-DataFilter-ItemAccent div.cX-RangeSlider > div.cX-RangeSlider-Range,
+.cX-DataFilter-ItemAccent div.cX-RangeSlider > div.cX-RangeSlider-Thumb-Left,
+.cX-DataFilter-ItemAccent div.cX-RangeSlider > div.cX-RangeSlider-Thumb-Right {
+  background-color: var(--cx-item-accent) !important;
+}
+.cX-DataFilter-ItemAccent input.cX-Toggle:checked + div.cX-Toggle-Switch {
+  background: var(--cx-item-accent) !important;
+}
+.cX-DataFilter-ItemAccent select {
+  border-color: var(--cx-item-accent) !important;
+}
+.cX-DataFilter-ItemAccent select:focus {
+  outline-color: var(--cx-item-accent) !important;
+}
+.cX-DataFilter-ItemAccent input[type=checkbox].cX-Checkbox {
+  accent-color: var(--cx-item-accent) !important;
+}
+
+.cX-DataFilter-Head,
+.cX-DataFilter-Head-Active {
+  background: var(--cx-background-hover-color);
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  border-radius: var(--cx-border-radius);
+  box-sizing: border-box;
+  color: var(--cx-font-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 8px;
+  height: 38px;
+  margin-top: 2px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.cX-DataFilter-Head .cX-DataFilter-Text,
+.cX-DataFilter-Head-Active .cX-DataFilter-Text,
+.cX-DataFilter-Head-Active .cX-DataFilter-Text-Active {
+  top: 0px;
+  left: 0px;
+  font-size: var(--cx-font-size);
+}
+
+.cX-DataFilter-Head-Active {
+  border-bottom: var(--cx-border-transparent) !important;
+  border-radius: var(--cx-border-radius) var(--cx-border-radius) 0px 0px;
+}
+
+svg.cX-DataFilter-Toolbar-Image {
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color) !important;
+  border-radius: var(--cx-border-radius) !important;
+  padding: 2px;
+}
+
+svg.cX-DataFilter-Toolbar-ImageNB {
+  border: none !important;
+  z-index: 10002;
+}
+
+.cX-DataFilter-Container-Mask-NoOverflow {
+  border: 1px var(--cx-border-style) var(--cx-datatable-border-color);
+  box-sizing: border-box;
+  margin: 5px;
+  overflow: hidden;
+}
+
+input.cX-DataFilter-Container-Input-Left {
+  float: left;
+  margin: 10px;
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  font-size: var(--cx-small-font-size);
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  background-color: var(--cx-datafilter-background-color, var(--cx-background-widgets-color));
+}
+
+input.cX-DataFilter-Container-Input-Right {
+  float: right;
+  margin: 10px;
+  border: 1px var(--cx-border-style) var(--cx-datafilter-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  font-size: var(--cx-small-font-size);
+  color: var(--cx-datafilter-text-color, var(--cx-font-color));
+  background-color: var(--cx-datafilter-background-color, var(--cx-background-widgets-color));
+}
+
+/* @category: widget */
+/***************/
+/*   Toggle    */
+/***************/
+
+div.cX-Toggle {
+  border: none;
+  margin: 5px;
+  height: 18px;
+  font-size: inherit;
+}
+
+label.cX-Toggle {
+  cursor: pointer;
+}
+
+div.cX-Toggle-Switch {
+  display: inline-block;
+  background: var(--cx-color-light-gray);
+  border-radius: 16px;
+  width: 28px;
+  height: 18px;
+  position: relative;
+  vertical-align: middle;
+  transition: background 0.25s;
+}
+
+div.cX-Toggle-Switch:before,
+div.cX-Toggle-Switch:after {
+  content: "";
+}
+
+div.cX-Toggle-Switch:before {
+  display: block;
+  background: linear-gradient(to bottom, var(--cx-color-white) 0%, var(--cx-color-extra-light-gray) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.25);
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left var(--cx-transition-speed);
+}
+
+label.cX-Toggle:hover div.cX-Toggle-Switch:before {
+  background: linear-gradient(to bottom, var(--cx-color-white) 0%, var(--cx-color-white) 100%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+input.cX-Toggle:checked+div.cX-Toggle-Switch {
+  background: var(--cx-toggle-switch-background-color);
+}
+
+input.cX-Toggle:checked+div.cX-Toggle-Switch:before {
+  left: 12px;
+}
+
+input.cX-Toggle {
+  position: absolute;
+  visibility: hidden;
+}
+
+span.cX-Toggle {
+  margin-left: 5px;
+  margin-right: 5px;
+  position: relative;
+}
+
+/* @category: widget */
+/****************/
+/* Range Slider */
+/****************/
+
+div.cX-RangeSlider-Container {
+  border: none;
+  margin: auto;
+  height: 110px;
+}
+
+div.cX-RangeSlider-Container-Top {
+  height: 18px;
+  margin: 5px;
+  position: relative;
+  display: flex;
+}
+
+span.cX-RangeSlider-Container-Top {
+  border: none;
+}
+
+div.cX-RangeSlider-Container-Bottom {
+  height: 80px;
+  position: relative;
+}
+
+div.cX-RangeSlider-Input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0;
+  height: 32px;
+}
+
+input.cX-RangeSlider-Min,
+input.cX-RangeSlider-Max {
+  border: none;
+  border-radius: var(--cx-border-radius);
+  font: var(--cx-font);
+  color: var(--cx-font-color);
+  background-color: var(--cx-background-widgets-color);
+  height: 22px;
+  line-height: 100%;
+  width: calc(50% - 6px);
+}
+
+input.cX-RangeSlider-Min {
+  margin-left: 1px;
+}
+
+input.cX-RangeSlider-Max {
+  margin-right: 1px;
+  text-align: right;
+}
+
+div.cX-RangeSlider {
+  position: relative;
+  z-index: 10001;
+  height: 8px;
+  margin: 0 15px;
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Track {
+  position: absolute;
+  z-index: 10001;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--cx-border-radius);
+  background-color: rgb(238, 238, 238);
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Range {
+  background-color: var(--cx-toggle-switch-background-color);
+  position: absolute;
+  z-index: 10002;
+  left: 0%;
+  right: 0%;
+  top: 0;
+  bottom: 0;
+  border-radius: var(--cx-border-radius);
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Left,
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Right {
+  position: absolute;
+  z-index: 10003;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  transition: box-shadow var(--cx-transition-speed) ease-in-out;
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Left,
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Right {
+  background-color: var(--cx-toggle-switch-background-color);
+  box-shadow: 0 0 0 0 var(--cx-background-hover-color);
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Left {
+  left: 0%;
+  transform: translate(-15px, -5px);
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Right {
+  right: 0%;
+  transform: translate(15px, -5px);
+}
+
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Left:hover,
+div.cX-RangeSlider>div.cX-RangeSlider-Thumb-Right:hover {
+  box-shadow: 0 0 0 10px var(--cx-background-hover-color);
+}
+
+input[type=range].cX-Customizer-RightItemRangeSelect {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+  border-radius: var(--cx-border-radius);
+  background: var(--cx-color-extra-light-gray);
+  outline: none;
+  opacity: 1;
+}
+
+input[type=range].cX-Customizer-RightItemRangeSelect::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--cx-toggle-switch-background-color);
+  cursor: pointer;
+}
+
+input[type=range].cX-Customizer-RightItemRangeSelect::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: var(--cx-toggle-switch-background-color);
+  cursor: pointer;
+}
+
+input[type=range] {
+  position: absolute;
+  pointer-events: none;
+  appearance: none;
+  -webkit-appearance: none;
+  z-index: 10002;
+  height: 10px;
+  width: 100%;
+  opacity: 0;
+}
+
+input[type=range]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 30px;
+  height: 30px;
+  border-radius: 0;
+  border: 0 none;
+  background-color: red;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+div.cX-RangeSlider-Ticks,
+div.cX-RangeSlider-Ticks-Log {
+  display: flex;
+  padding: 0px 10px;
+  height: 18px;
+  margin-top: 10px;
+}
+
+div.cX-RangeSlider-Ticks {
+  justify-content: space-between;
+}
+
+span.cX-RangeSlider-Ticks-Long,
+span.cX-RangeSlider-Ticks-Long-Small,
+span.cX-RangeSlider-Ticks {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 1px;
+  background: var(--cx-toggle-switch-background-color);
+  margin-bottom: 10px;
+}
+
+span.cX-RangeSlider-Ticks-Long,
+span.cX-RangeSlider-Ticks-Long-Small {
+  color: var(--cx-font-color);
+  height: 10px;
+  line-height: 35px;
+  font-size: var(--cx-small-font-size);
+}
+
+span.cX-RangeSlider-Ticks {
+  height: 5px;
+  line-height: 10px;
+}
+
+/**
+ * Input type number
+ */
+
+input[type=number]::-webkit-inner-spin-button {
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+/* @category: shared */
+/***************/
+/*  Scrollbars */
+/***************/
+
+/* All scrollbar buttons*/
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar-button,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar-button,
+/*div.cX-DataFilter-Content::-webkit-scrollbar-button,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar-button,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar-button {
+  width: 4px;
+  height: 4px;
+}
+
+/* Tracks can be of two different colors */
+
+/*div.cX-DataFilter-Content::-webkit-scrollbar-track,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar-track,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar-track {
+  background-color: var(--cx-background-widgets-color);
+}
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar-track,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar-track {
+  background-color: var(--cx-background-hover-color);
+  border-radius: var(--cx-border-radius);
+}
+
+/* All tracks -hovers */
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar-track:hover,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar-track:hover,
+/*div.cX-DataFilter-Content::-webkit-scrollbar-track:hover,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar-track:hover,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar-track:hover {
+  background-color: var(--cx-background-hover-color);
+  border-radius: var(--cx-border-radius);
+}
+
+/* scrollbar background could be of two different colors but match the style tracks above */
+
+/*div.cX-DataFilter-Content::-webkit-scrollbar,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cx-scrollbar-background-color);
+}
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+  background-color: var(--cx-scrollbar-alt-background-color);
+}
+
+/* All tracks thumbs */
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar-thumb,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar-thumb,
+/*div.cX-DataFilter-Content::-webkit-scrollbar-thumb,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar-thumb,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar-thumb {
+  background-color: var(--cx-scrollbar-thumb-color);
+  border-radius: var(--cx-border-radius);
+  border: none;
+}
+
+div.cX-DataTable-Horizontal-Scrollbar::-webkit-scrollbar-thumb:hover,
+div.cX-DataTable-Vertical-Scrollbar::-webkit-scrollbar-thumb:hover,
+/*div.cX-DataFilter-Content::-webkit-scrollbar-thumb:hover,*/
+div.cX-DataFilter-Container-Mask::-webkit-scrollbar-thumb:hover,
+div.cX-DataFilter-Container-Mask-NoOverflow::-webkit-scrollbar-thumb:hover {
+  background-color: var(--cx-scrollbar-thumb-hover-color);
+}
+
+.cX-DataFilter::selection,
+.cX-DataFilter-Toolbar::selection {
+  background: var(--cx-color-transparent);
+  color: var(--cx-font-color);
+}
+/* @category: widget */
+/*****************
+ * Context Menus *
+ *****************/
+
+.cX-Menu-Container {
+  position: sticky;
+  z-index: 100000;
+  background: transparent;
+  height: 0px;
+}
+
+.cX-Menu {
+  box-sizing: border-box;
+  background-color: var(--cx-context-menu-background-color, var(--cx-background-widgets-color));
+  background-image: url(data:image/gif;base64,R0lGODlh+gABAIcAAOLj4/Dw8P///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAAAAP8ALAAAAAD6AAEAAAgfAAMIHEiwoMGBAAQcXMiwocOHECNKnEixosWLGCMGBAA7);
+  background-repeat: repeat-y;
+  border: 1px var(--cx-border-style) var(--cx-context-menu-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  box-shadow: rgba(154, 154, 154, 0.2) 3px 3px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  -moz-box-shadow: rgba(154, 154, 154, 0.2) 3px 3px;
+}
+
+.cX-Menu-Sub {
+  box-sizing: border-box;
+  background-color: var(--cx-context-menu-background-color, var(--cx-background-widgets-color));
+  border: 1px var(--cx-border-style) var(--cx-context-menu-border-color, var(--cx-datatable-border-color));
+  border-radius: var(--cx-border-radius);
+  box-shadow: rgba(154, 154, 154, 0.2) 3px 3px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 100%;
+  margin: 0px;
+  padding: 0px;
+  position: absolute;
+  -moz-box-shadow: rgba(154, 154, 154, 0.2) 3px 3px;
+}
+
+ul.cX-Menu-List {
+  background: transparent;
+  border: 0px none;
+  list-style: none;
+  margin: 0px;
+  overflow: auto;
+  padding: 2px !important;
+  height: calc(100% - 100px);
+}
+
+.cX-Menu-Item-Sep {
+  display: block;
+  font: var(--cx-font);
+  color: var(--cx-font-color);
+  font-size: 1px;
+  height: 100%;
+  line-height: 1px;
+  list-style: none;
+  margin: 0px;
+  padding: 1px;
+  /* width: 100%; */
+  white-space: nowrap;
+}
+
+input[type=file] {
+  display: block;
+}
+
+.cX-Menu-Item,
+.cX-Menu-Item-Active {
+  border-style: solid;
+  border-width: 1px 0px;
+  cursor: default;
+  display: block;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  height: 100%;
+  line-height: 100%;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  width: 100%;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.cX-Menu-Item {
+  border-color: rgba(0, 0, 0, 0);
+}
+
+.cX-Menu-Item:hover,
+.cX-Menu-Item-Active {
+  background: var(--cx-context-menu-hover-color, rgba(83, 105, 255, 0.1));
+  border-color: var(--cx-context-menu-border-color, rgb(83, 105, 255));
+}
+
+.cX-Menu-Item-Active > :first-child,
+.cX-Menu-Item-Active > :first-child > svg:first-child {
+  pointer-events: none;
+}
+
+.cX-Menu-Item-Active > :first-child > div:last-child,
+.cX-Menu-Item-Active > :first-child > input:last-child {
+  pointer-events: auto;
+}
+
+/*
+ * "colorful" style — per-item accent. Each menu entry carries its own colour
+ * (set inline as --cx-item-accent / --cx-item-accent-bg, hashed from its label):
+ * a left accent bar, a tinted icon chip, and a matching hover/active state.
+ * The class is only added when dataUIStyle === 'colorful'.
+ */
+.cX-Menu-Item-Accent {
+  border-left: 3px solid var(--cx-item-accent) !important;
+}
+.cX-Menu-Item-Accent:hover,
+.cX-Menu-Item-Accent.cX-Menu-Item-Active {
+  background: var(--cx-item-accent-bg) !important;
+  border-color: var(--cx-item-accent) !important;
+}
+.cX-Menu-Item-Accent .cX-Menu-List-Icon {
+  background: var(--cx-item-accent-bg) !important;
+  border-radius: var(--cx-border-radius, 5px);
+}
+.cX-Menu-Item-Accent .cX-Menu-Item-Text {
+  color: var(--cx-item-accent) !important;
+}
+
+.cX-Menu-Item-Scroll-Top {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFCAYAAACw/UeDAAAARUlEQVR42mNkQAMXL178z0Ah0NfXZ0Tmo3BAFkhLS+M1IDw8kmHlyuV41Tx9+hTFIjiDWAtggBSLGMmxgFSLGKkRB4QAAILWJXgE49MrAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 0px;
+  cursor: pointer;
+  height: 9px;
+  line-height: 9px;
+  width: 100%;
+}
+
+.cX-Menu-Item-Scroll-Top-Active {
+  background-color: rgb(219, 236, 244);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFCAYAAACw/UeDAAAAbUlEQVR42mNkQAOHb/38z0AhsFVjZ0Tmo3BAFmjIsOHULMLJwKDs1sFwd1cFw5vvuC258eQXikWMyBYoSOC2QIYXYgEMgCx68hm3RQ9eICxihFkgzI/bAk0xVAuQLbr+CrdFbz9CLGKkRhwQAgBYqyubRxy5uAAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px;
+  border-color: rgb(170, 204, 246);
+  border-style: solid;
+  cursor: pointer;
+  height: 9px;
+  line-height: 9px;
+  width: 100%;
+}
+
+.cX-Menu-Item-Scroll-Bottom {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFCAYAAACw/UeDAAAASUlEQVR42mO8ePHifwYaA0YQAbJIWloar8Lw8EgMsZUrl+PV8/TpUwZ9fX1GRpgAqRYRawHcJ6RaRIoFGJbALCIcyvgBsgUgAACiryV42XltywAAAABJRU5ErkJggg==);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 0px;
+  cursor: pointer;
+  height: 9px;
+  line-height: 9px;
+  width: 100%;
+}
+
+.cX-Menu-Item-Scroll-Bottom-Active {
+  background-color: rgb(219, 236, 244);
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABkAAAAFCAYAAACw/UeDAAAAcklEQVR42mM8fOvnfwYaA0YQAbJImJ8NpyJNMQYGZbcODPG7uyoYrr/Cbfjbj78YbNXYGRlhAiCLFCRwWyTDi2oRyIInn3Fb8OAFxAK4T5At0pDBbZEIJ8QikAVvvuO24MYThAUYlsAsIjPo4QDZAhAAAK/AK5vjVTSgAAAAAElFTkSuQmCC);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px;
+  border-color: rgb(170, 204, 246);
+  border-style: solid;
+  cursor: pointer;
+  height: 9px;
+  line-height: 9px;
+  width: 100%;
+}
+
+.cX-Menu-Item-Scroll-Search {
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: default;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  margin: 3px;
+  outline-style: none;
+  outline-width: 0px;
+  padding-left: 5px;
+  width: 93%;
+}
+
+.cX-Menu-Item-A {
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-width: 0px 1px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  display: flex;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  margin: 0px;
+  outline-style: none;
+  outline-width: 0px;
+  padding: 3px 3px 3px 38px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cX-Menu-Item-A-Active {
+  border-color: var(--cx-context-menu-border-color, rgb(170, 204, 246));
+  border-style: solid;
+  border-width: 0px 1px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  display: flex;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  margin: 0px;
+  outline-style: none;
+  outline-width: 0px;
+  padding: 3px 3px 3px 38px;
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.cX-Menu-Item-A-Arrow {
+  background: url(data:image/gif;base64,R0lGODlhDAAJAIcAACluvipxvzJ1vyxwwCt1yjp6zkD/QDiC1jmE0zyE0z2I3UeLyUGJ2VWUzlKg7FSg6Weg1WKq8Y7D9orD/JXL/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAYALAAAAAAMAAkAAAgzAA8YGEiwoAEFCQwaJEABgUKCBCRMYPDQAIEHESAIeEjAQYMAFQksAFDR4oCSBgqgNBAQADs=) no-repeat scroll right 50% transparent;
+  border-color: rgba(0, 0, 0, 0);
+  border-style: solid;
+  border-width: 0px 1px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  display: flex;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  margin: 0px;
+  outline-style: none;
+  outline-width: 0px;
+  padding: 3px 3px 3px 38px;
+  position: relative;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.cX-Menu-Item-A-Arrow-Active {
+  background: url(data:image/gif;base64,R0lGODlhDAAJAIcAACluvipxvzJ1vyxwwCt1yjp6zkD/QDiC1jmE0zyE0z2I3UeLyUGJ2VWUzlKg7FSg6Weg1WKq8Y7D9orD/JXL/wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAMAAAYALAAAAAAMAAkAAAgzAA8YGEiwoAEFCQwaJEABgUKCBCRMYPDQAIEHESAIeEjAQYMAFQksAFDR4oCSBgqgNBAQADs=) no-repeat scroll right 50% transparent;
+  border-color: var(--cx-context-menu-border-color, rgb(170, 204, 246));
+  border-style: solid;
+  border-width: 0px 1px;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  display: flex;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  margin: 0px;
+  outline-style: none;
+  outline-width: 0px;
+  padding: 3px 3px 3px 38px;
+  position: relative;
+  text-decoration: none !important;
+  white-space: nowrap;
+}
+
+.cX-Menu-List-Icon {
+  background-position: center;
+  border: 0px none !important;
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  height: 24px;
+  line-height: 24px;
+  list-style: none;
+  left: 3px;
+  margin: 0px !important;
+  padding: 0px;
+  position: absolute;
+  top: 3px;
+  vertical-align: top;
+  width: 24px;
+  white-space: nowrap;
+  background: rgba(0, 0, 0, 0) !important;
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0) !important;
+}
+
+.cX-Menu-Item-Text {
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  font: var(--cx-context-menu-font-size, var(--cx-small-font-size)) var(--cx-font-family);
+  line-height: 24px;
+  list-style: none;
+  white-space: nowrap;
+}
+
+span.cX-Menu-Item-Text {
+  margin-right: 10px;
+}
+
+.cX-Menu-Item-Text-Short {
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  cursor: pointer;
+  float: right;
+  font: var(--cx-small-font-italic);
+  line-height: 24px;
+  list-style: none;
+  right: 10px;
+  position: absolute;
+  white-space: nowrap;
+}
+
+.cX-Menu-Item-Text-Sep {
+  background-color: var(--cx-context-menu-hover-color, rgb(224, 224, 224));
+  border-bottom: 1px solid;
+  border-bottom-color: rgb(255, 255, 255);
+  display: block;
+  font: var(--cx-small-font-size) var(--cx-font-family);
+  color: var(--cx-context-menu-text-color, var(--cx-font-color));
+  font-size: 1px;
+  line-height: 1px;
+  list-style: none;
+  margin: 2px 3px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+/* @category: widget */
+/***********
+ * Resizer *
+ ***********/
+
+.cX-Resize-Indicator {
+  position: absolute;
+  bottom: 10px;
+  right: 30px;
+  background: rgb(83, 105, 255);
+  color: white;
+  padding: 4px 10px;
+  border-radius: var(--cx-border-radius);
+  font-size: var(--cx-small-font-size);
+  font-weight: bold;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 10001;
+  transition: opacity var(--cx-transition-speed) linear;
+}
+
+.cX-Resize-Indicator.resizing {
+  opacity: 1;
+}
+
+/* 8-POINT RESIZER STYLES */
+.cX-Resizer {
+  position: absolute;
+  z-index: 2000;
+  background: transparent;
+}
+
+.cX-Resizer.t {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  cursor: n-resize !important;
+}
+
+.cX-Resizer.b {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 8px;
+  cursor: s-resize !important;
+}
+
+.cX-Resizer.l {
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 8px;
+  cursor: w-resize !important;
+}
+
+.cX-Resizer.r {
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 8px;
+  cursor: e-resize !important;
+}
+
+.cX-Resizer.lt {
+  top: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  cursor: nw-resize !important;
+}
+
+.cX-Resizer.rt {
+  top: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  cursor: ne-resize !important;
+}
+
+.cX-Resizer.lb {
+  bottom: 0;
+  left: 0;
+  width: 12px;
+  height: 12px;
+  cursor: sw-resize !important;
+}
+
+.cX-Resizer.rb {
+  bottom: 0;
+  right: 0;
+  width: 12px;
+  height: 12px;
+  cursor: se-resize !important;
+}
+
+/* @category: shared */
+/******************
+ *  New Viewport  *
+ ******************/
+
+body.has-fullscreen {
+  overflow: hidden;
+  background: #ffffff;
+  padding: 0;
+  display: block;
+}
+
+.cX-Leaflet {
+  position: absolute;
+  visibility: visible;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.cX-Viewer-Drag,
+.cX-Viewer-Drag-Layout {
+  position: absolute;
+  background-color: rgba(204,204,204,0.7);
+}
+
+.cX-DOM {
+  padding: 0;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: var(--base-w);
+  height: var(--base-h);
+}
+
+.cX-DOM:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+  overflow-y: auto;
+}
+
+.cX-DOM:fullscreen::backdrop {
+  background-color: black;
+  opacity: 1 !important;
+}
+
+.cX-DOM.fullscreen-mode {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  z-index: 1;
+  background: transparent !important;
+}
+
+.cX-Wrapper {
+  padding: 0;
+  transition: width var(--cx-transition-speed) ease-out, height var(--cx-transition-speed) ease-out;
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  width: var(--base-w);
+  height: var(--base-h);
+}
+
+.cX-Wrapper.resizing {
+  transition: none !important;
+}
+
+.cX-Wrapper.resizing .cX-Container,
+.cX-Wrapper.resizing .cX-Container-Cell {
+  transition: none !important;
+}
+
+
+.cX-Container,
+.CanvasXpress {
+  width: 100%;
+  height: 100%;
+  transition: width var(--cx-transition-speed) ease, height var(--cx-transition-speed) ease;
+}
+
+.cX-Wrapper.fullscreen-mode {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  margin: 0 !important;
+  z-index: 9999;
+  border-radius: 0;
+  background: #ffffff !important;
+  height: 100vh !important;
+  width: 100vw !important;
+}
+
+.cX-UI {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  flex-grow: 1;
+  position: relative;
+}
+
+.cX-Container {
+  width: var(--base-w);
+  height: var(--base-h);
+  background-color: transparent;
+  position: relative;
+  flex-shrink: 0;
+  transition: width var(--cx-transition-speed) ease, height var(--cx-transition-speed) ease;
+}
+
+.cX-Wrapper.fullscreen-mode .cX-Container {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cX-Container-Cell {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  color: white;
+  border: none;
+  transition: all var(--cx-transition-speed) ease, opacity var(--cx-transition-speed) ease;
+  opacity: 0;
+  pointer-events: none;
+  background: transparent;
+}
+
+.cX-Container-Cell.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cX-Canvas-Container {
+  margin: auto;
+  display: flex;
+  align-items: center;
+}
+
+/* Version Info Box */
+
+.cX-Version-Info-Trigger {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  z-index: 10000;
+  pointer-events: auto;
+}
+
+.cX-Version-Info-Container {
+  position: absolute;
+  left: 32px;
+  top: 32px;
+  border: var(--cx-border);
+  border-radius: 10px;
+  padding: 8px;
+  background: #ffffff;
+  opacity: 0;
+  z-index: 1001;
+  transition: all var(--cx-transition-speed) ease;
+  overflow: hidden;
+  white-space: nowrap;
+  font: var(--cx-x-large-font);
+  pointer-events: none;
+}
+
+.cX-Version-Info-Trigger:hover+.cX-Version-Info-Container {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* HTML Widget Container */
+
+.cX-Container-HTMLWidget {
+  z-index: 100000;
+  background: transparent;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+/******************
+ *  End Viewport  *
+ ******************/
+
+/* @category: shared */
+/* Magic Effects */
+
+/*
+Magic - Ver 1.3.0 - https://minimamente.com
+Licensed under the MIT license
+Copyright (c) 2018 Christian Pucci
+*/
+
+.magictime {
+  -webkit-animation-duration: var(--cx-animation-speed);
+  animation-duration: var(--cx-animation-speed);
+  -webkit-animation-fill-mode: both;
+  animation-fill-mode: both;
+}
+
+.holeIn {
+  -webkit-animation-name: holeIn;
+  animation-name: holeIn;
+}
+
+@-webkit-keyframes holeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0) rotateY(360deg);
+    transform: scale(0, 0) rotateY(360deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1) rotateY(0deg);
+    transform: scale(1, 1) rotateY(0deg);
+  }
+}
+
+@keyframes holeIn {
+  0% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0) rotateY(360deg);
+    transform: scale(0, 0) rotateY(360deg);
+  }
+
+  100% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1) rotateY(0deg);
+    transform: scale(1, 1) rotateY(0deg);
+  }
+}
+
+.holeOut {
+  -webkit-animation-name: holeOut;
+  animation-name: holeOut;
+}
+
+@-webkit-keyframes holeOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1) rotateY(0deg);
+    transform: scale(1, 1) rotateY(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0) rotateY(180deg);
+    transform: scale(0, 0) rotateY(180deg);
+  }
+}
+
+@keyframes holeOut {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(1, 1) rotateY(0deg);
+    transform: scale(1, 1) rotateY(0deg);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    -webkit-transform: scale(0, 0) rotateY(180deg);
+    transform: scale(0, 0) rotateY(180deg);
+  }
+}
+
+.slideLeft {
+  -webkit-animation-name: slideLeft;
+  animation-name: slideLeft;
+}
+
+@-webkit-keyframes slideLeft {
+  0% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateX(-100%);
+    transform: translateX(-100%);
+  }
+
+  100% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateX(0%);
+    transform: translateX(0%);
+  }
+}
+
+.slideUp {
+  -webkit-animation-name: slideUp;
+  animation-name: slideUp;
+}
+
+@-webkit-keyframes slideUp {
+  0% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    opacity: 1;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateY(0%);
+    transform: translateY(0%);
+  }
+
+  100% {
+    opacity: 0;
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transform: translateY(-100%);
+    transform: translateY(-100%);
+  }
+}

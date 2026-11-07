@@ -1,17 +1,41 @@
 citHeader("To cite dbparser in publications use:")
 
-year <- sub("-.*", "", meta$Date)
+year <- if (!is.null(meta$`Date/Publication`)) {
+  sub("-.*", "", meta$`Date/Publication`)
+} else if (!is.null(meta$Date)) {
+  sub("-.*", "", meta$Date)
+} else {
+  format(Sys.Date(), "%Y")
+}
 note <- sprintf("R package version %s", meta$Version)
 
 bibentry(
-  bibtype        = "manual",
-  title          = "DrugBank Database XML Parser",
-  author         = c(person("Mohammed", "Ali"),
-                     person("Ali", "Ezzat")),
-  organization   = "Interstellar for Consultinc inc.",
-  year           = year,
-  note           = note,
-  url            = "https://CRAN.R-project.org/package=dbparser",
-  textVersion    =  paste0("Mohammed Ali, Ali Ezzat (", year,").
-                           dbparser: DrugBank Database XML Parser. ", note, ".")
+  bibtype     = "Article",
+  title       = paste("dbparser: An R Package for Parsing and Integrating",
+                      "Pharmacological Databases"),
+  author      = c(person("Mohammed", "Ali"),
+                  person("Ali", "Ezzat")),
+  journal     = "Journal of Open Source Software",
+  year        = "2026",
+  volume      = "11",
+  number      = "118",
+  pages       = "9950",
+  doi         = "10.21105/joss.09950",
+  textVersion = paste("Ali M, Ezzat A (2026). dbparser: An R Package for",
+                      "Parsing and Integrating Pharmacological Databases.",
+                      "Journal of Open Source Software, 11(118), 9950.",
+                      "doi:10.21105/joss.09950")
+)
+
+bibentry(
+  bibtype      = "Manual",
+  title        = "dbparser: Drugs Databases Parser",
+  author       = c(person("Mohammed", "Ali"),
+                   person("Ali", "Ezzat")),
+  organization = "Interstellar",
+  year         = year,
+  note         = note,
+  url          = "https://CRAN.R-project.org/package=dbparser",
+  textVersion  = paste0("Ali M, Ezzat A (", year, "). dbparser: Drugs ",
+                        "Databases Parser. ", note, ".")
 )

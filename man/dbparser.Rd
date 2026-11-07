@@ -44,16 +44,17 @@ Useful links:
 \itemize{
   \item \url{https://docs.ropensci.org/dbparser/}
   \item \url{https://github.com/ropensci/dbparser}
+  \item \url{https://interstellar-egypt.com}
   \item Report bugs at \url{https://github.com/ropensci/dbparser/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Mohammed Ali \email{moh_fcis@yahoo.com}
+\strong{Maintainer}: Mohammed Ali \email{mohammed.ali@interstellar-egypt.com}
 
 Authors:
 \itemize{
-  \item Mohammed Ali \email{moh_fcis@yahoo.com}
+  \item Mohammed Ali \email{mohammed.ali@interstellar-egypt.com}
   \item Ali Ezzat \email{ali_ezzat85@yahoo.com}
 }
 
@@ -61,6 +62,7 @@ Other contributors:
 \itemize{
   \item Hao Zhu \email{haozhu233@gmail.com} [reviewer]
   \item Emma Mendelsohn [reviewer]
+  \item Interstellar (Interstellar for Consultation Services, URL: https://interstellar-egypt.com) [copyright holder, funder]
 }
 
 }

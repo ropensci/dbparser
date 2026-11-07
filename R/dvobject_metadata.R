@@ -51,10 +51,11 @@ add_database_info <- function(dvobject,
 #' @return Invisibly returns a data.frame containing dvobject metadata
 #'
 #' @examples
-#' \dontrun{
-#' display_merged_db_attrs(drugbank)
-#' metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
-#' }
+#' drugbank <- parseDrugBank(
+#'   system.file("extdata", "drugbank_record_biotech.xml",
+#'               package = "dbparser"))
+#' show_dvobject_metadata(drugbank)
+#' metadata <- show_dvobject_metadata(drugbank, return_df = TRUE)
 #'
 #' @export
 #' @family utility
@@ -160,7 +161,8 @@ find_second_database <- function(attrs) {
     second_db_name = NULL
   )
 
-  standard_attrs <- c("names", "class", "original_db_info", "row.names")
+  standard_attrs <- c("names", "class", "original_db_info", "row.names",
+                      "source_metadata")
   potential_second_db <- setdiff(names(attrs), standard_attrs)
 
   if (length(potential_second_db) > 0) {

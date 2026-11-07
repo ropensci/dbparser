@@ -1,7 +1,47 @@
-# dbparser (development version)
+# dbparser 2.3.0
 
 ## NEW FEATURES
 
+*   **New Parser: `parseHGNC()`**
+    *   Parses the HUGO Gene Nomenclature Committee (HGNC) complete set
+        (`hgnc_complete_set.txt`) and, optionally, its withdrawn entries
+        (`withdrawn.txt`).
+    *   Returns a `dvobject` with `gene`, `gene_name` (every approved, alias
+        and previous symbol and name, one row each) and `withdrawn` (one row
+        per withdrawn ID and the ID it was merged into or split to) tables.
+*   **New Parser: `parseHealthCanadaDPD()`**
+    *   Parses Health Canada's Drug Product Database (DPD) data extract: the
+        marketed, approved, cancelled and dormant product sets, from their
+        zips or unzipped folders.
+    *   Returns a `dvobject` with all 13 tables of Health Canada's read-me,
+        with the read-me's column names, typed codes and dates, and an
+        `extract` column naming each row's product set. Statuses are kept as
+        written; the parser does no status grouping.
+*   **New Parser: `parseOpenFDA()`**
+    *   Parses openFDA's Drugs@FDA and NDC directory downloads, zipped or
+        unzipped, without extracting them to disk.
+    *   Returns a `dvobject` with one table per record level (applications,
+        products, active ingredients, submissions, submission property types,
+        application documents and the `openfda` annotation for Drugs@FDA;
+        products, active ingredients, routes, pharmacologic classes,
+        packaging and the `openfda` annotation for the NDC directory), field
+        names as in the files. Every record is kept as written, including
+        tentative approvals; the parser does no status grouping.
+    *   Adds `jsonlite` to Imports.
+*   **Source metadata on every `dvobject`**
+    *   Every parser now records where its data came from in one attribute,
+        `source_metadata`: release, release date, download date, source URL,
+        licence (SPDX id), licence URL, the attribution or citation the
+        source asks for, the parsed files with their SHA-256 hashes, and the
+        `dbparser` version. Unknown values are `NA`, never guessed.
+    *   Merge and subset functions keep the record of every source.
+    *   File hashes need R 4.5.0 or later (`tools::sha256sum()`); on older R
+        they are `NA`.
+*   **New Utility Function: `get_source_metadata()`**
+    *   Returns a `dvobject`'s source metadata as a tibble, one row per
+        source, with the files as a list column.
+*   New parsers name their version arguments `release` and `release_date`;
+    existing parsers keep `db_version` and `db_exported_date` for now.
 *   **New Parser: `parseHPO()`**
     *   Parses the Human Phenotype Ontology (HPO) gene-phenotype associations
         distributed by Harmonizome (`gene_attribute_edges.txt`, plain or
@@ -20,6 +60,12 @@
 
 ## BUG FIXES
 
+*   `parseDrugBank()` extracts a zip input into a temporary folder that is
+    removed after loading. Earlier versions extracted it next to the input
+    file, which for the bundled example is the installed package. The message
+    now reads "extracted".
+*   The merge functions no longer give tidyselect `.data` deprecation
+    warnings.
 *   CETT `actions` and `polypeptides$general_information` tables now include
     a `drugbank_id` column (#210).
     *   Earlier versions keyed these tables only by the carrier, enzyme, target
@@ -31,14 +77,31 @@
 
 ## DOCUMENTATION
 
+*   New vignette `vignette("getting_started")` parses the bundled DrugBank
+    record and HGNC files and shows their tables and source metadata. It
+    replaces the DrugBank tutorial as the package's introduction on CRAN.
+*   The three vignettes with `canvasXpress` charts (the DrugBank tutorial,
+    integrated pharmacovigilance and HPO target phenotypes) are now articles
+    on the package website only, unchanged, at
+    <https://docs.ropensci.org/dbparser/articles/>. This keeps the installed
+    package small.
 *   New vignette `vignette("cett_mechanisms")` shows how to use the drug link
     in CETT actions to find drugs that share a mechanism. It uses lepirudin and
     bivalirudin, both direct thrombin inhibitors, as the example.
-*   New vignette `vignette("hpo_target_phenotypes")` links DrugBank targets to
-    HPO Mendelian phenotypes to anticipate on-target drug effects for
-    bivalirudin, leuprolide and calcitriol, with `canvasXpress` plots.
+*   New article
+    [Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data](https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html)
+    links DrugBank targets to HPO Mendelian phenotypes to anticipate on-target
+    drug effects for bivalirudin, leuprolide and calcitriol, with
+    `canvasXpress` plots.
+*   `show_dvobject_metadata()` has a working example.
+*   The README has two new sections: "Commercial support and extensions"
+    and "Used in published research".
 
-# dbparser
+## COMING NEXT
+
+*   Parsers for France's public medicines database (BDPM), openFDA drug
+    labels and FAERS summaries, and African pharmacogenomics (PGx) summary
+    tables.
 
 # dbparser 2.2.1
 

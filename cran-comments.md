@@ -1,30 +1,47 @@
+## Maintainer email
+
+The maintainer email changes from moh_fcis@yahoo.com to
+mohammed.ali@interstellar-egypt.com; the old address will confirm.
+
+## Submission
+
+This is a minor release (2.2.1 -> 2.3.0). It adds parsers for the HGNC gene
+nomenclature files, Health Canada's Drug Product Database and the openFDA
+Drugs@FDA and NDC directory downloads; records source metadata on every
+parsed object; and fixes zip inputs being extracted next to the input file
+(for the bundled example, into the installed package). Examples, tests and
+vignettes use small bundled files only and download nothing.
+
 ## Test environments
 
-### local Windows 11, 4.5.1
-0 errors | 0 warnings | 0 note
+* local macOS 27.0.1 (aarch64), R 4.6.1
+* win-builder, R-release: 0 errors | 0 warnings | 1 note (new maintainer)
+* win-builder, R-devel: 0 errors | 0 warnings | 1 note (new maintainer)
+* macOS builder (mac.r-project.org): not run; every upload on 2026-11-07
+  was refused with HTTP 502 (Bad Gateway) from the builder. macOS is covered
+  by the local check and R-hub.
+* R-hub (GitHub Actions), R-devel: linux, windows, macos, macos-arm64 and
+  clang-asan: Status OK on all five
 
-### Windows Server 2022, R-devel, 64 bit
-0 errors | 0 warnings | 0 note
+## R CMD check results
 
-### Ubuntu Linux 20.04.1 LTS, R-release, GCC
-0 errors | 0 warnings | 0 note
+0 errors | 0 warnings | 1 note
 
-### Fedora Linux, R-devel, clang, gfortran
-0 errors | 0 warnings | 0 note
+* checking CRAN incoming feasibility ... NOTE
+  New maintainer: Mohammed Ali <mohammed.ali@interstellar-egypt.com>
+  Old maintainer(s): Mohammed Ali <moh_fcis@yahoo.com>
 
-### win-builder (R version 4.4.0 RC (2024-04-16 r86451 ucrt))
-0 errors | 0 warnings | 0 note
+  The maintainer's email changes, as stated above.
 
-### revdepcheck results
+## Installed size
 
-We checked 0 reverse dependencies, comparing R CMD check results across CRAN and dev versions of this package.
+The installed package is 2.6 MB. During development it had grown to
+14 MB, of which 11.7 MB was three vignettes with interactive charts; these
+are now articles on the package website only (pkgdown), and a short
+chart-free vignette replaces them on CRAN. 2.2.1 shows no installed-size
+note on any CRAN check flavor.
 
- * We saw 0 new problems
- * We failed to check 0 packages
+## Reverse dependencies
 
-### RHub
-
-rhub::rc_submit() # multiple environments are used for testing
-
-### URL checks
-- DrugBank URLs (403): Valid URLs, site blocks automated requests
+There are no reverse dependencies on CRAN
+(`tools::package_dependencies("dbparser", reverse = TRUE)`).

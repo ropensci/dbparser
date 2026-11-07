@@ -1,0 +1,242 @@
+---
+title: "dvobject structures by parser"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{dvobject structures by parser}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  message  = FALSE,
+  echo     = FALSE
+)
+```
+
+Every parser in `dbparser` returns a `dvobject`: a named list of tibbles
+(DrugBank's are nested in lists by section) and a `source_metadata` record.
+This page lists, for each parser, the tables it returns, their columns and
+column types, the keys the parser checks, and the source record.
+
+Nothing on this page is typed by hand. Each section runs the parser on the
+small example files bundled with the package (`inst/extdata`) when the page is
+built, and reads the tables, columns and types from the result. Row counts are
+those of the example files, not of the full databases.
+
+```{r helpers}
+library(dbparser)
+
+example_file <- function(...) {
+  system.file("extdata", ..., package = "dbparser")
+}
+
+# every data frame in a dvobject, with its path, rows and typed columns
+describe_dvobject <- function(x, prefix = "") {
+  if (is.data.frame(x)) {
+    types <- vapply(x, function(column) class(column)[1], character(1))
+    return(data.frame(
+      table   = prefix,
+      rows    = NROW(x),
+      columns = paste0("`", names(x), "` (", types, ")", collapse = ", "),
+      stringsAsFactors = FALSE))
+  }
+  if (is.list(x) && length(x) > 0L) {
+    parts <- lapply(names(x), function(name) {
+      describe_dvobject(x[[name]],
+                        if (prefix == "") name else paste0(prefix, "$", name))
+    })
+    return(do.call(rbind, parts))
+  }
+  NULL
+}
+
+show_structure <- function(x) {
+  knitr::kable(describe_dvobject(x), row.names = FALSE)
+}
+
+show_metadata <- function(x) {
+  metadata <- get_source_metadata(x)
+  fields   <- setdiff(names(metadata), "files")
+  values   <- vapply(fields, function(field) {
+    value <- as.character(metadata[[field]][1])
+    if (is.na(value)) "NA" else value
+  }, character(1))
+  print(knitr::kable(data.frame(field = fields, value = values,
+                                row.names = NULL)))
+  cat("\n\nFiles read, with their SHA-256 hashes:\n\n")
+  print(knitr::kable(metadata$files[[1]], row.names = FALSE))
+}
+
+unzip_dir <- tempfile("dbparser_structures_")
+```
+
+The `source_metadata` fields are the same for every parser. Fields the source
+does not state, or that the caller did not pass (such as `retrieved_at`), are
+`NA`; nothing is guessed. They are read with `get_source_metadata()`.
+
+## DrugBank: `parseDrugBank()`
+
+The drug records of the DrugBank XML, grouped in lists: `drugs` (always),
+and with their options `salts`, `products`, `references` (articles, books,
+links and attachments, for drugs and for carriers, enzymes, targets and
+transporters) and `cett` (carriers, enzymes, targets and transporters, with
+their polypeptides and actions). Here every option is on, on the bundled
+small-molecule record.
+
+The parser checks no key. Drug tables carry `drugbank_id`; CETT tables carry
+`drugbank_id` and the CETT id (e.g. `target_id`).
+
+```{r drugbank}
+drugbank <- parseDrugBank(
+  example_file("drugbank_record_small_molecule.xml"),
+  drug_options       = drug_node_options(),
+  parse_salts        = TRUE,
+  parse_products     = TRUE,
+  references_options = references_node_options(),
+  cett_options       = cett_nodes_options())
+show_structure(drugbank)
+```
+
+```{r drugbank-metadata, results = "asis"}
+show_metadata(drugbank)
+```
+
+## OnSIDES: `parseOnSIDES()`
+
+The seven core relational tables of OnSIDES, named after their files, and
+`high_confidence` when that file is present.
+
+The parser checks no key.
+
+```{r onsides}
+onsides <- parseOnSIDES(
+  dirname(utils::unzip(system.file("onside.zip", package = "dbparser"),
+                       exdir = file.path(unzip_dir, "onsides"))[1]))
+show_structure(onsides)
+```
+
+```{r onsides-metadata, results = "asis"}
+show_metadata(onsides)
+```
+
+## TWOSIDES: `parseTWOSIDES()`
+
+The drug-drug interaction signals of TWOSIDES, one table.
+
+The parser checks no key.
+
+```{r twosides}
+twosides <- parseTWOSIDES(
+  utils::unzip(system.file("twoside_raw.zip", package = "dbparser"),
+               exdir = file.path(unzip_dir, "twosides")))
+show_structure(twosides)
+```
+
+```{r twosides-metadata, results = "asis"}
+show_metadata(twosides)
+```
+
+## HPO: `parseHPO()`
+
+Human Phenotype Ontology gene-phenotype associations as distributed by
+Harmonizome, with one row per gene and one per phenotype in the lookup
+tables.
+
+The parser checks no key; `associations` holds distinct rows.
+
+```{r hpo}
+hpo <- parseHPO(example_file("hpo_gene_attribute_edges.txt"))
+show_structure(hpo)
+```
+
+```{r hpo-metadata, results = "asis"}
+show_metadata(hpo)
+```
+
+## HGNC: `parseHGNC()`
+
+The HGNC complete set (`gene`), every symbol and name of each gene
+(`gene_name`) and the withdrawn entries (`withdrawn`).
+
+The parser stops unless `hgnc_id` is set and unique in `gene`. On the example
+files:
+
+```{r hgnc}
+hgnc <- parseHGNC(example_file("hgnc", "hgnc_complete_set.txt"),
+                  withdrawn_path = example_file("hgnc", "withdrawn.txt"))
+c(gene_hgnc_id_unique         = !anyDuplicated(hgnc$gene$hgnc_id),
+  gene_name_ids_are_genes     = all(hgnc$gene_name$hgnc_id %in%
+                                      hgnc$gene$hgnc_id))
+show_structure(hgnc)
+```
+
+```{r hgnc-metadata, results = "asis"}
+show_metadata(hgnc)
+```
+
+## Health Canada DPD: `parseHealthCanadaDPD()`
+
+The 13 tables of Health Canada's read-me. Every table except
+`inactive_products` holds the rows of each product set requested, with
+`extract` naming the set.
+
+The parser stops unless `drug_code` is unique in `drug_product` and every
+other table's `drug_code` is a product. On the example files:
+
+```{r dpd}
+dpd <- parseHealthCanadaDPD(example_file("health_canada_dpd"))
+c(drug_product_drug_code_unique = !anyDuplicated(dpd$drug_product$drug_code),
+  every_drug_code_is_a_product  = all(vapply(
+    setdiff(names(dpd), "drug_product"),
+    function(table) all(dpd[[table]]$drug_code %in% dpd$drug_product$drug_code),
+    logical(1))))
+show_structure(dpd)
+```
+
+```{r dpd-metadata, results = "asis"}
+show_metadata(dpd)
+```
+
+## openFDA: `parseOpenFDA()`
+
+One table per record level of the Drugs@FDA (`drugsfda_*`) and NDC directory
+(`ndc_*`) downloads, field names as in the files.
+
+The parser stops unless each table's key is unique and every row names its
+parent row. The keys and parents it checks, read from the parser:
+
+```{r openfda-keys}
+specs <- dbparser:::openfda_table_specs()
+knitr::kable(data.frame(
+  table  = names(specs),
+  key    = vapply(specs, function(spec) {
+    if (is.null(spec$key)) "" else paste0("`", spec$key, "`", collapse = ", ")
+  }, character(1)),
+  parent = vapply(specs, function(spec) {
+    if (is.null(spec$parent)) {
+      ""
+    } else {
+      paste0(spec$parent[[2]], " (",
+             paste0("`", spec$parent[[1]], "`", collapse = ", "), ")")
+    }
+  }, character(1)),
+  row.names = NULL))
+```
+
+```{r openfda}
+openfda <- parseOpenFDA(
+  drugsfda_path = example_file("openfda", "drug-drugsfda-0001-of-0001.json.zip"),
+  ndc_path      = example_file("openfda", "drug-ndc-0001-of-0001.json.zip"))
+show_structure(openfda)
+```
+
+```{r openfda-metadata, results = "asis"}
+show_metadata(openfda)
+```
+
+```{r cleanup, include = FALSE}
+unlink(unzip_dir, recursive = TRUE)
+```

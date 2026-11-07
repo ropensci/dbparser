@@ -34,6 +34,7 @@ get_genes_for_phenotype(hpo_db, "thrombosis")
 \seealso{
 Other utility:
 \code{\link[=add_database_info]{add_database_info()}},
+\code{\link[=get_source_metadata]{get_source_metadata()}},
 \code{\link[=search_phenotypes]{search_phenotypes()}},
 \code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
 \code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}},

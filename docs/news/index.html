@@ -7,7 +7,7 @@
 
     <a class="navbar-brand me-2" href="../index.html">dbparser</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,12 +15,23 @@
     </button>
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
-      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/dbparser.html">Get started</a></li>
+      <ul class="navbar-nav me-auto"><li class="nav-item"><a class="nav-link" href="../articles/getting_started.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="../reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
-  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/dbparser_2_2.html">Introducing dbparser 2.2.0</a></li>
+  <ul class="dropdown-menu" aria-labelledby="dropdown-articles"><li><a class="dropdown-item" href="../articles/getting_started.html">Getting started with dbparser</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Worked examples</h6></li>
+    <li><a class="dropdown-item" href="../articles/dbparser.html">Unlocking DrugBank: Parsing and Visualizing Mechanistic Data</a></li>
     <li><a class="dropdown-item" href="../articles/drugbank_nside.html">Integrated Pharmacovigilance: Linking DrugBank, OnSIDES, and TWOSIDES</a></li>
+    <li><a class="dropdown-item" href="../articles/hpo_target_phenotypes.html">Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data</a></li>
+    <li><a class="dropdown-item" href="../articles/cett_mechanisms.html">Drug Mechanism Profiling with CETT Actions</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data structures</h6></li>
+    <li><a class="dropdown-item" href="../articles/dvobject_structures.html">dvobject structures by parser</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release notes</h6></li>
+    <li><a class="dropdown-item" href="../articles/dbparser_2_2.html">Introducing dbparser 2.2.0</a></li>
   </ul></li>
 <li class="active nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
       </ul><ul class="navbar-nav"><li class="nav-item"><form class="form-inline" role="search">
@@ -38,7 +49,78 @@
     </div>
 
     <div class="section level2">
-<h2 class="pkg-version" data-toc-text="development version" id="dbparser-development-version">dbparser (development version)<a class="anchor" aria-label="anchor" href="#dbparser-development-version"></a></h2>
+<h2 class="pkg-version" data-toc-text="2.3.0" id="dbparser-230">dbparser 2.3.0<a class="anchor" aria-label="anchor" href="#dbparser-230"></a></h2>
+<div class="section level3">
+<h3 id="new-features-2-3-0">NEW FEATURES<a class="anchor" aria-label="anchor" href="#new-features-2-3-0"></a></h3>
+<ul><li>
+<strong>New Parser: <code><a href="../reference/parseHGNC.html">parseHGNC()</a></code></strong>
+<ul><li>Parses the HUGO Gene Nomenclature Committee (HGNC) complete set (<code>hgnc_complete_set.txt</code>) and, optionally, its withdrawn entries (<code>withdrawn.txt</code>).</li>
+<li>Returns a <code>dvobject</code> with <code>gene</code>, <code>gene_name</code> (every approved, alias and previous symbol and name, one row each) and <code>withdrawn</code> (one row per withdrawn ID and the ID it was merged into or split to) tables.</li>
+</ul></li>
+<li>
+<strong>New Parser: <code><a href="../reference/parseHealthCanadaDPD.html">parseHealthCanadaDPD()</a></code></strong>
+<ul><li>Parses Health Canada’s Drug Product Database (DPD) data extract: the marketed, approved, cancelled and dormant product sets, from their zips or unzipped folders.</li>
+<li>Returns a <code>dvobject</code> with all 13 tables of Health Canada’s read-me, with the read-me’s column names, typed codes and dates, and an <code>extract</code> column naming each row’s product set. Statuses are kept as written; the parser does no status grouping.</li>
+</ul></li>
+<li>
+<strong>New Parser: <code><a href="../reference/parseOpenFDA.html">parseOpenFDA()</a></code></strong>
+<ul><li>Parses openFDA’s <a href="mailto:Drugs@FDA" class="email">Drugs@FDA</a> and NDC directory downloads, zipped or unzipped, without extracting them to disk.</li>
+<li>Returns a <code>dvobject</code> with one table per record level (applications, products, active ingredients, submissions, submission property types, application documents and the <code>openfda</code> annotation for <a href="mailto:Drugs@FDA" class="email">Drugs@FDA</a>; products, active ingredients, routes, pharmacologic classes, packaging and the <code>openfda</code> annotation for the NDC directory), field names as in the files. Every record is kept as written, including tentative approvals; the parser does no status grouping.</li>
+<li>Adds <code>jsonlite</code> to Imports.</li>
+</ul></li>
+<li>
+<strong>Source metadata on every <code>dvobject</code></strong>
+<ul><li>Every parser now records where its data came from in one attribute, <code>source_metadata</code>: release, release date, download date, source URL, licence (SPDX id), licence URL, the attribution or citation the source asks for, the parsed files with their SHA-256 hashes, and the <code>dbparser</code> version. Unknown values are <code>NA</code>, never guessed.</li>
+<li>Merge and subset functions keep the record of every source.</li>
+<li>File hashes need R 4.5.0 or later (<code><a href="https://rdrr.io/r/tools/sha256sum.html" class="external-link">tools::sha256sum()</a></code>); on older R they are <code>NA</code>.</li>
+</ul></li>
+<li>
+<strong>New Utility Function: <code><a href="../reference/get_source_metadata.html">get_source_metadata()</a></code></strong>
+<ul><li>Returns a <code>dvobject</code>’s source metadata as a tibble, one row per source, with the files as a list column.</li>
+</ul></li>
+<li>New parsers name their version arguments <code>release</code> and <code>release_date</code>; existing parsers keep <code>db_version</code> and <code>db_exported_date</code> for now.</li>
+<li>
+<strong>New Parser: <code><a href="../reference/parseHPO.html">parseHPO()</a></code></strong>
+<ul><li>Parses the Human Phenotype Ontology (HPO) gene-phenotype associations distributed by Harmonizome (<code>gene_attribute_edges.txt</code>, plain or gzip-compressed).</li>
+<li>Returns a <code>dvobject</code> with <code>associations</code>, <code>genes</code> and <code>phenotypes</code> tables. Optional <code>minimum_weight</code>, <code>db_version</code> and <code>db_exported_date</code> arguments filter associations and record dataset metadata.</li>
+</ul></li>
+<li>
+<strong>New Integration Function: <code><a href="../reference/merge_drugbank_hpo.html">merge_drugbank_hpo()</a></code></strong>
+<ul><li>Links DrugBank target genes to HPO phenotypes through gene symbols and adds <code>drugbank_id</code> and <code>drug_name</code> to each gene-phenotype association.</li>
+<li>Chainable with <code><a href="../reference/merge_drugbank_onsides.html">merge_drugbank_onsides()</a></code> and <code><a href="../reference/merge_drugbank_twosides.html">merge_drugbank_twosides()</a></code>.</li>
+</ul></li>
+<li>
+<strong>New HPO helpers: <code><a href="../reference/search_phenotypes.html">search_phenotypes()</a></code> and <code><a href="../reference/get_genes_for_phenotype.html">get_genes_for_phenotype()</a></code></strong>
+<ul><li>
+<code><a href="../reference/search_phenotypes.html">search_phenotypes()</a></code> finds phenotypes by keyword and lists their genes.</li>
+<li>
+<code><a href="../reference/get_genes_for_phenotype.html">get_genes_for_phenotype()</a></code> returns the genes for an HPO id (e.g. <code>"HP:0001250"</code>) or a phenotype name.</li>
+</ul></li>
+</ul></div>
+<div class="section level3">
+<h3 id="bug-fixes-2-3-0">BUG FIXES<a class="anchor" aria-label="anchor" href="#bug-fixes-2-3-0"></a></h3>
+<ul><li>
+<code><a href="../reference/parseDrugBank.html">parseDrugBank()</a></code> extracts a zip input into a temporary folder that is removed after loading. Earlier versions extracted it next to the input file, which for the bundled example is the installed package. The message now reads “extracted”.</li>
+<li>The merge functions no longer give tidyselect <code>.data</code> deprecation warnings.</li>
+<li>CETT <code>actions</code> and <code>polypeptides$general_information</code> tables now include a <code>drugbank_id</code> column (<a href="https://github.com/ropensci/dbparser/issues/210" class="external-link">#210</a>).
+<ul><li>Earlier versions keyed these tables only by the carrier, enzyme, target or transporter id (e.g. <code>target_id</code>). Many drugs share a target, so an action could not be traced back to its drug, and identical actions from different drugs were collapsed into a single row.</li>
+<li>Join CETT tables on both <code>drugbank_id</code> and the CETT id to get one row per drug–protein–action.</li>
+</ul></li>
+</ul></div>
+<div class="section level3">
+<h3 id="documentation-2-3-0">DOCUMENTATION<a class="anchor" aria-label="anchor" href="#documentation-2-3-0"></a></h3>
+<ul><li>New vignette <code><a href="../articles/getting_started.html">vignette("getting_started")</a></code> parses the bundled DrugBank record and HGNC files and shows their tables and source metadata. It replaces the DrugBank tutorial as the package’s introduction on CRAN.</li>
+<li>The three vignettes with <code>canvasXpress</code> charts (the DrugBank tutorial, integrated pharmacovigilance and HPO target phenotypes) are now articles on the package website only, unchanged, at <a href="https://docs.ropensci.org/dbparser/articles/" class="uri">https://docs.ropensci.org/dbparser/articles/</a>. This keeps the installed package small.</li>
+<li>New vignette <code><a href="../articles/cett_mechanisms.html">vignette("cett_mechanisms")</a></code> shows how to use the drug link in CETT actions to find drugs that share a mechanism. It uses lepirudin and bivalirudin, both direct thrombin inhibitors, as the example.</li>
+<li>New article <a href="https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html">Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data</a> links DrugBank targets to HPO Mendelian phenotypes to anticipate on-target drug effects for bivalirudin, leuprolide and calcitriol, with <code>canvasXpress</code> plots.</li>
+<li>
+<code><a href="../reference/show_dvobject_metadata.html">show_dvobject_metadata()</a></code> has a working example.</li>
+<li>The README has two new sections: “Commercial support and extensions” and “Used in published research”.</li>
+</ul></div>
+<div class="section level3">
+<h3 id="coming-next-2-3-0">COMING NEXT<a class="anchor" aria-label="anchor" href="#coming-next-2-3-0"></a></h3>
+<ul><li>Parsers for France’s public medicines database (BDPM), openFDA drug labels and FAERS summaries, and African pharmacogenomics (PGx) summary tables.</li>
+</ul></div>
 </div>
     <div class="section level2">
 <h2 class="pkg-version" data-toc-text="2.2.1" id="dbparser-221">dbparser 2.2.1<a class="anchor" aria-label="anchor" href="#dbparser-221"></a></h2><p class="text-muted">CRAN release: 2026-01-08</p>
@@ -91,7 +173,7 @@
 <ul><li>A comprehensive new tutorial demonstrating a full, three-way integration of DrugBank, OnSIDES, and TWOSIDES.</li>
 <li>Includes a complete scientific case study analyzing single-drug vs. polypharmacy risks.</li>
 <li>Introduces a reproducible example workflow using a pre-computed RDS data object hosted externally to keep the package lightweight.</li>
-<li>Run <code><a href="../articles/drugbank_nside.html">vignette("drugbank_nside", package = "dbparser")</a></code> for more info</li>
+<li>Run <code><a href="https://docs.ropensci.org/dbparser/articles/drugbank_nside.html">vignette("drugbank_nside", package = "dbparser")</a></code> for more info</li>
 </ul></li>
 <li>Updated existing vignette and package Readme with enhanced examples</li>
 </ul></div>
@@ -277,7 +359,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="http://mohammedfcis.github.io" class="external-link">Mohammed Ali</a>, Ali Ezzat.</p>
+  <p>Developed by <a href="http://mohammedfcis.github.io" class="external-link">Mohammed Ali</a>, Ali Ezzat, Interstellar.</p>
 </div>
 
 <div class="pkgdown-footer-right">

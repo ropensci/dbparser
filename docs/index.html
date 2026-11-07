@@ -16,8 +16,8 @@
 <script src="deps/bootstrap-5.3.8/bootstrap.bundle.min.js"></script><link href="deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
 <script src="deps/headroom-0.11.0/headroom.min.js"></script><script src="deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="deps/search-1.0.0/fuse.min.js"></script><script src="deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="pkgdown.js"></script><meta property="og:title" content="Drugs Databases Parser">
-<meta name="description" content="This tool is for parsing public drug databases such as DrugBank XML database &lt;https://go.drugbank.com/&gt;. The parsed data are then returned in a proper R object called dvobject.">
-<meta property="og:description" content="This tool is for parsing public drug databases such as DrugBank XML database &lt;https://go.drugbank.com/&gt;. The parsed data are then returned in a proper R object called dvobject.">
+<meta name="description" content="Parses drug and gene databases from their downloaded files: the DrugBank XML database &lt;https://go.drugbank.com/&gt;, the OnSIDES and TWOSIDES adverse drug event databases, Human Phenotype Ontology (HPO) gene-phenotype associations, the HGNC gene nomenclature files, Health Canadas Drug Product Database (DPD) data extract, and the openFDA Drugs@FDA and NDC directory downloads. The parsed tables are returned in an R object called dvobject', which records the source release, licence and file hashes.">
+<meta property="og:description" content="Parses drug and gene databases from their downloaded files: the DrugBank XML database &lt;https://go.drugbank.com/&gt;, the OnSIDES and TWOSIDES adverse drug event databases, Human Phenotype Ontology (HPO) gene-phenotype associations, the HGNC gene nomenclature files, Health Canadas Drug Product Database (DPD) data extract, and the openFDA Drugs@FDA and NDC directory downloads. The parsed tables are returned in an R object called dvobject', which records the source release, licence and file hashes.">
 <meta property="og:image" content="https://docs.ropensci.org/dbparser/logo.png">
 </head>
 <body>
@@ -28,7 +28,7 @@
 
     <a class="navbar-brand me-2" href="index.html">dbparser</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.2.1.9000</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">2.3.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -37,13 +37,24 @@
 
     <div id="navbar" class="collapse navbar-collapse ms-3">
       <ul class="navbar-nav me-auto">
-<li class="nav-item"><a class="nav-link" href="articles/dbparser.html">Get started</a></li>
+<li class="nav-item"><a class="nav-link" href="articles/getting_started.html">Get started</a></li>
 <li class="nav-item"><a class="nav-link" href="reference/index.html">Reference</a></li>
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/dbparser_2_2.html">Introducing dbparser 2.2.0</a></li>
+<li><a class="dropdown-item" href="articles/getting_started.html">Getting started with dbparser</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Worked examples</h6></li>
+    <li><a class="dropdown-item" href="articles/dbparser.html">Unlocking DrugBank: Parsing and Visualizing Mechanistic Data</a></li>
     <li><a class="dropdown-item" href="articles/drugbank_nside.html">Integrated Pharmacovigilance: Linking DrugBank, OnSIDES, and TWOSIDES</a></li>
+    <li><a class="dropdown-item" href="articles/hpo_target_phenotypes.html">Anticipating On-Target Drug Effects with HPO Gene-Phenotype Data</a></li>
+    <li><a class="dropdown-item" href="articles/cett_mechanisms.html">Drug Mechanism Profiling with CETT Actions</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Data structures</h6></li>
+    <li><a class="dropdown-item" href="articles/dvobject_structures.html">dvobject structures by parser</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><h6 class="dropdown-header" data-toc-skip>Release notes</h6></li>
+    <li><a class="dropdown-item" href="articles/dbparser_2_2.html">Introducing dbparser 2.2.0</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="news/index.html">Changelog</a></li>
@@ -65,7 +76,7 @@
 <img src="logo.png" class="logo" alt=""><h1 id="dbparser-">dbparser <a class="anchor" aria-label="anchor" href="#dbparser-"></a>
 </h1>
 </div>
-<p><a href="https://cran.r-project.org/package=dbparser" class="external-link"><img src="http://www.r-pkg.org/badges/version/dbparser" alt="CRAN_Status_Badge"></a> <a href="https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381" class="external-link"><img src="https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg" alt="JOSS Paper"></a> <a href="https://github.com/ropensci/software-review/issues/347" class="external-link"><img src="https://badges.ropensci.org/347_status.svg" alt="rOpenSci Peer-Reviewed"></a> <a href="https://doi.org/10.5281/zenodo.18608628" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg" alt="DOI"></a> <a href="https://app.codecov.io/gh/ropensci/dbparser" class="external-link"><img src="https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=dbparser" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/dbparser" alt="metacran downloads"></a> <a href="https://bestpractices.coreinfrastructure.org/projects/3311" class="external-link"><img src="https://bestpractices.coreinfrastructure.org/projects/3311/badge" alt="CII Best Practices"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></p>
+<p><a href="https://cran.r-project.org/package=dbparser" class="external-link"><img src="http://www.r-pkg.org/badges/version/dbparser" alt="CRAN_Status_Badge"></a> <a href="https://joss.theoj.org/papers/10.21105/joss.09950" class="external-link"><img src="https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg" alt="JOSS Paper"></a> <a href="https://github.com/ropensci/software-review/issues/347" class="external-link"><img src="https://badges.ropensci.org/347_status.svg" alt="rOpenSci Peer-Reviewed"></a> <a href="https://doi.org/10.5281/zenodo.18608628" class="external-link"><img src="https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg" alt="DOI"></a> <a href="https://app.codecov.io/gh/ropensci/dbparser" class="external-link"><img src="https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg" alt="codecov"></a> <a href="https://cran.r-project.org/package=dbparser" class="external-link"><img src="https://cranlogs.r-pkg.org/badges/grand-total/dbparser" alt="metacran downloads"></a> <a href="https://bestpractices.coreinfrastructure.org/projects/3311" class="external-link"><img src="https://bestpractices.coreinfrastructure.org/projects/3311/badge" alt="CII Best Practices"></a> <a href="https://lifecycle.r-lib.org/articles/stages.html" class="external-link"><img src="https://img.shields.io/badge/lifecycle-stable-brightgreen.svg" alt="Lifecycle: stable"></a></p>
 <div class="section level2">
 <h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
 </h2>
@@ -87,50 +98,105 @@
 <div class="section level2">
 <h2 id="supported-databases">Supported Databases<a class="anchor" aria-label="anchor" href="#supported-databases"></a>
 </h2>
-<div class="section level3">
-<h3 id="drugbank-the-mechanistic-hub">DrugBank (The Mechanistic Hub)<a class="anchor" aria-label="anchor" href="#drugbank-the-mechanistic-hub"></a>
-</h3>
-<p><a href="https://go.drugbank.com/" class="external-link">DrugBank</a> is a comprehensive database containing detailed drug, pharmacological, and target information. As both a bioinformatics and a cheminformatics resource, DrugBank combines detailed drug data (chemical, pharmacological, pharmaceutical) with comprehensive drug target information (sequence, structure, pathway). More information can be found <a href="https://go.drugbank.com/about" class="external-link">here</a>.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseDrugBank.html">parseDrugBank()</a></code>
-</li>
-<li>
-<strong>Input:</strong> Full XML database (<a href="https://go.drugbank.com/releases/latest" class="external-link">download</a> — requires free <a href="https://go.drugbank.com/public_users/sign_up" class="external-link">account</a>, may take a couple of days)</li>
-<li>
-<strong>Tested versions:</strong> 5.1.0 through 5.1.12</li>
-<li>
-<strong>Alternative:</strong> Use <a href="https://interstellar-egypt.github.io/dbdataset/" class="external-link">dbdataset</a> for pre-parsed data without downloading the XML (GitHub only, exceeds CRAN size limit)</li>
-<li>
-<strong>Tutorial:</strong> <a href="https://docs.ropensci.org/dbparser/articles/dbparser.html">DrugBank Parsing Vignette</a>
-</li>
-</ul>
-<p>If you find errors with any DrugBank version, please submit an issue <a href="https://github.com/ropensci/dbparser/issues" class="external-link">here</a>.</p>
-</div>
-<div class="section level3">
-<h3 id="onsides-adverse-drug-events">OnSIDES (Adverse Drug Events)<a class="anchor" aria-label="anchor" href="#onsides-adverse-drug-events"></a>
-</h3>
-<p><a href="https://onsidesdb.org/" class="external-link">OnSIDES</a> provides adverse drug events extracted from thousands of FDA drug labels using machine learning.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseOnSIDES.html">parseOnSIDES()</a></code>
-</li>
-<li>
-<strong>Input:</strong> Directory containing OnSIDES CSV files</li>
-</ul>
-</div>
-<div class="section level3">
-<h3 id="twosides-drug-drug-interactions">TWOSIDES (Drug-Drug Interactions)<a class="anchor" aria-label="anchor" href="#twosides-drug-drug-interactions"></a>
-</h3>
-<p><a href="https://tatonettilab.org/resources/nsides/" class="external-link">TWOSIDES</a> provides data on adverse events arising when two drugs are taken together.</p>
-<ul>
-<li>
-<strong>Parser:</strong> <code><a href="reference/parseTWOSIDES.html">parseTWOSIDES()</a></code>
-</li>
-<li>
-<strong>Input:</strong> <code>TWOSIDES.csv.gz</code> file</li>
-</ul>
-</div>
+<table style="width:100%;" class="table">
+<colgroup>
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+<col width="16%">
+</colgroup>
+<thead><tr>
+<th>Parser</th>
+<th>Source</th>
+<th>Reads</th>
+<th>Tables returned</th>
+<th>Licence of the source data</th>
+<th>Since</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code><a href="reference/parseDrugBank.html">parseDrugBank()</a></code></td>
+<td><a href="https://go.drugbank.com/" class="external-link">DrugBank</a></td>
+<td>The full database XML, or the zip it comes in</td>
+<td>
+<code>drugs</code>; with options also <code>salts</code>, <code>products</code>, <code>references</code>, <code>cett</code>
+</td>
+<td>not stated</td>
+<td>2.0.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseOnSIDES.html">parseOnSIDES()</a></code></td>
+<td><a href="https://github.com/tatonetti-lab/onsides" class="external-link">OnSIDES</a></td>
+<td>A folder with <code>product_label.csv</code>, <code>product_adverse_effect.csv</code>, <code>product_to_rxnorm.csv</code>, <code>vocab_meddra_adverse_effect.csv</code>, <code>vocab_rxnorm_ingredient.csv</code>, <code>vocab_rxnorm_product.csv</code>, <code>vocab_rxnorm_ingredient_to_product.csv</code>, optionally <code>high_confidence.csv</code>
+</td>
+<td>One table per file: <code>product_label</code>, <code>product_adverse_effect</code>, <code>product_to_rxnorm</code>, <code>vocab_meddra_adverse_effect</code>, <code>vocab_rxnorm_ingredient</code>, <code>vocab_rxnorm_product</code>, <code>vocab_rxnorm_ingredient_to_product</code>, optionally <code>high_confidence</code>
+</td>
+<td>CC-BY-4.0</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseTWOSIDES.html">parseTWOSIDES()</a></code></td>
+<td><a href="https://nsides.io/" class="external-link">TWOSIDES</a></td>
+<td><code>TWOSIDES.csv.gz</code></td>
+<td><code>drug_drug_interactions</code></td>
+<td>not stated</td>
+<td>2.2.1</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHPO.html">parseHPO()</a></code></td>
+<td>
+<a href="https://hpo.jax.org/" class="external-link">Human Phenotype Ontology</a>, as distributed by <a href="https://maayanlab.cloud/Harmonizome/" class="external-link">Harmonizome</a>
+</td>
+<td>
+<code>gene_attribute_edges.txt</code>, plain or gzip-compressed</td>
+<td>
+<code>associations</code>, <code>genes</code>, <code>phenotypes</code>
+</td>
+<td>CC-BY-NC-SA-4.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHGNC.html">parseHGNC()</a></code></td>
+<td><a href="https://www.genenames.org/" class="external-link">HGNC</a></td>
+<td>
+<code>hgnc_complete_set.txt</code>, optionally <code>withdrawn.txt</code>
+</td>
+<td>
+<code>gene</code>, <code>gene_name</code>, <code>withdrawn</code>
+</td>
+<td>CC0-1.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseHealthCanadaDPD.html">parseHealthCanadaDPD()</a></code></td>
+<td><a href="https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html" class="external-link">Health Canada Drug Product Database</a></td>
+<td>
+<code>allfiles.zip</code>, <code>allfiles_ap.zip</code>, <code>allfiles_ia.zip</code>, <code>allfiles_dr.zip</code> (or their unzipped folders) and <code>inactive.zip</code>
+</td>
+<td>
+<code>drug_product</code>, <code>active_ingredients</code>, <code>companies</code>, <code>form</code>, <code>packaging</code>, <code>pharmaceutical_std</code>, <code>route</code>, <code>schedule</code>, <code>status</code>, <code>therapeutic_class</code>, <code>veterinary_species</code>, <code>biosimilars</code>, <code>inactive_products</code>
+</td>
+<td>OGL-Canada-2.0</td>
+<td>2.3.0</td>
+</tr>
+<tr>
+<td><code><a href="reference/parseOpenFDA.html">parseOpenFDA()</a></code></td>
+<td><a href="https://open.fda.gov/" class="external-link">openFDA</a></td>
+<td>
+<code>drug-drugsfda-0001-of-0001.json.zip</code>, <code>drug-ndc-0001-of-0001.json.zip</code> (or the unzipped JSON)</td>
+<td>
+<code>drugsfda_application</code>, <code>drugsfda_product</code>, <code>drugsfda_active_ingredient</code>, <code>drugsfda_submission</code>, <code>drugsfda_submission_property_type</code>, <code>drugsfda_application_doc</code>, <code>drugsfda_openfda</code>, <code>ndc_product</code>, <code>ndc_active_ingredient</code>, <code>ndc_route</code>, <code>ndc_pharm_class</code>, <code>ndc_packaging</code>, <code>ndc_openfda</code>
+</td>
+<td>CC0-1.0</td>
+<td>2.3.0</td>
+</tr>
+</tbody>
+</table>
+<p>Each source keeps its own licence; check its terms before use. “Not stated” means the source’s own pages give no licence for the data; every parsed object records the source’s licence, terms page and requested citation (see <code><a href="reference/get_source_metadata.html">get_source_metadata()</a></code>).</p>
+<p>The DrugBank XML is downloaded from <a href="https://go.drugbank.com/releases/latest" class="external-link">DrugBank</a> with a free <a href="https://go.drugbank.com/public_users/sign_up" class="external-link">account</a>; versions 5.1.0 through 5.1.12 have been tested. If you find errors with any DrugBank version, please submit an <a href="https://github.com/ropensci/dbparser/issues" class="external-link">issue</a>.</p>
+<p><strong>Tutorials:</strong> <a href="https://docs.ropensci.org/dbparser/articles/getting_started.html">Getting started</a>, and the worked examples on <a href="https://docs.ropensci.org/dbparser/articles/dbparser.html">DrugBank</a>, <a href="https://docs.ropensci.org/dbparser/articles/drugbank_nside.html">integrated pharmacovigilance</a> and <a href="https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html">HPO target phenotypes</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="quick-start">Quick Start<a class="anchor" aria-label="anchor" href="#quick-start"></a>
@@ -177,39 +243,22 @@
 <div class="section level2">
 <h2 id="the-dvobject-structure">The dvobject Structure<a class="anchor" aria-label="anchor" href="#the-dvobject-structure"></a>
 </h2>
-<p><code>dvobject</code> is a unified, compressed format for pharmacological data — an R list object that preserves complex relational hierarchies while enabling consistent access patterns.</p>
-<p><strong>For a single database (e.g., DrugBank):</strong></p>
-<ul>
-<li>
-<strong>drugs</strong>: list of data frames containing drug information (synonyms, classifications, etc.) — the only mandatory component</li>
-<li>
-<strong>salts</strong>: data frame of drug salt information</li>
-<li>
-<strong>products</strong>: data frame of commercially available drug products worldwide</li>
-<li>
-<strong>references</strong>: data frame of articles, links, and textbooks about drugs or CETT data</li>
-<li>
-<strong>cett</strong>: list of data frames containing targets, enzymes, carriers, and transporters information</li>
-</ul>
-<p><strong>For a merged database (Integrated Pharmacovigilance):</strong></p>
-<p>When databases are merged using <code>merge_drugbank_onsides</code> or <code>merge_drugbank_twosides</code>, the <code>dvobject</code> becomes a nested structure:</p>
-<ul>
-<li>
-<strong>drugbank</strong>: The mechanistic hub</li>
-<li>
-<strong>onsides</strong>: Side-effect data (from FDA labels)</li>
-<li>
-<strong>twosides</strong>: Drug-drug interaction data</li>
-<li>
-<strong>integrated_data</strong>: Enriched tables bridging databases (e.g., linking DrugBank IDs to OnSIDES adverse events)</li>
-<li>
-<strong>metadata</strong>: Detailed provenance for all contained datasets</li>
-</ul>
+<p>Every parser returns a <code>dvobject</code>: a named list of tibbles (DrugBank’s are nested in lists by section), with a <code>source_metadata</code> record of the source’s release, licence and file hashes. The tables and columns each parser returns are listed in <a href="https://docs.ropensci.org/dbparser/articles/dvobject_structures.html">dvobject structures by parser</a>.</p>
 </div>
 <div class="section level2">
-<h2 id="research-impact">Research Impact<a class="anchor" aria-label="anchor" href="#research-impact"></a>
+<h2 id="commercial-support-and-extensions">Commercial support and extensions<a class="anchor" aria-label="anchor" href="#commercial-support-and-extensions"></a>
 </h2>
-<p><code>dbparser</code> has enabled <strong>10+ peer-reviewed publications</strong> in leading journals:</p>
+<p>dbparser is free and open source, and it stays that way: every parser for an open database is part of this package.</p>
+<p>It is maintained by <a href="https://interstellar-egypt.com" class="external-link">Interstellar</a>, which also offers:</p>
+<ul>
+<li>
+<strong>dbparser Pro:</strong> loads licensed sources (for example DrugBank, under your own licence) and your private data into PostgreSQL, matches products and ingredients across sources, with scheduled refresh, release-to-release comparison and validation reports.</li>
+<li>
+<strong>Services:</strong> data integration, custom sources, analysis apps and training for life-science teams.</li>
+<li>
+<strong>DrugVerse Scope:</strong> one sourced evidence page for any drug or target, built on dbparser.</li>
+</ul>
+<p>Questions or early access: <a href="mailto:info@interstellar-egypt.com" class="email">info@interstellar-egypt.com</a></p>
 <table class="table">
 <colgroup>
 <col width="33%">
@@ -217,40 +266,105 @@
 <col width="33%">
 </colgroup>
 <thead><tr>
-<th>Domain</th>
-<th>Journal</th>
-<th>Reference</th>
+<th></th>
+<th align="center">dbparser (free, open source)</th>
+<th align="center">dbparser Pro</th>
 </tr></thead>
 <tbody>
 <tr>
-<td>Alzheimer’s Drug Repurposing</td>
-<td><em>Nature Scientific Reports</em></td>
-<td>Parolo et al. (2023)</td>
+<td>Parsers: DrugBank XML (from your own download), OnSIDES, TWOSIDES, HPO, HGNC, Health Canada DPD, openFDA (<a href="mailto:Drugs@FDA" class="email">Drugs@FDA</a>, NDC) (more coming). Each source keeps its own licence.</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td>COVID-19 Therapeutics</td>
-<td><em>Pharmaceutics</em></td>
-<td>Pérez-Moraga et al. (2021)</td>
+<td>dvobject format with source, release, licence and checksum metadata</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td>Pan-Cancer Biomarkers</td>
-<td><em>Briefings in Bioinformatics</em></td>
-<td>Mercatelli et al. (2022)</td>
+<td>Merge DrugBank with OnSIDES, TWOSIDES and HPO, and subset parsed DrugBank and OnSIDES datasets</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td>Pathway Modeling</td>
-<td><em>Computer Methods and Programs in Biomedicine</em></td>
-<td>Hammoud et al. (2025)</td>
+<td>Documentation, vignettes and examples</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
 </tr>
 <tr>
-<td>Clinical Trial Analysis</td>
-<td><em>Frontiers in Pharmacology</em></td>
-<td>Namiot et al. (2023)</td>
+<td>Community help on GitHub Discussions</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Cross-source matching: products, ingredients and salt forms joined across DrugBank, Health Canada, FDA and other registers</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Licensed sources (for example DrugBank, under your own licence) and your private data loaded into PostgreSQL, with a licence gate per deployment</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Your private data joined to public sources</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Scheduled refresh when a source releases</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Release-to-release comparison</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Validation reports</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>DrugVerse Scope integration</td>
+<td align="center"></td>
+<td align="center">✓</td>
+</tr>
+<tr>
+<td>Setup help and priority support</td>
+<td align="center"></td>
+<td align="center">✓</td>
 </tr>
 </tbody>
 </table>
-<p>📊 <strong>50,000+ CRAN downloads</strong> | Featured in the <a href="https://cran.r-project.org/web/views/Epidemiology.html" class="external-link">CRAN Epidemiology Task View</a></p>
-<p>For the full list, see our <a href="https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381" class="external-link">JOSS paper</a>.</p>
+</div>
+<div class="section level2">
+<h2 id="used-in-published-research">Used in published research<a class="anchor" aria-label="anchor" href="#used-in-published-research"></a>
+</h2>
+<ul>
+<li>Hammoud Z, et al. (2025). Multipath2.0: extending multilayer reproducible pathway models with omics data. <em>Computer Methods and Programs in Biomedicine Update</em>. <a href="https://doi.org/10.1016/j.cmpbup.2025.100189" class="external-link">doi:10.1016/j.cmpbup.2025.100189</a>
+</li>
+<li>Su Y, et al. (2024). Multi-ancestry proteome-phenome-wide Mendelian randomization offers a comprehensive protein-disease atlas. <em>medRxiv</em> (preprint). <a href="https://doi.org/10.1101/2024.10.17.24315553" class="external-link">doi:10.1101/2024.10.17.24315553</a>
+</li>
+<li>Rischke S, et al. (2023). Machine learning identifies right index finger tenderness as key signal of DAS28-CRP based psoriatic arthritis activity. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-023-49574-4" class="external-link">doi:10.1038/s41598-023-49574-4</a>
+</li>
+<li>Namiot ED, et al. (2023). The international clinical trials registry platform (ICTRP): data integrity and the trends in clinical trials, diseases, and drugs. <em>Frontiers in Pharmacology</em>. <a href="https://doi.org/10.3389/fphar.2023.1228148" class="external-link">doi:10.3389/fphar.2023.1228148</a>
+</li>
+<li>Parolo S, et al. (2023). Single-cell-led drug repurposing for Alzheimer’s disease. <em>Scientific Reports</em>. <a href="https://doi.org/10.1038/s41598-023-27420-x" class="external-link">doi:10.1038/s41598-023-27420-x</a>
+</li>
+<li>Schubert NMA, et al. (2022). Transcriptome-guided identification of drugs for repurposing to treat age-related hearing loss. <em>Biomolecules</em>. <a href="https://doi.org/10.3390/biom12040498" class="external-link">doi:10.3390/biom12040498</a>
+</li>
+<li>Mercatelli D, et al. (2022). Detection of pan-cancer surface protein biomarkers via a network-based approach on transcriptomics data. <em>Briefings in Bioinformatics</em>. <a href="https://doi.org/10.1093/bib/bbac400" class="external-link">doi:10.1093/bib/bbac400</a>
+</li>
+<li>Yang C, et al. (2021). Mapping the landscape of synthetic lethal interactions in liver cancer. <em>Theranostics</em>. <a href="https://doi.org/10.7150/thno.63416" class="external-link">doi:10.7150/thno.63416</a>
+</li>
+<li>Pérez-Moraga R, et al. (2021). A COVID-19 drug repurposing strategy through quantitative homological similarities using a topological data analysis-based framework. <em>Pharmaceutics</em>. <a href="https://doi.org/10.3390/pharmaceutics13040488" class="external-link">doi:10.3390/pharmaceutics13040488</a>
+</li>
+<li>Hammoud Z, Kramer F (2020). Mulath: an R package to generate integrated reproducible pathway models. <em>Biology</em>. <a href="https://doi.org/10.3390/biology9120483" class="external-link">doi:10.3390/biology9120483</a>
+</li>
+</ul>
+<p>dbparser is listed in the <a href="https://CRAN.R-project.org/view=Epidemiology" class="external-link">CRAN Epidemiology Task View</a> and described in our <a href="https://doi.org/10.21105/joss.09950" class="external-link">JOSS paper</a>.</p>
 </div>
 <div class="section level2">
 <h2 id="ecosystem">Ecosystem<a class="anchor" aria-label="anchor" href="#ecosystem"></a>
@@ -295,12 +409,6 @@
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/citation.html" class="external-link">citation</a></span><span class="op">(</span><span class="st">"dbparser"</span><span class="op">)</span></span></code></pre></div>
 <p>If you find <code>dbparser</code> useful, consider ⭐ starring the <a href="https://github.com/ropensci/dbparser" class="external-link">GitHub repository</a> and sharing it with colleagues.</p>
-</div>
-<div class="section level2">
-<h2 id="enterprise-support">Enterprise Support<a class="anchor" aria-label="anchor" href="#enterprise-support"></a>
-</h2>
-<p>For custom database integrations, enterprise support, training, or deployment assistance — <code>dbparser</code> is maintained by <a href="https://interstellar-egypt.com" class="external-link">Interstellar Consultation Services</a>.</p>
-<p>📧 <a href="mailto:info@interstellar-egypt.com" class="email">info@interstellar-egypt.com</a></p>
 </div>
 <div class="section level2">
 <h2 id="contributing">Contributing<a class="anchor" aria-label="anchor" href="#contributing"></a>
@@ -349,6 +457,7 @@
 <li>
 <a href="http://mohammedfcis.github.io" class="external-link">Mohammed Ali</a> <br><small class="roles"> Author, maintainer </small>   </li>
 <li>Ali Ezzat <br><small class="roles"> Author </small>   </li>
+<li>Interstellar <br><small class="roles"> Copyright holder, funder </small>   </li>
 <li><a href="authors.html">More about authors...</a></li>
 </ul>
 </div>
@@ -360,7 +469,7 @@
 
 
     <footer><div class="pkgdown-footer-left">
-  <p>Developed by <a href="http://mohammedfcis.github.io" class="external-link">Mohammed Ali</a>, Ali Ezzat.</p>
+  <p>Developed by <a href="http://mohammedfcis.github.io" class="external-link">Mohammed Ali</a>, Ali Ezzat, Interstellar.</p>
 </div>
 
 <div class="pkgdown-footer-right">

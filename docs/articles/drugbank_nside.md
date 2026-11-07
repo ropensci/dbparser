@@ -176,7 +176,7 @@ if(file.exists(twosides_path)) {
 show_dvobject_metadata(twosides_db)
 #> === BASIC INFO ===
 #>      Class Total_DataFrames Top_Level_Lists Object_Size
-#> 1 dvobject                1               0    217.6 Kb
+#> 1 dvobject                1               0    221.7 Kb
 #> 
 #> === DATABASE METADATA ===
 #>  Database       Type Version Export_Date

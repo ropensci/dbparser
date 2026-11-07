@@ -22,6 +22,7 @@ relational tables, ensuring the final subset is self-consistent.
 Other utility:
 \code{\link[=add_database_info]{add_database_info()}},
 \code{\link[=get_genes_for_phenotype]{get_genes_for_phenotype()}},
+\code{\link[=get_source_metadata]{get_source_metadata()}},
 \code{\link[=search_phenotypes]{search_phenotypes()}},
 \code{\link[=show_dvobject_metadata]{show_dvobject_metadata()}},
 \code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}}

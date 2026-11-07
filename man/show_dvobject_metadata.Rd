@@ -20,16 +20,18 @@ Displays information about passed dbobject object including basic info,
 database metadata, and all data.frames contained within nested lists.
 }
 \examples{
-\dontrun{
-display_merged_db_attrs(drugbank)
-metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
-}
+drugbank <- parseDrugBank(
+  system.file("extdata", "drugbank_record_biotech.xml",
+              package = "dbparser"))
+show_dvobject_metadata(drugbank)
+metadata <- show_dvobject_metadata(drugbank, return_df = TRUE)
 
 }
 \seealso{
 Other utility:
 \code{\link[=add_database_info]{add_database_info()}},
 \code{\link[=get_genes_for_phenotype]{get_genes_for_phenotype()}},
+\code{\link[=get_source_metadata]{get_source_metadata()}},
 \code{\link[=search_phenotypes]{search_phenotypes()}},
 \code{\link[=subset_drugbank_dvobject]{subset_drugbank_dvobject()}},
 \code{\link[=subset_onsides_dvobject]{subset_onsides_dvobject()}}
