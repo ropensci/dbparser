@@ -53,41 +53,30 @@ pak::pak("ropensci/dbparser")
 
 ## Supported Databases
 
-### DrugBank (The Mechanistic Hub)
+| Parser | Source | Reads | Tables returned | Licence of the source data | Since |
+|---|---|---|---|---|---|
+| `parseDrugBank()` | [DrugBank](https://go.drugbank.com/) | The full database XML, or the zip it comes in | `drugs`; with options also `salts`, `products`, `references`, `cett` | not stated | 2.0.0 |
+| `parseOnSIDES()` | [OnSIDES](https://github.com/tatonetti-lab/onsides) | A folder with `product_label.csv`, `product_adverse_effect.csv`, `product_to_rxnorm.csv`, `vocab_meddra_adverse_effect.csv`, `vocab_rxnorm_ingredient.csv`, `vocab_rxnorm_product.csv`, `vocab_rxnorm_ingredient_to_product.csv`, optionally `high_confidence.csv` | One table per file: `product_label`, `product_adverse_effect`, `product_to_rxnorm`, `vocab_meddra_adverse_effect`, `vocab_rxnorm_ingredient`, `vocab_rxnorm_product`, `vocab_rxnorm_ingredient_to_product`, optionally `high_confidence` | CC-BY-4.0 | 2.2.1 |
+| `parseTWOSIDES()` | [TWOSIDES](https://nsides.io/) | `TWOSIDES.csv.gz` | `drug_drug_interactions` | not stated | 2.2.1 |
+| `parseHPO()` | [Human Phenotype Ontology](https://hpo.jax.org/), as distributed by [Harmonizome](https://maayanlab.cloud/Harmonizome/) | `gene_attribute_edges.txt`, plain or gzip-compressed | `associations`, `genes`, `phenotypes` | CC-BY-NC-SA-4.0 | 2.3.0 |
+| `parseHGNC()` | [HGNC](https://www.genenames.org/) | `hgnc_complete_set.txt`, optionally `withdrawn.txt` | `gene`, `gene_name`, `withdrawn` | CC0-1.0 | 2.3.0 |
+| `parseHealthCanadaDPD()` | [Health Canada Drug Product Database](https://www.canada.ca/en/health-canada/services/drugs-health-products/drug-products/drug-product-database/what-data-extract-drug-product-database.html) | `allfiles.zip`, `allfiles_ap.zip`, `allfiles_ia.zip`, `allfiles_dr.zip` (or their unzipped folders) and `inactive.zip` | `drug_product`, `active_ingredients`, `companies`, `form`, `packaging`, `pharmaceutical_std`, `route`, `schedule`, `status`, `therapeutic_class`, `veterinary_species`, `biosimilars`, `inactive_products` | OGL-Canada-2.0 | 2.3.0 |
+| `parseOpenFDA()` | [openFDA](https://open.fda.gov/) | `drug-drugsfda-0001-of-0001.json.zip`, `drug-ndc-0001-of-0001.json.zip` (or the unzipped JSON) | `drugsfda_application`, `drugsfda_product`, `drugsfda_active_ingredient`, `drugsfda_submission`, `drugsfda_submission_property_type`, `drugsfda_application_doc`, `drugsfda_openfda`, `ndc_product`, `ndc_active_ingredient`, `ndc_route`, `ndc_pharm_class`, `ndc_packaging`, `ndc_openfda` | CC0-1.0 | 2.3.0 |
 
-[DrugBank](https://go.drugbank.com/) is a comprehensive database
-containing detailed drug, pharmacological, and target information.
-As both a bioinformatics and a cheminformatics resource, DrugBank
-combines detailed drug data (chemical, pharmacological, pharmaceutical)
-with comprehensive drug target information (sequence, structure, pathway).
-More information can be found [here](https://go.drugbank.com/about).
+Each source keeps its own licence; check its terms before use. "Not stated"
+means the source's own pages give no licence for the data; every parsed object
+records the source's licence, terms page and requested citation (see
+`get_source_metadata()`).
 
-- **Parser:** `parseDrugBank()`
-- **Input:** Full XML database ([download](https://go.drugbank.com/releases/latest) —
-  requires free [account](https://go.drugbank.com/public_users/sign_up), may take a couple of days)
-- **Tested versions:** 5.1.0 through 5.1.12
-- **Alternative:** Use [dbdataset](https://interstellar-egypt.github.io/dbdataset/)
-  for pre-parsed data without downloading the XML (GitHub only, exceeds CRAN size limit)
-- **Tutorial:** [DrugBank Parsing Vignette](https://docs.ropensci.org/dbparser/articles/dbparser.html)
+The DrugBank XML is downloaded from [DrugBank](https://go.drugbank.com/releases/latest)
+with a free [account](https://go.drugbank.com/public_users/sign_up); versions
+5.1.0 through 5.1.12 have been tested. If you find errors with any DrugBank
+version, please submit an [issue](https://github.com/ropensci/dbparser/issues).
 
-If you find errors with any DrugBank version, please submit an issue
-[here](https://github.com/ropensci/dbparser/issues).
-
-### OnSIDES (Adverse Drug Events)
-
-[OnSIDES](https://onsidesdb.org/) provides adverse drug events
-extracted from thousands of FDA drug labels using machine learning.
-
-- **Parser:** `parseOnSIDES()`
-- **Input:** Directory containing OnSIDES CSV files
-
-### TWOSIDES (Drug-Drug Interactions)
-
-[TWOSIDES](https://tatonettilab.org/resources/nsides/) provides data
-on adverse events arising when two drugs are taken together.
-
-- **Parser:** `parseTWOSIDES()`
-- **Input:** `TWOSIDES.csv.gz` file
+**Tutorials:** [Getting started](https://docs.ropensci.org/dbparser/articles/getting_started.html),
+and the worked examples on [DrugBank](https://docs.ropensci.org/dbparser/articles/dbparser.html),
+[integrated pharmacovigilance](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)
+and [HPO target phenotypes](https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html).
 
 ## Quick Start
 
@@ -135,28 +124,10 @@ For a detailed case study, see the
 
 ## The dvobject Structure
 
-`dvobject` is a unified, compressed format for pharmacological data —
-an R list object that preserves complex relational hierarchies while
-enabling consistent access patterns.
-
-**For a single database (e.g., DrugBank):**
-
-- **drugs**: list of data frames containing drug information (synonyms, classifications, etc.) — the only mandatory component
-- **salts**: data frame of drug salt information
-- **products**: data frame of commercially available drug products worldwide
-- **references**: data frame of articles, links, and textbooks about drugs or CETT data
-- **cett**: list of data frames containing targets, enzymes, carriers, and transporters information
-
-**For a merged database (Integrated Pharmacovigilance):**
-
-When databases are merged using `merge_drugbank_onsides` or
-`merge_drugbank_twosides`, the `dvobject` becomes a nested structure:
-
-- **drugbank**: The mechanistic hub
-- **onsides**: Side-effect data (from FDA labels)
-- **twosides**: Drug-drug interaction data
-- **integrated_data**: Enriched tables bridging databases (e.g., linking DrugBank IDs to OnSIDES adverse events)
-- **metadata**: Detailed provenance for all contained datasets
+Every parser returns a `dvobject`: a named list of tibbles (DrugBank's are
+nested in lists by section), with a `source_metadata` record of the source's
+release, licence and file hashes. The tables and columns each parser returns
+are listed in [dvobject structures by parser](https://docs.ropensci.org/dbparser/articles/dvobject_structures.html).
 
 ## Commercial support and extensions
 

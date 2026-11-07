@@ -8,7 +8,6 @@ Anosmia
 BDPM
 BLA
 Bioinformatics
-Biomarkers
 Biomedicine
 Biomolecules
 Bivalirudin
@@ -32,6 +31,7 @@ DDIs
 DPD
 DrugBank
 DrugBank's
+DrugBank’s
 DrugVerse
 Drugverse
 EMA
@@ -76,6 +76,7 @@ NDC
 NMA
 Namiot
 Nonproprietary
+OGL
 OffSIDES
 OnSIDES
 PDB
@@ -97,7 +98,6 @@ Pérez
 README
 RMariaDB
 Readme
-Repurposing
 Rischke
 RxNORM
 RxNorm
@@ -133,7 +133,6 @@ arriers
 atc
 bbac
 bioavailability
-bioinformatics
 biom
 biomarkers
 biosimilar
@@ -144,7 +143,6 @@ cancelled
 canvasXpress
 cett
 chainable
-cheminformatics
 cmpbup
 codecov
 colorectal
@@ -186,7 +184,6 @@ hypogonadal
 hypogonadism
 hypogonadotropic
 hypophosphataemia
-integrations
 investigational
 isoelectric
 labelling
@@ -209,7 +206,6 @@ nutraceutical
 nzymes
 octanol
 omics
-onsides
 openFDA
 openFDA's
 openfda
@@ -263,4 +259,3 @@ tibbles
 tidyselect
 transcriptomics
 twoside
-twosides
