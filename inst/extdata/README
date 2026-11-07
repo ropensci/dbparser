@@ -1,0 +1,24 @@
+Example data files used by dbparser's examples, tests and vignettes
+==================================================================
+
+hgnc/
+-----
+hgnc_complete_set.txt and withdrawn.txt are small extracts of the HUGO Gene
+Nomenclature Committee (HGNC) files of the same names, downloaded on
+2026-10-16 from https://www.genenames.org/download/statistics-and-files/.
+
+- hgnc_complete_set.txt: the header line and the unchanged lines of 24 genes
+  (PDCD1, SNCA, SPATA2, HACD1, LNPEP, BRD4, SERPINB6, CAP1, SORBS1, CD274,
+  SEPTIN1, MARCHF1, ERBB2, CTLA4, F11, TP53, RBFOX1, RUVBL1, ACTB, AURKA,
+  LINC00595, LINC00856, OPN1MW, OPN1LW).
+- withdrawn.txt: the header line and the unchanged lines of 7 withdrawn
+  entries (HGNC:1, HGNC:2, HGNC:231, HGNC:1531, HGNC:12797, HGNC:21128,
+  HGNC:7810).
+
+Licence: HGNC data are released under the Creative Commons Public Domain
+(CC0) licence, https://www.genenames.org/about/license/. HGNC recommends
+citing:
+
+  Seal RL, Braschi B, Gray K, McClay J, Tweedie S, Bruford EA.
+  Genenames.org: the HGNC and PGNC resources in 2026. Nucleic Acids Research
+  (Database issue). HGNC (RRID:SCR_002827).

@@ -16,6 +16,7 @@ returns drug node valid options.
 Other parsers:
 \code{\link[=cett_nodes_options]{cett_nodes_options()}},
 \code{\link[=parseDrugBank]{parseDrugBank()}},
+\code{\link[=parseHGNC]{parseHGNC()}},
 \code{\link[=parseHPO]{parseHPO()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}},

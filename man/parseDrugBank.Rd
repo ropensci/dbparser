@@ -46,6 +46,7 @@ parses given DrugBank XML database into a dvobject. dvobject is a list of
 Other parsers:
 \code{\link[=cett_nodes_options]{cett_nodes_options()}},
 \code{\link[=drug_node_options]{drug_node_options()}},
+\code{\link[=parseHGNC]{parseHGNC()}},
 \code{\link[=parseHPO]{parseHPO()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
