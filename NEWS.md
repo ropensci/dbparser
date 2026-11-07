@@ -17,6 +17,17 @@
         with the read-me's column names, typed codes and dates, and an
         `extract` column naming each row's product set. Statuses are kept as
         written; the parser does no status grouping.
+*   **New Parser: `parseOpenFDA()`**
+    *   Parses openFDA's Drugs@FDA and NDC directory downloads, zipped or
+        unzipped, without extracting them to disk.
+    *   Returns a `dvobject` with one table per record level (applications,
+        products, active ingredients, submissions, submission property types,
+        application documents and the `openfda` annotation for Drugs@FDA;
+        products, active ingredients, routes, pharmacologic classes,
+        packaging and the `openfda` annotation for the NDC directory), field
+        names as in the files. Every record is kept as written, including
+        tentative approvals; the parser does no status grouping.
+    *   Adds `jsonlite` to Imports.
 *   **Source metadata on every `dvobject`**
     *   Every parser now records where its data came from in one attribute,
         `source_metadata`: release, release date, download date, source URL,
@@ -89,8 +100,8 @@
 ## COMING NEXT
 
 *   Parsers for France's public medicines database (BDPM), openFDA drug
-    labels and FAERS summaries, African pharmacogenomics (PGx) summary
-    tables, and openFDA Drugs@FDA and the NDC directory.
+    labels and FAERS summaries, and African pharmacogenomics (PGx) summary
+    tables.
 
 # dbparser 2.2.1
 

@@ -119,7 +119,8 @@ hgnc_metadata$files[[1]]
 ## More
 
 The other parsers follow the same pattern: `parseOnSIDES()`,
-`parseTWOSIDES()`, `parseHPO()` and `parseHealthCanadaDPD()`. The worked
+`parseTWOSIDES()`, `parseHPO()`, `parseHealthCanadaDPD()` and
+`parseOpenFDA()`. The worked
 examples with charts are on the package website:
 
 - [Unlocking DrugBank: parsing and visualizing mechanistic data](https://docs.ropensci.org/dbparser/articles/dbparser.html)

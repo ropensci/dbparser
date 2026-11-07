@@ -96,6 +96,7 @@ Other parsers:
 \code{\link[=parseHGNC]{parseHGNC()}},
 \code{\link[=parseHPO]{parseHPO()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseOpenFDA]{parseOpenFDA()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
 \code{\link[=references_node_options]{references_node_options()}}
 }

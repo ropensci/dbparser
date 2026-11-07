@@ -45,3 +45,26 @@ https://open.canada.ca/data/en/dataset/bf55e42a-63cb-4556-bfd8-44f26e5a36fe
 The DPD extract page also links to Health Canada's website terms; the
 dataset record on open.canada.ca states the Open Government Licence –
 Canada.
+
+openfda/
+--------
+drug-drugsfda-0001-of-0001.json.zip and drug-ndc-0001-of-0001.json.zip are
+small extracts of openFDA's Drugs@FDA and NDC directory downloads (export
+2026-10-20, meta.last_updated), downloaded on 2026-10-21 from
+https://download.open.fda.gov/ as listed in https://api.fda.gov/download.json
+
+- Drugs@FDA: 9 applications, each record unchanged: ANDA202111, BLA018780,
+  ANDA076220, ANDA076219, NDA200677, NDA021014, ANDA085638, NDA200861,
+  NDA007245.
+- NDC directory: 9 listings, each record unchanged (product_ndc 71288-166
+  twice, 71335-1382, 0002-0013, 0456-1203, 71288-818, 71335-0081, 71753-8002,
+  71335-0146).
+- The meta block is openFDA's, with results.limit and results.total set to
+  the extract's record count. The JSON is re-serialised, so the files are not
+  byte-identical to openFDA's.
+
+Licence: openFDA data are public domain under a Creative Commons CC0 1.0
+Universal dedication, https://open.fda.gov/license/. openFDA asks for credit:
+"Data provided by the U.S. Food and Drug Administration
+(https://open.fda.gov)". openFDA states: "Do not rely on openFDA to make
+decisions regarding medical care."

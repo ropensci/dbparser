@@ -50,11 +50,11 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Mohammed Ali \email{moh_fcis@yahoo.com}
+\strong{Maintainer}: Mohammed Ali \email{mohammed.ali@interstellar-egypt.com}
 
 Authors:
 \itemize{
-  \item Mohammed Ali \email{moh_fcis@yahoo.com}
+  \item Mohammed Ali \email{mohammed.ali@interstellar-egypt.com}
   \item Ali Ezzat \email{ali_ezzat85@yahoo.com}
 }
 
@@ -62,7 +62,7 @@ Other contributors:
 \itemize{
   \item Hao Zhu \email{haozhu233@gmail.com} [reviewer]
   \item Emma Mendelsohn [reviewer]
-  \item Interstellar for Consultation Services [copyright holder, funder]
+  \item Interstellar (Interstellar for Consultation Services, URL: https://interstellar-egypt.com) [copyright holder, funder]
 }
 
 }

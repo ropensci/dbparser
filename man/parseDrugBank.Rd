@@ -50,6 +50,7 @@ Other parsers:
 \code{\link[=parseHPO]{parseHPO()}},
 \code{\link[=parseHealthCanadaDPD]{parseHealthCanadaDPD()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseOpenFDA]{parseOpenFDA()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}},
 \code{\link[=references_node_options]{references_node_options()}}
 }

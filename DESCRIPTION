@@ -13,8 +13,9 @@ Authors@R:
 Description: Parses drug and gene databases from their downloaded files:
     the 'DrugBank' XML database <https://go.drugbank.com/>, the 'OnSIDES' and
     'TWOSIDES' adverse drug event databases, Human Phenotype Ontology ('HPO')
-    gene-phenotype associations, the 'HGNC' gene nomenclature files and
-    Health Canada's Drug Product Database ('DPD') data extract. The parsed
+    gene-phenotype associations, the 'HGNC' gene nomenclature files, Health
+    Canada's Drug Product Database ('DPD') data extract, and the 'openFDA'
+    'Drugs@FDA' and 'NDC' directory downloads. The parsed
     tables are returned in an 'R' object called 'dvobject', which records the
     source release, licence and file hashes.
 License: MIT + file LICENSE
@@ -22,6 +23,7 @@ Encoding: UTF-8
 Imports:
     data.table,
     dplyr,
+    jsonlite,
     progress,
     purrr,
     tibble,

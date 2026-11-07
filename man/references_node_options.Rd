@@ -21,6 +21,7 @@ Other parsers:
 \code{\link[=parseHPO]{parseHPO()}},
 \code{\link[=parseHealthCanadaDPD]{parseHealthCanadaDPD()}},
 \code{\link[=parseOnSIDES]{parseOnSIDES()}},
+\code{\link[=parseOpenFDA]{parseOpenFDA()}},
 \code{\link[=parseTWOSIDES]{parseTWOSIDES()}}
 }
 \concept{parsers}

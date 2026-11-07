@@ -186,7 +186,7 @@ Questions or early access: <info@interstellar-egypt.com>
 
 |  | dbparser (free, open source) | dbparser Pro |
 |----|:--:|:--:|
-| Parsers: DrugBank XML (from your own download), OnSIDES, TWOSIDES, HPO, HGNC, Health Canada DPD (more coming). Each source keeps its own licence. | ✓ | ✓ |
+| Parsers: DrugBank XML (from your own download), OnSIDES, TWOSIDES, HPO, HGNC, Health Canada DPD, openFDA (Drugs@FDA, NDC) (more coming). Each source keeps its own licence. | ✓ | ✓ |
 | dvobject format with source, release, licence and checksum metadata | ✓ | ✓ |
 | Merge DrugBank with OnSIDES, TWOSIDES and HPO, and subset parsed DrugBank and OnSIDES datasets | ✓ | ✓ |
 | Documentation, vignettes and examples | ✓ | ✓ |

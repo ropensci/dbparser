@@ -2,7 +2,7 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "dbparser",
-  "description": "Parses drug and gene databases from their downloaded files: the 'DrugBank' XML database <https://go.drugbank.com/>, the 'OnSIDES' and 'TWOSIDES' adverse drug event databases, Human Phenotype Ontology ('HPO') gene-phenotype associations, the 'HGNC' gene nomenclature files and Health Canada's Drug Product Database ('DPD') data extract. The parsed tables are returned in an 'R' object called 'dvobject', which records the source release, licence and file hashes.",
+  "description": "Parses drug and gene databases from their downloaded files: the 'DrugBank' XML database <https://go.drugbank.com/>, the 'OnSIDES' and 'TWOSIDES' adverse drug event databases, Human Phenotype Ontology ('HPO') gene-phenotype associations, the 'HGNC' gene nomenclature files, Health Canada's Drug Product Database ('DPD') data extract, and the 'openFDA' 'Drugs@FDA' and 'NDC' directory downloads. The parsed tables are returned in an 'R' object called 'dvobject', which records the source release, licence and file hashes.",
   "name": "dbparser: Drugs Databases Parser",
   "relatedLink": ["https://docs.ropensci.org/dbparser/", "https://interstellar-egypt.com", "https://CRAN.R-project.org/package=dbparser"],
   "codeRepository": "https://github.com/ropensci/dbparser",
@@ -144,6 +144,18 @@
     },
     "3": {
       "@type": "SoftwareApplication",
+      "identifier": "jsonlite",
+      "name": "jsonlite",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=jsonlite"
+    },
+    "4": {
+      "@type": "SoftwareApplication",
       "identifier": "progress",
       "name": "progress",
       "provider": {
@@ -154,7 +166,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=progress"
     },
-    "4": {
+    "5": {
       "@type": "SoftwareApplication",
       "identifier": "purrr",
       "name": "purrr",
@@ -166,7 +178,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=purrr"
     },
-    "5": {
+    "6": {
       "@type": "SoftwareApplication",
       "identifier": "tibble",
       "name": "tibble",
@@ -178,17 +190,17 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=tibble"
     },
-    "6": {
+    "7": {
       "@type": "SoftwareApplication",
       "identifier": "tools",
       "name": "tools"
     },
-    "7": {
+    "8": {
       "@type": "SoftwareApplication",
       "identifier": "utils",
       "name": "utils"
     },
-    "8": {
+    "9": {
       "@type": "SoftwareApplication",
       "identifier": "XML",
       "name": "XML",
@@ -200,7 +212,7 @@
       },
       "sameAs": "https://CRAN.R-project.org/package=XML"
     },
-    "9": {
+    "10": {
       "@type": "SoftwareApplication",
       "identifier": "R",
       "name": "R",
@@ -208,7 +220,7 @@
     },
     "SystemRequirements": null
   },
-  "fileSize": "1821.487KB",
+  "fileSize": "1876.786KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
