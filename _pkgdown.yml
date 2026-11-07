@@ -40,6 +40,10 @@ articles:
   - articles/drugbank_nside
   - articles/hpo_target_phenotypes
   - cett_mechanisms
+- title: "Data structures"
+  navbar: "Data structures"
+  contents:
+  - articles/dvobject_structures
 - title: "Release notes"
   navbar: "Release notes"
   contents:
