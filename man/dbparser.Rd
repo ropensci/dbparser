@@ -44,6 +44,7 @@ Useful links:
 \itemize{
   \item \url{https://docs.ropensci.org/dbparser/}
   \item \url{https://github.com/ropensci/dbparser}
+  \item \url{https://interstellar-egypt.com}
   \item Report bugs at \url{https://github.com/ropensci/dbparser/issues}
 }
 
@@ -61,6 +62,7 @@ Other contributors:
 \itemize{
   \item Hao Zhu \email{haozhu233@gmail.com} [reviewer]
   \item Emma Mendelsohn [reviewer]
+  \item Interstellar for Consultation Services [copyright holder, funder]
 }
 
 }

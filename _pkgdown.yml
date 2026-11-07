@@ -19,7 +19,7 @@ navbar:
       href: reference/index.html
     intro:
       text: Get started
-      href: articles/dbparser.html
+      href: articles/getting_started.html
     news:
       text: Changelog
       href: news/index.html
@@ -27,6 +27,23 @@ navbar:
       icon: fab fa-github
       href: https://github.com/ropensci/dbparser
       aria-label: "GitHub"
+
+articles:
+- title: "Get started"
+  navbar: ~
+  contents:
+  - getting_started
+- title: "Worked examples"
+  navbar: "Worked examples"
+  contents:
+  - articles/dbparser
+  - articles/drugbank_nside
+  - articles/hpo_target_phenotypes
+  - cett_mechanisms
+- title: "Release notes"
+  navbar: "Release notes"
+  contents:
+  - dbparser_2_2
 
 reference:
 - title: "Drugs Databases Parser"

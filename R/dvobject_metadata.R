@@ -51,10 +51,11 @@ add_database_info <- function(dvobject,
 #' @return Invisibly returns a data.frame containing dvobject metadata
 #'
 #' @examples
-#' \dontrun{
-#' display_merged_db_attrs(drugbank)
-#' metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
-#' }
+#' drugbank <- parseDrugBank(
+#'   system.file("extdata", "drugbank_record_biotech.xml",
+#'               package = "dbparser"))
+#' show_dvobject_metadata(drugbank)
+#' metadata <- show_dvobject_metadata(drugbank, return_df = TRUE)
 #'
 #' @export
 #' @family utility

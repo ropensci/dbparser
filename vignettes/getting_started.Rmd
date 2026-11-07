@@ -1,0 +1,127 @@
+---
+title: "Getting started with dbparser"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Getting started with dbparser}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  message  = FALSE
+)
+```
+
+`dbparser` reads public drug and gene databases from the files you download
+and returns each one as a `dvobject`: a list of tables (tibbles) with a
+record of where the data came from. This vignette parses two of the small
+example files that ship with the package. It needs no internet connection.
+
+```{r}
+library(dbparser)
+```
+
+## A DrugBank record
+
+DrugBank is distributed as one large XML file, which you download from
+DrugBank under your own account and licence. The package includes a single
+drug record in the same format.
+
+```{r}
+drugbank <- parseDrugBank(
+  system.file("extdata", "drugbank_record_biotech.xml", package = "dbparser"))
+```
+
+`show_dvobject_metadata()` lists the tables in the object and their sizes:
+
+```{r}
+show_dvobject_metadata(drugbank)
+```
+
+Every parser also records where its data came from. `get_source_metadata()`
+returns that record as a tibble, one row per source:
+
+```{r}
+metadata <- get_source_metadata(drugbank)
+fields   <- c("source", "release", "release_date", "source_url",
+              "licence_url", "parser")
+data.frame(field = fields,
+           value = vapply(fields, function(f) as.character(metadata[[f]]), ""),
+           row.names = NULL)
+```
+
+The citation DrugBank requires is in `attribution`:
+
+```{r}
+cat(strwrap(metadata$attribution), sep = "\n")
+```
+
+`files` holds each input file with its SHA-256 hash (on R 4.5.0 or later), so
+you can tell later which download a result came from:
+
+```{r}
+metadata$files[[1]]
+```
+
+## The HGNC gene nomenclature
+
+`parseHGNC()` reads the HUGO Gene Nomenclature Committee's complete set and
+its list of withdrawn entries. The example files hold 24 genes and 7
+withdrawn entries.
+
+```{r}
+hgnc_dir <- system.file("extdata", "hgnc", package = "dbparser")
+hgnc <- parseHGNC(file.path(hgnc_dir, "hgnc_complete_set.txt"),
+                  withdrawn_path = file.path(hgnc_dir, "withdrawn.txt"),
+                  release        = "2026-10",
+                  retrieved_at   = "2026-10-16")
+
+sapply(hgnc, dim)
+```
+
+`gene_name` has one row per symbol or name of a gene, so a name that belongs
+to several genes is easy to spot. "PD1" is an alias of three genes:
+
+```{r}
+pd1   <- hgnc$gene_name[hgnc$gene_name$name == "PD1", ]
+genes <- hgnc$gene[, c("hgnc_id", "symbol", "name")]
+names(genes)[3] <- "approved_name"
+merge(pd1, genes, by = "hgnc_id")
+```
+
+`withdrawn` shows where a withdrawn symbol went; an entry that was split has
+one row per target:
+
+```{r}
+hgnc$withdrawn[hgnc$withdrawn$withdrawn_symbol == "CBBM",
+               c("hgnc_id", "withdrawn_symbol", "merged_into_symbol")]
+```
+
+The source record has the same columns for every parser. Here it carries the
+release and download date passed to `parseHGNC()`, HGNC's CC0 licence and the
+citation HGNC asks for:
+
+```{r}
+hgnc_metadata <- get_source_metadata(hgnc)
+fields        <- c("source", "release", "retrieved_at", "licence",
+                   "licence_url")
+data.frame(field = fields,
+           value = vapply(fields,
+                          function(f) as.character(hgnc_metadata[[f]]), ""),
+           row.names = NULL)
+cat(strwrap(hgnc_metadata$attribution), sep = "\n")
+hgnc_metadata$files[[1]]
+```
+
+## More
+
+The other parsers follow the same pattern: `parseOnSIDES()`,
+`parseTWOSIDES()`, `parseHPO()` and `parseHealthCanadaDPD()`. The worked
+examples with charts are on the package website:
+
+- [Unlocking DrugBank: parsing and visualizing mechanistic data](https://docs.ropensci.org/dbparser/articles/dbparser.html)
+- [Integrated pharmacovigilance: linking DrugBank, OnSIDES and TWOSIDES](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)
+- [Anticipating on-target drug effects with HPO gene-phenotype data](https://docs.ropensci.org/dbparser/articles/hpo_target_phenotypes.html)

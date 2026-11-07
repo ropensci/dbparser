@@ -16,7 +16,7 @@ knitr::opts_chunk$set(
 # dbparser <img src="man/figures/logo.png" align="right" />
 
 [![CRAN_Status_Badge](http://www.r-pkg.org/badges/version/dbparser)](https://cran.r-project.org/package=dbparser)
-[![JOSS Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381)
+[![JOSS Paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381/status.svg)](https://joss.theoj.org/papers/10.21105/joss.09950)
 [![rOpenSci Peer-Reviewed](https://badges.ropensci.org/347_status.svg)](https://github.com/ropensci/software-review/issues/347)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18608628.svg)](https://doi.org/10.5281/zenodo.18608628)
 [![codecov](https://codecov.io/gh/ropensci/dbparser/branch/master/graph/badge.svg)](https://app.codecov.io/gh/ropensci/dbparser)
@@ -158,6 +158,47 @@ When databases are merged using `merge_drugbank_onsides` or
 - **integrated_data**: Enriched tables bridging databases (e.g., linking DrugBank IDs to OnSIDES adverse events)
 - **metadata**: Detailed provenance for all contained datasets
 
+## Commercial support and extensions
+
+dbparser is free and open source, and it stays that way: every parser for an open database is part of this package.
+
+It is maintained by [Interstellar](https://interstellar-egypt.com), which also offers:
+
+- **dbparser Pro:** loads licensed sources (for example DrugBank, under your own licence) and your private data into PostgreSQL, matches products and ingredients across sources, with scheduled refresh, release-to-release comparison and validation reports.
+- **Services:** data integration, custom sources, analysis apps and training for life-science teams.
+- **DrugVerse Scope:** one sourced evidence page for any drug or target, built on dbparser.
+
+Questions or early access: info@interstellar-egypt.com
+
+| | dbparser (free, open source) | dbparser Pro |
+|---|:---:|:---:|
+| Parsers: DrugBank XML (from your own download), OnSIDES, TWOSIDES, HPO, HGNC, Health Canada DPD (more coming). Each source keeps its own licence. | ✓ | ✓ |
+| dvobject format with source, release, licence and checksum metadata | ✓ | ✓ |
+| Merge DrugBank with OnSIDES, TWOSIDES and HPO, and subset parsed DrugBank and OnSIDES datasets | ✓ | ✓ |
+| Documentation, vignettes and examples | ✓ | ✓ |
+| Community help on GitHub Discussions | ✓ | ✓ |
+| Cross-source matching: products, ingredients and salt forms joined across DrugBank, Health Canada, FDA and other registers | | ✓ |
+| Licensed sources (for example DrugBank, under your own licence) and your private data loaded into PostgreSQL, with a licence gate per deployment | | ✓ |
+| Your private data joined to public sources | | ✓ |
+| Scheduled refresh when a source releases | | ✓ |
+| Release-to-release comparison | | ✓ |
+| Validation reports | | ✓ |
+| DrugVerse Scope integration | | ✓ |
+| Setup help and priority support | | ✓ |
+
+## Used in published research
+
+- Hammoud Z, et al. (2025). Multipath2.0: extending multilayer reproducible pathway models with omics data. *Computer Methods and Programs in Biomedicine Update*. [doi:10.1016/j.cmpbup.2025.100189](https://doi.org/10.1016/j.cmpbup.2025.100189)
+- Su Y, et al. (2024). Multi-ancestry proteome-phenome-wide Mendelian randomization offers a comprehensive protein-disease atlas. *medRxiv* (preprint). [doi:10.1101/2024.10.17.24315553](https://doi.org/10.1101/2024.10.17.24315553)
+- Rischke S, et al. (2023). Machine learning identifies right index finger tenderness as key signal of DAS28-CRP based psoriatic arthritis activity. *Scientific Reports*. [doi:10.1038/s41598-023-49574-4](https://doi.org/10.1038/s41598-023-49574-4)
+- Namiot ED, et al. (2023). The international clinical trials registry platform (ICTRP): data integrity and the trends in clinical trials, diseases, and drugs. *Frontiers in Pharmacology*. [doi:10.3389/fphar.2023.1228148](https://doi.org/10.3389/fphar.2023.1228148)
+- Parolo S, et al. (2023). Single-cell-led drug repurposing for Alzheimer's disease. *Scientific Reports*. [doi:10.1038/s41598-023-27420-x](https://doi.org/10.1038/s41598-023-27420-x)
+- Schubert NMA, et al. (2022). Transcriptome-guided identification of drugs for repurposing to treat age-related hearing loss. *Biomolecules*. [doi:10.3390/biom12040498](https://doi.org/10.3390/biom12040498)
+- Mercatelli D, et al. (2022). Detection of pan-cancer surface protein biomarkers via a network-based approach on transcriptomics data. *Briefings in Bioinformatics*. [doi:10.1093/bib/bbac400](https://doi.org/10.1093/bib/bbac400)
+- Yang C, et al. (2021). Mapping the landscape of synthetic lethal interactions in liver cancer. *Theranostics*. [doi:10.7150/thno.63416](https://doi.org/10.7150/thno.63416)
+- Pérez-Moraga R, et al. (2021). A COVID-19 drug repurposing strategy through quantitative homological similarities using a topological data analysis-based framework. *Pharmaceutics*. [doi:10.3390/pharmaceutics13040488](https://doi.org/10.3390/pharmaceutics13040488)
+- Hammoud Z, Kramer F (2020). Mulath: an R package to generate integrated reproducible pathway models. *Biology*. [doi:10.3390/biology9120483](https://doi.org/10.3390/biology9120483)
+
 ## Research Impact
 
 `dbparser` has enabled **10+ peer-reviewed publications** in leading journals:
@@ -171,10 +212,10 @@ When databases are merged using `merge_drugbank_onsides` or
 | Clinical Trial Analysis | *Frontiers in Pharmacology* | Namiot et al. (2023) |
 
 📊 **50,000+ CRAN downloads** | Featured in the
-[CRAN Epidemiology Task View](https://cran.r-project.org/web/views/Epidemiology.html)
+[CRAN Epidemiology Task View](https://CRAN.R-project.org/view=Epidemiology)
 
 For the full list, see our
-[JOSS paper](https://joss.theoj.org/papers/3212f2fb07013b8fb1cec499bb9e8381).
+[JOSS paper](https://joss.theoj.org/papers/10.21105/joss.09950).
 
 ## Ecosystem
 

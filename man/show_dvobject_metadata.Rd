@@ -20,10 +20,11 @@ Displays information about passed dbobject object including basic info,
 database metadata, and all data.frames contained within nested lists.
 }
 \examples{
-\dontrun{
-display_merged_db_attrs(drugbank)
-metadata <- display_merged_db_attrs(drugbank, return_df = TRUE)
-}
+drugbank <- parseDrugBank(
+  system.file("extdata", "drugbank_record_biotech.xml",
+              package = "dbparser"))
+show_dvobject_metadata(drugbank)
+metadata <- show_dvobject_metadata(drugbank, return_df = TRUE)
 
 }
 \seealso{

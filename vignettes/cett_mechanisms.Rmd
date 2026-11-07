@@ -204,7 +204,8 @@ Bivalirudin also has an `inhibitor` action recorded on the enzyme
 DrugBank lists the interaction without a confirmed role in how the drug works.
 Lepirudin has no such entry. A reviewer could follow up on this as a
 hypothesis, for example by checking the literature or adverse-event data
-(see `vignette("drugbank_nside")`). It is not an established clinical
+(see the [Integrated Pharmacovigilance article](https://docs.ropensci.org/dbparser/articles/drugbank_nside.html)).
+It is not an established clinical
 difference.
 
 ## Summary
