@@ -133,6 +133,12 @@ source’s release, licence and file hashes. The tables and columns each
 parser returns are listed in [dvobject structures by
 parser](https://docs.ropensci.org/dbparser/articles/dvobject_structures.html).
 
+## Use dbparser from Claude
+
+dbparser.mcp lets Claude Code and Claude Desktop parse and read your
+local database files through dbparser, with each dataset’s source,
+release and licence in every answer.
+
 ## Commercial support and extensions
 
 dbparser is free and open source, and it stays that way: every parser
