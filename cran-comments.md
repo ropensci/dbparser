@@ -32,7 +32,7 @@ vignettes use small bundled files only and download nothing.
   "checking package dependencies" because the builder had none of the CRAN
   Imports installed (data.table, dplyr, jsonlite, ...). macOS is covered by
   the local check and R-hub.
-* R-hub (GitHub Actions), R-devel: linux, windows, macos, macos-arm64: PENDING
+* R-hub (GitHub Actions), R-devel: linux, windows, macos, macos-arm64: Status OK on all four
 
 ## R CMD check results
 
