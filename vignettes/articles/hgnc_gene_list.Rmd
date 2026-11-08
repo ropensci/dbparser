@@ -1,0 +1,178 @@
+---
+title: "Clean a gene list with HGNC"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Clean a gene list with HGNC}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment  = "#>",
+  warning  = FALSE,
+  message  = FALSE
+)
+```
+
+## The problem
+
+Gene lists arrive from papers, spreadsheets and colleagues with whatever
+symbols their authors used: aliases (`HER2`), old symbols (`SEPT1`), symbols
+HGNC has withdrawn, and names that are simply not symbols at all. Before such
+a list can be joined to DrugBank targets, HPO phenotypes or anything else, each
+entry has to be mapped to an approved HGNC symbol, and the ambiguous ones have
+to be seen, not guessed.
+
+This article does that with `parseHGNC()` and `dplyr` on the HGNC sample that
+ships with `dbparser`. It runs offline in a few seconds.
+
+```{r setup}
+library(dbparser)
+library(dplyr)
+```
+
+## The list
+
+```{r}
+genes <- c("PD1", "PDL1", "HER2", "SEPT1", "MARCH1", "FOX1",
+           "CBBM", "A12M1", "TP53")
+```
+
+The bundled sample holds only 24 genes and a few withdrawn entries, so every
+input above was chosen to be in it (or, for `FOX1`, to show what a miss looks
+like). On HGNC's full files the same code covers all approved genes; see
+[Full data](#full-data) below.
+
+## Parse the HGNC sample
+
+```{r}
+hgnc_dir <- system.file("extdata", "hgnc", package = "dbparser")
+hgnc <- parseHGNC(file.path(hgnc_dir, "hgnc_complete_set.txt"),
+                  withdrawn_path = file.path(hgnc_dir, "withdrawn.txt"))
+
+names(hgnc)
+nrow(hgnc$gene)
+```
+
+Every `dvobject` records where its data came from, including the licence and
+the citation HGNC asks for:
+
+```{r}
+glimpse(get_source_metadata(hgnc))
+```
+
+HGNC publishes no release number for its current files, so `release`,
+`release_date` and `retrieved_at` are `NA` here; pass them to `parseHGNC()`
+when you parse your own download.
+
+## Match each input
+
+`gene_name` has one row per approved symbol, alias and previous symbol (and
+the names, which we do not need here). Each row carries its gene's
+`hgnc_id`, so a match gives the approved symbol directly.
+
+```{r}
+approved <- hgnc$gene |>
+  select(hgnc_id, matched = symbol)
+
+name_hits <- hgnc$gene_name |>
+  filter(kind %in% c("symbol", "alias_symbol", "prev_symbol")) |>
+  inner_join(approved, by = "hgnc_id") |>
+  transmute(input = name,
+            matched,
+            how = recode(kind,
+                         symbol       = "approved",
+                         alias_symbol = "alias",
+                         prev_symbol  = "previous"))
+```
+
+Withdrawn symbols are in their own table, with the gene or genes HGNC merged
+or split them into. An entry withdrawn outright points nowhere.
+
+```{r}
+withdrawn_hits <- hgnc$withdrawn |>
+  transmute(input   = withdrawn_symbol,
+            matched = merged_into_symbol,
+            how     = "withdrawn")
+```
+
+Join the list to both, keeping every match: an input that fits several genes
+gets several rows here.
+
+```{r}
+hits <- tibble(input = genes) |>
+  left_join(bind_rows(name_hits, withdrawn_hits),
+            by = "input", relationship = "one-to-many") |>
+  distinct()
+
+hits
+```
+
+## One row per input
+
+Collapse to one row per input. `needs_choice` is `TRUE` when an input fits
+more than one approved gene; these are listed, not resolved.
+
+```{r}
+clean <- hits |>
+  group_by(input) |>
+  summarise(
+    needs_choice = n_distinct(na.omit(matched)) > 1,
+    how          = if (all(is.na(how))) "no match"
+                   else paste(unique(na.omit(how)), collapse = ", "),
+    matched      = paste(sort(unique(na.omit(matched))), collapse = ", "),
+    .groups      = "drop") |>
+  select(input, matched, how, needs_choice) |>
+  arrange(match(input, genes))
+
+knitr::kable(clean)
+```
+
+What the table shows:
+
+- **`TP53`** is an approved symbol; nothing to do.
+- **`HER2`** and **`PDL1`** are aliases of `ERBB2` and `CD274`.
+- **`SEPT1`** and **`MARCH1`** are previous symbols: HGNC renamed them
+  `SEPTIN1` and `MARCHF1`. The `gene` table has the date of each change.
+- **`PD1`** is an alias of three genes (`PDCD1`, `SNCA` and `SPATA2`). Most
+  readers mean `PDCD1`, but the list does not say so, and only its author can.
+- **`CBBM`** is a previous symbol of both `OPN1LW` and `OPN1MW`, and HGNC's
+  withdrawn file records it as split into the same two genes, so it needs a
+  choice too.
+- **`A12M1`** was withdrawn and points to no gene.
+- **`FOX1`** finds nothing. In this sample `RBFOX1` has the alias `FOX-1`,
+  with a hyphen; exact matching does not guess that the two are the same.
+
+```{r}
+hgnc$gene |>
+  filter(symbol %in% c("SEPTIN1", "MARCHF1")) |>
+  select(symbol, prev_symbol, date_symbol_changed)
+```
+
+## Withdrawn symbols
+
+The withdrawn table keeps HGNC's own status for the withdrawn ID and for each
+gene it points to:
+
+```{r}
+hgnc$withdrawn |>
+  filter(withdrawn_symbol %in% genes) |>
+  select(withdrawn_symbol, status, merged_into_symbol, merged_into_status)
+```
+
+## Next steps
+
+Inputs with `needs_choice = TRUE`, a `withdrawn` match with no target, or no
+match at all go back to whoever wrote the list. The rest map one-to-one to an
+approved symbol and can be joined to other sources, for example DrugBank
+targets or HPO gene-phenotype associations.
+
+## Full data {#full-data}
+
+The sample is enough to show the method, not to clean a real list. The script
+[`announce/hgnc_full.R`](https://github.com/ropensci/dbparser/blob/cran/announce/hgnc_full.R)
+in the package repository runs the same steps on your own download of
+`hgnc_complete_set.txt` and `withdrawn.txt` from
+[genenames.org](https://www.genenames.org/download/statistics-and-files/).

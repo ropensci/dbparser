@@ -7,7 +7,7 @@ url: https://docs.ropensci.org/dbparser
 navbar:
   bg: primary
   structure:
-    left: [intro, reference, articles, news]
+    left: [intro, reference, articles, news, claude]
     right: [search, github]
   components:
     home:
@@ -23,6 +23,9 @@ navbar:
     news:
       text: Changelog
       href: news/index.html
+    claude:
+      text: Use from Claude
+      href: https://github.com/interstellar-egypt/dbparser.mcp
     github:
       icon: fab fa-github
       href: https://github.com/ropensci/dbparser
@@ -39,6 +42,7 @@ articles:
   - articles/dbparser
   - articles/drugbank_nside
   - articles/hpo_target_phenotypes
+  - articles/hgnc_gene_list
   - cett_mechanisms
 - title: "Data structures"
   navbar: "Data structures"

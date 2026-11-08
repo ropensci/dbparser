@@ -135,9 +135,14 @@ parser](https://docs.ropensci.org/dbparser/articles/dvobject_structures.html).
 
 ## Use dbparser from Claude
 
-dbparser.mcp lets Claude Code and Claude Desktop parse and read your
-local database files through dbparser, with each dataset’s source,
-release and licence in every answer.
+[dbparser.mcp](https://github.com/interstellar-egypt/dbparser.mcp) lets
+Claude Code and Claude Desktop parse and read your local database files
+through dbparser, with each dataset’s source, release and licence in
+every answer. Install:
+
+``` r
+remotes::install_github("interstellar-egypt/dbparser.mcp")
+```
 
 ## Commercial support and extensions
 
