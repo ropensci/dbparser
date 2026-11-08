@@ -1,6 +1,9 @@
 ## Resubmission
 
-Fixed an invalid relative link (drugbank_nside.html) in a vignette; links to articles moved to the package website are now absolute URLs.
+This is a resubmission. In this version I have:
+
+* Fixed an invalid relative link (drugbank_nside.html) in a vignette; links to
+  articles that moved to the package website are now absolute URLs.
 
 ## Maintainer email
 
@@ -9,8 +12,9 @@ mohammed.ali@interstellar-egypt.com; the old address will confirm.
 
 ## Submission
 
-This is a minor release (2.2.1 -> 2.3.0). It adds parsers for the HGNC gene
-nomenclature files, Health Canada's Drug Product Database and the openFDA
+This is a minor release (2.2.1 -> 2.3.0). It adds parsers for the Human Phenotype
+Ontology (HPO) gene-phenotype associations, the HGNC gene nomenclature files,
+Health Canada's Drug Product Database and the openFDA
 Drugs@FDA and NDC directory downloads; records source metadata on every
 parsed object; and fixes zip inputs being extracted next to the input file
 (for the bundled example, into the installed package). Examples, tests and
@@ -18,14 +22,17 @@ vignettes use small bundled files only and download nothing.
 
 ## Test environments
 
-* local macOS 27.0.1 (aarch64), R 4.6.1
-* win-builder, R-release: 0 errors | 0 warnings | 1 note (new maintainer)
+* local macOS 27.2 (aarch64), R 4.6.1: 0 errors | 0 warnings | 1 note
+  (new maintainer)
 * win-builder, R-devel: 0 errors | 0 warnings | 1 note (new maintainer)
-* macOS builder (mac.r-project.org): not run; every upload on 2026-11-07
-  was refused with HTTP 502 (Bad Gateway) from the builder. macOS is covered
-  by the local check and R-hub.
-* R-hub (GitHub Actions), R-devel: linux, windows, macos, macos-arm64 and
-  clang-asan: Status OK on all five
+* win-builder, R-release: 0 errors | 0 warnings | 1 note (new maintainer)
+* win-builder, R-oldrelease: 0 errors | 0 warnings | 1 note (new maintainer)
+* macOS builder (mac.r-project.org): not usable; on 2026-11-07 every upload
+  was refused with HTTP 502, and on 2026-11-08 the check stopped at
+  "checking package dependencies" because the builder had none of the CRAN
+  Imports installed (data.table, dplyr, jsonlite, ...). macOS is covered by
+  the local check and R-hub.
+* R-hub (GitHub Actions), R-devel: linux, windows, macos, macos-arm64: PENDING
 
 ## R CMD check results
 
@@ -36,6 +43,10 @@ vignettes use small bundled files only and download nothing.
   Old maintainer(s): Mohammed Ali <moh_fcis@yahoo.com>
 
   The maintainer's email changes, as stated above.
+
+## URLs
+
+canada.ca may reject automated HTTP/2 requests; the URL is valid in a browser.
 
 ## Installed size
 
